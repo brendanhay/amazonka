@@ -78,6 +78,7 @@ versioned_http_archive(
     strip_prefix = "gazelle_cabal-{version}",
     url = "https://github.com/brendanhay/gazelle_cabal/archive/{version}.tar.gz",
     version = "41a3f831806d5ed8b875f6f34fd133017e156e12",
+    sha256 = "04c4b76c5fb3d8a8ffb283be8b35e73226bd5d985d3e0c07c83a737b146456f1"
 )
 
 versioned_http_archive(

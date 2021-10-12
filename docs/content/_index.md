@@ -1,9 +1,4 @@
----
-title: Home
----
-
-# Haskell AWS SDK
-
-{{% notice info %}}
-TODO
-{{% /notice %}}
++++
+title = "Amazonka"
+description = "A comprehensive Amazon Web Services SDK for Haskell."
++++

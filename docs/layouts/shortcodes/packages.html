@@ -1,8 +1,0 @@
-<ul id="packages">
-  {{ range $key, $val := $.Site.Data.packages.haddock }}
-  <li>
-    <a href="{{ $val | absLangURL }}">{{ $key }}</a>
-  </li>
-  {{ end }}
-</ul>
-

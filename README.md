@@ -1,11 +1,11 @@
 # [Amazonka]
 
 [![MPL2][license-badge]][license]
+[![Hackage][hackage-badge]][hackage]
+[![Cachix][cachix-badge]][cachix]
 [![Build][build-badge]][actions]
 [![Generate][generate-badge]][actions]
 [![Documentation][documentation-badge]][actions]
-[![Hackage][hackage-badge]][hackage]
-[![Cachix][cachix-badge]][cachix]
 
 [license]: https://opensource.org/licenses/MPL-2.0
 [actions]: https://github.com/brendanhay/amazonka/actions
@@ -21,7 +21,7 @@
 [Amazonka]: https://www.brendanhay.nz/amazonka
 [Nix]: https://nixos.org/nix/
 [Bazel]: https://bazel.build
-[Bazel labels]: https://docs.bazel.build/versions/4.1.0/build-ref.html#labels
+[Bazel's label]: https://docs.bazel.build/versions/4.1.0/build-ref.html#labels
 [GHC]: https://www.haskell.org/ghc/
 [Direnv]: https://direnv.net
 [Direnv Wiki]: https://github.com/direnv/direnv/wiki
@@ -37,16 +37,17 @@ An Amazon Web Services SDK for Haskell with support for most public services. Pa
 
 - [License](#license)
 - [Supported Platforms and GHC Versions](#supported-platforms-and-ghc-versions)
-- [Contributing](#contributing)
-    - [Getting Started](#getting-started)
-    - [Running the Generator](#running-the-generator)
-    - [Code Formatting](#code-formatting)
-    - [Directory Layout](#directory-layout)
-    - [Third Party Package Naming](#third-party-package-naming)
+- [Getting Started](#getting-started)
+- [Building the Project](#building-the-project)
+- [Building the Documentation](#building-the-documentation)
+- [Running the Code Generator](#running-the-code-generator)
+- [Code Formatting](#code-formatting)
+- [Directory Layout](#directory-layout)
+- [Third Party Packages](#third-party-packages)
 
-## Licence
+## License
 
-Amazonka is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+Amazonka is licensed under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
 
 The AWS service descriptions are licensed under Apache 2.0. Source files derived from the service descriptions contain an additional licensing clause in their header.
 
@@ -54,28 +55,28 @@ The AWS service descriptions are licensed under Apache 2.0. Source files derived
 
 GHC versions `8.8.4` and `8.10.7` are officially supported and tested on NixOS, Ubuntu, and macOS. GHC `8.6.5` may also work, but is not tested by our continuous integration pipeline.
 
-## Contributing
+## Getting Started
 
 This repository is built using a combination of [Nix] and your choice of [Bazel] or Cabal. If you're just using Amazonka as a git dependency in your Cabal or Stack project, you can skip these steps. But if you plan on contributing to the codebase - welcome, read on!
 
-### Getting Started
-
-#### 1. Clone this repository
+### 1. Clone this repository
 
 ```
 git clone git@github.com:brendanhay/amazonka.git
 cd amazonka
 ```
 
-#### 2. Setup the Development Toolchain
+### 2. Setup Nix
 
 Building the code in this repository requires various development dependencies (e.g. [Nix], [Bazel], [GHC].)
 
-The [Nix] package manager is used to obtain and build the other dependencies in a [hermetic] environment. You can install Nix by following the [official installation instructions](https://nixos.org/guides/install-nix.html).
+The [Nix] package manager is used to obtain and build the other dependencies in a [hermetic] environment. You can install Nix by following the [official installation instructions](https://nixos.org/guides/install-nix.html):
 
-#### 3. Activate Build Caching
+```bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
 
-Finally, [Nix] and [Bazel] ideally need to use Amazonka's shared build caches to ensure we don't unnecessarily rebuild artefacts that have already been built on continuous integration.
+Optionally, you can configure Nix to use Amazonka's public build cache to avoid unnecessarily rebuilding artefacts previous built by our continuous integration servers.
 
 You can install and configure [Cachix] via:
 
@@ -84,37 +85,51 @@ nix-env -iA cachix -f https://cachix.org/api/v1/install
 cachix use amazonka
 ```
 
-The Bazel remote cache is automatically configured in the provided [.bazelrc](.bazelrc).
+> A Bazel remote cache is already configured in the [.bazelrc](.bazelrc).
 
-#### 4. Enter a Development Shell
+### 3. Enter a Nix Shell
 
-The build toolchain is activated by entering a [Nix] shell, which will arrange your search `PATH` to point to the necessary tooling.
-
-You can enter a `nix-shell` manually by running the following command in the root of the repository:
+The build tools are installed and activated upon entering a [Nix] shell, which is achieved by running the following command in the root of the repository:
 
 ```bash
 nix-shell
 ```
 
-Optionally, If you have [Direnv] and [lorri] installed you can use the provided [.envrc](.envrc) instead, which will also add the [scripts](scripts) directory to your `PATH`. You can extend this by adding your own uncommitted `.envrc.local` file. See the [Direnv Wiki] for various recipes.
-
-After installing [Direnv], you'll need to run the following command once:
+You can also enter a shell and explicitly specify the GHC version:
 
 ```bash
-direnv allow
+nix-shell --argstr ghcVersion 884
 ```
 
-#### 5. Building
+Optionally, if you have [Direnv] and [lorri] installed you can use the provided [.envrc](.envrc) instead, which will also add the [scripts](scripts) directory to your `PATH`. You can extend this by adding your own uncommitted `.envrc.local` file. See the [Direnv Wiki] for various recipes.
 
-> The following commands assume you're already in a nix-shell.
+## Building the Project
 
-If you're already familiar with (and prefer) Cabal, you can build the `amazonka-*` packages via:
+> The following commands assume you're already in a nix-shell outlined in the previous step.
+
+### Cabal
+
+If you're familiar with Cabal, you can build `amazonka-*` packages via:
 
 ```bash
-cabal build amazonka
+cabal build amazonka amazonka-s3
 ```
 
-Alternatively, if you are a contributor or plan on performing code generation you will need to familiarise yourself with [Bazel]. You can build the entire workspace using a wildcard label:
+Or the entire project (which will take a very long time!):
+
+```bash
+cabal build all
+```
+
+### Bazel
+
+Alternatively, if you plan on contributing to the project or want to perform code generation, you will need to familiarise yourself with [Bazel]. You can build packages by specifying one or more targets using [Bazel's label] syntax:
+
+```bash
+bazel build //amazonka //amazonka-s3
+```
+
+Or build the entire project (workspace) using a wildcard:
 
 ```bash
 bazel build //...
@@ -126,9 +141,23 @@ To view what targets are available in the workspace:
 bazel query //...
 ```
 
-See [Bazel labels] for more information.
+> By default, the `bazel` command will use the same GHC version as the Nix shell's `ghcVersion` argument. You can choose a different GHC version using `nix-shell --argstr ghcVersion 884` - which is just a synonym for `bazel build --//tools/ghc:version=884`.
 
-### Running the Code Generator
+## Building the Documentation
+
+The [docs](docs) Bazel package contains the Haddock target and Hugo static site definition and markdown content. To build the site locally, run:
+
+```bash
+bazel build //docs:site
+```
+
+Alternatively, you can serve the documentation site locally on `http://localhost:1313` by running:
+
+```bash
+bazel build //docs:serve
+```
+
+## Running the Code Generator
 
 The [gen](gen) Bazel package contains code generators for synthesising Haskell data types, packages, and configuration from the botocore service definitions.
 
@@ -156,25 +185,11 @@ Service configurations generated in this way are intended as examples only and t
 
 For pull requests which affect generated output please _do not include_ the regenerated `amazonka-*` packages, only commit updates to the build rules, documentation, generator, and related configuration. This ensures the Continuous Integration process is the single source of truth for the generated code and reduces noise in pull requests, keeping them reviewable and focused on actual generator code/logic changes.
 
-### Building the Documentation Site
-
-The [docs](docs) Bazel package contains the Haddock target and Hugo static site definition and markdown content. To build the site locally, run:
-
-```bash
-bazel build //docs:site
-```
-
-Alternatively, you can serve the documentation site locally on `http://localhost:1313` by running:
-
-```bash
-bazel build //docs:serve
-```
-
-### Code Formatting
+## Code Formatting
 
 Please use `./scripts/format` frequently - it's OK, I hate 2 spaces too, we're in this together.
 
-### Directory Layout
+## Directory Layout
 
 This repository is organised into the following directory structure:
 
@@ -191,7 +206,7 @@ This repository is organised into the following directory structure:
 * [`tools`](tools): Custom bazel rules.
 * [`third_party`](third_party): Third party bazel packages and patches.
 
-### Third Party Package Naming
+## Third Party Packages
 
 It is often desirable to provide supplemental functionality to `amazonka` as an additional library, for example providing S3 encryption via a package such as `amazonka-s3-encryption`.
 

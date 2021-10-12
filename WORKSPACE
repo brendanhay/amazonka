@@ -35,6 +35,8 @@ versioned_http_archive(
     strip_prefix = "rules_haskell-{version}",
     url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
     version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
+    patches = ["//:third_party/rules_haskell/haddock_index_root.patch"],
+    patch_args = ["-p1"],
 )
 
 versioned_http_archive(
@@ -84,7 +86,7 @@ versioned_http_archive(
 versioned_http_archive(
     name = "build_stack_rules_hugo",
     patch_args = ["-p1"],
-    patches = ["//third_party/rules_hugo:hugo_site_serve.patch"],
+    patches = ["//:third_party/rules_hugo/hugo_site_serve.patch"],
     sha256 = "a8f0ac7ba4b71f88e33899df25c222d79e42d18c561d677f91a16aa71bfdf05f",
     strip_prefix = "rules_hugo-{version}",
     url = "https://github.com/stackb/rules_hugo/archive/{version}.tar.gz",

@@ -22,6 +22,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Free space
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+
       - name: Checkout
         uses: actions/checkout@v2
 

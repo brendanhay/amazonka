@@ -25,11 +25,11 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Free space
         run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup nix
         uses: cachix/install-nix-action@v12
@@ -66,8 +66,8 @@ jobs:
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
             'bazel build //docs:site'
 
-      - name: Push to GitHub pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: Deploy to GitHub pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: bazel-bin/docs/site
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: bazel-bin/docs/site

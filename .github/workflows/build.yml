@@ -58,7 +58,7 @@ jobs:
       - name: bazel build //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build //... --build_tags_filter=ci'
+            'bazel build //... --build_tag_filters=ci'
 
       - name: bazel build //gen
         if: ${{ matrix.ghc == '8107' }}

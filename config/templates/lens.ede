@@ -42,6 +42,6 @@ import {{ libraryNamespace }}.{{ operation.value.name }}
 {% case shape.value.type %}
 {% when "product" %}
 import {{ libraryNamespace }}.Types.{{ shape.value.name }}
-{% endcase %}  
+{% endcase %}
 {% endfor %}
 

@@ -1,5 +1,5 @@
 title = "Amazonka"
-theme = "learn"
+theme = "theme"
 baseURL = "https://brendanhay.github.io/amazonka"
 metaDataFormat = "yaml"
 defaultContentLanguage = "en"

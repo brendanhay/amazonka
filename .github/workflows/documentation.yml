@@ -64,10 +64,10 @@ jobs:
       - name: bazel build //docs
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build //docs'
+            'bazel build //docs:site'
 
       - name: Push to GitHub pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: bazel-bin/docs/docs
+          folder: bazel-bin/docs/site

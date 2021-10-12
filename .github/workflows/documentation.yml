@@ -3,7 +3,7 @@ name: documentation
 on:
   workflow_dispatch: null
   push:
-    branches: develop
+    branches: null
     paths:
       - 'WORKSPACE'
       - 'docs'

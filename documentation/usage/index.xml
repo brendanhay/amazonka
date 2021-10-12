@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Usage on Amazonka</title>
-    <link>https://brendanhay.github.io/amazonka/documentation/usage/</link>
+    <link>https://amazonka.brendanhay.nz/documentation/usage/</link>
     <description>Recent content in Usage on Amazonka</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-UK</language><atom:link href="https://brendanhay.github.io/amazonka/documentation/usage/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-UK</language><atom:link href="https://amazonka.brendanhay.nz/documentation/usage/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

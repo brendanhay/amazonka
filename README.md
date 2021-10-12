@@ -3,7 +3,7 @@
 [![MPL2][license-badge]][license]
 [![Build][build-badge]][actions]
 [![Generate][generate-badge]][actions]
-[![Docs][docs-badge]][actions]
+[![Documentation][documentation-badge]][actions]
 [![Hackage][hackage-badge]][hackage]
 [![Cachix][cachix-badge]][cachix]
 
@@ -12,7 +12,7 @@
 [license-badge]: https://img.shields.io/badge/license-MPL%202.0-blue.svg
 [build-badge]: https://github.com/brendanhay/amazonka/workflows/build/badge.svg
 [generate-badge]: https://github.com/brendanhay/amazonka/workflows/generate/badge.svg
-[docs-badge]: https://github.com/brendanhay/amazonka/workflows/docs/badge.svg
+[documentation-badge]: https://github.com/brendanhay/amazonka/workflows/documentation/badge.svg
 [hackage]: http://hackage.haskell.org/package/amazonka
 [hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
 [cachix]: https://amazonka.cachix.org
@@ -27,6 +27,7 @@
 [Direnv Wiki]: https://github.com/direnv/direnv/wiki
 [Cachix]: https://docs.cachix.org/
 [hermetic]: https://sre.google/sre-book/release-engineering/#hermetic-builds-nqslhnid
+[lorri]: https://github.com/nix-community/lorri
 
 An Amazon Web Services SDK for Haskell with support for most public services. Parts of the code contained in this repository are auto-generated and automatically kept up to date with Amazon's latest service APIs.
 

@@ -45,6 +45,7 @@ haskell_library(
         "-fwarn-missing-deriving-strategies",
     ],
     hidden_modules = [],
+    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [

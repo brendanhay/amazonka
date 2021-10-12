@@ -55,7 +55,7 @@ jobs:
       - name: bazel build //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build $(bazel query "kind("haskell_library", //...)")'
+            'bazel build //... --build_tags_filter=ci'
 
       - name: bazel build //gen
         if: ${{ matrix.ghc == '8107' }}

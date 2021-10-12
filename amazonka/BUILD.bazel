@@ -103,6 +103,7 @@ haskell_library(
         "Network.AWS.Types",
         "Network.AWS.Waiter",
     ],
+    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
@@ -197,6 +198,7 @@ haskell_test(
         "-Wall",
         "-threaded",
     ],
+    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [

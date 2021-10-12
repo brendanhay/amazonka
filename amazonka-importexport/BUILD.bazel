@@ -26,6 +26,7 @@ haskell_library(
         "-funbox-strict-fields",
     ],
     hidden_modules = [],
+    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
@@ -48,6 +49,7 @@ haskell_test(
         "-Wall",
         "-threaded",
     ],
+    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [

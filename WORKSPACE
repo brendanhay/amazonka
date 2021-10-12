@@ -75,10 +75,9 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_gazelle_cabal",
-    sha256 = "65712e680ebb9214b7fecec1c5e4a380df1c4840b508866a0f5a37a82f87a687",
     strip_prefix = "gazelle_cabal-{version}",
-    url = "https://github.com/tweag/gazelle_cabal/archive/{version}.tar.gz",
-    version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
+    url = "https://github.com/brendanhay/gazelle_cabal/archive/{version}.tar.gz",
+    version = "41a3f831806d5ed8b875f6f34fd133017e156e12",
 )
 
 versioned_http_archive(

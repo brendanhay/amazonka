@@ -18,6 +18,7 @@ haskell_library(
         "-fwarn-incomplete-record-updates",
     ],
     hidden_modules = [],
+    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [

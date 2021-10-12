@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier">DirectConnectGatewayAttachmentState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Attached"><span class="hs-identifier">DirectConnectGatewayAttachmentState_Attached</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Attaching"><span class="hs-identifier">DirectConnectGatewayAttachmentState_Attaching</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Detached"><span class="hs-identifier">DirectConnectGatewayAttachmentState_Detached</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Detaching"><span class="hs-identifier">DirectConnectGatewayAttachmentState_Detaching</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679278779"><span id="local-6989586621679278780"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DirectConnectGatewayAttachmentState"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectConnectGatewayAttachmentState%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-var">DirectConnectGatewayAttachmentState'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDirectConnectGatewayAttachmentState"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; Text
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#fromDirectConnectGatewayAttachmentState"><span class="hs-identifier hs-var hs-var">fromDirectConnectGatewayAttachmentState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278771"><span id="local-6989586621679278773"><span id="local-6989586621679278775"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
+[DirectConnectGatewayAttachmentState] -&gt; ShowS
+DirectConnectGatewayAttachmentState -&gt; String
+(Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS)
+-&gt; (DirectConnectGatewayAttachmentState -&gt; String)
+-&gt; ([DirectConnectGatewayAttachmentState] -&gt; ShowS)
+-&gt; Show DirectConnectGatewayAttachmentState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DirectConnectGatewayAttachmentState] -&gt; ShowS
+$cshowList :: [DirectConnectGatewayAttachmentState] -&gt; ShowS
+show :: DirectConnectGatewayAttachmentState -&gt; String
+$cshow :: DirectConnectGatewayAttachmentState -&gt; String
+showsPrec :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
+$cshowsPrec :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679278762"><span id="local-6989586621679278764"><span id="local-6989586621679278766"><span id="local-6989586621679278768"><span class="annot"><span class="annottext">ReadPrec [DirectConnectGatewayAttachmentState]
+ReadPrec DirectConnectGatewayAttachmentState
+Int -&gt; ReadS DirectConnectGatewayAttachmentState
+ReadS [DirectConnectGatewayAttachmentState]
+(Int -&gt; ReadS DirectConnectGatewayAttachmentState)
+-&gt; ReadS [DirectConnectGatewayAttachmentState]
+-&gt; ReadPrec DirectConnectGatewayAttachmentState
+-&gt; ReadPrec [DirectConnectGatewayAttachmentState]
+-&gt; Read DirectConnectGatewayAttachmentState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DirectConnectGatewayAttachmentState]
+$creadListPrec :: ReadPrec [DirectConnectGatewayAttachmentState]
+readPrec :: ReadPrec DirectConnectGatewayAttachmentState
+$creadPrec :: ReadPrec DirectConnectGatewayAttachmentState
+readList :: ReadS [DirectConnectGatewayAttachmentState]
+$creadList :: ReadS [DirectConnectGatewayAttachmentState]
+readsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachmentState
+$creadsPrec :: Int -&gt; ReadS DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679278757"><span id="local-6989586621679278759"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+(DirectConnectGatewayAttachmentState
+ -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
+-&gt; Eq DirectConnectGatewayAttachmentState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+$c/= :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+== :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+$c== :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679278741"><span id="local-6989586621679278743"><span id="local-6989586621679278745"><span id="local-6989586621679278747"><span id="local-6989586621679278749"><span id="local-6989586621679278751"><span id="local-6989586621679278753"><span class="annot"><span class="annottext">Eq DirectConnectGatewayAttachmentState
+Eq DirectConnectGatewayAttachmentState
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState -&gt; Ordering)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState -&gt; Bool)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState)
+-&gt; (DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState
+    -&gt; DirectConnectGatewayAttachmentState)
+-&gt; Ord DirectConnectGatewayAttachmentState
+DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Ordering
+DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+$cmin :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+max :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+$cmax :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState
+&gt;= :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+$c&gt;= :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+&gt; :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+$c&gt; :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+&lt;= :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+$c&lt;= :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+&lt; :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+$c&lt; :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Bool
+compare :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Ordering
+$ccompare :: DirectConnectGatewayAttachmentState
+-&gt; DirectConnectGatewayAttachmentState -&gt; Ordering
+$cp1Ord :: Eq DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DirectConnectGatewayAttachmentState
+ -&gt; Rep DirectConnectGatewayAttachmentState x)
+-&gt; (forall x.
+    Rep DirectConnectGatewayAttachmentState x
+    -&gt; DirectConnectGatewayAttachmentState)
+-&gt; Generic DirectConnectGatewayAttachmentState
+forall x.
+Rep DirectConnectGatewayAttachmentState x
+-&gt; DirectConnectGatewayAttachmentState
+forall x.
+DirectConnectGatewayAttachmentState
+-&gt; Rep DirectConnectGatewayAttachmentState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DirectConnectGatewayAttachmentState x
+-&gt; DirectConnectGatewayAttachmentState
+$cfrom :: forall x.
+DirectConnectGatewayAttachmentState
+-&gt; Rep DirectConnectGatewayAttachmentState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679278733"><span id="local-6989586621679278735"><span class="annot"><span class="annottext">Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
+DirectConnectGatewayAttachmentState -&gt; Int
+(Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int)
+-&gt; (DirectConnectGatewayAttachmentState -&gt; Int)
+-&gt; Hashable DirectConnectGatewayAttachmentState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DirectConnectGatewayAttachmentState -&gt; Int
+$chash :: DirectConnectGatewayAttachmentState -&gt; Int
+hashWithSalt :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
+$chashWithSalt :: Int -&gt; DirectConnectGatewayAttachmentState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679278730"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ()
+(DirectConnectGatewayAttachmentState -&gt; ())
+-&gt; NFData DirectConnectGatewayAttachmentState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DirectConnectGatewayAttachmentState -&gt; ()
+$crnf :: DirectConnectGatewayAttachmentState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679278727"><span class="annot"><span class="annottext">Text -&gt; Either String DirectConnectGatewayAttachmentState
+(Text -&gt; Either String DirectConnectGatewayAttachmentState)
+-&gt; FromText DirectConnectGatewayAttachmentState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DirectConnectGatewayAttachmentState
+$cfromText :: Text -&gt; Either String DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679278724"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; Text
+(DirectConnectGatewayAttachmentState -&gt; Text)
+-&gt; ToText DirectConnectGatewayAttachmentState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DirectConnectGatewayAttachmentState -&gt; Text
+$ctoText :: DirectConnectGatewayAttachmentState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679278721"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ByteString
+(DirectConnectGatewayAttachmentState -&gt; ByteString)
+-&gt; ToByteString DirectConnectGatewayAttachmentState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DirectConnectGatewayAttachmentState -&gt; ByteString
+$ctoBS :: DirectConnectGatewayAttachmentState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679278718"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
+(DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder)
+-&gt; ToLog DirectConnectGatewayAttachmentState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
+$cbuild :: DirectConnectGatewayAttachmentState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679278715"><span class="annot"><span class="annottext">HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
+(HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header])
+-&gt; ToHeader DirectConnectGatewayAttachmentState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DirectConnectGatewayAttachmentState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679278712"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; QueryString
+(DirectConnectGatewayAttachmentState -&gt; QueryString)
+-&gt; ToQuery DirectConnectGatewayAttachmentState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DirectConnectGatewayAttachmentState -&gt; QueryString
+$ctoQuery :: DirectConnectGatewayAttachmentState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679278707"><span id="local-6989586621679278709"><span class="annot"><span class="annottext">Value -&gt; Parser [DirectConnectGatewayAttachmentState]
+Value -&gt; Parser DirectConnectGatewayAttachmentState
+(Value -&gt; Parser DirectConnectGatewayAttachmentState)
+-&gt; (Value -&gt; Parser [DirectConnectGatewayAttachmentState])
+-&gt; FromJSON DirectConnectGatewayAttachmentState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DirectConnectGatewayAttachmentState]
+$cparseJSONList :: Value -&gt; Parser [DirectConnectGatewayAttachmentState]
+parseJSON :: Value -&gt; Parser DirectConnectGatewayAttachmentState
+$cparseJSON :: Value -&gt; Parser DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679278702"><span id="local-6989586621679278704"><span class="annot"><span class="annottext">FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
+FromJSONKeyFunction DirectConnectGatewayAttachmentState
+FromJSONKeyFunction DirectConnectGatewayAttachmentState
+-&gt; FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
+-&gt; FromJSONKey DirectConnectGatewayAttachmentState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
+$cfromJSONKeyList :: FromJSONKeyFunction [DirectConnectGatewayAttachmentState]
+fromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAttachmentState
+$cfromJSONKey :: FromJSONKeyFunction DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679278693"><span id="local-6989586621679278695"><span id="local-6989586621679278697"><span id="local-6989586621679278699"><span class="annot"><span class="annottext">[DirectConnectGatewayAttachmentState] -&gt; Encoding
+[DirectConnectGatewayAttachmentState] -&gt; Value
+DirectConnectGatewayAttachmentState -&gt; Encoding
+DirectConnectGatewayAttachmentState -&gt; Value
+(DirectConnectGatewayAttachmentState -&gt; Value)
+-&gt; (DirectConnectGatewayAttachmentState -&gt; Encoding)
+-&gt; ([DirectConnectGatewayAttachmentState] -&gt; Value)
+-&gt; ([DirectConnectGatewayAttachmentState] -&gt; Encoding)
+-&gt; ToJSON DirectConnectGatewayAttachmentState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DirectConnectGatewayAttachmentState] -&gt; Encoding
+$ctoEncodingList :: [DirectConnectGatewayAttachmentState] -&gt; Encoding
+toJSONList :: [DirectConnectGatewayAttachmentState] -&gt; Value
+$ctoJSONList :: [DirectConnectGatewayAttachmentState] -&gt; Value
+toEncoding :: DirectConnectGatewayAttachmentState -&gt; Encoding
+$ctoEncoding :: DirectConnectGatewayAttachmentState -&gt; Encoding
+toJSON :: DirectConnectGatewayAttachmentState -&gt; Value
+$ctoJSON :: DirectConnectGatewayAttachmentState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679278688"><span id="local-6989586621679278690"><span class="annot"><span class="annottext">ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
+ToJSONKeyFunction DirectConnectGatewayAttachmentState
+ToJSONKeyFunction DirectConnectGatewayAttachmentState
+-&gt; ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
+-&gt; ToJSONKey DirectConnectGatewayAttachmentState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
+$ctoJSONKeyList :: ToJSONKeyFunction [DirectConnectGatewayAttachmentState]
+toJSONKey :: ToJSONKeyFunction DirectConnectGatewayAttachmentState
+$ctoJSONKey :: ToJSONKeyFunction DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679278685"><span class="annot"><span class="annottext">[Node] -&gt; Either String DirectConnectGatewayAttachmentState
+([Node] -&gt; Either String DirectConnectGatewayAttachmentState)
+-&gt; FromXML DirectConnectGatewayAttachmentState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DirectConnectGatewayAttachmentState
+$cparseXML :: [Node] -&gt; Either String DirectConnectGatewayAttachmentState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679278682"><span class="annot"><span class="annottext">DirectConnectGatewayAttachmentState -&gt; XML
+(DirectConnectGatewayAttachmentState -&gt; XML)
+-&gt; ToXML DirectConnectGatewayAttachmentState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DirectConnectGatewayAttachmentState -&gt; XML
+$ctoXML :: DirectConnectGatewayAttachmentState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Attached"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState_Attached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAttachmentState_Attached"><span id="%24mDirectConnectGatewayAttachmentState_Attached"><span id="DirectConnectGatewayAttachmentState_Attached"><span class="annot"><span class="annottext">$bDirectConnectGatewayAttachmentState_Attached :: DirectConnectGatewayAttachmentState
+$mDirectConnectGatewayAttachmentState_Attached :: forall r.
+DirectConnectGatewayAttachmentState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#%24bDirectConnectGatewayAttachmentState_Attached"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAttachmentState_Attached</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;attached&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Attaching"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState_Attaching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAttachmentState_Attaching"><span id="%24mDirectConnectGatewayAttachmentState_Attaching"><span id="DirectConnectGatewayAttachmentState_Attaching"><span class="annot"><span class="annottext">$bDirectConnectGatewayAttachmentState_Attaching :: DirectConnectGatewayAttachmentState
+$mDirectConnectGatewayAttachmentState_Attaching :: forall r.
+DirectConnectGatewayAttachmentState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#%24bDirectConnectGatewayAttachmentState_Attaching"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAttachmentState_Attaching</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;attaching&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Detached"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState_Detached</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAttachmentState_Detached"><span id="%24mDirectConnectGatewayAttachmentState_Detached"><span id="DirectConnectGatewayAttachmentState_Detached"><span class="annot"><span class="annottext">$bDirectConnectGatewayAttachmentState_Detached :: DirectConnectGatewayAttachmentState
+$mDirectConnectGatewayAttachmentState_Detached :: forall r.
+DirectConnectGatewayAttachmentState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#%24bDirectConnectGatewayAttachmentState_Detached"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAttachmentState_Detached</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;detached&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Detaching"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState_Detaching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDirectConnectGatewayAttachmentState_Detaching"><span id="%24mDirectConnectGatewayAttachmentState_Detaching"><span id="DirectConnectGatewayAttachmentState_Detaching"><span class="annot"><span class="annottext">$bDirectConnectGatewayAttachmentState_Detaching :: DirectConnectGatewayAttachmentState
+$mDirectConnectGatewayAttachmentState_Detaching :: forall r.
+DirectConnectGatewayAttachmentState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#%24bDirectConnectGatewayAttachmentState_Detaching"><span class="hs-identifier hs-var hs-var hs-var">DirectConnectGatewayAttachmentState_Detaching</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-identifier hs-type">DirectConnectGatewayAttachmentState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;detaching&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Attached"><span class="hs-pragma hs-type">DirectConnectGatewayAttachmentState_Attached</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Attaching"><span class="hs-pragma hs-type">DirectConnectGatewayAttachmentState_Attaching</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Detached"><span class="hs-pragma hs-type">DirectConnectGatewayAttachmentState_Detached</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState_Detaching"><span class="hs-pragma hs-type">DirectConnectGatewayAttachmentState_Detaching</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState.html#DirectConnectGatewayAttachmentState%27"><span class="hs-pragma hs-type">DirectConnectGatewayAttachmentState'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

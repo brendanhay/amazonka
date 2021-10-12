@@ -1,0 +1,981 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Config.DescribeComplianceByResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Indicates whether the specified Amazon Web Services resources are</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- compliant. If a resource is noncompliant, this action returns the number</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- of Config rules that the resource does not comply with.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- A resource is compliant if it complies with all the Config rules that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- evaluate it. It is noncompliant if it does not comply with one or more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- of these rules.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- If Config has no current evaluation results for the resource, it returns</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@. This result might indicate one of the following</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- conditions about the rules that evaluate the resource:</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Config has never invoked an evaluation for the rule. To check</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     whether it has, use the @DescribeConfigRuleEvaluationStatus@ action</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     to get the @LastSuccessfulInvocationTime@ and</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     @LastFailedInvocationTime@.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   The rule\'s Lambda function is failing to send evaluation results to</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     Config. Verify that the role that you assigned to your configuration</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     recorder includes the @config:PutEvaluations@ permission. If the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     rule is a custom rule, verify that the Lambda execution role</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     includes the @config:PutEvaluations@ permission.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   The rule\'s Lambda function has returned @NOT_APPLICABLE@ for all</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     evaluation results. This can occur if the resources were deleted or</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     removed from the rule\'s scope.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Config.DescribeComplianceByResource</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#newDescribeComplianceByResource"><span class="hs-identifier">newDescribeComplianceByResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_resourceId"><span class="hs-identifier">describeComplianceByResource_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_nextToken"><span class="hs-identifier">describeComplianceByResource_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_complianceTypes"><span class="hs-identifier">describeComplianceByResource_complianceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_resourceType"><span class="hs-identifier">describeComplianceByResource_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_limit"><span class="hs-identifier">describeComplianceByResource_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier">DescribeComplianceByResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#newDescribeComplianceByResourceResponse"><span class="hs-identifier">newDescribeComplianceByResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_nextToken"><span class="hs-identifier">describeComplianceByResourceResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_complianceByResources"><span class="hs-identifier">describeComplianceByResourceResponse_complianceByResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_httpStatus"><span class="hs-identifier">describeComplianceByResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.html"><span class="hs-identifier">Network.AWS.Config.Types</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- /See:/ 'newDescribeComplianceByResource' smart constructor.</span><span>
+</span><span id="line-84"></span><span id="local-6989586621679427458"><span id="local-6989586621679427459"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComplianceByResource"><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-var">DescribeComplianceByResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComplianceByResource%27"><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-var">DescribeComplianceByResource'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services resource for which you want compliance</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- information. You can specify only one resource ID. If you specify a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- resource ID, you must also specify a type for @ResourceType@.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AresourceId%3ADescribeComplianceByResource%27"><span class="annot"><span class="annottext">DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AresourceId%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeComplianceByResource%27"><span class="annot"><span class="annottext">DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AnextToken%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Filters the results by compliance.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- @INSUFFICIENT_DATA@.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AcomplianceTypes%3ADescribeComplianceByResource%27"><span class="annot"><span class="annottext">DescribeComplianceByResource -&gt; Maybe [ComplianceType]
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AcomplianceTypes%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var hs-var">complianceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The types of Amazon Web Services resources for which you want compliance</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- information (for example, @AWS::EC2::Instance@). For this action, you</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- can specify that the resource type is an Amazon Web Services account by</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- specifying @AWS::::Account@.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AresourceType%3ADescribeComplianceByResource%27"><span class="annot"><span class="annottext">DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AresourceType%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. The</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- default is 10. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeComplianceByResource%27"><span class="annot"><span class="annottext">DescribeComplianceByResource -&gt; Maybe Natural
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3Alimit%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427448"><span id="local-6989586621679427450"><span class="annot"><span class="annottext">DescribeComplianceByResource
+-&gt; DescribeComplianceByResource -&gt; Bool
+(DescribeComplianceByResource
+ -&gt; DescribeComplianceByResource -&gt; Bool)
+-&gt; (DescribeComplianceByResource
+    -&gt; DescribeComplianceByResource -&gt; Bool)
+-&gt; Eq DescribeComplianceByResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeComplianceByResource
+-&gt; DescribeComplianceByResource -&gt; Bool
+$c/= :: DescribeComplianceByResource
+-&gt; DescribeComplianceByResource -&gt; Bool
+== :: DescribeComplianceByResource
+-&gt; DescribeComplianceByResource -&gt; Bool
+$c== :: DescribeComplianceByResource
+-&gt; DescribeComplianceByResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427439"><span id="local-6989586621679427441"><span id="local-6989586621679427443"><span id="local-6989586621679427445"><span class="annot"><span class="annottext">ReadPrec [DescribeComplianceByResource]
+ReadPrec DescribeComplianceByResource
+Int -&gt; ReadS DescribeComplianceByResource
+ReadS [DescribeComplianceByResource]
+(Int -&gt; ReadS DescribeComplianceByResource)
+-&gt; ReadS [DescribeComplianceByResource]
+-&gt; ReadPrec DescribeComplianceByResource
+-&gt; ReadPrec [DescribeComplianceByResource]
+-&gt; Read DescribeComplianceByResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeComplianceByResource]
+$creadListPrec :: ReadPrec [DescribeComplianceByResource]
+readPrec :: ReadPrec DescribeComplianceByResource
+$creadPrec :: ReadPrec DescribeComplianceByResource
+readList :: ReadS [DescribeComplianceByResource]
+$creadList :: ReadS [DescribeComplianceByResource]
+readsPrec :: Int -&gt; ReadS DescribeComplianceByResource
+$creadsPrec :: Int -&gt; ReadS DescribeComplianceByResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427432"><span id="local-6989586621679427434"><span id="local-6989586621679427436"><span class="annot"><span class="annottext">Int -&gt; DescribeComplianceByResource -&gt; ShowS
+[DescribeComplianceByResource] -&gt; ShowS
+DescribeComplianceByResource -&gt; String
+(Int -&gt; DescribeComplianceByResource -&gt; ShowS)
+-&gt; (DescribeComplianceByResource -&gt; String)
+-&gt; ([DescribeComplianceByResource] -&gt; ShowS)
+-&gt; Show DescribeComplianceByResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeComplianceByResource] -&gt; ShowS
+$cshowList :: [DescribeComplianceByResource] -&gt; ShowS
+show :: DescribeComplianceByResource -&gt; String
+$cshow :: DescribeComplianceByResource -&gt; String
+showsPrec :: Int -&gt; DescribeComplianceByResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeComplianceByResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeComplianceByResource -&gt; Rep DescribeComplianceByResource x)
+-&gt; (forall x.
+    Rep DescribeComplianceByResource x -&gt; DescribeComplianceByResource)
+-&gt; Generic DescribeComplianceByResource
+forall x.
+Rep DescribeComplianceByResource x -&gt; DescribeComplianceByResource
+forall x.
+DescribeComplianceByResource -&gt; Rep DescribeComplianceByResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeComplianceByResource x -&gt; DescribeComplianceByResource
+$cfrom :: forall x.
+DescribeComplianceByResource -&gt; Rep DescribeComplianceByResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'DescribeComplianceByResource' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'resourceId', 'describeComplianceByResource_resourceId' - The ID of the Amazon Web Services resource for which you want compliance</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- information. You can specify only one resource ID. If you specify a</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- resource ID, you must also specify a type for @ResourceType@.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'nextToken', 'describeComplianceByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'complianceTypes', 'describeComplianceByResource_complianceTypes' - Filters the results by compliance.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'resourceType', 'describeComplianceByResource_resourceType' - The types of Amazon Web Services resources for which you want compliance</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- information (for example, @AWS::EC2::Instance@). For this action, you</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- can specify that the resource type is an Amazon Web Services account by</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- specifying @AWS::::Account@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'limit', 'describeComplianceByResource_limit' - The maximum number of evaluation results returned on each page. The</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- default is 10. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#newDescribeComplianceByResource"><span class="hs-identifier hs-type">newDescribeComplianceByResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span>
+</span><span id="line-139"></span><span id="newDescribeComplianceByResource"><span class="annot"><span class="annottext">newDescribeComplianceByResource :: DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#newDescribeComplianceByResource"><span class="hs-identifier hs-var hs-var">newDescribeComplianceByResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DescribeComplianceByResource' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [ComplianceType]
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:DescribeComplianceByResource' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AresourceId%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComplianceByResource' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AnextToken%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceTypes:DescribeComplianceByResource' :: Maybe [ComplianceType]
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AcomplianceTypes%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">complianceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:DescribeComplianceByResource' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AresourceType%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeComplianceByResource' :: Maybe Natural
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3Alimit%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The ID of the Amazon Web Services resource for which you want compliance</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- information. You can specify only one resource ID. If you specify a</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- resource ID, you must also specify a type for @ResourceType@.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_resourceId"><span class="hs-identifier hs-type">describeComplianceByResource_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="describeComplianceByResource_resourceId"><span class="annot"><span class="annottext">describeComplianceByResource_resourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeComplianceByResource -&gt; f DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_resourceId"><span class="hs-identifier hs-var hs-var">describeComplianceByResource_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResource -&gt; Maybe Text)
+-&gt; (DescribeComplianceByResource
+    -&gt; Maybe Text -&gt; DescribeComplianceByResource)
+-&gt; Lens
+     DescribeComplianceByResource
+     DescribeComplianceByResource
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427426"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427426"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427425"><span class="annot"><span class="annottext">s :: DescribeComplianceByResource
+</span><a href="#local-6989586621679427425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeComplianceByResource' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AresourceId%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_nextToken"><span class="hs-identifier hs-type">describeComplianceByResource_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="describeComplianceByResource_nextToken"><span class="annot"><span class="annottext">describeComplianceByResource_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeComplianceByResource -&gt; f DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_nextToken"><span class="hs-identifier hs-var hs-var">describeComplianceByResource_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResource -&gt; Maybe Text)
+-&gt; (DescribeComplianceByResource
+    -&gt; Maybe Text -&gt; DescribeComplianceByResource)
+-&gt; Lens
+     DescribeComplianceByResource
+     DescribeComplianceByResource
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427423"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="#local-6989586621679427423"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427423"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427422"><span class="annot"><span class="annottext">s :: DescribeComplianceByResource
+</span><a href="#local-6989586621679427422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComplianceByResource' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AnextToken%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Filters the results by compliance.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_complianceTypes"><span class="hs-identifier hs-type">describeComplianceByResource_complianceTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="describeComplianceByResource_complianceTypes"><span class="annot"><span class="annottext">describeComplianceByResource_complianceTypes :: (Maybe [ComplianceType] -&gt; f (Maybe [ComplianceType]))
+-&gt; DescribeComplianceByResource -&gt; f DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_complianceTypes"><span class="hs-identifier hs-var hs-var">describeComplianceByResource_complianceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResource -&gt; Maybe [ComplianceType])
+-&gt; (DescribeComplianceByResource
+    -&gt; Maybe [ComplianceType] -&gt; DescribeComplianceByResource)
+-&gt; Lens
+     DescribeComplianceByResource
+     DescribeComplianceByResource
+     (Maybe [ComplianceType])
+     (Maybe [ComplianceType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427420"><span class="annot"><span class="annottext">Maybe [ComplianceType]
+complianceTypes :: Maybe [ComplianceType]
+$sel:complianceTypes:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe [ComplianceType]
+</span><a href="#local-6989586621679427420"><span class="hs-identifier hs-var hs-var">complianceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceType]
+</span><a href="#local-6989586621679427420"><span class="hs-identifier hs-var">complianceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427419"><span class="annot"><span class="annottext">s :: DescribeComplianceByResource
+</span><a href="#local-6989586621679427419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427418"><span class="annot"><span class="annottext">Maybe [ComplianceType]
+</span><a href="#local-6989586621679427418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceTypes:DescribeComplianceByResource' :: Maybe [ComplianceType]
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AcomplianceTypes%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">complianceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceType]
+</span><a href="#local-6989586621679427418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceType] -&gt; f (Maybe [ComplianceType]))
+ -&gt; DescribeComplianceByResource -&gt; f DescribeComplianceByResource)
+-&gt; ((Maybe [ComplianceType] -&gt; f (Maybe [ComplianceType]))
+    -&gt; Maybe [ComplianceType] -&gt; f (Maybe [ComplianceType]))
+-&gt; (Maybe [ComplianceType] -&gt; f (Maybe [ComplianceType]))
+-&gt; DescribeComplianceByResource
+-&gt; f DescribeComplianceByResource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceType] [ComplianceType] [ComplianceType] [ComplianceType]
+-&gt; Iso
+     (Maybe [ComplianceType])
+     (Maybe [ComplianceType])
+     (Maybe [ComplianceType])
+     (Maybe [ComplianceType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceType] [ComplianceType] [ComplianceType] [ComplianceType]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The types of Amazon Web Services resources for which you want compliance</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- information (for example, @AWS::EC2::Instance@). For this action, you</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- can specify that the resource type is an Amazon Web Services account by</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- specifying @AWS::::Account@.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_resourceType"><span class="hs-identifier hs-type">describeComplianceByResource_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="describeComplianceByResource_resourceType"><span class="annot"><span class="annottext">describeComplianceByResource_resourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeComplianceByResource -&gt; f DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_resourceType"><span class="hs-identifier hs-var hs-var">describeComplianceByResource_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResource -&gt; Maybe Text)
+-&gt; (DescribeComplianceByResource
+    -&gt; Maybe Text -&gt; DescribeComplianceByResource)
+-&gt; Lens
+     DescribeComplianceByResource
+     DescribeComplianceByResource
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427414"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="#local-6989586621679427414"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427414"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427413"><span class="annot"><span class="annottext">s :: DescribeComplianceByResource
+</span><a href="#local-6989586621679427413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:DescribeComplianceByResource' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AresourceType%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The maximum number of evaluation results returned on each page. The</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- default is 10. You cannot specify a number greater than 100. If you</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- specify 0, Config uses the default.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_limit"><span class="hs-identifier hs-type">describeComplianceByResource_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="describeComplianceByResource_limit"><span class="annot"><span class="annottext">describeComplianceByResource_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeComplianceByResource -&gt; f DescribeComplianceByResource
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_limit"><span class="hs-identifier hs-var hs-var">describeComplianceByResource_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResource -&gt; Maybe Natural)
+-&gt; (DescribeComplianceByResource
+    -&gt; Maybe Natural -&gt; DescribeComplianceByResource)
+-&gt; Lens
+     DescribeComplianceByResource
+     DescribeComplianceByResource
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427411"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Natural
+</span><a href="#local-6989586621679427411"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679427411"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427410"><span class="annot"><span class="annottext">s :: DescribeComplianceByResource
+</span><a href="#local-6989586621679427410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427409"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679427409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeComplianceByResource' :: Maybe Natural
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3Alimit%3ADescribeComplianceByResource%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679427409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679427405"><span class="annot"><span class="annottext">page :: DescribeComplianceByResource
+-&gt; AWSResponse DescribeComplianceByResource
+-&gt; Maybe DescribeComplianceByResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679427403"><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427403"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679427402"><span class="annot"><span class="annottext">AWSResponse DescribeComplianceByResource
+</span><a href="#local-6989586621679427402"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-183"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComplianceByResource
+DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427402"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+-&gt; Getting (First Text) DescribeComplianceByResourceResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeComplianceByResourceResponse
+-&gt; Const (First Text) DescribeComplianceByResourceResponse
+Lens' DescribeComplianceByResourceResponse (Maybe Text)
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_nextToken"><span class="hs-identifier hs-var">describeComplianceByResourceResponse_nextToken</span></a></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeComplianceByResourceResponse
+ -&gt; Const (First Text) DescribeComplianceByResourceResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeComplianceByResourceResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-186"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeComplianceByResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceByResource] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComplianceByResource
+DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427402"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+-&gt; Getting
+     (First [ComplianceByResource])
+     DescribeComplianceByResourceResponse
+     [ComplianceByResource]
+-&gt; Maybe [ComplianceByResource]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ComplianceByResource]
+ -&gt; Const
+      (First [ComplianceByResource]) (Maybe [ComplianceByResource]))
+-&gt; DescribeComplianceByResourceResponse
+-&gt; Const
+     (First [ComplianceByResource]) DescribeComplianceByResourceResponse
+Lens'
+  DescribeComplianceByResourceResponse (Maybe [ComplianceByResource])
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_complianceByResources"><span class="hs-identifier hs-var">describeComplianceByResourceResponse_complianceByResources</span></a></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ComplianceByResource]
+  -&gt; Const
+       (First [ComplianceByResource]) (Maybe [ComplianceByResource]))
+ -&gt; DescribeComplianceByResourceResponse
+ -&gt; Const
+      (First [ComplianceByResource])
+      DescribeComplianceByResourceResponse)
+-&gt; (([ComplianceByResource]
+     -&gt; Const (First [ComplianceByResource]) [ComplianceByResource])
+    -&gt; Maybe [ComplianceByResource]
+    -&gt; Const
+         (First [ComplianceByResource]) (Maybe [ComplianceByResource]))
+-&gt; Getting
+     (First [ComplianceByResource])
+     DescribeComplianceByResourceResponse
+     [ComplianceByResource]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ComplianceByResource]
+ -&gt; Const (First [ComplianceByResource]) [ComplianceByResource])
+-&gt; Maybe [ComplianceByResource]
+-&gt; Const
+     (First [ComplianceByResource]) (Maybe [ComplianceByResource])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-192"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeComplianceByResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">DescribeComplianceByResource -&gt; Maybe DescribeComplianceByResource
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResource
+ -&gt; Maybe DescribeComplianceByResource)
+-&gt; DescribeComplianceByResource
+-&gt; Maybe DescribeComplianceByResource
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+</span><a href="#local-6989586621679427403"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">DescribeComplianceByResource
+-&gt; (DescribeComplianceByResource -&gt; DescribeComplianceByResource)
+-&gt; DescribeComplianceByResource
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeComplianceByResource
+-&gt; Identity DescribeComplianceByResource
+Lens
+  DescribeComplianceByResource
+  DescribeComplianceByResource
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResource_nextToken"><span class="hs-identifier hs-var">describeComplianceByResource_nextToken</span></a></span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeComplianceByResource
+ -&gt; Identity DescribeComplianceByResource)
+-&gt; Maybe Text
+-&gt; DescribeComplianceByResource
+-&gt; DescribeComplianceByResource
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComplianceByResource
+DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427402"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+-&gt; Getting (First Text) DescribeComplianceByResourceResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeComplianceByResourceResponse
+-&gt; Const (First Text) DescribeComplianceByResourceResponse
+Lens' DescribeComplianceByResourceResponse (Maybe Text)
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_nextToken"><span class="hs-identifier hs-var">describeComplianceByResourceResponse_nextToken</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeComplianceByResourceResponse
+ -&gt; Const (First Text) DescribeComplianceByResourceResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeComplianceByResourceResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-204"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679427393"><span class="annot"><span class="annottext">request :: DescribeComplianceByResource
+-&gt; Request DescribeComplianceByResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeComplianceByResource
+-&gt; Request DescribeComplianceByResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679427389"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeComplianceByResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeComplianceByResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeComplianceByResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeComplianceByResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeComplianceByResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427386"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679427385"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679427385"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679427384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ComplianceByResource]
+-&gt; Int
+-&gt; DescribeComplianceByResourceResponse
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">DescribeComplianceByResourceResponse'</span></a></span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ComplianceByResource]
+ -&gt; Int
+ -&gt; DescribeComplianceByResourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ComplianceByResource]
+      -&gt; Int -&gt; DescribeComplianceByResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ComplianceByResource]
+   -&gt; Int -&gt; DescribeComplianceByResourceResponse)
+-&gt; Either String (Maybe [ComplianceByResource])
+-&gt; Either String (Int -&gt; DescribeComplianceByResourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ComplianceByResource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceByResources&quot;</span></span><span>
+</span><span id="line-213"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ComplianceByResource]))
+-&gt; Maybe [ComplianceByResource]
+-&gt; Either String (Maybe [ComplianceByResource])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceByResource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-214"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeComplianceByResourceResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeComplianceByResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427386"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679427375"><span id="local-6989586621679427377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span></span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679427368"><span class="annot"><span class="annottext">toHeaders :: DescribeComplianceByResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeComplianceByResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-228"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StarlingDoveService.DescribeComplianceByResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-231"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-233"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-235"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427358"><span id="local-6989586621679427360"><span id="local-6989586621679427362"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679427356"><span class="annot"><span class="annottext">toJSON :: DescribeComplianceByResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource%27"><span class="hs-identifier hs-type">DescribeComplianceByResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427350"><span id="local-6989586621679427351"><span id="local-6989586621679427352"><span id="local-6989586621679427353"><span id="local-6989586621679427354"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ComplianceType]
+Maybe Text
+limit :: Maybe Natural
+resourceType :: Maybe Text
+complianceTypes :: Maybe [ComplianceType]
+nextToken :: Maybe Text
+resourceId :: Maybe Text
+$sel:limit:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Natural
+$sel:resourceType:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Text
+$sel:complianceTypes:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe [ComplianceType]
+$sel:nextToken:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Text
+$sel:resourceId:DescribeComplianceByResource' :: DescribeComplianceByResource -&gt; Maybe Text
+</span><a href="#local-6989586621679427350"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427354"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427353"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ComplianceType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">([ComplianceType] -&gt; Pair) -&gt; Maybe [ComplianceType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceType]
+</span><a href="#local-6989586621679427352"><span class="hs-identifier hs-var">complianceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427351"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679427350"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679427344"><span class="annot"><span class="annottext">toPath :: DescribeComplianceByResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeComplianceByResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResource"><span class="hs-identifier hs-type">DescribeComplianceByResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679427340"><span class="annot"><span class="annottext">toQuery :: DescribeComplianceByResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeComplianceByResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- /See:/ 'newDescribeComplianceByResourceResponse' smart constructor.</span><span>
+</span><span id="line-261"></span><span id="local-6989586621679427337"><span id="local-6989586621679427338"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComplianceByResourceResponse"><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-var">DescribeComplianceByResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComplianceByResourceResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">DescribeComplianceByResourceResponse'</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-264"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeComplianceByResourceResponse%27"><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AnextToken%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- | Indicates whether the specified Amazon Web Services resource complies</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- with all of the Config rules that evaluate it.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AcomplianceByResources%3ADescribeComplianceByResourceResponse%27"><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+-&gt; Maybe [ComplianceByResource]
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AcomplianceByResources%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var hs-var">complianceByResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceByResource.html#ComplianceByResource"><span class="hs-identifier hs-type">ComplianceByResource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeComplianceByResourceResponse%27"><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse -&gt; Int
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AhttpStatus%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427330"><span id="local-6989586621679427332"><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+-&gt; DescribeComplianceByResourceResponse -&gt; Bool
+(DescribeComplianceByResourceResponse
+ -&gt; DescribeComplianceByResourceResponse -&gt; Bool)
+-&gt; (DescribeComplianceByResourceResponse
+    -&gt; DescribeComplianceByResourceResponse -&gt; Bool)
+-&gt; Eq DescribeComplianceByResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeComplianceByResourceResponse
+-&gt; DescribeComplianceByResourceResponse -&gt; Bool
+$c/= :: DescribeComplianceByResourceResponse
+-&gt; DescribeComplianceByResourceResponse -&gt; Bool
+== :: DescribeComplianceByResourceResponse
+-&gt; DescribeComplianceByResourceResponse -&gt; Bool
+$c== :: DescribeComplianceByResourceResponse
+-&gt; DescribeComplianceByResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427322"><span id="local-6989586621679427324"><span id="local-6989586621679427326"><span id="local-6989586621679427328"><span class="annot"><span class="annottext">ReadPrec [DescribeComplianceByResourceResponse]
+ReadPrec DescribeComplianceByResourceResponse
+Int -&gt; ReadS DescribeComplianceByResourceResponse
+ReadS [DescribeComplianceByResourceResponse]
+(Int -&gt; ReadS DescribeComplianceByResourceResponse)
+-&gt; ReadS [DescribeComplianceByResourceResponse]
+-&gt; ReadPrec DescribeComplianceByResourceResponse
+-&gt; ReadPrec [DescribeComplianceByResourceResponse]
+-&gt; Read DescribeComplianceByResourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeComplianceByResourceResponse]
+$creadListPrec :: ReadPrec [DescribeComplianceByResourceResponse]
+readPrec :: ReadPrec DescribeComplianceByResourceResponse
+$creadPrec :: ReadPrec DescribeComplianceByResourceResponse
+readList :: ReadS [DescribeComplianceByResourceResponse]
+$creadList :: ReadS [DescribeComplianceByResourceResponse]
+readsPrec :: Int -&gt; ReadS DescribeComplianceByResourceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeComplianceByResourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427316"><span id="local-6989586621679427318"><span id="local-6989586621679427320"><span class="annot"><span class="annottext">Int -&gt; DescribeComplianceByResourceResponse -&gt; ShowS
+[DescribeComplianceByResourceResponse] -&gt; ShowS
+DescribeComplianceByResourceResponse -&gt; String
+(Int -&gt; DescribeComplianceByResourceResponse -&gt; ShowS)
+-&gt; (DescribeComplianceByResourceResponse -&gt; String)
+-&gt; ([DescribeComplianceByResourceResponse] -&gt; ShowS)
+-&gt; Show DescribeComplianceByResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeComplianceByResourceResponse] -&gt; ShowS
+$cshowList :: [DescribeComplianceByResourceResponse] -&gt; ShowS
+show :: DescribeComplianceByResourceResponse -&gt; String
+$cshow :: DescribeComplianceByResourceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeComplianceByResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeComplianceByResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeComplianceByResourceResponse
+ -&gt; Rep DescribeComplianceByResourceResponse x)
+-&gt; (forall x.
+    Rep DescribeComplianceByResourceResponse x
+    -&gt; DescribeComplianceByResourceResponse)
+-&gt; Generic DescribeComplianceByResourceResponse
+forall x.
+Rep DescribeComplianceByResourceResponse x
+-&gt; DescribeComplianceByResourceResponse
+forall x.
+DescribeComplianceByResourceResponse
+-&gt; Rep DescribeComplianceByResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeComplianceByResourceResponse x
+-&gt; DescribeComplianceByResourceResponse
+$cfrom :: forall x.
+DescribeComplianceByResourceResponse
+-&gt; Rep DescribeComplianceByResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Create a value of 'DescribeComplianceByResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'nextToken', 'describeComplianceByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'complianceByResources', 'describeComplianceByResourceResponse_complianceByResources' - Indicates whether the specified Amazon Web Services resource complies</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- with all of the Config rules that evaluate it.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'httpStatus', 'describeComplianceByResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#newDescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">newDescribeComplianceByResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span>
+</span><span id="line-292"></span><span id="newDescribeComplianceByResourceResponse"><span class="annot"><span class="annottext">newDescribeComplianceByResourceResponse :: Int -&gt; DescribeComplianceByResourceResponse
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#newDescribeComplianceByResourceResponse"><span class="hs-identifier hs-var hs-var">newDescribeComplianceByResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679427313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427313"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>  </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse' :: Maybe Text
+-&gt; Maybe [ComplianceByResource]
+-&gt; Int
+-&gt; DescribeComplianceByResourceResponse
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComplianceByResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AnextToken%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceByResources:DescribeComplianceByResourceResponse' :: Maybe [ComplianceByResource]
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AcomplianceByResources%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">complianceByResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ComplianceByResource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeComplianceByResourceResponse' :: Int
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AhttpStatus%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427313"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-299"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | The string that you use in a subsequent request to get the next page of</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- results in a paginated response.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_nextToken"><span class="hs-identifier hs-type">describeComplianceByResourceResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="describeComplianceByResourceResponse_nextToken"><span class="annot"><span class="annottext">describeComplianceByResourceResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeComplianceByResourceResponse
+-&gt; f DescribeComplianceByResourceResponse
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeComplianceByResourceResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResourceResponse -&gt; Maybe Text)
+-&gt; (DescribeComplianceByResourceResponse
+    -&gt; Maybe Text -&gt; DescribeComplianceByResourceResponse)
+-&gt; Lens' DescribeComplianceByResourceResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427312"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeComplianceByResourceResponse' :: DescribeComplianceByResourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679427312"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427312"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427311"><span class="annot"><span class="annottext">s :: DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427310"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComplianceByResourceResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AnextToken%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | Indicates whether the specified Amazon Web Services resource complies</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- with all of the Config rules that evaluate it.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_complianceByResources"><span class="hs-identifier hs-type">describeComplianceByResourceResponse_complianceByResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceByResource.html#ComplianceByResource"><span class="hs-identifier hs-type">ComplianceByResource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="describeComplianceByResourceResponse_complianceByResources"><span class="annot"><span class="annottext">describeComplianceByResourceResponse_complianceByResources :: (Maybe [ComplianceByResource] -&gt; f (Maybe [ComplianceByResource]))
+-&gt; DescribeComplianceByResourceResponse
+-&gt; f DescribeComplianceByResourceResponse
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_complianceByResources"><span class="hs-identifier hs-var hs-var">describeComplianceByResourceResponse_complianceByResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResourceResponse
+ -&gt; Maybe [ComplianceByResource])
+-&gt; (DescribeComplianceByResourceResponse
+    -&gt; Maybe [ComplianceByResource]
+    -&gt; DescribeComplianceByResourceResponse)
+-&gt; Lens'
+     DescribeComplianceByResourceResponse (Maybe [ComplianceByResource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427309"><span class="annot"><span class="annottext">Maybe [ComplianceByResource]
+complianceByResources :: Maybe [ComplianceByResource]
+$sel:complianceByResources:DescribeComplianceByResourceResponse' :: DescribeComplianceByResourceResponse
+-&gt; Maybe [ComplianceByResource]
+</span><a href="#local-6989586621679427309"><span class="hs-identifier hs-var hs-var">complianceByResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceByResource]
+</span><a href="#local-6989586621679427309"><span class="hs-identifier hs-var">complianceByResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427308"><span class="annot"><span class="annottext">s :: DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427307"><span class="annot"><span class="annottext">Maybe [ComplianceByResource]
+</span><a href="#local-6989586621679427307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceByResources:DescribeComplianceByResourceResponse' :: Maybe [ComplianceByResource]
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AcomplianceByResources%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">complianceByResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceByResource]
+</span><a href="#local-6989586621679427307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceByResource] -&gt; f (Maybe [ComplianceByResource]))
+ -&gt; DescribeComplianceByResourceResponse
+ -&gt; f DescribeComplianceByResourceResponse)
+-&gt; ((Maybe [ComplianceByResource]
+     -&gt; f (Maybe [ComplianceByResource]))
+    -&gt; Maybe [ComplianceByResource]
+    -&gt; f (Maybe [ComplianceByResource]))
+-&gt; (Maybe [ComplianceByResource]
+    -&gt; f (Maybe [ComplianceByResource]))
+-&gt; DescribeComplianceByResourceResponse
+-&gt; f DescribeComplianceByResourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceByResource]
+  [ComplianceByResource]
+  [ComplianceByResource]
+  [ComplianceByResource]
+-&gt; Iso
+     (Maybe [ComplianceByResource])
+     (Maybe [ComplianceByResource])
+     (Maybe [ComplianceByResource])
+     (Maybe [ComplianceByResource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceByResource]
+  [ComplianceByResource]
+  [ComplianceByResource]
+  [ComplianceByResource]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_httpStatus"><span class="hs-identifier hs-type">describeComplianceByResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-313"></span><span id="describeComplianceByResourceResponse_httpStatus"><span class="annot"><span class="annottext">describeComplianceByResourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeComplianceByResourceResponse
+-&gt; f DescribeComplianceByResourceResponse
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#describeComplianceByResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeComplianceByResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeComplianceByResourceResponse -&gt; Int)
+-&gt; (DescribeComplianceByResourceResponse
+    -&gt; Int -&gt; DescribeComplianceByResourceResponse)
+-&gt; Lens
+     DescribeComplianceByResourceResponse
+     DescribeComplianceByResourceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427306"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeComplianceByResourceResponse' :: DescribeComplianceByResourceResponse -&gt; Int
+</span><a href="#local-6989586621679427306"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427306"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427305"><span class="annot"><span class="annottext">s :: DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComplianceByResourceResponse
+</span><a href="#local-6989586621679427305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeComplianceByResourceResponse' :: Int
+</span><a href="Network.AWS.Config.DescribeComplianceByResource.html#%24sel%3AhttpStatus%3ADescribeComplianceByResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679427302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeComplianceByResource.html#DescribeComplianceByResourceResponse"><span class="hs-identifier hs-type">DescribeComplianceByResourceResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

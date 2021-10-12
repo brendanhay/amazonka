@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WAF.UpdateSizeConstraintSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This is __AWS WAF Classic__ documentation. For more information, see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic&gt;</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- in the developer guide.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- With the latest version, AWS WAF has a single set of endpoints for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- regional and global use.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Inserts or deletes SizeConstraint objects (filters) in a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- SizeConstraintSet. For each @SizeConstraint@ object, you specify the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- following values:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   Whether to insert or delete the object from the array. If you want</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     to change a @SizeConstraintSetUpdate@ object, you delete the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     existing object and add a new one.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   The part of a web request that you want AWS WAF to evaluate, such as</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     the length of a query string or the length of the @User-Agent@</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     header.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   Whether to perform any transformations on the request, such as</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     converting it to lowercase, before checking its length. Note that</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     transformations of the request body are not supported because the</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     AWS resource forwards only the first @8192@ bytes of your request to</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     AWS WAF.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     You can only specify a single type of TextTransformation.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- -   A @ComparisonOperator@ used for evaluating the selected part of the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     request against the specified @Size@, such as equals, greater than,</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     less than, and so on.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- -   The length, in bytes, that you want AWS WAF to watch for in selected</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     part of the request. The length is computed after applying the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--     transformation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- For example, you can add a @SizeConstraintSetUpdate@ object that matches</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- web requests in which the length of the @User-Agent@ header is greater</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- than 100 bytes. You can then configure AWS WAF to block those requests.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- To create and configure a @SizeConstraintSet@, perform the following</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- steps:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 1.  Create a @SizeConstraintSet.@ For more information, see</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--     CreateSizeConstraintSet.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 2.  Use GetChangeToken to get the change token that you provide in the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--     @ChangeToken@ parameter of an @UpdateSizeConstraintSet@ request.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 3.  Submit an @UpdateSizeConstraintSet@ request to specify the part of</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     the request that you want AWS WAF to inspect (for example, the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     header or the URI) and the value that you want AWS WAF to watch for.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- For more information about how to use the AWS WAF API to allow or block</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- HTTP requests, see the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide&gt;.</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WAF.UpdateSizeConstraintSet</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#newUpdateSizeConstraintSet"><span class="hs-identifier">newUpdateSizeConstraintSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_sizeConstraintSetId"><span class="hs-identifier">updateSizeConstraintSet_sizeConstraintSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_changeToken"><span class="hs-identifier">updateSizeConstraintSet_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_updates"><span class="hs-identifier">updateSizeConstraintSet_updates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier">UpdateSizeConstraintSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#newUpdateSizeConstraintSetResponse"><span class="hs-identifier">newUpdateSizeConstraintSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSetResponse_changeToken"><span class="hs-identifier">updateSizeConstraintSetResponse_changeToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSetResponse_httpStatus"><span class="hs-identifier">updateSizeConstraintSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newUpdateSizeConstraintSet' smart constructor.</span><span>
+</span><span id="line-108"></span><span id="local-6989586621679326236"><span id="local-6989586621679326237"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSizeConstraintSet"><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-var">UpdateSizeConstraintSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSizeConstraintSet%27"><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">UpdateSizeConstraintSet'</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- update. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- by ListSizeConstraintSets.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AsizeConstraintSetId%3AUpdateSizeConstraintSet%27"><span class="annot"><span class="annottext">UpdateSizeConstraintSet -&gt; Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">sizeConstraintSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AchangeToken%3AUpdateSizeConstraintSet%27"><span class="annot"><span class="annottext">UpdateSizeConstraintSet -&gt; Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AchangeToken%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | An array of @SizeConstraintSetUpdate@ objects that you want to insert</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- into or delete from a SizeConstraintSet. For more information, see the</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- applicable data types:</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   SizeConstraintSetUpdate: Contains @Action@ and @SizeConstraint@</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   SizeConstraint: Contains @FieldToMatch@, @TextTransformation@,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     @ComparisonOperator@, and @Size@</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   FieldToMatch: Contains @Data@ and @Type@</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Aupdates%3AUpdateSizeConstraintSet%27"><span class="annot"><span class="annottext">UpdateSizeConstraintSet -&gt; NonEmpty SizeConstraintSetUpdate
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3Aupdates%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">updates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSetUpdate.html#SizeConstraintSetUpdate"><span class="hs-identifier hs-type">SizeConstraintSetUpdate</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326228"><span id="local-6989586621679326230"><span class="annot"><span class="annottext">UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool
+(UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool)
+-&gt; (UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool)
+-&gt; Eq UpdateSizeConstraintSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool
+$c/= :: UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool
+== :: UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool
+$c== :: UpdateSizeConstraintSet -&gt; UpdateSizeConstraintSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326219"><span id="local-6989586621679326221"><span id="local-6989586621679326223"><span id="local-6989586621679326225"><span class="annot"><span class="annottext">ReadPrec [UpdateSizeConstraintSet]
+ReadPrec UpdateSizeConstraintSet
+Int -&gt; ReadS UpdateSizeConstraintSet
+ReadS [UpdateSizeConstraintSet]
+(Int -&gt; ReadS UpdateSizeConstraintSet)
+-&gt; ReadS [UpdateSizeConstraintSet]
+-&gt; ReadPrec UpdateSizeConstraintSet
+-&gt; ReadPrec [UpdateSizeConstraintSet]
+-&gt; Read UpdateSizeConstraintSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSizeConstraintSet]
+$creadListPrec :: ReadPrec [UpdateSizeConstraintSet]
+readPrec :: ReadPrec UpdateSizeConstraintSet
+$creadPrec :: ReadPrec UpdateSizeConstraintSet
+readList :: ReadS [UpdateSizeConstraintSet]
+$creadList :: ReadS [UpdateSizeConstraintSet]
+readsPrec :: Int -&gt; ReadS UpdateSizeConstraintSet
+$creadsPrec :: Int -&gt; ReadS UpdateSizeConstraintSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326212"><span id="local-6989586621679326214"><span id="local-6989586621679326216"><span class="annot"><span class="annottext">Int -&gt; UpdateSizeConstraintSet -&gt; ShowS
+[UpdateSizeConstraintSet] -&gt; ShowS
+UpdateSizeConstraintSet -&gt; String
+(Int -&gt; UpdateSizeConstraintSet -&gt; ShowS)
+-&gt; (UpdateSizeConstraintSet -&gt; String)
+-&gt; ([UpdateSizeConstraintSet] -&gt; ShowS)
+-&gt; Show UpdateSizeConstraintSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSizeConstraintSet] -&gt; ShowS
+$cshowList :: [UpdateSizeConstraintSet] -&gt; ShowS
+show :: UpdateSizeConstraintSet -&gt; String
+$cshow :: UpdateSizeConstraintSet -&gt; String
+showsPrec :: Int -&gt; UpdateSizeConstraintSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSizeConstraintSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSizeConstraintSet -&gt; Rep UpdateSizeConstraintSet x)
+-&gt; (forall x.
+    Rep UpdateSizeConstraintSet x -&gt; UpdateSizeConstraintSet)
+-&gt; Generic UpdateSizeConstraintSet
+forall x. Rep UpdateSizeConstraintSet x -&gt; UpdateSizeConstraintSet
+forall x. UpdateSizeConstraintSet -&gt; Rep UpdateSizeConstraintSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSizeConstraintSet x -&gt; UpdateSizeConstraintSet
+$cfrom :: forall x. UpdateSizeConstraintSet -&gt; Rep UpdateSizeConstraintSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Create a value of 'UpdateSizeConstraintSet' with all optional fields omitted.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'sizeConstraintSetId', 'updateSizeConstraintSet_sizeConstraintSetId' - The @SizeConstraintSetId@ of the SizeConstraintSet that you want to</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- update. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- by ListSizeConstraintSets.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'changeToken', 'updateSizeConstraintSet_changeToken' - The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'updates', 'updateSizeConstraintSet_updates' - An array of @SizeConstraintSetUpdate@ objects that you want to insert</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- into or delete from a SizeConstraintSet. For more information, see the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- applicable data types:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   SizeConstraintSetUpdate: Contains @Action@ and @SizeConstraint@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   SizeConstraint: Contains @FieldToMatch@, @TextTransformation@,</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     @ComparisonOperator@, and @Size@</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   FieldToMatch: Contains @Data@ and @Type@</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#newUpdateSizeConstraintSet"><span class="hs-identifier hs-type">newUpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'sizeConstraintSetId'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'changeToken'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'updates'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSetUpdate.html#SizeConstraintSetUpdate"><span class="hs-identifier hs-type">SizeConstraintSetUpdate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span>
+</span><span id="line-161"></span><span id="newUpdateSizeConstraintSet"><span class="annot"><span class="annottext">newUpdateSizeConstraintSet :: Text
+-&gt; Text
+-&gt; NonEmpty SizeConstraintSetUpdate
+-&gt; UpdateSizeConstraintSet
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#newUpdateSizeConstraintSet"><span class="hs-identifier hs-var hs-var">newUpdateSizeConstraintSet</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679326207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326207"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679326206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326206"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679326205"><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326205"><span class="hs-identifier hs-var">pUpdates_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">UpdateSizeConstraintSet' :: Text
+-&gt; Text
+-&gt; NonEmpty SizeConstraintSetUpdate
+-&gt; UpdateSizeConstraintSet
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:UpdateSizeConstraintSet' :: Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326207"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:changeToken:UpdateSizeConstraintSet' :: Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AchangeToken%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326206"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:updates:UpdateSizeConstraintSet' :: NonEmpty SizeConstraintSetUpdate
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3Aupdates%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">updates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty SizeConstraintSetUpdate)
+  (Identity (NonEmpty SizeConstraintSetUpdate))
+-&gt; Tagged
+     (NonEmpty SizeConstraintSetUpdate)
+     (Identity (NonEmpty SizeConstraintSetUpdate))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty SizeConstraintSetUpdate)
+   (Identity (NonEmpty SizeConstraintSetUpdate))
+ -&gt; Tagged
+      (NonEmpty SizeConstraintSetUpdate)
+      (Identity (NonEmpty SizeConstraintSetUpdate)))
+-&gt; NonEmpty SizeConstraintSetUpdate
+-&gt; NonEmpty SizeConstraintSetUpdate
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326205"><span class="hs-identifier hs-var">pUpdates_</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- update. @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- by ListSizeConstraintSets.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_sizeConstraintSetId"><span class="hs-identifier hs-type">updateSizeConstraintSet_sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="updateSizeConstraintSet_sizeConstraintSetId"><span class="annot"><span class="annottext">updateSizeConstraintSet_sizeConstraintSetId :: (Text -&gt; f Text)
+-&gt; UpdateSizeConstraintSet -&gt; f UpdateSizeConstraintSet
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_sizeConstraintSetId"><span class="hs-identifier hs-var hs-var">updateSizeConstraintSet_sizeConstraintSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSizeConstraintSet -&gt; Text)
+-&gt; (UpdateSizeConstraintSet -&gt; Text -&gt; UpdateSizeConstraintSet)
+-&gt; Lens UpdateSizeConstraintSet UpdateSizeConstraintSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326200"><span class="annot"><span class="annottext">Text
+sizeConstraintSetId :: Text
+$sel:sizeConstraintSetId:UpdateSizeConstraintSet' :: UpdateSizeConstraintSet -&gt; Text
+</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var hs-var">sizeConstraintSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326199"><span class="annot"><span class="annottext">s :: UpdateSizeConstraintSet
+</span><a href="#local-6989586621679326199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326198"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSizeConstraintSet
+</span><a href="#local-6989586621679326199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:UpdateSizeConstraintSet' :: Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_changeToken"><span class="hs-identifier hs-type">updateSizeConstraintSet_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="updateSizeConstraintSet_changeToken"><span class="annot"><span class="annottext">updateSizeConstraintSet_changeToken :: (Text -&gt; f Text)
+-&gt; UpdateSizeConstraintSet -&gt; f UpdateSizeConstraintSet
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_changeToken"><span class="hs-identifier hs-var hs-var">updateSizeConstraintSet_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSizeConstraintSet -&gt; Text)
+-&gt; (UpdateSizeConstraintSet -&gt; Text -&gt; UpdateSizeConstraintSet)
+-&gt; Lens UpdateSizeConstraintSet UpdateSizeConstraintSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326197"><span class="annot"><span class="annottext">Text
+changeToken :: Text
+$sel:changeToken:UpdateSizeConstraintSet' :: UpdateSizeConstraintSet -&gt; Text
+</span><a href="#local-6989586621679326197"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326197"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326196"><span class="annot"><span class="annottext">s :: UpdateSizeConstraintSet
+</span><a href="#local-6989586621679326196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSizeConstraintSet
+</span><a href="#local-6989586621679326196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:UpdateSizeConstraintSet' :: Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AchangeToken%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | An array of @SizeConstraintSetUpdate@ objects that you want to insert</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- into or delete from a SizeConstraintSet. For more information, see the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- applicable data types:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   SizeConstraintSetUpdate: Contains @Action@ and @SizeConstraint@</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   SizeConstraint: Contains @FieldToMatch@, @TextTransformation@,</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     @ComparisonOperator@, and @Size@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   FieldToMatch: Contains @Data@ and @Type@</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_updates"><span class="hs-identifier hs-type">updateSizeConstraintSet_updates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSetUpdate.html#SizeConstraintSetUpdate"><span class="hs-identifier hs-type">SizeConstraintSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="updateSizeConstraintSet_updates"><span class="annot"><span class="annottext">updateSizeConstraintSet_updates :: (NonEmpty SizeConstraintSetUpdate
+ -&gt; f (NonEmpty SizeConstraintSetUpdate))
+-&gt; UpdateSizeConstraintSet -&gt; f UpdateSizeConstraintSet
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSet_updates"><span class="hs-identifier hs-var hs-var">updateSizeConstraintSet_updates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSizeConstraintSet -&gt; NonEmpty SizeConstraintSetUpdate)
+-&gt; (UpdateSizeConstraintSet
+    -&gt; NonEmpty SizeConstraintSetUpdate -&gt; UpdateSizeConstraintSet)
+-&gt; Lens
+     UpdateSizeConstraintSet
+     UpdateSizeConstraintSet
+     (NonEmpty SizeConstraintSetUpdate)
+     (NonEmpty SizeConstraintSetUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326194"><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+updates :: NonEmpty SizeConstraintSetUpdate
+$sel:updates:UpdateSizeConstraintSet' :: UpdateSizeConstraintSet -&gt; NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326194"><span class="hs-identifier hs-var hs-var">updates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326194"><span class="hs-identifier hs-var">updates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326193"><span class="annot"><span class="annottext">s :: UpdateSizeConstraintSet
+</span><a href="#local-6989586621679326193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326192"><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSizeConstraintSet
+</span><a href="#local-6989586621679326193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updates:UpdateSizeConstraintSet' :: NonEmpty SizeConstraintSetUpdate
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3Aupdates%3AUpdateSizeConstraintSet%27"><span class="hs-identifier hs-var">updates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty SizeConstraintSetUpdate
+  -&gt; f (NonEmpty SizeConstraintSetUpdate))
+ -&gt; UpdateSizeConstraintSet -&gt; f UpdateSizeConstraintSet)
+-&gt; ((NonEmpty SizeConstraintSetUpdate
+     -&gt; f (NonEmpty SizeConstraintSetUpdate))
+    -&gt; NonEmpty SizeConstraintSetUpdate
+    -&gt; f (NonEmpty SizeConstraintSetUpdate))
+-&gt; (NonEmpty SizeConstraintSetUpdate
+    -&gt; f (NonEmpty SizeConstraintSetUpdate))
+-&gt; UpdateSizeConstraintSet
+-&gt; f UpdateSizeConstraintSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty SizeConstraintSetUpdate
+ -&gt; f (NonEmpty SizeConstraintSetUpdate))
+-&gt; NonEmpty SizeConstraintSetUpdate
+-&gt; f (NonEmpty SizeConstraintSetUpdate)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-197"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679326187"><span class="annot"><span class="annottext">request :: UpdateSizeConstraintSet -&gt; Request UpdateSizeConstraintSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateSizeConstraintSet -&gt; Request UpdateSizeConstraintSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679326183"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSizeConstraintSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSizeConstraintSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSizeConstraintSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSizeConstraintSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSizeConstraintSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326180"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326180"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326179"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679326179"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326178"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326178"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateSizeConstraintSetResponse
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var">UpdateSizeConstraintSetResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateSizeConstraintSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateSizeConstraintSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326178"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateSizeConstraintSetResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateSizeConstraintSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326180"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326170"><span id="local-6989586621679326172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679326163"><span class="annot"><span class="annottext">toHeaders :: UpdateSizeConstraintSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSizeConstraintSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSWAF_20150824.UpdateSizeConstraintSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-223"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326153"><span id="local-6989586621679326155"><span id="local-6989586621679326157"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679326151"><span class="annot"><span class="annottext">toJSON :: UpdateSizeConstraintSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326147"><span id="local-6989586621679326148"><span id="local-6989586621679326149"><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+Text
+updates :: NonEmpty SizeConstraintSetUpdate
+changeToken :: Text
+sizeConstraintSetId :: Text
+$sel:updates:UpdateSizeConstraintSet' :: UpdateSizeConstraintSet -&gt; NonEmpty SizeConstraintSetUpdate
+$sel:changeToken:UpdateSizeConstraintSet' :: UpdateSizeConstraintSet -&gt; Text
+$sel:sizeConstraintSetId:UpdateSizeConstraintSet' :: UpdateSizeConstraintSet -&gt; Text
+</span><a href="#local-6989586621679326147"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-232"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SizeConstraintSetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326149"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326148"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Updates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty SizeConstraintSetUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty SizeConstraintSetUpdate
+</span><a href="#local-6989586621679326147"><span class="hs-identifier hs-var">updates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679326141"><span class="annot"><span class="annottext">toPath :: UpdateSizeConstraintSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSizeConstraintSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSet"><span class="hs-identifier hs-type">UpdateSizeConstraintSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679326137"><span class="annot"><span class="annottext">toQuery :: UpdateSizeConstraintSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSizeConstraintSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | /See:/ 'newUpdateSizeConstraintSetResponse' smart constructor.</span><span>
+</span><span id="line-245"></span><span id="local-6989586621679326134"><span id="local-6989586621679326135"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSizeConstraintSetResponse"><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-var">UpdateSizeConstraintSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSizeConstraintSetResponse%27"><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var">UpdateSizeConstraintSetResponse'</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- request. You can also use this value to query the status of the request.</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- For more information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-249"></span><span>    </span><span id="%24sel%3AchangeToken%3AUpdateSizeConstraintSetResponse%27"><span class="annot"><span class="annottext">UpdateSizeConstraintSetResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AchangeToken%3AUpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSizeConstraintSetResponse%27"><span class="annot"><span class="annottext">UpdateSizeConstraintSetResponse -&gt; Int
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AhttpStatus%3AUpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326128"><span id="local-6989586621679326130"><span class="annot"><span class="annottext">UpdateSizeConstraintSetResponse
+-&gt; UpdateSizeConstraintSetResponse -&gt; Bool
+(UpdateSizeConstraintSetResponse
+ -&gt; UpdateSizeConstraintSetResponse -&gt; Bool)
+-&gt; (UpdateSizeConstraintSetResponse
+    -&gt; UpdateSizeConstraintSetResponse -&gt; Bool)
+-&gt; Eq UpdateSizeConstraintSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSizeConstraintSetResponse
+-&gt; UpdateSizeConstraintSetResponse -&gt; Bool
+$c/= :: UpdateSizeConstraintSetResponse
+-&gt; UpdateSizeConstraintSetResponse -&gt; Bool
+== :: UpdateSizeConstraintSetResponse
+-&gt; UpdateSizeConstraintSetResponse -&gt; Bool
+$c== :: UpdateSizeConstraintSetResponse
+-&gt; UpdateSizeConstraintSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326120"><span id="local-6989586621679326122"><span id="local-6989586621679326124"><span id="local-6989586621679326126"><span class="annot"><span class="annottext">ReadPrec [UpdateSizeConstraintSetResponse]
+ReadPrec UpdateSizeConstraintSetResponse
+Int -&gt; ReadS UpdateSizeConstraintSetResponse
+ReadS [UpdateSizeConstraintSetResponse]
+(Int -&gt; ReadS UpdateSizeConstraintSetResponse)
+-&gt; ReadS [UpdateSizeConstraintSetResponse]
+-&gt; ReadPrec UpdateSizeConstraintSetResponse
+-&gt; ReadPrec [UpdateSizeConstraintSetResponse]
+-&gt; Read UpdateSizeConstraintSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSizeConstraintSetResponse]
+$creadListPrec :: ReadPrec [UpdateSizeConstraintSetResponse]
+readPrec :: ReadPrec UpdateSizeConstraintSetResponse
+$creadPrec :: ReadPrec UpdateSizeConstraintSetResponse
+readList :: ReadS [UpdateSizeConstraintSetResponse]
+$creadList :: ReadS [UpdateSizeConstraintSetResponse]
+readsPrec :: Int -&gt; ReadS UpdateSizeConstraintSetResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSizeConstraintSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326114"><span id="local-6989586621679326116"><span id="local-6989586621679326118"><span class="annot"><span class="annottext">Int -&gt; UpdateSizeConstraintSetResponse -&gt; ShowS
+[UpdateSizeConstraintSetResponse] -&gt; ShowS
+UpdateSizeConstraintSetResponse -&gt; String
+(Int -&gt; UpdateSizeConstraintSetResponse -&gt; ShowS)
+-&gt; (UpdateSizeConstraintSetResponse -&gt; String)
+-&gt; ([UpdateSizeConstraintSetResponse] -&gt; ShowS)
+-&gt; Show UpdateSizeConstraintSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSizeConstraintSetResponse] -&gt; ShowS
+$cshowList :: [UpdateSizeConstraintSetResponse] -&gt; ShowS
+show :: UpdateSizeConstraintSetResponse -&gt; String
+$cshow :: UpdateSizeConstraintSetResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSizeConstraintSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSizeConstraintSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSizeConstraintSetResponse
+ -&gt; Rep UpdateSizeConstraintSetResponse x)
+-&gt; (forall x.
+    Rep UpdateSizeConstraintSetResponse x
+    -&gt; UpdateSizeConstraintSetResponse)
+-&gt; Generic UpdateSizeConstraintSetResponse
+forall x.
+Rep UpdateSizeConstraintSetResponse x
+-&gt; UpdateSizeConstraintSetResponse
+forall x.
+UpdateSizeConstraintSetResponse
+-&gt; Rep UpdateSizeConstraintSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateSizeConstraintSetResponse x
+-&gt; UpdateSizeConstraintSetResponse
+$cfrom :: forall x.
+UpdateSizeConstraintSetResponse
+-&gt; Rep UpdateSizeConstraintSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- Create a value of 'UpdateSizeConstraintSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'changeToken', 'updateSizeConstraintSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- request. You can also use this value to query the status of the request.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- For more information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'httpStatus', 'updateSizeConstraintSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#newUpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">newUpdateSizeConstraintSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span><span>
+</span><span id="line-272"></span><span id="newUpdateSizeConstraintSetResponse"><span class="annot"><span class="annottext">newUpdateSizeConstraintSetResponse :: Int -&gt; UpdateSizeConstraintSetResponse
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#newUpdateSizeConstraintSetResponse"><span class="hs-identifier hs-var hs-var">newUpdateSizeConstraintSetResponse</span></a></span></span><span> </span><span id="local-6989586621679326111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><span class="annottext">UpdateSizeConstraintSetResponse' :: Maybe Text -&gt; Int -&gt; UpdateSizeConstraintSetResponse
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse'</span></a></span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeToken:UpdateSizeConstraintSetResponse' :: Maybe Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AchangeToken%3AUpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSizeConstraintSetResponse' :: Int
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AhttpStatus%3AUpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- request. You can also use this value to query the status of the request.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- For more information, see GetChangeTokenStatus.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSetResponse_changeToken"><span class="hs-identifier hs-type">updateSizeConstraintSetResponse_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="updateSizeConstraintSetResponse_changeToken"><span class="annot"><span class="annottext">updateSizeConstraintSetResponse_changeToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateSizeConstraintSetResponse
+-&gt; f UpdateSizeConstraintSetResponse
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSetResponse_changeToken"><span class="hs-identifier hs-var hs-var">updateSizeConstraintSetResponse_changeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSizeConstraintSetResponse -&gt; Maybe Text)
+-&gt; (UpdateSizeConstraintSetResponse
+    -&gt; Maybe Text -&gt; UpdateSizeConstraintSetResponse)
+-&gt; Lens
+     UpdateSizeConstraintSetResponse
+     UpdateSizeConstraintSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326110"><span class="annot"><span class="annottext">Maybe Text
+changeToken :: Maybe Text
+$sel:changeToken:UpdateSizeConstraintSetResponse' :: UpdateSizeConstraintSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679326110"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326110"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326109"><span class="annot"><span class="annottext">s :: UpdateSizeConstraintSetResponse
+</span><a href="#local-6989586621679326109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSizeConstraintSetResponse
+</span><a href="#local-6989586621679326109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:UpdateSizeConstraintSetResponse' :: Maybe Text
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AchangeToken%3AUpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSetResponse_httpStatus"><span class="hs-identifier hs-type">updateSizeConstraintSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-287"></span><span id="updateSizeConstraintSetResponse_httpStatus"><span class="annot"><span class="annottext">updateSizeConstraintSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateSizeConstraintSetResponse
+-&gt; f UpdateSizeConstraintSetResponse
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#updateSizeConstraintSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSizeConstraintSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSizeConstraintSetResponse -&gt; Int)
+-&gt; (UpdateSizeConstraintSetResponse
+    -&gt; Int -&gt; UpdateSizeConstraintSetResponse)
+-&gt; Lens
+     UpdateSizeConstraintSetResponse
+     UpdateSizeConstraintSetResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326107"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSizeConstraintSetResponse' :: UpdateSizeConstraintSetResponse -&gt; Int
+</span><a href="#local-6989586621679326107"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326107"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326106"><span class="annot"><span class="annottext">s :: UpdateSizeConstraintSetResponse
+</span><a href="#local-6989586621679326106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSizeConstraintSetResponse
+</span><a href="#local-6989586621679326106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSizeConstraintSetResponse' :: Int
+</span><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#%24sel%3AhttpStatus%3AUpdateSizeConstraintSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679326103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.UpdateSizeConstraintSet.html#UpdateSizeConstraintSetResponse"><span class="hs-identifier hs-type">UpdateSizeConstraintSetResponse</span></a></span></span><span>
+</span><span id="line-292"></span></pre></body></html>

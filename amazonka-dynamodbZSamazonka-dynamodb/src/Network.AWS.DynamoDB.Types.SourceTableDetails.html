@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DynamoDB.Types.SourceTableDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DynamoDB.Types.SourceTableDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.BillingMode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.KeySchemaElement</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html"><span class="hs-identifier">Network.AWS.DynamoDB.Types.ProvisionedThroughput</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains the details of the table when the backup was created.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSourceTableDetails' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679381147"><span id="local-6989586621679381148"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceTableDetails"><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-var">SourceTableDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceTableDetails%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-var">SourceTableDetails'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of the table for which backup was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtableArn%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableArn%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Controls how you are charged for read and write throughput and how you</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- manage capacity. This setting can be changed later.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @PROVISIONED@ - Sets the read\/write capacity mode to @PROVISIONED@.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     We recommend using @PROVISIONED@ for predictable workloads.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     unpredictable workloads.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AbillingMode%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; Maybe BillingMode
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AbillingMode%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">billingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Size of the table in bytes. Note that this is an approximate value.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AtableSizeBytes%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; Maybe Integer
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableSizeBytes%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">tableSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Number of items in the table. Note that this is an approximate value.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AitemCount%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AitemCount%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">itemCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the table for which the backup was created.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtableName%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableName%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Unique identifier for the table for which the backup was created.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AtableId%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableId%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">tableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Schema of the table.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AkeySchema%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; NonEmpty KeySchemaElement
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AkeySchema%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Time when the source table was created.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtableCreationDateTime%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; POSIX
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableCreationDateTime%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">tableCreationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Read IOPs and Write IOPS on the table when the backup was created.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AprovisionedThroughput%3ASourceTableDetails%27"><span class="annot"><span class="annottext">SourceTableDetails -&gt; ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AprovisionedThroughput%3ASourceTableDetails%27"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381133"><span id="local-6989586621679381135"><span class="annot"><span class="annottext">SourceTableDetails -&gt; SourceTableDetails -&gt; Bool
+(SourceTableDetails -&gt; SourceTableDetails -&gt; Bool)
+-&gt; (SourceTableDetails -&gt; SourceTableDetails -&gt; Bool)
+-&gt; Eq SourceTableDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceTableDetails -&gt; SourceTableDetails -&gt; Bool
+$c/= :: SourceTableDetails -&gt; SourceTableDetails -&gt; Bool
+== :: SourceTableDetails -&gt; SourceTableDetails -&gt; Bool
+$c== :: SourceTableDetails -&gt; SourceTableDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381124"><span id="local-6989586621679381126"><span id="local-6989586621679381128"><span id="local-6989586621679381130"><span class="annot"><span class="annottext">ReadPrec [SourceTableDetails]
+ReadPrec SourceTableDetails
+Int -&gt; ReadS SourceTableDetails
+ReadS [SourceTableDetails]
+(Int -&gt; ReadS SourceTableDetails)
+-&gt; ReadS [SourceTableDetails]
+-&gt; ReadPrec SourceTableDetails
+-&gt; ReadPrec [SourceTableDetails]
+-&gt; Read SourceTableDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceTableDetails]
+$creadListPrec :: ReadPrec [SourceTableDetails]
+readPrec :: ReadPrec SourceTableDetails
+$creadPrec :: ReadPrec SourceTableDetails
+readList :: ReadS [SourceTableDetails]
+$creadList :: ReadS [SourceTableDetails]
+readsPrec :: Int -&gt; ReadS SourceTableDetails
+$creadsPrec :: Int -&gt; ReadS SourceTableDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381117"><span id="local-6989586621679381119"><span id="local-6989586621679381121"><span class="annot"><span class="annottext">Int -&gt; SourceTableDetails -&gt; ShowS
+[SourceTableDetails] -&gt; ShowS
+SourceTableDetails -&gt; String
+(Int -&gt; SourceTableDetails -&gt; ShowS)
+-&gt; (SourceTableDetails -&gt; String)
+-&gt; ([SourceTableDetails] -&gt; ShowS)
+-&gt; Show SourceTableDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceTableDetails] -&gt; ShowS
+$cshowList :: [SourceTableDetails] -&gt; ShowS
+show :: SourceTableDetails -&gt; String
+$cshow :: SourceTableDetails -&gt; String
+showsPrec :: Int -&gt; SourceTableDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceTableDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SourceTableDetails -&gt; Rep SourceTableDetails x)
+-&gt; (forall x. Rep SourceTableDetails x -&gt; SourceTableDetails)
+-&gt; Generic SourceTableDetails
+forall x. Rep SourceTableDetails x -&gt; SourceTableDetails
+forall x. SourceTableDetails -&gt; Rep SourceTableDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceTableDetails x -&gt; SourceTableDetails
+$cfrom :: forall x. SourceTableDetails -&gt; Rep SourceTableDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'SourceTableDetails' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'tableArn', 'sourceTableDetails_tableArn' - ARN of the table for which backup was created.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'billingMode', 'sourceTableDetails_billingMode' - Controls how you are charged for read and write throughput and how you</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- manage capacity. This setting can be changed later.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- -   @PROVISIONED@ - Sets the read\/write capacity mode to @PROVISIONED@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--     We recommend using @PROVISIONED@ for predictable workloads.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--     unpredictable workloads.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tableSizeBytes', 'sourceTableDetails_tableSizeBytes' - Size of the table in bytes. Note that this is an approximate value.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'itemCount', 'sourceTableDetails_itemCount' - Number of items in the table. Note that this is an approximate value.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'tableName', 'sourceTableDetails_tableName' - The name of the table for which the backup was created.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'tableId', 'sourceTableDetails_tableId' - Unique identifier for the table for which the backup was created.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'keySchema', 'sourceTableDetails_keySchema' - Schema of the table.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'tableCreationDateTime', 'sourceTableDetails_tableCreationDateTime' - Time when the source table was created.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'provisionedThroughput', 'sourceTableDetails_provisionedThroughput' - Read IOPs and Write IOPS on the table when the backup was created.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#newSourceTableDetails"><span class="hs-identifier hs-type">newSourceTableDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'tableId'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'keySchema'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'tableCreationDateTime'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'provisionedThroughput'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span>
+</span><span id="line-107"></span><span id="newSourceTableDetails"><span class="annot"><span class="annottext">newSourceTableDetails :: Text
+-&gt; Text
+-&gt; NonEmpty KeySchemaElement
+-&gt; UTCTime
+-&gt; ProvisionedThroughput
+-&gt; SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#newSourceTableDetails"><span class="hs-identifier hs-var hs-var">newSourceTableDetails</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679381111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381111"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679381110"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381110"><span class="hs-identifier hs-var">pTableId_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679381109"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679381109"><span class="hs-identifier hs-var">pKeySchema_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679381108"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679381108"><span class="hs-identifier hs-var">pTableCreationDateTime_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679381107"><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679381107"><span class="hs-identifier hs-var">pProvisionedThroughput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">SourceTableDetails' :: Maybe Text
+-&gt; Maybe BillingMode
+-&gt; Maybe Integer
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty KeySchemaElement
+-&gt; POSIX
+-&gt; ProvisionedThroughput
+-&gt; SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableArn:SourceTableDetails' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableArn%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:billingMode:SourceTableDetails' :: Maybe BillingMode
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AbillingMode%3ASourceTableDetails%27"><span class="hs-identifier hs-var">billingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableSizeBytes:SourceTableDetails' :: Maybe Integer
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableSizeBytes%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:itemCount:SourceTableDetails' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AitemCount%3ASourceTableDetails%27"><span class="hs-identifier hs-var">itemCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:SourceTableDetails' :: Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableName%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381111"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableId:SourceTableDetails' :: Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableId%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381110"><span class="hs-identifier hs-var">pTableId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:keySchema:SourceTableDetails' :: NonEmpty KeySchemaElement
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AkeySchema%3ASourceTableDetails%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
+-&gt; Tagged
+     (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
+ -&gt; Tagged
+      (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement)))
+-&gt; NonEmpty KeySchemaElement -&gt; NonEmpty KeySchemaElement
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679381109"><span class="hs-identifier hs-var">pKeySchema_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableCreationDateTime:SourceTableDetails' :: POSIX
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableCreationDateTime%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableCreationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679381108"><span class="hs-identifier hs-var">pTableCreationDateTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:provisionedThroughput:SourceTableDetails' :: ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AprovisionedThroughput%3ASourceTableDetails%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679381107"><span class="hs-identifier hs-var">pProvisionedThroughput_</span></a></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | ARN of the table for which backup was created.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableArn"><span class="hs-identifier hs-type">sourceTableDetails_tableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="sourceTableDetails_tableArn"><span class="annot"><span class="annottext">sourceTableDetails_tableArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableArn"><span class="hs-identifier hs-var hs-var">sourceTableDetails_tableArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; Maybe Text)
+-&gt; (SourceTableDetails -&gt; Maybe Text -&gt; SourceTableDetails)
+-&gt; Lens
+     SourceTableDetails SourceTableDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381100"><span class="annot"><span class="annottext">Maybe Text
+tableArn :: Maybe Text
+$sel:tableArn:SourceTableDetails' :: SourceTableDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679381100"><span class="hs-identifier hs-var hs-var">tableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381100"><span class="hs-identifier hs-var">tableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381099"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableArn:SourceTableDetails' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableArn%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Controls how you are charged for read and write throughput and how you</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- manage capacity. This setting can be changed later.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @PROVISIONED@ - Sets the read\/write capacity mode to @PROVISIONED@.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     We recommend using @PROVISIONED@ for predictable workloads.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     unpredictable workloads.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_billingMode"><span class="hs-identifier hs-type">sourceTableDetails_billingMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="sourceTableDetails_billingMode"><span class="annot"><span class="annottext">sourceTableDetails_billingMode :: (Maybe BillingMode -&gt; f (Maybe BillingMode))
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_billingMode"><span class="hs-identifier hs-var hs-var">sourceTableDetails_billingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; Maybe BillingMode)
+-&gt; (SourceTableDetails -&gt; Maybe BillingMode -&gt; SourceTableDetails)
+-&gt; Lens
+     SourceTableDetails
+     SourceTableDetails
+     (Maybe BillingMode)
+     (Maybe BillingMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381096"><span class="annot"><span class="annottext">Maybe BillingMode
+billingMode :: Maybe BillingMode
+$sel:billingMode:SourceTableDetails' :: SourceTableDetails -&gt; Maybe BillingMode
+</span><a href="#local-6989586621679381096"><span class="hs-identifier hs-var hs-var">billingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679381096"><span class="hs-identifier hs-var">billingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381095"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381094"><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679381094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingMode:SourceTableDetails' :: Maybe BillingMode
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AbillingMode%3ASourceTableDetails%27"><span class="hs-identifier hs-var">billingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679381094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Size of the table in bytes. Note that this is an approximate value.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableSizeBytes"><span class="hs-identifier hs-type">sourceTableDetails_tableSizeBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="sourceTableDetails_tableSizeBytes"><span class="annot"><span class="annottext">sourceTableDetails_tableSizeBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableSizeBytes"><span class="hs-identifier hs-var hs-var">sourceTableDetails_tableSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; Maybe Integer)
+-&gt; (SourceTableDetails -&gt; Maybe Integer -&gt; SourceTableDetails)
+-&gt; Lens
+     SourceTableDetails
+     SourceTableDetails
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381092"><span class="annot"><span class="annottext">Maybe Integer
+tableSizeBytes :: Maybe Integer
+$sel:tableSizeBytes:SourceTableDetails' :: SourceTableDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679381092"><span class="hs-identifier hs-var hs-var">tableSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679381092"><span class="hs-identifier hs-var">tableSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381091"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381090"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679381090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableSizeBytes:SourceTableDetails' :: Maybe Integer
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableSizeBytes%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679381090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Number of items in the table. Note that this is an approximate value.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_itemCount"><span class="hs-identifier hs-type">sourceTableDetails_itemCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="sourceTableDetails_itemCount"><span class="annot"><span class="annottext">sourceTableDetails_itemCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_itemCount"><span class="hs-identifier hs-var hs-var">sourceTableDetails_itemCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; Maybe Natural)
+-&gt; (SourceTableDetails -&gt; Maybe Natural -&gt; SourceTableDetails)
+-&gt; Lens
+     SourceTableDetails
+     SourceTableDetails
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381088"><span class="annot"><span class="annottext">Maybe Natural
+itemCount :: Maybe Natural
+$sel:itemCount:SourceTableDetails' :: SourceTableDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679381088"><span class="hs-identifier hs-var hs-var">itemCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381088"><span class="hs-identifier hs-var">itemCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381087"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381086"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCount:SourceTableDetails' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AitemCount%3ASourceTableDetails%27"><span class="hs-identifier hs-var">itemCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The name of the table for which the backup was created.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableName"><span class="hs-identifier hs-type">sourceTableDetails_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="sourceTableDetails_tableName"><span class="annot"><span class="annottext">sourceTableDetails_tableName :: (Text -&gt; f Text) -&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableName"><span class="hs-identifier hs-var hs-var">sourceTableDetails_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; Text)
+-&gt; (SourceTableDetails -&gt; Text -&gt; SourceTableDetails)
+-&gt; Lens SourceTableDetails SourceTableDetails Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381084"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:SourceTableDetails' :: SourceTableDetails -&gt; Text
+</span><a href="#local-6989586621679381084"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381084"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381083"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:SourceTableDetails' :: Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableName%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Unique identifier for the table for which the backup was created.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableId"><span class="hs-identifier hs-type">sourceTableDetails_tableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="sourceTableDetails_tableId"><span class="annot"><span class="annottext">sourceTableDetails_tableId :: (Text -&gt; f Text) -&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableId"><span class="hs-identifier hs-var hs-var">sourceTableDetails_tableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; Text)
+-&gt; (SourceTableDetails -&gt; Text -&gt; SourceTableDetails)
+-&gt; Lens SourceTableDetails SourceTableDetails Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381080"><span class="annot"><span class="annottext">Text
+tableId :: Text
+$sel:tableId:SourceTableDetails' :: SourceTableDetails -&gt; Text
+</span><a href="#local-6989586621679381080"><span class="hs-identifier hs-var hs-var">tableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381080"><span class="hs-identifier hs-var">tableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381079"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableId:SourceTableDetails' :: Text
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableId%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Schema of the table.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_keySchema"><span class="hs-identifier hs-type">sourceTableDetails_keySchema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="sourceTableDetails_keySchema"><span class="annot"><span class="annottext">sourceTableDetails_keySchema :: (NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_keySchema"><span class="hs-identifier hs-var hs-var">sourceTableDetails_keySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; NonEmpty KeySchemaElement)
+-&gt; (SourceTableDetails
+    -&gt; NonEmpty KeySchemaElement -&gt; SourceTableDetails)
+-&gt; Lens
+     SourceTableDetails
+     SourceTableDetails
+     (NonEmpty KeySchemaElement)
+     (NonEmpty KeySchemaElement)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381076"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+keySchema :: NonEmpty KeySchemaElement
+$sel:keySchema:SourceTableDetails' :: SourceTableDetails -&gt; NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679381076"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679381076"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381075"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381074"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679381074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:SourceTableDetails' :: NonEmpty KeySchemaElement
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AkeySchema%3ASourceTableDetails%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679381074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+ -&gt; SourceTableDetails -&gt; f SourceTableDetails)
+-&gt; ((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+    -&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; (NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; SourceTableDetails
+-&gt; f SourceTableDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+-&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Time when the source table was created.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableCreationDateTime"><span class="hs-identifier hs-type">sourceTableDetails_tableCreationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-164"></span><span id="sourceTableDetails_tableCreationDateTime"><span class="annot"><span class="annottext">sourceTableDetails_tableCreationDateTime :: (UTCTime -&gt; f UTCTime)
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_tableCreationDateTime"><span class="hs-identifier hs-var hs-var">sourceTableDetails_tableCreationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; POSIX)
+-&gt; (SourceTableDetails -&gt; POSIX -&gt; SourceTableDetails)
+-&gt; Lens SourceTableDetails SourceTableDetails POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381071"><span class="annot"><span class="annottext">POSIX
+tableCreationDateTime :: POSIX
+$sel:tableCreationDateTime:SourceTableDetails' :: SourceTableDetails -&gt; POSIX
+</span><a href="#local-6989586621679381071"><span class="hs-identifier hs-var hs-var">tableCreationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679381071"><span class="hs-identifier hs-var">tableCreationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381070"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381069"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679381069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableCreationDateTime:SourceTableDetails' :: POSIX
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AtableCreationDateTime%3ASourceTableDetails%27"><span class="hs-identifier hs-var">tableCreationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679381069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; SourceTableDetails -&gt; f SourceTableDetails)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; SourceTableDetails
+-&gt; f SourceTableDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Read IOPs and Write IOPS on the table when the backup was created.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_provisionedThroughput"><span class="hs-identifier hs-type">sourceTableDetails_provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughput.html#ProvisionedThroughput"><span class="hs-identifier hs-type">ProvisionedThroughput</span></a></span><span>
+</span><span id="line-168"></span><span id="sourceTableDetails_provisionedThroughput"><span class="annot"><span class="annottext">sourceTableDetails_provisionedThroughput :: (ProvisionedThroughput -&gt; f ProvisionedThroughput)
+-&gt; SourceTableDetails -&gt; f SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#sourceTableDetails_provisionedThroughput"><span class="hs-identifier hs-var hs-var">sourceTableDetails_provisionedThroughput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceTableDetails -&gt; ProvisionedThroughput)
+-&gt; (SourceTableDetails
+    -&gt; ProvisionedThroughput -&gt; SourceTableDetails)
+-&gt; Lens
+     SourceTableDetails
+     SourceTableDetails
+     ProvisionedThroughput
+     ProvisionedThroughput
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381067"><span class="annot"><span class="annottext">ProvisionedThroughput
+provisionedThroughput :: ProvisionedThroughput
+$sel:provisionedThroughput:SourceTableDetails' :: SourceTableDetails -&gt; ProvisionedThroughput
+</span><a href="#local-6989586621679381067"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679381067"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381066"><span class="annot"><span class="annottext">s :: SourceTableDetails
+</span><a href="#local-6989586621679381066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-type">SourceTableDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381065"><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679381065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceTableDetails
+</span><a href="#local-6989586621679381066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughput:SourceTableDetails' :: ProvisionedThroughput
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#%24sel%3AprovisionedThroughput%3ASourceTableDetails%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughput
+</span><a href="#local-6989586621679381065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381062"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679381060"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceTableDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SourceTableDetails)
+-&gt; Value
+-&gt; Parser SourceTableDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SourceTableDetails&quot;</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381057"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe BillingMode
+-&gt; Maybe Integer
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty KeySchemaElement
+-&gt; POSIX
+-&gt; ProvisionedThroughput
+-&gt; SourceTableDetails
+</span><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails%27"><span class="hs-identifier hs-var">SourceTableDetails'</span></a></span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe BillingMode
+ -&gt; Maybe Integer
+ -&gt; Maybe Natural
+ -&gt; Text
+ -&gt; Text
+ -&gt; NonEmpty KeySchemaElement
+ -&gt; POSIX
+ -&gt; ProvisionedThroughput
+ -&gt; SourceTableDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe BillingMode
+      -&gt; Maybe Integer
+      -&gt; Maybe Natural
+      -&gt; Text
+      -&gt; Text
+      -&gt; NonEmpty KeySchemaElement
+      -&gt; POSIX
+      -&gt; ProvisionedThroughput
+      -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BillingMode
+   -&gt; Maybe Integer
+   -&gt; Maybe Natural
+   -&gt; Text
+   -&gt; Text
+   -&gt; NonEmpty KeySchemaElement
+   -&gt; POSIX
+   -&gt; ProvisionedThroughput
+   -&gt; SourceTableDetails)
+-&gt; Parser (Maybe BillingMode)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Natural
+      -&gt; Text
+      -&gt; Text
+      -&gt; NonEmpty KeySchemaElement
+      -&gt; POSIX
+      -&gt; ProvisionedThroughput
+      -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BillingMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BillingMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Natural
+   -&gt; Text
+   -&gt; Text
+   -&gt; NonEmpty KeySchemaElement
+   -&gt; POSIX
+   -&gt; ProvisionedThroughput
+   -&gt; SourceTableDetails)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Text
+      -&gt; Text
+      -&gt; NonEmpty KeySchemaElement
+      -&gt; POSIX
+      -&gt; ProvisionedThroughput
+      -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Text
+   -&gt; Text
+   -&gt; NonEmpty KeySchemaElement
+   -&gt; POSIX
+   -&gt; ProvisionedThroughput
+   -&gt; SourceTableDetails)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; NonEmpty KeySchemaElement
+      -&gt; POSIX
+      -&gt; ProvisionedThroughput
+      -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ItemCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; NonEmpty KeySchemaElement
+   -&gt; POSIX
+   -&gt; ProvisionedThroughput
+   -&gt; SourceTableDetails)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; NonEmpty KeySchemaElement
+      -&gt; POSIX
+      -&gt; ProvisionedThroughput
+      -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; NonEmpty KeySchemaElement
+   -&gt; POSIX
+   -&gt; ProvisionedThroughput
+   -&gt; SourceTableDetails)
+-&gt; Parser Text
+-&gt; Parser
+     (NonEmpty KeySchemaElement
+      -&gt; POSIX -&gt; ProvisionedThroughput -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (NonEmpty KeySchemaElement
+   -&gt; POSIX -&gt; ProvisionedThroughput -&gt; SourceTableDetails)
+-&gt; Parser (NonEmpty KeySchemaElement)
+-&gt; Parser (POSIX -&gt; ProvisionedThroughput -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty KeySchemaElement)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeySchema&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; ProvisionedThroughput -&gt; SourceTableDetails)
+-&gt; Parser POSIX
+-&gt; Parser (ProvisionedThroughput -&gt; SourceTableDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableCreationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser (ProvisionedThroughput -&gt; SourceTableDetails)
+-&gt; Parser ProvisionedThroughput -&gt; Parser SourceTableDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381057"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProvisionedThroughput
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedThroughput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381050"><span id="local-6989586621679381052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.SourceTableDetails.html#SourceTableDetails"><span class="hs-identifier hs-type">SourceTableDetails</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

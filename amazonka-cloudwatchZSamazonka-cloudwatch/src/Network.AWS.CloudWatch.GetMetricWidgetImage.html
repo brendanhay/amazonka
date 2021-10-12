@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatch.GetMetricWidgetImage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- You can use the @GetMetricWidgetImage@ API to retrieve a snapshot graph</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- of one or more Amazon CloudWatch metrics as a bitmap image. You can then</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- embed this image into your services and products, such as wiki pages,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- reports, and documents. You could also retrieve images regularly, such</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- as every minute, and create your own custom live dashboard.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- The graph you retrieve can include all CloudWatch metric graph features,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- including metric math and horizontal and vertical annotations.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- There is a limit of 20 transactions per second for this API. Each</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @GetMetricWidgetImage@ action has the following limits:</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   As many as 100 metrics in the graph.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   Up to 100 KB uncompressed payload.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatch.GetMetricWidgetImage</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#newGetMetricWidgetImage"><span class="hs-identifier">newGetMetricWidgetImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImage_outputFormat"><span class="hs-identifier">getMetricWidgetImage_outputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImage_metricWidget"><span class="hs-identifier">getMetricWidgetImage_metricWidget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier">GetMetricWidgetImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#newGetMetricWidgetImageResponse"><span class="hs-identifier">newGetMetricWidgetImageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImageResponse_metricWidgetImage"><span class="hs-identifier">getMetricWidgetImageResponse_metricWidgetImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImageResponse_httpStatus"><span class="hs-identifier">getMetricWidgetImageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.html"><span class="hs-identifier">Network.AWS.CloudWatch.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newGetMetricWidgetImage' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679262279"><span id="local-6989586621679262280"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMetricWidgetImage"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-var">GetMetricWidgetImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMetricWidgetImage%27"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-var">GetMetricWidgetImage'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The format of the resulting image. Only PNG images are supported.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- The default is @png@. If you specify @png@, the API returns an HTTP</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- response with the content-type set to @text\/xml@. The image data is in</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- a @MetricWidgetImage@ field. For example:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @ \&lt;GetMetricWidgetImageResponse xmlns=\&lt;URLstring&gt;&gt;@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @ \&lt;GetMetricWidgetImageResult&gt;@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @ \&lt;MetricWidgetImage&gt;@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @ iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @ \&lt;\/MetricWidgetImage&gt;@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @ \&lt;\/GetMetricWidgetImageResult&gt;@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @ \&lt;ResponseMetadata&gt;@</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @ \&lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b\&lt;\/RequestId&gt;@</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @ \&lt;\/ResponseMetadata&gt;@</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @\&lt;\/GetMetricWidgetImageResponse&gt;@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- The @image\/png@ setting is intended only for custom HTTP requests. For</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- most use cases, and all actions using an Amazon Web Services SDK, you</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- should use @png@. If you specify @image\/png@, the HTTP response has a</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- content-type set to @image\/png@, and the body of the response is a PNG</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- image.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AoutputFormat%3AGetMetricWidgetImage%27"><span class="annot"><span class="annottext">GetMetricWidgetImage -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AoutputFormat%3AGetMetricWidgetImage%27"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | A JSON string that defines the bitmap graph to be retrieved. The string</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- includes the metrics to include in the graph, statistics, annotations,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- title, axis limits, and so on. You can include only one @MetricWidget@</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- parameter in each @GetMetricWidgetImage@ call.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- For more information about the syntax of @MetricWidget@ see</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html GetMetricWidgetImage: Metric Widget Structure and Syntax&gt;.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- If any metric on the graph could not load all the requested data points,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- an orange triangle with an exclamation point appears next to the graph</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- legend.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AmetricWidget%3AGetMetricWidgetImage%27"><span class="annot"><span class="annottext">GetMetricWidgetImage -&gt; Text
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AmetricWidget%3AGetMetricWidgetImage%27"><span class="hs-identifier hs-var hs-var">metricWidget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262272"><span id="local-6989586621679262274"><span class="annot"><span class="annottext">GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool
+(GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool)
+-&gt; (GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool)
+-&gt; Eq GetMetricWidgetImage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool
+$c/= :: GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool
+== :: GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool
+$c== :: GetMetricWidgetImage -&gt; GetMetricWidgetImage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262263"><span id="local-6989586621679262265"><span id="local-6989586621679262267"><span id="local-6989586621679262269"><span class="annot"><span class="annottext">ReadPrec [GetMetricWidgetImage]
+ReadPrec GetMetricWidgetImage
+Int -&gt; ReadS GetMetricWidgetImage
+ReadS [GetMetricWidgetImage]
+(Int -&gt; ReadS GetMetricWidgetImage)
+-&gt; ReadS [GetMetricWidgetImage]
+-&gt; ReadPrec GetMetricWidgetImage
+-&gt; ReadPrec [GetMetricWidgetImage]
+-&gt; Read GetMetricWidgetImage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMetricWidgetImage]
+$creadListPrec :: ReadPrec [GetMetricWidgetImage]
+readPrec :: ReadPrec GetMetricWidgetImage
+$creadPrec :: ReadPrec GetMetricWidgetImage
+readList :: ReadS [GetMetricWidgetImage]
+$creadList :: ReadS [GetMetricWidgetImage]
+readsPrec :: Int -&gt; ReadS GetMetricWidgetImage
+$creadsPrec :: Int -&gt; ReadS GetMetricWidgetImage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262256"><span id="local-6989586621679262258"><span id="local-6989586621679262260"><span class="annot"><span class="annottext">Int -&gt; GetMetricWidgetImage -&gt; ShowS
+[GetMetricWidgetImage] -&gt; ShowS
+GetMetricWidgetImage -&gt; String
+(Int -&gt; GetMetricWidgetImage -&gt; ShowS)
+-&gt; (GetMetricWidgetImage -&gt; String)
+-&gt; ([GetMetricWidgetImage] -&gt; ShowS)
+-&gt; Show GetMetricWidgetImage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMetricWidgetImage] -&gt; ShowS
+$cshowList :: [GetMetricWidgetImage] -&gt; ShowS
+show :: GetMetricWidgetImage -&gt; String
+$cshow :: GetMetricWidgetImage -&gt; String
+showsPrec :: Int -&gt; GetMetricWidgetImage -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMetricWidgetImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetMetricWidgetImage -&gt; Rep GetMetricWidgetImage x)
+-&gt; (forall x. Rep GetMetricWidgetImage x -&gt; GetMetricWidgetImage)
+-&gt; Generic GetMetricWidgetImage
+forall x. Rep GetMetricWidgetImage x -&gt; GetMetricWidgetImage
+forall x. GetMetricWidgetImage -&gt; Rep GetMetricWidgetImage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetMetricWidgetImage x -&gt; GetMetricWidgetImage
+$cfrom :: forall x. GetMetricWidgetImage -&gt; Rep GetMetricWidgetImage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'GetMetricWidgetImage' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'outputFormat', 'getMetricWidgetImage_outputFormat' - The format of the resulting image. Only PNG images are supported.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The default is @png@. If you specify @png@, the API returns an HTTP</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- response with the content-type set to @text\/xml@. The image data is in</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- a @MetricWidgetImage@ field. For example:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @ \&lt;GetMetricWidgetImageResponse xmlns=\&lt;URLstring&gt;&gt;@</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @ \&lt;GetMetricWidgetImageResult&gt;@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @ \&lt;MetricWidgetImage&gt;@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @ iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @ \&lt;\/MetricWidgetImage&gt;@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @ \&lt;\/GetMetricWidgetImageResult&gt;@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @ \&lt;ResponseMetadata&gt;@</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @ \&lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b\&lt;\/RequestId&gt;@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @ \&lt;\/ResponseMetadata&gt;@</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @\&lt;\/GetMetricWidgetImageResponse&gt;@</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The @image\/png@ setting is intended only for custom HTTP requests. For</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- most use cases, and all actions using an Amazon Web Services SDK, you</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- should use @png@. If you specify @image\/png@, the HTTP response has a</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- content-type set to @image\/png@, and the body of the response is a PNG</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- image.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'metricWidget', 'getMetricWidgetImage_metricWidget' - A JSON string that defines the bitmap graph to be retrieved. The string</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- includes the metrics to include in the graph, statistics, annotations,</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- title, axis limits, and so on. You can include only one @MetricWidget@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- parameter in each @GetMetricWidgetImage@ call.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- For more information about the syntax of @MetricWidget@ see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html GetMetricWidgetImage: Metric Widget Structure and Syntax&gt;.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- If any metric on the graph could not load all the requested data points,</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- an orange triangle with an exclamation point appears next to the graph</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- legend.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#newGetMetricWidgetImage"><span class="hs-identifier hs-type">newGetMetricWidgetImage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'metricWidget'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span>
+</span><span id="line-168"></span><span id="newGetMetricWidgetImage"><span class="annot"><span class="annottext">newGetMetricWidgetImage :: Text -&gt; GetMetricWidgetImage
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#newGetMetricWidgetImage"><span class="hs-identifier hs-var hs-var">newGetMetricWidgetImage</span></a></span></span><span> </span><span id="local-6989586621679262251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262251"><span class="hs-identifier hs-var">pMetricWidget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">GetMetricWidgetImage' :: Maybe Text -&gt; Text -&gt; GetMetricWidgetImage
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-type">GetMetricWidgetImage'</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:outputFormat:GetMetricWidgetImage' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AoutputFormat%3AGetMetricWidgetImage%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricWidget:GetMetricWidgetImage' :: Text
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AmetricWidget%3AGetMetricWidgetImage%27"><span class="hs-identifier hs-var">metricWidget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262251"><span class="hs-identifier hs-var">pMetricWidget_</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The format of the resulting image. Only PNG images are supported.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The default is @png@. If you specify @png@, the API returns an HTTP</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- response with the content-type set to @text\/xml@. The image data is in</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- a @MetricWidgetImage@ field. For example:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @ \&lt;GetMetricWidgetImageResponse xmlns=\&lt;URLstring&gt;&gt;@</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- @ \&lt;GetMetricWidgetImageResult&gt;@</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- @ \&lt;MetricWidgetImage&gt;@</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @ iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...@</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- @ \&lt;\/MetricWidgetImage&gt;@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- @ \&lt;\/GetMetricWidgetImageResult&gt;@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @ \&lt;ResponseMetadata&gt;@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @ \&lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b\&lt;\/RequestId&gt;@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- @ \&lt;\/ResponseMetadata&gt;@</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- @\&lt;\/GetMetricWidgetImageResponse&gt;@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The @image\/png@ setting is intended only for custom HTTP requests. For</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- most use cases, and all actions using an Amazon Web Services SDK, you</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- should use @png@. If you specify @image\/png@, the HTTP response has a</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- content-type set to @image\/png@, and the body of the response is a PNG</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- image.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImage_outputFormat"><span class="hs-identifier hs-type">getMetricWidgetImage_outputFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="getMetricWidgetImage_outputFormat"><span class="annot"><span class="annottext">getMetricWidgetImage_outputFormat :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMetricWidgetImage -&gt; f GetMetricWidgetImage
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImage_outputFormat"><span class="hs-identifier hs-var hs-var">getMetricWidgetImage_outputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricWidgetImage -&gt; Maybe Text)
+-&gt; (GetMetricWidgetImage -&gt; Maybe Text -&gt; GetMetricWidgetImage)
+-&gt; Lens
+     GetMetricWidgetImage GetMetricWidgetImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-type">GetMetricWidgetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262248"><span class="annot"><span class="annottext">Maybe Text
+outputFormat :: Maybe Text
+$sel:outputFormat:GetMetricWidgetImage' :: GetMetricWidgetImage -&gt; Maybe Text
+</span><a href="#local-6989586621679262248"><span class="hs-identifier hs-var hs-var">outputFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262248"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262247"><span class="annot"><span class="annottext">s :: GetMetricWidgetImage
+</span><a href="#local-6989586621679262247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-type">GetMetricWidgetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricWidgetImage
+</span><a href="#local-6989586621679262247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFormat:GetMetricWidgetImage' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AoutputFormat%3AGetMetricWidgetImage%27"><span class="hs-identifier hs-var">outputFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | A JSON string that defines the bitmap graph to be retrieved. The string</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- includes the metrics to include in the graph, statistics, annotations,</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- title, axis limits, and so on. You can include only one @MetricWidget@</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- parameter in each @GetMetricWidgetImage@ call.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- For more information about the syntax of @MetricWidget@ see</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html GetMetricWidgetImage: Metric Widget Structure and Syntax&gt;.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- If any metric on the graph could not load all the requested data points,</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- an orange triangle with an exclamation point appears next to the graph</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- legend.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImage_metricWidget"><span class="hs-identifier hs-type">getMetricWidgetImage_metricWidget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-221"></span><span id="getMetricWidgetImage_metricWidget"><span class="annot"><span class="annottext">getMetricWidgetImage_metricWidget :: (Text -&gt; f Text) -&gt; GetMetricWidgetImage -&gt; f GetMetricWidgetImage
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImage_metricWidget"><span class="hs-identifier hs-var hs-var">getMetricWidgetImage_metricWidget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricWidgetImage -&gt; Text)
+-&gt; (GetMetricWidgetImage -&gt; Text -&gt; GetMetricWidgetImage)
+-&gt; Lens GetMetricWidgetImage GetMetricWidgetImage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-type">GetMetricWidgetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262245"><span class="annot"><span class="annottext">Text
+metricWidget :: Text
+$sel:metricWidget:GetMetricWidgetImage' :: GetMetricWidgetImage -&gt; Text
+</span><a href="#local-6989586621679262245"><span class="hs-identifier hs-var hs-var">metricWidget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262245"><span class="hs-identifier hs-var">metricWidget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262244"><span class="annot"><span class="annottext">s :: GetMetricWidgetImage
+</span><a href="#local-6989586621679262244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-type">GetMetricWidgetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricWidgetImage
+</span><a href="#local-6989586621679262244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricWidget:GetMetricWidgetImage' :: Text
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AmetricWidget%3AGetMetricWidgetImage%27"><span class="hs-identifier hs-var">metricWidget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-225"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679262239"><span class="annot"><span class="annottext">request :: GetMetricWidgetImage -&gt; Request GetMetricWidgetImage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMetricWidgetImage -&gt; Request GetMetricWidgetImage
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679262235"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMetricWidgetImage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMetricWidgetImage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetMetricWidgetImage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMetricWidgetImage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMetricWidgetImage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetMetricWidgetImageResult&quot;</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262232"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262231"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262231"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262230"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679262230"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe Base64 -&gt; Int -&gt; GetMetricWidgetImageResponse
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var">GetMetricWidgetImageResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Base64 -&gt; Int -&gt; GetMetricWidgetImageResponse)
+-&gt; Either String (Maybe Base64)
+-&gt; Either String (Int -&gt; GetMetricWidgetImageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679262230"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Base64)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricWidgetImage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMetricWidgetImageResponse)
+-&gt; Either String Int -&gt; Either String GetMetricWidgetImageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262232"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262222"><span id="local-6989586621679262224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span></span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679262215"><span class="annot"><span class="annottext">toHeaders :: GetMetricWidgetImage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMetricWidgetImage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679262210"><span class="annot"><span class="annottext">toPath :: GetMetricWidgetImage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMetricWidgetImage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage"><span class="hs-identifier hs-type">GetMetricWidgetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679262206"><span class="annot"><span class="annottext">toQuery :: GetMetricWidgetImage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImage%27"><span class="hs-identifier hs-type">GetMetricWidgetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262203"><span id="local-6989586621679262204"><span class="annot"><span class="annottext">Maybe Text
+Text
+metricWidget :: Text
+outputFormat :: Maybe Text
+$sel:metricWidget:GetMetricWidgetImage' :: GetMetricWidgetImage -&gt; Text
+$sel:outputFormat:GetMetricWidgetImage' :: GetMetricWidgetImage -&gt; Maybe Text
+</span><a href="#local-6989586621679262203"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-251"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetMetricWidgetImage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-08-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OutputFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262204"><span class="hs-identifier hs-var">outputFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MetricWidget&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262203"><span class="hs-identifier hs-var">metricWidget</span></a></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | /See:/ 'newGetMetricWidgetImageResponse' smart constructor.</span><span>
+</span><span id="line-259"></span><span id="local-6989586621679262200"><span id="local-6989586621679262201"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMetricWidgetImageResponse"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-var">GetMetricWidgetImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMetricWidgetImageResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var">GetMetricWidgetImageResponse'</span></a></span></span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The image of the graph, in the output format specified. The output is</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- base64-encoded.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AmetricWidgetImage%3AGetMetricWidgetImageResponse%27"><span class="annot"><span class="annottext">GetMetricWidgetImageResponse -&gt; Maybe Base64
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AmetricWidgetImage%3AGetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var hs-var">metricWidgetImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-264"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMetricWidgetImageResponse%27"><span class="annot"><span class="annottext">GetMetricWidgetImageResponse -&gt; Int
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AhttpStatus%3AGetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-265"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262194"><span id="local-6989586621679262196"><span class="annot"><span class="annottext">GetMetricWidgetImageResponse
+-&gt; GetMetricWidgetImageResponse -&gt; Bool
+(GetMetricWidgetImageResponse
+ -&gt; GetMetricWidgetImageResponse -&gt; Bool)
+-&gt; (GetMetricWidgetImageResponse
+    -&gt; GetMetricWidgetImageResponse -&gt; Bool)
+-&gt; Eq GetMetricWidgetImageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMetricWidgetImageResponse
+-&gt; GetMetricWidgetImageResponse -&gt; Bool
+$c/= :: GetMetricWidgetImageResponse
+-&gt; GetMetricWidgetImageResponse -&gt; Bool
+== :: GetMetricWidgetImageResponse
+-&gt; GetMetricWidgetImageResponse -&gt; Bool
+$c== :: GetMetricWidgetImageResponse
+-&gt; GetMetricWidgetImageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262186"><span id="local-6989586621679262188"><span id="local-6989586621679262190"><span id="local-6989586621679262192"><span class="annot"><span class="annottext">ReadPrec [GetMetricWidgetImageResponse]
+ReadPrec GetMetricWidgetImageResponse
+Int -&gt; ReadS GetMetricWidgetImageResponse
+ReadS [GetMetricWidgetImageResponse]
+(Int -&gt; ReadS GetMetricWidgetImageResponse)
+-&gt; ReadS [GetMetricWidgetImageResponse]
+-&gt; ReadPrec GetMetricWidgetImageResponse
+-&gt; ReadPrec [GetMetricWidgetImageResponse]
+-&gt; Read GetMetricWidgetImageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMetricWidgetImageResponse]
+$creadListPrec :: ReadPrec [GetMetricWidgetImageResponse]
+readPrec :: ReadPrec GetMetricWidgetImageResponse
+$creadPrec :: ReadPrec GetMetricWidgetImageResponse
+readList :: ReadS [GetMetricWidgetImageResponse]
+$creadList :: ReadS [GetMetricWidgetImageResponse]
+readsPrec :: Int -&gt; ReadS GetMetricWidgetImageResponse
+$creadsPrec :: Int -&gt; ReadS GetMetricWidgetImageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262180"><span id="local-6989586621679262182"><span id="local-6989586621679262184"><span class="annot"><span class="annottext">Int -&gt; GetMetricWidgetImageResponse -&gt; ShowS
+[GetMetricWidgetImageResponse] -&gt; ShowS
+GetMetricWidgetImageResponse -&gt; String
+(Int -&gt; GetMetricWidgetImageResponse -&gt; ShowS)
+-&gt; (GetMetricWidgetImageResponse -&gt; String)
+-&gt; ([GetMetricWidgetImageResponse] -&gt; ShowS)
+-&gt; Show GetMetricWidgetImageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMetricWidgetImageResponse] -&gt; ShowS
+$cshowList :: [GetMetricWidgetImageResponse] -&gt; ShowS
+show :: GetMetricWidgetImageResponse -&gt; String
+$cshow :: GetMetricWidgetImageResponse -&gt; String
+showsPrec :: Int -&gt; GetMetricWidgetImageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMetricWidgetImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMetricWidgetImageResponse -&gt; Rep GetMetricWidgetImageResponse x)
+-&gt; (forall x.
+    Rep GetMetricWidgetImageResponse x -&gt; GetMetricWidgetImageResponse)
+-&gt; Generic GetMetricWidgetImageResponse
+forall x.
+Rep GetMetricWidgetImageResponse x -&gt; GetMetricWidgetImageResponse
+forall x.
+GetMetricWidgetImageResponse -&gt; Rep GetMetricWidgetImageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMetricWidgetImageResponse x -&gt; GetMetricWidgetImageResponse
+$cfrom :: forall x.
+GetMetricWidgetImageResponse -&gt; Rep GetMetricWidgetImageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- Create a value of 'GetMetricWidgetImageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'metricWidgetImage', 'getMetricWidgetImageResponse_metricWidgetImage' - The image of the graph, in the output format specified. The output is</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- base64-encoded.--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'httpStatus', 'getMetricWidgetImageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#newGetMetricWidgetImageResponse"><span class="hs-identifier hs-type">newGetMetricWidgetImageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span><span>
+</span><span id="line-288"></span><span id="newGetMetricWidgetImageResponse"><span class="annot"><span class="annottext">newGetMetricWidgetImageResponse :: Int -&gt; GetMetricWidgetImageResponse
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#newGetMetricWidgetImageResponse"><span class="hs-identifier hs-var hs-var">newGetMetricWidgetImageResponse</span></a></span></span><span> </span><span id="local-6989586621679262177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><span class="annottext">GetMetricWidgetImageResponse' :: Maybe Base64 -&gt; Int -&gt; GetMetricWidgetImageResponse
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse'</span></a></span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricWidgetImage:GetMetricWidgetImageResponse' :: Maybe Base64
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AmetricWidgetImage%3AGetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var">metricWidgetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">Maybe Base64
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMetricWidgetImageResponse' :: Int
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AhttpStatus%3AGetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | The image of the graph, in the output format specified. The output is</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- base64-encoded.--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImageResponse_metricWidgetImage"><span class="hs-identifier hs-type">getMetricWidgetImageResponse_metricWidgetImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="getMetricWidgetImageResponse_metricWidgetImage"><span class="annot"><span class="annottext">getMetricWidgetImageResponse_metricWidgetImage :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; GetMetricWidgetImageResponse -&gt; f GetMetricWidgetImageResponse
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImageResponse_metricWidgetImage"><span class="hs-identifier hs-var hs-var">getMetricWidgetImageResponse_metricWidgetImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricWidgetImageResponse -&gt; Maybe Base64)
+-&gt; (GetMetricWidgetImageResponse
+    -&gt; Maybe Base64 -&gt; GetMetricWidgetImageResponse)
+-&gt; Lens
+     GetMetricWidgetImageResponse
+     GetMetricWidgetImageResponse
+     (Maybe Base64)
+     (Maybe Base64)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262176"><span class="annot"><span class="annottext">Maybe Base64
+metricWidgetImage :: Maybe Base64
+$sel:metricWidgetImage:GetMetricWidgetImageResponse' :: GetMetricWidgetImageResponse -&gt; Maybe Base64
+</span><a href="#local-6989586621679262176"><span class="hs-identifier hs-var hs-var">metricWidgetImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679262176"><span class="hs-identifier hs-var">metricWidgetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262175"><span class="annot"><span class="annottext">s :: GetMetricWidgetImageResponse
+</span><a href="#local-6989586621679262175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262174"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679262174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricWidgetImageResponse
+</span><a href="#local-6989586621679262175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricWidgetImage:GetMetricWidgetImageResponse' :: Maybe Base64
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AmetricWidgetImage%3AGetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var">metricWidgetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679262174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+ -&gt; GetMetricWidgetImageResponse -&gt; f GetMetricWidgetImageResponse)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe Base64 -&gt; f (Maybe Base64))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; GetMetricWidgetImageResponse
+-&gt; f GetMetricWidgetImageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+-&gt; Iso
+     (Maybe Base64) (Maybe Base64) (Maybe ByteString) (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImageResponse_httpStatus"><span class="hs-identifier hs-type">getMetricWidgetImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span id="getMetricWidgetImageResponse_httpStatus"><span class="annot"><span class="annottext">getMetricWidgetImageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetMetricWidgetImageResponse -&gt; f GetMetricWidgetImageResponse
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#getMetricWidgetImageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMetricWidgetImageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMetricWidgetImageResponse -&gt; Int)
+-&gt; (GetMetricWidgetImageResponse
+    -&gt; Int -&gt; GetMetricWidgetImageResponse)
+-&gt; Lens
+     GetMetricWidgetImageResponse GetMetricWidgetImageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262170"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMetricWidgetImageResponse' :: GetMetricWidgetImageResponse -&gt; Int
+</span><a href="#local-6989586621679262170"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262170"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262169"><span class="annot"><span class="annottext">s :: GetMetricWidgetImageResponse
+</span><a href="#local-6989586621679262169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse%27"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262168"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMetricWidgetImageResponse
+</span><a href="#local-6989586621679262169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMetricWidgetImageResponse' :: Int
+</span><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#%24sel%3AhttpStatus%3AGetMetricWidgetImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.GetMetricWidgetImage.html#GetMetricWidgetImageResponse"><span class="hs-identifier hs-type">GetMetricWidgetImageResponse</span></a></span></span><span>
+</span><span id="line-309"></span></pre></body></html>

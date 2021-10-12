@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.InventorySchedule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.InventorySchedule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html"><span class="hs-identifier">Network.AWS.S3.Types.InventoryFrequency</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies the schedule for generating inventory results.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInventorySchedule' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679542838"><span id="local-6989586621679542839"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventorySchedule"><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-var">InventorySchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventorySchedule%27"><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule%27"><span class="hs-identifier hs-var">InventorySchedule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how frequently inventory results are produced.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Afrequency%3AInventorySchedule%27"><span class="annot"><span class="annottext">InventorySchedule -&gt; InventoryFrequency
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#%24sel%3Afrequency%3AInventorySchedule%27"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency"><span class="hs-identifier hs-type">InventoryFrequency</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679542832"><span id="local-6989586621679542834"><span class="annot"><span class="annottext">InventorySchedule -&gt; InventorySchedule -&gt; Bool
+(InventorySchedule -&gt; InventorySchedule -&gt; Bool)
+-&gt; (InventorySchedule -&gt; InventorySchedule -&gt; Bool)
+-&gt; Eq InventorySchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InventorySchedule -&gt; InventorySchedule -&gt; Bool
+$c/= :: InventorySchedule -&gt; InventorySchedule -&gt; Bool
+== :: InventorySchedule -&gt; InventorySchedule -&gt; Bool
+$c== :: InventorySchedule -&gt; InventorySchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542823"><span id="local-6989586621679542825"><span id="local-6989586621679542827"><span id="local-6989586621679542829"><span class="annot"><span class="annottext">ReadPrec [InventorySchedule]
+ReadPrec InventorySchedule
+Int -&gt; ReadS InventorySchedule
+ReadS [InventorySchedule]
+(Int -&gt; ReadS InventorySchedule)
+-&gt; ReadS [InventorySchedule]
+-&gt; ReadPrec InventorySchedule
+-&gt; ReadPrec [InventorySchedule]
+-&gt; Read InventorySchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InventorySchedule]
+$creadListPrec :: ReadPrec [InventorySchedule]
+readPrec :: ReadPrec InventorySchedule
+$creadPrec :: ReadPrec InventorySchedule
+readList :: ReadS [InventorySchedule]
+$creadList :: ReadS [InventorySchedule]
+readsPrec :: Int -&gt; ReadS InventorySchedule
+$creadsPrec :: Int -&gt; ReadS InventorySchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679542816"><span id="local-6989586621679542818"><span id="local-6989586621679542820"><span class="annot"><span class="annottext">Int -&gt; InventorySchedule -&gt; ShowS
+[InventorySchedule] -&gt; ShowS
+InventorySchedule -&gt; String
+(Int -&gt; InventorySchedule -&gt; ShowS)
+-&gt; (InventorySchedule -&gt; String)
+-&gt; ([InventorySchedule] -&gt; ShowS)
+-&gt; Show InventorySchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InventorySchedule] -&gt; ShowS
+$cshowList :: [InventorySchedule] -&gt; ShowS
+show :: InventorySchedule -&gt; String
+$cshow :: InventorySchedule -&gt; String
+showsPrec :: Int -&gt; InventorySchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; InventorySchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InventorySchedule -&gt; Rep InventorySchedule x)
+-&gt; (forall x. Rep InventorySchedule x -&gt; InventorySchedule)
+-&gt; Generic InventorySchedule
+forall x. Rep InventorySchedule x -&gt; InventorySchedule
+forall x. InventorySchedule -&gt; Rep InventorySchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InventorySchedule x -&gt; InventorySchedule
+$cfrom :: forall x. InventorySchedule -&gt; Rep InventorySchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'InventorySchedule' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'frequency', 'inventorySchedule_frequency' - Specifies how frequently inventory results are produced.</span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#newInventorySchedule"><span class="hs-identifier hs-type">newInventorySchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-comment">-- | 'frequency'</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency"><span class="hs-identifier hs-type">InventoryFrequency</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span>
+</span><span id="line-50"></span><span id="newInventorySchedule"><span class="annot"><span class="annottext">newInventorySchedule :: InventoryFrequency -&gt; InventorySchedule
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#newInventorySchedule"><span class="hs-identifier hs-var hs-var">newInventorySchedule</span></a></span></span><span> </span><span id="local-6989586621679542810"><span class="annot"><span class="annottext">InventoryFrequency
+</span><a href="#local-6989586621679542810"><span class="hs-identifier hs-var">pFrequency_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">InventorySchedule' :: InventoryFrequency -&gt; InventorySchedule
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule%27"><span class="hs-identifier hs-type">InventorySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:InventorySchedule' :: InventoryFrequency
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#%24sel%3Afrequency%3AInventorySchedule%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryFrequency
+</span><a href="#local-6989586621679542810"><span class="hs-identifier hs-var">pFrequency_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Specifies how frequently inventory results are produced.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#inventorySchedule_frequency"><span class="hs-identifier hs-type">inventorySchedule_frequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFrequency.html#InventoryFrequency"><span class="hs-identifier hs-type">InventoryFrequency</span></a></span><span>
+</span><span id="line-55"></span><span id="inventorySchedule_frequency"><span class="annot"><span class="annottext">inventorySchedule_frequency :: (InventoryFrequency -&gt; f InventoryFrequency)
+-&gt; InventorySchedule -&gt; f InventorySchedule
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#inventorySchedule_frequency"><span class="hs-identifier hs-var hs-var">inventorySchedule_frequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventorySchedule -&gt; InventoryFrequency)
+-&gt; (InventorySchedule -&gt; InventoryFrequency -&gt; InventorySchedule)
+-&gt; Lens
+     InventorySchedule
+     InventorySchedule
+     InventoryFrequency
+     InventoryFrequency
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule%27"><span class="hs-identifier hs-type">InventorySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542806"><span class="annot"><span class="annottext">InventoryFrequency
+frequency :: InventoryFrequency
+$sel:frequency:InventorySchedule' :: InventorySchedule -&gt; InventoryFrequency
+</span><a href="#local-6989586621679542806"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryFrequency
+</span><a href="#local-6989586621679542806"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679542805"><span class="annot"><span class="annottext">s :: InventorySchedule
+</span><a href="#local-6989586621679542805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule%27"><span class="hs-identifier hs-type">InventorySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679542804"><span class="annot"><span class="annottext">InventoryFrequency
+</span><a href="#local-6989586621679542804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventorySchedule
+</span><a href="#local-6989586621679542805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:InventorySchedule' :: InventoryFrequency
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#%24sel%3Afrequency%3AInventorySchedule%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryFrequency
+</span><a href="#local-6989586621679542804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679542801"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventorySchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679542799"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679542799"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">InventoryFrequency -&gt; InventorySchedule
+</span><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule%27"><span class="hs-identifier hs-var">InventorySchedule'</span></a></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(InventoryFrequency -&gt; InventorySchedule)
+-&gt; Either String InventoryFrequency
+-&gt; Either String InventorySchedule
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679542799"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryFrequency
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Frequency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542793"><span id="local-6989586621679542795"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679542790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679542786"><span class="annot"><span class="annottext">toXML :: InventorySchedule -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule%27"><span class="hs-identifier hs-type">InventorySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679542784"><span class="annot"><span class="annottext">InventoryFrequency
+frequency :: InventoryFrequency
+$sel:frequency:InventorySchedule' :: InventorySchedule -&gt; InventoryFrequency
+</span><a href="#local-6989586621679542784"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Frequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; InventoryFrequency -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">InventoryFrequency
+</span><a href="#local-6989586621679542784"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-69"></span></pre></body></html>

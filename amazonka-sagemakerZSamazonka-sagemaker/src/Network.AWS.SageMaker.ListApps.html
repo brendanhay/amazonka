@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.ListApps</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists apps.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.ListApps</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#newListApps"><span class="hs-identifier">newListApps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_nextToken"><span class="hs-identifier">listApps_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_sortOrder"><span class="hs-identifier">listApps_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_maxResults"><span class="hs-identifier">listApps_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_domainIdEquals"><span class="hs-identifier">listApps_domainIdEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_userProfileNameEquals"><span class="hs-identifier">listApps_userProfileNameEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_sortBy"><span class="hs-identifier">listApps_sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier">ListAppsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#newListAppsResponse"><span class="hs-identifier">newListAppsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_nextToken"><span class="hs-identifier">listAppsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_apps"><span class="hs-identifier">listAppsResponse_apps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_httpStatus"><span class="hs-identifier">listAppsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListApps' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621680386218"><span id="local-6989586621680386219"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApps"><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-var">ListApps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApps%27"><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-var">ListApps'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was truncated, you will receive this token. Use</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- it in your next request to receive the next set of results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListApps%27"><span class="annot"><span class="annottext">ListApps -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AnextToken%3AListApps%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The sort order for the results. The default is Ascending.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsortOrder%3AListApps%27"><span class="annot"><span class="annottext">ListApps -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AsortOrder%3AListApps%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Returns a list up to a specified limit.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListApps%27"><span class="annot"><span class="annottext">ListApps -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AmaxResults%3AListApps%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A parameter to search for the domain ID.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdomainIdEquals%3AListApps%27"><span class="annot"><span class="annottext">ListApps -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AdomainIdEquals%3AListApps%27"><span class="hs-identifier hs-var hs-var">domainIdEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A parameter to search by user profile name.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AuserProfileNameEquals%3AListApps%27"><span class="annot"><span class="annottext">ListApps -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AuserProfileNameEquals%3AListApps%27"><span class="hs-identifier hs-var hs-var">userProfileNameEquals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The parameter by which to sort the results. The default is CreationTime.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsortBy%3AListApps%27"><span class="annot"><span class="annottext">ListApps -&gt; Maybe AppSortKey
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AsortBy%3AListApps%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppSortKey.html#AppSortKey"><span class="hs-identifier hs-type">AppSortKey</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680386207"><span id="local-6989586621680386209"><span class="annot"><span class="annottext">ListApps -&gt; ListApps -&gt; Bool
+(ListApps -&gt; ListApps -&gt; Bool)
+-&gt; (ListApps -&gt; ListApps -&gt; Bool) -&gt; Eq ListApps
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApps -&gt; ListApps -&gt; Bool
+$c/= :: ListApps -&gt; ListApps -&gt; Bool
+== :: ListApps -&gt; ListApps -&gt; Bool
+$c== :: ListApps -&gt; ListApps -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386198"><span id="local-6989586621680386200"><span id="local-6989586621680386202"><span id="local-6989586621680386204"><span class="annot"><span class="annottext">ReadPrec [ListApps]
+ReadPrec ListApps
+Int -&gt; ReadS ListApps
+ReadS [ListApps]
+(Int -&gt; ReadS ListApps)
+-&gt; ReadS [ListApps]
+-&gt; ReadPrec ListApps
+-&gt; ReadPrec [ListApps]
+-&gt; Read ListApps
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApps]
+$creadListPrec :: ReadPrec [ListApps]
+readPrec :: ReadPrec ListApps
+$creadPrec :: ReadPrec ListApps
+readList :: ReadS [ListApps]
+$creadList :: ReadS [ListApps]
+readsPrec :: Int -&gt; ReadS ListApps
+$creadsPrec :: Int -&gt; ReadS ListApps
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386191"><span id="local-6989586621680386193"><span id="local-6989586621680386195"><span class="annot"><span class="annottext">Int -&gt; ListApps -&gt; ShowS
+[ListApps] -&gt; ShowS
+ListApps -&gt; String
+(Int -&gt; ListApps -&gt; ShowS)
+-&gt; (ListApps -&gt; String) -&gt; ([ListApps] -&gt; ShowS) -&gt; Show ListApps
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApps] -&gt; ShowS
+$cshowList :: [ListApps] -&gt; ShowS
+show :: ListApps -&gt; String
+$cshow :: ListApps -&gt; String
+showsPrec :: Int -&gt; ListApps -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApps -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListApps -&gt; Rep ListApps x)
+-&gt; (forall x. Rep ListApps x -&gt; ListApps) -&gt; Generic ListApps
+forall x. Rep ListApps x -&gt; ListApps
+forall x. ListApps -&gt; Rep ListApps x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListApps x -&gt; ListApps
+$cfrom :: forall x. ListApps -&gt; Rep ListApps x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'ListApps' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listApps_nextToken' - If the previous response was truncated, you will receive this token. Use</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- it in your next request to receive the next set of results.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'sortOrder', 'listApps_sortOrder' - The sort order for the results. The default is Ascending.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'maxResults', 'listApps_maxResults' - Returns a list up to a specified limit.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'domainIdEquals', 'listApps_domainIdEquals' - A parameter to search for the domain ID.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'userProfileNameEquals', 'listApps_userProfileNameEquals' - A parameter to search by user profile name.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'sortBy', 'listApps_sortBy' - The parameter by which to sort the results. The default is CreationTime.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#newListApps"><span class="hs-identifier hs-type">newListApps</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span>
+</span><span id="line-97"></span><span id="newListApps"><span class="annot"><span class="annottext">newListApps :: ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#newListApps"><span class="hs-identifier hs-var hs-var">newListApps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListApps' :: Maybe Text
+-&gt; Maybe SortOrder
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AppSortKey
+-&gt; ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AnextToken%3AListApps%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListApps' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AsortOrder%3AListApps%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListApps' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AmaxResults%3AListApps%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainIdEquals:ListApps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AdomainIdEquals%3AListApps%27"><span class="hs-identifier hs-var">domainIdEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:userProfileNameEquals:ListApps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AuserProfileNameEquals%3AListApps%27"><span class="hs-identifier hs-var">userProfileNameEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListApps' :: Maybe AppSortKey
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AsortBy%3AListApps%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSortKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | If the previous response was truncated, you will receive this token. Use</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- it in your next request to receive the next set of results.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_nextToken"><span class="hs-identifier hs-type">listApps_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listApps_nextToken"><span class="annot"><span class="annottext">listApps_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListApps -&gt; f ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_nextToken"><span class="hs-identifier hs-var hs-var">listApps_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe Text)
+-&gt; (ListApps -&gt; Maybe Text -&gt; ListApps)
+-&gt; Lens ListApps ListApps (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386185"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApps' :: ListApps -&gt; Maybe Text
+</span><a href="#local-6989586621680386185"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386185"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386184"><span class="annot"><span class="annottext">s :: ListApps
+</span><a href="#local-6989586621680386184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386183"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AnextToken%3AListApps%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The sort order for the results. The default is Ascending.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_sortOrder"><span class="hs-identifier hs-type">listApps_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="listApps_sortOrder"><span class="annot"><span class="annottext">listApps_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder)) -&gt; ListApps -&gt; f ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_sortOrder"><span class="hs-identifier hs-var hs-var">listApps_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe SortOrder)
+-&gt; (ListApps -&gt; Maybe SortOrder -&gt; ListApps)
+-&gt; Lens ListApps ListApps (Maybe SortOrder) (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386182"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListApps' :: ListApps -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680386182"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386182"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386181"><span class="annot"><span class="annottext">s :: ListApps
+</span><a href="#local-6989586621680386181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386180"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListApps' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AsortOrder%3AListApps%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Returns a list up to a specified limit.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_maxResults"><span class="hs-identifier hs-type">listApps_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listApps_maxResults"><span class="annot"><span class="annottext">listApps_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListApps -&gt; f ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_maxResults"><span class="hs-identifier hs-var hs-var">listApps_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe Natural)
+-&gt; (ListApps -&gt; Maybe Natural -&gt; ListApps)
+-&gt; Lens ListApps ListApps (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386179"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListApps' :: ListApps -&gt; Maybe Natural
+</span><a href="#local-6989586621680386179"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386179"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386178"><span class="annot"><span class="annottext">s :: ListApps
+</span><a href="#local-6989586621680386178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386177"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApps' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AmaxResults%3AListApps%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | A parameter to search for the domain ID.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_domainIdEquals"><span class="hs-identifier hs-type">listApps_domainIdEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="listApps_domainIdEquals"><span class="annot"><span class="annottext">listApps_domainIdEquals :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListApps -&gt; f ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_domainIdEquals"><span class="hs-identifier hs-var hs-var">listApps_domainIdEquals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe Text)
+-&gt; (ListApps -&gt; Maybe Text -&gt; ListApps)
+-&gt; Lens ListApps ListApps (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386176"><span class="annot"><span class="annottext">Maybe Text
+domainIdEquals :: Maybe Text
+$sel:domainIdEquals:ListApps' :: ListApps -&gt; Maybe Text
+</span><a href="#local-6989586621680386176"><span class="hs-identifier hs-var hs-var">domainIdEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386176"><span class="hs-identifier hs-var">domainIdEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386175"><span class="annot"><span class="annottext">s :: ListApps
+</span><a href="#local-6989586621680386175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainIdEquals:ListApps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AdomainIdEquals%3AListApps%27"><span class="hs-identifier hs-var">domainIdEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A parameter to search by user profile name.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_userProfileNameEquals"><span class="hs-identifier hs-type">listApps_userProfileNameEquals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="listApps_userProfileNameEquals"><span class="annot"><span class="annottext">listApps_userProfileNameEquals :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListApps -&gt; f ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_userProfileNameEquals"><span class="hs-identifier hs-var hs-var">listApps_userProfileNameEquals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe Text)
+-&gt; (ListApps -&gt; Maybe Text -&gt; ListApps)
+-&gt; Lens ListApps ListApps (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386173"><span class="annot"><span class="annottext">Maybe Text
+userProfileNameEquals :: Maybe Text
+$sel:userProfileNameEquals:ListApps' :: ListApps -&gt; Maybe Text
+</span><a href="#local-6989586621680386173"><span class="hs-identifier hs-var hs-var">userProfileNameEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386173"><span class="hs-identifier hs-var">userProfileNameEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386172"><span class="annot"><span class="annottext">s :: ListApps
+</span><a href="#local-6989586621680386172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386171"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userProfileNameEquals:ListApps' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AuserProfileNameEquals%3AListApps%27"><span class="hs-identifier hs-var">userProfileNameEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The parameter by which to sort the results. The default is CreationTime.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listApps_sortBy"><span class="hs-identifier hs-type">listApps_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppSortKey.html#AppSortKey"><span class="hs-identifier hs-type">AppSortKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listApps_sortBy"><span class="annot"><span class="annottext">listApps_sortBy :: (Maybe AppSortKey -&gt; f (Maybe AppSortKey))
+-&gt; ListApps -&gt; f ListApps
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_sortBy"><span class="hs-identifier hs-var hs-var">listApps_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe AppSortKey)
+-&gt; (ListApps -&gt; Maybe AppSortKey -&gt; ListApps)
+-&gt; Lens ListApps ListApps (Maybe AppSortKey) (Maybe AppSortKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386170"><span class="annot"><span class="annottext">Maybe AppSortKey
+sortBy :: Maybe AppSortKey
+$sel:sortBy:ListApps' :: ListApps -&gt; Maybe AppSortKey
+</span><a href="#local-6989586621680386170"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSortKey
+</span><a href="#local-6989586621680386170"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386169"><span class="annot"><span class="annottext">s :: ListApps
+</span><a href="#local-6989586621680386169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386168"><span class="annot"><span class="annottext">Maybe AppSortKey
+</span><a href="#local-6989586621680386168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListApps' :: Maybe AppSortKey
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AsortBy%3AListApps%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSortKey
+</span><a href="#local-6989586621680386168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680386164"><span class="annot"><span class="annottext">page :: ListApps -&gt; AWSResponse ListApps -&gt; Maybe ListApps
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680386162"><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386162"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680386161"><span class="annot"><span class="annottext">AWSResponse ListApps
+</span><a href="#local-6989586621680386161"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApps
+ListAppsResponse
+</span><a href="#local-6989586621680386161"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">ListAppsResponse
+-&gt; Getting (First Text) ListAppsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAppsResponse -&gt; Const (First Text) ListAppsResponse
+Lens' ListAppsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_nextToken"><span class="hs-identifier hs-var">listAppsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAppsResponse -&gt; Const (First Text) ListAppsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAppsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListApps
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [AppDetails] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-140"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApps
+ListAppsResponse
+</span><a href="#local-6989586621680386161"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">ListAppsResponse
+-&gt; Getting (First [AppDetails]) ListAppsResponse [AppDetails]
+-&gt; Maybe [AppDetails]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [AppDetails]
+ -&gt; Const (First [AppDetails]) (Maybe [AppDetails]))
+-&gt; ListAppsResponse -&gt; Const (First [AppDetails]) ListAppsResponse
+Lens' ListAppsResponse (Maybe [AppDetails])
+</span><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_apps"><span class="hs-identifier hs-var">listAppsResponse_apps</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [AppDetails]
+  -&gt; Const (First [AppDetails]) (Maybe [AppDetails]))
+ -&gt; ListAppsResponse -&gt; Const (First [AppDetails]) ListAppsResponse)
+-&gt; (([AppDetails] -&gt; Const (First [AppDetails]) [AppDetails])
+    -&gt; Maybe [AppDetails]
+    -&gt; Const (First [AppDetails]) (Maybe [AppDetails]))
+-&gt; Getting (First [AppDetails]) ListAppsResponse [AppDetails]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AppDetails] -&gt; Const (First [AppDetails]) [AppDetails])
+-&gt; Maybe [AppDetails]
+-&gt; Const (First [AppDetails]) (Maybe [AppDetails])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-142"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListApps
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">ListApps -&gt; Maybe ListApps
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListApps -&gt; Maybe ListApps) -&gt; ListApps -&gt; Maybe ListApps
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ListApps
+</span><a href="#local-6989586621680386162"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ListApps -&gt; (ListApps -&gt; ListApps) -&gt; ListApps
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListApps -&gt; Identity ListApps
+Lens ListApps ListApps (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListApps.html#listApps_nextToken"><span class="hs-identifier hs-var">listApps_nextToken</span></a></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListApps -&gt; Identity ListApps)
+-&gt; Maybe Text -&gt; ListApps -&gt; ListApps
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApps
+ListAppsResponse
+</span><a href="#local-6989586621680386161"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ListAppsResponse
+-&gt; Getting (First Text) ListAppsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAppsResponse -&gt; Const (First Text) ListAppsResponse
+Lens' ListAppsResponse (Maybe Text)
+</span><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_nextToken"><span class="hs-identifier hs-var">listAppsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAppsResponse -&gt; Const (First Text) ListAppsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAppsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621680386151"><span class="annot"><span class="annottext">request :: ListApps -&gt; Request ListApps
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListApps -&gt; Request ListApps
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621680386147"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListApps
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListApps)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListApps))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListApps
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListApps)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680386144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386144"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680386143"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680386143"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680386142"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680386142"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [AppDetails] -&gt; Int -&gt; ListAppsResponse
+</span><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-var">ListAppsResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [AppDetails] -&gt; Int -&gt; ListAppsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [AppDetails] -&gt; Int -&gt; ListAppsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680386142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [AppDetails] -&gt; Int -&gt; ListAppsResponse)
+-&gt; Either String (Maybe [AppDetails])
+-&gt; Either String (Int -&gt; ListAppsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680386142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AppDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Apps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AppDetails]))
+-&gt; Maybe [AppDetails] -&gt; Either String (Maybe [AppDetails])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AppDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAppsResponse)
+-&gt; Either String Int -&gt; Either String ListAppsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386144"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386133"><span id="local-6989586621680386135"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621680386126"><span class="annot"><span class="annottext">toHeaders :: ListApps -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApps -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.ListApps&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-176"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386116"><span id="local-6989586621680386118"><span id="local-6989586621680386120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680386114"><span class="annot"><span class="annottext">toJSON :: ListApps -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps%27"><span class="hs-identifier hs-type">ListApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386107"><span id="local-6989586621680386108"><span id="local-6989586621680386109"><span id="local-6989586621680386110"><span id="local-6989586621680386111"><span id="local-6989586621680386112"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe AppSortKey
+Maybe SortOrder
+sortBy :: Maybe AppSortKey
+userProfileNameEquals :: Maybe Text
+domainIdEquals :: Maybe Text
+maxResults :: Maybe Natural
+sortOrder :: Maybe SortOrder
+nextToken :: Maybe Text
+$sel:sortBy:ListApps' :: ListApps -&gt; Maybe AppSortKey
+$sel:userProfileNameEquals:ListApps' :: ListApps -&gt; Maybe Text
+$sel:domainIdEquals:ListApps' :: ListApps -&gt; Maybe Text
+$sel:maxResults:ListApps' :: ListApps -&gt; Maybe Natural
+$sel:sortOrder:ListApps' :: ListApps -&gt; Maybe SortOrder
+$sel:nextToken:ListApps' :: ListApps -&gt; Maybe Text
+</span><a href="#local-6989586621680386107"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386112"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680386111"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680386110"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainIdEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386109"><span class="hs-identifier hs-var">domainIdEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserProfileNameEquals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386108"><span class="hs-identifier hs-var">userProfileNameEquals</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppSortKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AppSortKey -&gt; Pair) -&gt; Maybe AppSortKey -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppSortKey
+</span><a href="#local-6989586621680386107"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621680386101"><span class="annot"><span class="annottext">toPath :: ListApps -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListApps -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListApps"><span class="hs-identifier hs-type">ListApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621680386097"><span class="annot"><span class="annottext">toQuery :: ListApps -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListApps -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newListAppsResponse' smart constructor.</span><span>
+</span><span id="line-202"></span><span id="local-6989586621680386094"><span id="local-6989586621680386095"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-var">ListAppsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-var">ListAppsResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was truncated, you will receive this token. Use</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- it in your next request to receive the next set of results.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AnextToken%3AListAppsResponse%27"><span class="annot"><span class="annottext">ListAppsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AnextToken%3AListAppsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The list of apps.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3Aapps%3AListAppsResponse%27"><span class="annot"><span class="annottext">ListAppsResponse -&gt; Maybe [AppDetails]
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3Aapps%3AListAppsResponse%27"><span class="hs-identifier hs-var hs-var">apps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppDetails.html#AppDetails"><span class="hs-identifier hs-type">AppDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAppsResponse%27"><span class="annot"><span class="annottext">ListAppsResponse -&gt; Int
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AhttpStatus%3AListAppsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680386087"><span id="local-6989586621680386089"><span class="annot"><span class="annottext">ListAppsResponse -&gt; ListAppsResponse -&gt; Bool
+(ListAppsResponse -&gt; ListAppsResponse -&gt; Bool)
+-&gt; (ListAppsResponse -&gt; ListAppsResponse -&gt; Bool)
+-&gt; Eq ListAppsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAppsResponse -&gt; ListAppsResponse -&gt; Bool
+$c/= :: ListAppsResponse -&gt; ListAppsResponse -&gt; Bool
+== :: ListAppsResponse -&gt; ListAppsResponse -&gt; Bool
+$c== :: ListAppsResponse -&gt; ListAppsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386079"><span id="local-6989586621680386081"><span id="local-6989586621680386083"><span id="local-6989586621680386085"><span class="annot"><span class="annottext">ReadPrec [ListAppsResponse]
+ReadPrec ListAppsResponse
+Int -&gt; ReadS ListAppsResponse
+ReadS [ListAppsResponse]
+(Int -&gt; ReadS ListAppsResponse)
+-&gt; ReadS [ListAppsResponse]
+-&gt; ReadPrec ListAppsResponse
+-&gt; ReadPrec [ListAppsResponse]
+-&gt; Read ListAppsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAppsResponse]
+$creadListPrec :: ReadPrec [ListAppsResponse]
+readPrec :: ReadPrec ListAppsResponse
+$creadPrec :: ReadPrec ListAppsResponse
+readList :: ReadS [ListAppsResponse]
+$creadList :: ReadS [ListAppsResponse]
+readsPrec :: Int -&gt; ReadS ListAppsResponse
+$creadsPrec :: Int -&gt; ReadS ListAppsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680386073"><span id="local-6989586621680386075"><span id="local-6989586621680386077"><span class="annot"><span class="annottext">Int -&gt; ListAppsResponse -&gt; ShowS
+[ListAppsResponse] -&gt; ShowS
+ListAppsResponse -&gt; String
+(Int -&gt; ListAppsResponse -&gt; ShowS)
+-&gt; (ListAppsResponse -&gt; String)
+-&gt; ([ListAppsResponse] -&gt; ShowS)
+-&gt; Show ListAppsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAppsResponse] -&gt; ShowS
+$cshowList :: [ListAppsResponse] -&gt; ShowS
+show :: ListAppsResponse -&gt; String
+$cshow :: ListAppsResponse -&gt; String
+showsPrec :: Int -&gt; ListAppsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAppsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAppsResponse -&gt; Rep ListAppsResponse x)
+-&gt; (forall x. Rep ListAppsResponse x -&gt; ListAppsResponse)
+-&gt; Generic ListAppsResponse
+forall x. Rep ListAppsResponse x -&gt; ListAppsResponse
+forall x. ListAppsResponse -&gt; Rep ListAppsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAppsResponse x -&gt; ListAppsResponse
+$cfrom :: forall x. ListAppsResponse -&gt; Rep ListAppsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Create a value of 'ListAppsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'nextToken', 'listAppsResponse_nextToken' - If the previous response was truncated, you will receive this token. Use</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- it in your next request to receive the next set of results.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'apps', 'listAppsResponse_apps' - The list of apps.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'httpStatus', 'listAppsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#newListAppsResponse"><span class="hs-identifier hs-type">newListAppsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span>
+</span><span id="line-231"></span><span id="newListAppsResponse"><span class="annot"><span class="annottext">newListAppsResponse :: Int -&gt; ListAppsResponse
+</span><a href="Network.AWS.SageMaker.ListApps.html#newListAppsResponse"><span class="hs-identifier hs-var hs-var">newListAppsResponse</span></a></span></span><span> </span><span id="local-6989586621680386070"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386070"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><span class="annottext">ListAppsResponse' :: Maybe Text -&gt; Maybe [AppDetails] -&gt; Int -&gt; ListAppsResponse
+</span><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAppsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AnextToken%3AListAppsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:apps:ListAppsResponse' :: Maybe [AppDetails]
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3Aapps%3AListAppsResponse%27"><span class="hs-identifier hs-var">apps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AhttpStatus%3AListAppsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386070"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | If the previous response was truncated, you will receive this token. Use</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- it in your next request to receive the next set of results.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_nextToken"><span class="hs-identifier hs-type">listAppsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="listAppsResponse_nextToken"><span class="annot"><span class="annottext">listAppsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppsResponse -&gt; f ListAppsResponse
+</span><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAppsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppsResponse -&gt; Maybe Text)
+-&gt; (ListAppsResponse -&gt; Maybe Text -&gt; ListAppsResponse)
+-&gt; Lens' ListAppsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386069"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAppsResponse' :: ListAppsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680386069"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386069"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386068"><span class="annot"><span class="annottext">s :: ListAppsResponse
+</span><a href="#local-6989586621680386068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppsResponse
+</span><a href="#local-6989586621680386068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppsResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AnextToken%3AListAppsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680386067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The list of apps.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_apps"><span class="hs-identifier hs-type">listAppsResponse_apps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppDetails.html#AppDetails"><span class="hs-identifier hs-type">AppDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="listAppsResponse_apps"><span class="annot"><span class="annottext">listAppsResponse_apps :: (Maybe [AppDetails] -&gt; f (Maybe [AppDetails]))
+-&gt; ListAppsResponse -&gt; f ListAppsResponse
+</span><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_apps"><span class="hs-identifier hs-var hs-var">listAppsResponse_apps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppsResponse -&gt; Maybe [AppDetails])
+-&gt; (ListAppsResponse -&gt; Maybe [AppDetails] -&gt; ListAppsResponse)
+-&gt; Lens' ListAppsResponse (Maybe [AppDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386066"><span class="annot"><span class="annottext">Maybe [AppDetails]
+apps :: Maybe [AppDetails]
+$sel:apps:ListAppsResponse' :: ListAppsResponse -&gt; Maybe [AppDetails]
+</span><a href="#local-6989586621680386066"><span class="hs-identifier hs-var hs-var">apps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppDetails]
+</span><a href="#local-6989586621680386066"><span class="hs-identifier hs-var">apps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386065"><span class="annot"><span class="annottext">s :: ListAppsResponse
+</span><a href="#local-6989586621680386065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386064"><span class="annot"><span class="annottext">Maybe [AppDetails]
+</span><a href="#local-6989586621680386064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppsResponse
+</span><a href="#local-6989586621680386065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apps:ListAppsResponse' :: Maybe [AppDetails]
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3Aapps%3AListAppsResponse%27"><span class="hs-identifier hs-var">apps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppDetails]
+</span><a href="#local-6989586621680386064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppDetails] -&gt; f (Maybe [AppDetails]))
+ -&gt; ListAppsResponse -&gt; f ListAppsResponse)
+-&gt; ((Maybe [AppDetails] -&gt; f (Maybe [AppDetails]))
+    -&gt; Maybe [AppDetails] -&gt; f (Maybe [AppDetails]))
+-&gt; (Maybe [AppDetails] -&gt; f (Maybe [AppDetails]))
+-&gt; ListAppsResponse
+-&gt; f ListAppsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AppDetails] [AppDetails] [AppDetails] [AppDetails]
+-&gt; Iso
+     (Maybe [AppDetails])
+     (Maybe [AppDetails])
+     (Maybe [AppDetails])
+     (Maybe [AppDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AppDetails] [AppDetails] [AppDetails] [AppDetails]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_httpStatus"><span class="hs-identifier hs-type">listAppsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-249"></span><span id="listAppsResponse_httpStatus"><span class="annot"><span class="annottext">listAppsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListAppsResponse -&gt; f ListAppsResponse
+</span><a href="Network.AWS.SageMaker.ListApps.html#listAppsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAppsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppsResponse -&gt; Int)
+-&gt; (ListAppsResponse -&gt; Int -&gt; ListAppsResponse)
+-&gt; Lens ListAppsResponse ListAppsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680386061"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAppsResponse' :: ListAppsResponse -&gt; Int
+</span><a href="#local-6989586621680386061"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386061"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680386060"><span class="annot"><span class="annottext">s :: ListAppsResponse
+</span><a href="#local-6989586621680386060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse%27"><span class="hs-identifier hs-type">ListAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680386059"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppsResponse
+</span><a href="#local-6989586621680386060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppsResponse' :: Int
+</span><a href="Network.AWS.SageMaker.ListApps.html#%24sel%3AhttpStatus%3AListAppsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680386059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680386057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListApps.html#ListAppsResponse"><span class="hs-identifier hs-type">ListAppsResponse</span></a></span></span><span>
+</span><span id="line-252"></span></pre></body></html>

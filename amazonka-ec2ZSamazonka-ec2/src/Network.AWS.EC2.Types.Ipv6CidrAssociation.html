@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.Ipv6CidrAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.Ipv6CidrAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes an IPv6 CIDR block association.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIpv6CidrAssociation' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681086898"><span id="local-6989586621681086899"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv6CidrAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-var">Ipv6CidrAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6CidrAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-var">Ipv6CidrAssociation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 CIDR block.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aipv6Cidr%3AIpv6CidrAssociation%27"><span class="annot"><span class="annottext">Ipv6CidrAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#%24sel%3Aipv6Cidr%3AIpv6CidrAssociation%27"><span class="hs-identifier hs-var hs-var">ipv6Cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The resource that\'s associated with the IPv6 CIDR block.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AassociatedResource%3AIpv6CidrAssociation%27"><span class="annot"><span class="annottext">Ipv6CidrAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#%24sel%3AassociatedResource%3AIpv6CidrAssociation%27"><span class="hs-identifier hs-var hs-var">associatedResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681086891"><span id="local-6989586621681086893"><span class="annot"><span class="annottext">Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool
+(Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool)
+-&gt; (Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool)
+-&gt; Eq Ipv6CidrAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool
+$c/= :: Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool
+== :: Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool
+$c== :: Ipv6CidrAssociation -&gt; Ipv6CidrAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086882"><span id="local-6989586621681086884"><span id="local-6989586621681086886"><span id="local-6989586621681086888"><span class="annot"><span class="annottext">ReadPrec [Ipv6CidrAssociation]
+ReadPrec Ipv6CidrAssociation
+Int -&gt; ReadS Ipv6CidrAssociation
+ReadS [Ipv6CidrAssociation]
+(Int -&gt; ReadS Ipv6CidrAssociation)
+-&gt; ReadS [Ipv6CidrAssociation]
+-&gt; ReadPrec Ipv6CidrAssociation
+-&gt; ReadPrec [Ipv6CidrAssociation]
+-&gt; Read Ipv6CidrAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Ipv6CidrAssociation]
+$creadListPrec :: ReadPrec [Ipv6CidrAssociation]
+readPrec :: ReadPrec Ipv6CidrAssociation
+$creadPrec :: ReadPrec Ipv6CidrAssociation
+readList :: ReadS [Ipv6CidrAssociation]
+$creadList :: ReadS [Ipv6CidrAssociation]
+readsPrec :: Int -&gt; ReadS Ipv6CidrAssociation
+$creadsPrec :: Int -&gt; ReadS Ipv6CidrAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086875"><span id="local-6989586621681086877"><span id="local-6989586621681086879"><span class="annot"><span class="annottext">Int -&gt; Ipv6CidrAssociation -&gt; ShowS
+[Ipv6CidrAssociation] -&gt; ShowS
+Ipv6CidrAssociation -&gt; String
+(Int -&gt; Ipv6CidrAssociation -&gt; ShowS)
+-&gt; (Ipv6CidrAssociation -&gt; String)
+-&gt; ([Ipv6CidrAssociation] -&gt; ShowS)
+-&gt; Show Ipv6CidrAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Ipv6CidrAssociation] -&gt; ShowS
+$cshowList :: [Ipv6CidrAssociation] -&gt; ShowS
+show :: Ipv6CidrAssociation -&gt; String
+$cshow :: Ipv6CidrAssociation -&gt; String
+showsPrec :: Int -&gt; Ipv6CidrAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; Ipv6CidrAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Ipv6CidrAssociation -&gt; Rep Ipv6CidrAssociation x)
+-&gt; (forall x. Rep Ipv6CidrAssociation x -&gt; Ipv6CidrAssociation)
+-&gt; Generic Ipv6CidrAssociation
+forall x. Rep Ipv6CidrAssociation x -&gt; Ipv6CidrAssociation
+forall x. Ipv6CidrAssociation -&gt; Rep Ipv6CidrAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Ipv6CidrAssociation x -&gt; Ipv6CidrAssociation
+$cfrom :: forall x. Ipv6CidrAssociation -&gt; Rep Ipv6CidrAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'Ipv6CidrAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'ipv6Cidr', 'ipv6CidrAssociation_ipv6Cidr' - The IPv6 CIDR block.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'associatedResource', 'ipv6CidrAssociation_associatedResource' - The resource that\'s associated with the IPv6 CIDR block.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#newIpv6CidrAssociation"><span class="hs-identifier hs-type">newIpv6CidrAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span><span>
+</span><span id="line-51"></span><span id="newIpv6CidrAssociation"><span class="annot"><span class="annottext">newIpv6CidrAssociation :: Ipv6CidrAssociation
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#newIpv6CidrAssociation"><span class="hs-identifier hs-var hs-var">newIpv6CidrAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">Ipv6CidrAssociation' :: Maybe Text -&gt; Maybe Text -&gt; Ipv6CidrAssociation
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-type">Ipv6CidrAssociation'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipv6Cidr:Ipv6CidrAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#%24sel%3Aipv6Cidr%3AIpv6CidrAssociation%27"><span class="hs-identifier hs-var">ipv6Cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedResource:Ipv6CidrAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#%24sel%3AassociatedResource%3AIpv6CidrAssociation%27"><span class="hs-identifier hs-var">associatedResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The IPv6 CIDR block.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#ipv6CidrAssociation_ipv6Cidr"><span class="hs-identifier hs-type">ipv6CidrAssociation_ipv6Cidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="ipv6CidrAssociation_ipv6Cidr"><span class="annot"><span class="annottext">ipv6CidrAssociation_ipv6Cidr :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ipv6CidrAssociation -&gt; f Ipv6CidrAssociation
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#ipv6CidrAssociation_ipv6Cidr"><span class="hs-identifier hs-var hs-var">ipv6CidrAssociation_ipv6Cidr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6CidrAssociation -&gt; Maybe Text)
+-&gt; (Ipv6CidrAssociation -&gt; Maybe Text -&gt; Ipv6CidrAssociation)
+-&gt; Lens
+     Ipv6CidrAssociation Ipv6CidrAssociation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-type">Ipv6CidrAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086866"><span class="annot"><span class="annottext">Maybe Text
+ipv6Cidr :: Maybe Text
+$sel:ipv6Cidr:Ipv6CidrAssociation' :: Ipv6CidrAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621681086866"><span class="hs-identifier hs-var hs-var">ipv6Cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086866"><span class="hs-identifier hs-var">ipv6Cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086865"><span class="annot"><span class="annottext">s :: Ipv6CidrAssociation
+</span><a href="#local-6989586621681086865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-type">Ipv6CidrAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6CidrAssociation
+</span><a href="#local-6989586621681086865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Cidr:Ipv6CidrAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#%24sel%3Aipv6Cidr%3AIpv6CidrAssociation%27"><span class="hs-identifier hs-var">ipv6Cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The resource that\'s associated with the IPv6 CIDR block.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#ipv6CidrAssociation_associatedResource"><span class="hs-identifier hs-type">ipv6CidrAssociation_associatedResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="ipv6CidrAssociation_associatedResource"><span class="annot"><span class="annottext">ipv6CidrAssociation_associatedResource :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ipv6CidrAssociation -&gt; f Ipv6CidrAssociation
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#ipv6CidrAssociation_associatedResource"><span class="hs-identifier hs-var hs-var">ipv6CidrAssociation_associatedResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ipv6CidrAssociation -&gt; Maybe Text)
+-&gt; (Ipv6CidrAssociation -&gt; Maybe Text -&gt; Ipv6CidrAssociation)
+-&gt; Lens
+     Ipv6CidrAssociation Ipv6CidrAssociation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-type">Ipv6CidrAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086862"><span class="annot"><span class="annottext">Maybe Text
+associatedResource :: Maybe Text
+$sel:associatedResource:Ipv6CidrAssociation' :: Ipv6CidrAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621681086862"><span class="hs-identifier hs-var hs-var">associatedResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086862"><span class="hs-identifier hs-var">associatedResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086861"><span class="annot"><span class="annottext">s :: Ipv6CidrAssociation
+</span><a href="#local-6989586621681086861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-type">Ipv6CidrAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv6CidrAssociation
+</span><a href="#local-6989586621681086861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedResource:Ipv6CidrAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#%24sel%3AassociatedResource%3AIpv6CidrAssociation%27"><span class="hs-identifier hs-var">associatedResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681086860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681086857"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv6CidrAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681086855"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681086855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Ipv6CidrAssociation
+</span><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation%27"><span class="hs-identifier hs-var">Ipv6CidrAssociation'</span></a></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Ipv6CidrAssociation)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Ipv6CidrAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681086855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipv6Cidr&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Ipv6CidrAssociation)
+-&gt; Either String (Maybe Text) -&gt; Either String Ipv6CidrAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681086855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associatedResource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681086849"><span id="local-6989586621681086851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681086846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6CidrAssociation.html#Ipv6CidrAssociation"><span class="hs-identifier hs-type">Ipv6CidrAssociation</span></a></span></span><span>
+</span><span id="line-74"></span></pre></body></html>

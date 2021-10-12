@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ELBv2.DescribeTargetHealth</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the health of the specified targets or all of your targets.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELBv2.DescribeTargetHealth</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier">DescribeTargetHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#newDescribeTargetHealth"><span class="hs-identifier">newDescribeTargetHealth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealth_targets"><span class="hs-identifier">describeTargetHealth_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealth_targetGroupArn"><span class="hs-identifier">describeTargetHealth_targetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier">DescribeTargetHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#newDescribeTargetHealthResponse"><span class="hs-identifier">newDescribeTargetHealthResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealthResponse_targetHealthDescriptions"><span class="hs-identifier">describeTargetHealthResponse_targetHealthDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealthResponse_httpStatus"><span class="hs-identifier">describeTargetHealthResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.html"><span class="hs-identifier">Network.AWS.ELBv2.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeTargetHealth' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679255987"><span id="local-6989586621679255988"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTargetHealth"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-var">DescribeTargetHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTargetHealth%27"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-var">DescribeTargetHealth'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The targets.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Atargets%3ADescribeTargetHealth%27"><span class="annot"><span class="annottext">DescribeTargetHealth -&gt; Maybe [TargetDescription]
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3Atargets%3ADescribeTargetHealth%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetDescription.html#TargetDescription"><span class="hs-identifier hs-type">TargetDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target group.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AtargetGroupArn%3ADescribeTargetHealth%27"><span class="annot"><span class="annottext">DescribeTargetHealth -&gt; Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AtargetGroupArn%3ADescribeTargetHealth%27"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255980"><span id="local-6989586621679255982"><span class="annot"><span class="annottext">DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool
+(DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool)
+-&gt; (DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool)
+-&gt; Eq DescribeTargetHealth
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool
+$c/= :: DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool
+== :: DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool
+$c== :: DescribeTargetHealth -&gt; DescribeTargetHealth -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255971"><span id="local-6989586621679255973"><span id="local-6989586621679255975"><span id="local-6989586621679255977"><span class="annot"><span class="annottext">ReadPrec [DescribeTargetHealth]
+ReadPrec DescribeTargetHealth
+Int -&gt; ReadS DescribeTargetHealth
+ReadS [DescribeTargetHealth]
+(Int -&gt; ReadS DescribeTargetHealth)
+-&gt; ReadS [DescribeTargetHealth]
+-&gt; ReadPrec DescribeTargetHealth
+-&gt; ReadPrec [DescribeTargetHealth]
+-&gt; Read DescribeTargetHealth
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTargetHealth]
+$creadListPrec :: ReadPrec [DescribeTargetHealth]
+readPrec :: ReadPrec DescribeTargetHealth
+$creadPrec :: ReadPrec DescribeTargetHealth
+readList :: ReadS [DescribeTargetHealth]
+$creadList :: ReadS [DescribeTargetHealth]
+readsPrec :: Int -&gt; ReadS DescribeTargetHealth
+$creadsPrec :: Int -&gt; ReadS DescribeTargetHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255964"><span id="local-6989586621679255966"><span id="local-6989586621679255968"><span class="annot"><span class="annottext">Int -&gt; DescribeTargetHealth -&gt; ShowS
+[DescribeTargetHealth] -&gt; ShowS
+DescribeTargetHealth -&gt; String
+(Int -&gt; DescribeTargetHealth -&gt; ShowS)
+-&gt; (DescribeTargetHealth -&gt; String)
+-&gt; ([DescribeTargetHealth] -&gt; ShowS)
+-&gt; Show DescribeTargetHealth
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTargetHealth] -&gt; ShowS
+$cshowList :: [DescribeTargetHealth] -&gt; ShowS
+show :: DescribeTargetHealth -&gt; String
+$cshow :: DescribeTargetHealth -&gt; String
+showsPrec :: Int -&gt; DescribeTargetHealth -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTargetHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeTargetHealth -&gt; Rep DescribeTargetHealth x)
+-&gt; (forall x. Rep DescribeTargetHealth x -&gt; DescribeTargetHealth)
+-&gt; Generic DescribeTargetHealth
+forall x. Rep DescribeTargetHealth x -&gt; DescribeTargetHealth
+forall x. DescribeTargetHealth -&gt; Rep DescribeTargetHealth x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeTargetHealth x -&gt; DescribeTargetHealth
+$cfrom :: forall x. DescribeTargetHealth -&gt; Rep DescribeTargetHealth x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DescribeTargetHealth' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'targets', 'describeTargetHealth_targets' - The targets.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'targetGroupArn', 'describeTargetHealth_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#newDescribeTargetHealth"><span class="hs-identifier hs-type">newDescribeTargetHealth</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'targetGroupArn'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span>
+</span><span id="line-74"></span><span id="newDescribeTargetHealth"><span class="annot"><span class="annottext">newDescribeTargetHealth :: Text -&gt; DescribeTargetHealth
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#newDescribeTargetHealth"><span class="hs-identifier hs-var hs-var">newDescribeTargetHealth</span></a></span></span><span> </span><span id="local-6989586621679255959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255959"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DescribeTargetHealth' :: Maybe [TargetDescription] -&gt; Text -&gt; DescribeTargetHealth
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-type">DescribeTargetHealth'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targets:DescribeTargetHealth' :: Maybe [TargetDescription]
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3Atargets%3ADescribeTargetHealth%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroupArn:DescribeTargetHealth' :: Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AtargetGroupArn%3ADescribeTargetHealth%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255959"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The targets.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealth_targets"><span class="hs-identifier hs-type">describeTargetHealth_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetDescription.html#TargetDescription"><span class="hs-identifier hs-type">TargetDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="describeTargetHealth_targets"><span class="annot"><span class="annottext">describeTargetHealth_targets :: (Maybe [TargetDescription] -&gt; f (Maybe [TargetDescription]))
+-&gt; DescribeTargetHealth -&gt; f DescribeTargetHealth
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealth_targets"><span class="hs-identifier hs-var hs-var">describeTargetHealth_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetHealth -&gt; Maybe [TargetDescription])
+-&gt; (DescribeTargetHealth
+    -&gt; Maybe [TargetDescription] -&gt; DescribeTargetHealth)
+-&gt; Lens
+     DescribeTargetHealth
+     DescribeTargetHealth
+     (Maybe [TargetDescription])
+     (Maybe [TargetDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-type">DescribeTargetHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255956"><span class="annot"><span class="annottext">Maybe [TargetDescription]
+targets :: Maybe [TargetDescription]
+$sel:targets:DescribeTargetHealth' :: DescribeTargetHealth -&gt; Maybe [TargetDescription]
+</span><a href="#local-6989586621679255956"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetDescription]
+</span><a href="#local-6989586621679255956"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255955"><span class="annot"><span class="annottext">s :: DescribeTargetHealth
+</span><a href="#local-6989586621679255955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-type">DescribeTargetHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255954"><span class="annot"><span class="annottext">Maybe [TargetDescription]
+</span><a href="#local-6989586621679255954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetHealth
+</span><a href="#local-6989586621679255955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:DescribeTargetHealth' :: Maybe [TargetDescription]
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3Atargets%3ADescribeTargetHealth%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetDescription]
+</span><a href="#local-6989586621679255954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetDescription] -&gt; f (Maybe [TargetDescription]))
+ -&gt; DescribeTargetHealth -&gt; f DescribeTargetHealth)
+-&gt; ((Maybe [TargetDescription] -&gt; f (Maybe [TargetDescription]))
+    -&gt; Maybe [TargetDescription] -&gt; f (Maybe [TargetDescription]))
+-&gt; (Maybe [TargetDescription] -&gt; f (Maybe [TargetDescription]))
+-&gt; DescribeTargetHealth
+-&gt; f DescribeTargetHealth
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetDescription]
+  [TargetDescription]
+  [TargetDescription]
+  [TargetDescription]
+-&gt; Iso
+     (Maybe [TargetDescription])
+     (Maybe [TargetDescription])
+     (Maybe [TargetDescription])
+     (Maybe [TargetDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetDescription]
+  [TargetDescription]
+  [TargetDescription]
+  [TargetDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target group.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealth_targetGroupArn"><span class="hs-identifier hs-type">describeTargetHealth_targetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="describeTargetHealth_targetGroupArn"><span class="annot"><span class="annottext">describeTargetHealth_targetGroupArn :: (Text -&gt; f Text) -&gt; DescribeTargetHealth -&gt; f DescribeTargetHealth
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealth_targetGroupArn"><span class="hs-identifier hs-var hs-var">describeTargetHealth_targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetHealth -&gt; Text)
+-&gt; (DescribeTargetHealth -&gt; Text -&gt; DescribeTargetHealth)
+-&gt; Lens DescribeTargetHealth DescribeTargetHealth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-type">DescribeTargetHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255950"><span class="annot"><span class="annottext">Text
+targetGroupArn :: Text
+$sel:targetGroupArn:DescribeTargetHealth' :: DescribeTargetHealth -&gt; Text
+</span><a href="#local-6989586621679255950"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255950"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255949"><span class="annot"><span class="annottext">s :: DescribeTargetHealth
+</span><a href="#local-6989586621679255949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-type">DescribeTargetHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255948"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetHealth
+</span><a href="#local-6989586621679255949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupArn:DescribeTargetHealth' :: Text
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AtargetGroupArn%3ADescribeTargetHealth%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679255944"><span class="annot"><span class="annottext">request :: DescribeTargetHealth -&gt; Request DescribeTargetHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTargetHealth -&gt; Request DescribeTargetHealth
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ELBv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679255940"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeTargetHealth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTargetHealth)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeTargetHealth))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeTargetHealth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTargetHealth)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeTargetHealthResult&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255937"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255937"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255936"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255936"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255935"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TargetHealthDescription]
+-&gt; Int -&gt; DescribeTargetHealthResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-var">DescribeTargetHealthResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TargetHealthDescription]
+ -&gt; Int -&gt; DescribeTargetHealthResponse)
+-&gt; Either String (Maybe [TargetHealthDescription])
+-&gt; Either String (Int -&gt; DescribeTargetHealthResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetHealthDescriptions&quot;</span></span><span>
+</span><span id="line-99"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [TargetHealthDescription]))
+-&gt; Either String (Maybe [TargetHealthDescription])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [TargetHealthDescription])
+-&gt; [Node] -&gt; Either String (Maybe [TargetHealthDescription])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [TargetHealthDescription]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeTargetHealthResponse)
+-&gt; Either String Int -&gt; Either String DescribeTargetHealthResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255937"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255924"><span id="local-6989586621679255926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679255917"><span class="annot"><span class="annottext">toHeaders :: DescribeTargetHealth -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTargetHealth -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679255912"><span class="annot"><span class="annottext">toPath :: DescribeTargetHealth -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTargetHealth -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth"><span class="hs-identifier hs-type">DescribeTargetHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679255908"><span class="annot"><span class="annottext">toQuery :: DescribeTargetHealth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealth%27"><span class="hs-identifier hs-type">DescribeTargetHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255905"><span id="local-6989586621679255906"><span class="annot"><span class="annottext">Maybe [TargetDescription]
+Text
+targetGroupArn :: Text
+targets :: Maybe [TargetDescription]
+$sel:targetGroupArn:DescribeTargetHealth' :: DescribeTargetHealth -&gt; Text
+$sel:targets:DescribeTargetHealth' :: DescribeTargetHealth -&gt; Maybe [TargetDescription]
+</span><a href="#local-6989586621679255905"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeTargetHealth&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Targets&quot;</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [TargetDescription] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([TargetDescription] -&gt; QueryString)
+-&gt; Maybe [TargetDescription] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetDescription]
+</span><a href="#local-6989586621679255906"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255905"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDescribeTargetHealthResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679255901"><span id="local-6989586621679255902"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTargetHealthResponse"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-var">DescribeTargetHealthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTargetHealthResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-var">DescribeTargetHealthResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the health of the targets.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AtargetHealthDescriptions%3ADescribeTargetHealthResponse%27"><span class="annot"><span class="annottext">DescribeTargetHealthResponse -&gt; Maybe [TargetHealthDescription]
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AtargetHealthDescriptions%3ADescribeTargetHealthResponse%27"><span class="hs-identifier hs-var hs-var">targetHealthDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetHealthDescription.html#TargetHealthDescription"><span class="hs-identifier hs-type">TargetHealthDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTargetHealthResponse%27"><span class="annot"><span class="annottext">DescribeTargetHealthResponse -&gt; Int
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AhttpStatus%3ADescribeTargetHealthResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255895"><span id="local-6989586621679255897"><span class="annot"><span class="annottext">DescribeTargetHealthResponse
+-&gt; DescribeTargetHealthResponse -&gt; Bool
+(DescribeTargetHealthResponse
+ -&gt; DescribeTargetHealthResponse -&gt; Bool)
+-&gt; (DescribeTargetHealthResponse
+    -&gt; DescribeTargetHealthResponse -&gt; Bool)
+-&gt; Eq DescribeTargetHealthResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTargetHealthResponse
+-&gt; DescribeTargetHealthResponse -&gt; Bool
+$c/= :: DescribeTargetHealthResponse
+-&gt; DescribeTargetHealthResponse -&gt; Bool
+== :: DescribeTargetHealthResponse
+-&gt; DescribeTargetHealthResponse -&gt; Bool
+$c== :: DescribeTargetHealthResponse
+-&gt; DescribeTargetHealthResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255887"><span id="local-6989586621679255889"><span id="local-6989586621679255891"><span id="local-6989586621679255893"><span class="annot"><span class="annottext">ReadPrec [DescribeTargetHealthResponse]
+ReadPrec DescribeTargetHealthResponse
+Int -&gt; ReadS DescribeTargetHealthResponse
+ReadS [DescribeTargetHealthResponse]
+(Int -&gt; ReadS DescribeTargetHealthResponse)
+-&gt; ReadS [DescribeTargetHealthResponse]
+-&gt; ReadPrec DescribeTargetHealthResponse
+-&gt; ReadPrec [DescribeTargetHealthResponse]
+-&gt; Read DescribeTargetHealthResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTargetHealthResponse]
+$creadListPrec :: ReadPrec [DescribeTargetHealthResponse]
+readPrec :: ReadPrec DescribeTargetHealthResponse
+$creadPrec :: ReadPrec DescribeTargetHealthResponse
+readList :: ReadS [DescribeTargetHealthResponse]
+$creadList :: ReadS [DescribeTargetHealthResponse]
+readsPrec :: Int -&gt; ReadS DescribeTargetHealthResponse
+$creadsPrec :: Int -&gt; ReadS DescribeTargetHealthResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255881"><span id="local-6989586621679255883"><span id="local-6989586621679255885"><span class="annot"><span class="annottext">Int -&gt; DescribeTargetHealthResponse -&gt; ShowS
+[DescribeTargetHealthResponse] -&gt; ShowS
+DescribeTargetHealthResponse -&gt; String
+(Int -&gt; DescribeTargetHealthResponse -&gt; ShowS)
+-&gt; (DescribeTargetHealthResponse -&gt; String)
+-&gt; ([DescribeTargetHealthResponse] -&gt; ShowS)
+-&gt; Show DescribeTargetHealthResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTargetHealthResponse] -&gt; ShowS
+$cshowList :: [DescribeTargetHealthResponse] -&gt; ShowS
+show :: DescribeTargetHealthResponse -&gt; String
+$cshow :: DescribeTargetHealthResponse -&gt; String
+showsPrec :: Int -&gt; DescribeTargetHealthResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTargetHealthResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTargetHealthResponse -&gt; Rep DescribeTargetHealthResponse x)
+-&gt; (forall x.
+    Rep DescribeTargetHealthResponse x -&gt; DescribeTargetHealthResponse)
+-&gt; Generic DescribeTargetHealthResponse
+forall x.
+Rep DescribeTargetHealthResponse x -&gt; DescribeTargetHealthResponse
+forall x.
+DescribeTargetHealthResponse -&gt; Rep DescribeTargetHealthResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTargetHealthResponse x -&gt; DescribeTargetHealthResponse
+$cfrom :: forall x.
+DescribeTargetHealthResponse -&gt; Rep DescribeTargetHealthResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'DescribeTargetHealthResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'targetHealthDescriptions', 'describeTargetHealthResponse_targetHealthDescriptions' - Information about the health of the targets.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'describeTargetHealthResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#newDescribeTargetHealthResponse"><span class="hs-identifier hs-type">newDescribeTargetHealthResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newDescribeTargetHealthResponse"><span class="annot"><span class="annottext">newDescribeTargetHealthResponse :: Int -&gt; DescribeTargetHealthResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#newDescribeTargetHealthResponse"><span class="hs-identifier hs-var hs-var">newDescribeTargetHealthResponse</span></a></span></span><span> </span><span id="local-6989586621679255878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DescribeTargetHealthResponse' :: Maybe [TargetHealthDescription]
+-&gt; Int -&gt; DescribeTargetHealthResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-type">DescribeTargetHealthResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetHealthDescriptions:DescribeTargetHealthResponse' :: Maybe [TargetHealthDescription]
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AtargetHealthDescriptions%3ADescribeTargetHealthResponse%27"><span class="hs-identifier hs-var">targetHealthDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe [TargetHealthDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTargetHealthResponse' :: Int
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AhttpStatus%3ADescribeTargetHealthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255878"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Information about the health of the targets.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealthResponse_targetHealthDescriptions"><span class="hs-identifier hs-type">describeTargetHealthResponse_targetHealthDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetHealthDescription.html#TargetHealthDescription"><span class="hs-identifier hs-type">TargetHealthDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="describeTargetHealthResponse_targetHealthDescriptions"><span class="annot"><span class="annottext">describeTargetHealthResponse_targetHealthDescriptions :: (Maybe [TargetHealthDescription]
+ -&gt; f (Maybe [TargetHealthDescription]))
+-&gt; DescribeTargetHealthResponse -&gt; f DescribeTargetHealthResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealthResponse_targetHealthDescriptions"><span class="hs-identifier hs-var hs-var">describeTargetHealthResponse_targetHealthDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetHealthResponse -&gt; Maybe [TargetHealthDescription])
+-&gt; (DescribeTargetHealthResponse
+    -&gt; Maybe [TargetHealthDescription] -&gt; DescribeTargetHealthResponse)
+-&gt; Lens
+     DescribeTargetHealthResponse
+     DescribeTargetHealthResponse
+     (Maybe [TargetHealthDescription])
+     (Maybe [TargetHealthDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-type">DescribeTargetHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255877"><span class="annot"><span class="annottext">Maybe [TargetHealthDescription]
+targetHealthDescriptions :: Maybe [TargetHealthDescription]
+$sel:targetHealthDescriptions:DescribeTargetHealthResponse' :: DescribeTargetHealthResponse -&gt; Maybe [TargetHealthDescription]
+</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var hs-var">targetHealthDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetHealthDescription]
+</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">targetHealthDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255876"><span class="annot"><span class="annottext">s :: DescribeTargetHealthResponse
+</span><a href="#local-6989586621679255876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-type">DescribeTargetHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255875"><span class="annot"><span class="annottext">Maybe [TargetHealthDescription]
+</span><a href="#local-6989586621679255875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetHealthResponse
+</span><a href="#local-6989586621679255876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetHealthDescriptions:DescribeTargetHealthResponse' :: Maybe [TargetHealthDescription]
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AtargetHealthDescriptions%3ADescribeTargetHealthResponse%27"><span class="hs-identifier hs-var">targetHealthDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetHealthDescription]
+</span><a href="#local-6989586621679255875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetHealthDescription]
+  -&gt; f (Maybe [TargetHealthDescription]))
+ -&gt; DescribeTargetHealthResponse -&gt; f DescribeTargetHealthResponse)
+-&gt; ((Maybe [TargetHealthDescription]
+     -&gt; f (Maybe [TargetHealthDescription]))
+    -&gt; Maybe [TargetHealthDescription]
+    -&gt; f (Maybe [TargetHealthDescription]))
+-&gt; (Maybe [TargetHealthDescription]
+    -&gt; f (Maybe [TargetHealthDescription]))
+-&gt; DescribeTargetHealthResponse
+-&gt; f DescribeTargetHealthResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetHealthDescription]
+  [TargetHealthDescription]
+  [TargetHealthDescription]
+  [TargetHealthDescription]
+-&gt; Iso
+     (Maybe [TargetHealthDescription])
+     (Maybe [TargetHealthDescription])
+     (Maybe [TargetHealthDescription])
+     (Maybe [TargetHealthDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [TargetHealthDescription]
+  [TargetHealthDescription]
+  [TargetHealthDescription]
+  [TargetHealthDescription]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealthResponse_httpStatus"><span class="hs-identifier hs-type">describeTargetHealthResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="describeTargetHealthResponse_httpStatus"><span class="annot"><span class="annottext">describeTargetHealthResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeTargetHealthResponse -&gt; f DescribeTargetHealthResponse
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#describeTargetHealthResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeTargetHealthResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTargetHealthResponse -&gt; Int)
+-&gt; (DescribeTargetHealthResponse
+    -&gt; Int -&gt; DescribeTargetHealthResponse)
+-&gt; Lens
+     DescribeTargetHealthResponse DescribeTargetHealthResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-type">DescribeTargetHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255874"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeTargetHealthResponse' :: DescribeTargetHealthResponse -&gt; Int
+</span><a href="#local-6989586621679255874"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255874"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255873"><span class="annot"><span class="annottext">s :: DescribeTargetHealthResponse
+</span><a href="#local-6989586621679255873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse%27"><span class="hs-identifier hs-type">DescribeTargetHealthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTargetHealthResponse
+</span><a href="#local-6989586621679255873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTargetHealthResponse' :: Int
+</span><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#%24sel%3AhttpStatus%3ADescribeTargetHealthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.DescribeTargetHealth.html#DescribeTargetHealthResponse"><span class="hs-identifier hs-type">DescribeTargetHealthResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

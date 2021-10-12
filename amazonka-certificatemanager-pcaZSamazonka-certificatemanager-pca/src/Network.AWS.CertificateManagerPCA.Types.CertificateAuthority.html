@@ -1,0 +1,1074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManagerPCA.Types.CertificateAuthority</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CertificateAuthority</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.FailureReason.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.FailureReason</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html"><span class="hs-identifier">Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Contains information about your private certificate authority (CA). Your</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- private CA can issue and revoke X.509 digital certificates. Digital</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- certificates verify that the entity named in the certificate __Subject__</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- field owns or controls the public key contained in the __Subject Public</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Key Info__ field. Call the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- action to create your private CA. You must then call the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCertificate.html GetCertificateAuthorityCertificate&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- action to retrieve a private CA certificate signing request (CSR). Sign</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- the CSR with your ACM Private CA-hosted or on-premises root or</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- subordinate CA certificate. Call the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate&gt;</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- action to import the signed certificate into AWS Certificate Manager</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- (ACM).</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newCertificateAuthority' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679212651"><span id="local-6989586621679212652"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateAuthority"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-var">CertificateAuthority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateAuthority%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-var">CertificateAuthority'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of your private CA.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Astatus%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe CertificateAuthorityStatus
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Astatus%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus.html#CertificateAuthorityStatus"><span class="hs-identifier hs-type">CertificateAuthorityStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Date and time before which your private CA certificate is not valid.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AnotBefore%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AnotBefore%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Defines a cryptographic key management compliance standard used for</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- handling CA keys.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Note: AWS Region ap-northeast-3 supports only</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- and value when creating a CA in that Region. Specifying a different</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- value (or no value) results in an @InvalidArgsException@ with the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- message \&quot;A certificate authority cannot be created in this region with</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the specified security standard.\&quot;</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AkeyStorageSecurityStandard%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe KeyStorageSecurityStandard
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AkeyStorageSecurityStandard%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">keyStorageSecurityStandard</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard.html#KeyStorageSecurityStandard"><span class="hs-identifier hs-type">KeyStorageSecurityStandard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Information about the Online Certificate Status Protocol (OCSP)</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- configuration or certificate revocation list (CRL) created and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- maintained by your private CA.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3ArevocationConfiguration%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe RevocationConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3ArevocationConfiguration%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">revocationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Serial number of your private CA.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aserial%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Aserial%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">serial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Date and time at which your private CA was created.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcreatedAt%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AcreatedAt%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) for your private certificate authority (CA).</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- The format is @ 12345678-1234-1234-1234-123456789012 @.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aarn%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Aarn%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Your private CA configuration.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AcertificateAuthorityConfiguration%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AcertificateAuthorityConfiguration%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">certificateAuthorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Reason the request to create your private CA failed.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AfailureReason%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe FailureReason
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AfailureReason%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.FailureReason.html#FailureReason"><span class="hs-identifier hs-type">FailureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Date and time after which your private CA certificate is not valid.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AnotAfter%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AnotAfter%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Date and time at which your private CA was last updated.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AlastStateChangeAt%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AlastStateChangeAt%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">lastStateChangeAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Type of your private CA.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Atype%27%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe CertificateAuthorityType
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Atype%27%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType"><span class="hs-identifier hs-type">CertificateAuthorityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The AWS account ID that owns the certificate authority.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AownerAccount%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AownerAccount%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The period during which a deleted CA can be restored. For more</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- information, see the @PermanentDeletionTimeInDays@ parameter of the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest&gt;</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3ArestorableUntil%3ACertificateAuthority%27"><span class="annot"><span class="annottext">CertificateAuthority -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3ArestorableUntil%3ACertificateAuthority%27"><span class="hs-identifier hs-var hs-var">restorableUntil</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212632"><span id="local-6989586621679212634"><span class="annot"><span class="annottext">CertificateAuthority -&gt; CertificateAuthority -&gt; Bool
+(CertificateAuthority -&gt; CertificateAuthority -&gt; Bool)
+-&gt; (CertificateAuthority -&gt; CertificateAuthority -&gt; Bool)
+-&gt; Eq CertificateAuthority
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CertificateAuthority -&gt; CertificateAuthority -&gt; Bool
+$c/= :: CertificateAuthority -&gt; CertificateAuthority -&gt; Bool
+== :: CertificateAuthority -&gt; CertificateAuthority -&gt; Bool
+$c== :: CertificateAuthority -&gt; CertificateAuthority -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212623"><span id="local-6989586621679212625"><span id="local-6989586621679212627"><span id="local-6989586621679212629"><span class="annot"><span class="annottext">ReadPrec [CertificateAuthority]
+ReadPrec CertificateAuthority
+Int -&gt; ReadS CertificateAuthority
+ReadS [CertificateAuthority]
+(Int -&gt; ReadS CertificateAuthority)
+-&gt; ReadS [CertificateAuthority]
+-&gt; ReadPrec CertificateAuthority
+-&gt; ReadPrec [CertificateAuthority]
+-&gt; Read CertificateAuthority
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CertificateAuthority]
+$creadListPrec :: ReadPrec [CertificateAuthority]
+readPrec :: ReadPrec CertificateAuthority
+$creadPrec :: ReadPrec CertificateAuthority
+readList :: ReadS [CertificateAuthority]
+$creadList :: ReadS [CertificateAuthority]
+readsPrec :: Int -&gt; ReadS CertificateAuthority
+$creadsPrec :: Int -&gt; ReadS CertificateAuthority
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212616"><span id="local-6989586621679212618"><span id="local-6989586621679212620"><span class="annot"><span class="annottext">Int -&gt; CertificateAuthority -&gt; ShowS
+[CertificateAuthority] -&gt; ShowS
+CertificateAuthority -&gt; String
+(Int -&gt; CertificateAuthority -&gt; ShowS)
+-&gt; (CertificateAuthority -&gt; String)
+-&gt; ([CertificateAuthority] -&gt; ShowS)
+-&gt; Show CertificateAuthority
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CertificateAuthority] -&gt; ShowS
+$cshowList :: [CertificateAuthority] -&gt; ShowS
+show :: CertificateAuthority -&gt; String
+$cshow :: CertificateAuthority -&gt; String
+showsPrec :: Int -&gt; CertificateAuthority -&gt; ShowS
+$cshowsPrec :: Int -&gt; CertificateAuthority -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CertificateAuthority -&gt; Rep CertificateAuthority x)
+-&gt; (forall x. Rep CertificateAuthority x -&gt; CertificateAuthority)
+-&gt; Generic CertificateAuthority
+forall x. Rep CertificateAuthority x -&gt; CertificateAuthority
+forall x. CertificateAuthority -&gt; Rep CertificateAuthority x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CertificateAuthority x -&gt; CertificateAuthority
+$cfrom :: forall x. CertificateAuthority -&gt; Rep CertificateAuthority x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'CertificateAuthority' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'status', 'certificateAuthority_status' - Status of your private CA.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'notBefore', 'certificateAuthority_notBefore' - Date and time before which your private CA certificate is not valid.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'keyStorageSecurityStandard', 'certificateAuthority_keyStorageSecurityStandard' - Defines a cryptographic key management compliance standard used for</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- handling CA keys.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Note: AWS Region ap-northeast-3 supports only</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- and value when creating a CA in that Region. Specifying a different</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- value (or no value) results in an @InvalidArgsException@ with the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- message \&quot;A certificate authority cannot be created in this region with</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the specified security standard.\&quot;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'revocationConfiguration', 'certificateAuthority_revocationConfiguration' - Information about the Online Certificate Status Protocol (OCSP)</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- configuration or certificate revocation list (CRL) created and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- maintained by your private CA.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'serial', 'certificateAuthority_serial' - Serial number of your private CA.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'createdAt', 'certificateAuthority_createdAt' - Date and time at which your private CA was created.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'arn', 'certificateAuthority_arn' - Amazon Resource Name (ARN) for your private certificate authority (CA).</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The format is @ 12345678-1234-1234-1234-123456789012 @.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'certificateAuthorityConfiguration', 'certificateAuthority_certificateAuthorityConfiguration' - Your private CA configuration.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'failureReason', 'certificateAuthority_failureReason' - Reason the request to create your private CA failed.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'notAfter', 'certificateAuthority_notAfter' - Date and time after which your private CA certificate is not valid.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'lastStateChangeAt', 'certificateAuthority_lastStateChangeAt' - Date and time at which your private CA was last updated.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'type'', 'certificateAuthority_type' - Type of your private CA.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'ownerAccount', 'certificateAuthority_ownerAccount' - The AWS account ID that owns the certificate authority.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'restorableUntil', 'certificateAuthority_restorableUntil' - The period during which a deleted CA can be restored. For more</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- information, see the @PermanentDeletionTimeInDays@ parameter of the</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest&gt;</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#newCertificateAuthority"><span class="hs-identifier hs-type">newCertificateAuthority</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span>
+</span><span id="line-149"></span><span id="newCertificateAuthority"><span class="annot"><span class="annottext">newCertificateAuthority :: CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#newCertificateAuthority"><span class="hs-identifier hs-var hs-var">newCertificateAuthority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">CertificateAuthority' :: Maybe CertificateAuthorityStatus
+-&gt; Maybe POSIX
+-&gt; Maybe KeyStorageSecurityStandard
+-&gt; Maybe RevocationConfiguration
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe CertificateAuthorityConfiguration
+-&gt; Maybe FailureReason
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe CertificateAuthorityType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CertificateAuthority' :: Maybe CertificateAuthorityStatus
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Astatus%3ACertificateAuthority%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:notBefore:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AnotBefore%3ACertificateAuthority%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyStorageSecurityStandard:CertificateAuthority' :: Maybe KeyStorageSecurityStandard
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AkeyStorageSecurityStandard%3ACertificateAuthority%27"><span class="hs-identifier hs-var">keyStorageSecurityStandard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyStorageSecurityStandard
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:revocationConfiguration:CertificateAuthority' :: Maybe RevocationConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3ArevocationConfiguration%3ACertificateAuthority%27"><span class="hs-identifier hs-var">revocationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RevocationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:serial:CertificateAuthority' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Aserial%3ACertificateAuthority%27"><span class="hs-identifier hs-var">serial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AcreatedAt%3ACertificateAuthority%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CertificateAuthority' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Aarn%3ACertificateAuthority%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateAuthorityConfiguration:CertificateAuthority' :: Maybe CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AcertificateAuthorityConfiguration%3ACertificateAuthority%27"><span class="hs-identifier hs-var">certificateAuthorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:CertificateAuthority' :: Maybe FailureReason
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AfailureReason%3ACertificateAuthority%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:notAfter:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AnotAfter%3ACertificateAuthority%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastStateChangeAt:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AlastStateChangeAt%3ACertificateAuthority%27"><span class="hs-identifier hs-var">lastStateChangeAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CertificateAuthority' :: Maybe CertificateAuthorityType
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Atype%27%3ACertificateAuthority%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccount:CertificateAuthority' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AownerAccount%3ACertificateAuthority%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:restorableUntil:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3ArestorableUntil%3ACertificateAuthority%27"><span class="hs-identifier hs-var">restorableUntil</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Status of your private CA.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_status"><span class="hs-identifier hs-type">certificateAuthority_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus.html#CertificateAuthorityStatus"><span class="hs-identifier hs-type">CertificateAuthorityStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="certificateAuthority_status"><span class="annot"><span class="annottext">certificateAuthority_status :: (Maybe CertificateAuthorityStatus
+ -&gt; f (Maybe CertificateAuthorityStatus))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_status"><span class="hs-identifier hs-var hs-var">certificateAuthority_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe CertificateAuthorityStatus)
+-&gt; (CertificateAuthority
+    -&gt; Maybe CertificateAuthorityStatus -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe CertificateAuthorityStatus)
+     (Maybe CertificateAuthorityStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212607"><span class="annot"><span class="annottext">Maybe CertificateAuthorityStatus
+status :: Maybe CertificateAuthorityStatus
+$sel:status:CertificateAuthority' :: CertificateAuthority -&gt; Maybe CertificateAuthorityStatus
+</span><a href="#local-6989586621679212607"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityStatus
+</span><a href="#local-6989586621679212607"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212606"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212605"><span class="annot"><span class="annottext">Maybe CertificateAuthorityStatus
+</span><a href="#local-6989586621679212605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CertificateAuthority' :: Maybe CertificateAuthorityStatus
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Astatus%3ACertificateAuthority%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityStatus
+</span><a href="#local-6989586621679212605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Date and time before which your private CA certificate is not valid.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_notBefore"><span class="hs-identifier hs-type">certificateAuthority_notBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="certificateAuthority_notBefore"><span class="annot"><span class="annottext">certificateAuthority_notBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_notBefore"><span class="hs-identifier hs-var hs-var">certificateAuthority_notBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe POSIX)
+-&gt; (CertificateAuthority -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212603"><span class="annot"><span class="annottext">Maybe POSIX
+notBefore :: Maybe POSIX
+$sel:notBefore:CertificateAuthority' :: CertificateAuthority -&gt; Maybe POSIX
+</span><a href="#local-6989586621679212603"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212603"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212602"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212601"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AnotBefore%3ACertificateAuthority%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CertificateAuthority -&gt; f CertificateAuthority)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority
+-&gt; f CertificateAuthority
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Defines a cryptographic key management compliance standard used for</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- handling CA keys.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Note: AWS Region ap-northeast-3 supports only</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- and value when creating a CA in that Region. Specifying a different</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- value (or no value) results in an @InvalidArgsException@ with the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- message \&quot;A certificate authority cannot be created in this region with</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- the specified security standard.\&quot;</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_keyStorageSecurityStandard"><span class="hs-identifier hs-type">certificateAuthority_keyStorageSecurityStandard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard.html#KeyStorageSecurityStandard"><span class="hs-identifier hs-type">KeyStorageSecurityStandard</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="certificateAuthority_keyStorageSecurityStandard"><span class="annot"><span class="annottext">certificateAuthority_keyStorageSecurityStandard :: (Maybe KeyStorageSecurityStandard
+ -&gt; f (Maybe KeyStorageSecurityStandard))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_keyStorageSecurityStandard"><span class="hs-identifier hs-var hs-var">certificateAuthority_keyStorageSecurityStandard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe KeyStorageSecurityStandard)
+-&gt; (CertificateAuthority
+    -&gt; Maybe KeyStorageSecurityStandard -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe KeyStorageSecurityStandard)
+     (Maybe KeyStorageSecurityStandard)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212596"><span class="annot"><span class="annottext">Maybe KeyStorageSecurityStandard
+keyStorageSecurityStandard :: Maybe KeyStorageSecurityStandard
+$sel:keyStorageSecurityStandard:CertificateAuthority' :: CertificateAuthority -&gt; Maybe KeyStorageSecurityStandard
+</span><a href="#local-6989586621679212596"><span class="hs-identifier hs-var hs-var">keyStorageSecurityStandard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyStorageSecurityStandard
+</span><a href="#local-6989586621679212596"><span class="hs-identifier hs-var">keyStorageSecurityStandard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212595"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212594"><span class="annot"><span class="annottext">Maybe KeyStorageSecurityStandard
+</span><a href="#local-6989586621679212594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyStorageSecurityStandard:CertificateAuthority' :: Maybe KeyStorageSecurityStandard
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AkeyStorageSecurityStandard%3ACertificateAuthority%27"><span class="hs-identifier hs-var">keyStorageSecurityStandard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyStorageSecurityStandard
+</span><a href="#local-6989586621679212594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Information about the Online Certificate Status Protocol (OCSP)</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- configuration or certificate revocation list (CRL) created and</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- maintained by your private CA.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_revocationConfiguration"><span class="hs-identifier hs-type">certificateAuthority_revocationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="certificateAuthority_revocationConfiguration"><span class="annot"><span class="annottext">certificateAuthority_revocationConfiguration :: (Maybe RevocationConfiguration
+ -&gt; f (Maybe RevocationConfiguration))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_revocationConfiguration"><span class="hs-identifier hs-var hs-var">certificateAuthority_revocationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe RevocationConfiguration)
+-&gt; (CertificateAuthority
+    -&gt; Maybe RevocationConfiguration -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe RevocationConfiguration)
+     (Maybe RevocationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212592"><span class="annot"><span class="annottext">Maybe RevocationConfiguration
+revocationConfiguration :: Maybe RevocationConfiguration
+$sel:revocationConfiguration:CertificateAuthority' :: CertificateAuthority -&gt; Maybe RevocationConfiguration
+</span><a href="#local-6989586621679212592"><span class="hs-identifier hs-var hs-var">revocationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RevocationConfiguration
+</span><a href="#local-6989586621679212592"><span class="hs-identifier hs-var">revocationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212591"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212590"><span class="annot"><span class="annottext">Maybe RevocationConfiguration
+</span><a href="#local-6989586621679212590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revocationConfiguration:CertificateAuthority' :: Maybe RevocationConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3ArevocationConfiguration%3ACertificateAuthority%27"><span class="hs-identifier hs-var">revocationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RevocationConfiguration
+</span><a href="#local-6989586621679212590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Serial number of your private CA.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_serial"><span class="hs-identifier hs-type">certificateAuthority_serial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="certificateAuthority_serial"><span class="annot"><span class="annottext">certificateAuthority_serial :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_serial"><span class="hs-identifier hs-var hs-var">certificateAuthority_serial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe Text)
+-&gt; (CertificateAuthority -&gt; Maybe Text -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority CertificateAuthority (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212588"><span class="annot"><span class="annottext">Maybe Text
+serial :: Maybe Text
+$sel:serial:CertificateAuthority' :: CertificateAuthority -&gt; Maybe Text
+</span><a href="#local-6989586621679212588"><span class="hs-identifier hs-var hs-var">serial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212588"><span class="hs-identifier hs-var">serial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212587"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serial:CertificateAuthority' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Aserial%3ACertificateAuthority%27"><span class="hs-identifier hs-var">serial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Date and time at which your private CA was created.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_createdAt"><span class="hs-identifier hs-type">certificateAuthority_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="certificateAuthority_createdAt"><span class="annot"><span class="annottext">certificateAuthority_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_createdAt"><span class="hs-identifier hs-var hs-var">certificateAuthority_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe POSIX)
+-&gt; (CertificateAuthority -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212584"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:CertificateAuthority' :: CertificateAuthority -&gt; Maybe POSIX
+</span><a href="#local-6989586621679212584"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212584"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212583"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212582"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AcreatedAt%3ACertificateAuthority%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CertificateAuthority -&gt; f CertificateAuthority)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority
+-&gt; f CertificateAuthority
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) for your private certificate authority (CA).</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The format is @ 12345678-1234-1234-1234-123456789012 @.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_arn"><span class="hs-identifier hs-type">certificateAuthority_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="certificateAuthority_arn"><span class="annot"><span class="annottext">certificateAuthority_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_arn"><span class="hs-identifier hs-var hs-var">certificateAuthority_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe Text)
+-&gt; (CertificateAuthority -&gt; Maybe Text -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority CertificateAuthority (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212580"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CertificateAuthority' :: CertificateAuthority -&gt; Maybe Text
+</span><a href="#local-6989586621679212580"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212580"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212579"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CertificateAuthority' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Aarn%3ACertificateAuthority%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Your private CA configuration.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_certificateAuthorityConfiguration"><span class="hs-identifier hs-type">certificateAuthority_certificateAuthorityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration.html#CertificateAuthorityConfiguration"><span class="hs-identifier hs-type">CertificateAuthorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="certificateAuthority_certificateAuthorityConfiguration"><span class="annot"><span class="annottext">certificateAuthority_certificateAuthorityConfiguration :: (Maybe CertificateAuthorityConfiguration
+ -&gt; f (Maybe CertificateAuthorityConfiguration))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_certificateAuthorityConfiguration"><span class="hs-identifier hs-var hs-var">certificateAuthority_certificateAuthorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe CertificateAuthorityConfiguration)
+-&gt; (CertificateAuthority
+    -&gt; Maybe CertificateAuthorityConfiguration -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe CertificateAuthorityConfiguration)
+     (Maybe CertificateAuthorityConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212576"><span class="annot"><span class="annottext">Maybe CertificateAuthorityConfiguration
+certificateAuthorityConfiguration :: Maybe CertificateAuthorityConfiguration
+$sel:certificateAuthorityConfiguration:CertificateAuthority' :: CertificateAuthority -&gt; Maybe CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212576"><span class="hs-identifier hs-var hs-var">certificateAuthorityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212576"><span class="hs-identifier hs-var">certificateAuthorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212575"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212574"><span class="annot"><span class="annottext">Maybe CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityConfiguration:CertificateAuthority' :: Maybe CertificateAuthorityConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AcertificateAuthorityConfiguration%3ACertificateAuthority%27"><span class="hs-identifier hs-var">certificateAuthorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityConfiguration
+</span><a href="#local-6989586621679212574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Reason the request to create your private CA failed.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_failureReason"><span class="hs-identifier hs-type">certificateAuthority_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.FailureReason.html#FailureReason"><span class="hs-identifier hs-type">FailureReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="certificateAuthority_failureReason"><span class="annot"><span class="annottext">certificateAuthority_failureReason :: (Maybe FailureReason -&gt; f (Maybe FailureReason))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_failureReason"><span class="hs-identifier hs-var hs-var">certificateAuthority_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe FailureReason)
+-&gt; (CertificateAuthority
+    -&gt; Maybe FailureReason -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe FailureReason)
+     (Maybe FailureReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212572"><span class="annot"><span class="annottext">Maybe FailureReason
+failureReason :: Maybe FailureReason
+$sel:failureReason:CertificateAuthority' :: CertificateAuthority -&gt; Maybe FailureReason
+</span><a href="#local-6989586621679212572"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailureReason
+</span><a href="#local-6989586621679212572"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212571"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212570"><span class="annot"><span class="annottext">Maybe FailureReason
+</span><a href="#local-6989586621679212570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:CertificateAuthority' :: Maybe FailureReason
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AfailureReason%3ACertificateAuthority%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailureReason
+</span><a href="#local-6989586621679212570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Date and time after which your private CA certificate is not valid.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_notAfter"><span class="hs-identifier hs-type">certificateAuthority_notAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="certificateAuthority_notAfter"><span class="annot"><span class="annottext">certificateAuthority_notAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_notAfter"><span class="hs-identifier hs-var hs-var">certificateAuthority_notAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe POSIX)
+-&gt; (CertificateAuthority -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212568"><span class="annot"><span class="annottext">Maybe POSIX
+notAfter :: Maybe POSIX
+$sel:notAfter:CertificateAuthority' :: CertificateAuthority -&gt; Maybe POSIX
+</span><a href="#local-6989586621679212568"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212568"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212567"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212566"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AnotAfter%3ACertificateAuthority%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CertificateAuthority -&gt; f CertificateAuthority)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority
+-&gt; f CertificateAuthority
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Date and time at which your private CA was last updated.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_lastStateChangeAt"><span class="hs-identifier hs-type">certificateAuthority_lastStateChangeAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="certificateAuthority_lastStateChangeAt"><span class="annot"><span class="annottext">certificateAuthority_lastStateChangeAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_lastStateChangeAt"><span class="hs-identifier hs-var hs-var">certificateAuthority_lastStateChangeAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe POSIX)
+-&gt; (CertificateAuthority -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212564"><span class="annot"><span class="annottext">Maybe POSIX
+lastStateChangeAt :: Maybe POSIX
+$sel:lastStateChangeAt:CertificateAuthority' :: CertificateAuthority -&gt; Maybe POSIX
+</span><a href="#local-6989586621679212564"><span class="hs-identifier hs-var hs-var">lastStateChangeAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212564"><span class="hs-identifier hs-var">lastStateChangeAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212563"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212562"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastStateChangeAt:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AlastStateChangeAt%3ACertificateAuthority%27"><span class="hs-identifier hs-var">lastStateChangeAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CertificateAuthority -&gt; f CertificateAuthority)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority
+-&gt; f CertificateAuthority
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Type of your private CA.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_type"><span class="hs-identifier hs-type">certificateAuthority_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType.html#CertificateAuthorityType"><span class="hs-identifier hs-type">CertificateAuthorityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="certificateAuthority_type"><span class="annot"><span class="annottext">certificateAuthority_type :: (Maybe CertificateAuthorityType
+ -&gt; f (Maybe CertificateAuthorityType))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_type"><span class="hs-identifier hs-var hs-var">certificateAuthority_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe CertificateAuthorityType)
+-&gt; (CertificateAuthority
+    -&gt; Maybe CertificateAuthorityType -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe CertificateAuthorityType)
+     (Maybe CertificateAuthorityType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212560"><span class="annot"><span class="annottext">Maybe CertificateAuthorityType
+type' :: Maybe CertificateAuthorityType
+$sel:type':CertificateAuthority' :: CertificateAuthority -&gt; Maybe CertificateAuthorityType
+</span><a href="#local-6989586621679212560"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityType
+</span><a href="#local-6989586621679212560"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212559"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212558"><span class="annot"><span class="annottext">Maybe CertificateAuthorityType
+</span><a href="#local-6989586621679212558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CertificateAuthority' :: Maybe CertificateAuthorityType
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3Atype%27%3ACertificateAuthority%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityType
+</span><a href="#local-6989586621679212558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The AWS account ID that owns the certificate authority.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_ownerAccount"><span class="hs-identifier hs-type">certificateAuthority_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="certificateAuthority_ownerAccount"><span class="annot"><span class="annottext">certificateAuthority_ownerAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_ownerAccount"><span class="hs-identifier hs-var hs-var">certificateAuthority_ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe Text)
+-&gt; (CertificateAuthority -&gt; Maybe Text -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority CertificateAuthority (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212556"><span class="annot"><span class="annottext">Maybe Text
+ownerAccount :: Maybe Text
+$sel:ownerAccount:CertificateAuthority' :: CertificateAuthority -&gt; Maybe Text
+</span><a href="#local-6989586621679212556"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212556"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212555"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:CertificateAuthority' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3AownerAccount%3ACertificateAuthority%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The period during which a deleted CA can be restored. For more</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- information, see the @PermanentDeletionTimeInDays@ parameter of the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest&gt;</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_restorableUntil"><span class="hs-identifier hs-type">certificateAuthority_restorableUntil</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="certificateAuthority_restorableUntil"><span class="annot"><span class="annottext">certificateAuthority_restorableUntil :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority -&gt; f CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#certificateAuthority_restorableUntil"><span class="hs-identifier hs-var hs-var">certificateAuthority_restorableUntil</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CertificateAuthority -&gt; Maybe POSIX)
+-&gt; (CertificateAuthority -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Lens
+     CertificateAuthority
+     CertificateAuthority
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212552"><span class="annot"><span class="annottext">Maybe POSIX
+restorableUntil :: Maybe POSIX
+$sel:restorableUntil:CertificateAuthority' :: CertificateAuthority -&gt; Maybe POSIX
+</span><a href="#local-6989586621679212552"><span class="hs-identifier hs-var hs-var">restorableUntil</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212552"><span class="hs-identifier hs-var">restorableUntil</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212551"><span class="annot"><span class="annottext">s :: CertificateAuthority
+</span><a href="#local-6989586621679212551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-type">CertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212550"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthority
+</span><a href="#local-6989586621679212551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restorableUntil:CertificateAuthority' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#%24sel%3ArestorableUntil%3ACertificateAuthority%27"><span class="hs-identifier hs-var">restorableUntil</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679212550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CertificateAuthority -&gt; f CertificateAuthority)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CertificateAuthority
+-&gt; f CertificateAuthority
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212547"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679212545"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateAuthority
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CertificateAuthority)
+-&gt; Value
+-&gt; Parser CertificateAuthority
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CertificateAuthority&quot;</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212542"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>          </span><span class="annot"><span class="annottext">Maybe CertificateAuthorityStatus
+-&gt; Maybe POSIX
+-&gt; Maybe KeyStorageSecurityStandard
+-&gt; Maybe RevocationConfiguration
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe CertificateAuthorityConfiguration
+-&gt; Maybe FailureReason
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe CertificateAuthorityType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; CertificateAuthority
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority%27"><span class="hs-identifier hs-var">CertificateAuthority'</span></a></span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CertificateAuthorityStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe KeyStorageSecurityStandard
+ -&gt; Maybe RevocationConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe CertificateAuthorityConfiguration
+ -&gt; Maybe FailureReason
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe CertificateAuthorityType
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; CertificateAuthority)
+-&gt; Parser (Maybe CertificateAuthorityStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe KeyStorageSecurityStandard
+      -&gt; Maybe RevocationConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CertificateAuthorityStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe KeyStorageSecurityStandard
+   -&gt; Maybe RevocationConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe KeyStorageSecurityStandard
+      -&gt; Maybe RevocationConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotBefore&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe KeyStorageSecurityStandard
+   -&gt; Maybe RevocationConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe KeyStorageSecurityStandard)
+-&gt; Parser
+     (Maybe RevocationConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyStorageSecurityStandard)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeyStorageSecurityStandard&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RevocationConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe RevocationConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RevocationConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevocationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Serial&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CertificateAuthorityConfiguration
+      -&gt; Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CertificateAuthorityConfiguration
+   -&gt; Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe CertificateAuthorityConfiguration)
+-&gt; Parser
+     (Maybe FailureReason
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CertificateAuthorityConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateAuthorityConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FailureReason
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe FailureReason)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailureReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe CertificateAuthorityType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotAfter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe CertificateAuthorityType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; CertificateAuthority)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe CertificateAuthorityType
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastStateChangeAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CertificateAuthorityType
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Parser (Maybe CertificateAuthorityType)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CertificateAuthorityType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; CertificateAuthority)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; CertificateAuthority)
+-&gt; Parser (Maybe POSIX) -&gt; Parser CertificateAuthority
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RestorableUntil&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212536"><span id="local-6989586621679212538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span></span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CertificateAuthority.html#CertificateAuthority"><span class="hs-identifier hs-type">CertificateAuthority</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

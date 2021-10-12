@@ -1,0 +1,1143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.Vp9Settings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9Settings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9FramerateControl</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9ParControl</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9QualityTuningLevel.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9QualityTuningLevel</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9RateControlMode.html"><span class="hs-identifier">Network.AWS.MediaConvert.Types.Vp9RateControlMode</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Required when you set (Codec) under (VideoDescription)&gt;(CodecSettings)</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- to the value VP9.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newVp9Settings' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621680009548"><span id="local-6989586621680009549"></span></span><span class="hs-keyword">data</span><span> </span><span id="Vp9Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-var">Vp9Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-var">Vp9Settings'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- you want to trade off encoding speed for output video quality. The</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- default behavior is faster, lower quality, multi-pass encoding.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AqualityTuningLevel%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Vp9QualityTuningLevel
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AqualityTuningLevel%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">qualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9QualityTuningLevel.html#Vp9QualityTuningLevel"><span class="hs-identifier hs-type">Vp9QualityTuningLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- 23.976 fps. Use FramerateNumerator to specify the numerator of this</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- fraction. In this example, use 24000 for the value of</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- FramerateNumerator. When you use the console for transcode jobs that use</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateNumerator%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | With the VP9 codec, you can use only the variable bitrate (VBR) rate</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- control mode.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArateControlMode%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Vp9RateControlMode
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3ArateControlMode%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9RateControlMode.html#Vp9RateControlMode"><span class="hs-identifier hs-type">Vp9RateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- 23.976 fps. Use FramerateDenominator to specify the denominator of this</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- fraction. In this example, use 1001 for the value of</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- FramerateDenominator. When you use the console for transcode jobs that</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- use frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AframerateDenominator%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateDenominator%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | GOP Length (keyframe interval) in frames. Must be greater than zero.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AgopSize%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AgopSize%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the console, this corresponds to any value other than Follow source.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- When you specify an output pixel aspect ratio (PAR) that is different</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- from your input video PAR, provide your output PAR as a ratio. For</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- In this example, the value for parNumerator is 40.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AparNumerator%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparNumerator%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">parNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Optional. Specify how the service determines the pixel aspect ratio for</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- this output. The default behavior is to use the same pixel aspect ratio</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- as your input video.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AparControl%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Vp9ParControl
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparControl%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">parControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-type">Vp9ParControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the console, this corresponds to any value other than Follow source.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- When you specify an output pixel aspect ratio (PAR) that is different</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- from your input video PAR, provide your output PAR as a ratio. For</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- In this example, the value for parDenominator is 33.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AparDenominator%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparDenominator%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">parDenominator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Ignore this setting unless you set qualityTuningLevel to MULTI_PASS.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Optional. Specify the maximum bitrate in bits\/second. For example,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- enter five megabits per second as 5000000. The default behavior uses</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- twice the target bitrate as the maximum bitrate.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AmaxBitrate%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AmaxBitrate%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Size of buffer (HRD buffer model) in bits. For example, enter five</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- megabits as 5000000.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AhrdBufferSize%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AhrdBufferSize%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">hrdBufferSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list or choose Custom.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- The framerates shown in the dropdown list are decimal approximations of</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- fractions. If you choose Custom, specify your frame rate as a fraction.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- If you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AframerateControl%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Vp9FramerateControl
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateControl%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#Vp9FramerateControl"><span class="hs-identifier hs-type">Vp9FramerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AframerateConversionAlgorithm%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Vp9FramerateConversionAlgorithm
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateConversionAlgorithm%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | Target bitrate in bits\/second. For example, enter five megabits per</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- second as 5000000.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3Abitrate%3AVp9Settings%27"><span class="annot"><span class="annottext">Vp9Settings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3Abitrate%3AVp9Settings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680009530"><span id="local-6989586621680009532"><span class="annot"><span class="annottext">Vp9Settings -&gt; Vp9Settings -&gt; Bool
+(Vp9Settings -&gt; Vp9Settings -&gt; Bool)
+-&gt; (Vp9Settings -&gt; Vp9Settings -&gt; Bool) -&gt; Eq Vp9Settings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Vp9Settings -&gt; Vp9Settings -&gt; Bool
+$c/= :: Vp9Settings -&gt; Vp9Settings -&gt; Bool
+== :: Vp9Settings -&gt; Vp9Settings -&gt; Bool
+$c== :: Vp9Settings -&gt; Vp9Settings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009521"><span id="local-6989586621680009523"><span id="local-6989586621680009525"><span id="local-6989586621680009527"><span class="annot"><span class="annottext">ReadPrec [Vp9Settings]
+ReadPrec Vp9Settings
+Int -&gt; ReadS Vp9Settings
+ReadS [Vp9Settings]
+(Int -&gt; ReadS Vp9Settings)
+-&gt; ReadS [Vp9Settings]
+-&gt; ReadPrec Vp9Settings
+-&gt; ReadPrec [Vp9Settings]
+-&gt; Read Vp9Settings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Vp9Settings]
+$creadListPrec :: ReadPrec [Vp9Settings]
+readPrec :: ReadPrec Vp9Settings
+$creadPrec :: ReadPrec Vp9Settings
+readList :: ReadS [Vp9Settings]
+$creadList :: ReadS [Vp9Settings]
+readsPrec :: Int -&gt; ReadS Vp9Settings
+$creadsPrec :: Int -&gt; ReadS Vp9Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680009514"><span id="local-6989586621680009516"><span id="local-6989586621680009518"><span class="annot"><span class="annottext">Int -&gt; Vp9Settings -&gt; ShowS
+[Vp9Settings] -&gt; ShowS
+Vp9Settings -&gt; String
+(Int -&gt; Vp9Settings -&gt; ShowS)
+-&gt; (Vp9Settings -&gt; String)
+-&gt; ([Vp9Settings] -&gt; ShowS)
+-&gt; Show Vp9Settings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Vp9Settings] -&gt; ShowS
+$cshowList :: [Vp9Settings] -&gt; ShowS
+show :: Vp9Settings -&gt; String
+$cshow :: Vp9Settings -&gt; String
+showsPrec :: Int -&gt; Vp9Settings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Vp9Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Vp9Settings -&gt; Rep Vp9Settings x)
+-&gt; (forall x. Rep Vp9Settings x -&gt; Vp9Settings)
+-&gt; Generic Vp9Settings
+forall x. Rep Vp9Settings x -&gt; Vp9Settings
+forall x. Vp9Settings -&gt; Rep Vp9Settings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Vp9Settings x -&gt; Vp9Settings
+$cfrom :: forall x. Vp9Settings -&gt; Rep Vp9Settings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'Vp9Settings' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'qualityTuningLevel', 'vp9Settings_qualityTuningLevel' - Optional. Use Quality tuning level (qualityTuningLevel) to choose how</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- you want to trade off encoding speed for output video quality. The</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- default behavior is faster, lower quality, multi-pass encoding.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'framerateNumerator', 'vp9Settings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 23.976 fps. Use FramerateNumerator to specify the numerator of this</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- fraction. In this example, use 24000 for the value of</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- FramerateNumerator. When you use the console for transcode jobs that use</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'rateControlMode', 'vp9Settings_rateControlMode' - With the VP9 codec, you can use only the variable bitrate (VBR) rate</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- control mode.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'framerateDenominator', 'vp9Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 23.976 fps. Use FramerateDenominator to specify the denominator of this</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- fraction. In this example, use 1001 for the value of</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- FramerateDenominator. When you use the console for transcode jobs that</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- use frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'gopSize', 'vp9Settings_gopSize' - GOP Length (keyframe interval) in frames. Must be greater than zero.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'parNumerator', 'vp9Settings_parNumerator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the console, this corresponds to any value other than Follow source.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- When you specify an output pixel aspect ratio (PAR) that is different</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- from your input video PAR, provide your output PAR as a ratio. For</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- In this example, the value for parNumerator is 40.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'parControl', 'vp9Settings_parControl' - Optional. Specify how the service determines the pixel aspect ratio for</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- this output. The default behavior is to use the same pixel aspect ratio</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- as your input video.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'parDenominator', 'vp9Settings_parDenominator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- the console, this corresponds to any value other than Follow source.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- When you specify an output pixel aspect ratio (PAR) that is different</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- from your input video PAR, provide your output PAR as a ratio. For</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- In this example, the value for parDenominator is 33.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'maxBitrate', 'vp9Settings_maxBitrate' - Ignore this setting unless you set qualityTuningLevel to MULTI_PASS.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Optional. Specify the maximum bitrate in bits\/second. For example,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- enter five megabits per second as 5000000. The default behavior uses</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- twice the target bitrate as the maximum bitrate.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'hrdBufferSize', 'vp9Settings_hrdBufferSize' - Size of buffer (HRD buffer model) in bits. For example, enter five</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- megabits as 5000000.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'framerateControl', 'vp9Settings_framerateControl' - If you are using the console, use the Framerate setting to specify the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list or choose Custom.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The framerates shown in the dropdown list are decimal approximations of</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- fractions. If you choose Custom, specify your frame rate as a fraction.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- If you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'framerateConversionAlgorithm', 'vp9Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'bitrate', 'vp9Settings_bitrate' - Target bitrate in bits\/second. For example, enter five megabits per</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- second as 5000000.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#newVp9Settings"><span class="hs-identifier hs-type">newVp9Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span>
+</span><span id="line-208"></span><span id="newVp9Settings"><span class="annot"><span class="annottext">newVp9Settings :: Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#newVp9Settings"><span class="hs-identifier hs-var hs-var">newVp9Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">Vp9Settings' :: Maybe Vp9QualityTuningLevel
+-&gt; Maybe Natural
+-&gt; Maybe Vp9RateControlMode
+-&gt; Maybe Natural
+-&gt; Maybe Double
+-&gt; Maybe Natural
+-&gt; Maybe Vp9ParControl
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Vp9FramerateControl
+-&gt; Maybe Vp9FramerateConversionAlgorithm
+-&gt; Maybe Natural
+-&gt; Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualityTuningLevel:Vp9Settings' :: Maybe Vp9QualityTuningLevel
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AqualityTuningLevel%3AVp9Settings%27"><span class="hs-identifier hs-var">qualityTuningLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateNumerator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateNumerator%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateControlMode:Vp9Settings' :: Maybe Vp9RateControlMode
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3ArateControlMode%3AVp9Settings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9RateControlMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateDenominator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateDenominator%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:gopSize:Vp9Settings' :: Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AgopSize%3AVp9Settings%27"><span class="hs-identifier hs-var">gopSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:parNumerator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparNumerator%3AVp9Settings%27"><span class="hs-identifier hs-var">parNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:parControl:Vp9Settings' :: Maybe Vp9ParControl
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparControl%3AVp9Settings%27"><span class="hs-identifier hs-var">parControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9ParControl
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:parDenominator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparDenominator%3AVp9Settings%27"><span class="hs-identifier hs-var">parDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxBitrate:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AmaxBitrate%3AVp9Settings%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:hrdBufferSize:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AhrdBufferSize%3AVp9Settings%27"><span class="hs-identifier hs-var">hrdBufferSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateControl:Vp9Settings' :: Maybe Vp9FramerateControl
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateControl%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateControl
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Vp9Settings' :: Maybe Vp9FramerateConversionAlgorithm
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateConversionAlgorithm%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateConversionAlgorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitrate:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3Abitrate%3AVp9Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- you want to trade off encoding speed for output video quality. The</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- default behavior is faster, lower quality, multi-pass encoding.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_qualityTuningLevel"><span class="hs-identifier hs-type">vp9Settings_qualityTuningLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9QualityTuningLevel.html#Vp9QualityTuningLevel"><span class="hs-identifier hs-type">Vp9QualityTuningLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="vp9Settings_qualityTuningLevel"><span class="annot"><span class="annottext">vp9Settings_qualityTuningLevel :: (Maybe Vp9QualityTuningLevel -&gt; f (Maybe Vp9QualityTuningLevel))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_qualityTuningLevel"><span class="hs-identifier hs-var hs-var">vp9Settings_qualityTuningLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Vp9QualityTuningLevel)
+-&gt; (Vp9Settings -&gt; Maybe Vp9QualityTuningLevel -&gt; Vp9Settings)
+-&gt; Lens
+     Vp9Settings
+     Vp9Settings
+     (Maybe Vp9QualityTuningLevel)
+     (Maybe Vp9QualityTuningLevel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009505"><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+qualityTuningLevel :: Maybe Vp9QualityTuningLevel
+$sel:qualityTuningLevel:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9QualityTuningLevel
+</span><a href="#local-6989586621680009505"><span class="hs-identifier hs-var hs-var">qualityTuningLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+</span><a href="#local-6989586621680009505"><span class="hs-identifier hs-var">qualityTuningLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009504"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009503"><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+</span><a href="#local-6989586621680009503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualityTuningLevel:Vp9Settings' :: Maybe Vp9QualityTuningLevel
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AqualityTuningLevel%3AVp9Settings%27"><span class="hs-identifier hs-var">qualityTuningLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+</span><a href="#local-6989586621680009503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 23.976 fps. Use FramerateNumerator to specify the numerator of this</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- fraction. In this example, use 24000 for the value of</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- FramerateNumerator. When you use the console for transcode jobs that use</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateNumerator"><span class="hs-identifier hs-type">vp9Settings_framerateNumerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="vp9Settings_framerateNumerator"><span class="annot"><span class="annottext">vp9Settings_framerateNumerator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateNumerator"><span class="hs-identifier hs-var hs-var">vp9Settings_framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009501"><span class="annot"><span class="annottext">Maybe Natural
+framerateNumerator :: Maybe Natural
+$sel:framerateNumerator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009501"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009501"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009500"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009499"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateNumerator%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | With the VP9 codec, you can use only the variable bitrate (VBR) rate</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- control mode.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_rateControlMode"><span class="hs-identifier hs-type">vp9Settings_rateControlMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9RateControlMode.html#Vp9RateControlMode"><span class="hs-identifier hs-type">Vp9RateControlMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="vp9Settings_rateControlMode"><span class="annot"><span class="annottext">vp9Settings_rateControlMode :: (Maybe Vp9RateControlMode -&gt; f (Maybe Vp9RateControlMode))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_rateControlMode"><span class="hs-identifier hs-var hs-var">vp9Settings_rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Vp9RateControlMode)
+-&gt; (Vp9Settings -&gt; Maybe Vp9RateControlMode -&gt; Vp9Settings)
+-&gt; Lens
+     Vp9Settings
+     Vp9Settings
+     (Maybe Vp9RateControlMode)
+     (Maybe Vp9RateControlMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009497"><span class="annot"><span class="annottext">Maybe Vp9RateControlMode
+rateControlMode :: Maybe Vp9RateControlMode
+$sel:rateControlMode:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9RateControlMode
+</span><a href="#local-6989586621680009497"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9RateControlMode
+</span><a href="#local-6989586621680009497"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009496"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009495"><span class="annot"><span class="annottext">Maybe Vp9RateControlMode
+</span><a href="#local-6989586621680009495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateControlMode:Vp9Settings' :: Maybe Vp9RateControlMode
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3ArateControlMode%3AVp9Settings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9RateControlMode
+</span><a href="#local-6989586621680009495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 23.976 fps. Use FramerateDenominator to specify the denominator of this</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- fraction. In this example, use 1001 for the value of</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- FramerateDenominator. When you use the console for transcode jobs that</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- use frame rate conversion, provide the value as a decimal number for</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- Framerate. In this example, specify 23.976.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateDenominator"><span class="hs-identifier hs-type">vp9Settings_framerateDenominator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="vp9Settings_framerateDenominator"><span class="annot"><span class="annottext">vp9Settings_framerateDenominator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateDenominator"><span class="hs-identifier hs-var hs-var">vp9Settings_framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009493"><span class="annot"><span class="annottext">Maybe Natural
+framerateDenominator :: Maybe Natural
+$sel:framerateDenominator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009493"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009493"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009492"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009491"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateDenominator%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | GOP Length (keyframe interval) in frames. Must be greater than zero.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_gopSize"><span class="hs-identifier hs-type">vp9Settings_gopSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="vp9Settings_gopSize"><span class="annot"><span class="annottext">vp9Settings_gopSize :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_gopSize"><span class="hs-identifier hs-var hs-var">vp9Settings_gopSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Double)
+-&gt; (Vp9Settings -&gt; Maybe Double -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009489"><span class="annot"><span class="annottext">Maybe Double
+gopSize :: Maybe Double
+$sel:gopSize:Vp9Settings' :: Vp9Settings -&gt; Maybe Double
+</span><a href="#local-6989586621680009489"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680009489"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009488"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009487"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680009487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSize:Vp9Settings' :: Maybe Double
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AgopSize%3AVp9Settings%27"><span class="hs-identifier hs-var">gopSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680009487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- the console, this corresponds to any value other than Follow source.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- When you specify an output pixel aspect ratio (PAR) that is different</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- from your input video PAR, provide your output PAR as a ratio. For</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- In this example, the value for parNumerator is 40.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_parNumerator"><span class="hs-identifier hs-type">vp9Settings_parNumerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="vp9Settings_parNumerator"><span class="annot"><span class="annottext">vp9Settings_parNumerator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_parNumerator"><span class="hs-identifier hs-var hs-var">vp9Settings_parNumerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009485"><span class="annot"><span class="annottext">Maybe Natural
+parNumerator :: Maybe Natural
+$sel:parNumerator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009485"><span class="hs-identifier hs-var hs-var">parNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009485"><span class="hs-identifier hs-var">parNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009484"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009483"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parNumerator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparNumerator%3AVp9Settings%27"><span class="hs-identifier hs-var">parNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Optional. Specify how the service determines the pixel aspect ratio for</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- this output. The default behavior is to use the same pixel aspect ratio</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- as your input video.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_parControl"><span class="hs-identifier hs-type">vp9Settings_parControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9ParControl.html#Vp9ParControl"><span class="hs-identifier hs-type">Vp9ParControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="vp9Settings_parControl"><span class="annot"><span class="annottext">vp9Settings_parControl :: (Maybe Vp9ParControl -&gt; f (Maybe Vp9ParControl))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_parControl"><span class="hs-identifier hs-var hs-var">vp9Settings_parControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Vp9ParControl)
+-&gt; (Vp9Settings -&gt; Maybe Vp9ParControl -&gt; Vp9Settings)
+-&gt; Lens
+     Vp9Settings Vp9Settings (Maybe Vp9ParControl) (Maybe Vp9ParControl)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009481"><span class="annot"><span class="annottext">Maybe Vp9ParControl
+parControl :: Maybe Vp9ParControl
+$sel:parControl:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9ParControl
+</span><a href="#local-6989586621680009481"><span class="hs-identifier hs-var hs-var">parControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9ParControl
+</span><a href="#local-6989586621680009481"><span class="hs-identifier hs-var">parControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009480"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009479"><span class="annot"><span class="annottext">Maybe Vp9ParControl
+</span><a href="#local-6989586621680009479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parControl:Vp9Settings' :: Maybe Vp9ParControl
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparControl%3AVp9Settings%27"><span class="hs-identifier hs-var">parControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9ParControl
+</span><a href="#local-6989586621680009479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- the console, this corresponds to any value other than Follow source.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- When you specify an output pixel aspect ratio (PAR) that is different</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- from your input video PAR, provide your output PAR as a ratio. For</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- In this example, the value for parDenominator is 33.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_parDenominator"><span class="hs-identifier hs-type">vp9Settings_parDenominator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="vp9Settings_parDenominator"><span class="annot"><span class="annottext">vp9Settings_parDenominator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_parDenominator"><span class="hs-identifier hs-var hs-var">vp9Settings_parDenominator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009477"><span class="annot"><span class="annottext">Maybe Natural
+parDenominator :: Maybe Natural
+$sel:parDenominator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009477"><span class="hs-identifier hs-var hs-var">parDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009477"><span class="hs-identifier hs-var">parDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009476"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009475"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parDenominator:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AparDenominator%3AVp9Settings%27"><span class="hs-identifier hs-var">parDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | Ignore this setting unless you set qualityTuningLevel to MULTI_PASS.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Optional. Specify the maximum bitrate in bits\/second. For example,</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- enter five megabits per second as 5000000. The default behavior uses</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- twice the target bitrate as the maximum bitrate.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_maxBitrate"><span class="hs-identifier hs-type">vp9Settings_maxBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="vp9Settings_maxBitrate"><span class="annot"><span class="annottext">vp9Settings_maxBitrate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_maxBitrate"><span class="hs-identifier hs-var hs-var">vp9Settings_maxBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009473"><span class="annot"><span class="annottext">Maybe Natural
+maxBitrate :: Maybe Natural
+$sel:maxBitrate:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009473"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009473"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009472"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009471"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBitrate:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AmaxBitrate%3AVp9Settings%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | Size of buffer (HRD buffer model) in bits. For example, enter five</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- megabits as 5000000.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_hrdBufferSize"><span class="hs-identifier hs-type">vp9Settings_hrdBufferSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="vp9Settings_hrdBufferSize"><span class="annot"><span class="annottext">vp9Settings_hrdBufferSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_hrdBufferSize"><span class="hs-identifier hs-var hs-var">vp9Settings_hrdBufferSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009469"><span class="annot"><span class="annottext">Maybe Natural
+hrdBufferSize :: Maybe Natural
+$sel:hrdBufferSize:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009469"><span class="hs-identifier hs-var hs-var">hrdBufferSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009469"><span class="hs-identifier hs-var">hrdBufferSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009468"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009467"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hrdBufferSize:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AhrdBufferSize%3AVp9Settings%27"><span class="hs-identifier hs-var">hrdBufferSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list or choose Custom.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- The framerates shown in the dropdown list are decimal approximations of</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- fractions. If you choose Custom, specify your frame rate as a fraction.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- If you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateControl"><span class="hs-identifier hs-type">vp9Settings_framerateControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#Vp9FramerateControl"><span class="hs-identifier hs-type">Vp9FramerateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span id="vp9Settings_framerateControl"><span class="annot"><span class="annottext">vp9Settings_framerateControl :: (Maybe Vp9FramerateControl -&gt; f (Maybe Vp9FramerateControl))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateControl"><span class="hs-identifier hs-var hs-var">vp9Settings_framerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Vp9FramerateControl)
+-&gt; (Vp9Settings -&gt; Maybe Vp9FramerateControl -&gt; Vp9Settings)
+-&gt; Lens
+     Vp9Settings
+     Vp9Settings
+     (Maybe Vp9FramerateControl)
+     (Maybe Vp9FramerateControl)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009465"><span class="annot"><span class="annottext">Maybe Vp9FramerateControl
+framerateControl :: Maybe Vp9FramerateControl
+$sel:framerateControl:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9FramerateControl
+</span><a href="#local-6989586621680009465"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateControl
+</span><a href="#local-6989586621680009465"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009464"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009463"><span class="annot"><span class="annottext">Maybe Vp9FramerateControl
+</span><a href="#local-6989586621680009463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:Vp9Settings' :: Maybe Vp9FramerateControl
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateControl%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateControl
+</span><a href="#local-6989586621680009463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- 30 fps. For numerically complex conversions, you can use interpolate</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- might introduce undesirable video artifacts. For complex frame rate</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- conversions, especially if your source video has already been converted</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- from its original cadence, use FrameFormer (FRAMEFORMER) to do</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- motion-compensated interpolation. FrameFormer chooses the best</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- conversion method frame by frame. Note that using FrameFormer increases</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- the transcoding time and incurs a significant add-on cost.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateConversionAlgorithm"><span class="hs-identifier hs-type">vp9Settings_framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm.html#Vp9FramerateConversionAlgorithm"><span class="hs-identifier hs-type">Vp9FramerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="vp9Settings_framerateConversionAlgorithm"><span class="annot"><span class="annottext">vp9Settings_framerateConversionAlgorithm :: (Maybe Vp9FramerateConversionAlgorithm
+ -&gt; f (Maybe Vp9FramerateConversionAlgorithm))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_framerateConversionAlgorithm"><span class="hs-identifier hs-var hs-var">vp9Settings_framerateConversionAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Vp9FramerateConversionAlgorithm)
+-&gt; (Vp9Settings
+    -&gt; Maybe Vp9FramerateConversionAlgorithm -&gt; Vp9Settings)
+-&gt; Lens
+     Vp9Settings
+     Vp9Settings
+     (Maybe Vp9FramerateConversionAlgorithm)
+     (Maybe Vp9FramerateConversionAlgorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009461"><span class="annot"><span class="annottext">Maybe Vp9FramerateConversionAlgorithm
+framerateConversionAlgorithm :: Maybe Vp9FramerateConversionAlgorithm
+$sel:framerateConversionAlgorithm:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9FramerateConversionAlgorithm
+</span><a href="#local-6989586621680009461"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateConversionAlgorithm
+</span><a href="#local-6989586621680009461"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009460"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009459"><span class="annot"><span class="annottext">Maybe Vp9FramerateConversionAlgorithm
+</span><a href="#local-6989586621680009459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Vp9Settings' :: Maybe Vp9FramerateConversionAlgorithm
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3AframerateConversionAlgorithm%3AVp9Settings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateConversionAlgorithm
+</span><a href="#local-6989586621680009459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | Target bitrate in bits\/second. For example, enter five megabits per</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- second as 5000000.</span><span>
+</span><span id="line-328"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_bitrate"><span class="hs-identifier hs-type">vp9Settings_bitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span id="vp9Settings_bitrate"><span class="annot"><span class="annottext">vp9Settings_bitrate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; Vp9Settings -&gt; f Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#vp9Settings_bitrate"><span class="hs-identifier hs-var hs-var">vp9Settings_bitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Vp9Settings -&gt; Maybe Natural)
+-&gt; (Vp9Settings -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Lens Vp9Settings Vp9Settings (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009457"><span class="annot"><span class="annottext">Maybe Natural
+bitrate :: Maybe Natural
+$sel:bitrate:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+</span><a href="#local-6989586621680009457"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009457"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680009456"><span class="annot"><span class="annottext">s :: Vp9Settings
+</span><a href="#local-6989586621680009456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680009455"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vp9Settings
+</span><a href="#local-6989586621680009456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Vp9Settings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#%24sel%3Abitrate%3AVp9Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009452"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621680009450"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Vp9Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Vp9Settings) -&gt; Value -&gt; Parser Vp9Settings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-334"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Vp9Settings&quot;</span></span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680009447"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-336"></span><span>          </span><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+-&gt; Maybe Natural
+-&gt; Maybe Vp9RateControlMode
+-&gt; Maybe Natural
+-&gt; Maybe Double
+-&gt; Maybe Natural
+-&gt; Maybe Vp9ParControl
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Vp9FramerateControl
+-&gt; Maybe Vp9FramerateConversionAlgorithm
+-&gt; Maybe Natural
+-&gt; Vp9Settings
+</span><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-var">Vp9Settings'</span></a></span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Vp9QualityTuningLevel
+ -&gt; Maybe Natural
+ -&gt; Maybe Vp9RateControlMode
+ -&gt; Maybe Natural
+ -&gt; Maybe Double
+ -&gt; Maybe Natural
+ -&gt; Maybe Vp9ParControl
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Vp9FramerateControl
+ -&gt; Maybe Vp9FramerateConversionAlgorithm
+ -&gt; Maybe Natural
+ -&gt; Vp9Settings)
+-&gt; Parser (Maybe Vp9QualityTuningLevel)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Vp9RateControlMode
+      -&gt; Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9ParControl
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vp9QualityTuningLevel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;qualityTuningLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Vp9RateControlMode
+   -&gt; Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9ParControl
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Vp9RateControlMode
+      -&gt; Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9ParControl
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vp9RateControlMode
+   -&gt; Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9ParControl
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Vp9RateControlMode)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Double
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9ParControl
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vp9RateControlMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Double
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9ParControl
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9ParControl
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9ParControl
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Vp9ParControl
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Vp9ParControl
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Vp9ParControl
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parNumerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vp9ParControl
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Vp9ParControl)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vp9ParControl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parDenominator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxBitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Vp9FramerateControl
+      -&gt; Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural
+      -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hrdBufferSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vp9FramerateControl
+   -&gt; Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural
+   -&gt; Vp9Settings)
+-&gt; Parser (Maybe Vp9FramerateControl)
+-&gt; Parser
+     (Maybe Vp9FramerateConversionAlgorithm
+      -&gt; Maybe Natural -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vp9FramerateControl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Vp9FramerateConversionAlgorithm
+   -&gt; Maybe Natural -&gt; Vp9Settings)
+-&gt; Parser (Maybe Vp9FramerateConversionAlgorithm)
+-&gt; Parser (Maybe Natural -&gt; Vp9Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vp9FramerateConversionAlgorithm)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Vp9Settings)
+-&gt; Parser (Maybe Natural) -&gt; Parser Vp9Settings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680009447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009441"><span id="local-6989586621680009443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span></span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span></span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680009430"><span id="local-6989586621680009432"><span id="local-6989586621680009434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings"><span class="hs-identifier hs-type">Vp9Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-357"></span><span>  </span><span id="local-6989586621680009428"><span class="annot"><span class="annottext">toJSON :: Vp9Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9Settings.html#Vp9Settings%27"><span class="hs-identifier hs-type">Vp9Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680009414"><span id="local-6989586621680009415"><span id="local-6989586621680009416"><span id="local-6989586621680009417"><span id="local-6989586621680009418"><span id="local-6989586621680009419"><span id="local-6989586621680009420"><span id="local-6989586621680009421"><span id="local-6989586621680009422"><span id="local-6989586621680009423"><span id="local-6989586621680009424"><span id="local-6989586621680009425"><span id="local-6989586621680009426"><span class="annot"><span class="annottext">Maybe Double
+Maybe Natural
+Maybe Vp9FramerateControl
+Maybe Vp9FramerateConversionAlgorithm
+Maybe Vp9ParControl
+Maybe Vp9QualityTuningLevel
+Maybe Vp9RateControlMode
+bitrate :: Maybe Natural
+framerateConversionAlgorithm :: Maybe Vp9FramerateConversionAlgorithm
+framerateControl :: Maybe Vp9FramerateControl
+hrdBufferSize :: Maybe Natural
+maxBitrate :: Maybe Natural
+parDenominator :: Maybe Natural
+parControl :: Maybe Vp9ParControl
+parNumerator :: Maybe Natural
+gopSize :: Maybe Double
+framerateDenominator :: Maybe Natural
+rateControlMode :: Maybe Vp9RateControlMode
+framerateNumerator :: Maybe Natural
+qualityTuningLevel :: Maybe Vp9QualityTuningLevel
+$sel:bitrate:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:framerateConversionAlgorithm:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9FramerateConversionAlgorithm
+$sel:framerateControl:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9FramerateControl
+$sel:hrdBufferSize:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:maxBitrate:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:parDenominator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:parControl:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9ParControl
+$sel:parNumerator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:gopSize:Vp9Settings' :: Vp9Settings -&gt; Maybe Double
+$sel:framerateDenominator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:rateControlMode:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9RateControlMode
+$sel:framerateNumerator:Vp9Settings' :: Vp9Settings -&gt; Maybe Natural
+$sel:qualityTuningLevel:Vp9Settings' :: Vp9Settings -&gt; Maybe Vp9QualityTuningLevel
+</span><a href="#local-6989586621680009414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-359"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-360"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;qualityTuningLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vp9QualityTuningLevel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>              </span><span class="annot"><span class="annottext">(Vp9QualityTuningLevel -&gt; Pair)
+-&gt; Maybe Vp9QualityTuningLevel -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vp9QualityTuningLevel
+</span><a href="#local-6989586621680009426"><span class="hs-identifier hs-var">qualityTuningLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009425"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vp9RateControlMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>              </span><span class="annot"><span class="annottext">(Vp9RateControlMode -&gt; Pair)
+-&gt; Maybe Vp9RateControlMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vp9RateControlMode
+</span><a href="#local-6989586621680009424"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009423"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gopSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680009422"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009421"><span class="hs-identifier hs-var">parNumerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vp9ParControl -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vp9ParControl -&gt; Pair) -&gt; Maybe Vp9ParControl -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vp9ParControl
+</span><a href="#local-6989586621680009420"><span class="hs-identifier hs-var">parControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009419"><span class="hs-identifier hs-var">parDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009418"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hrdBufferSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009417"><span class="hs-identifier hs-var">hrdBufferSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vp9FramerateControl -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(Vp9FramerateControl -&gt; Pair)
+-&gt; Maybe Vp9FramerateControl -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateControl
+</span><a href="#local-6989586621680009416"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vp9FramerateConversionAlgorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>              </span><span class="annot"><span class="annottext">(Vp9FramerateConversionAlgorithm -&gt; Pair)
+-&gt; Maybe Vp9FramerateConversionAlgorithm -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vp9FramerateConversionAlgorithm
+</span><a href="#local-6989586621680009415"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680009414"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
+</span><span id="line-380"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-381"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span></pre></body></html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a private DNS namespace.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#newUpdatePrivateDnsNamespace"><span class="hs-identifier">newUpdatePrivateDnsNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_updaterRequestId"><span class="hs-identifier">updatePrivateDnsNamespace_updaterRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_id"><span class="hs-identifier">updatePrivateDnsNamespace_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_namespace"><span class="hs-identifier">updatePrivateDnsNamespace_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier">UpdatePrivateDnsNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#newUpdatePrivateDnsNamespaceResponse"><span class="hs-identifier">newUpdatePrivateDnsNamespaceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespaceResponse_operationId"><span class="hs-identifier">updatePrivateDnsNamespaceResponse_operationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespaceResponse_httpStatus"><span class="hs-identifier">updatePrivateDnsNamespaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdatePrivateDnsNamespace' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679231562"><span id="local-6989586621679231563"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePrivateDnsNamespace"><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-var">UpdatePrivateDnsNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePrivateDnsNamespace%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">UpdatePrivateDnsNamespace'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string that identifies the request and that allows failed</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @UpdatePrivateDnsNamespace@ requests to be retried without the risk of</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- running the operation twice. @UpdaterRequestId@ can be any unique string</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- (for example, a date\/timestamp).</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AupdaterRequestId%3AUpdatePrivateDnsNamespace%27"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace -&gt; Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AupdaterRequestId%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var hs-var">updaterRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the namespace that you want to update.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aid%3AUpdatePrivateDnsNamespace%27"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace -&gt; Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3Aid%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Updated properties for the private DNS namespace.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Anamespace%3AUpdatePrivateDnsNamespace%27"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace -&gt; PrivateDnsNamespaceChange
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3Anamespace%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#PrivateDnsNamespaceChange"><span class="hs-identifier hs-type">PrivateDnsNamespaceChange</span></a></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231554"><span id="local-6989586621679231556"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool
+(UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool)
+-&gt; (UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool)
+-&gt; Eq UpdatePrivateDnsNamespace
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool
+$c/= :: UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool
+== :: UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool
+$c== :: UpdatePrivateDnsNamespace -&gt; UpdatePrivateDnsNamespace -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231545"><span id="local-6989586621679231547"><span id="local-6989586621679231549"><span id="local-6989586621679231551"><span class="annot"><span class="annottext">ReadPrec [UpdatePrivateDnsNamespace]
+ReadPrec UpdatePrivateDnsNamespace
+Int -&gt; ReadS UpdatePrivateDnsNamespace
+ReadS [UpdatePrivateDnsNamespace]
+(Int -&gt; ReadS UpdatePrivateDnsNamespace)
+-&gt; ReadS [UpdatePrivateDnsNamespace]
+-&gt; ReadPrec UpdatePrivateDnsNamespace
+-&gt; ReadPrec [UpdatePrivateDnsNamespace]
+-&gt; Read UpdatePrivateDnsNamespace
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePrivateDnsNamespace]
+$creadListPrec :: ReadPrec [UpdatePrivateDnsNamespace]
+readPrec :: ReadPrec UpdatePrivateDnsNamespace
+$creadPrec :: ReadPrec UpdatePrivateDnsNamespace
+readList :: ReadS [UpdatePrivateDnsNamespace]
+$creadList :: ReadS [UpdatePrivateDnsNamespace]
+readsPrec :: Int -&gt; ReadS UpdatePrivateDnsNamespace
+$creadsPrec :: Int -&gt; ReadS UpdatePrivateDnsNamespace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231538"><span id="local-6989586621679231540"><span id="local-6989586621679231542"><span class="annot"><span class="annottext">Int -&gt; UpdatePrivateDnsNamespace -&gt; ShowS
+[UpdatePrivateDnsNamespace] -&gt; ShowS
+UpdatePrivateDnsNamespace -&gt; String
+(Int -&gt; UpdatePrivateDnsNamespace -&gt; ShowS)
+-&gt; (UpdatePrivateDnsNamespace -&gt; String)
+-&gt; ([UpdatePrivateDnsNamespace] -&gt; ShowS)
+-&gt; Show UpdatePrivateDnsNamespace
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePrivateDnsNamespace] -&gt; ShowS
+$cshowList :: [UpdatePrivateDnsNamespace] -&gt; ShowS
+show :: UpdatePrivateDnsNamespace -&gt; String
+$cshow :: UpdatePrivateDnsNamespace -&gt; String
+showsPrec :: Int -&gt; UpdatePrivateDnsNamespace -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePrivateDnsNamespace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePrivateDnsNamespace -&gt; Rep UpdatePrivateDnsNamespace x)
+-&gt; (forall x.
+    Rep UpdatePrivateDnsNamespace x -&gt; UpdatePrivateDnsNamespace)
+-&gt; Generic UpdatePrivateDnsNamespace
+forall x.
+Rep UpdatePrivateDnsNamespace x -&gt; UpdatePrivateDnsNamespace
+forall x.
+UpdatePrivateDnsNamespace -&gt; Rep UpdatePrivateDnsNamespace x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePrivateDnsNamespace x -&gt; UpdatePrivateDnsNamespace
+$cfrom :: forall x.
+UpdatePrivateDnsNamespace -&gt; Rep UpdatePrivateDnsNamespace x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdatePrivateDnsNamespace' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'updaterRequestId', 'updatePrivateDnsNamespace_updaterRequestId' - A unique string that identifies the request and that allows failed</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @UpdatePrivateDnsNamespace@ requests to be retried without the risk of</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- running the operation twice. @UpdaterRequestId@ can be any unique string</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- (for example, a date\/timestamp).</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'id', 'updatePrivateDnsNamespace_id' - The ID of the namespace that you want to update.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'namespace', 'updatePrivateDnsNamespace_namespace' - Updated properties for the private DNS namespace.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#newUpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">newUpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#PrivateDnsNamespaceChange"><span class="hs-identifier hs-type">PrivateDnsNamespaceChange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span>
+</span><span id="line-87"></span><span id="newUpdatePrivateDnsNamespace"><span class="annot"><span class="annottext">newUpdatePrivateDnsNamespace :: Text -&gt; PrivateDnsNamespaceChange -&gt; UpdatePrivateDnsNamespace
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#newUpdatePrivateDnsNamespace"><span class="hs-identifier hs-var hs-var">newUpdatePrivateDnsNamespace</span></a></span></span><span> </span><span id="local-6989586621679231533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231533"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679231532"><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231532"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace' :: Maybe Text
+-&gt; Text -&gt; PrivateDnsNamespaceChange -&gt; UpdatePrivateDnsNamespace
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:updaterRequestId:UpdatePrivateDnsNamespace' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AupdaterRequestId%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">updaterRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdatePrivateDnsNamespace' :: Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3Aid%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231533"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:UpdatePrivateDnsNamespace' :: PrivateDnsNamespaceChange
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3Anamespace%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231532"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A unique string that identifies the request and that allows failed</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @UpdatePrivateDnsNamespace@ requests to be retried without the risk of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- running the operation twice. @UpdaterRequestId@ can be any unique string</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- (for example, a date\/timestamp).</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_updaterRequestId"><span class="hs-identifier hs-type">updatePrivateDnsNamespace_updaterRequestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updatePrivateDnsNamespace_updaterRequestId"><span class="annot"><span class="annottext">updatePrivateDnsNamespace_updaterRequestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePrivateDnsNamespace -&gt; f UpdatePrivateDnsNamespace
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_updaterRequestId"><span class="hs-identifier hs-var hs-var">updatePrivateDnsNamespace_updaterRequestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePrivateDnsNamespace -&gt; Maybe Text)
+-&gt; (UpdatePrivateDnsNamespace
+    -&gt; Maybe Text -&gt; UpdatePrivateDnsNamespace)
+-&gt; Lens
+     UpdatePrivateDnsNamespace
+     UpdatePrivateDnsNamespace
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231529"><span class="annot"><span class="annottext">Maybe Text
+updaterRequestId :: Maybe Text
+$sel:updaterRequestId:UpdatePrivateDnsNamespace' :: UpdatePrivateDnsNamespace -&gt; Maybe Text
+</span><a href="#local-6989586621679231529"><span class="hs-identifier hs-var hs-var">updaterRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231529"><span class="hs-identifier hs-var">updaterRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231528"><span class="annot"><span class="annottext">s :: UpdatePrivateDnsNamespace
+</span><a href="#local-6989586621679231528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace
+</span><a href="#local-6989586621679231528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updaterRequestId:UpdatePrivateDnsNamespace' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AupdaterRequestId%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">updaterRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ID of the namespace that you want to update.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_id"><span class="hs-identifier hs-type">updatePrivateDnsNamespace_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="updatePrivateDnsNamespace_id"><span class="annot"><span class="annottext">updatePrivateDnsNamespace_id :: (Text -&gt; f Text)
+-&gt; UpdatePrivateDnsNamespace -&gt; f UpdatePrivateDnsNamespace
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_id"><span class="hs-identifier hs-var hs-var">updatePrivateDnsNamespace_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePrivateDnsNamespace -&gt; Text)
+-&gt; (UpdatePrivateDnsNamespace -&gt; Text -&gt; UpdatePrivateDnsNamespace)
+-&gt; Lens
+     UpdatePrivateDnsNamespace UpdatePrivateDnsNamespace Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231526"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdatePrivateDnsNamespace' :: UpdatePrivateDnsNamespace -&gt; Text
+</span><a href="#local-6989586621679231526"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231526"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231525"><span class="annot"><span class="annottext">s :: UpdatePrivateDnsNamespace
+</span><a href="#local-6989586621679231525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace
+</span><a href="#local-6989586621679231525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdatePrivateDnsNamespace' :: Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3Aid%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Updated properties for the private DNS namespace.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_namespace"><span class="hs-identifier hs-type">updatePrivateDnsNamespace_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange.html#PrivateDnsNamespaceChange"><span class="hs-identifier hs-type">PrivateDnsNamespaceChange</span></a></span><span>
+</span><span id="line-108"></span><span id="updatePrivateDnsNamespace_namespace"><span class="annot"><span class="annottext">updatePrivateDnsNamespace_namespace :: (PrivateDnsNamespaceChange -&gt; f PrivateDnsNamespaceChange)
+-&gt; UpdatePrivateDnsNamespace -&gt; f UpdatePrivateDnsNamespace
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespace_namespace"><span class="hs-identifier hs-var hs-var">updatePrivateDnsNamespace_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePrivateDnsNamespace -&gt; PrivateDnsNamespaceChange)
+-&gt; (UpdatePrivateDnsNamespace
+    -&gt; PrivateDnsNamespaceChange -&gt; UpdatePrivateDnsNamespace)
+-&gt; Lens
+     UpdatePrivateDnsNamespace
+     UpdatePrivateDnsNamespace
+     PrivateDnsNamespaceChange
+     PrivateDnsNamespaceChange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231523"><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+namespace :: PrivateDnsNamespaceChange
+$sel:namespace:UpdatePrivateDnsNamespace' :: UpdatePrivateDnsNamespace -&gt; PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231523"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231523"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231522"><span class="annot"><span class="annottext">s :: UpdatePrivateDnsNamespace
+</span><a href="#local-6989586621679231522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231521"><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespace
+</span><a href="#local-6989586621679231522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:UpdatePrivateDnsNamespace' :: PrivateDnsNamespaceChange
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3Anamespace%3AUpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679231517"><span class="annot"><span class="annottext">request :: UpdatePrivateDnsNamespace -&gt; Request UpdatePrivateDnsNamespace
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdatePrivateDnsNamespace -&gt; Request UpdatePrivateDnsNamespace
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679231513"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePrivateDnsNamespace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePrivateDnsNamespace)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdatePrivateDnsNamespace))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePrivateDnsNamespace
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePrivateDnsNamespace)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231510"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231509"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231509"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdatePrivateDnsNamespaceResponse
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var">UpdatePrivateDnsNamespaceResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdatePrivateDnsNamespaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdatePrivateDnsNamespaceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdatePrivateDnsNamespaceResponse)
+-&gt; Either String Int
+-&gt; Either String UpdatePrivateDnsNamespaceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231510"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231500"><span id="local-6989586621679231502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679231493"><span class="annot"><span class="annottext">toHeaders :: UpdatePrivateDnsNamespace -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePrivateDnsNamespace -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53AutoNaming_v20170314.UpdatePrivateDnsNamespace&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231483"><span id="local-6989586621679231485"><span id="local-6989586621679231487"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679231481"><span class="annot"><span class="annottext">toJSON :: UpdatePrivateDnsNamespace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231477"><span id="local-6989586621679231478"><span id="local-6989586621679231479"><span class="annot"><span class="annottext">Maybe Text
+Text
+PrivateDnsNamespaceChange
+namespace :: PrivateDnsNamespaceChange
+id :: Text
+updaterRequestId :: Maybe Text
+$sel:namespace:UpdatePrivateDnsNamespace' :: UpdatePrivateDnsNamespace -&gt; PrivateDnsNamespaceChange
+$sel:id:UpdatePrivateDnsNamespace' :: UpdatePrivateDnsNamespace -&gt; Text
+$sel:updaterRequestId:UpdatePrivateDnsNamespace' :: UpdatePrivateDnsNamespace -&gt; Maybe Text
+</span><a href="#local-6989586621679231477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdaterRequestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231479"><span class="hs-identifier hs-var">updaterRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231478"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PrivateDnsNamespaceChange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PrivateDnsNamespaceChange
+</span><a href="#local-6989586621679231477"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679231471"><span class="annot"><span class="annottext">toPath :: UpdatePrivateDnsNamespace -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdatePrivateDnsNamespace -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespace"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679231467"><span class="annot"><span class="annottext">toQuery :: UpdatePrivateDnsNamespace -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePrivateDnsNamespace -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newUpdatePrivateDnsNamespaceResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679231464"><span id="local-6989586621679231465"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePrivateDnsNamespaceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-var">UpdatePrivateDnsNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePrivateDnsNamespaceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var">UpdatePrivateDnsNamespaceResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AoperationId%3AUpdatePrivateDnsNamespaceResponse%27"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespaceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AoperationId%3AUpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePrivateDnsNamespaceResponse%27"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespaceResponse -&gt; Int
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AhttpStatus%3AUpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231458"><span id="local-6989586621679231460"><span class="annot"><span class="annottext">UpdatePrivateDnsNamespaceResponse
+-&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool
+(UpdatePrivateDnsNamespaceResponse
+ -&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool)
+-&gt; (UpdatePrivateDnsNamespaceResponse
+    -&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool)
+-&gt; Eq UpdatePrivateDnsNamespaceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePrivateDnsNamespaceResponse
+-&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool
+$c/= :: UpdatePrivateDnsNamespaceResponse
+-&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool
+== :: UpdatePrivateDnsNamespaceResponse
+-&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool
+$c== :: UpdatePrivateDnsNamespaceResponse
+-&gt; UpdatePrivateDnsNamespaceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231450"><span id="local-6989586621679231452"><span id="local-6989586621679231454"><span id="local-6989586621679231456"><span class="annot"><span class="annottext">ReadPrec [UpdatePrivateDnsNamespaceResponse]
+ReadPrec UpdatePrivateDnsNamespaceResponse
+Int -&gt; ReadS UpdatePrivateDnsNamespaceResponse
+ReadS [UpdatePrivateDnsNamespaceResponse]
+(Int -&gt; ReadS UpdatePrivateDnsNamespaceResponse)
+-&gt; ReadS [UpdatePrivateDnsNamespaceResponse]
+-&gt; ReadPrec UpdatePrivateDnsNamespaceResponse
+-&gt; ReadPrec [UpdatePrivateDnsNamespaceResponse]
+-&gt; Read UpdatePrivateDnsNamespaceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePrivateDnsNamespaceResponse]
+$creadListPrec :: ReadPrec [UpdatePrivateDnsNamespaceResponse]
+readPrec :: ReadPrec UpdatePrivateDnsNamespaceResponse
+$creadPrec :: ReadPrec UpdatePrivateDnsNamespaceResponse
+readList :: ReadS [UpdatePrivateDnsNamespaceResponse]
+$creadList :: ReadS [UpdatePrivateDnsNamespaceResponse]
+readsPrec :: Int -&gt; ReadS UpdatePrivateDnsNamespaceResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePrivateDnsNamespaceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231444"><span id="local-6989586621679231446"><span id="local-6989586621679231448"><span class="annot"><span class="annottext">Int -&gt; UpdatePrivateDnsNamespaceResponse -&gt; ShowS
+[UpdatePrivateDnsNamespaceResponse] -&gt; ShowS
+UpdatePrivateDnsNamespaceResponse -&gt; String
+(Int -&gt; UpdatePrivateDnsNamespaceResponse -&gt; ShowS)
+-&gt; (UpdatePrivateDnsNamespaceResponse -&gt; String)
+-&gt; ([UpdatePrivateDnsNamespaceResponse] -&gt; ShowS)
+-&gt; Show UpdatePrivateDnsNamespaceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePrivateDnsNamespaceResponse] -&gt; ShowS
+$cshowList :: [UpdatePrivateDnsNamespaceResponse] -&gt; ShowS
+show :: UpdatePrivateDnsNamespaceResponse -&gt; String
+$cshow :: UpdatePrivateDnsNamespaceResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePrivateDnsNamespaceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePrivateDnsNamespaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePrivateDnsNamespaceResponse
+ -&gt; Rep UpdatePrivateDnsNamespaceResponse x)
+-&gt; (forall x.
+    Rep UpdatePrivateDnsNamespaceResponse x
+    -&gt; UpdatePrivateDnsNamespaceResponse)
+-&gt; Generic UpdatePrivateDnsNamespaceResponse
+forall x.
+Rep UpdatePrivateDnsNamespaceResponse x
+-&gt; UpdatePrivateDnsNamespaceResponse
+forall x.
+UpdatePrivateDnsNamespaceResponse
+-&gt; Rep UpdatePrivateDnsNamespaceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePrivateDnsNamespaceResponse x
+-&gt; UpdatePrivateDnsNamespaceResponse
+$cfrom :: forall x.
+UpdatePrivateDnsNamespaceResponse
+-&gt; Rep UpdatePrivateDnsNamespaceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'UpdatePrivateDnsNamespaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'operationId', 'updatePrivateDnsNamespaceResponse_operationId' - A value that you can use to determine whether the request completed</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'updatePrivateDnsNamespaceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#newUpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">newUpdatePrivateDnsNamespaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newUpdatePrivateDnsNamespaceResponse"><span class="annot"><span class="annottext">newUpdatePrivateDnsNamespaceResponse :: Int -&gt; UpdatePrivateDnsNamespaceResponse
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#newUpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-var hs-var">newUpdatePrivateDnsNamespaceResponse</span></a></span></span><span> </span><span id="local-6989586621679231441"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231441"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespaceResponse' :: Maybe Text -&gt; Int -&gt; UpdatePrivateDnsNamespaceResponse
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operationId:UpdatePrivateDnsNamespaceResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AoperationId%3AUpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePrivateDnsNamespaceResponse' :: Int
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AhttpStatus%3AUpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231441"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespaceResponse_operationId"><span class="hs-identifier hs-type">updatePrivateDnsNamespaceResponse_operationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="updatePrivateDnsNamespaceResponse_operationId"><span class="annot"><span class="annottext">updatePrivateDnsNamespaceResponse_operationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePrivateDnsNamespaceResponse
+-&gt; f UpdatePrivateDnsNamespaceResponse
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespaceResponse_operationId"><span class="hs-identifier hs-var hs-var">updatePrivateDnsNamespaceResponse_operationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePrivateDnsNamespaceResponse -&gt; Maybe Text)
+-&gt; (UpdatePrivateDnsNamespaceResponse
+    -&gt; Maybe Text -&gt; UpdatePrivateDnsNamespaceResponse)
+-&gt; Lens
+     UpdatePrivateDnsNamespaceResponse
+     UpdatePrivateDnsNamespaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231440"><span class="annot"><span class="annottext">Maybe Text
+operationId :: Maybe Text
+$sel:operationId:UpdatePrivateDnsNamespaceResponse' :: UpdatePrivateDnsNamespaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679231440"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231440"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231439"><span class="annot"><span class="annottext">s :: UpdatePrivateDnsNamespaceResponse
+</span><a href="#local-6989586621679231439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespaceResponse
+</span><a href="#local-6989586621679231439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdatePrivateDnsNamespaceResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AoperationId%3AUpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespaceResponse_httpStatus"><span class="hs-identifier hs-type">updatePrivateDnsNamespaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span id="updatePrivateDnsNamespaceResponse_httpStatus"><span class="annot"><span class="annottext">updatePrivateDnsNamespaceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePrivateDnsNamespaceResponse
+-&gt; f UpdatePrivateDnsNamespaceResponse
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#updatePrivateDnsNamespaceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePrivateDnsNamespaceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePrivateDnsNamespaceResponse -&gt; Int)
+-&gt; (UpdatePrivateDnsNamespaceResponse
+    -&gt; Int -&gt; UpdatePrivateDnsNamespaceResponse)
+-&gt; Lens
+     UpdatePrivateDnsNamespaceResponse
+     UpdatePrivateDnsNamespaceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231437"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePrivateDnsNamespaceResponse' :: UpdatePrivateDnsNamespaceResponse -&gt; Int
+</span><a href="#local-6989586621679231437"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231437"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231436"><span class="annot"><span class="annottext">s :: UpdatePrivateDnsNamespaceResponse
+</span><a href="#local-6989586621679231436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231435"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePrivateDnsNamespaceResponse
+</span><a href="#local-6989586621679231436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePrivateDnsNamespaceResponse' :: Int
+</span><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#%24sel%3AhttpStatus%3AUpdatePrivateDnsNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679231433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace.html#UpdatePrivateDnsNamespaceResponse"><span class="hs-identifier hs-type">UpdatePrivateDnsNamespaceResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

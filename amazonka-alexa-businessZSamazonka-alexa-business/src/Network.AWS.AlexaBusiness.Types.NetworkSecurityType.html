@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AlexaBusiness.Types.NetworkSecurityType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AlexaBusiness.Types.NetworkSecurityType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier">NetworkSecurityType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_OPEN"><span class="hs-identifier">NetworkSecurityType_OPEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WEP"><span class="hs-identifier">NetworkSecurityType_WEP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA2_ENTERPRISE"><span class="hs-identifier">NetworkSecurityType_WPA2_ENTERPRISE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA2_PSK"><span class="hs-identifier">NetworkSecurityType_WPA2_PSK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA_PSK"><span class="hs-identifier">NetworkSecurityType_WPA_PSK</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679369320"><span id="local-6989586621679369321"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkSecurityType"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-var">NetworkSecurityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkSecurityType%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-var">NetworkSecurityType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkSecurityType"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; Text
+</span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#fromNetworkSecurityType"><span class="hs-identifier hs-var hs-var">fromNetworkSecurityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369312"><span id="local-6989586621679369314"><span id="local-6989586621679369316"><span class="annot"><span class="annottext">Int -&gt; NetworkSecurityType -&gt; ShowS
+[NetworkSecurityType] -&gt; ShowS
+NetworkSecurityType -&gt; String
+(Int -&gt; NetworkSecurityType -&gt; ShowS)
+-&gt; (NetworkSecurityType -&gt; String)
+-&gt; ([NetworkSecurityType] -&gt; ShowS)
+-&gt; Show NetworkSecurityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkSecurityType] -&gt; ShowS
+$cshowList :: [NetworkSecurityType] -&gt; ShowS
+show :: NetworkSecurityType -&gt; String
+$cshow :: NetworkSecurityType -&gt; String
+showsPrec :: Int -&gt; NetworkSecurityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkSecurityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679369303"><span id="local-6989586621679369305"><span id="local-6989586621679369307"><span id="local-6989586621679369309"><span class="annot"><span class="annottext">ReadPrec [NetworkSecurityType]
+ReadPrec NetworkSecurityType
+Int -&gt; ReadS NetworkSecurityType
+ReadS [NetworkSecurityType]
+(Int -&gt; ReadS NetworkSecurityType)
+-&gt; ReadS [NetworkSecurityType]
+-&gt; ReadPrec NetworkSecurityType
+-&gt; ReadPrec [NetworkSecurityType]
+-&gt; Read NetworkSecurityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkSecurityType]
+$creadListPrec :: ReadPrec [NetworkSecurityType]
+readPrec :: ReadPrec NetworkSecurityType
+$creadPrec :: ReadPrec NetworkSecurityType
+readList :: ReadS [NetworkSecurityType]
+$creadList :: ReadS [NetworkSecurityType]
+readsPrec :: Int -&gt; ReadS NetworkSecurityType
+$creadsPrec :: Int -&gt; ReadS NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679369298"><span id="local-6989586621679369300"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+(NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
+-&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
+-&gt; Eq NetworkSecurityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+$c/= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+== :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+$c== :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679369282"><span id="local-6989586621679369284"><span id="local-6989586621679369286"><span id="local-6989586621679369288"><span id="local-6989586621679369290"><span id="local-6989586621679369292"><span id="local-6989586621679369294"><span class="annot"><span class="annottext">Eq NetworkSecurityType
+Eq NetworkSecurityType
+-&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Ordering)
+-&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
+-&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
+-&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
+-&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
+-&gt; (NetworkSecurityType
+    -&gt; NetworkSecurityType -&gt; NetworkSecurityType)
+-&gt; (NetworkSecurityType
+    -&gt; NetworkSecurityType -&gt; NetworkSecurityType)
+-&gt; Ord NetworkSecurityType
+NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+NetworkSecurityType -&gt; NetworkSecurityType -&gt; Ordering
+NetworkSecurityType -&gt; NetworkSecurityType -&gt; NetworkSecurityType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; NetworkSecurityType
+$cmin :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; NetworkSecurityType
+max :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; NetworkSecurityType
+$cmax :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; NetworkSecurityType
+&gt;= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+$c&gt;= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+&gt; :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+$c&gt; :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+&lt;= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+$c&lt;= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+&lt; :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+$c&lt; :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+compare :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Ordering
+$ccompare :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Ordering
+$cp1Ord :: Eq NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NetworkSecurityType -&gt; Rep NetworkSecurityType x)
+-&gt; (forall x. Rep NetworkSecurityType x -&gt; NetworkSecurityType)
+-&gt; Generic NetworkSecurityType
+forall x. Rep NetworkSecurityType x -&gt; NetworkSecurityType
+forall x. NetworkSecurityType -&gt; Rep NetworkSecurityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NetworkSecurityType x -&gt; NetworkSecurityType
+$cfrom :: forall x. NetworkSecurityType -&gt; Rep NetworkSecurityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369274"><span id="local-6989586621679369276"><span class="annot"><span class="annottext">Int -&gt; NetworkSecurityType -&gt; Int
+NetworkSecurityType -&gt; Int
+(Int -&gt; NetworkSecurityType -&gt; Int)
+-&gt; (NetworkSecurityType -&gt; Int) -&gt; Hashable NetworkSecurityType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NetworkSecurityType -&gt; Int
+$chash :: NetworkSecurityType -&gt; Int
+hashWithSalt :: Int -&gt; NetworkSecurityType -&gt; Int
+$chashWithSalt :: Int -&gt; NetworkSecurityType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369271"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ()
+(NetworkSecurityType -&gt; ()) -&gt; NFData NetworkSecurityType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NetworkSecurityType -&gt; ()
+$crnf :: NetworkSecurityType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369268"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkSecurityType
+(Text -&gt; Either String NetworkSecurityType)
+-&gt; FromText NetworkSecurityType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NetworkSecurityType
+$cfromText :: Text -&gt; Either String NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369265"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; Text
+(NetworkSecurityType -&gt; Text) -&gt; ToText NetworkSecurityType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NetworkSecurityType -&gt; Text
+$ctoText :: NetworkSecurityType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369262"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ByteString
+(NetworkSecurityType -&gt; ByteString)
+-&gt; ToByteString NetworkSecurityType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NetworkSecurityType -&gt; ByteString
+$ctoBS :: NetworkSecurityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369259"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ByteStringBuilder
+(NetworkSecurityType -&gt; ByteStringBuilder)
+-&gt; ToLog NetworkSecurityType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NetworkSecurityType -&gt; ByteStringBuilder
+$cbuild :: NetworkSecurityType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369256"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkSecurityType -&gt; [Header]
+(HeaderName -&gt; NetworkSecurityType -&gt; [Header])
+-&gt; ToHeader NetworkSecurityType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NetworkSecurityType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NetworkSecurityType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369253"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; QueryString
+(NetworkSecurityType -&gt; QueryString) -&gt; ToQuery NetworkSecurityType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NetworkSecurityType -&gt; QueryString
+$ctoQuery :: NetworkSecurityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369248"><span id="local-6989586621679369250"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkSecurityType]
+Value -&gt; Parser NetworkSecurityType
+(Value -&gt; Parser NetworkSecurityType)
+-&gt; (Value -&gt; Parser [NetworkSecurityType])
+-&gt; FromJSON NetworkSecurityType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NetworkSecurityType]
+$cparseJSONList :: Value -&gt; Parser [NetworkSecurityType]
+parseJSON :: Value -&gt; Parser NetworkSecurityType
+$cparseJSON :: Value -&gt; Parser NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369243"><span id="local-6989586621679369245"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkSecurityType]
+FromJSONKeyFunction NetworkSecurityType
+FromJSONKeyFunction NetworkSecurityType
+-&gt; FromJSONKeyFunction [NetworkSecurityType]
+-&gt; FromJSONKey NetworkSecurityType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NetworkSecurityType]
+$cfromJSONKeyList :: FromJSONKeyFunction [NetworkSecurityType]
+fromJSONKey :: FromJSONKeyFunction NetworkSecurityType
+$cfromJSONKey :: FromJSONKeyFunction NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369234"><span id="local-6989586621679369236"><span id="local-6989586621679369238"><span id="local-6989586621679369240"><span class="annot"><span class="annottext">[NetworkSecurityType] -&gt; Encoding
+[NetworkSecurityType] -&gt; Value
+NetworkSecurityType -&gt; Encoding
+NetworkSecurityType -&gt; Value
+(NetworkSecurityType -&gt; Value)
+-&gt; (NetworkSecurityType -&gt; Encoding)
+-&gt; ([NetworkSecurityType] -&gt; Value)
+-&gt; ([NetworkSecurityType] -&gt; Encoding)
+-&gt; ToJSON NetworkSecurityType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NetworkSecurityType] -&gt; Encoding
+$ctoEncodingList :: [NetworkSecurityType] -&gt; Encoding
+toJSONList :: [NetworkSecurityType] -&gt; Value
+$ctoJSONList :: [NetworkSecurityType] -&gt; Value
+toEncoding :: NetworkSecurityType -&gt; Encoding
+$ctoEncoding :: NetworkSecurityType -&gt; Encoding
+toJSON :: NetworkSecurityType -&gt; Value
+$ctoJSON :: NetworkSecurityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369229"><span id="local-6989586621679369231"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkSecurityType]
+ToJSONKeyFunction NetworkSecurityType
+ToJSONKeyFunction NetworkSecurityType
+-&gt; ToJSONKeyFunction [NetworkSecurityType]
+-&gt; ToJSONKey NetworkSecurityType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NetworkSecurityType]
+$ctoJSONKeyList :: ToJSONKeyFunction [NetworkSecurityType]
+toJSONKey :: ToJSONKeyFunction NetworkSecurityType
+$ctoJSONKey :: ToJSONKeyFunction NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369226"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkSecurityType
+([Node] -&gt; Either String NetworkSecurityType)
+-&gt; FromXML NetworkSecurityType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NetworkSecurityType
+$cparseXML :: [Node] -&gt; Either String NetworkSecurityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369223"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; XML
+(NetworkSecurityType -&gt; XML) -&gt; ToXML NetworkSecurityType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NetworkSecurityType -&gt; XML
+$ctoXML :: NetworkSecurityType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_OPEN"><span class="hs-identifier hs-type">NetworkSecurityType_OPEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-type">NetworkSecurityType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkSecurityType_OPEN"><span id="%24mNetworkSecurityType_OPEN"><span id="NetworkSecurityType_OPEN"><span class="annot"><span class="annottext">$bNetworkSecurityType_OPEN :: NetworkSecurityType
+$mNetworkSecurityType_OPEN :: forall r. NetworkSecurityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#%24bNetworkSecurityType_OPEN"><span class="hs-identifier hs-var hs-var hs-var">NetworkSecurityType_OPEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-type">NetworkSecurityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPEN&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WEP"><span class="hs-identifier hs-type">NetworkSecurityType_WEP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-type">NetworkSecurityType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkSecurityType_WEP"><span id="%24mNetworkSecurityType_WEP"><span id="NetworkSecurityType_WEP"><span class="annot"><span class="annottext">$bNetworkSecurityType_WEP :: NetworkSecurityType
+$mNetworkSecurityType_WEP :: forall r. NetworkSecurityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#%24bNetworkSecurityType_WEP"><span class="hs-identifier hs-var hs-var hs-var">NetworkSecurityType_WEP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-type">NetworkSecurityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEP&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA2_ENTERPRISE"><span class="hs-identifier hs-type">NetworkSecurityType_WPA2_ENTERPRISE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-type">NetworkSecurityType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkSecurityType_WPA2_ENTERPRISE"><span id="%24mNetworkSecurityType_WPA2_ENTERPRISE"><span id="NetworkSecurityType_WPA2_ENTERPRISE"><span class="annot"><span class="annottext">$bNetworkSecurityType_WPA2_ENTERPRISE :: NetworkSecurityType
+$mNetworkSecurityType_WPA2_ENTERPRISE :: forall r. NetworkSecurityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#%24bNetworkSecurityType_WPA2_ENTERPRISE"><span class="hs-identifier hs-var hs-var hs-var">NetworkSecurityType_WPA2_ENTERPRISE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-type">NetworkSecurityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WPA2_ENTERPRISE&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA2_PSK"><span class="hs-identifier hs-type">NetworkSecurityType_WPA2_PSK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-type">NetworkSecurityType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkSecurityType_WPA2_PSK"><span id="%24mNetworkSecurityType_WPA2_PSK"><span id="NetworkSecurityType_WPA2_PSK"><span class="annot"><span class="annottext">$bNetworkSecurityType_WPA2_PSK :: NetworkSecurityType
+$mNetworkSecurityType_WPA2_PSK :: forall r. NetworkSecurityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#%24bNetworkSecurityType_WPA2_PSK"><span class="hs-identifier hs-var hs-var hs-var">NetworkSecurityType_WPA2_PSK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-type">NetworkSecurityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WPA2_PSK&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA_PSK"><span class="hs-identifier hs-type">NetworkSecurityType_WPA_PSK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-type">NetworkSecurityType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNetworkSecurityType_WPA_PSK"><span id="%24mNetworkSecurityType_WPA_PSK"><span id="NetworkSecurityType_WPA_PSK"><span class="annot"><span class="annottext">$bNetworkSecurityType_WPA_PSK :: NetworkSecurityType
+$mNetworkSecurityType_WPA_PSK :: forall r. NetworkSecurityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#%24bNetworkSecurityType_WPA_PSK"><span class="hs-identifier hs-var hs-var hs-var">NetworkSecurityType_WPA_PSK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-type">NetworkSecurityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WPA_PSK&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_OPEN"><span class="hs-pragma hs-type">NetworkSecurityType_OPEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WEP"><span class="hs-pragma hs-type">NetworkSecurityType_WEP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA2_ENTERPRISE"><span class="hs-pragma hs-type">NetworkSecurityType_WPA2_ENTERPRISE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA2_PSK"><span class="hs-pragma hs-type">NetworkSecurityType_WPA2_PSK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType_WPA_PSK"><span class="hs-pragma hs-type">NetworkSecurityType_WPA_PSK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-pragma hs-type">NetworkSecurityType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

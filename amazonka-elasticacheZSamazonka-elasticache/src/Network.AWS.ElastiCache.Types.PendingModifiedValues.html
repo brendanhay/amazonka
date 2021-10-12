@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.Types.PendingModifiedValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.Types.PendingModifiedValues</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A group of settings that are applied to the cluster in the future, or</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- that are currently being applied.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPendingModifiedValues' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679403384"><span id="local-6989586621679403385"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingModifiedValues"><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-var">PendingModifiedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingModifiedValues%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-var">PendingModifiedValues'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new number of cache nodes for the cluster.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For clusters running Redis, this value must be 1. For clusters running</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Memcached, this value must be between 1 and 40.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumCacheNodes%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Int
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AnumCacheNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">numCacheNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of cache node IDs that are being removed (or will be removed)</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcacheNodeIdsToRemove%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AcacheNodeIdsToRemove%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The auth token status</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AauthTokenStatus%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe AuthTokenUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AauthTokenStatus%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">authTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus.html#AuthTokenUpdateStatus"><span class="hs-identifier hs-type">AuthTokenUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The new cache engine version that the cluster runs.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AengineVersion%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AengineVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The cache node type that this cluster or replication group is scaled to.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcacheNodeType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AcacheNodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">cacheNodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The log delivery configurations being modified</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AlogDeliveryConfigurations%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe [PendingLogDeliveryConfiguration]
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AlogDeliveryConfigurations%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration.html#PendingLogDeliveryConfiguration"><span class="hs-identifier hs-type">PendingLogDeliveryConfiguration</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403373"><span id="local-6989586621679403375"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
+(PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool)
+-&gt; (PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool)
+-&gt; Eq PendingModifiedValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
+$c/= :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
+== :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
+$c== :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403364"><span id="local-6989586621679403366"><span id="local-6989586621679403368"><span id="local-6989586621679403370"><span class="annot"><span class="annottext">ReadPrec [PendingModifiedValues]
+ReadPrec PendingModifiedValues
+Int -&gt; ReadS PendingModifiedValues
+ReadS [PendingModifiedValues]
+(Int -&gt; ReadS PendingModifiedValues)
+-&gt; ReadS [PendingModifiedValues]
+-&gt; ReadPrec PendingModifiedValues
+-&gt; ReadPrec [PendingModifiedValues]
+-&gt; Read PendingModifiedValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PendingModifiedValues]
+$creadListPrec :: ReadPrec [PendingModifiedValues]
+readPrec :: ReadPrec PendingModifiedValues
+$creadPrec :: ReadPrec PendingModifiedValues
+readList :: ReadS [PendingModifiedValues]
+$creadList :: ReadS [PendingModifiedValues]
+readsPrec :: Int -&gt; ReadS PendingModifiedValues
+$creadsPrec :: Int -&gt; ReadS PendingModifiedValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403357"><span id="local-6989586621679403359"><span id="local-6989586621679403361"><span class="annot"><span class="annottext">Int -&gt; PendingModifiedValues -&gt; ShowS
+[PendingModifiedValues] -&gt; ShowS
+PendingModifiedValues -&gt; String
+(Int -&gt; PendingModifiedValues -&gt; ShowS)
+-&gt; (PendingModifiedValues -&gt; String)
+-&gt; ([PendingModifiedValues] -&gt; ShowS)
+-&gt; Show PendingModifiedValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PendingModifiedValues] -&gt; ShowS
+$cshowList :: [PendingModifiedValues] -&gt; ShowS
+show :: PendingModifiedValues -&gt; String
+$cshow :: PendingModifiedValues -&gt; String
+showsPrec :: Int -&gt; PendingModifiedValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; PendingModifiedValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PendingModifiedValues -&gt; Rep PendingModifiedValues x)
+-&gt; (forall x. Rep PendingModifiedValues x -&gt; PendingModifiedValues)
+-&gt; Generic PendingModifiedValues
+forall x. Rep PendingModifiedValues x -&gt; PendingModifiedValues
+forall x. PendingModifiedValues -&gt; Rep PendingModifiedValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PendingModifiedValues x -&gt; PendingModifiedValues
+$cfrom :: forall x. PendingModifiedValues -&gt; Rep PendingModifiedValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'PendingModifiedValues' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'numCacheNodes', 'pendingModifiedValues_numCacheNodes' - The new number of cache nodes for the cluster.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- For clusters running Redis, this value must be 1. For clusters running</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Memcached, this value must be between 1 and 40.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'cacheNodeIdsToRemove', 'pendingModifiedValues_cacheNodeIdsToRemove' - A list of cache node IDs that are being removed (or will be removed)</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'authTokenStatus', 'pendingModifiedValues_authTokenStatus' - The auth token status</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'engineVersion', 'pendingModifiedValues_engineVersion' - The new cache engine version that the cluster runs.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'cacheNodeType', 'pendingModifiedValues_cacheNodeType' - The cache node type that this cluster or replication group is scaled to.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'logDeliveryConfigurations', 'pendingModifiedValues_logDeliveryConfigurations' - The log delivery configurations being modified</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#newPendingModifiedValues"><span class="hs-identifier hs-type">newPendingModifiedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span>
+</span><span id="line-79"></span><span id="newPendingModifiedValues"><span class="annot"><span class="annottext">newPendingModifiedValues :: PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#newPendingModifiedValues"><span class="hs-identifier hs-var hs-var">newPendingModifiedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">PendingModifiedValues' :: Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe AuthTokenUpdateStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [PendingLogDeliveryConfiguration]
+-&gt; PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numCacheNodes:PendingModifiedValues' :: Maybe Int
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AnumCacheNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var">numCacheNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToRemove:PendingModifiedValues' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AcacheNodeIdsToRemove%3APendingModifiedValues%27"><span class="hs-identifier hs-var">cacheNodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:authTokenStatus:PendingModifiedValues' :: Maybe AuthTokenUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AauthTokenStatus%3APendingModifiedValues%27"><span class="hs-identifier hs-var">authTokenStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthTokenUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineVersion:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AengineVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeType:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AcacheNodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">cacheNodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:logDeliveryConfigurations:PendingModifiedValues' :: Maybe [PendingLogDeliveryConfiguration]
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AlogDeliveryConfigurations%3APendingModifiedValues%27"><span class="hs-identifier hs-var">logDeliveryConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingLogDeliveryConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The new number of cache nodes for the cluster.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- For clusters running Redis, this value must be 1. For clusters running</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Memcached, this value must be between 1 and 40.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_numCacheNodes"><span class="hs-identifier hs-type">pendingModifiedValues_numCacheNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="pendingModifiedValues_numCacheNodes"><span class="annot"><span class="annottext">pendingModifiedValues_numCacheNodes :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_numCacheNodes"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_numCacheNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Int)
+-&gt; (PendingModifiedValues -&gt; Maybe Int -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues PendingModifiedValues (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403348"><span class="annot"><span class="annottext">Maybe Int
+numCacheNodes :: Maybe Int
+$sel:numCacheNodes:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Int
+</span><a href="#local-6989586621679403348"><span class="hs-identifier hs-var hs-var">numCacheNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679403348"><span class="hs-identifier hs-var">numCacheNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403347"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679403347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403346"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679403346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679403347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numCacheNodes:PendingModifiedValues' :: Maybe Int
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AnumCacheNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var">numCacheNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679403346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A list of cache node IDs that are being removed (or will be removed)</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- etc.).</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_cacheNodeIdsToRemove"><span class="hs-identifier hs-type">pendingModifiedValues_cacheNodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="pendingModifiedValues_cacheNodeIdsToRemove"><span class="annot"><span class="annottext">pendingModifiedValues_cacheNodeIdsToRemove :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_cacheNodeIdsToRemove"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_cacheNodeIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe [Text])
+-&gt; (PendingModifiedValues -&gt; Maybe [Text] -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403344"><span class="annot"><span class="annottext">Maybe [Text]
+cacheNodeIdsToRemove :: Maybe [Text]
+$sel:cacheNodeIdsToRemove:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe [Text]
+</span><a href="#local-6989586621679403344"><span class="hs-identifier hs-var hs-var">cacheNodeIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403344"><span class="hs-identifier hs-var">cacheNodeIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403343"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679403343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403342"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679403343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeIdsToRemove:PendingModifiedValues' :: Maybe [Text]
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AcacheNodeIdsToRemove%3APendingModifiedValues%27"><span class="hs-identifier hs-var">cacheNodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679403342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PendingModifiedValues -&gt; f PendingModifiedValues)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PendingModifiedValues
+-&gt; f PendingModifiedValues
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The auth token status</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_authTokenStatus"><span class="hs-identifier hs-type">pendingModifiedValues_authTokenStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus.html#AuthTokenUpdateStatus"><span class="hs-identifier hs-type">AuthTokenUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="pendingModifiedValues_authTokenStatus"><span class="annot"><span class="annottext">pendingModifiedValues_authTokenStatus :: (Maybe AuthTokenUpdateStatus -&gt; f (Maybe AuthTokenUpdateStatus))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_authTokenStatus"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_authTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe AuthTokenUpdateStatus)
+-&gt; (PendingModifiedValues
+    -&gt; Maybe AuthTokenUpdateStatus -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe AuthTokenUpdateStatus)
+     (Maybe AuthTokenUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403337"><span class="annot"><span class="annottext">Maybe AuthTokenUpdateStatus
+authTokenStatus :: Maybe AuthTokenUpdateStatus
+$sel:authTokenStatus:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe AuthTokenUpdateStatus
+</span><a href="#local-6989586621679403337"><span class="hs-identifier hs-var hs-var">authTokenStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthTokenUpdateStatus
+</span><a href="#local-6989586621679403337"><span class="hs-identifier hs-var">authTokenStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403336"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679403336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403335"><span class="annot"><span class="annottext">Maybe AuthTokenUpdateStatus
+</span><a href="#local-6989586621679403335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679403336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authTokenStatus:PendingModifiedValues' :: Maybe AuthTokenUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AauthTokenStatus%3APendingModifiedValues%27"><span class="hs-identifier hs-var">authTokenStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthTokenUpdateStatus
+</span><a href="#local-6989586621679403335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The new cache engine version that the cluster runs.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_engineVersion"><span class="hs-identifier hs-type">pendingModifiedValues_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="pendingModifiedValues_engineVersion"><span class="annot"><span class="annottext">pendingModifiedValues_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_engineVersion"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
+-&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403333"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
+</span><a href="#local-6989586621679403333"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403333"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403332"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679403332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679403332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AengineVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The cache node type that this cluster or replication group is scaled to.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_cacheNodeType"><span class="hs-identifier hs-type">pendingModifiedValues_cacheNodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="pendingModifiedValues_cacheNodeType"><span class="annot"><span class="annottext">pendingModifiedValues_cacheNodeType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_cacheNodeType"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_cacheNodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
+-&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403329"><span class="annot"><span class="annottext">Maybe Text
+cacheNodeType :: Maybe Text
+$sel:cacheNodeType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
+</span><a href="#local-6989586621679403329"><span class="hs-identifier hs-var hs-var">cacheNodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403329"><span class="hs-identifier hs-var">cacheNodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403328"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679403328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679403328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeType:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AcacheNodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">cacheNodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The log delivery configurations being modified</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_logDeliveryConfigurations"><span class="hs-identifier hs-type">pendingModifiedValues_logDeliveryConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration.html#PendingLogDeliveryConfiguration"><span class="hs-identifier hs-type">PendingLogDeliveryConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="pendingModifiedValues_logDeliveryConfigurations"><span class="annot"><span class="annottext">pendingModifiedValues_logDeliveryConfigurations :: (Maybe [PendingLogDeliveryConfiguration]
+ -&gt; f (Maybe [PendingLogDeliveryConfiguration]))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#pendingModifiedValues_logDeliveryConfigurations"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_logDeliveryConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe [PendingLogDeliveryConfiguration])
+-&gt; (PendingModifiedValues
+    -&gt; Maybe [PendingLogDeliveryConfiguration]
+    -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe [PendingLogDeliveryConfiguration])
+     (Maybe [PendingLogDeliveryConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403325"><span class="annot"><span class="annottext">Maybe [PendingLogDeliveryConfiguration]
+logDeliveryConfigurations :: Maybe [PendingLogDeliveryConfiguration]
+$sel:logDeliveryConfigurations:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe [PendingLogDeliveryConfiguration]
+</span><a href="#local-6989586621679403325"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingLogDeliveryConfiguration]
+</span><a href="#local-6989586621679403325"><span class="hs-identifier hs-var">logDeliveryConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403324"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679403324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403323"><span class="annot"><span class="annottext">Maybe [PendingLogDeliveryConfiguration]
+</span><a href="#local-6989586621679403323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679403324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDeliveryConfigurations:PendingModifiedValues' :: Maybe [PendingLogDeliveryConfiguration]
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#%24sel%3AlogDeliveryConfigurations%3APendingModifiedValues%27"><span class="hs-identifier hs-var">logDeliveryConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PendingLogDeliveryConfiguration]
+</span><a href="#local-6989586621679403323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PendingLogDeliveryConfiguration]
+  -&gt; f (Maybe [PendingLogDeliveryConfiguration]))
+ -&gt; PendingModifiedValues -&gt; f PendingModifiedValues)
+-&gt; ((Maybe [PendingLogDeliveryConfiguration]
+     -&gt; f (Maybe [PendingLogDeliveryConfiguration]))
+    -&gt; Maybe [PendingLogDeliveryConfiguration]
+    -&gt; f (Maybe [PendingLogDeliveryConfiguration]))
+-&gt; (Maybe [PendingLogDeliveryConfiguration]
+    -&gt; f (Maybe [PendingLogDeliveryConfiguration]))
+-&gt; PendingModifiedValues
+-&gt; f PendingModifiedValues
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PendingLogDeliveryConfiguration]
+  [PendingLogDeliveryConfiguration]
+  [PendingLogDeliveryConfiguration]
+  [PendingLogDeliveryConfiguration]
+-&gt; Iso
+     (Maybe [PendingLogDeliveryConfiguration])
+     (Maybe [PendingLogDeliveryConfiguration])
+     (Maybe [PendingLogDeliveryConfiguration])
+     (Maybe [PendingLogDeliveryConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PendingLogDeliveryConfiguration]
+  [PendingLogDeliveryConfiguration]
+  [PendingLogDeliveryConfiguration]
+  [PendingLogDeliveryConfiguration]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679403320"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PendingModifiedValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679403318"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe AuthTokenUpdateStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [PendingLogDeliveryConfiguration]
+-&gt; PendingModifiedValues
+</span><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-var">PendingModifiedValues'</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe [Text]
+ -&gt; Maybe AuthTokenUpdateStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [PendingLogDeliveryConfiguration]
+ -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe AuthTokenUpdateStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PendingLogDeliveryConfiguration]
+      -&gt; PendingModifiedValues)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumCacheNodes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe AuthTokenUpdateStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PendingLogDeliveryConfiguration]
+   -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe AuthTokenUpdateStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PendingLogDeliveryConfiguration]
+      -&gt; PendingModifiedValues)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheNodeIdsToRemove&quot;</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheNodeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AuthTokenUpdateStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PendingLogDeliveryConfiguration]
+   -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe AuthTokenUpdateStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [PendingLogDeliveryConfiguration]
+      -&gt; PendingModifiedValues)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthTokenUpdateStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthTokenStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [PendingLogDeliveryConfiguration]
+   -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [PendingLogDeliveryConfiguration]
+      -&gt; PendingModifiedValues)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [PendingLogDeliveryConfiguration]
+   -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PendingLogDeliveryConfiguration] -&gt; PendingModifiedValues)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheNodeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PendingLogDeliveryConfiguration] -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe [PendingLogDeliveryConfiguration])
+-&gt; Either String PendingModifiedValues
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogDeliveryConfigurations&quot;</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node]
+    -&gt; Either String (Maybe [PendingLogDeliveryConfiguration]))
+-&gt; Either String (Maybe [PendingLogDeliveryConfiguration])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [PendingLogDeliveryConfiguration])
+-&gt; [Node]
+-&gt; Either String (Maybe [PendingLogDeliveryConfiguration])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [PendingLogDeliveryConfiguration]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403309"><span id="local-6989586621679403311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

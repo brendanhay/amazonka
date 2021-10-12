@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html"><span class="hs-identifier">Network.AWS.ElastiCache.Types.NodeUpdateStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The status of the service update on the cache node</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCacheNodeUpdateStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679402362"><span id="local-6989586621679402363"></span></span><span class="hs-keyword">data</span><span> </span><span id="CacheNodeUpdateStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-var">CacheNodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheNodeUpdateStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">CacheNodeUpdateStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date when the NodeUpdateStatus was last modified&gt;</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnodeUpdateStatusModifiedDate%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStatusModifiedDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeUpdateStatusModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Reflects whether the update was initiated by the customer or</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- automatically applied</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnodeUpdateInitiatedBy%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe NodeUpdateInitiatedBy
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateInitiatedBy%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeUpdateInitiatedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#NodeUpdateInitiatedBy"><span class="hs-identifier hs-type">NodeUpdateInitiatedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The update status of the node</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnodeUpdateStatus%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe NodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStatus%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#NodeUpdateStatus"><span class="hs-identifier hs-type">NodeUpdateStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date when the update is triggered</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnodeUpdateInitiatedDate%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateInitiatedDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeUpdateInitiatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The node ID of the cache cluster</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcacheNodeId%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AcacheNodeId%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">cacheNodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The deletion date of the node</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnodeDeletionDate%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeDeletionDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeDeletionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The start date of the update for a node</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnodeUpdateStartDate%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStartDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeUpdateStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The end date of the update for a node</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnodeUpdateEndDate%3ACacheNodeUpdateStatus%27"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateEndDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var hs-var">nodeUpdateEndDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402349"><span id="local-6989586621679402351"><span class="annot"><span class="annottext">CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool
+(CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool)
+-&gt; (CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool)
+-&gt; Eq CacheNodeUpdateStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool
+$c/= :: CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool
+== :: CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool
+$c== :: CacheNodeUpdateStatus -&gt; CacheNodeUpdateStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402340"><span id="local-6989586621679402342"><span id="local-6989586621679402344"><span id="local-6989586621679402346"><span class="annot"><span class="annottext">ReadPrec [CacheNodeUpdateStatus]
+ReadPrec CacheNodeUpdateStatus
+Int -&gt; ReadS CacheNodeUpdateStatus
+ReadS [CacheNodeUpdateStatus]
+(Int -&gt; ReadS CacheNodeUpdateStatus)
+-&gt; ReadS [CacheNodeUpdateStatus]
+-&gt; ReadPrec CacheNodeUpdateStatus
+-&gt; ReadPrec [CacheNodeUpdateStatus]
+-&gt; Read CacheNodeUpdateStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CacheNodeUpdateStatus]
+$creadListPrec :: ReadPrec [CacheNodeUpdateStatus]
+readPrec :: ReadPrec CacheNodeUpdateStatus
+$creadPrec :: ReadPrec CacheNodeUpdateStatus
+readList :: ReadS [CacheNodeUpdateStatus]
+$creadList :: ReadS [CacheNodeUpdateStatus]
+readsPrec :: Int -&gt; ReadS CacheNodeUpdateStatus
+$creadsPrec :: Int -&gt; ReadS CacheNodeUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402333"><span id="local-6989586621679402335"><span id="local-6989586621679402337"><span class="annot"><span class="annottext">Int -&gt; CacheNodeUpdateStatus -&gt; ShowS
+[CacheNodeUpdateStatus] -&gt; ShowS
+CacheNodeUpdateStatus -&gt; String
+(Int -&gt; CacheNodeUpdateStatus -&gt; ShowS)
+-&gt; (CacheNodeUpdateStatus -&gt; String)
+-&gt; ([CacheNodeUpdateStatus] -&gt; ShowS)
+-&gt; Show CacheNodeUpdateStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CacheNodeUpdateStatus] -&gt; ShowS
+$cshowList :: [CacheNodeUpdateStatus] -&gt; ShowS
+show :: CacheNodeUpdateStatus -&gt; String
+$cshow :: CacheNodeUpdateStatus -&gt; String
+showsPrec :: Int -&gt; CacheNodeUpdateStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CacheNodeUpdateStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CacheNodeUpdateStatus -&gt; Rep CacheNodeUpdateStatus x)
+-&gt; (forall x. Rep CacheNodeUpdateStatus x -&gt; CacheNodeUpdateStatus)
+-&gt; Generic CacheNodeUpdateStatus
+forall x. Rep CacheNodeUpdateStatus x -&gt; CacheNodeUpdateStatus
+forall x. CacheNodeUpdateStatus -&gt; Rep CacheNodeUpdateStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CacheNodeUpdateStatus x -&gt; CacheNodeUpdateStatus
+$cfrom :: forall x. CacheNodeUpdateStatus -&gt; Rep CacheNodeUpdateStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'CacheNodeUpdateStatus' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'nodeUpdateStatusModifiedDate', 'cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified&gt;</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'nodeUpdateInitiatedBy', 'cacheNodeUpdateStatus_nodeUpdateInitiatedBy' - Reflects whether the update was initiated by the customer or</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- automatically applied</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'nodeUpdateStatus', 'cacheNodeUpdateStatus_nodeUpdateStatus' - The update status of the node</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'nodeUpdateInitiatedDate', 'cacheNodeUpdateStatus_nodeUpdateInitiatedDate' - The date when the update is triggered</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'cacheNodeId', 'cacheNodeUpdateStatus_cacheNodeId' - The node ID of the cache cluster</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'nodeDeletionDate', 'cacheNodeUpdateStatus_nodeDeletionDate' - The deletion date of the node</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nodeUpdateStartDate', 'cacheNodeUpdateStatus_nodeUpdateStartDate' - The start date of the update for a node</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nodeUpdateEndDate', 'cacheNodeUpdateStatus_nodeUpdateEndDate' - The end date of the update for a node</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#newCacheNodeUpdateStatus"><span class="hs-identifier hs-type">newCacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span>
+</span><span id="line-78"></span><span id="newCacheNodeUpdateStatus"><span class="annot"><span class="annottext">newCacheNodeUpdateStatus :: CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#newCacheNodeUpdateStatus"><span class="hs-identifier hs-var hs-var">newCacheNodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus' :: Maybe ISO8601
+-&gt; Maybe NodeUpdateInitiatedBy
+-&gt; Maybe NodeUpdateStatus
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodeUpdateStatusModifiedDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStatusModifiedDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateStatusModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeUpdateInitiatedBy:CacheNodeUpdateStatus' :: Maybe NodeUpdateInitiatedBy
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateInitiatedBy%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateInitiatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeUpdateInitiatedBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeUpdateStatus:CacheNodeUpdateStatus' :: Maybe NodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStatus%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeUpdateStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeUpdateInitiatedDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateInitiatedDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateInitiatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeId:CacheNodeUpdateStatus' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AcacheNodeId%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeDeletionDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeDeletionDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeDeletionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeUpdateStartDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStartDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeUpdateEndDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateEndDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateEndDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The date when the NodeUpdateStatus was last modified&gt;</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe ISO8601)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402324"><span class="annot"><span class="annottext">Maybe ISO8601
+nodeUpdateStatusModifiedDate :: Maybe ISO8601
+$sel:nodeUpdateStatusModifiedDate:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679402324"><span class="hs-identifier hs-var hs-var">nodeUpdateStatusModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402324"><span class="hs-identifier hs-var">nodeUpdateStatusModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402323"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402322"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeUpdateStatusModifiedDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStatusModifiedDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateStatusModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus
+-&gt; f CacheNodeUpdateStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Reflects whether the update was initiated by the customer or</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- automatically applied</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateInitiatedBy"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeUpdateInitiatedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy.html#NodeUpdateInitiatedBy"><span class="hs-identifier hs-type">NodeUpdateInitiatedBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="cacheNodeUpdateStatus_nodeUpdateInitiatedBy"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeUpdateInitiatedBy :: (Maybe NodeUpdateInitiatedBy -&gt; f (Maybe NodeUpdateInitiatedBy))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateInitiatedBy"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeUpdateInitiatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe NodeUpdateInitiatedBy)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe NodeUpdateInitiatedBy -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe NodeUpdateInitiatedBy)
+     (Maybe NodeUpdateInitiatedBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402317"><span class="annot"><span class="annottext">Maybe NodeUpdateInitiatedBy
+nodeUpdateInitiatedBy :: Maybe NodeUpdateInitiatedBy
+$sel:nodeUpdateInitiatedBy:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe NodeUpdateInitiatedBy
+</span><a href="#local-6989586621679402317"><span class="hs-identifier hs-var hs-var">nodeUpdateInitiatedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeUpdateInitiatedBy
+</span><a href="#local-6989586621679402317"><span class="hs-identifier hs-var">nodeUpdateInitiatedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402316"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402315"><span class="annot"><span class="annottext">Maybe NodeUpdateInitiatedBy
+</span><a href="#local-6989586621679402315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeUpdateInitiatedBy:CacheNodeUpdateStatus' :: Maybe NodeUpdateInitiatedBy
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateInitiatedBy%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateInitiatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeUpdateInitiatedBy
+</span><a href="#local-6989586621679402315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The update status of the node</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateStatus"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeUpdateStatus.html#NodeUpdateStatus"><span class="hs-identifier hs-type">NodeUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="cacheNodeUpdateStatus_nodeUpdateStatus"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeUpdateStatus :: (Maybe NodeUpdateStatus -&gt; f (Maybe NodeUpdateStatus))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateStatus"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe NodeUpdateStatus)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe NodeUpdateStatus -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe NodeUpdateStatus)
+     (Maybe NodeUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402313"><span class="annot"><span class="annottext">Maybe NodeUpdateStatus
+nodeUpdateStatus :: Maybe NodeUpdateStatus
+$sel:nodeUpdateStatus:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe NodeUpdateStatus
+</span><a href="#local-6989586621679402313"><span class="hs-identifier hs-var hs-var">nodeUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeUpdateStatus
+</span><a href="#local-6989586621679402313"><span class="hs-identifier hs-var">nodeUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402312"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402311"><span class="annot"><span class="annottext">Maybe NodeUpdateStatus
+</span><a href="#local-6989586621679402311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeUpdateStatus:CacheNodeUpdateStatus' :: Maybe NodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStatus%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeUpdateStatus
+</span><a href="#local-6989586621679402311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The date when the update is triggered</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateInitiatedDate"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeUpdateInitiatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="cacheNodeUpdateStatus_nodeUpdateInitiatedDate"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeUpdateInitiatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateInitiatedDate"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeUpdateInitiatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe ISO8601)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402309"><span class="annot"><span class="annottext">Maybe ISO8601
+nodeUpdateInitiatedDate :: Maybe ISO8601
+$sel:nodeUpdateInitiatedDate:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679402309"><span class="hs-identifier hs-var hs-var">nodeUpdateInitiatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402309"><span class="hs-identifier hs-var">nodeUpdateInitiatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402308"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402307"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeUpdateInitiatedDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateInitiatedDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateInitiatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus
+-&gt; f CacheNodeUpdateStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The node ID of the cache cluster</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_cacheNodeId"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_cacheNodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="cacheNodeUpdateStatus_cacheNodeId"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_cacheNodeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_cacheNodeId"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_cacheNodeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe Text)
+-&gt; (CacheNodeUpdateStatus -&gt; Maybe Text -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402305"><span class="annot"><span class="annottext">Maybe Text
+cacheNodeId :: Maybe Text
+$sel:cacheNodeId:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679402305"><span class="hs-identifier hs-var hs-var">cacheNodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402305"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402304"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeId:CacheNodeUpdateStatus' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AcacheNodeId%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">cacheNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The deletion date of the node</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeDeletionDate"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeDeletionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="cacheNodeUpdateStatus_nodeDeletionDate"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeDeletionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeDeletionDate"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeDeletionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe ISO8601)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402301"><span class="annot"><span class="annottext">Maybe ISO8601
+nodeDeletionDate :: Maybe ISO8601
+$sel:nodeDeletionDate:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679402301"><span class="hs-identifier hs-var hs-var">nodeDeletionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402301"><span class="hs-identifier hs-var">nodeDeletionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402300"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402299"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeDeletionDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeDeletionDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeDeletionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus
+-&gt; f CacheNodeUpdateStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The start date of the update for a node</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateStartDate"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeUpdateStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="cacheNodeUpdateStatus_nodeUpdateStartDate"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeUpdateStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateStartDate"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeUpdateStartDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe ISO8601)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402297"><span class="annot"><span class="annottext">Maybe ISO8601
+nodeUpdateStartDate :: Maybe ISO8601
+$sel:nodeUpdateStartDate:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679402297"><span class="hs-identifier hs-var hs-var">nodeUpdateStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402297"><span class="hs-identifier hs-var">nodeUpdateStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402296"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402295"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeUpdateStartDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateStartDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus
+-&gt; f CacheNodeUpdateStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The end date of the update for a node</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateEndDate"><span class="hs-identifier hs-type">cacheNodeUpdateStatus_nodeUpdateEndDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="cacheNodeUpdateStatus_nodeUpdateEndDate"><span class="annot"><span class="annottext">cacheNodeUpdateStatus_nodeUpdateEndDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#cacheNodeUpdateStatus_nodeUpdateEndDate"><span class="hs-identifier hs-var hs-var">cacheNodeUpdateStatus_nodeUpdateEndDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CacheNodeUpdateStatus -&gt; Maybe ISO8601)
+-&gt; (CacheNodeUpdateStatus
+    -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Lens
+     CacheNodeUpdateStatus
+     CacheNodeUpdateStatus
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402293"><span class="annot"><span class="annottext">Maybe ISO8601
+nodeUpdateEndDate :: Maybe ISO8601
+$sel:nodeUpdateEndDate:CacheNodeUpdateStatus' :: CacheNodeUpdateStatus -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679402293"><span class="hs-identifier hs-var hs-var">nodeUpdateEndDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402293"><span class="hs-identifier hs-var">nodeUpdateEndDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402292"><span class="annot"><span class="annottext">s :: CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-type">CacheNodeUpdateStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402291"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheNodeUpdateStatus
+</span><a href="#local-6989586621679402292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeUpdateEndDate:CacheNodeUpdateStatus' :: Maybe ISO8601
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#%24sel%3AnodeUpdateEndDate%3ACacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">nodeUpdateEndDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679402291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; CacheNodeUpdateStatus -&gt; f CacheNodeUpdateStatus)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CacheNodeUpdateStatus
+-&gt; f CacheNodeUpdateStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679402288"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CacheNodeUpdateStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402286"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Maybe NodeUpdateInitiatedBy
+-&gt; Maybe NodeUpdateStatus
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; CacheNodeUpdateStatus
+</span><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus%27"><span class="hs-identifier hs-var">CacheNodeUpdateStatus'</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Maybe NodeUpdateInitiatedBy
+ -&gt; Maybe NodeUpdateStatus
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
+ -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe NodeUpdateInitiatedBy
+      -&gt; Maybe NodeUpdateStatus
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeUpdateStatusModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe NodeUpdateInitiatedBy
+   -&gt; Maybe NodeUpdateStatus
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe NodeUpdateInitiatedBy)
+-&gt; Either
+     String
+     (Maybe NodeUpdateStatus
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NodeUpdateInitiatedBy)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeUpdateInitiatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe NodeUpdateStatus
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe NodeUpdateStatus)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NodeUpdateStatus)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeUpdateInitiatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheNodeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeDeletionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeUpdateStartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; CacheNodeUpdateStatus)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String CacheNodeUpdateStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeUpdateEndDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402280"><span id="local-6989586621679402282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus.html#CacheNodeUpdateStatus"><span class="hs-identifier hs-type">CacheNodeUpdateStatus</span></a></span></span><span>
+</span><span id="line-139"></span></pre></body></html>

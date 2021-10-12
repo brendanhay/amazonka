@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudFront.CreateInvalidation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a new invalidation.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudFront.CreateInvalidation</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier">CreateInvalidation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#newCreateInvalidation"><span class="hs-identifier">newCreateInvalidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidation_distributionId"><span class="hs-identifier">createInvalidation_distributionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidation_invalidationBatch"><span class="hs-identifier">createInvalidation_invalidationBatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier">CreateInvalidationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#newCreateInvalidationResponse"><span class="hs-identifier">newCreateInvalidationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_invalidation"><span class="hs-identifier">createInvalidationResponse_invalidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_location"><span class="hs-identifier">createInvalidationResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_httpStatus"><span class="hs-identifier">createInvalidationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.html"><span class="hs-identifier">Network.AWS.CloudFront.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | The request to create an invalidation.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newCreateInvalidation' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679421052"><span id="local-6989586621679421053"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInvalidation"><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-var">CreateInvalidation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInvalidation%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-var">CreateInvalidation'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The distribution\'s id.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdistributionId%3ACreateInvalidation%27"><span class="annot"><span class="annottext">CreateInvalidation -&gt; Text
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AdistributionId%3ACreateInvalidation%27"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The batch information for the invalidation.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AinvalidationBatch%3ACreateInvalidation%27"><span class="annot"><span class="annottext">CreateInvalidation -&gt; InvalidationBatch
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AinvalidationBatch%3ACreateInvalidation%27"><span class="hs-identifier hs-var hs-var">invalidationBatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679421045"><span id="local-6989586621679421047"><span class="annot"><span class="annottext">CreateInvalidation -&gt; CreateInvalidation -&gt; Bool
+(CreateInvalidation -&gt; CreateInvalidation -&gt; Bool)
+-&gt; (CreateInvalidation -&gt; CreateInvalidation -&gt; Bool)
+-&gt; Eq CreateInvalidation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateInvalidation -&gt; CreateInvalidation -&gt; Bool
+$c/= :: CreateInvalidation -&gt; CreateInvalidation -&gt; Bool
+== :: CreateInvalidation -&gt; CreateInvalidation -&gt; Bool
+$c== :: CreateInvalidation -&gt; CreateInvalidation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421036"><span id="local-6989586621679421038"><span id="local-6989586621679421040"><span id="local-6989586621679421042"><span class="annot"><span class="annottext">ReadPrec [CreateInvalidation]
+ReadPrec CreateInvalidation
+Int -&gt; ReadS CreateInvalidation
+ReadS [CreateInvalidation]
+(Int -&gt; ReadS CreateInvalidation)
+-&gt; ReadS [CreateInvalidation]
+-&gt; ReadPrec CreateInvalidation
+-&gt; ReadPrec [CreateInvalidation]
+-&gt; Read CreateInvalidation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateInvalidation]
+$creadListPrec :: ReadPrec [CreateInvalidation]
+readPrec :: ReadPrec CreateInvalidation
+$creadPrec :: ReadPrec CreateInvalidation
+readList :: ReadS [CreateInvalidation]
+$creadList :: ReadS [CreateInvalidation]
+readsPrec :: Int -&gt; ReadS CreateInvalidation
+$creadsPrec :: Int -&gt; ReadS CreateInvalidation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679421029"><span id="local-6989586621679421031"><span id="local-6989586621679421033"><span class="annot"><span class="annottext">Int -&gt; CreateInvalidation -&gt; ShowS
+[CreateInvalidation] -&gt; ShowS
+CreateInvalidation -&gt; String
+(Int -&gt; CreateInvalidation -&gt; ShowS)
+-&gt; (CreateInvalidation -&gt; String)
+-&gt; ([CreateInvalidation] -&gt; ShowS)
+-&gt; Show CreateInvalidation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateInvalidation] -&gt; ShowS
+$cshowList :: [CreateInvalidation] -&gt; ShowS
+show :: CreateInvalidation -&gt; String
+$cshow :: CreateInvalidation -&gt; String
+showsPrec :: Int -&gt; CreateInvalidation -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateInvalidation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateInvalidation -&gt; Rep CreateInvalidation x)
+-&gt; (forall x. Rep CreateInvalidation x -&gt; CreateInvalidation)
+-&gt; Generic CreateInvalidation
+forall x. Rep CreateInvalidation x -&gt; CreateInvalidation
+forall x. CreateInvalidation -&gt; Rep CreateInvalidation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateInvalidation x -&gt; CreateInvalidation
+$cfrom :: forall x. CreateInvalidation -&gt; Rep CreateInvalidation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'CreateInvalidation' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'distributionId', 'createInvalidation_distributionId' - The distribution\'s id.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'invalidationBatch', 'createInvalidation_invalidationBatch' - The batch information for the invalidation.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#newCreateInvalidation"><span class="hs-identifier hs-type">newCreateInvalidation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'distributionId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'invalidationBatch'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span>
+</span><span id="line-79"></span><span id="newCreateInvalidation"><span class="annot"><span class="annottext">newCreateInvalidation :: Text -&gt; InvalidationBatch -&gt; CreateInvalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#newCreateInvalidation"><span class="hs-identifier hs-var hs-var">newCreateInvalidation</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679421024"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421024"><span class="hs-identifier hs-var">pDistributionId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679421023"><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679421023"><span class="hs-identifier hs-var">pInvalidationBatch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">CreateInvalidation' :: Text -&gt; InvalidationBatch -&gt; CreateInvalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distributionId:CreateInvalidation' :: Text
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AdistributionId%3ACreateInvalidation%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421024"><span class="hs-identifier hs-var">pDistributionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:invalidationBatch:CreateInvalidation' :: InvalidationBatch
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AinvalidationBatch%3ACreateInvalidation%27"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679421023"><span class="hs-identifier hs-var">pInvalidationBatch_</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The distribution\'s id.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidation_distributionId"><span class="hs-identifier hs-type">createInvalidation_distributionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="createInvalidation_distributionId"><span class="annot"><span class="annottext">createInvalidation_distributionId :: (Text -&gt; f Text) -&gt; CreateInvalidation -&gt; f CreateInvalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidation_distributionId"><span class="hs-identifier hs-var hs-var">createInvalidation_distributionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInvalidation -&gt; Text)
+-&gt; (CreateInvalidation -&gt; Text -&gt; CreateInvalidation)
+-&gt; Lens CreateInvalidation CreateInvalidation Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421020"><span class="annot"><span class="annottext">Text
+distributionId :: Text
+$sel:distributionId:CreateInvalidation' :: CreateInvalidation -&gt; Text
+</span><a href="#local-6989586621679421020"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421020"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421019"><span class="annot"><span class="annottext">s :: CreateInvalidation
+</span><a href="#local-6989586621679421019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInvalidation
+</span><a href="#local-6989586621679421019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionId:CreateInvalidation' :: Text
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AdistributionId%3ACreateInvalidation%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679421018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The batch information for the invalidation.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidation_invalidationBatch"><span class="hs-identifier hs-type">createInvalidation_invalidationBatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span>
+</span><span id="line-94"></span><span id="createInvalidation_invalidationBatch"><span class="annot"><span class="annottext">createInvalidation_invalidationBatch :: (InvalidationBatch -&gt; f InvalidationBatch)
+-&gt; CreateInvalidation -&gt; f CreateInvalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidation_invalidationBatch"><span class="hs-identifier hs-var hs-var">createInvalidation_invalidationBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInvalidation -&gt; InvalidationBatch)
+-&gt; (CreateInvalidation -&gt; InvalidationBatch -&gt; CreateInvalidation)
+-&gt; Lens
+     CreateInvalidation
+     CreateInvalidation
+     InvalidationBatch
+     InvalidationBatch
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679421017"><span class="annot"><span class="annottext">InvalidationBatch
+invalidationBatch :: InvalidationBatch
+$sel:invalidationBatch:CreateInvalidation' :: CreateInvalidation -&gt; InvalidationBatch
+</span><a href="#local-6989586621679421017"><span class="hs-identifier hs-var hs-var">invalidationBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679421017"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679421016"><span class="annot"><span class="annottext">s :: CreateInvalidation
+</span><a href="#local-6989586621679421016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679421015"><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679421015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInvalidation
+</span><a href="#local-6989586621679421016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidationBatch:CreateInvalidation' :: InvalidationBatch
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AinvalidationBatch%3ACreateInvalidation%27"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679421015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679421011"><span class="annot"><span class="annottext">request :: CreateInvalidation -&gt; Request CreateInvalidation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateInvalidation -&gt; Request CreateInvalidation
+forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679421007"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateInvalidation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateInvalidation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateInvalidation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateInvalidation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateInvalidation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679421004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421004"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679421003"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679421003"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679421002"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Invalidation
+-&gt; Maybe Text -&gt; Int -&gt; CreateInvalidationResponse
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-var">CreateInvalidationResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Invalidation
+ -&gt; Maybe Text -&gt; Int -&gt; CreateInvalidationResponse)
+-&gt; Either String (Maybe Invalidation)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateInvalidationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe Invalidation)
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679421002"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateInvalidationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateInvalidationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679421003"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateInvalidationResponse)
+-&gt; Either String Int -&gt; Either String CreateInvalidationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679421004"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420993"><span id="local-6989586621679420995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679420986"><span class="annot"><span class="annottext">toElement :: CreateInvalidation -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420983"><span id="local-6989586621679420984"><span class="annot"><span class="annottext">Text
+InvalidationBatch
+invalidationBatch :: InvalidationBatch
+distributionId :: Text
+$sel:invalidationBatch:CreateInvalidation' :: CreateInvalidation -&gt; InvalidationBatch
+$sel:distributionId:CreateInvalidation' :: CreateInvalidation -&gt; Text
+</span><a href="#local-6989586621679420983"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; InvalidationBatch -&gt; Element
+forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
+</span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}InvalidationBatch&quot;</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679420983"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679420979"><span class="annot"><span class="annottext">toHeaders :: CreateInvalidation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateInvalidation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679420974"><span class="annot"><span class="annottext">toPath :: CreateInvalidation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation%27"><span class="hs-identifier hs-type">CreateInvalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420971"><span id="local-6989586621679420972"><span class="annot"><span class="annottext">Text
+InvalidationBatch
+invalidationBatch :: InvalidationBatch
+distributionId :: Text
+$sel:invalidationBatch:CreateInvalidation' :: CreateInvalidation -&gt; InvalidationBatch
+$sel:distributionId:CreateInvalidation' :: CreateInvalidation -&gt; Text
+</span><a href="#local-6989586621679420971"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-05-31/distribution/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679420972"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/invalidation&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidation"><span class="hs-identifier hs-type">CreateInvalidation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679420967"><span class="annot"><span class="annottext">toQuery :: CreateInvalidation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateInvalidation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- /See:/ 'newCreateInvalidationResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679420964"><span id="local-6989586621679420965"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInvalidationResponse"><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-var">CreateInvalidationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInvalidationResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-var">CreateInvalidationResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The invalidation\'s information.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Ainvalidation%3ACreateInvalidationResponse%27"><span class="annot"><span class="annottext">CreateInvalidationResponse -&gt; Maybe Invalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3Ainvalidation%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var hs-var">invalidation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The fully qualified URI of the distribution and invalidation batch</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- request, including the @Invalidation ID@.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Alocation%3ACreateInvalidationResponse%27"><span class="annot"><span class="annottext">CreateInvalidationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3Alocation%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateInvalidationResponse%27"><span class="annot"><span class="annottext">CreateInvalidationResponse -&gt; Int
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AhttpStatus%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420957"><span id="local-6989586621679420959"><span class="annot"><span class="annottext">CreateInvalidationResponse -&gt; CreateInvalidationResponse -&gt; Bool
+(CreateInvalidationResponse -&gt; CreateInvalidationResponse -&gt; Bool)
+-&gt; (CreateInvalidationResponse
+    -&gt; CreateInvalidationResponse -&gt; Bool)
+-&gt; Eq CreateInvalidationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateInvalidationResponse -&gt; CreateInvalidationResponse -&gt; Bool
+$c/= :: CreateInvalidationResponse -&gt; CreateInvalidationResponse -&gt; Bool
+== :: CreateInvalidationResponse -&gt; CreateInvalidationResponse -&gt; Bool
+$c== :: CreateInvalidationResponse -&gt; CreateInvalidationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420949"><span id="local-6989586621679420951"><span id="local-6989586621679420953"><span id="local-6989586621679420955"><span class="annot"><span class="annottext">ReadPrec [CreateInvalidationResponse]
+ReadPrec CreateInvalidationResponse
+Int -&gt; ReadS CreateInvalidationResponse
+ReadS [CreateInvalidationResponse]
+(Int -&gt; ReadS CreateInvalidationResponse)
+-&gt; ReadS [CreateInvalidationResponse]
+-&gt; ReadPrec CreateInvalidationResponse
+-&gt; ReadPrec [CreateInvalidationResponse]
+-&gt; Read CreateInvalidationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateInvalidationResponse]
+$creadListPrec :: ReadPrec [CreateInvalidationResponse]
+readPrec :: ReadPrec CreateInvalidationResponse
+$creadPrec :: ReadPrec CreateInvalidationResponse
+readList :: ReadS [CreateInvalidationResponse]
+$creadList :: ReadS [CreateInvalidationResponse]
+readsPrec :: Int -&gt; ReadS CreateInvalidationResponse
+$creadsPrec :: Int -&gt; ReadS CreateInvalidationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420943"><span id="local-6989586621679420945"><span id="local-6989586621679420947"><span class="annot"><span class="annottext">Int -&gt; CreateInvalidationResponse -&gt; ShowS
+[CreateInvalidationResponse] -&gt; ShowS
+CreateInvalidationResponse -&gt; String
+(Int -&gt; CreateInvalidationResponse -&gt; ShowS)
+-&gt; (CreateInvalidationResponse -&gt; String)
+-&gt; ([CreateInvalidationResponse] -&gt; ShowS)
+-&gt; Show CreateInvalidationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateInvalidationResponse] -&gt; ShowS
+$cshowList :: [CreateInvalidationResponse] -&gt; ShowS
+show :: CreateInvalidationResponse -&gt; String
+$cshow :: CreateInvalidationResponse -&gt; String
+showsPrec :: Int -&gt; CreateInvalidationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateInvalidationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateInvalidationResponse -&gt; Rep CreateInvalidationResponse x)
+-&gt; (forall x.
+    Rep CreateInvalidationResponse x -&gt; CreateInvalidationResponse)
+-&gt; Generic CreateInvalidationResponse
+forall x.
+Rep CreateInvalidationResponse x -&gt; CreateInvalidationResponse
+forall x.
+CreateInvalidationResponse -&gt; Rep CreateInvalidationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateInvalidationResponse x -&gt; CreateInvalidationResponse
+$cfrom :: forall x.
+CreateInvalidationResponse -&gt; Rep CreateInvalidationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'CreateInvalidationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'invalidation', 'createInvalidationResponse_invalidation' - The invalidation\'s information.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'location', 'createInvalidationResponse_location' - The fully qualified URI of the distribution and invalidation batch</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- request, including the @Invalidation ID@.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'createInvalidationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#newCreateInvalidationResponse"><span class="hs-identifier hs-type">newCreateInvalidationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newCreateInvalidationResponse"><span class="annot"><span class="annottext">newCreateInvalidationResponse :: Int -&gt; CreateInvalidationResponse
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#newCreateInvalidationResponse"><span class="hs-identifier hs-var hs-var">newCreateInvalidationResponse</span></a></span></span><span> </span><span id="local-6989586621679420940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">CreateInvalidationResponse' :: Maybe Invalidation
+-&gt; Maybe Text -&gt; Int -&gt; CreateInvalidationResponse
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invalidation:CreateInvalidationResponse' :: Maybe Invalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3Ainvalidation%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var">invalidation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Maybe Invalidation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:CreateInvalidationResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3Alocation%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInvalidationResponse' :: Int
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AhttpStatus%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The invalidation\'s information.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_invalidation"><span class="hs-identifier hs-type">createInvalidationResponse_invalidation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="createInvalidationResponse_invalidation"><span class="annot"><span class="annottext">createInvalidationResponse_invalidation :: (Maybe Invalidation -&gt; f (Maybe Invalidation))
+-&gt; CreateInvalidationResponse -&gt; f CreateInvalidationResponse
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_invalidation"><span class="hs-identifier hs-var hs-var">createInvalidationResponse_invalidation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInvalidationResponse -&gt; Maybe Invalidation)
+-&gt; (CreateInvalidationResponse
+    -&gt; Maybe Invalidation -&gt; CreateInvalidationResponse)
+-&gt; Lens
+     CreateInvalidationResponse
+     CreateInvalidationResponse
+     (Maybe Invalidation)
+     (Maybe Invalidation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420939"><span class="annot"><span class="annottext">Maybe Invalidation
+invalidation :: Maybe Invalidation
+$sel:invalidation:CreateInvalidationResponse' :: CreateInvalidationResponse -&gt; Maybe Invalidation
+</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var hs-var">invalidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Invalidation
+</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var">invalidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420938"><span class="annot"><span class="annottext">s :: CreateInvalidationResponse
+</span><a href="#local-6989586621679420938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420937"><span class="annot"><span class="annottext">Maybe Invalidation
+</span><a href="#local-6989586621679420937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInvalidationResponse
+</span><a href="#local-6989586621679420938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidation:CreateInvalidationResponse' :: Maybe Invalidation
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3Ainvalidation%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var">invalidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Invalidation
+</span><a href="#local-6989586621679420937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The fully qualified URI of the distribution and invalidation batch</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- request, including the @Invalidation ID@.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_location"><span class="hs-identifier hs-type">createInvalidationResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="createInvalidationResponse_location"><span class="annot"><span class="annottext">createInvalidationResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateInvalidationResponse -&gt; f CreateInvalidationResponse
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_location"><span class="hs-identifier hs-var hs-var">createInvalidationResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInvalidationResponse -&gt; Maybe Text)
+-&gt; (CreateInvalidationResponse
+    -&gt; Maybe Text -&gt; CreateInvalidationResponse)
+-&gt; Lens
+     CreateInvalidationResponse
+     CreateInvalidationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420936"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:CreateInvalidationResponse' :: CreateInvalidationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679420936"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420936"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420935"><span class="annot"><span class="annottext">s :: CreateInvalidationResponse
+</span><a href="#local-6989586621679420935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420934"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInvalidationResponse
+</span><a href="#local-6989586621679420935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateInvalidationResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3Alocation%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679420934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_httpStatus"><span class="hs-identifier hs-type">createInvalidationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="createInvalidationResponse_httpStatus"><span class="annot"><span class="annottext">createInvalidationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateInvalidationResponse -&gt; f CreateInvalidationResponse
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#createInvalidationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createInvalidationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInvalidationResponse -&gt; Int)
+-&gt; (CreateInvalidationResponse
+    -&gt; Int -&gt; CreateInvalidationResponse)
+-&gt; Lens
+     CreateInvalidationResponse CreateInvalidationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420933"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateInvalidationResponse' :: CreateInvalidationResponse -&gt; Int
+</span><a href="#local-6989586621679420933"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420933"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420932"><span class="annot"><span class="annottext">s :: CreateInvalidationResponse
+</span><a href="#local-6989586621679420932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse%27"><span class="hs-identifier hs-type">CreateInvalidationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInvalidationResponse
+</span><a href="#local-6989586621679420932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInvalidationResponse' :: Int
+</span><a href="Network.AWS.CloudFront.CreateInvalidation.html#%24sel%3AhttpStatus%3ACreateInvalidationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679420931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.CreateInvalidation.html#CreateInvalidationResponse"><span class="hs-identifier hs-type">CreateInvalidationResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

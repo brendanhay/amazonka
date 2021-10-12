@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeDeploy.Types.ListStateFilterAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeDeploy.Types.ListStateFilterAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier">ListStateFilterAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Exclude"><span class="hs-identifier">ListStateFilterAction_Exclude</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Ignore"><span class="hs-identifier">ListStateFilterAction_Ignore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Include"><span class="hs-identifier">ListStateFilterAction_Include</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679310260"><span id="local-6989586621679310261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListStateFilterAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier hs-var">ListStateFilterAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStateFilterAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-identifier hs-var">ListStateFilterAction'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListStateFilterAction"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; Text
+</span><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#fromListStateFilterAction"><span class="hs-identifier hs-var hs-var">fromListStateFilterAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310252"><span id="local-6989586621679310254"><span id="local-6989586621679310256"><span class="annot"><span class="annottext">Int -&gt; ListStateFilterAction -&gt; ShowS
+[ListStateFilterAction] -&gt; ShowS
+ListStateFilterAction -&gt; String
+(Int -&gt; ListStateFilterAction -&gt; ShowS)
+-&gt; (ListStateFilterAction -&gt; String)
+-&gt; ([ListStateFilterAction] -&gt; ShowS)
+-&gt; Show ListStateFilterAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListStateFilterAction] -&gt; ShowS
+$cshowList :: [ListStateFilterAction] -&gt; ShowS
+show :: ListStateFilterAction -&gt; String
+$cshow :: ListStateFilterAction -&gt; String
+showsPrec :: Int -&gt; ListStateFilterAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListStateFilterAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679310243"><span id="local-6989586621679310245"><span id="local-6989586621679310247"><span id="local-6989586621679310249"><span class="annot"><span class="annottext">ReadPrec [ListStateFilterAction]
+ReadPrec ListStateFilterAction
+Int -&gt; ReadS ListStateFilterAction
+ReadS [ListStateFilterAction]
+(Int -&gt; ReadS ListStateFilterAction)
+-&gt; ReadS [ListStateFilterAction]
+-&gt; ReadPrec ListStateFilterAction
+-&gt; ReadPrec [ListStateFilterAction]
+-&gt; Read ListStateFilterAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListStateFilterAction]
+$creadListPrec :: ReadPrec [ListStateFilterAction]
+readPrec :: ReadPrec ListStateFilterAction
+$creadPrec :: ReadPrec ListStateFilterAction
+readList :: ReadS [ListStateFilterAction]
+$creadList :: ReadS [ListStateFilterAction]
+readsPrec :: Int -&gt; ReadS ListStateFilterAction
+$creadsPrec :: Int -&gt; ReadS ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679310238"><span id="local-6989586621679310240"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+(ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
+-&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
+-&gt; Eq ListStateFilterAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+$c/= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+== :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+$c== :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679310222"><span id="local-6989586621679310224"><span id="local-6989586621679310226"><span id="local-6989586621679310228"><span id="local-6989586621679310230"><span id="local-6989586621679310232"><span id="local-6989586621679310234"><span class="annot"><span class="annottext">Eq ListStateFilterAction
+Eq ListStateFilterAction
+-&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Ordering)
+-&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
+-&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
+-&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
+-&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
+-&gt; (ListStateFilterAction
+    -&gt; ListStateFilterAction -&gt; ListStateFilterAction)
+-&gt; (ListStateFilterAction
+    -&gt; ListStateFilterAction -&gt; ListStateFilterAction)
+-&gt; Ord ListStateFilterAction
+ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+ListStateFilterAction -&gt; ListStateFilterAction -&gt; Ordering
+ListStateFilterAction
+-&gt; ListStateFilterAction -&gt; ListStateFilterAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ListStateFilterAction
+-&gt; ListStateFilterAction -&gt; ListStateFilterAction
+$cmin :: ListStateFilterAction
+-&gt; ListStateFilterAction -&gt; ListStateFilterAction
+max :: ListStateFilterAction
+-&gt; ListStateFilterAction -&gt; ListStateFilterAction
+$cmax :: ListStateFilterAction
+-&gt; ListStateFilterAction -&gt; ListStateFilterAction
+&gt;= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+$c&gt;= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+&gt; :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+$c&gt; :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+&lt;= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+$c&lt;= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+&lt; :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+$c&lt; :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+compare :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Ordering
+$ccompare :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Ordering
+$cp1Ord :: Eq ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ListStateFilterAction -&gt; Rep ListStateFilterAction x)
+-&gt; (forall x. Rep ListStateFilterAction x -&gt; ListStateFilterAction)
+-&gt; Generic ListStateFilterAction
+forall x. Rep ListStateFilterAction x -&gt; ListStateFilterAction
+forall x. ListStateFilterAction -&gt; Rep ListStateFilterAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListStateFilterAction x -&gt; ListStateFilterAction
+$cfrom :: forall x. ListStateFilterAction -&gt; Rep ListStateFilterAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310214"><span id="local-6989586621679310216"><span class="annot"><span class="annottext">Int -&gt; ListStateFilterAction -&gt; Int
+ListStateFilterAction -&gt; Int
+(Int -&gt; ListStateFilterAction -&gt; Int)
+-&gt; (ListStateFilterAction -&gt; Int) -&gt; Hashable ListStateFilterAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ListStateFilterAction -&gt; Int
+$chash :: ListStateFilterAction -&gt; Int
+hashWithSalt :: Int -&gt; ListStateFilterAction -&gt; Int
+$chashWithSalt :: Int -&gt; ListStateFilterAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679310211"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ()
+(ListStateFilterAction -&gt; ()) -&gt; NFData ListStateFilterAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ListStateFilterAction -&gt; ()
+$crnf :: ListStateFilterAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679310208"><span class="annot"><span class="annottext">Text -&gt; Either String ListStateFilterAction
+(Text -&gt; Either String ListStateFilterAction)
+-&gt; FromText ListStateFilterAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ListStateFilterAction
+$cfromText :: Text -&gt; Either String ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679310205"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; Text
+(ListStateFilterAction -&gt; Text) -&gt; ToText ListStateFilterAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ListStateFilterAction -&gt; Text
+$ctoText :: ListStateFilterAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310202"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ByteString
+(ListStateFilterAction -&gt; ByteString)
+-&gt; ToByteString ListStateFilterAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ListStateFilterAction -&gt; ByteString
+$ctoBS :: ListStateFilterAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310199"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ByteStringBuilder
+(ListStateFilterAction -&gt; ByteStringBuilder)
+-&gt; ToLog ListStateFilterAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ListStateFilterAction -&gt; ByteStringBuilder
+$cbuild :: ListStateFilterAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310196"><span class="annot"><span class="annottext">HeaderName -&gt; ListStateFilterAction -&gt; [Header]
+(HeaderName -&gt; ListStateFilterAction -&gt; [Header])
+-&gt; ToHeader ListStateFilterAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ListStateFilterAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ListStateFilterAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310193"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; QueryString
+(ListStateFilterAction -&gt; QueryString)
+-&gt; ToQuery ListStateFilterAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ListStateFilterAction -&gt; QueryString
+$ctoQuery :: ListStateFilterAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679310188"><span id="local-6989586621679310190"><span class="annot"><span class="annottext">Value -&gt; Parser [ListStateFilterAction]
+Value -&gt; Parser ListStateFilterAction
+(Value -&gt; Parser ListStateFilterAction)
+-&gt; (Value -&gt; Parser [ListStateFilterAction])
+-&gt; FromJSON ListStateFilterAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ListStateFilterAction]
+$cparseJSONList :: Value -&gt; Parser [ListStateFilterAction]
+parseJSON :: Value -&gt; Parser ListStateFilterAction
+$cparseJSON :: Value -&gt; Parser ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679310183"><span id="local-6989586621679310185"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListStateFilterAction]
+FromJSONKeyFunction ListStateFilterAction
+FromJSONKeyFunction ListStateFilterAction
+-&gt; FromJSONKeyFunction [ListStateFilterAction]
+-&gt; FromJSONKey ListStateFilterAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ListStateFilterAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [ListStateFilterAction]
+fromJSONKey :: FromJSONKeyFunction ListStateFilterAction
+$cfromJSONKey :: FromJSONKeyFunction ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679310174"><span id="local-6989586621679310176"><span id="local-6989586621679310178"><span id="local-6989586621679310180"><span class="annot"><span class="annottext">[ListStateFilterAction] -&gt; Encoding
+[ListStateFilterAction] -&gt; Value
+ListStateFilterAction -&gt; Encoding
+ListStateFilterAction -&gt; Value
+(ListStateFilterAction -&gt; Value)
+-&gt; (ListStateFilterAction -&gt; Encoding)
+-&gt; ([ListStateFilterAction] -&gt; Value)
+-&gt; ([ListStateFilterAction] -&gt; Encoding)
+-&gt; ToJSON ListStateFilterAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ListStateFilterAction] -&gt; Encoding
+$ctoEncodingList :: [ListStateFilterAction] -&gt; Encoding
+toJSONList :: [ListStateFilterAction] -&gt; Value
+$ctoJSONList :: [ListStateFilterAction] -&gt; Value
+toEncoding :: ListStateFilterAction -&gt; Encoding
+$ctoEncoding :: ListStateFilterAction -&gt; Encoding
+toJSON :: ListStateFilterAction -&gt; Value
+$ctoJSON :: ListStateFilterAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679310169"><span id="local-6989586621679310171"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListStateFilterAction]
+ToJSONKeyFunction ListStateFilterAction
+ToJSONKeyFunction ListStateFilterAction
+-&gt; ToJSONKeyFunction [ListStateFilterAction]
+-&gt; ToJSONKey ListStateFilterAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ListStateFilterAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [ListStateFilterAction]
+toJSONKey :: ToJSONKeyFunction ListStateFilterAction
+$ctoJSONKey :: ToJSONKeyFunction ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679310166"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListStateFilterAction
+([Node] -&gt; Either String ListStateFilterAction)
+-&gt; FromXML ListStateFilterAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ListStateFilterAction
+$cparseXML :: [Node] -&gt; Either String ListStateFilterAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679310163"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; XML
+(ListStateFilterAction -&gt; XML) -&gt; ToXML ListStateFilterAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ListStateFilterAction -&gt; XML
+$ctoXML :: ListStateFilterAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Exclude"><span class="hs-identifier hs-type">ListStateFilterAction_Exclude</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier hs-type">ListStateFilterAction</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListStateFilterAction_Exclude"><span id="%24mListStateFilterAction_Exclude"><span id="ListStateFilterAction_Exclude"><span class="annot"><span class="annottext">$bListStateFilterAction_Exclude :: ListStateFilterAction
+$mListStateFilterAction_Exclude :: forall r.
+ListStateFilterAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#%24bListStateFilterAction_Exclude"><span class="hs-identifier hs-var hs-var hs-var">ListStateFilterAction_Exclude</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-identifier hs-type">ListStateFilterAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;exclude&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Ignore"><span class="hs-identifier hs-type">ListStateFilterAction_Ignore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier hs-type">ListStateFilterAction</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListStateFilterAction_Ignore"><span id="%24mListStateFilterAction_Ignore"><span id="ListStateFilterAction_Ignore"><span class="annot"><span class="annottext">$bListStateFilterAction_Ignore :: ListStateFilterAction
+$mListStateFilterAction_Ignore :: forall r.
+ListStateFilterAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#%24bListStateFilterAction_Ignore"><span class="hs-identifier hs-var hs-var hs-var">ListStateFilterAction_Ignore</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-identifier hs-type">ListStateFilterAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ignore&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Include"><span class="hs-identifier hs-type">ListStateFilterAction_Include</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier hs-type">ListStateFilterAction</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListStateFilterAction_Include"><span id="%24mListStateFilterAction_Include"><span id="ListStateFilterAction_Include"><span class="annot"><span class="annottext">$bListStateFilterAction_Include :: ListStateFilterAction
+$mListStateFilterAction_Include :: forall r.
+ListStateFilterAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#%24bListStateFilterAction_Include"><span class="hs-identifier hs-var hs-var hs-var">ListStateFilterAction_Include</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-identifier hs-type">ListStateFilterAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;include&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Exclude"><span class="hs-pragma hs-type">ListStateFilterAction_Exclude</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Ignore"><span class="hs-pragma hs-type">ListStateFilterAction_Ignore</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction_Include"><span class="hs-pragma hs-type">ListStateFilterAction_Include</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-pragma hs-type">ListStateFilterAction'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

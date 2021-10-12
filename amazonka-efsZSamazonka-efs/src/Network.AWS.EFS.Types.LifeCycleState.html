@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EFS.Types.LifeCycleState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EFS.Types.LifeCycleState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier">LifeCycleState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Available"><span class="hs-identifier">LifeCycleState_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Creating"><span class="hs-identifier">LifeCycleState_Creating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Deleted"><span class="hs-identifier">LifeCycleState_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Deleting"><span class="hs-identifier">LifeCycleState_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Error"><span class="hs-identifier">LifeCycleState_Error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Updating"><span class="hs-identifier">LifeCycleState_Updating</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679186246"><span id="local-6989586621679186247"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifeCycleState"><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-var">LifeCycleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifeCycleState%27"><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-var">LifeCycleState'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLifeCycleState"><span class="annot"><span class="annottext">LifeCycleState -&gt; Text
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#fromLifeCycleState"><span class="hs-identifier hs-var hs-var">fromLifeCycleState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186238"><span id="local-6989586621679186240"><span id="local-6989586621679186242"><span class="annot"><span class="annottext">Int -&gt; LifeCycleState -&gt; ShowS
+[LifeCycleState] -&gt; ShowS
+LifeCycleState -&gt; String
+(Int -&gt; LifeCycleState -&gt; ShowS)
+-&gt; (LifeCycleState -&gt; String)
+-&gt; ([LifeCycleState] -&gt; ShowS)
+-&gt; Show LifeCycleState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LifeCycleState] -&gt; ShowS
+$cshowList :: [LifeCycleState] -&gt; ShowS
+show :: LifeCycleState -&gt; String
+$cshow :: LifeCycleState -&gt; String
+showsPrec :: Int -&gt; LifeCycleState -&gt; ShowS
+$cshowsPrec :: Int -&gt; LifeCycleState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679186229"><span id="local-6989586621679186231"><span id="local-6989586621679186233"><span id="local-6989586621679186235"><span class="annot"><span class="annottext">ReadPrec [LifeCycleState]
+ReadPrec LifeCycleState
+Int -&gt; ReadS LifeCycleState
+ReadS [LifeCycleState]
+(Int -&gt; ReadS LifeCycleState)
+-&gt; ReadS [LifeCycleState]
+-&gt; ReadPrec LifeCycleState
+-&gt; ReadPrec [LifeCycleState]
+-&gt; Read LifeCycleState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LifeCycleState]
+$creadListPrec :: ReadPrec [LifeCycleState]
+readPrec :: ReadPrec LifeCycleState
+$creadPrec :: ReadPrec LifeCycleState
+readList :: ReadS [LifeCycleState]
+$creadList :: ReadS [LifeCycleState]
+readsPrec :: Int -&gt; ReadS LifeCycleState
+$creadsPrec :: Int -&gt; ReadS LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679186224"><span id="local-6989586621679186226"><span class="annot"><span class="annottext">LifeCycleState -&gt; LifeCycleState -&gt; Bool
+(LifeCycleState -&gt; LifeCycleState -&gt; Bool)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool) -&gt; Eq LifeCycleState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+$c/= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+== :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+$c== :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679186208"><span id="local-6989586621679186210"><span id="local-6989586621679186212"><span id="local-6989586621679186214"><span id="local-6989586621679186216"><span id="local-6989586621679186218"><span id="local-6989586621679186220"><span class="annot"><span class="annottext">Eq LifeCycleState
+Eq LifeCycleState
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Ordering)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState)
+-&gt; (LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState)
+-&gt; Ord LifeCycleState
+LifeCycleState -&gt; LifeCycleState -&gt; Bool
+LifeCycleState -&gt; LifeCycleState -&gt; Ordering
+LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState
+$cmin :: LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState
+max :: LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState
+$cmax :: LifeCycleState -&gt; LifeCycleState -&gt; LifeCycleState
+&gt;= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+$c&gt;= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+&gt; :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+$c&gt; :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+&lt;= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+$c&lt;= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+&lt; :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+$c&lt; :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
+compare :: LifeCycleState -&gt; LifeCycleState -&gt; Ordering
+$ccompare :: LifeCycleState -&gt; LifeCycleState -&gt; Ordering
+$cp1Ord :: Eq LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LifeCycleState -&gt; Rep LifeCycleState x)
+-&gt; (forall x. Rep LifeCycleState x -&gt; LifeCycleState)
+-&gt; Generic LifeCycleState
+forall x. Rep LifeCycleState x -&gt; LifeCycleState
+forall x. LifeCycleState -&gt; Rep LifeCycleState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LifeCycleState x -&gt; LifeCycleState
+$cfrom :: forall x. LifeCycleState -&gt; Rep LifeCycleState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186200"><span id="local-6989586621679186202"><span class="annot"><span class="annottext">Int -&gt; LifeCycleState -&gt; Int
+LifeCycleState -&gt; Int
+(Int -&gt; LifeCycleState -&gt; Int)
+-&gt; (LifeCycleState -&gt; Int) -&gt; Hashable LifeCycleState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LifeCycleState -&gt; Int
+$chash :: LifeCycleState -&gt; Int
+hashWithSalt :: Int -&gt; LifeCycleState -&gt; Int
+$chashWithSalt :: Int -&gt; LifeCycleState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186197"><span class="annot"><span class="annottext">LifeCycleState -&gt; ()
+(LifeCycleState -&gt; ()) -&gt; NFData LifeCycleState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LifeCycleState -&gt; ()
+$crnf :: LifeCycleState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186194"><span class="annot"><span class="annottext">Text -&gt; Either String LifeCycleState
+(Text -&gt; Either String LifeCycleState) -&gt; FromText LifeCycleState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LifeCycleState
+$cfromText :: Text -&gt; Either String LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186191"><span class="annot"><span class="annottext">LifeCycleState -&gt; Text
+(LifeCycleState -&gt; Text) -&gt; ToText LifeCycleState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LifeCycleState -&gt; Text
+$ctoText :: LifeCycleState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186188"><span class="annot"><span class="annottext">LifeCycleState -&gt; ByteString
+(LifeCycleState -&gt; ByteString) -&gt; ToByteString LifeCycleState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LifeCycleState -&gt; ByteString
+$ctoBS :: LifeCycleState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186185"><span class="annot"><span class="annottext">LifeCycleState -&gt; ByteStringBuilder
+(LifeCycleState -&gt; ByteStringBuilder) -&gt; ToLog LifeCycleState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LifeCycleState -&gt; ByteStringBuilder
+$cbuild :: LifeCycleState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186182"><span class="annot"><span class="annottext">HeaderName -&gt; LifeCycleState -&gt; [Header]
+(HeaderName -&gt; LifeCycleState -&gt; [Header])
+-&gt; ToHeader LifeCycleState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LifeCycleState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LifeCycleState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186179"><span class="annot"><span class="annottext">LifeCycleState -&gt; QueryString
+(LifeCycleState -&gt; QueryString) -&gt; ToQuery LifeCycleState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LifeCycleState -&gt; QueryString
+$ctoQuery :: LifeCycleState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186174"><span id="local-6989586621679186176"><span class="annot"><span class="annottext">Value -&gt; Parser [LifeCycleState]
+Value -&gt; Parser LifeCycleState
+(Value -&gt; Parser LifeCycleState)
+-&gt; (Value -&gt; Parser [LifeCycleState]) -&gt; FromJSON LifeCycleState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LifeCycleState]
+$cparseJSONList :: Value -&gt; Parser [LifeCycleState]
+parseJSON :: Value -&gt; Parser LifeCycleState
+$cparseJSON :: Value -&gt; Parser LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186169"><span id="local-6989586621679186171"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifeCycleState]
+FromJSONKeyFunction LifeCycleState
+FromJSONKeyFunction LifeCycleState
+-&gt; FromJSONKeyFunction [LifeCycleState]
+-&gt; FromJSONKey LifeCycleState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LifeCycleState]
+$cfromJSONKeyList :: FromJSONKeyFunction [LifeCycleState]
+fromJSONKey :: FromJSONKeyFunction LifeCycleState
+$cfromJSONKey :: FromJSONKeyFunction LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186160"><span id="local-6989586621679186162"><span id="local-6989586621679186164"><span id="local-6989586621679186166"><span class="annot"><span class="annottext">[LifeCycleState] -&gt; Encoding
+[LifeCycleState] -&gt; Value
+LifeCycleState -&gt; Encoding
+LifeCycleState -&gt; Value
+(LifeCycleState -&gt; Value)
+-&gt; (LifeCycleState -&gt; Encoding)
+-&gt; ([LifeCycleState] -&gt; Value)
+-&gt; ([LifeCycleState] -&gt; Encoding)
+-&gt; ToJSON LifeCycleState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LifeCycleState] -&gt; Encoding
+$ctoEncodingList :: [LifeCycleState] -&gt; Encoding
+toJSONList :: [LifeCycleState] -&gt; Value
+$ctoJSONList :: [LifeCycleState] -&gt; Value
+toEncoding :: LifeCycleState -&gt; Encoding
+$ctoEncoding :: LifeCycleState -&gt; Encoding
+toJSON :: LifeCycleState -&gt; Value
+$ctoJSON :: LifeCycleState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679186155"><span id="local-6989586621679186157"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifeCycleState]
+ToJSONKeyFunction LifeCycleState
+ToJSONKeyFunction LifeCycleState
+-&gt; ToJSONKeyFunction [LifeCycleState] -&gt; ToJSONKey LifeCycleState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LifeCycleState]
+$ctoJSONKeyList :: ToJSONKeyFunction [LifeCycleState]
+toJSONKey :: ToJSONKeyFunction LifeCycleState
+$ctoJSONKey :: ToJSONKeyFunction LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679186152"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifeCycleState
+([Node] -&gt; Either String LifeCycleState) -&gt; FromXML LifeCycleState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LifeCycleState
+$cparseXML :: [Node] -&gt; Either String LifeCycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679186149"><span class="annot"><span class="annottext">LifeCycleState -&gt; XML
+(LifeCycleState -&gt; XML) -&gt; ToXML LifeCycleState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LifeCycleState -&gt; XML
+$ctoXML :: LifeCycleState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Available"><span class="hs-identifier hs-type">LifeCycleState_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-type">LifeCycleState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifeCycleState_Available"><span id="%24mLifeCycleState_Available"><span id="LifeCycleState_Available"><span class="annot"><span class="annottext">$bLifeCycleState_Available :: LifeCycleState
+$mLifeCycleState_Available :: forall r. LifeCycleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#%24bLifeCycleState_Available"><span class="hs-identifier hs-var hs-var hs-var">LifeCycleState_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-type">LifeCycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;available&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Creating"><span class="hs-identifier hs-type">LifeCycleState_Creating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-type">LifeCycleState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifeCycleState_Creating"><span id="%24mLifeCycleState_Creating"><span id="LifeCycleState_Creating"><span class="annot"><span class="annottext">$bLifeCycleState_Creating :: LifeCycleState
+$mLifeCycleState_Creating :: forall r. LifeCycleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#%24bLifeCycleState_Creating"><span class="hs-identifier hs-var hs-var hs-var">LifeCycleState_Creating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-type">LifeCycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;creating&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Deleted"><span class="hs-identifier hs-type">LifeCycleState_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-type">LifeCycleState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifeCycleState_Deleted"><span id="%24mLifeCycleState_Deleted"><span id="LifeCycleState_Deleted"><span class="annot"><span class="annottext">$bLifeCycleState_Deleted :: LifeCycleState
+$mLifeCycleState_Deleted :: forall r. LifeCycleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#%24bLifeCycleState_Deleted"><span class="hs-identifier hs-var hs-var hs-var">LifeCycleState_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-type">LifeCycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleted&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Deleting"><span class="hs-identifier hs-type">LifeCycleState_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-type">LifeCycleState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifeCycleState_Deleting"><span id="%24mLifeCycleState_Deleting"><span id="LifeCycleState_Deleting"><span class="annot"><span class="annottext">$bLifeCycleState_Deleting :: LifeCycleState
+$mLifeCycleState_Deleting :: forall r. LifeCycleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#%24bLifeCycleState_Deleting"><span class="hs-identifier hs-var hs-var hs-var">LifeCycleState_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-type">LifeCycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deleting&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Error"><span class="hs-identifier hs-type">LifeCycleState_Error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-type">LifeCycleState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifeCycleState_Error"><span id="%24mLifeCycleState_Error"><span id="LifeCycleState_Error"><span class="annot"><span class="annottext">$bLifeCycleState_Error :: LifeCycleState
+$mLifeCycleState_Error :: forall r. LifeCycleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#%24bLifeCycleState_Error"><span class="hs-identifier hs-var hs-var hs-var">LifeCycleState_Error</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-type">LifeCycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;error&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Updating"><span class="hs-identifier hs-type">LifeCycleState_Updating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-type">LifeCycleState</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLifeCycleState_Updating"><span id="%24mLifeCycleState_Updating"><span id="LifeCycleState_Updating"><span class="annot"><span class="annottext">$bLifeCycleState_Updating :: LifeCycleState
+$mLifeCycleState_Updating :: forall r. LifeCycleState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EFS.Types.LifeCycleState.html#%24bLifeCycleState_Updating"><span class="hs-identifier hs-var hs-var hs-var">LifeCycleState_Updating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-type">LifeCycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;updating&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Available"><span class="hs-pragma hs-type">LifeCycleState_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Creating"><span class="hs-pragma hs-type">LifeCycleState_Creating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Deleted"><span class="hs-pragma hs-type">LifeCycleState_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Deleting"><span class="hs-pragma hs-type">LifeCycleState_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Error"><span class="hs-pragma hs-type">LifeCycleState_Error</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState_Updating"><span class="hs-pragma hs-type">LifeCycleState_Updating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-pragma hs-type">LifeCycleState'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

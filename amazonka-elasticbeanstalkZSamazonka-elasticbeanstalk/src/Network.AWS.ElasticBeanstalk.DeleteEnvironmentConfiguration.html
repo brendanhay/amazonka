@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the draft configuration associated with the running environment.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Updating a running environment with any configuration changes creates a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- draft configuration set. You can get the draft configuration using</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- DescribeConfigurationSettings while the update is in progress or if the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- update fails. The @DeploymentStatus@ for the draft configuration</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- indicates whether the deployment is in process or has failed. The draft</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- configuration remains in existence until it is deleted with this action.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier">DeleteEnvironmentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#newDeleteEnvironmentConfiguration"><span class="hs-identifier">newDeleteEnvironmentConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#deleteEnvironmentConfiguration_applicationName"><span class="hs-identifier">deleteEnvironmentConfiguration_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#deleteEnvironmentConfiguration_environmentName"><span class="hs-identifier">deleteEnvironmentConfiguration_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse"><span class="hs-identifier">DeleteEnvironmentConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#newDeleteEnvironmentConfigurationResponse"><span class="hs-identifier">newDeleteEnvironmentConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Request to delete a draft environment configuration.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDeleteEnvironmentConfiguration' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679315016"><span id="local-6989586621679315017"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEnvironmentConfiguration"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-var">DeleteEnvironmentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEnvironmentConfiguration%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var">DeleteEnvironmentConfiguration'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the application the environment is associated with.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AapplicationName%3ADeleteEnvironmentConfiguration%27"><span class="annot"><span class="annottext">DeleteEnvironmentConfiguration -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#%24sel%3AapplicationName%3ADeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the environment to delete the draft configuration from.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADeleteEnvironmentConfiguration%27"><span class="annot"><span class="annottext">DeleteEnvironmentConfiguration -&gt; Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#%24sel%3AenvironmentName%3ADeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315009"><span id="local-6989586621679315011"><span class="annot"><span class="annottext">DeleteEnvironmentConfiguration
+-&gt; DeleteEnvironmentConfiguration -&gt; Bool
+(DeleteEnvironmentConfiguration
+ -&gt; DeleteEnvironmentConfiguration -&gt; Bool)
+-&gt; (DeleteEnvironmentConfiguration
+    -&gt; DeleteEnvironmentConfiguration -&gt; Bool)
+-&gt; Eq DeleteEnvironmentConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteEnvironmentConfiguration
+-&gt; DeleteEnvironmentConfiguration -&gt; Bool
+$c/= :: DeleteEnvironmentConfiguration
+-&gt; DeleteEnvironmentConfiguration -&gt; Bool
+== :: DeleteEnvironmentConfiguration
+-&gt; DeleteEnvironmentConfiguration -&gt; Bool
+$c== :: DeleteEnvironmentConfiguration
+-&gt; DeleteEnvironmentConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315000"><span id="local-6989586621679315002"><span id="local-6989586621679315004"><span id="local-6989586621679315006"><span class="annot"><span class="annottext">ReadPrec [DeleteEnvironmentConfiguration]
+ReadPrec DeleteEnvironmentConfiguration
+Int -&gt; ReadS DeleteEnvironmentConfiguration
+ReadS [DeleteEnvironmentConfiguration]
+(Int -&gt; ReadS DeleteEnvironmentConfiguration)
+-&gt; ReadS [DeleteEnvironmentConfiguration]
+-&gt; ReadPrec DeleteEnvironmentConfiguration
+-&gt; ReadPrec [DeleteEnvironmentConfiguration]
+-&gt; Read DeleteEnvironmentConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteEnvironmentConfiguration]
+$creadListPrec :: ReadPrec [DeleteEnvironmentConfiguration]
+readPrec :: ReadPrec DeleteEnvironmentConfiguration
+$creadPrec :: ReadPrec DeleteEnvironmentConfiguration
+readList :: ReadS [DeleteEnvironmentConfiguration]
+$creadList :: ReadS [DeleteEnvironmentConfiguration]
+readsPrec :: Int -&gt; ReadS DeleteEnvironmentConfiguration
+$creadsPrec :: Int -&gt; ReadS DeleteEnvironmentConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314993"><span id="local-6989586621679314995"><span id="local-6989586621679314997"><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentConfiguration -&gt; ShowS
+[DeleteEnvironmentConfiguration] -&gt; ShowS
+DeleteEnvironmentConfiguration -&gt; String
+(Int -&gt; DeleteEnvironmentConfiguration -&gt; ShowS)
+-&gt; (DeleteEnvironmentConfiguration -&gt; String)
+-&gt; ([DeleteEnvironmentConfiguration] -&gt; ShowS)
+-&gt; Show DeleteEnvironmentConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteEnvironmentConfiguration] -&gt; ShowS
+$cshowList :: [DeleteEnvironmentConfiguration] -&gt; ShowS
+show :: DeleteEnvironmentConfiguration -&gt; String
+$cshow :: DeleteEnvironmentConfiguration -&gt; String
+showsPrec :: Int -&gt; DeleteEnvironmentConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteEnvironmentConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteEnvironmentConfiguration
+ -&gt; Rep DeleteEnvironmentConfiguration x)
+-&gt; (forall x.
+    Rep DeleteEnvironmentConfiguration x
+    -&gt; DeleteEnvironmentConfiguration)
+-&gt; Generic DeleteEnvironmentConfiguration
+forall x.
+Rep DeleteEnvironmentConfiguration x
+-&gt; DeleteEnvironmentConfiguration
+forall x.
+DeleteEnvironmentConfiguration
+-&gt; Rep DeleteEnvironmentConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteEnvironmentConfiguration x
+-&gt; DeleteEnvironmentConfiguration
+$cfrom :: forall x.
+DeleteEnvironmentConfiguration
+-&gt; Rep DeleteEnvironmentConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteEnvironmentConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'applicationName', 'deleteEnvironmentConfiguration_applicationName' - The name of the application the environment is associated with.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'environmentName', 'deleteEnvironmentConfiguration_environmentName' - The name of the environment to delete the draft configuration from.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#newDeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">newDeleteEnvironmentConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'environmentName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteEnvironmentConfiguration"><span class="annot"><span class="annottext">newDeleteEnvironmentConfiguration :: Text -&gt; Text -&gt; DeleteEnvironmentConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#newDeleteEnvironmentConfiguration"><span class="hs-identifier hs-var hs-var">newDeleteEnvironmentConfiguration</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679314988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314988"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679314987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314987"><span class="hs-identifier hs-var">pEnvironmentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">DeleteEnvironmentConfiguration' :: Text -&gt; Text -&gt; DeleteEnvironmentConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:DeleteEnvironmentConfiguration' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#%24sel%3AapplicationName%3ADeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314988"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentName:DeleteEnvironmentConfiguration' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#%24sel%3AenvironmentName%3ADeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314987"><span class="hs-identifier hs-var">pEnvironmentName_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the application the environment is associated with.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#deleteEnvironmentConfiguration_applicationName"><span class="hs-identifier hs-type">deleteEnvironmentConfiguration_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="deleteEnvironmentConfiguration_applicationName"><span class="annot"><span class="annottext">deleteEnvironmentConfiguration_applicationName :: (Text -&gt; f Text)
+-&gt; DeleteEnvironmentConfiguration
+-&gt; f DeleteEnvironmentConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#deleteEnvironmentConfiguration_applicationName"><span class="hs-identifier hs-var hs-var">deleteEnvironmentConfiguration_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteEnvironmentConfiguration -&gt; Text)
+-&gt; (DeleteEnvironmentConfiguration
+    -&gt; Text -&gt; DeleteEnvironmentConfiguration)
+-&gt; Lens
+     DeleteEnvironmentConfiguration
+     DeleteEnvironmentConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314984"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:DeleteEnvironmentConfiguration' :: DeleteEnvironmentConfiguration -&gt; Text
+</span><a href="#local-6989586621679314984"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314984"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314983"><span class="annot"><span class="annottext">s :: DeleteEnvironmentConfiguration
+</span><a href="#local-6989586621679314983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314982"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentConfiguration
+</span><a href="#local-6989586621679314983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:DeleteEnvironmentConfiguration' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#%24sel%3AapplicationName%3ADeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the environment to delete the draft configuration from.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#deleteEnvironmentConfiguration_environmentName"><span class="hs-identifier hs-type">deleteEnvironmentConfiguration_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="deleteEnvironmentConfiguration_environmentName"><span class="annot"><span class="annottext">deleteEnvironmentConfiguration_environmentName :: (Text -&gt; f Text)
+-&gt; DeleteEnvironmentConfiguration
+-&gt; f DeleteEnvironmentConfiguration
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#deleteEnvironmentConfiguration_environmentName"><span class="hs-identifier hs-var hs-var">deleteEnvironmentConfiguration_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteEnvironmentConfiguration -&gt; Text)
+-&gt; (DeleteEnvironmentConfiguration
+    -&gt; Text -&gt; DeleteEnvironmentConfiguration)
+-&gt; Lens
+     DeleteEnvironmentConfiguration
+     DeleteEnvironmentConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314981"><span class="annot"><span class="annottext">Text
+environmentName :: Text
+$sel:environmentName:DeleteEnvironmentConfiguration' :: DeleteEnvironmentConfiguration -&gt; Text
+</span><a href="#local-6989586621679314981"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314981"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314980"><span class="annot"><span class="annottext">s :: DeleteEnvironmentConfiguration
+</span><a href="#local-6989586621679314980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEnvironmentConfiguration
+</span><a href="#local-6989586621679314980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DeleteEnvironmentConfiguration' :: Text
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#%24sel%3AenvironmentName%3ADeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse"><span class="hs-identifier hs-type">DeleteEnvironmentConfigurationResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679314975"><span class="annot"><span class="annottext">request :: DeleteEnvironmentConfiguration
+-&gt; Request DeleteEnvironmentConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteEnvironmentConfiguration
+-&gt; Request DeleteEnvironmentConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679314971"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteEnvironmentConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeleteEnvironmentConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteEnvironmentConfiguration
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteEnvironmentConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeleteEnvironmentConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteEnvironmentConfiguration
+DeleteEnvironmentConfigurationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteEnvironmentConfigurationResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679314964"><span id="local-6989586621679314966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679314961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679314957"><span class="annot"><span class="annottext">toHeaders :: DeleteEnvironmentConfiguration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteEnvironmentConfiguration -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679314952"><span class="annot"><span class="annottext">toPath :: DeleteEnvironmentConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteEnvironmentConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679314948"><span class="annot"><span class="annottext">toQuery :: DeleteEnvironmentConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfiguration%27"><span class="hs-identifier hs-type">DeleteEnvironmentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314945"><span id="local-6989586621679314946"><span class="annot"><span class="annottext">Text
+environmentName :: Text
+applicationName :: Text
+$sel:environmentName:DeleteEnvironmentConfiguration' :: DeleteEnvironmentConfiguration -&gt; Text
+$sel:applicationName:DeleteEnvironmentConfiguration' :: DeleteEnvironmentConfiguration -&gt; Text
+</span><a href="#local-6989586621679314945"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteEnvironmentConfiguration&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-133"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314946"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314945"><span class="hs-identifier hs-var">environmentName</span></a></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newDeleteEnvironmentConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679314942"><span id="local-6989586621679314943"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEnvironmentConfigurationResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse"><span class="hs-identifier hs-var">DeleteEnvironmentConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEnvironmentConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteEnvironmentConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314938"><span id="local-6989586621679314940"><span class="annot"><span class="annottext">DeleteEnvironmentConfigurationResponse
+-&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool
+(DeleteEnvironmentConfigurationResponse
+ -&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool)
+-&gt; (DeleteEnvironmentConfigurationResponse
+    -&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool)
+-&gt; Eq DeleteEnvironmentConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteEnvironmentConfigurationResponse
+-&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool
+$c/= :: DeleteEnvironmentConfigurationResponse
+-&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool
+== :: DeleteEnvironmentConfigurationResponse
+-&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool
+$c== :: DeleteEnvironmentConfigurationResponse
+-&gt; DeleteEnvironmentConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314930"><span id="local-6989586621679314932"><span id="local-6989586621679314934"><span id="local-6989586621679314936"><span class="annot"><span class="annottext">ReadPrec [DeleteEnvironmentConfigurationResponse]
+ReadPrec DeleteEnvironmentConfigurationResponse
+Int -&gt; ReadS DeleteEnvironmentConfigurationResponse
+ReadS [DeleteEnvironmentConfigurationResponse]
+(Int -&gt; ReadS DeleteEnvironmentConfigurationResponse)
+-&gt; ReadS [DeleteEnvironmentConfigurationResponse]
+-&gt; ReadPrec DeleteEnvironmentConfigurationResponse
+-&gt; ReadPrec [DeleteEnvironmentConfigurationResponse]
+-&gt; Read DeleteEnvironmentConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteEnvironmentConfigurationResponse]
+$creadListPrec :: ReadPrec [DeleteEnvironmentConfigurationResponse]
+readPrec :: ReadPrec DeleteEnvironmentConfigurationResponse
+$creadPrec :: ReadPrec DeleteEnvironmentConfigurationResponse
+readList :: ReadS [DeleteEnvironmentConfigurationResponse]
+$creadList :: ReadS [DeleteEnvironmentConfigurationResponse]
+readsPrec :: Int -&gt; ReadS DeleteEnvironmentConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS DeleteEnvironmentConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314924"><span id="local-6989586621679314926"><span id="local-6989586621679314928"><span class="annot"><span class="annottext">Int -&gt; DeleteEnvironmentConfigurationResponse -&gt; ShowS
+[DeleteEnvironmentConfigurationResponse] -&gt; ShowS
+DeleteEnvironmentConfigurationResponse -&gt; String
+(Int -&gt; DeleteEnvironmentConfigurationResponse -&gt; ShowS)
+-&gt; (DeleteEnvironmentConfigurationResponse -&gt; String)
+-&gt; ([DeleteEnvironmentConfigurationResponse] -&gt; ShowS)
+-&gt; Show DeleteEnvironmentConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteEnvironmentConfigurationResponse] -&gt; ShowS
+$cshowList :: [DeleteEnvironmentConfigurationResponse] -&gt; ShowS
+show :: DeleteEnvironmentConfigurationResponse -&gt; String
+$cshow :: DeleteEnvironmentConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; DeleteEnvironmentConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteEnvironmentConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteEnvironmentConfigurationResponse
+ -&gt; Rep DeleteEnvironmentConfigurationResponse x)
+-&gt; (forall x.
+    Rep DeleteEnvironmentConfigurationResponse x
+    -&gt; DeleteEnvironmentConfigurationResponse)
+-&gt; Generic DeleteEnvironmentConfigurationResponse
+forall x.
+Rep DeleteEnvironmentConfigurationResponse x
+-&gt; DeleteEnvironmentConfigurationResponse
+forall x.
+DeleteEnvironmentConfigurationResponse
+-&gt; Rep DeleteEnvironmentConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteEnvironmentConfigurationResponse x
+-&gt; DeleteEnvironmentConfigurationResponse
+$cfrom :: forall x.
+DeleteEnvironmentConfigurationResponse
+-&gt; Rep DeleteEnvironmentConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'DeleteEnvironmentConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#newDeleteEnvironmentConfigurationResponse"><span class="hs-identifier hs-type">newDeleteEnvironmentConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse"><span class="hs-identifier hs-type">DeleteEnvironmentConfigurationResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newDeleteEnvironmentConfigurationResponse"><span class="annot"><span class="annottext">newDeleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#newDeleteEnvironmentConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDeleteEnvironmentConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">DeleteEnvironmentConfigurationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteEnvironmentConfigurationResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679314920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration.html#DeleteEnvironmentConfigurationResponse"><span class="hs-identifier hs-type">DeleteEnvironmentConfigurationResponse</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

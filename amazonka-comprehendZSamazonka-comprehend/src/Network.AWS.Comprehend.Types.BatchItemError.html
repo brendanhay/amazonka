@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Comprehend.Types.BatchItemError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Comprehend.Types.BatchItemError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Describes an error that occurred while processing a document in a batch.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- The operation returns on @BatchItemError@ object for each document that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- contained an error.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchItemError' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679339723"><span id="local-6989586621679339724"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchItemError"><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-var">BatchItemError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchItemError%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-var">BatchItemError'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The zero-based index of the document in the input list.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aindex%3ABatchItemError%27"><span class="annot"><span class="annottext">BatchItemError -&gt; Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3Aindex%3ABatchItemError%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A text description of the error.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AerrorMessage%3ABatchItemError%27"><span class="annot"><span class="annottext">BatchItemError -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3AerrorMessage%3ABatchItemError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The numeric error code of the error.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorCode%3ABatchItemError%27"><span class="annot"><span class="annottext">BatchItemError -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3AerrorCode%3ABatchItemError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339715"><span id="local-6989586621679339717"><span class="annot"><span class="annottext">BatchItemError -&gt; BatchItemError -&gt; Bool
+(BatchItemError -&gt; BatchItemError -&gt; Bool)
+-&gt; (BatchItemError -&gt; BatchItemError -&gt; Bool) -&gt; Eq BatchItemError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchItemError -&gt; BatchItemError -&gt; Bool
+$c/= :: BatchItemError -&gt; BatchItemError -&gt; Bool
+== :: BatchItemError -&gt; BatchItemError -&gt; Bool
+$c== :: BatchItemError -&gt; BatchItemError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339706"><span id="local-6989586621679339708"><span id="local-6989586621679339710"><span id="local-6989586621679339712"><span class="annot"><span class="annottext">ReadPrec [BatchItemError]
+ReadPrec BatchItemError
+Int -&gt; ReadS BatchItemError
+ReadS [BatchItemError]
+(Int -&gt; ReadS BatchItemError)
+-&gt; ReadS [BatchItemError]
+-&gt; ReadPrec BatchItemError
+-&gt; ReadPrec [BatchItemError]
+-&gt; Read BatchItemError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchItemError]
+$creadListPrec :: ReadPrec [BatchItemError]
+readPrec :: ReadPrec BatchItemError
+$creadPrec :: ReadPrec BatchItemError
+readList :: ReadS [BatchItemError]
+$creadList :: ReadS [BatchItemError]
+readsPrec :: Int -&gt; ReadS BatchItemError
+$creadsPrec :: Int -&gt; ReadS BatchItemError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339699"><span id="local-6989586621679339701"><span id="local-6989586621679339703"><span class="annot"><span class="annottext">Int -&gt; BatchItemError -&gt; ShowS
+[BatchItemError] -&gt; ShowS
+BatchItemError -&gt; String
+(Int -&gt; BatchItemError -&gt; ShowS)
+-&gt; (BatchItemError -&gt; String)
+-&gt; ([BatchItemError] -&gt; ShowS)
+-&gt; Show BatchItemError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchItemError] -&gt; ShowS
+$cshowList :: [BatchItemError] -&gt; ShowS
+show :: BatchItemError -&gt; String
+$cshow :: BatchItemError -&gt; String
+showsPrec :: Int -&gt; BatchItemError -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchItemError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchItemError -&gt; Rep BatchItemError x)
+-&gt; (forall x. Rep BatchItemError x -&gt; BatchItemError)
+-&gt; Generic BatchItemError
+forall x. Rep BatchItemError x -&gt; BatchItemError
+forall x. BatchItemError -&gt; Rep BatchItemError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchItemError x -&gt; BatchItemError
+$cfrom :: forall x. BatchItemError -&gt; Rep BatchItemError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'BatchItemError' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'index', 'batchItemError_index' - The zero-based index of the document in the input list.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'errorMessage', 'batchItemError_errorMessage' - A text description of the error.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'errorCode', 'batchItemError_errorCode' - The numeric error code of the error.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#newBatchItemError"><span class="hs-identifier hs-type">newBatchItemError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span>
+</span><span id="line-56"></span><span id="newBatchItemError"><span class="annot"><span class="annottext">newBatchItemError :: BatchItemError
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#newBatchItemError"><span class="hs-identifier hs-var hs-var">newBatchItemError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">BatchItemError' :: Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; BatchItemError
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:index:BatchItemError' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3Aindex%3ABatchItemError%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:BatchItemError' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3AerrorMessage%3ABatchItemError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:BatchItemError' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3AerrorCode%3ABatchItemError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The zero-based index of the document in the input list.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#batchItemError_index"><span class="hs-identifier hs-type">batchItemError_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="batchItemError_index"><span class="annot"><span class="annottext">batchItemError_index :: (Maybe Int -&gt; f (Maybe Int)) -&gt; BatchItemError -&gt; f BatchItemError
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#batchItemError_index"><span class="hs-identifier hs-var hs-var">batchItemError_index</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchItemError -&gt; Maybe Int)
+-&gt; (BatchItemError -&gt; Maybe Int -&gt; BatchItemError)
+-&gt; Lens BatchItemError BatchItemError (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339690"><span class="annot"><span class="annottext">Maybe Int
+index :: Maybe Int
+$sel:index:BatchItemError' :: BatchItemError -&gt; Maybe Int
+</span><a href="#local-6989586621679339690"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679339690"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339689"><span class="annot"><span class="annottext">s :: BatchItemError
+</span><a href="#local-6989586621679339689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339688"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679339688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679339689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:BatchItemError' :: Maybe Int
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3Aindex%3ABatchItemError%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679339688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | A text description of the error.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#batchItemError_errorMessage"><span class="hs-identifier hs-type">batchItemError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="batchItemError_errorMessage"><span class="annot"><span class="annottext">batchItemError_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchItemError -&gt; f BatchItemError
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#batchItemError_errorMessage"><span class="hs-identifier hs-var hs-var">batchItemError_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchItemError -&gt; Maybe Text)
+-&gt; (BatchItemError -&gt; Maybe Text -&gt; BatchItemError)
+-&gt; Lens BatchItemError BatchItemError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339686"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:BatchItemError' :: BatchItemError -&gt; Maybe Text
+</span><a href="#local-6989586621679339686"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339686"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339685"><span class="annot"><span class="annottext">s :: BatchItemError
+</span><a href="#local-6989586621679339685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339684"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679339685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchItemError' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3AerrorMessage%3ABatchItemError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The numeric error code of the error.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#batchItemError_errorCode"><span class="hs-identifier hs-type">batchItemError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="batchItemError_errorCode"><span class="annot"><span class="annottext">batchItemError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchItemError -&gt; f BatchItemError
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#batchItemError_errorCode"><span class="hs-identifier hs-var hs-var">batchItemError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchItemError -&gt; Maybe Text)
+-&gt; (BatchItemError -&gt; Maybe Text -&gt; BatchItemError)
+-&gt; Lens BatchItemError BatchItemError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339682"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:BatchItemError' :: BatchItemError -&gt; Maybe Text
+</span><a href="#local-6989586621679339682"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339682"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339681"><span class="annot"><span class="annottext">s :: BatchItemError
+</span><a href="#local-6989586621679339681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-type">BatchItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchItemError
+</span><a href="#local-6989586621679339681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:BatchItemError' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#%24sel%3AerrorCode%3ABatchItemError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679339680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339677"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679339675"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchItemError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchItemError)
+-&gt; Value
+-&gt; Parser BatchItemError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchItemError&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339672"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; BatchItemError
+</span><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError%27"><span class="hs-identifier hs-var">BatchItemError'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; BatchItemError)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; BatchItemError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Index&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; BatchItemError)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; BatchItemError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BatchItemError)
+-&gt; Parser (Maybe Text) -&gt; Parser BatchItemError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339666"><span id="local-6989586621679339668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

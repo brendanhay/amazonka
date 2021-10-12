@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElastiCache.Types.AZMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElastiCache.Types.AZMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode"><span class="hs-identifier">AZMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode_Cross_az"><span class="hs-identifier">AZMode_Cross_az</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode_Single_az"><span class="hs-identifier">AZMode_Single_az</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679396629"><span id="local-6989586621679396630"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AZMode"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode"><span class="hs-identifier hs-var">AZMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AZMode%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode%27"><span class="hs-identifier hs-var">AZMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromAZMode"><span class="annot"><span class="annottext">AZMode -&gt; Text
+</span><a href="Network.AWS.ElastiCache.Types.AZMode.html#fromAZMode"><span class="hs-identifier hs-var hs-var">fromAZMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396621"><span id="local-6989586621679396623"><span id="local-6989586621679396625"><span class="annot"><span class="annottext">Int -&gt; AZMode -&gt; ShowS
+[AZMode] -&gt; ShowS
+AZMode -&gt; String
+(Int -&gt; AZMode -&gt; ShowS)
+-&gt; (AZMode -&gt; String) -&gt; ([AZMode] -&gt; ShowS) -&gt; Show AZMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AZMode] -&gt; ShowS
+$cshowList :: [AZMode] -&gt; ShowS
+show :: AZMode -&gt; String
+$cshow :: AZMode -&gt; String
+showsPrec :: Int -&gt; AZMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; AZMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679396612"><span id="local-6989586621679396614"><span id="local-6989586621679396616"><span id="local-6989586621679396618"><span class="annot"><span class="annottext">ReadPrec [AZMode]
+ReadPrec AZMode
+Int -&gt; ReadS AZMode
+ReadS [AZMode]
+(Int -&gt; ReadS AZMode)
+-&gt; ReadS [AZMode]
+-&gt; ReadPrec AZMode
+-&gt; ReadPrec [AZMode]
+-&gt; Read AZMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AZMode]
+$creadListPrec :: ReadPrec [AZMode]
+readPrec :: ReadPrec AZMode
+$creadPrec :: ReadPrec AZMode
+readList :: ReadS [AZMode]
+$creadList :: ReadS [AZMode]
+readsPrec :: Int -&gt; ReadS AZMode
+$creadsPrec :: Int -&gt; ReadS AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679396607"><span id="local-6989586621679396609"><span class="annot"><span class="annottext">AZMode -&gt; AZMode -&gt; Bool
+(AZMode -&gt; AZMode -&gt; Bool)
+-&gt; (AZMode -&gt; AZMode -&gt; Bool) -&gt; Eq AZMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AZMode -&gt; AZMode -&gt; Bool
+$c/= :: AZMode -&gt; AZMode -&gt; Bool
+== :: AZMode -&gt; AZMode -&gt; Bool
+$c== :: AZMode -&gt; AZMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679396591"><span id="local-6989586621679396593"><span id="local-6989586621679396595"><span id="local-6989586621679396597"><span id="local-6989586621679396599"><span id="local-6989586621679396601"><span id="local-6989586621679396603"><span class="annot"><span class="annottext">Eq AZMode
+Eq AZMode
+-&gt; (AZMode -&gt; AZMode -&gt; Ordering)
+-&gt; (AZMode -&gt; AZMode -&gt; Bool)
+-&gt; (AZMode -&gt; AZMode -&gt; Bool)
+-&gt; (AZMode -&gt; AZMode -&gt; Bool)
+-&gt; (AZMode -&gt; AZMode -&gt; Bool)
+-&gt; (AZMode -&gt; AZMode -&gt; AZMode)
+-&gt; (AZMode -&gt; AZMode -&gt; AZMode)
+-&gt; Ord AZMode
+AZMode -&gt; AZMode -&gt; Bool
+AZMode -&gt; AZMode -&gt; Ordering
+AZMode -&gt; AZMode -&gt; AZMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AZMode -&gt; AZMode -&gt; AZMode
+$cmin :: AZMode -&gt; AZMode -&gt; AZMode
+max :: AZMode -&gt; AZMode -&gt; AZMode
+$cmax :: AZMode -&gt; AZMode -&gt; AZMode
+&gt;= :: AZMode -&gt; AZMode -&gt; Bool
+$c&gt;= :: AZMode -&gt; AZMode -&gt; Bool
+&gt; :: AZMode -&gt; AZMode -&gt; Bool
+$c&gt; :: AZMode -&gt; AZMode -&gt; Bool
+&lt;= :: AZMode -&gt; AZMode -&gt; Bool
+$c&lt;= :: AZMode -&gt; AZMode -&gt; Bool
+&lt; :: AZMode -&gt; AZMode -&gt; Bool
+$c&lt; :: AZMode -&gt; AZMode -&gt; Bool
+compare :: AZMode -&gt; AZMode -&gt; Ordering
+$ccompare :: AZMode -&gt; AZMode -&gt; Ordering
+$cp1Ord :: Eq AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AZMode -&gt; Rep AZMode x)
+-&gt; (forall x. Rep AZMode x -&gt; AZMode) -&gt; Generic AZMode
+forall x. Rep AZMode x -&gt; AZMode
+forall x. AZMode -&gt; Rep AZMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AZMode x -&gt; AZMode
+$cfrom :: forall x. AZMode -&gt; Rep AZMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679396583"><span id="local-6989586621679396585"><span class="annot"><span class="annottext">Int -&gt; AZMode -&gt; Int
+AZMode -&gt; Int
+(Int -&gt; AZMode -&gt; Int) -&gt; (AZMode -&gt; Int) -&gt; Hashable AZMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AZMode -&gt; Int
+$chash :: AZMode -&gt; Int
+hashWithSalt :: Int -&gt; AZMode -&gt; Int
+$chashWithSalt :: Int -&gt; AZMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679396580"><span class="annot"><span class="annottext">AZMode -&gt; ()
+(AZMode -&gt; ()) -&gt; NFData AZMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AZMode -&gt; ()
+$crnf :: AZMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679396577"><span class="annot"><span class="annottext">Text -&gt; Either String AZMode
+(Text -&gt; Either String AZMode) -&gt; FromText AZMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AZMode
+$cfromText :: Text -&gt; Either String AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679396574"><span class="annot"><span class="annottext">AZMode -&gt; Text
+(AZMode -&gt; Text) -&gt; ToText AZMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AZMode -&gt; Text
+$ctoText :: AZMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679396571"><span class="annot"><span class="annottext">AZMode -&gt; ByteString
+(AZMode -&gt; ByteString) -&gt; ToByteString AZMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AZMode -&gt; ByteString
+$ctoBS :: AZMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679396568"><span class="annot"><span class="annottext">AZMode -&gt; ByteStringBuilder
+(AZMode -&gt; ByteStringBuilder) -&gt; ToLog AZMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AZMode -&gt; ByteStringBuilder
+$cbuild :: AZMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679396565"><span class="annot"><span class="annottext">HeaderName -&gt; AZMode -&gt; [Header]
+(HeaderName -&gt; AZMode -&gt; [Header]) -&gt; ToHeader AZMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AZMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AZMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679396562"><span class="annot"><span class="annottext">AZMode -&gt; QueryString
+(AZMode -&gt; QueryString) -&gt; ToQuery AZMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AZMode -&gt; QueryString
+$ctoQuery :: AZMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679396557"><span id="local-6989586621679396559"><span class="annot"><span class="annottext">Value -&gt; Parser [AZMode]
+Value -&gt; Parser AZMode
+(Value -&gt; Parser AZMode)
+-&gt; (Value -&gt; Parser [AZMode]) -&gt; FromJSON AZMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AZMode]
+$cparseJSONList :: Value -&gt; Parser [AZMode]
+parseJSON :: Value -&gt; Parser AZMode
+$cparseJSON :: Value -&gt; Parser AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679396552"><span id="local-6989586621679396554"><span class="annot"><span class="annottext">FromJSONKeyFunction [AZMode]
+FromJSONKeyFunction AZMode
+FromJSONKeyFunction AZMode
+-&gt; FromJSONKeyFunction [AZMode] -&gt; FromJSONKey AZMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AZMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [AZMode]
+fromJSONKey :: FromJSONKeyFunction AZMode
+$cfromJSONKey :: FromJSONKeyFunction AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679396543"><span id="local-6989586621679396545"><span id="local-6989586621679396547"><span id="local-6989586621679396549"><span class="annot"><span class="annottext">[AZMode] -&gt; Encoding
+[AZMode] -&gt; Value
+AZMode -&gt; Encoding
+AZMode -&gt; Value
+(AZMode -&gt; Value)
+-&gt; (AZMode -&gt; Encoding)
+-&gt; ([AZMode] -&gt; Value)
+-&gt; ([AZMode] -&gt; Encoding)
+-&gt; ToJSON AZMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AZMode] -&gt; Encoding
+$ctoEncodingList :: [AZMode] -&gt; Encoding
+toJSONList :: [AZMode] -&gt; Value
+$ctoJSONList :: [AZMode] -&gt; Value
+toEncoding :: AZMode -&gt; Encoding
+$ctoEncoding :: AZMode -&gt; Encoding
+toJSON :: AZMode -&gt; Value
+$ctoJSON :: AZMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679396538"><span id="local-6989586621679396540"><span class="annot"><span class="annottext">ToJSONKeyFunction [AZMode]
+ToJSONKeyFunction AZMode
+ToJSONKeyFunction AZMode
+-&gt; ToJSONKeyFunction [AZMode] -&gt; ToJSONKey AZMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AZMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [AZMode]
+toJSONKey :: ToJSONKeyFunction AZMode
+$ctoJSONKey :: ToJSONKeyFunction AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679396535"><span class="annot"><span class="annottext">[Node] -&gt; Either String AZMode
+([Node] -&gt; Either String AZMode) -&gt; FromXML AZMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AZMode
+$cparseXML :: [Node] -&gt; Either String AZMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679396532"><span class="annot"><span class="annottext">AZMode -&gt; XML
+(AZMode -&gt; XML) -&gt; ToXML AZMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AZMode -&gt; XML
+$ctoXML :: AZMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode_Cross_az"><span class="hs-identifier hs-type">AZMode_Cross_az</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode"><span class="hs-identifier hs-type">AZMode</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAZMode_Cross_az"><span id="%24mAZMode_Cross_az"><span id="AZMode_Cross_az"><span class="annot"><span class="annottext">$bAZMode_Cross_az :: AZMode
+$mAZMode_Cross_az :: forall r. AZMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElastiCache.Types.AZMode.html#%24bAZMode_Cross_az"><span class="hs-identifier hs-var hs-var hs-var">AZMode_Cross_az</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode%27"><span class="hs-identifier hs-type">AZMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cross-az&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode_Single_az"><span class="hs-identifier hs-type">AZMode_Single_az</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode"><span class="hs-identifier hs-type">AZMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAZMode_Single_az"><span id="%24mAZMode_Single_az"><span id="AZMode_Single_az"><span class="annot"><span class="annottext">$bAZMode_Single_az :: AZMode
+$mAZMode_Single_az :: forall r. AZMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ElastiCache.Types.AZMode.html#%24bAZMode_Single_az"><span class="hs-identifier hs-var hs-var hs-var">AZMode_Single_az</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode%27"><span class="hs-identifier hs-type">AZMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;single-az&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode_Cross_az"><span class="hs-pragma hs-type">AZMode_Cross_az</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode_Single_az"><span class="hs-pragma hs-type">AZMode_Single_az</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.AZMode.html#AZMode%27"><span class="hs-pragma hs-type">AZMode'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

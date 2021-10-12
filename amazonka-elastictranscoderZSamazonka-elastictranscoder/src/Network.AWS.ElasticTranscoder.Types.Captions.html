@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticTranscoder.Types.Captions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticTranscoder.Types.Captions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html"><span class="hs-identifier">Network.AWS.ElasticTranscoder.Types.CaptionFormat</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionSource.html"><span class="hs-identifier">Network.AWS.ElasticTranscoder.Types.CaptionSource</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The captions to be created, if any.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCaptions' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210467"><span id="local-6989586621679210468"></span></span><span class="hs-keyword">data</span><span> </span><span id="Captions"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-var">Captions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Captions%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-var">Captions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy that determines how Elastic Transcoder handles the existence of</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- multiple captions.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   __MergeOverride:__ Elastic Transcoder transcodes both embedded and</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     sidecar captions into outputs. If captions for a language are</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     embedded in the input file and also appear in a sidecar file,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     Elastic Transcoder uses the sidecar captions and ignores the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     embedded captions for that language.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   __MergeRetain:__ Elastic Transcoder transcodes both embedded and</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     sidecar captions into outputs. If captions for a language are</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     embedded in the input file and also appear in a sidecar file,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     Elastic Transcoder uses the embedded captions and ignores the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     sidecar captions for that language. If @CaptionSources@ is empty,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     Elastic Transcoder omits all sidecar captions from the output files.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   __Override:__ Elastic Transcoder transcodes only the sidecar</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     captions that you specify in @CaptionSources@.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @MergePolicy@ cannot be null.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AmergePolicy%3ACaptions%27"><span class="annot"><span class="annottext">Captions -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AmergePolicy%3ACaptions%27"><span class="hs-identifier hs-var hs-var">mergePolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Source files for the input sidecar captions used during the transcoding</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- process. To omit all sidecar captions, leave @CaptionSources@ blank.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcaptionSources%3ACaptions%27"><span class="annot"><span class="annottext">Captions -&gt; Maybe [CaptionSource]
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionSources%3ACaptions%27"><span class="hs-identifier hs-var hs-var">captionSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionSource.html#CaptionSource"><span class="hs-identifier hs-type">CaptionSource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The array of file formats for the output captions. If you leave this</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- value blank, Elastic Transcoder returns an error.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcaptionFormats%3ACaptions%27"><span class="annot"><span class="annottext">Captions -&gt; Maybe [CaptionFormat]
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionFormats%3ACaptions%27"><span class="hs-identifier hs-var hs-var">captionFormats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210459"><span id="local-6989586621679210461"><span class="annot"><span class="annottext">Captions -&gt; Captions -&gt; Bool
+(Captions -&gt; Captions -&gt; Bool)
+-&gt; (Captions -&gt; Captions -&gt; Bool) -&gt; Eq Captions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Captions -&gt; Captions -&gt; Bool
+$c/= :: Captions -&gt; Captions -&gt; Bool
+== :: Captions -&gt; Captions -&gt; Bool
+$c== :: Captions -&gt; Captions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210450"><span id="local-6989586621679210452"><span id="local-6989586621679210454"><span id="local-6989586621679210456"><span class="annot"><span class="annottext">ReadPrec [Captions]
+ReadPrec Captions
+Int -&gt; ReadS Captions
+ReadS [Captions]
+(Int -&gt; ReadS Captions)
+-&gt; ReadS [Captions]
+-&gt; ReadPrec Captions
+-&gt; ReadPrec [Captions]
+-&gt; Read Captions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Captions]
+$creadListPrec :: ReadPrec [Captions]
+readPrec :: ReadPrec Captions
+$creadPrec :: ReadPrec Captions
+readList :: ReadS [Captions]
+$creadList :: ReadS [Captions]
+readsPrec :: Int -&gt; ReadS Captions
+$creadsPrec :: Int -&gt; ReadS Captions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210443"><span id="local-6989586621679210445"><span id="local-6989586621679210447"><span class="annot"><span class="annottext">Int -&gt; Captions -&gt; ShowS
+[Captions] -&gt; ShowS
+Captions -&gt; String
+(Int -&gt; Captions -&gt; ShowS)
+-&gt; (Captions -&gt; String) -&gt; ([Captions] -&gt; ShowS) -&gt; Show Captions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Captions] -&gt; ShowS
+$cshowList :: [Captions] -&gt; ShowS
+show :: Captions -&gt; String
+$cshow :: Captions -&gt; String
+showsPrec :: Int -&gt; Captions -&gt; ShowS
+$cshowsPrec :: Int -&gt; Captions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Captions -&gt; Rep Captions x)
+-&gt; (forall x. Rep Captions x -&gt; Captions) -&gt; Generic Captions
+forall x. Rep Captions x -&gt; Captions
+forall x. Captions -&gt; Rep Captions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Captions x -&gt; Captions
+$cfrom :: forall x. Captions -&gt; Rep Captions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'Captions' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'mergePolicy', 'captions_mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- multiple captions.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   __MergeOverride:__ Elastic Transcoder transcodes both embedded and</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     sidecar captions into outputs. If captions for a language are</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     embedded in the input file and also appear in a sidecar file,</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--     Elastic Transcoder uses the sidecar captions and ignores the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--     embedded captions for that language.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- -   __MergeRetain:__ Elastic Transcoder transcodes both embedded and</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--     sidecar captions into outputs. If captions for a language are</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--     embedded in the input file and also appear in a sidecar file,</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     Elastic Transcoder uses the embedded captions and ignores the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     sidecar captions for that language. If @CaptionSources@ is empty,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     Elastic Transcoder omits all sidecar captions from the output files.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   __Override:__ Elastic Transcoder transcodes only the sidecar</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     captions that you specify in @CaptionSources@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @MergePolicy@ cannot be null.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'captionSources', 'captions_captionSources' - Source files for the input sidecar captions used during the transcoding</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- process. To omit all sidecar captions, leave @CaptionSources@ blank.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'captionFormats', 'captions_captionFormats' - The array of file formats for the output captions. If you leave this</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- value blank, Elastic Transcoder returns an error.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#newCaptions"><span class="hs-identifier hs-type">newCaptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span>
+</span><span id="line-98"></span><span id="newCaptions"><span class="annot"><span class="annottext">newCaptions :: Captions
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#newCaptions"><span class="hs-identifier hs-var hs-var">newCaptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">Captions' :: Maybe Text
+-&gt; Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mergePolicy:Captions' :: Maybe Text
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AmergePolicy%3ACaptions%27"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:captionSources:Captions' :: Maybe [CaptionSource]
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionSources%3ACaptions%27"><span class="hs-identifier hs-var">captionSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:captionFormats:Captions' :: Maybe [CaptionFormat]
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionFormats%3ACaptions%27"><span class="hs-identifier hs-var">captionFormats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A policy that determines how Elastic Transcoder handles the existence of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- multiple captions.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   __MergeOverride:__ Elastic Transcoder transcodes both embedded and</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     sidecar captions into outputs. If captions for a language are</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     embedded in the input file and also appear in a sidecar file,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     Elastic Transcoder uses the sidecar captions and ignores the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     embedded captions for that language.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   __MergeRetain:__ Elastic Transcoder transcodes both embedded and</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     sidecar captions into outputs. If captions for a language are</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     embedded in the input file and also appear in a sidecar file,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     Elastic Transcoder uses the embedded captions and ignores the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     sidecar captions for that language. If @CaptionSources@ is empty,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     Elastic Transcoder omits all sidecar captions from the output files.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   __Override:__ Elastic Transcoder transcodes only the sidecar</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     captions that you specify in @CaptionSources@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @MergePolicy@ cannot be null.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#captions_mergePolicy"><span class="hs-identifier hs-type">captions_mergePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="captions_mergePolicy"><span class="annot"><span class="annottext">captions_mergePolicy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Captions -&gt; f Captions
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#captions_mergePolicy"><span class="hs-identifier hs-var hs-var">captions_mergePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Captions -&gt; Maybe Text)
+-&gt; (Captions -&gt; Maybe Text -&gt; Captions)
+-&gt; Lens Captions Captions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210434"><span class="annot"><span class="annottext">Maybe Text
+mergePolicy :: Maybe Text
+$sel:mergePolicy:Captions' :: Captions -&gt; Maybe Text
+</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var hs-var">mergePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210433"><span class="annot"><span class="annottext">s :: Captions
+</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210432"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
+</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergePolicy:Captions' :: Maybe Text
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AmergePolicy%3ACaptions%27"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Source files for the input sidecar captions used during the transcoding</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- process. To omit all sidecar captions, leave @CaptionSources@ blank.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#captions_captionSources"><span class="hs-identifier hs-type">captions_captionSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionSource.html#CaptionSource"><span class="hs-identifier hs-type">CaptionSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="captions_captionSources"><span class="annot"><span class="annottext">captions_captionSources :: (Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
+-&gt; Captions -&gt; f Captions
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#captions_captionSources"><span class="hs-identifier hs-var hs-var">captions_captionSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Captions -&gt; Maybe [CaptionSource])
+-&gt; (Captions -&gt; Maybe [CaptionSource] -&gt; Captions)
+-&gt; Lens
+     Captions Captions (Maybe [CaptionSource]) (Maybe [CaptionSource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210430"><span class="annot"><span class="annottext">Maybe [CaptionSource]
+captionSources :: Maybe [CaptionSource]
+$sel:captionSources:Captions' :: Captions -&gt; Maybe [CaptionSource]
+</span><a href="#local-6989586621679210430"><span class="hs-identifier hs-var hs-var">captionSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><a href="#local-6989586621679210430"><span class="hs-identifier hs-var">captionSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210429"><span class="annot"><span class="annottext">s :: Captions
+</span><a href="#local-6989586621679210429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210428"><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><a href="#local-6989586621679210428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
+</span><a href="#local-6989586621679210429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSources:Captions' :: Maybe [CaptionSource]
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionSources%3ACaptions%27"><span class="hs-identifier hs-var">captionSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><a href="#local-6989586621679210428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
+ -&gt; Captions -&gt; f Captions)
+-&gt; ((Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
+    -&gt; Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
+-&gt; (Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
+-&gt; Captions
+-&gt; f Captions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionSource] [CaptionSource] [CaptionSource] [CaptionSource]
+-&gt; Iso
+     (Maybe [CaptionSource])
+     (Maybe [CaptionSource])
+     (Maybe [CaptionSource])
+     (Maybe [CaptionSource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionSource] [CaptionSource] [CaptionSource] [CaptionSource]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The array of file formats for the output captions. If you leave this</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- value blank, Elastic Transcoder returns an error.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#captions_captionFormats"><span class="hs-identifier hs-type">captions_captionFormats</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="captions_captionFormats"><span class="annot"><span class="annottext">captions_captionFormats :: (Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
+-&gt; Captions -&gt; f Captions
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#captions_captionFormats"><span class="hs-identifier hs-var hs-var">captions_captionFormats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Captions -&gt; Maybe [CaptionFormat])
+-&gt; (Captions -&gt; Maybe [CaptionFormat] -&gt; Captions)
+-&gt; Lens
+     Captions Captions (Maybe [CaptionFormat]) (Maybe [CaptionFormat])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210423"><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+captionFormats :: Maybe [CaptionFormat]
+$sel:captionFormats:Captions' :: Captions -&gt; Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210423"><span class="hs-identifier hs-var hs-var">captionFormats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210423"><span class="hs-identifier hs-var">captionFormats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210422"><span class="annot"><span class="annottext">s :: Captions
+</span><a href="#local-6989586621679210422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210421"><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
+</span><a href="#local-6989586621679210422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionFormats:Captions' :: Maybe [CaptionFormat]
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionFormats%3ACaptions%27"><span class="hs-identifier hs-var">captionFormats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
+ -&gt; Captions -&gt; f Captions)
+-&gt; ((Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
+    -&gt; Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
+-&gt; (Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
+-&gt; Captions
+-&gt; f Captions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionFormat] [CaptionFormat] [CaptionFormat] [CaptionFormat]
+-&gt; Iso
+     (Maybe [CaptionFormat])
+     (Maybe [CaptionFormat])
+     (Maybe [CaptionFormat])
+     (Maybe [CaptionFormat])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CaptionFormat] [CaptionFormat] [CaptionFormat] [CaptionFormat]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210418"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679210416"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Captions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Captions) -&gt; Value -&gt; Parser Captions
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Captions&quot;</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210413"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions
+</span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-var">Captions'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MergePolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions)
+-&gt; Parser (Maybe [CaptionSource])
+-&gt; Parser (Maybe [CaptionFormat] -&gt; Captions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionSource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CaptionSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionSource]))
+-&gt; Maybe [CaptionSource] -&gt; Parser (Maybe [CaptionSource])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [CaptionFormat] -&gt; Captions)
+-&gt; Parser (Maybe [CaptionFormat]) -&gt; Parser Captions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionFormat]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CaptionFormats&quot;</span></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionFormat]))
+-&gt; Maybe [CaptionFormat] -&gt; Parser (Maybe [CaptionFormat])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210406"><span id="local-6989586621679210408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210395"><span id="local-6989586621679210397"><span id="local-6989586621679210399"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679210393"><span class="annot"><span class="annottext">toJSON :: Captions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210389"><span id="local-6989586621679210390"><span id="local-6989586621679210391"><span class="annot"><span class="annottext">Maybe [CaptionSource]
+Maybe [CaptionFormat]
+Maybe Text
+captionFormats :: Maybe [CaptionFormat]
+captionSources :: Maybe [CaptionSource]
+mergePolicy :: Maybe Text
+$sel:captionFormats:Captions' :: Captions -&gt; Maybe [CaptionFormat]
+$sel:captionSources:Captions' :: Captions -&gt; Maybe [CaptionSource]
+$sel:mergePolicy:Captions' :: Captions -&gt; Maybe Text
+</span><a href="#local-6989586621679210389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MergePolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210391"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CaptionSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionSource] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">([CaptionSource] -&gt; Pair) -&gt; Maybe [CaptionSource] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><a href="#local-6989586621679210390"><span class="hs-identifier hs-var">captionSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CaptionFormats&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionFormat] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">([CaptionFormat] -&gt; Pair) -&gt; Maybe [CaptionFormat] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210389"><span class="hs-identifier hs-var">captionFormats</span></a></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span></pre></body></html>

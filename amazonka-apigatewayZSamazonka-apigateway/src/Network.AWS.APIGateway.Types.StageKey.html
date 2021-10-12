@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.APIGateway.Types.StageKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.APIGateway.Types.StageKey</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A reference to a unique stage identified in the format</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @{restApiId}\/{stage}@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStageKey' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679369632"><span id="local-6989586621679369633"></span></span><span class="hs-keyword">data</span><span> </span><span id="StageKey"><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-var">StageKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StageKey%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-var">StageKey'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stage name associated with the stage key.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstageName%3AStageKey%27"><span class="annot"><span class="annottext">StageKey -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#%24sel%3AstageName%3AStageKey%27"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The string identifier of the associated RestApi.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArestApiId%3AStageKey%27"><span class="annot"><span class="annottext">StageKey -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#%24sel%3ArestApiId%3AStageKey%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369625"><span id="local-6989586621679369627"><span class="annot"><span class="annottext">StageKey -&gt; StageKey -&gt; Bool
+(StageKey -&gt; StageKey -&gt; Bool)
+-&gt; (StageKey -&gt; StageKey -&gt; Bool) -&gt; Eq StageKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StageKey -&gt; StageKey -&gt; Bool
+$c/= :: StageKey -&gt; StageKey -&gt; Bool
+== :: StageKey -&gt; StageKey -&gt; Bool
+$c== :: StageKey -&gt; StageKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369616"><span id="local-6989586621679369618"><span id="local-6989586621679369620"><span id="local-6989586621679369622"><span class="annot"><span class="annottext">ReadPrec [StageKey]
+ReadPrec StageKey
+Int -&gt; ReadS StageKey
+ReadS [StageKey]
+(Int -&gt; ReadS StageKey)
+-&gt; ReadS [StageKey]
+-&gt; ReadPrec StageKey
+-&gt; ReadPrec [StageKey]
+-&gt; Read StageKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StageKey]
+$creadListPrec :: ReadPrec [StageKey]
+readPrec :: ReadPrec StageKey
+$creadPrec :: ReadPrec StageKey
+readList :: ReadS [StageKey]
+$creadList :: ReadS [StageKey]
+readsPrec :: Int -&gt; ReadS StageKey
+$creadsPrec :: Int -&gt; ReadS StageKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369609"><span id="local-6989586621679369611"><span id="local-6989586621679369613"><span class="annot"><span class="annottext">Int -&gt; StageKey -&gt; ShowS
+[StageKey] -&gt; ShowS
+StageKey -&gt; String
+(Int -&gt; StageKey -&gt; ShowS)
+-&gt; (StageKey -&gt; String) -&gt; ([StageKey] -&gt; ShowS) -&gt; Show StageKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StageKey] -&gt; ShowS
+$cshowList :: [StageKey] -&gt; ShowS
+show :: StageKey -&gt; String
+$cshow :: StageKey -&gt; String
+showsPrec :: Int -&gt; StageKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; StageKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StageKey -&gt; Rep StageKey x)
+-&gt; (forall x. Rep StageKey x -&gt; StageKey) -&gt; Generic StageKey
+forall x. Rep StageKey x -&gt; StageKey
+forall x. StageKey -&gt; Rep StageKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StageKey x -&gt; StageKey
+$cfrom :: forall x. StageKey -&gt; Rep StageKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'StageKey' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'stageName', 'stageKey_stageName' - The stage name associated with the stage key.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'restApiId', 'stageKey_restApiId' - The string identifier of the associated RestApi.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#newStageKey"><span class="hs-identifier hs-type">newStageKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span><span>
+</span><span id="line-51"></span><span id="newStageKey"><span class="annot"><span class="annottext">newStageKey :: StageKey
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#newStageKey"><span class="hs-identifier hs-var hs-var">newStageKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">StageKey' :: Maybe Text -&gt; Maybe Text -&gt; StageKey
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-type">StageKey'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stageName:StageKey' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#%24sel%3AstageName%3AStageKey%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:StageKey' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#%24sel%3ArestApiId%3AStageKey%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The stage name associated with the stage key.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#stageKey_stageName"><span class="hs-identifier hs-type">stageKey_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="stageKey_stageName"><span class="annot"><span class="annottext">stageKey_stageName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StageKey -&gt; f StageKey
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#stageKey_stageName"><span class="hs-identifier hs-var hs-var">stageKey_stageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StageKey -&gt; Maybe Text)
+-&gt; (StageKey -&gt; Maybe Text -&gt; StageKey)
+-&gt; Lens StageKey StageKey (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-type">StageKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369600"><span class="annot"><span class="annottext">Maybe Text
+stageName :: Maybe Text
+$sel:stageName:StageKey' :: StageKey -&gt; Maybe Text
+</span><a href="#local-6989586621679369600"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369600"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369599"><span class="annot"><span class="annottext">s :: StageKey
+</span><a href="#local-6989586621679369599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-type">StageKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369598"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageKey
+</span><a href="#local-6989586621679369599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:StageKey' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#%24sel%3AstageName%3AStageKey%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The string identifier of the associated RestApi.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#stageKey_restApiId"><span class="hs-identifier hs-type">stageKey_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="stageKey_restApiId"><span class="annot"><span class="annottext">stageKey_restApiId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StageKey -&gt; f StageKey
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#stageKey_restApiId"><span class="hs-identifier hs-var hs-var">stageKey_restApiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StageKey -&gt; Maybe Text)
+-&gt; (StageKey -&gt; Maybe Text -&gt; StageKey)
+-&gt; Lens StageKey StageKey (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-type">StageKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369596"><span class="annot"><span class="annottext">Maybe Text
+restApiId :: Maybe Text
+$sel:restApiId:StageKey' :: StageKey -&gt; Maybe Text
+</span><a href="#local-6989586621679369596"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369596"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369595"><span class="annot"><span class="annottext">s :: StageKey
+</span><a href="#local-6989586621679369595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-type">StageKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StageKey
+</span><a href="#local-6989586621679369595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:StageKey' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.StageKey.html#%24sel%3ArestApiId%3AStageKey%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369590"><span id="local-6989586621679369592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369579"><span id="local-6989586621679369581"><span id="local-6989586621679369583"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey"><span class="hs-identifier hs-type">StageKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679369577"><span class="annot"><span class="annottext">toJSON :: StageKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.StageKey.html#StageKey%27"><span class="hs-identifier hs-type">StageKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369574"><span id="local-6989586621679369575"><span class="annot"><span class="annottext">Maybe Text
+restApiId :: Maybe Text
+stageName :: Maybe Text
+$sel:restApiId:StageKey' :: StageKey -&gt; Maybe Text
+$sel:stageName:StageKey' :: StageKey -&gt; Maybe Text
+</span><a href="#local-6989586621679369574"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-73"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369575"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;restApiId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369574"><span class="hs-identifier hs-var">restApiId</span></a></span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span></pre></body></html>

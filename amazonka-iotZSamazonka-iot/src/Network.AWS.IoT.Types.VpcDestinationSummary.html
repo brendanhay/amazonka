@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoT.Types.VpcDestinationSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT.Types.VpcDestinationSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The summary of a virtual private cloud (VPC) destination.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newVpcDestinationSummary' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679807036"><span id="local-6989586621679807037"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcDestinationSummary"><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-var">VpcDestinationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcDestinationSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-var">VpcDestinationSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of a role that has permission to create and attach to elastic</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- network interfaces (ENIs).</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AroleArn%3AVpcDestinationSummary%27"><span class="annot"><span class="annottext">VpcDestinationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AroleArn%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The subnet IDs of the VPC destination.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsubnetIds%3AVpcDestinationSummary%27"><span class="annot"><span class="annottext">VpcDestinationSummary -&gt; Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AsubnetIds%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The security groups of the VPC destination.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsecurityGroups%3AVpcDestinationSummary%27"><span class="annot"><span class="annottext">VpcDestinationSummary -&gt; Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AsecurityGroups%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AvpcId%3AVpcDestinationSummary%27"><span class="annot"><span class="annottext">VpcDestinationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AvpcId%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679807027"><span id="local-6989586621679807029"><span class="annot"><span class="annottext">VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool
+(VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool)
+-&gt; (VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool)
+-&gt; Eq VpcDestinationSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool
+$c/= :: VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool
+== :: VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool
+$c== :: VpcDestinationSummary -&gt; VpcDestinationSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807018"><span id="local-6989586621679807020"><span id="local-6989586621679807022"><span id="local-6989586621679807024"><span class="annot"><span class="annottext">ReadPrec [VpcDestinationSummary]
+ReadPrec VpcDestinationSummary
+Int -&gt; ReadS VpcDestinationSummary
+ReadS [VpcDestinationSummary]
+(Int -&gt; ReadS VpcDestinationSummary)
+-&gt; ReadS [VpcDestinationSummary]
+-&gt; ReadPrec VpcDestinationSummary
+-&gt; ReadPrec [VpcDestinationSummary]
+-&gt; Read VpcDestinationSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VpcDestinationSummary]
+$creadListPrec :: ReadPrec [VpcDestinationSummary]
+readPrec :: ReadPrec VpcDestinationSummary
+$creadPrec :: ReadPrec VpcDestinationSummary
+readList :: ReadS [VpcDestinationSummary]
+$creadList :: ReadS [VpcDestinationSummary]
+readsPrec :: Int -&gt; ReadS VpcDestinationSummary
+$creadsPrec :: Int -&gt; ReadS VpcDestinationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807011"><span id="local-6989586621679807013"><span id="local-6989586621679807015"><span class="annot"><span class="annottext">Int -&gt; VpcDestinationSummary -&gt; ShowS
+[VpcDestinationSummary] -&gt; ShowS
+VpcDestinationSummary -&gt; String
+(Int -&gt; VpcDestinationSummary -&gt; ShowS)
+-&gt; (VpcDestinationSummary -&gt; String)
+-&gt; ([VpcDestinationSummary] -&gt; ShowS)
+-&gt; Show VpcDestinationSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VpcDestinationSummary] -&gt; ShowS
+$cshowList :: [VpcDestinationSummary] -&gt; ShowS
+show :: VpcDestinationSummary -&gt; String
+$cshow :: VpcDestinationSummary -&gt; String
+showsPrec :: Int -&gt; VpcDestinationSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; VpcDestinationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VpcDestinationSummary -&gt; Rep VpcDestinationSummary x)
+-&gt; (forall x. Rep VpcDestinationSummary x -&gt; VpcDestinationSummary)
+-&gt; Generic VpcDestinationSummary
+forall x. Rep VpcDestinationSummary x -&gt; VpcDestinationSummary
+forall x. VpcDestinationSummary -&gt; Rep VpcDestinationSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VpcDestinationSummary x -&gt; VpcDestinationSummary
+$cfrom :: forall x. VpcDestinationSummary -&gt; Rep VpcDestinationSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'VpcDestinationSummary' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'roleArn', 'vpcDestinationSummary_roleArn' - The ARN of a role that has permission to create and attach to elastic</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- network interfaces (ENIs).</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'subnetIds', 'vpcDestinationSummary_subnetIds' - The subnet IDs of the VPC destination.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'securityGroups', 'vpcDestinationSummary_securityGroups' - The security groups of the VPC destination.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'vpcId', 'vpcDestinationSummary_vpcId' - The ID of the VPC.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#newVpcDestinationSummary"><span class="hs-identifier hs-type">newVpcDestinationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span>
+</span><span id="line-60"></span><span id="newVpcDestinationSummary"><span class="annot"><span class="annottext">newVpcDestinationSummary :: VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#newVpcDestinationSummary"><span class="hs-identifier hs-var hs-var">newVpcDestinationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">VpcDestinationSummary' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:VpcDestinationSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AroleArn%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:VpcDestinationSummary' :: Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AsubnetIds%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:VpcDestinationSummary' :: Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AsecurityGroups%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:VpcDestinationSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AvpcId%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The ARN of a role that has permission to create and attach to elastic</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- network interfaces (ENIs).</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_roleArn"><span class="hs-identifier hs-type">vpcDestinationSummary_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="vpcDestinationSummary_roleArn"><span class="annot"><span class="annottext">vpcDestinationSummary_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcDestinationSummary -&gt; f VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_roleArn"><span class="hs-identifier hs-var hs-var">vpcDestinationSummary_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcDestinationSummary -&gt; Maybe Text)
+-&gt; (VpcDestinationSummary -&gt; Maybe Text -&gt; VpcDestinationSummary)
+-&gt; Lens
+     VpcDestinationSummary
+     VpcDestinationSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807002"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:VpcDestinationSummary' :: VpcDestinationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679807002"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807002"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807001"><span class="annot"><span class="annottext">s :: VpcDestinationSummary
+</span><a href="#local-6989586621679807001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcDestinationSummary
+</span><a href="#local-6989586621679807001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:VpcDestinationSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AroleArn%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The subnet IDs of the VPC destination.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_subnetIds"><span class="hs-identifier hs-type">vpcDestinationSummary_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="vpcDestinationSummary_subnetIds"><span class="annot"><span class="annottext">vpcDestinationSummary_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; VpcDestinationSummary -&gt; f VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_subnetIds"><span class="hs-identifier hs-var hs-var">vpcDestinationSummary_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcDestinationSummary -&gt; Maybe [Text])
+-&gt; (VpcDestinationSummary -&gt; Maybe [Text] -&gt; VpcDestinationSummary)
+-&gt; Lens
+     VpcDestinationSummary
+     VpcDestinationSummary
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806998"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:VpcDestinationSummary' :: VpcDestinationSummary -&gt; Maybe [Text]
+</span><a href="#local-6989586621679806998"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679806998"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806997"><span class="annot"><span class="annottext">s :: VpcDestinationSummary
+</span><a href="#local-6989586621679806997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806996"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679806996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcDestinationSummary
+</span><a href="#local-6989586621679806997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcDestinationSummary' :: Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AsubnetIds%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679806996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; VpcDestinationSummary -&gt; f VpcDestinationSummary)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; VpcDestinationSummary
+-&gt; f VpcDestinationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The security groups of the VPC destination.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_securityGroups"><span class="hs-identifier hs-type">vpcDestinationSummary_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="vpcDestinationSummary_securityGroups"><span class="annot"><span class="annottext">vpcDestinationSummary_securityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; VpcDestinationSummary -&gt; f VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_securityGroups"><span class="hs-identifier hs-var hs-var">vpcDestinationSummary_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcDestinationSummary -&gt; Maybe [Text])
+-&gt; (VpcDestinationSummary -&gt; Maybe [Text] -&gt; VpcDestinationSummary)
+-&gt; Lens
+     VpcDestinationSummary
+     VpcDestinationSummary
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806991"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroups :: Maybe [Text]
+$sel:securityGroups:VpcDestinationSummary' :: VpcDestinationSummary -&gt; Maybe [Text]
+</span><a href="#local-6989586621679806991"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679806991"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806990"><span class="annot"><span class="annottext">s :: VpcDestinationSummary
+</span><a href="#local-6989586621679806990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806989"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679806989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcDestinationSummary
+</span><a href="#local-6989586621679806990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:VpcDestinationSummary' :: Maybe [Text]
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AsecurityGroups%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679806989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; VpcDestinationSummary -&gt; f VpcDestinationSummary)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; VpcDestinationSummary
+-&gt; f VpcDestinationSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_vpcId"><span class="hs-identifier hs-type">vpcDestinationSummary_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="vpcDestinationSummary_vpcId"><span class="annot"><span class="annottext">vpcDestinationSummary_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcDestinationSummary -&gt; f VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#vpcDestinationSummary_vpcId"><span class="hs-identifier hs-var hs-var">vpcDestinationSummary_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcDestinationSummary -&gt; Maybe Text)
+-&gt; (VpcDestinationSummary -&gt; Maybe Text -&gt; VpcDestinationSummary)
+-&gt; Lens
+     VpcDestinationSummary
+     VpcDestinationSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806987"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:VpcDestinationSummary' :: VpcDestinationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679806987"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806987"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806986"><span class="annot"><span class="annottext">s :: VpcDestinationSummary
+</span><a href="#local-6989586621679806986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-type">VpcDestinationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcDestinationSummary
+</span><a href="#local-6989586621679806986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:VpcDestinationSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#%24sel%3AvpcId%3AVpcDestinationSummary%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806982"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679806980"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcDestinationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VpcDestinationSummary)
+-&gt; Value
+-&gt; Parser VpcDestinationSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VpcDestinationSummary&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806977"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; VpcDestinationSummary
+</span><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary%27"><span class="hs-identifier hs-var">VpcDestinationSummary'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; VpcDestinationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; VpcDestinationSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; VpcDestinationSummary)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; VpcDestinationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; VpcDestinationSummary)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; VpcDestinationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; VpcDestinationSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser VpcDestinationSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806970"><span id="local-6989586621679806972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VpcDestinationSummary.html#VpcDestinationSummary"><span class="hs-identifier hs-type">VpcDestinationSummary</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

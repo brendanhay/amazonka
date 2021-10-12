@@ -1,0 +1,1273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.CommandInvocation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.CommandInvocation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html"><span class="hs-identifier">Network.AWS.SSM.Types.CloudWatchOutputConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html"><span class="hs-identifier">Network.AWS.SSM.Types.CommandInvocationStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandPlugin.html"><span class="hs-identifier">Network.AWS.SSM.Types.CommandPlugin</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NotificationConfig.html"><span class="hs-identifier">Network.AWS.SSM.Types.NotificationConfig</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An invocation is copy of a command sent to a specific instance. A</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- command can apply to one or more instances. A command invocation applies</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- to one instance. For example, if a user runs SendCommand against three</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- instances, then a command invocation is created for each requested</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- instance ID. A command invocation returns status and detail information</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- about a command you ran.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newCommandInvocation' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679800080"><span id="local-6989586621679800081"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommandInvocation"><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-var">CommandInvocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandInvocation%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-var">CommandInvocation'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configurations for sending notifications about command status changes on</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- a per instance basis.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnotificationConfig%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe NotificationConfig
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AnotificationConfig%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">notificationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NotificationConfig.html#NotificationConfig"><span class="hs-identifier hs-type">NotificationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- (Amazon S3), if the S3 bucket was defined for the parent command. For an</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- invocation, @StandardOutputUrl@ is populated if there is just one plugin</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- defined for the command, and the S3 bucket was defined for the command.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AstandardOutputUrl%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstandardOutputUrl%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">standardOutputUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Whether or not the invocation succeeded, failed, or is pending.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Astatus%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe CommandInvocationStatus
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3Astatus%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#CommandInvocationStatus"><span class="hs-identifier hs-type">CommandInvocationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The instance ID in which this invocation was requested.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AinstanceId%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AinstanceId%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The time and date the request was sent to this instance.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ArequestedDateTime%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3ArequestedDateTime%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">requestedDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Identity and Access Management (IAM) service role that Run Command,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- a capability of Amazon Web Services Systems Manager, uses to act on your</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- behalf when sending notifications about command status changes on a per</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- instance basis.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AserviceRole%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AserviceRole%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A detailed status of the command execution for each invocation (each</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- instance targeted by the command). StatusDetails includes more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- information than Status because it includes states resulting from error</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- and concurrency control parameters. StatusDetails can show different</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results than Status. For more information about these statuses, see</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses&gt;</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   Pending: The command hasn\'t been sent to the instance.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   In Progress: The command has been sent to the instance but hasn\'t</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     reached a terminal state.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   Success: The execution of the command or plugin was successfully</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     completed. This is a terminal state.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   Delivery Timed Out: The command wasn\'t delivered to the instance</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     before the delivery timeout expired. Delivery timeouts don\'t count</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     against the parent command\'s @MaxErrors@ limit, but they do</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     contribute to whether the parent command status is Success or</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     Incomplete. This is a terminal state.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   Execution Timed Out: Command execution started on the instance, but</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     the execution wasn\'t complete before the execution timeout expired.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     Execution timeouts count against the @MaxErrors@ limit of the parent</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     command. This is a terminal state.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   Failed: The command wasn\'t successful on the instance. For a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     plugin, this indicates that the result code wasn\'t zero. For a</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     command invocation, this indicates that the result code for one or</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     more plugins wasn\'t zero. Invocation failures count against the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     @MaxErrors@ limit of the parent command. This is a terminal state.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   Canceled: The command was terminated before it was completed. This</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     is a terminal state.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   Undeliverable: The command can\'t be delivered to the instance. The</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     instance might not exist or might not be responding. Undeliverable</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     invocations don\'t count against the parent command\'s MaxErrors</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     limit and don\'t contribute to whether the parent command status is</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     Success or Incomplete. This is a terminal state.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   Terminated: The parent command exceeded its MaxErrors limit and</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     subsequent command invocations were canceled by the system. This is</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     a terminal state.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AstatusDetails%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstatusDetails%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">statusDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The fully qualified host name of the managed instance.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AinstanceName%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AinstanceName%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | User-specified information about the command, such as a brief</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- description of what the command should do.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Acomment%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3Acomment%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- (Amazon S3), if the S3 bucket was defined for the parent command. For an</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- invocation, @StandardErrorUrl@ is populated if there is just one plugin</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- defined for the command, and the S3 bucket was defined for the command.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AstandardErrorUrl%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstandardErrorUrl%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">standardErrorUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The document name that was requested for execution.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AdocumentName%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AdocumentName%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The command against which this invocation was requested.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AcommandId%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcommandId%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | Gets the trace output sent by the agent.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AtraceOutput%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AtraceOutput%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">traceOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | Plugins processed by the command.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AcommandPlugins%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe [CommandPlugin]
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcommandPlugins%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">commandPlugins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandPlugin.html#CommandPlugin"><span class="hs-identifier hs-type">CommandPlugin</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | Amazon CloudWatch Logs information where you want Amazon Web Services</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- Systems Manager to send the command output.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AcloudWatchOutputConfig%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe CloudWatchOutputConfig
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcloudWatchOutputConfig%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">cloudWatchOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The Systems Manager document (SSM document) version.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AdocumentVersion%3ACommandInvocation%27"><span class="annot"><span class="annottext">CommandInvocation -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AdocumentVersion%3ACommandInvocation%27"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800059"><span id="local-6989586621679800061"><span class="annot"><span class="annottext">CommandInvocation -&gt; CommandInvocation -&gt; Bool
+(CommandInvocation -&gt; CommandInvocation -&gt; Bool)
+-&gt; (CommandInvocation -&gt; CommandInvocation -&gt; Bool)
+-&gt; Eq CommandInvocation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CommandInvocation -&gt; CommandInvocation -&gt; Bool
+$c/= :: CommandInvocation -&gt; CommandInvocation -&gt; Bool
+== :: CommandInvocation -&gt; CommandInvocation -&gt; Bool
+$c== :: CommandInvocation -&gt; CommandInvocation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800050"><span id="local-6989586621679800052"><span id="local-6989586621679800054"><span id="local-6989586621679800056"><span class="annot"><span class="annottext">ReadPrec [CommandInvocation]
+ReadPrec CommandInvocation
+Int -&gt; ReadS CommandInvocation
+ReadS [CommandInvocation]
+(Int -&gt; ReadS CommandInvocation)
+-&gt; ReadS [CommandInvocation]
+-&gt; ReadPrec CommandInvocation
+-&gt; ReadPrec [CommandInvocation]
+-&gt; Read CommandInvocation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CommandInvocation]
+$creadListPrec :: ReadPrec [CommandInvocation]
+readPrec :: ReadPrec CommandInvocation
+$creadPrec :: ReadPrec CommandInvocation
+readList :: ReadS [CommandInvocation]
+$creadList :: ReadS [CommandInvocation]
+readsPrec :: Int -&gt; ReadS CommandInvocation
+$creadsPrec :: Int -&gt; ReadS CommandInvocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800043"><span id="local-6989586621679800045"><span id="local-6989586621679800047"><span class="annot"><span class="annottext">Int -&gt; CommandInvocation -&gt; ShowS
+[CommandInvocation] -&gt; ShowS
+CommandInvocation -&gt; String
+(Int -&gt; CommandInvocation -&gt; ShowS)
+-&gt; (CommandInvocation -&gt; String)
+-&gt; ([CommandInvocation] -&gt; ShowS)
+-&gt; Show CommandInvocation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CommandInvocation] -&gt; ShowS
+$cshowList :: [CommandInvocation] -&gt; ShowS
+show :: CommandInvocation -&gt; String
+$cshow :: CommandInvocation -&gt; String
+showsPrec :: Int -&gt; CommandInvocation -&gt; ShowS
+$cshowsPrec :: Int -&gt; CommandInvocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CommandInvocation -&gt; Rep CommandInvocation x)
+-&gt; (forall x. Rep CommandInvocation x -&gt; CommandInvocation)
+-&gt; Generic CommandInvocation
+forall x. Rep CommandInvocation x -&gt; CommandInvocation
+forall x. CommandInvocation -&gt; Rep CommandInvocation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CommandInvocation x -&gt; CommandInvocation
+$cfrom :: forall x. CommandInvocation -&gt; Rep CommandInvocation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'CommandInvocation' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'notificationConfig', 'commandInvocation_notificationConfig' - Configurations for sending notifications about command status changes on</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- a per instance basis.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'standardOutputUrl', 'commandInvocation_standardOutputUrl' - The URL to the plugin\'s StdOut file in Amazon Simple Storage Service</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- (Amazon S3), if the S3 bucket was defined for the parent command. For an</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- invocation, @StandardOutputUrl@ is populated if there is just one plugin</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- defined for the command, and the S3 bucket was defined for the command.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'status', 'commandInvocation_status' - Whether or not the invocation succeeded, failed, or is pending.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'instanceId', 'commandInvocation_instanceId' - The instance ID in which this invocation was requested.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'requestedDateTime', 'commandInvocation_requestedDateTime' - The time and date the request was sent to this instance.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'serviceRole', 'commandInvocation_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- a capability of Amazon Web Services Systems Manager, uses to act on your</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- behalf when sending notifications about command status changes on a per</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- instance basis.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'statusDetails', 'commandInvocation_statusDetails' - A detailed status of the command execution for each invocation (each</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- instance targeted by the command). StatusDetails includes more</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- information than Status because it includes states resulting from error</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- and concurrency control parameters. StatusDetails can show different</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- results than Status. For more information about these statuses, see</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses&gt;</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   Pending: The command hasn\'t been sent to the instance.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   In Progress: The command has been sent to the instance but hasn\'t</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     reached a terminal state.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   Success: The execution of the command or plugin was successfully</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     completed. This is a terminal state.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   Delivery Timed Out: The command wasn\'t delivered to the instance</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     before the delivery timeout expired. Delivery timeouts don\'t count</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     against the parent command\'s @MaxErrors@ limit, but they do</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     contribute to whether the parent command status is Success or</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     Incomplete. This is a terminal state.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   Execution Timed Out: Command execution started on the instance, but</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     the execution wasn\'t complete before the execution timeout expired.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     Execution timeouts count against the @MaxErrors@ limit of the parent</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     command. This is a terminal state.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   Failed: The command wasn\'t successful on the instance. For a</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     plugin, this indicates that the result code wasn\'t zero. For a</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     command invocation, this indicates that the result code for one or</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     more plugins wasn\'t zero. Invocation failures count against the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     @MaxErrors@ limit of the parent command. This is a terminal state.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   Canceled: The command was terminated before it was completed. This</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     is a terminal state.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   Undeliverable: The command can\'t be delivered to the instance. The</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     instance might not exist or might not be responding. Undeliverable</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     invocations don\'t count against the parent command\'s MaxErrors</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     limit and don\'t contribute to whether the parent command status is</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     Success or Incomplete. This is a terminal state.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   Terminated: The parent command exceeded its MaxErrors limit and</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     subsequent command invocations were canceled by the system. This is</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     a terminal state.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'instanceName', 'commandInvocation_instanceName' - The fully qualified host name of the managed instance.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'comment', 'commandInvocation_comment' - User-specified information about the command, such as a brief</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- description of what the command should do.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'standardErrorUrl', 'commandInvocation_standardErrorUrl' - The URL to the plugin\'s StdErr file in Amazon Simple Storage Service</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- (Amazon S3), if the S3 bucket was defined for the parent command. For an</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- invocation, @StandardErrorUrl@ is populated if there is just one plugin</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- defined for the command, and the S3 bucket was defined for the command.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'documentName', 'commandInvocation_documentName' - The document name that was requested for execution.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'commandId', 'commandInvocation_commandId' - The command against which this invocation was requested.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'traceOutput', 'commandInvocation_traceOutput' - Gets the trace output sent by the agent.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'commandPlugins', 'commandInvocation_commandPlugins' - Plugins processed by the command.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'cloudWatchOutputConfig', 'commandInvocation_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Systems Manager to send the command output.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'documentVersion', 'commandInvocation_documentVersion' - The Systems Manager document (SSM document) version.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#newCommandInvocation"><span class="hs-identifier hs-type">newCommandInvocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span>
+</span><span id="line-229"></span><span id="newCommandInvocation"><span class="annot"><span class="annottext">newCommandInvocation :: CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#newCommandInvocation"><span class="hs-identifier hs-var hs-var">newCommandInvocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="annottext">CommandInvocation' :: Maybe NotificationConfig
+-&gt; Maybe Text
+-&gt; Maybe CommandInvocationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [CommandPlugin]
+-&gt; Maybe CloudWatchOutputConfig
+-&gt; Maybe Text
+-&gt; CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notificationConfig:CommandInvocation' :: Maybe NotificationConfig
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AnotificationConfig%3ACommandInvocation%27"><span class="hs-identifier hs-var">notificationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">Maybe NotificationConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:standardOutputUrl:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstandardOutputUrl%3ACommandInvocation%27"><span class="hs-identifier hs-var">standardOutputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CommandInvocation' :: Maybe CommandInvocationStatus
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3Astatus%3ACommandInvocation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CommandInvocationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AinstanceId%3ACommandInvocation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestedDateTime:CommandInvocation' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3ArequestedDateTime%3ACommandInvocation%27"><span class="hs-identifier hs-var">requestedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceRole:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AserviceRole%3ACommandInvocation%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusDetails:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstatusDetails%3ACommandInvocation%27"><span class="hs-identifier hs-var">statusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AinstanceName%3ACommandInvocation%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3Acomment%3ACommandInvocation%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:standardErrorUrl:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstandardErrorUrl%3ACommandInvocation%27"><span class="hs-identifier hs-var">standardErrorUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentName:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AdocumentName%3ACommandInvocation%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:commandId:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcommandId%3ACommandInvocation%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:traceOutput:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AtraceOutput%3ACommandInvocation%27"><span class="hs-identifier hs-var">traceOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:commandPlugins:CommandInvocation' :: Maybe [CommandPlugin]
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcommandPlugins%3ACommandInvocation%27"><span class="hs-identifier hs-var">commandPlugins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CommandPlugin]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchOutputConfig:CommandInvocation' :: Maybe CloudWatchOutputConfig
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcloudWatchOutputConfig%3ACommandInvocation%27"><span class="hs-identifier hs-var">cloudWatchOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchOutputConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentVersion:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AdocumentVersion%3ACommandInvocation%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Configurations for sending notifications about command status changes on</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- a per instance basis.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_notificationConfig"><span class="hs-identifier hs-type">commandInvocation_notificationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.NotificationConfig.html#NotificationConfig"><span class="hs-identifier hs-type">NotificationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="commandInvocation_notificationConfig"><span class="annot"><span class="annottext">commandInvocation_notificationConfig :: (Maybe NotificationConfig -&gt; f (Maybe NotificationConfig))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_notificationConfig"><span class="hs-identifier hs-var hs-var">commandInvocation_notificationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe NotificationConfig)
+-&gt; (CommandInvocation
+    -&gt; Maybe NotificationConfig -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation
+     CommandInvocation
+     (Maybe NotificationConfig)
+     (Maybe NotificationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800034"><span class="annot"><span class="annottext">Maybe NotificationConfig
+notificationConfig :: Maybe NotificationConfig
+$sel:notificationConfig:CommandInvocation' :: CommandInvocation -&gt; Maybe NotificationConfig
+</span><a href="#local-6989586621679800034"><span class="hs-identifier hs-var hs-var">notificationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfig
+</span><a href="#local-6989586621679800034"><span class="hs-identifier hs-var">notificationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800033"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800032"><span class="annot"><span class="annottext">Maybe NotificationConfig
+</span><a href="#local-6989586621679800032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfig:CommandInvocation' :: Maybe NotificationConfig
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AnotificationConfig%3ACommandInvocation%27"><span class="hs-identifier hs-var">notificationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfig
+</span><a href="#local-6989586621679800032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- (Amazon S3), if the S3 bucket was defined for the parent command. For an</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- invocation, @StandardOutputUrl@ is populated if there is just one plugin</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- defined for the command, and the S3 bucket was defined for the command.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_standardOutputUrl"><span class="hs-identifier hs-type">commandInvocation_standardOutputUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="commandInvocation_standardOutputUrl"><span class="annot"><span class="annottext">commandInvocation_standardOutputUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_standardOutputUrl"><span class="hs-identifier hs-var hs-var">commandInvocation_standardOutputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800030"><span class="annot"><span class="annottext">Maybe Text
+standardOutputUrl :: Maybe Text
+$sel:standardOutputUrl:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679800030"><span class="hs-identifier hs-var hs-var">standardOutputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800030"><span class="hs-identifier hs-var">standardOutputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800029"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:standardOutputUrl:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstandardOutputUrl%3ACommandInvocation%27"><span class="hs-identifier hs-var">standardOutputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Whether or not the invocation succeeded, failed, or is pending.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_status"><span class="hs-identifier hs-type">commandInvocation_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#CommandInvocationStatus"><span class="hs-identifier hs-type">CommandInvocationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="commandInvocation_status"><span class="annot"><span class="annottext">commandInvocation_status :: (Maybe CommandInvocationStatus
+ -&gt; f (Maybe CommandInvocationStatus))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_status"><span class="hs-identifier hs-var hs-var">commandInvocation_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe CommandInvocationStatus)
+-&gt; (CommandInvocation
+    -&gt; Maybe CommandInvocationStatus -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation
+     CommandInvocation
+     (Maybe CommandInvocationStatus)
+     (Maybe CommandInvocationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800026"><span class="annot"><span class="annottext">Maybe CommandInvocationStatus
+status :: Maybe CommandInvocationStatus
+$sel:status:CommandInvocation' :: CommandInvocation -&gt; Maybe CommandInvocationStatus
+</span><a href="#local-6989586621679800026"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CommandInvocationStatus
+</span><a href="#local-6989586621679800026"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800025"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800024"><span class="annot"><span class="annottext">Maybe CommandInvocationStatus
+</span><a href="#local-6989586621679800024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CommandInvocation' :: Maybe CommandInvocationStatus
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3Astatus%3ACommandInvocation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CommandInvocationStatus
+</span><a href="#local-6989586621679800024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The instance ID in which this invocation was requested.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_instanceId"><span class="hs-identifier hs-type">commandInvocation_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="commandInvocation_instanceId"><span class="annot"><span class="annottext">commandInvocation_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_instanceId"><span class="hs-identifier hs-var hs-var">commandInvocation_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800022"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679800022"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800022"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800021"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AinstanceId%3ACommandInvocation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The time and date the request was sent to this instance.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_requestedDateTime"><span class="hs-identifier hs-type">commandInvocation_requestedDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="commandInvocation_requestedDateTime"><span class="annot"><span class="annottext">commandInvocation_requestedDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_requestedDateTime"><span class="hs-identifier hs-var hs-var">commandInvocation_requestedDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe POSIX)
+-&gt; (CommandInvocation -&gt; Maybe POSIX -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800018"><span class="annot"><span class="annottext">Maybe POSIX
+requestedDateTime :: Maybe POSIX
+$sel:requestedDateTime:CommandInvocation' :: CommandInvocation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679800018"><span class="hs-identifier hs-var hs-var">requestedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679800018"><span class="hs-identifier hs-var">requestedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800017"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800016"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679800016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedDateTime:CommandInvocation' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3ArequestedDateTime%3ACommandInvocation%27"><span class="hs-identifier hs-var">requestedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679800016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CommandInvocation -&gt; f CommandInvocation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CommandInvocation
+-&gt; f CommandInvocation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The Identity and Access Management (IAM) service role that Run Command,</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- a capability of Amazon Web Services Systems Manager, uses to act on your</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- behalf when sending notifications about command status changes on a per</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- instance basis.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_serviceRole"><span class="hs-identifier hs-type">commandInvocation_serviceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="commandInvocation_serviceRole"><span class="annot"><span class="annottext">commandInvocation_serviceRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_serviceRole"><span class="hs-identifier hs-var hs-var">commandInvocation_serviceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800011"><span class="annot"><span class="annottext">Maybe Text
+serviceRole :: Maybe Text
+$sel:serviceRole:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679800011"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800011"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800010"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AserviceRole%3ACommandInvocation%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | A detailed status of the command execution for each invocation (each</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- instance targeted by the command). StatusDetails includes more</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- information than Status because it includes states resulting from error</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- and concurrency control parameters. StatusDetails can show different</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- results than Status. For more information about these statuses, see</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses&gt;</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- can be one of the following values:</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- -   Pending: The command hasn\'t been sent to the instance.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- -   In Progress: The command has been sent to the instance but hasn\'t</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--     reached a terminal state.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- -   Success: The execution of the command or plugin was successfully</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     completed. This is a terminal state.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   Delivery Timed Out: The command wasn\'t delivered to the instance</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     before the delivery timeout expired. Delivery timeouts don\'t count</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--     against the parent command\'s @MaxErrors@ limit, but they do</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     contribute to whether the parent command status is Success or</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     Incomplete. This is a terminal state.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- -   Execution Timed Out: Command execution started on the instance, but</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     the execution wasn\'t complete before the execution timeout expired.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     Execution timeouts count against the @MaxErrors@ limit of the parent</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     command. This is a terminal state.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- -   Failed: The command wasn\'t successful on the instance. For a</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     plugin, this indicates that the result code wasn\'t zero. For a</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     command invocation, this indicates that the result code for one or</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     more plugins wasn\'t zero. Invocation failures count against the</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     @MaxErrors@ limit of the parent command. This is a terminal state.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- -   Canceled: The command was terminated before it was completed. This</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     is a terminal state.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- -   Undeliverable: The command can\'t be delivered to the instance. The</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--     instance might not exist or might not be responding. Undeliverable</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     invocations don\'t count against the parent command\'s MaxErrors</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     limit and don\'t contribute to whether the parent command status is</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     Success or Incomplete. This is a terminal state.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- -   Terminated: The parent command exceeded its MaxErrors limit and</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     subsequent command invocations were canceled by the system. This is</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     a terminal state.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_statusDetails"><span class="hs-identifier hs-type">commandInvocation_statusDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span id="commandInvocation_statusDetails"><span class="annot"><span class="annottext">commandInvocation_statusDetails :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_statusDetails"><span class="hs-identifier hs-var hs-var">commandInvocation_statusDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800007"><span class="annot"><span class="annottext">Maybe Text
+statusDetails :: Maybe Text
+$sel:statusDetails:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679800007"><span class="hs-identifier hs-var hs-var">statusDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800007"><span class="hs-identifier hs-var">statusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800006"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800005"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDetails:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstatusDetails%3ACommandInvocation%27"><span class="hs-identifier hs-var">statusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | The fully qualified host name of the managed instance.</span><span>
+</span><span id="line-331"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_instanceName"><span class="hs-identifier hs-type">commandInvocation_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span id="commandInvocation_instanceName"><span class="annot"><span class="annottext">commandInvocation_instanceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_instanceName"><span class="hs-identifier hs-var hs-var">commandInvocation_instanceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800003"><span class="annot"><span class="annottext">Maybe Text
+instanceName :: Maybe Text
+$sel:instanceName:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679800003"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800003"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800002"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679800002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800001"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679800002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AinstanceName%3ACommandInvocation%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- | User-specified information about the command, such as a brief</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- description of what the command should do.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_comment"><span class="hs-identifier hs-type">commandInvocation_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="commandInvocation_comment"><span class="annot"><span class="annottext">commandInvocation_comment :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_comment"><span class="hs-identifier hs-var hs-var">commandInvocation_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799999"><span class="annot"><span class="annottext">Maybe Text
+comment :: Maybe Text
+$sel:comment:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679799999"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799999"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799998"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3Acomment%3ACommandInvocation%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- (Amazon S3), if the S3 bucket was defined for the parent command. For an</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- invocation, @StandardErrorUrl@ is populated if there is just one plugin</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- defined for the command, and the S3 bucket was defined for the command.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_standardErrorUrl"><span class="hs-identifier hs-type">commandInvocation_standardErrorUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="commandInvocation_standardErrorUrl"><span class="annot"><span class="annottext">commandInvocation_standardErrorUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_standardErrorUrl"><span class="hs-identifier hs-var hs-var">commandInvocation_standardErrorUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799995"><span class="annot"><span class="annottext">Maybe Text
+standardErrorUrl :: Maybe Text
+$sel:standardErrorUrl:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679799995"><span class="hs-identifier hs-var hs-var">standardErrorUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799995"><span class="hs-identifier hs-var">standardErrorUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799994"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799993"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:standardErrorUrl:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AstandardErrorUrl%3ACommandInvocation%27"><span class="hs-identifier hs-var">standardErrorUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | The document name that was requested for execution.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_documentName"><span class="hs-identifier hs-type">commandInvocation_documentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="commandInvocation_documentName"><span class="annot"><span class="annottext">commandInvocation_documentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_documentName"><span class="hs-identifier hs-var hs-var">commandInvocation_documentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799991"><span class="annot"><span class="annottext">Maybe Text
+documentName :: Maybe Text
+$sel:documentName:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679799991"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799991"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799990"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799989"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentName:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AdocumentName%3ACommandInvocation%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | The command against which this invocation was requested.</span><span>
+</span><span id="line-351"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_commandId"><span class="hs-identifier hs-type">commandInvocation_commandId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span id="commandInvocation_commandId"><span class="annot"><span class="annottext">commandInvocation_commandId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_commandId"><span class="hs-identifier hs-var hs-var">commandInvocation_commandId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799987"><span class="annot"><span class="annottext">Maybe Text
+commandId :: Maybe Text
+$sel:commandId:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679799987"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799987"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799986"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commandId:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcommandId%3ACommandInvocation%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- | Gets the trace output sent by the agent.</span><span>
+</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_traceOutput"><span class="hs-identifier hs-type">commandInvocation_traceOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span id="commandInvocation_traceOutput"><span class="annot"><span class="annottext">commandInvocation_traceOutput :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_traceOutput"><span class="hs-identifier hs-var hs-var">commandInvocation_traceOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799983"><span class="annot"><span class="annottext">Maybe Text
+traceOutput :: Maybe Text
+$sel:traceOutput:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679799983"><span class="hs-identifier hs-var hs-var">traceOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799983"><span class="hs-identifier hs-var">traceOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799982"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799981"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:traceOutput:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AtraceOutput%3ACommandInvocation%27"><span class="hs-identifier hs-var">traceOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | Plugins processed by the command.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_commandPlugins"><span class="hs-identifier hs-type">commandInvocation_commandPlugins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandPlugin.html#CommandPlugin"><span class="hs-identifier hs-type">CommandPlugin</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-360"></span><span id="commandInvocation_commandPlugins"><span class="annot"><span class="annottext">commandInvocation_commandPlugins :: (Maybe [CommandPlugin] -&gt; f (Maybe [CommandPlugin]))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_commandPlugins"><span class="hs-identifier hs-var hs-var">commandInvocation_commandPlugins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe [CommandPlugin])
+-&gt; (CommandInvocation
+    -&gt; Maybe [CommandPlugin] -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation
+     CommandInvocation
+     (Maybe [CommandPlugin])
+     (Maybe [CommandPlugin])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799979"><span class="annot"><span class="annottext">Maybe [CommandPlugin]
+commandPlugins :: Maybe [CommandPlugin]
+$sel:commandPlugins:CommandInvocation' :: CommandInvocation -&gt; Maybe [CommandPlugin]
+</span><a href="#local-6989586621679799979"><span class="hs-identifier hs-var hs-var">commandPlugins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CommandPlugin]
+</span><a href="#local-6989586621679799979"><span class="hs-identifier hs-var">commandPlugins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799978"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799977"><span class="annot"><span class="annottext">Maybe [CommandPlugin]
+</span><a href="#local-6989586621679799977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commandPlugins:CommandInvocation' :: Maybe [CommandPlugin]
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcommandPlugins%3ACommandInvocation%27"><span class="hs-identifier hs-var">commandPlugins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CommandPlugin]
+</span><a href="#local-6989586621679799977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CommandPlugin] -&gt; f (Maybe [CommandPlugin]))
+ -&gt; CommandInvocation -&gt; f CommandInvocation)
+-&gt; ((Maybe [CommandPlugin] -&gt; f (Maybe [CommandPlugin]))
+    -&gt; Maybe [CommandPlugin] -&gt; f (Maybe [CommandPlugin]))
+-&gt; (Maybe [CommandPlugin] -&gt; f (Maybe [CommandPlugin]))
+-&gt; CommandInvocation
+-&gt; f CommandInvocation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CommandPlugin] [CommandPlugin] [CommandPlugin] [CommandPlugin]
+-&gt; Iso
+     (Maybe [CommandPlugin])
+     (Maybe [CommandPlugin])
+     (Maybe [CommandPlugin])
+     (Maybe [CommandPlugin])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CommandPlugin] [CommandPlugin] [CommandPlugin] [CommandPlugin]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | Amazon CloudWatch Logs information where you want Amazon Web Services</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- Systems Manager to send the command output.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_cloudWatchOutputConfig"><span class="hs-identifier hs-type">commandInvocation_cloudWatchOutputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CloudWatchOutputConfig.html#CloudWatchOutputConfig"><span class="hs-identifier hs-type">CloudWatchOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span id="commandInvocation_cloudWatchOutputConfig"><span class="annot"><span class="annottext">commandInvocation_cloudWatchOutputConfig :: (Maybe CloudWatchOutputConfig -&gt; f (Maybe CloudWatchOutputConfig))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_cloudWatchOutputConfig"><span class="hs-identifier hs-var hs-var">commandInvocation_cloudWatchOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe CloudWatchOutputConfig)
+-&gt; (CommandInvocation
+    -&gt; Maybe CloudWatchOutputConfig -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation
+     CommandInvocation
+     (Maybe CloudWatchOutputConfig)
+     (Maybe CloudWatchOutputConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799974"><span class="annot"><span class="annottext">Maybe CloudWatchOutputConfig
+cloudWatchOutputConfig :: Maybe CloudWatchOutputConfig
+$sel:cloudWatchOutputConfig:CommandInvocation' :: CommandInvocation -&gt; Maybe CloudWatchOutputConfig
+</span><a href="#local-6989586621679799974"><span class="hs-identifier hs-var hs-var">cloudWatchOutputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchOutputConfig
+</span><a href="#local-6989586621679799974"><span class="hs-identifier hs-var">cloudWatchOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799973"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799972"><span class="annot"><span class="annottext">Maybe CloudWatchOutputConfig
+</span><a href="#local-6989586621679799972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchOutputConfig:CommandInvocation' :: Maybe CloudWatchOutputConfig
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AcloudWatchOutputConfig%3ACommandInvocation%27"><span class="hs-identifier hs-var">cloudWatchOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchOutputConfig
+</span><a href="#local-6989586621679799972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-366"></span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- | The Systems Manager document (SSM document) version.</span><span>
+</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_documentVersion"><span class="hs-identifier hs-type">commandInvocation_documentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span id="commandInvocation_documentVersion"><span class="annot"><span class="annottext">commandInvocation_documentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CommandInvocation -&gt; f CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#commandInvocation_documentVersion"><span class="hs-identifier hs-var hs-var">commandInvocation_documentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandInvocation -&gt; Maybe Text)
+-&gt; (CommandInvocation -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Lens
+     CommandInvocation CommandInvocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799970"><span class="annot"><span class="annottext">Maybe Text
+documentVersion :: Maybe Text
+$sel:documentVersion:CommandInvocation' :: CommandInvocation -&gt; Maybe Text
+</span><a href="#local-6989586621679799970"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799970"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799969"><span class="annot"><span class="annottext">s :: CommandInvocation
+</span><a href="#local-6989586621679799969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-type">CommandInvocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandInvocation
+</span><a href="#local-6989586621679799969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:CommandInvocation' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#%24sel%3AdocumentVersion%3ACommandInvocation%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-372"></span><span>  </span><span id="local-6989586621679799963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CommandInvocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CommandInvocation)
+-&gt; Value
+-&gt; Parser CommandInvocation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-374"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CommandInvocation&quot;</span></span><span>
+</span><span id="line-375"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-376"></span><span>          </span><span class="annot"><span class="annottext">Maybe NotificationConfig
+-&gt; Maybe Text
+-&gt; Maybe CommandInvocationStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [CommandPlugin]
+-&gt; Maybe CloudWatchOutputConfig
+-&gt; Maybe Text
+-&gt; CommandInvocation
+</span><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation%27"><span class="hs-identifier hs-var">CommandInvocation'</span></a></span><span>
+</span><span id="line-377"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NotificationConfig
+ -&gt; Maybe Text
+ -&gt; Maybe CommandInvocationStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [CommandPlugin]
+ -&gt; Maybe CloudWatchOutputConfig
+ -&gt; Maybe Text
+ -&gt; CommandInvocation)
+-&gt; Parser (Maybe NotificationConfig)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CommandInvocationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CommandInvocationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CommandInvocationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StandardOutputUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CommandInvocationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe CommandInvocationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CommandInvocationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestedDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StandardErrorUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig
+      -&gt; Maybe Text
+      -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommandId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-389"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig
+   -&gt; Maybe Text
+   -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [CommandPlugin]
+      -&gt; Maybe CloudWatchOutputConfig -&gt; Maybe Text -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TraceOutput&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [CommandPlugin]
+   -&gt; Maybe CloudWatchOutputConfig -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Parser (Maybe [CommandPlugin])
+-&gt; Parser
+     (Maybe CloudWatchOutputConfig -&gt; Maybe Text -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CommandPlugin]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommandPlugins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CommandPlugin]))
+-&gt; Maybe [CommandPlugin] -&gt; Parser (Maybe [CommandPlugin])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CommandPlugin]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-391"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudWatchOutputConfig -&gt; Maybe Text -&gt; CommandInvocation)
+-&gt; Parser (Maybe CloudWatchOutputConfig)
+-&gt; Parser (Maybe Text -&gt; CommandInvocation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchOutputConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchOutputConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CommandInvocation)
+-&gt; Parser (Maybe Text) -&gt; Parser CommandInvocation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-393"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799953"><span id="local-6989586621679799955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span></span></span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocation.html#CommandInvocation"><span class="hs-identifier hs-type">CommandInvocation</span></a></span></span><span>
+</span><span id="line-398"></span></pre></body></html>

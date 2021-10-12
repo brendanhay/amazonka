@@ -1,0 +1,906 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.SendBulkEmail</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Composes an email message to multiple destinations.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.SendBulkEmail</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#newSendBulkEmail"><span class="hs-identifier">newSendBulkEmail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_fromEmailAddress"><span class="hs-identifier">sendBulkEmail_fromEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_defaultEmailTags"><span class="hs-identifier">sendBulkEmail_defaultEmailTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_feedbackForwardingEmailAddressIdentityArn"><span class="hs-identifier">sendBulkEmail_feedbackForwardingEmailAddressIdentityArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_fromEmailAddressIdentityArn"><span class="hs-identifier">sendBulkEmail_fromEmailAddressIdentityArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_replyToAddresses"><span class="hs-identifier">sendBulkEmail_replyToAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_feedbackForwardingEmailAddress"><span class="hs-identifier">sendBulkEmail_feedbackForwardingEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_configurationSetName"><span class="hs-identifier">sendBulkEmail_configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_defaultContent"><span class="hs-identifier">sendBulkEmail_defaultContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_bulkEmailEntries"><span class="hs-identifier">sendBulkEmail_bulkEmailEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier">SendBulkEmailResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#newSendBulkEmailResponse"><span class="hs-identifier">newSendBulkEmailResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmailResponse_httpStatus"><span class="hs-identifier">sendBulkEmailResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmailResponse_bulkEmailEntryResults"><span class="hs-identifier">sendBulkEmailResponse_bulkEmailEntryResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.html"><span class="hs-identifier">Network.AWS.SESv2.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Represents a request to send email messages to multiple destinations</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- using Amazon SES. For more information, see the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newSendBulkEmail' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679335170"><span id="local-6989586621679335171"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBulkEmail"><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-var">SendBulkEmail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBulkEmail%27"><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-var">SendBulkEmail'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address that you want to use as the \&quot;From\&quot; address for the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- email. The address that you specify has to be verified.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AfromEmailAddress%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfromEmailAddress%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">fromEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- that you send using the @SendEmail@ operation. Tags correspond to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- characteristics of the email that you define, so that you can publish</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- email sending events.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdefaultEmailTags%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe [MessageTag]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AdefaultEmailTags%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">defaultEmailTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- that permits you to use the email address specified in the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @FeedbackForwardingEmailAddress@ parameter.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- For example, if the owner of example.com (which has ARN</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- policy to it that authorizes you to use feedback\@example.com, then you</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AfeedbackForwardingEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfeedbackForwardingEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">feedbackForwardingEmailAddressIdentityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- that permits you to use the email address specified in the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @FromEmailAddress@ parameter.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- For example, if the owner of example.com (which has ARN</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- policy to it that authorizes you to use sender\@example.com, then you</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- would specify the @FromEmailAddressIdentityArn@ to be</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- @FromEmailAddress@ to be sender\@example.com.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AfromEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfromEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">fromEmailAddressIdentityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The \&quot;Reply-to\&quot; email addresses for the message. When the recipient</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- replies to the message, each Reply-to address receives the reply.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AreplyToAddresses%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe [Text]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AreplyToAddresses%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">replyToAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The address that you want bounce and complaint notifications to be sent</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AfeedbackForwardingEmailAddress%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfeedbackForwardingEmailAddress%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">feedbackForwardingEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The name of the configuration set that you want to use when sending the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- email.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AconfigurationSetName%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AconfigurationSetName%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | An object that contains the body of the message. You can specify a</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- template message.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AdefaultContent%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; BulkEmailContent
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AdefaultContent%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">defaultContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailContent.html#BulkEmailContent"><span class="hs-identifier hs-type">BulkEmailContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The list of bulk email entry objects.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AbulkEmailEntries%3ASendBulkEmail%27"><span class="annot"><span class="annottext">SendBulkEmail -&gt; [BulkEmailEntry]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AbulkEmailEntries%3ASendBulkEmail%27"><span class="hs-identifier hs-var hs-var">bulkEmailEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailEntry.html#BulkEmailEntry"><span class="hs-identifier hs-type">BulkEmailEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335156"><span id="local-6989586621679335158"><span class="annot"><span class="annottext">SendBulkEmail -&gt; SendBulkEmail -&gt; Bool
+(SendBulkEmail -&gt; SendBulkEmail -&gt; Bool)
+-&gt; (SendBulkEmail -&gt; SendBulkEmail -&gt; Bool) -&gt; Eq SendBulkEmail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendBulkEmail -&gt; SendBulkEmail -&gt; Bool
+$c/= :: SendBulkEmail -&gt; SendBulkEmail -&gt; Bool
+== :: SendBulkEmail -&gt; SendBulkEmail -&gt; Bool
+$c== :: SendBulkEmail -&gt; SendBulkEmail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335147"><span id="local-6989586621679335149"><span id="local-6989586621679335151"><span id="local-6989586621679335153"><span class="annot"><span class="annottext">ReadPrec [SendBulkEmail]
+ReadPrec SendBulkEmail
+Int -&gt; ReadS SendBulkEmail
+ReadS [SendBulkEmail]
+(Int -&gt; ReadS SendBulkEmail)
+-&gt; ReadS [SendBulkEmail]
+-&gt; ReadPrec SendBulkEmail
+-&gt; ReadPrec [SendBulkEmail]
+-&gt; Read SendBulkEmail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendBulkEmail]
+$creadListPrec :: ReadPrec [SendBulkEmail]
+readPrec :: ReadPrec SendBulkEmail
+$creadPrec :: ReadPrec SendBulkEmail
+readList :: ReadS [SendBulkEmail]
+$creadList :: ReadS [SendBulkEmail]
+readsPrec :: Int -&gt; ReadS SendBulkEmail
+$creadsPrec :: Int -&gt; ReadS SendBulkEmail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335140"><span id="local-6989586621679335142"><span id="local-6989586621679335144"><span class="annot"><span class="annottext">Int -&gt; SendBulkEmail -&gt; ShowS
+[SendBulkEmail] -&gt; ShowS
+SendBulkEmail -&gt; String
+(Int -&gt; SendBulkEmail -&gt; ShowS)
+-&gt; (SendBulkEmail -&gt; String)
+-&gt; ([SendBulkEmail] -&gt; ShowS)
+-&gt; Show SendBulkEmail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendBulkEmail] -&gt; ShowS
+$cshowList :: [SendBulkEmail] -&gt; ShowS
+show :: SendBulkEmail -&gt; String
+$cshow :: SendBulkEmail -&gt; String
+showsPrec :: Int -&gt; SendBulkEmail -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendBulkEmail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendBulkEmail -&gt; Rep SendBulkEmail x)
+-&gt; (forall x. Rep SendBulkEmail x -&gt; SendBulkEmail)
+-&gt; Generic SendBulkEmail
+forall x. Rep SendBulkEmail x -&gt; SendBulkEmail
+forall x. SendBulkEmail -&gt; Rep SendBulkEmail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendBulkEmail x -&gt; SendBulkEmail
+$cfrom :: forall x. SendBulkEmail -&gt; Rep SendBulkEmail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'SendBulkEmail' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'fromEmailAddress', 'sendBulkEmail_fromEmailAddress' - The email address that you want to use as the \&quot;From\&quot; address for the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- email. The address that you specify has to be verified.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'defaultEmailTags', 'sendBulkEmail_defaultEmailTags' - A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- that you send using the @SendEmail@ operation. Tags correspond to</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- characteristics of the email that you define, so that you can publish</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- email sending events.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'feedbackForwardingEmailAddressIdentityArn', 'sendBulkEmail_feedbackForwardingEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- that permits you to use the email address specified in the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @FeedbackForwardingEmailAddress@ parameter.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- For example, if the owner of example.com (which has ARN</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- policy to it that authorizes you to use feedback\@example.com, then you</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'fromEmailAddressIdentityArn', 'sendBulkEmail_fromEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- that permits you to use the email address specified in the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @FromEmailAddress@ parameter.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- For example, if the owner of example.com (which has ARN</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- policy to it that authorizes you to use sender\@example.com, then you</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- would specify the @FromEmailAddressIdentityArn@ to be</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @FromEmailAddress@ to be sender\@example.com.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'replyToAddresses', 'sendBulkEmail_replyToAddresses' - The \&quot;Reply-to\&quot; email addresses for the message. When the recipient</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- replies to the message, each Reply-to address receives the reply.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'feedbackForwardingEmailAddress', 'sendBulkEmail_feedbackForwardingEmailAddress' - The address that you want bounce and complaint notifications to be sent</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'configurationSetName', 'sendBulkEmail_configurationSetName' - The name of the configuration set that you want to use when sending the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- email.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'defaultContent', 'sendBulkEmail_defaultContent' - An object that contains the body of the message. You can specify a</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- template message.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'bulkEmailEntries', 'sendBulkEmail_bulkEmailEntries' - The list of bulk email entry objects.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#newSendBulkEmail"><span class="hs-identifier hs-type">newSendBulkEmail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'defaultContent'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailContent.html#BulkEmailContent"><span class="hs-identifier hs-type">BulkEmailContent</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span>
+</span><span id="line-181"></span><span id="newSendBulkEmail"><span class="annot"><span class="annottext">newSendBulkEmail :: BulkEmailContent -&gt; SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#newSendBulkEmail"><span class="hs-identifier hs-var hs-var">newSendBulkEmail</span></a></span></span><span> </span><span id="local-6989586621679335135"><span class="annot"><span class="annottext">BulkEmailContent
+</span><a href="#local-6989586621679335135"><span class="hs-identifier hs-var">pDefaultContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">SendBulkEmail' :: Maybe Text
+-&gt; Maybe [MessageTag]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; BulkEmailContent
+-&gt; [BulkEmailEntry]
+-&gt; SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromEmailAddress:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfromEmailAddress%3ASendBulkEmail%27"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultEmailTags:SendBulkEmail' :: Maybe [MessageTag]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AdefaultEmailTags%3ASendBulkEmail%27"><span class="hs-identifier hs-var">defaultEmailTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:feedbackForwardingEmailAddressIdentityArn:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfeedbackForwardingEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="hs-identifier hs-var">feedbackForwardingEmailAddressIdentityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromEmailAddressIdentityArn:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfromEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="hs-identifier hs-var">fromEmailAddressIdentityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:replyToAddresses:SendBulkEmail' :: Maybe [Text]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AreplyToAddresses%3ASendBulkEmail%27"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:feedbackForwardingEmailAddress:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfeedbackForwardingEmailAddress%3ASendBulkEmail%27"><span class="hs-identifier hs-var">feedbackForwardingEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationSetName:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AconfigurationSetName%3ASendBulkEmail%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultContent:SendBulkEmail' :: BulkEmailContent
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AdefaultContent%3ASendBulkEmail%27"><span class="hs-identifier hs-var">defaultContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BulkEmailContent
+</span><a href="#local-6989586621679335135"><span class="hs-identifier hs-var">pDefaultContent_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:bulkEmailEntries:SendBulkEmail' :: [BulkEmailEntry]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AbulkEmailEntries%3ASendBulkEmail%27"><span class="hs-identifier hs-var">bulkEmailEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The email address that you want to use as the \&quot;From\&quot; address for the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- email. The address that you specify has to be verified.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_fromEmailAddress"><span class="hs-identifier hs-type">sendBulkEmail_fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="sendBulkEmail_fromEmailAddress"><span class="annot"><span class="annottext">sendBulkEmail_fromEmailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_fromEmailAddress"><span class="hs-identifier hs-var hs-var">sendBulkEmail_fromEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe Text)
+-&gt; (SendBulkEmail -&gt; Maybe Text -&gt; SendBulkEmail)
+-&gt; Lens SendBulkEmail SendBulkEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335132"><span class="annot"><span class="annottext">Maybe Text
+fromEmailAddress :: Maybe Text
+$sel:fromEmailAddress:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679335132"><span class="hs-identifier hs-var hs-var">fromEmailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335132"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335131"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromEmailAddress:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfromEmailAddress%3ASendBulkEmail%27"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- that you send using the @SendEmail@ operation. Tags correspond to</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- characteristics of the email that you define, so that you can publish</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- email sending events.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_defaultEmailTags"><span class="hs-identifier hs-type">sendBulkEmail_defaultEmailTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.MessageTag.html#MessageTag"><span class="hs-identifier hs-type">MessageTag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="sendBulkEmail_defaultEmailTags"><span class="annot"><span class="annottext">sendBulkEmail_defaultEmailTags :: (Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+-&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_defaultEmailTags"><span class="hs-identifier hs-var hs-var">sendBulkEmail_defaultEmailTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe [MessageTag])
+-&gt; (SendBulkEmail -&gt; Maybe [MessageTag] -&gt; SendBulkEmail)
+-&gt; Lens
+     SendBulkEmail
+     SendBulkEmail
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335129"><span class="annot"><span class="annottext">Maybe [MessageTag]
+defaultEmailTags :: Maybe [MessageTag]
+$sel:defaultEmailTags:SendBulkEmail' :: SendBulkEmail -&gt; Maybe [MessageTag]
+</span><a href="#local-6989586621679335129"><span class="hs-identifier hs-var hs-var">defaultEmailTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679335129"><span class="hs-identifier hs-var">defaultEmailTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335128"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335127"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679335127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultEmailTags:SendBulkEmail' :: Maybe [MessageTag]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AdefaultEmailTags%3ASendBulkEmail%27"><span class="hs-identifier hs-var">defaultEmailTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679335127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+ -&gt; SendBulkEmail -&gt; f SendBulkEmail)
+-&gt; ((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+    -&gt; Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+-&gt; (Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+-&gt; SendBulkEmail
+-&gt; f SendBulkEmail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MessageTag] [MessageTag] [MessageTag] [MessageTag]
+-&gt; Iso
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+     (Maybe [MessageTag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MessageTag] [MessageTag] [MessageTag] [MessageTag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- that permits you to use the email address specified in the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @FeedbackForwardingEmailAddress@ parameter.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- For example, if the owner of example.com (which has ARN</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- policy to it that authorizes you to use feedback\@example.com, then you</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_feedbackForwardingEmailAddressIdentityArn"><span class="hs-identifier hs-type">sendBulkEmail_feedbackForwardingEmailAddressIdentityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="sendBulkEmail_feedbackForwardingEmailAddressIdentityArn"><span class="annot"><span class="annottext">sendBulkEmail_feedbackForwardingEmailAddressIdentityArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_feedbackForwardingEmailAddressIdentityArn"><span class="hs-identifier hs-var hs-var">sendBulkEmail_feedbackForwardingEmailAddressIdentityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe Text)
+-&gt; (SendBulkEmail -&gt; Maybe Text -&gt; SendBulkEmail)
+-&gt; Lens SendBulkEmail SendBulkEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335123"><span class="annot"><span class="annottext">Maybe Text
+feedbackForwardingEmailAddressIdentityArn :: Maybe Text
+$sel:feedbackForwardingEmailAddressIdentityArn:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679335123"><span class="hs-identifier hs-var hs-var">feedbackForwardingEmailAddressIdentityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335123"><span class="hs-identifier hs-var">feedbackForwardingEmailAddressIdentityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335122"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335121"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:feedbackForwardingEmailAddressIdentityArn:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfeedbackForwardingEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="hs-identifier hs-var">feedbackForwardingEmailAddressIdentityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- that permits you to use the email address specified in the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- @FromEmailAddress@ parameter.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- For example, if the owner of example.com (which has ARN</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- policy to it that authorizes you to use sender\@example.com, then you</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- would specify the @FromEmailAddressIdentityArn@ to be</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- @FromEmailAddress@ to be sender\@example.com.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- For more information about sending authorization, see the</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_fromEmailAddressIdentityArn"><span class="hs-identifier hs-type">sendBulkEmail_fromEmailAddressIdentityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="sendBulkEmail_fromEmailAddressIdentityArn"><span class="annot"><span class="annottext">sendBulkEmail_fromEmailAddressIdentityArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_fromEmailAddressIdentityArn"><span class="hs-identifier hs-var hs-var">sendBulkEmail_fromEmailAddressIdentityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe Text)
+-&gt; (SendBulkEmail -&gt; Maybe Text -&gt; SendBulkEmail)
+-&gt; Lens SendBulkEmail SendBulkEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335120"><span class="annot"><span class="annottext">Maybe Text
+fromEmailAddressIdentityArn :: Maybe Text
+$sel:fromEmailAddressIdentityArn:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679335120"><span class="hs-identifier hs-var hs-var">fromEmailAddressIdentityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335120"><span class="hs-identifier hs-var">fromEmailAddressIdentityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335119"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335118"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromEmailAddressIdentityArn:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfromEmailAddressIdentityArn%3ASendBulkEmail%27"><span class="hs-identifier hs-var">fromEmailAddressIdentityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The \&quot;Reply-to\&quot; email addresses for the message. When the recipient</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- replies to the message, each Reply-to address receives the reply.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_replyToAddresses"><span class="hs-identifier hs-type">sendBulkEmail_replyToAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="sendBulkEmail_replyToAddresses"><span class="annot"><span class="annottext">sendBulkEmail_replyToAddresses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_replyToAddresses"><span class="hs-identifier hs-var hs-var">sendBulkEmail_replyToAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe [Text])
+-&gt; (SendBulkEmail -&gt; Maybe [Text] -&gt; SendBulkEmail)
+-&gt; Lens SendBulkEmail SendBulkEmail (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335117"><span class="annot"><span class="annottext">Maybe [Text]
+replyToAddresses :: Maybe [Text]
+$sel:replyToAddresses:SendBulkEmail' :: SendBulkEmail -&gt; Maybe [Text]
+</span><a href="#local-6989586621679335117"><span class="hs-identifier hs-var hs-var">replyToAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335117"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335116"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335115"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replyToAddresses:SendBulkEmail' :: Maybe [Text]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AreplyToAddresses%3ASendBulkEmail%27"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; SendBulkEmail -&gt; f SendBulkEmail)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SendBulkEmail
+-&gt; f SendBulkEmail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The address that you want bounce and complaint notifications to be sent</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_feedbackForwardingEmailAddress"><span class="hs-identifier hs-type">sendBulkEmail_feedbackForwardingEmailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="sendBulkEmail_feedbackForwardingEmailAddress"><span class="annot"><span class="annottext">sendBulkEmail_feedbackForwardingEmailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_feedbackForwardingEmailAddress"><span class="hs-identifier hs-var hs-var">sendBulkEmail_feedbackForwardingEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe Text)
+-&gt; (SendBulkEmail -&gt; Maybe Text -&gt; SendBulkEmail)
+-&gt; Lens SendBulkEmail SendBulkEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335114"><span class="annot"><span class="annottext">Maybe Text
+feedbackForwardingEmailAddress :: Maybe Text
+$sel:feedbackForwardingEmailAddress:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679335114"><span class="hs-identifier hs-var hs-var">feedbackForwardingEmailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335114"><span class="hs-identifier hs-var">feedbackForwardingEmailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335113"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335112"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:feedbackForwardingEmailAddress:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AfeedbackForwardingEmailAddress%3ASendBulkEmail%27"><span class="hs-identifier hs-var">feedbackForwardingEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The name of the configuration set that you want to use when sending the</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- email.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_configurationSetName"><span class="hs-identifier hs-type">sendBulkEmail_configurationSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="sendBulkEmail_configurationSetName"><span class="annot"><span class="annottext">sendBulkEmail_configurationSetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_configurationSetName"><span class="hs-identifier hs-var hs-var">sendBulkEmail_configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; Maybe Text)
+-&gt; (SendBulkEmail -&gt; Maybe Text -&gt; SendBulkEmail)
+-&gt; Lens SendBulkEmail SendBulkEmail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335111"><span class="annot"><span class="annottext">Maybe Text
+configurationSetName :: Maybe Text
+$sel:configurationSetName:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679335111"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335111"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335110"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:SendBulkEmail' :: Maybe Text
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AconfigurationSetName%3ASendBulkEmail%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | An object that contains the body of the message. You can specify a</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- template message.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_defaultContent"><span class="hs-identifier hs-type">sendBulkEmail_defaultContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailContent.html#BulkEmailContent"><span class="hs-identifier hs-type">BulkEmailContent</span></a></span><span>
+</span><span id="line-259"></span><span id="sendBulkEmail_defaultContent"><span class="annot"><span class="annottext">sendBulkEmail_defaultContent :: (BulkEmailContent -&gt; f BulkEmailContent)
+-&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_defaultContent"><span class="hs-identifier hs-var hs-var">sendBulkEmail_defaultContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; BulkEmailContent)
+-&gt; (SendBulkEmail -&gt; BulkEmailContent -&gt; SendBulkEmail)
+-&gt; Lens
+     SendBulkEmail SendBulkEmail BulkEmailContent BulkEmailContent
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335108"><span class="annot"><span class="annottext">BulkEmailContent
+defaultContent :: BulkEmailContent
+$sel:defaultContent:SendBulkEmail' :: SendBulkEmail -&gt; BulkEmailContent
+</span><a href="#local-6989586621679335108"><span class="hs-identifier hs-var hs-var">defaultContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailContent
+</span><a href="#local-6989586621679335108"><span class="hs-identifier hs-var">defaultContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335107"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335106"><span class="annot"><span class="annottext">BulkEmailContent
+</span><a href="#local-6989586621679335106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultContent:SendBulkEmail' :: BulkEmailContent
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AdefaultContent%3ASendBulkEmail%27"><span class="hs-identifier hs-var">defaultContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BulkEmailContent
+</span><a href="#local-6989586621679335106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The list of bulk email entry objects.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_bulkEmailEntries"><span class="hs-identifier hs-type">sendBulkEmail_bulkEmailEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailEntry.html#BulkEmailEntry"><span class="hs-identifier hs-type">BulkEmailEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-263"></span><span id="sendBulkEmail_bulkEmailEntries"><span class="annot"><span class="annottext">sendBulkEmail_bulkEmailEntries :: ([BulkEmailEntry] -&gt; f [BulkEmailEntry])
+-&gt; SendBulkEmail -&gt; f SendBulkEmail
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmail_bulkEmailEntries"><span class="hs-identifier hs-var hs-var">sendBulkEmail_bulkEmailEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmail -&gt; [BulkEmailEntry])
+-&gt; (SendBulkEmail -&gt; [BulkEmailEntry] -&gt; SendBulkEmail)
+-&gt; Lens
+     SendBulkEmail SendBulkEmail [BulkEmailEntry] [BulkEmailEntry]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335105"><span class="annot"><span class="annottext">[BulkEmailEntry]
+bulkEmailEntries :: [BulkEmailEntry]
+$sel:bulkEmailEntries:SendBulkEmail' :: SendBulkEmail -&gt; [BulkEmailEntry]
+</span><a href="#local-6989586621679335105"><span class="hs-identifier hs-var hs-var">bulkEmailEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntry]
+</span><a href="#local-6989586621679335105"><span class="hs-identifier hs-var">bulkEmailEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335104"><span class="annot"><span class="annottext">s :: SendBulkEmail
+</span><a href="#local-6989586621679335104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335103"><span class="annot"><span class="annottext">[BulkEmailEntry]
+</span><a href="#local-6989586621679335103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmail
+</span><a href="#local-6989586621679335104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkEmailEntries:SendBulkEmail' :: [BulkEmailEntry]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AbulkEmailEntries%3ASendBulkEmail%27"><span class="hs-identifier hs-var">bulkEmailEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntry]
+</span><a href="#local-6989586621679335103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BulkEmailEntry] -&gt; f [BulkEmailEntry])
+ -&gt; SendBulkEmail -&gt; f SendBulkEmail)
+-&gt; (([BulkEmailEntry] -&gt; f [BulkEmailEntry])
+    -&gt; [BulkEmailEntry] -&gt; f [BulkEmailEntry])
+-&gt; ([BulkEmailEntry] -&gt; f [BulkEmailEntry])
+-&gt; SendBulkEmail
+-&gt; f SendBulkEmail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BulkEmailEntry] -&gt; f [BulkEmailEntry])
+-&gt; [BulkEmailEntry] -&gt; f [BulkEmailEntry]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-267"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679335099"><span class="annot"><span class="annottext">request :: SendBulkEmail -&gt; Request SendBulkEmail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendBulkEmail -&gt; Request SendBulkEmail
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679335095"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SendBulkEmail
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendBulkEmail)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SendBulkEmail))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SendBulkEmail
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendBulkEmail)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335092"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335092"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679335091"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679335091"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679335090"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335090"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [BulkEmailEntryResult] -&gt; SendBulkEmailResponse
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-var">SendBulkEmailResponse'</span></a></span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [BulkEmailEntryResult] -&gt; SendBulkEmailResponse)
+-&gt; Either String Int
+-&gt; Either String ([BulkEmailEntryResult] -&gt; SendBulkEmailResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335092"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Either String ([BulkEmailEntryResult] -&gt; SendBulkEmailResponse)
+-&gt; Either String [BulkEmailEntryResult]
+-&gt; Either String SendBulkEmailResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BulkEmailEntryResult])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BulkEmailEntryResults&quot;</span></span><span>
+</span><span id="line-276"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [BulkEmailEntryResult])
+-&gt; [BulkEmailEntryResult] -&gt; Either String [BulkEmailEntryResult]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntryResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-277"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335081"><span id="local-6989586621679335083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span></span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span></span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679335074"><span class="annot"><span class="annottext">toHeaders :: SendBulkEmail -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendBulkEmail -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-287"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-288"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-289"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-290"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-291"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335064"><span id="local-6989586621679335066"><span id="local-6989586621679335068"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679335062"><span class="annot"><span class="annottext">toJSON :: SendBulkEmail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail%27"><span class="hs-identifier hs-type">SendBulkEmail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335052"><span id="local-6989586621679335053"><span id="local-6989586621679335054"><span id="local-6989586621679335055"><span id="local-6989586621679335056"><span id="local-6989586621679335057"><span id="local-6989586621679335058"><span id="local-6989586621679335059"><span id="local-6989586621679335060"><span class="annot"><span class="annottext">[BulkEmailEntry]
+Maybe [Text]
+Maybe [MessageTag]
+Maybe Text
+BulkEmailContent
+bulkEmailEntries :: [BulkEmailEntry]
+defaultContent :: BulkEmailContent
+configurationSetName :: Maybe Text
+feedbackForwardingEmailAddress :: Maybe Text
+replyToAddresses :: Maybe [Text]
+fromEmailAddressIdentityArn :: Maybe Text
+feedbackForwardingEmailAddressIdentityArn :: Maybe Text
+defaultEmailTags :: Maybe [MessageTag]
+fromEmailAddress :: Maybe Text
+$sel:bulkEmailEntries:SendBulkEmail' :: SendBulkEmail -&gt; [BulkEmailEntry]
+$sel:defaultContent:SendBulkEmail' :: SendBulkEmail -&gt; BulkEmailContent
+$sel:configurationSetName:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+$sel:feedbackForwardingEmailAddress:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+$sel:replyToAddresses:SendBulkEmail' :: SendBulkEmail -&gt; Maybe [Text]
+$sel:fromEmailAddressIdentityArn:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+$sel:feedbackForwardingEmailAddressIdentityArn:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+$sel:defaultEmailTags:SendBulkEmail' :: SendBulkEmail -&gt; Maybe [MessageTag]
+$sel:fromEmailAddress:SendBulkEmail' :: SendBulkEmail -&gt; Maybe Text
+</span><a href="#local-6989586621679335052"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-299"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromEmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335060"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultEmailTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MessageTag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>              </span><span class="annot"><span class="annottext">([MessageTag] -&gt; Pair) -&gt; Maybe [MessageTag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679335059"><span class="hs-identifier hs-var">defaultEmailTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeedbackForwardingEmailAddressIdentityArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335058"><span class="hs-identifier hs-var">feedbackForwardingEmailAddressIdentityArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromEmailAddressIdentityArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335057"><span class="hs-identifier hs-var">fromEmailAddressIdentityArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplyToAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679335056"><span class="hs-identifier hs-var">replyToAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeedbackForwardingEmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335055"><span class="hs-identifier hs-var">feedbackForwardingEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335054"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-314"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BulkEmailContent -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BulkEmailContent
+</span><a href="#local-6989586621679335053"><span class="hs-identifier hs-var">defaultContent</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-316"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BulkEmailEntries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [BulkEmailEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntry]
+</span><a href="#local-6989586621679335052"><span class="hs-identifier hs-var">bulkEmailEntries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-318"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-321"></span><span>  </span><span id="local-6989586621679335046"><span class="annot"><span class="annottext">toPath :: SendBulkEmail -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; SendBulkEmail -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/email/outbound-bulk-emails&quot;</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmail"><span class="hs-identifier hs-type">SendBulkEmail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679335042"><span class="annot"><span class="annottext">toQuery :: SendBulkEmail -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SendBulkEmail -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- | The following data is returned in JSON format by the service.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- /See:/ 'newSendBulkEmailResponse' smart constructor.</span><span>
+</span><span id="line-330"></span><span id="local-6989586621679335039"><span id="local-6989586621679335040"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBulkEmailResponse"><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-var">SendBulkEmailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBulkEmailResponse%27"><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-var">SendBulkEmailResponse'</span></a></span></span><span>
+</span><span id="line-331"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-332"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendBulkEmailResponse%27"><span class="annot"><span class="annottext">SendBulkEmailResponse -&gt; Int
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AhttpStatus%3ASendBulkEmailResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span id="%24sel%3AbulkEmailEntryResults%3ASendBulkEmailResponse%27"><span class="annot"><span class="annottext">SendBulkEmailResponse -&gt; [BulkEmailEntryResult]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AbulkEmailEntryResults%3ASendBulkEmailResponse%27"><span class="hs-identifier hs-var hs-var">bulkEmailEntryResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailEntryResult.html#BulkEmailEntryResult"><span class="hs-identifier hs-type">BulkEmailEntryResult</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-334"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-335"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335033"><span id="local-6989586621679335035"><span class="annot"><span class="annottext">SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool
+(SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool)
+-&gt; (SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool)
+-&gt; Eq SendBulkEmailResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool
+$c/= :: SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool
+== :: SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool
+$c== :: SendBulkEmailResponse -&gt; SendBulkEmailResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335025"><span id="local-6989586621679335027"><span id="local-6989586621679335029"><span id="local-6989586621679335031"><span class="annot"><span class="annottext">ReadPrec [SendBulkEmailResponse]
+ReadPrec SendBulkEmailResponse
+Int -&gt; ReadS SendBulkEmailResponse
+ReadS [SendBulkEmailResponse]
+(Int -&gt; ReadS SendBulkEmailResponse)
+-&gt; ReadS [SendBulkEmailResponse]
+-&gt; ReadPrec SendBulkEmailResponse
+-&gt; ReadPrec [SendBulkEmailResponse]
+-&gt; Read SendBulkEmailResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendBulkEmailResponse]
+$creadListPrec :: ReadPrec [SendBulkEmailResponse]
+readPrec :: ReadPrec SendBulkEmailResponse
+$creadPrec :: ReadPrec SendBulkEmailResponse
+readList :: ReadS [SendBulkEmailResponse]
+$creadList :: ReadS [SendBulkEmailResponse]
+readsPrec :: Int -&gt; ReadS SendBulkEmailResponse
+$creadsPrec :: Int -&gt; ReadS SendBulkEmailResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335019"><span id="local-6989586621679335021"><span id="local-6989586621679335023"><span class="annot"><span class="annottext">Int -&gt; SendBulkEmailResponse -&gt; ShowS
+[SendBulkEmailResponse] -&gt; ShowS
+SendBulkEmailResponse -&gt; String
+(Int -&gt; SendBulkEmailResponse -&gt; ShowS)
+-&gt; (SendBulkEmailResponse -&gt; String)
+-&gt; ([SendBulkEmailResponse] -&gt; ShowS)
+-&gt; Show SendBulkEmailResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendBulkEmailResponse] -&gt; ShowS
+$cshowList :: [SendBulkEmailResponse] -&gt; ShowS
+show :: SendBulkEmailResponse -&gt; String
+$cshow :: SendBulkEmailResponse -&gt; String
+showsPrec :: Int -&gt; SendBulkEmailResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendBulkEmailResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendBulkEmailResponse -&gt; Rep SendBulkEmailResponse x)
+-&gt; (forall x. Rep SendBulkEmailResponse x -&gt; SendBulkEmailResponse)
+-&gt; Generic SendBulkEmailResponse
+forall x. Rep SendBulkEmailResponse x -&gt; SendBulkEmailResponse
+forall x. SendBulkEmailResponse -&gt; Rep SendBulkEmailResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendBulkEmailResponse x -&gt; SendBulkEmailResponse
+$cfrom :: forall x. SendBulkEmailResponse -&gt; Rep SendBulkEmailResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- Create a value of 'SendBulkEmailResponse' with all optional fields omitted.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- 'httpStatus', 'sendBulkEmailResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- 'bulkEmailEntryResults', 'sendBulkEmailResponse_bulkEmailEntryResults' - Undocumented member.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#newSendBulkEmailResponse"><span class="hs-identifier hs-type">newSendBulkEmailResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-349"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-350"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-351"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span><span>
+</span><span id="line-352"></span><span id="newSendBulkEmailResponse"><span class="annot"><span class="annottext">newSendBulkEmailResponse :: Int -&gt; SendBulkEmailResponse
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#newSendBulkEmailResponse"><span class="hs-identifier hs-var hs-var">newSendBulkEmailResponse</span></a></span></span><span> </span><span id="local-6989586621679335016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><span class="annottext">SendBulkEmailResponse' :: Int -&gt; [BulkEmailEntryResult] -&gt; SendBulkEmailResponse
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-type">SendBulkEmailResponse'</span></a></span><span>
+</span><span id="line-354"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SendBulkEmailResponse' :: Int
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AhttpStatus%3ASendBulkEmailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>      </span><span class="annot"><span class="annottext">$sel:bulkEmailEntryResults:SendBulkEmailResponse' :: [BulkEmailEntryResult]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AbulkEmailEntryResults%3ASendBulkEmailResponse%27"><span class="hs-identifier hs-var">bulkEmailEntryResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntryResult]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-356"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmailResponse_httpStatus"><span class="hs-identifier hs-type">sendBulkEmailResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-360"></span><span id="sendBulkEmailResponse_httpStatus"><span class="annot"><span class="annottext">sendBulkEmailResponse_httpStatus :: (Int -&gt; f Int) -&gt; SendBulkEmailResponse -&gt; f SendBulkEmailResponse
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmailResponse_httpStatus"><span class="hs-identifier hs-var hs-var">sendBulkEmailResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmailResponse -&gt; Int)
+-&gt; (SendBulkEmailResponse -&gt; Int -&gt; SendBulkEmailResponse)
+-&gt; Lens SendBulkEmailResponse SendBulkEmailResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-type">SendBulkEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335015"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SendBulkEmailResponse' :: SendBulkEmailResponse -&gt; Int
+</span><a href="#local-6989586621679335015"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335015"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335014"><span class="annot"><span class="annottext">s :: SendBulkEmailResponse
+</span><a href="#local-6989586621679335014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-type">SendBulkEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335013"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmailResponse
+</span><a href="#local-6989586621679335014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendBulkEmailResponse' :: Int
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AhttpStatus%3ASendBulkEmailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-363"></span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmailResponse_bulkEmailEntryResults"><span class="hs-identifier hs-type">sendBulkEmailResponse_bulkEmailEntryResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.BulkEmailEntryResult.html#BulkEmailEntryResult"><span class="hs-identifier hs-type">BulkEmailEntryResult</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-364"></span><span id="sendBulkEmailResponse_bulkEmailEntryResults"><span class="annot"><span class="annottext">sendBulkEmailResponse_bulkEmailEntryResults :: ([BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult])
+-&gt; SendBulkEmailResponse -&gt; f SendBulkEmailResponse
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#sendBulkEmailResponse_bulkEmailEntryResults"><span class="hs-identifier hs-var hs-var">sendBulkEmailResponse_bulkEmailEntryResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBulkEmailResponse -&gt; [BulkEmailEntryResult])
+-&gt; (SendBulkEmailResponse
+    -&gt; [BulkEmailEntryResult] -&gt; SendBulkEmailResponse)
+-&gt; Lens
+     SendBulkEmailResponse
+     SendBulkEmailResponse
+     [BulkEmailEntryResult]
+     [BulkEmailEntryResult]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-type">SendBulkEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335012"><span class="annot"><span class="annottext">[BulkEmailEntryResult]
+bulkEmailEntryResults :: [BulkEmailEntryResult]
+$sel:bulkEmailEntryResults:SendBulkEmailResponse' :: SendBulkEmailResponse -&gt; [BulkEmailEntryResult]
+</span><a href="#local-6989586621679335012"><span class="hs-identifier hs-var hs-var">bulkEmailEntryResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntryResult]
+</span><a href="#local-6989586621679335012"><span class="hs-identifier hs-var">bulkEmailEntryResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335011"><span class="annot"><span class="annottext">s :: SendBulkEmailResponse
+</span><a href="#local-6989586621679335011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse%27"><span class="hs-identifier hs-type">SendBulkEmailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335010"><span class="annot"><span class="annottext">[BulkEmailEntryResult]
+</span><a href="#local-6989586621679335010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBulkEmailResponse
+</span><a href="#local-6989586621679335011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkEmailEntryResults:SendBulkEmailResponse' :: [BulkEmailEntryResult]
+</span><a href="Network.AWS.SESv2.SendBulkEmail.html#%24sel%3AbulkEmailEntryResults%3ASendBulkEmailResponse%27"><span class="hs-identifier hs-var">bulkEmailEntryResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BulkEmailEntryResult]
+</span><a href="#local-6989586621679335010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult])
+ -&gt; SendBulkEmailResponse -&gt; f SendBulkEmailResponse)
+-&gt; (([BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult])
+    -&gt; [BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult])
+-&gt; ([BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult])
+-&gt; SendBulkEmailResponse
+-&gt; f SendBulkEmailResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult])
+-&gt; [BulkEmailEntryResult] -&gt; f [BulkEmailEntryResult]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.SendBulkEmail.html#SendBulkEmailResponse"><span class="hs-identifier hs-type">SendBulkEmailResponse</span></a></span></span><span>
+</span><span id="line-367"></span></pre></body></html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType"><span class="hs-identifier">HyperParameterTuningJobStrategyType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType_Bayesian"><span class="hs-identifier">HyperParameterTuningJobStrategyType_Bayesian</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType_Random"><span class="hs-identifier">HyperParameterTuningJobStrategyType_Random</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The strategy hyperparameter tuning uses to find the best combination of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- hyperparameters for your model. Currently, the only supported value is</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @Bayesian@.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621680307977"><span id="local-6989586621680307978"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HyperParameterTuningJobStrategyType"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType"><span class="hs-identifier hs-var">HyperParameterTuningJobStrategyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HyperParameterTuningJobStrategyType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType%27"><span class="hs-identifier hs-var">HyperParameterTuningJobStrategyType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHyperParameterTuningJobStrategyType"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#fromHyperParameterTuningJobStrategyType"><span class="hs-identifier hs-var hs-var">fromHyperParameterTuningJobStrategyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307969"><span id="local-6989586621680307971"><span id="local-6989586621680307973"><span class="annot"><span class="annottext">Int -&gt; HyperParameterTuningJobStrategyType -&gt; ShowS
+[HyperParameterTuningJobStrategyType] -&gt; ShowS
+HyperParameterTuningJobStrategyType -&gt; String
+(Int -&gt; HyperParameterTuningJobStrategyType -&gt; ShowS)
+-&gt; (HyperParameterTuningJobStrategyType -&gt; String)
+-&gt; ([HyperParameterTuningJobStrategyType] -&gt; ShowS)
+-&gt; Show HyperParameterTuningJobStrategyType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HyperParameterTuningJobStrategyType] -&gt; ShowS
+$cshowList :: [HyperParameterTuningJobStrategyType] -&gt; ShowS
+show :: HyperParameterTuningJobStrategyType -&gt; String
+$cshow :: HyperParameterTuningJobStrategyType -&gt; String
+showsPrec :: Int -&gt; HyperParameterTuningJobStrategyType -&gt; ShowS
+$cshowsPrec :: Int -&gt; HyperParameterTuningJobStrategyType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680307960"><span id="local-6989586621680307962"><span id="local-6989586621680307964"><span id="local-6989586621680307966"><span class="annot"><span class="annottext">ReadPrec [HyperParameterTuningJobStrategyType]
+ReadPrec HyperParameterTuningJobStrategyType
+Int -&gt; ReadS HyperParameterTuningJobStrategyType
+ReadS [HyperParameterTuningJobStrategyType]
+(Int -&gt; ReadS HyperParameterTuningJobStrategyType)
+-&gt; ReadS [HyperParameterTuningJobStrategyType]
+-&gt; ReadPrec HyperParameterTuningJobStrategyType
+-&gt; ReadPrec [HyperParameterTuningJobStrategyType]
+-&gt; Read HyperParameterTuningJobStrategyType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HyperParameterTuningJobStrategyType]
+$creadListPrec :: ReadPrec [HyperParameterTuningJobStrategyType]
+readPrec :: ReadPrec HyperParameterTuningJobStrategyType
+$creadPrec :: ReadPrec HyperParameterTuningJobStrategyType
+readList :: ReadS [HyperParameterTuningJobStrategyType]
+$creadList :: ReadS [HyperParameterTuningJobStrategyType]
+readsPrec :: Int -&gt; ReadS HyperParameterTuningJobStrategyType
+$creadsPrec :: Int -&gt; ReadS HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680307955"><span id="local-6989586621680307957"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+(HyperParameterTuningJobStrategyType
+ -&gt; HyperParameterTuningJobStrategyType -&gt; Bool)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType -&gt; Bool)
+-&gt; Eq HyperParameterTuningJobStrategyType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+$c/= :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+== :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+$c== :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680307939"><span id="local-6989586621680307941"><span id="local-6989586621680307943"><span id="local-6989586621680307945"><span id="local-6989586621680307947"><span id="local-6989586621680307949"><span id="local-6989586621680307951"><span class="annot"><span class="annottext">Eq HyperParameterTuningJobStrategyType
+Eq HyperParameterTuningJobStrategyType
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType -&gt; Ordering)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType -&gt; Bool)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType -&gt; Bool)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType -&gt; Bool)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType -&gt; Bool)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType)
+-&gt; (HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType
+    -&gt; HyperParameterTuningJobStrategyType)
+-&gt; Ord HyperParameterTuningJobStrategyType
+HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Ordering
+HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+$cmin :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+max :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+$cmax :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType
+&gt;= :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+$c&gt;= :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+&gt; :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+$c&gt; :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+&lt;= :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+$c&lt;= :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+&lt; :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+$c&lt; :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Bool
+compare :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Ordering
+$ccompare :: HyperParameterTuningJobStrategyType
+-&gt; HyperParameterTuningJobStrategyType -&gt; Ordering
+$cp1Ord :: Eq HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ HyperParameterTuningJobStrategyType
+ -&gt; Rep HyperParameterTuningJobStrategyType x)
+-&gt; (forall x.
+    Rep HyperParameterTuningJobStrategyType x
+    -&gt; HyperParameterTuningJobStrategyType)
+-&gt; Generic HyperParameterTuningJobStrategyType
+forall x.
+Rep HyperParameterTuningJobStrategyType x
+-&gt; HyperParameterTuningJobStrategyType
+forall x.
+HyperParameterTuningJobStrategyType
+-&gt; Rep HyperParameterTuningJobStrategyType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HyperParameterTuningJobStrategyType x
+-&gt; HyperParameterTuningJobStrategyType
+$cfrom :: forall x.
+HyperParameterTuningJobStrategyType
+-&gt; Rep HyperParameterTuningJobStrategyType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680307931"><span id="local-6989586621680307933"><span class="annot"><span class="annottext">Int -&gt; HyperParameterTuningJobStrategyType -&gt; Int
+HyperParameterTuningJobStrategyType -&gt; Int
+(Int -&gt; HyperParameterTuningJobStrategyType -&gt; Int)
+-&gt; (HyperParameterTuningJobStrategyType -&gt; Int)
+-&gt; Hashable HyperParameterTuningJobStrategyType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HyperParameterTuningJobStrategyType -&gt; Int
+$chash :: HyperParameterTuningJobStrategyType -&gt; Int
+hashWithSalt :: Int -&gt; HyperParameterTuningJobStrategyType -&gt; Int
+$chashWithSalt :: Int -&gt; HyperParameterTuningJobStrategyType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680307928"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; ()
+(HyperParameterTuningJobStrategyType -&gt; ())
+-&gt; NFData HyperParameterTuningJobStrategyType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HyperParameterTuningJobStrategyType -&gt; ()
+$crnf :: HyperParameterTuningJobStrategyType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680307925"><span class="annot"><span class="annottext">Text -&gt; Either String HyperParameterTuningJobStrategyType
+(Text -&gt; Either String HyperParameterTuningJobStrategyType)
+-&gt; FromText HyperParameterTuningJobStrategyType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HyperParameterTuningJobStrategyType
+$cfromText :: Text -&gt; Either String HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680307922"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; Text
+(HyperParameterTuningJobStrategyType -&gt; Text)
+-&gt; ToText HyperParameterTuningJobStrategyType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HyperParameterTuningJobStrategyType -&gt; Text
+$ctoText :: HyperParameterTuningJobStrategyType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680307919"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; ByteString
+(HyperParameterTuningJobStrategyType -&gt; ByteString)
+-&gt; ToByteString HyperParameterTuningJobStrategyType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HyperParameterTuningJobStrategyType -&gt; ByteString
+$ctoBS :: HyperParameterTuningJobStrategyType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680307916"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; ByteStringBuilder
+(HyperParameterTuningJobStrategyType -&gt; ByteStringBuilder)
+-&gt; ToLog HyperParameterTuningJobStrategyType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HyperParameterTuningJobStrategyType -&gt; ByteStringBuilder
+$cbuild :: HyperParameterTuningJobStrategyType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680307913"><span class="annot"><span class="annottext">HeaderName -&gt; HyperParameterTuningJobStrategyType -&gt; [Header]
+(HeaderName -&gt; HyperParameterTuningJobStrategyType -&gt; [Header])
+-&gt; ToHeader HyperParameterTuningJobStrategyType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HyperParameterTuningJobStrategyType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HyperParameterTuningJobStrategyType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680307910"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; QueryString
+(HyperParameterTuningJobStrategyType -&gt; QueryString)
+-&gt; ToQuery HyperParameterTuningJobStrategyType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HyperParameterTuningJobStrategyType -&gt; QueryString
+$ctoQuery :: HyperParameterTuningJobStrategyType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680307905"><span id="local-6989586621680307907"><span class="annot"><span class="annottext">Value -&gt; Parser [HyperParameterTuningJobStrategyType]
+Value -&gt; Parser HyperParameterTuningJobStrategyType
+(Value -&gt; Parser HyperParameterTuningJobStrategyType)
+-&gt; (Value -&gt; Parser [HyperParameterTuningJobStrategyType])
+-&gt; FromJSON HyperParameterTuningJobStrategyType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HyperParameterTuningJobStrategyType]
+$cparseJSONList :: Value -&gt; Parser [HyperParameterTuningJobStrategyType]
+parseJSON :: Value -&gt; Parser HyperParameterTuningJobStrategyType
+$cparseJSON :: Value -&gt; Parser HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680307900"><span id="local-6989586621680307902"><span class="annot"><span class="annottext">FromJSONKeyFunction [HyperParameterTuningJobStrategyType]
+FromJSONKeyFunction HyperParameterTuningJobStrategyType
+FromJSONKeyFunction HyperParameterTuningJobStrategyType
+-&gt; FromJSONKeyFunction [HyperParameterTuningJobStrategyType]
+-&gt; FromJSONKey HyperParameterTuningJobStrategyType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HyperParameterTuningJobStrategyType]
+$cfromJSONKeyList :: FromJSONKeyFunction [HyperParameterTuningJobStrategyType]
+fromJSONKey :: FromJSONKeyFunction HyperParameterTuningJobStrategyType
+$cfromJSONKey :: FromJSONKeyFunction HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680307891"><span id="local-6989586621680307893"><span id="local-6989586621680307895"><span id="local-6989586621680307897"><span class="annot"><span class="annottext">[HyperParameterTuningJobStrategyType] -&gt; Encoding
+[HyperParameterTuningJobStrategyType] -&gt; Value
+HyperParameterTuningJobStrategyType -&gt; Encoding
+HyperParameterTuningJobStrategyType -&gt; Value
+(HyperParameterTuningJobStrategyType -&gt; Value)
+-&gt; (HyperParameterTuningJobStrategyType -&gt; Encoding)
+-&gt; ([HyperParameterTuningJobStrategyType] -&gt; Value)
+-&gt; ([HyperParameterTuningJobStrategyType] -&gt; Encoding)
+-&gt; ToJSON HyperParameterTuningJobStrategyType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HyperParameterTuningJobStrategyType] -&gt; Encoding
+$ctoEncodingList :: [HyperParameterTuningJobStrategyType] -&gt; Encoding
+toJSONList :: [HyperParameterTuningJobStrategyType] -&gt; Value
+$ctoJSONList :: [HyperParameterTuningJobStrategyType] -&gt; Value
+toEncoding :: HyperParameterTuningJobStrategyType -&gt; Encoding
+$ctoEncoding :: HyperParameterTuningJobStrategyType -&gt; Encoding
+toJSON :: HyperParameterTuningJobStrategyType -&gt; Value
+$ctoJSON :: HyperParameterTuningJobStrategyType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680307886"><span id="local-6989586621680307888"><span class="annot"><span class="annottext">ToJSONKeyFunction [HyperParameterTuningJobStrategyType]
+ToJSONKeyFunction HyperParameterTuningJobStrategyType
+ToJSONKeyFunction HyperParameterTuningJobStrategyType
+-&gt; ToJSONKeyFunction [HyperParameterTuningJobStrategyType]
+-&gt; ToJSONKey HyperParameterTuningJobStrategyType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HyperParameterTuningJobStrategyType]
+$ctoJSONKeyList :: ToJSONKeyFunction [HyperParameterTuningJobStrategyType]
+toJSONKey :: ToJSONKeyFunction HyperParameterTuningJobStrategyType
+$ctoJSONKey :: ToJSONKeyFunction HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680307883"><span class="annot"><span class="annottext">[Node] -&gt; Either String HyperParameterTuningJobStrategyType
+([Node] -&gt; Either String HyperParameterTuningJobStrategyType)
+-&gt; FromXML HyperParameterTuningJobStrategyType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HyperParameterTuningJobStrategyType
+$cparseXML :: [Node] -&gt; Either String HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680307880"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType -&gt; XML
+(HyperParameterTuningJobStrategyType -&gt; XML)
+-&gt; ToXML HyperParameterTuningJobStrategyType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HyperParameterTuningJobStrategyType -&gt; XML
+$ctoXML :: HyperParameterTuningJobStrategyType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType_Bayesian"><span class="hs-identifier hs-type">HyperParameterTuningJobStrategyType_Bayesian</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType"><span class="hs-identifier hs-type">HyperParameterTuningJobStrategyType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHyperParameterTuningJobStrategyType_Bayesian"><span id="%24mHyperParameterTuningJobStrategyType_Bayesian"><span id="HyperParameterTuningJobStrategyType_Bayesian"><span class="annot"><span class="annottext">$bHyperParameterTuningJobStrategyType_Bayesian :: HyperParameterTuningJobStrategyType
+$mHyperParameterTuningJobStrategyType_Bayesian :: forall r.
+HyperParameterTuningJobStrategyType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#%24bHyperParameterTuningJobStrategyType_Bayesian"><span class="hs-identifier hs-var hs-var hs-var">HyperParameterTuningJobStrategyType_Bayesian</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType%27"><span class="hs-identifier hs-type">HyperParameterTuningJobStrategyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Bayesian&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType_Random"><span class="hs-identifier hs-type">HyperParameterTuningJobStrategyType_Random</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType"><span class="hs-identifier hs-type">HyperParameterTuningJobStrategyType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHyperParameterTuningJobStrategyType_Random"><span id="%24mHyperParameterTuningJobStrategyType_Random"><span id="HyperParameterTuningJobStrategyType_Random"><span class="annot"><span class="annottext">$bHyperParameterTuningJobStrategyType_Random :: HyperParameterTuningJobStrategyType
+$mHyperParameterTuningJobStrategyType_Random :: forall r.
+HyperParameterTuningJobStrategyType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#%24bHyperParameterTuningJobStrategyType_Random"><span class="hs-identifier hs-var hs-var hs-var">HyperParameterTuningJobStrategyType_Random</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType%27"><span class="hs-identifier hs-type">HyperParameterTuningJobStrategyType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Random&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType_Bayesian"><span class="hs-pragma hs-type">HyperParameterTuningJobStrategyType_Bayesian</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType_Random"><span class="hs-pragma hs-type">HyperParameterTuningJobStrategyType_Random</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobStrategyType.html#HyperParameterTuningJobStrategyType%27"><span class="hs-pragma hs-type">HyperParameterTuningJobStrategyType'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

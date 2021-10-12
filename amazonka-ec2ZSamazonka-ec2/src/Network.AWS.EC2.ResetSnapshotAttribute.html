@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.ResetSnapshotAttribute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Resets permission settings for the specified snapshot.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information about modifying snapshot permissions, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Share a snapshot&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.ResetSnapshotAttribute</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#newResetSnapshotAttribute"><span class="hs-identifier">newResetSnapshotAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_dryRun"><span class="hs-identifier">resetSnapshotAttribute_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_attribute"><span class="hs-identifier">resetSnapshotAttribute_attribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_snapshotId"><span class="hs-identifier">resetSnapshotAttribute_snapshotId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse"><span class="hs-identifier">ResetSnapshotAttributeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#newResetSnapshotAttributeResponse"><span class="hs-identifier">newResetSnapshotAttributeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newResetSnapshotAttribute' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621681170392"><span id="local-6989586621681170393"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetSnapshotAttribute"><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-var">ResetSnapshotAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetSnapshotAttribute%27"><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-var">ResetSnapshotAttribute'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdryRun%3AResetSnapshotAttribute%27"><span class="annot"><span class="annottext">ResetSnapshotAttribute -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3AdryRun%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The attribute to reset. Currently, only the attribute for permission to</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- create volumes can be reset.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aattribute%3AResetSnapshotAttribute%27"><span class="annot"><span class="annottext">ResetSnapshotAttribute -&gt; SnapshotAttributeName
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3Aattribute%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName"><span class="hs-identifier hs-type">SnapshotAttributeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsnapshotId%3AResetSnapshotAttribute%27"><span class="annot"><span class="annottext">ResetSnapshotAttribute -&gt; Text
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3AsnapshotId%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681170384"><span id="local-6989586621681170386"><span class="annot"><span class="annottext">ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool
+(ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool)
+-&gt; (ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool)
+-&gt; Eq ResetSnapshotAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool
+$c/= :: ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool
+== :: ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool
+$c== :: ResetSnapshotAttribute -&gt; ResetSnapshotAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170375"><span id="local-6989586621681170377"><span id="local-6989586621681170379"><span id="local-6989586621681170381"><span class="annot"><span class="annottext">ReadPrec [ResetSnapshotAttribute]
+ReadPrec ResetSnapshotAttribute
+Int -&gt; ReadS ResetSnapshotAttribute
+ReadS [ResetSnapshotAttribute]
+(Int -&gt; ReadS ResetSnapshotAttribute)
+-&gt; ReadS [ResetSnapshotAttribute]
+-&gt; ReadPrec ResetSnapshotAttribute
+-&gt; ReadPrec [ResetSnapshotAttribute]
+-&gt; Read ResetSnapshotAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetSnapshotAttribute]
+$creadListPrec :: ReadPrec [ResetSnapshotAttribute]
+readPrec :: ReadPrec ResetSnapshotAttribute
+$creadPrec :: ReadPrec ResetSnapshotAttribute
+readList :: ReadS [ResetSnapshotAttribute]
+$creadList :: ReadS [ResetSnapshotAttribute]
+readsPrec :: Int -&gt; ReadS ResetSnapshotAttribute
+$creadsPrec :: Int -&gt; ReadS ResetSnapshotAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170368"><span id="local-6989586621681170370"><span id="local-6989586621681170372"><span class="annot"><span class="annottext">Int -&gt; ResetSnapshotAttribute -&gt; ShowS
+[ResetSnapshotAttribute] -&gt; ShowS
+ResetSnapshotAttribute -&gt; String
+(Int -&gt; ResetSnapshotAttribute -&gt; ShowS)
+-&gt; (ResetSnapshotAttribute -&gt; String)
+-&gt; ([ResetSnapshotAttribute] -&gt; ShowS)
+-&gt; Show ResetSnapshotAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetSnapshotAttribute] -&gt; ShowS
+$cshowList :: [ResetSnapshotAttribute] -&gt; ShowS
+show :: ResetSnapshotAttribute -&gt; String
+$cshow :: ResetSnapshotAttribute -&gt; String
+showsPrec :: Int -&gt; ResetSnapshotAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetSnapshotAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResetSnapshotAttribute -&gt; Rep ResetSnapshotAttribute x)
+-&gt; (forall x.
+    Rep ResetSnapshotAttribute x -&gt; ResetSnapshotAttribute)
+-&gt; Generic ResetSnapshotAttribute
+forall x. Rep ResetSnapshotAttribute x -&gt; ResetSnapshotAttribute
+forall x. ResetSnapshotAttribute -&gt; Rep ResetSnapshotAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResetSnapshotAttribute x -&gt; ResetSnapshotAttribute
+$cfrom :: forall x. ResetSnapshotAttribute -&gt; Rep ResetSnapshotAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ResetSnapshotAttribute' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dryRun', 'resetSnapshotAttribute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'attribute', 'resetSnapshotAttribute_attribute' - The attribute to reset. Currently, only the attribute for permission to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- create volumes can be reset.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'snapshotId', 'resetSnapshotAttribute_snapshotId' - The ID of the snapshot.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#newResetSnapshotAttribute"><span class="hs-identifier hs-type">newResetSnapshotAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'attribute'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName"><span class="hs-identifier hs-type">SnapshotAttributeName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'snapshotId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span>
+</span><span id="line-89"></span><span id="newResetSnapshotAttribute"><span class="annot"><span class="annottext">newResetSnapshotAttribute :: SnapshotAttributeName -&gt; Text -&gt; ResetSnapshotAttribute
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#newResetSnapshotAttribute"><span class="hs-identifier hs-var hs-var">newResetSnapshotAttribute</span></a></span></span><span> </span><span id="local-6989586621681170363"><span class="annot"><span class="annottext">SnapshotAttributeName
+</span><a href="#local-6989586621681170363"><span class="hs-identifier hs-var">pAttribute_</span></a></span></span><span> </span><span id="local-6989586621681170362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170362"><span class="hs-identifier hs-var">pSnapshotId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ResetSnapshotAttribute' :: Maybe Bool
+-&gt; SnapshotAttributeName -&gt; Text -&gt; ResetSnapshotAttribute
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ResetSnapshotAttribute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3AdryRun%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:attribute:ResetSnapshotAttribute' :: SnapshotAttributeName
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3Aattribute%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SnapshotAttributeName
+</span><a href="#local-6989586621681170363"><span class="hs-identifier hs-var">pAttribute_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotId:ResetSnapshotAttribute' :: Text
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3AsnapshotId%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170362"><span class="hs-identifier hs-var">pSnapshotId_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_dryRun"><span class="hs-identifier hs-type">resetSnapshotAttribute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="resetSnapshotAttribute_dryRun"><span class="annot"><span class="annottext">resetSnapshotAttribute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResetSnapshotAttribute -&gt; f ResetSnapshotAttribute
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_dryRun"><span class="hs-identifier hs-var hs-var">resetSnapshotAttribute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetSnapshotAttribute -&gt; Maybe Bool)
+-&gt; (ResetSnapshotAttribute -&gt; Maybe Bool -&gt; ResetSnapshotAttribute)
+-&gt; Lens
+     ResetSnapshotAttribute
+     ResetSnapshotAttribute
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170359"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ResetSnapshotAttribute' :: ResetSnapshotAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681170359"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170359"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170358"><span class="annot"><span class="annottext">s :: ResetSnapshotAttribute
+</span><a href="#local-6989586621681170358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170357"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetSnapshotAttribute
+</span><a href="#local-6989586621681170358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ResetSnapshotAttribute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3AdryRun%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The attribute to reset. Currently, only the attribute for permission to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- create volumes can be reset.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_attribute"><span class="hs-identifier hs-type">resetSnapshotAttribute_attribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName"><span class="hs-identifier hs-type">SnapshotAttributeName</span></a></span><span>
+</span><span id="line-106"></span><span id="resetSnapshotAttribute_attribute"><span class="annot"><span class="annottext">resetSnapshotAttribute_attribute :: (SnapshotAttributeName -&gt; f SnapshotAttributeName)
+-&gt; ResetSnapshotAttribute -&gt; f ResetSnapshotAttribute
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_attribute"><span class="hs-identifier hs-var hs-var">resetSnapshotAttribute_attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetSnapshotAttribute -&gt; SnapshotAttributeName)
+-&gt; (ResetSnapshotAttribute
+    -&gt; SnapshotAttributeName -&gt; ResetSnapshotAttribute)
+-&gt; Lens
+     ResetSnapshotAttribute
+     ResetSnapshotAttribute
+     SnapshotAttributeName
+     SnapshotAttributeName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170356"><span class="annot"><span class="annottext">SnapshotAttributeName
+attribute :: SnapshotAttributeName
+$sel:attribute:ResetSnapshotAttribute' :: ResetSnapshotAttribute -&gt; SnapshotAttributeName
+</span><a href="#local-6989586621681170356"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotAttributeName
+</span><a href="#local-6989586621681170356"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170355"><span class="annot"><span class="annottext">s :: ResetSnapshotAttribute
+</span><a href="#local-6989586621681170355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170354"><span class="annot"><span class="annottext">SnapshotAttributeName
+</span><a href="#local-6989586621681170354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetSnapshotAttribute
+</span><a href="#local-6989586621681170355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:ResetSnapshotAttribute' :: SnapshotAttributeName
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3Aattribute%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SnapshotAttributeName
+</span><a href="#local-6989586621681170354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_snapshotId"><span class="hs-identifier hs-type">resetSnapshotAttribute_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="resetSnapshotAttribute_snapshotId"><span class="annot"><span class="annottext">resetSnapshotAttribute_snapshotId :: (Text -&gt; f Text)
+-&gt; ResetSnapshotAttribute -&gt; f ResetSnapshotAttribute
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#resetSnapshotAttribute_snapshotId"><span class="hs-identifier hs-var hs-var">resetSnapshotAttribute_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetSnapshotAttribute -&gt; Text)
+-&gt; (ResetSnapshotAttribute -&gt; Text -&gt; ResetSnapshotAttribute)
+-&gt; Lens ResetSnapshotAttribute ResetSnapshotAttribute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170353"><span class="annot"><span class="annottext">Text
+snapshotId :: Text
+$sel:snapshotId:ResetSnapshotAttribute' :: ResetSnapshotAttribute -&gt; Text
+</span><a href="#local-6989586621681170353"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170353"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681170352"><span class="annot"><span class="annottext">s :: ResetSnapshotAttribute
+</span><a href="#local-6989586621681170352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681170351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetSnapshotAttribute
+</span><a href="#local-6989586621681170352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:ResetSnapshotAttribute' :: Text
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#%24sel%3AsnapshotId%3AResetSnapshotAttribute%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse"><span class="hs-identifier hs-type">ResetSnapshotAttributeResponse</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681170347"><span class="annot"><span class="annottext">request :: ResetSnapshotAttribute -&gt; Request ResetSnapshotAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResetSnapshotAttribute -&gt; Request ResetSnapshotAttribute
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681170343"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ResetSnapshotAttribute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ResetSnapshotAttribute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse ResetSnapshotAttribute
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ResetSnapshotAttribute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ResetSnapshotAttribute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse ResetSnapshotAttribute
+ResetSnapshotAttributeResponse
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse%27"><span class="hs-identifier hs-var">ResetSnapshotAttributeResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681170336"><span id="local-6989586621681170338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681170333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621681170329"><span class="annot"><span class="annottext">toHeaders :: ResetSnapshotAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ResetSnapshotAttribute -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621681170324"><span class="annot"><span class="annottext">toPath :: ResetSnapshotAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetSnapshotAttribute -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute"><span class="hs-identifier hs-type">ResetSnapshotAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681170320"><span class="annot"><span class="annottext">toQuery :: ResetSnapshotAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttribute%27"><span class="hs-identifier hs-type">ResetSnapshotAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681170316"><span id="local-6989586621681170317"><span id="local-6989586621681170318"><span class="annot"><span class="annottext">Maybe Bool
+Text
+SnapshotAttributeName
+snapshotId :: Text
+attribute :: SnapshotAttributeName
+dryRun :: Maybe Bool
+$sel:snapshotId:ResetSnapshotAttribute' :: ResetSnapshotAttribute -&gt; Text
+$sel:attribute:ResetSnapshotAttribute' :: ResetSnapshotAttribute -&gt; SnapshotAttributeName
+$sel:dryRun:ResetSnapshotAttribute' :: ResetSnapshotAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681170316"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResetSnapshotAttribute&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681170318"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Attribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SnapshotAttributeName -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">SnapshotAttributeName
+</span><a href="#local-6989586621681170317"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681170316"><span class="hs-identifier hs-var">snapshotId</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newResetSnapshotAttributeResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621681170313"><span id="local-6989586621681170314"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetSnapshotAttributeResponse"><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse"><span class="hs-identifier hs-var">ResetSnapshotAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetSnapshotAttributeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse%27"><span class="hs-identifier hs-var">ResetSnapshotAttributeResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681170309"><span id="local-6989586621681170311"><span class="annot"><span class="annottext">ResetSnapshotAttributeResponse
+-&gt; ResetSnapshotAttributeResponse -&gt; Bool
+(ResetSnapshotAttributeResponse
+ -&gt; ResetSnapshotAttributeResponse -&gt; Bool)
+-&gt; (ResetSnapshotAttributeResponse
+    -&gt; ResetSnapshotAttributeResponse -&gt; Bool)
+-&gt; Eq ResetSnapshotAttributeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetSnapshotAttributeResponse
+-&gt; ResetSnapshotAttributeResponse -&gt; Bool
+$c/= :: ResetSnapshotAttributeResponse
+-&gt; ResetSnapshotAttributeResponse -&gt; Bool
+== :: ResetSnapshotAttributeResponse
+-&gt; ResetSnapshotAttributeResponse -&gt; Bool
+$c== :: ResetSnapshotAttributeResponse
+-&gt; ResetSnapshotAttributeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170301"><span id="local-6989586621681170303"><span id="local-6989586621681170305"><span id="local-6989586621681170307"><span class="annot"><span class="annottext">ReadPrec [ResetSnapshotAttributeResponse]
+ReadPrec ResetSnapshotAttributeResponse
+Int -&gt; ReadS ResetSnapshotAttributeResponse
+ReadS [ResetSnapshotAttributeResponse]
+(Int -&gt; ReadS ResetSnapshotAttributeResponse)
+-&gt; ReadS [ResetSnapshotAttributeResponse]
+-&gt; ReadPrec ResetSnapshotAttributeResponse
+-&gt; ReadPrec [ResetSnapshotAttributeResponse]
+-&gt; Read ResetSnapshotAttributeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetSnapshotAttributeResponse]
+$creadListPrec :: ReadPrec [ResetSnapshotAttributeResponse]
+readPrec :: ReadPrec ResetSnapshotAttributeResponse
+$creadPrec :: ReadPrec ResetSnapshotAttributeResponse
+readList :: ReadS [ResetSnapshotAttributeResponse]
+$creadList :: ReadS [ResetSnapshotAttributeResponse]
+readsPrec :: Int -&gt; ReadS ResetSnapshotAttributeResponse
+$creadsPrec :: Int -&gt; ReadS ResetSnapshotAttributeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681170295"><span id="local-6989586621681170297"><span id="local-6989586621681170299"><span class="annot"><span class="annottext">Int -&gt; ResetSnapshotAttributeResponse -&gt; ShowS
+[ResetSnapshotAttributeResponse] -&gt; ShowS
+ResetSnapshotAttributeResponse -&gt; String
+(Int -&gt; ResetSnapshotAttributeResponse -&gt; ShowS)
+-&gt; (ResetSnapshotAttributeResponse -&gt; String)
+-&gt; ([ResetSnapshotAttributeResponse] -&gt; ShowS)
+-&gt; Show ResetSnapshotAttributeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetSnapshotAttributeResponse] -&gt; ShowS
+$cshowList :: [ResetSnapshotAttributeResponse] -&gt; ShowS
+show :: ResetSnapshotAttributeResponse -&gt; String
+$cshow :: ResetSnapshotAttributeResponse -&gt; String
+showsPrec :: Int -&gt; ResetSnapshotAttributeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetSnapshotAttributeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResetSnapshotAttributeResponse
+ -&gt; Rep ResetSnapshotAttributeResponse x)
+-&gt; (forall x.
+    Rep ResetSnapshotAttributeResponse x
+    -&gt; ResetSnapshotAttributeResponse)
+-&gt; Generic ResetSnapshotAttributeResponse
+forall x.
+Rep ResetSnapshotAttributeResponse x
+-&gt; ResetSnapshotAttributeResponse
+forall x.
+ResetSnapshotAttributeResponse
+-&gt; Rep ResetSnapshotAttributeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResetSnapshotAttributeResponse x
+-&gt; ResetSnapshotAttributeResponse
+$cfrom :: forall x.
+ResetSnapshotAttributeResponse
+-&gt; Rep ResetSnapshotAttributeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'ResetSnapshotAttributeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#newResetSnapshotAttributeResponse"><span class="hs-identifier hs-type">newResetSnapshotAttributeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse"><span class="hs-identifier hs-type">ResetSnapshotAttributeResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newResetSnapshotAttributeResponse"><span class="annot"><span class="annottext">newResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#newResetSnapshotAttributeResponse"><span class="hs-identifier hs-var hs-var">newResetSnapshotAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">ResetSnapshotAttributeResponse
+</span><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse%27"><span class="hs-identifier hs-var">ResetSnapshotAttributeResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621681170291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ResetSnapshotAttribute.html#ResetSnapshotAttributeResponse"><span class="hs-identifier hs-type">ResetSnapshotAttributeResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

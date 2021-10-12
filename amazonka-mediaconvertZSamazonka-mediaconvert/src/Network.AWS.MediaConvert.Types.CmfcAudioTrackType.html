@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.CmfcAudioTrackType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.CmfcAudioTrackType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier">CmfcAudioTrackType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-identifier">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-identifier">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-identifier">CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Use this setting to control the values that MediaConvert puts in your</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- HLS parent playlist to control how the client player selects which audio</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- track to play. The other options for this setting determine the values</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- the EXT-X-MEDIA entry for the audio variant. For more information about</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- these attributes, see the Apple documentation article</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- https:\/\/developer.apple.com\/documentation\/http_live_streaming\/example_playlists_for_http_live_streaming\/adding_alternate_media_to_a_playlist.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Choose Alternate audio, auto select, default</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- (ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT) to set DEFAULT=YES and</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- AUTOSELECT=YES. Choose this value for only one variant in your output</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- group. Choose Alternate audio, auto select, not default</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- (ALTERNATE_AUDIO_AUTO_SELECT) to set DEFAULT=NO and AUTOSELECT=YES.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- AUTOSELECT=NO. When you don\'t specify a value for this setting,</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- MediaConvert defaults to Alternate audio, auto select, default. When</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- there is more than one variant in your output group, you must explicitly</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- choose a value for this setting.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679945794"><span id="local-6989586621679945795"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcAudioTrackType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-var">CmfcAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcAudioTrackType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-identifier hs-var">CmfcAudioTrackType'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmfcAudioTrackType"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#fromCmfcAudioTrackType"><span class="hs-identifier hs-var hs-var">fromCmfcAudioTrackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945786"><span id="local-6989586621679945788"><span id="local-6989586621679945790"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioTrackType -&gt; ShowS
+[CmfcAudioTrackType] -&gt; ShowS
+CmfcAudioTrackType -&gt; String
+(Int -&gt; CmfcAudioTrackType -&gt; ShowS)
+-&gt; (CmfcAudioTrackType -&gt; String)
+-&gt; ([CmfcAudioTrackType] -&gt; ShowS)
+-&gt; Show CmfcAudioTrackType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmfcAudioTrackType] -&gt; ShowS
+$cshowList :: [CmfcAudioTrackType] -&gt; ShowS
+show :: CmfcAudioTrackType -&gt; String
+$cshow :: CmfcAudioTrackType -&gt; String
+showsPrec :: Int -&gt; CmfcAudioTrackType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmfcAudioTrackType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679945777"><span id="local-6989586621679945779"><span id="local-6989586621679945781"><span id="local-6989586621679945783"><span class="annot"><span class="annottext">ReadPrec [CmfcAudioTrackType]
+ReadPrec CmfcAudioTrackType
+Int -&gt; ReadS CmfcAudioTrackType
+ReadS [CmfcAudioTrackType]
+(Int -&gt; ReadS CmfcAudioTrackType)
+-&gt; ReadS [CmfcAudioTrackType]
+-&gt; ReadPrec CmfcAudioTrackType
+-&gt; ReadPrec [CmfcAudioTrackType]
+-&gt; Read CmfcAudioTrackType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmfcAudioTrackType]
+$creadListPrec :: ReadPrec [CmfcAudioTrackType]
+readPrec :: ReadPrec CmfcAudioTrackType
+$creadPrec :: ReadPrec CmfcAudioTrackType
+readList :: ReadS [CmfcAudioTrackType]
+$creadList :: ReadS [CmfcAudioTrackType]
+readsPrec :: Int -&gt; ReadS CmfcAudioTrackType
+$creadsPrec :: Int -&gt; ReadS CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679945772"><span id="local-6989586621679945774"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+(CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
+-&gt; Eq CmfcAudioTrackType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+$c/= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+== :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+$c== :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679945756"><span id="local-6989586621679945758"><span id="local-6989586621679945760"><span id="local-6989586621679945762"><span id="local-6989586621679945764"><span id="local-6989586621679945766"><span id="local-6989586621679945768"><span class="annot"><span class="annottext">Eq CmfcAudioTrackType
+Eq CmfcAudioTrackType
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Ordering)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType)
+-&gt; (CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType)
+-&gt; Ord CmfcAudioTrackType
+CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Ordering
+CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType
+$cmin :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType
+max :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType
+$cmax :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; CmfcAudioTrackType
+&gt;= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+$c&gt;= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+&gt; :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+$c&gt; :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+&lt;= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+$c&lt;= :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+&lt; :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+$c&lt; :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Bool
+compare :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Ordering
+$ccompare :: CmfcAudioTrackType -&gt; CmfcAudioTrackType -&gt; Ordering
+$cp1Ord :: Eq CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CmfcAudioTrackType -&gt; Rep CmfcAudioTrackType x)
+-&gt; (forall x. Rep CmfcAudioTrackType x -&gt; CmfcAudioTrackType)
+-&gt; Generic CmfcAudioTrackType
+forall x. Rep CmfcAudioTrackType x -&gt; CmfcAudioTrackType
+forall x. CmfcAudioTrackType -&gt; Rep CmfcAudioTrackType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CmfcAudioTrackType x -&gt; CmfcAudioTrackType
+$cfrom :: forall x. CmfcAudioTrackType -&gt; Rep CmfcAudioTrackType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679945748"><span id="local-6989586621679945750"><span class="annot"><span class="annottext">Int -&gt; CmfcAudioTrackType -&gt; Int
+CmfcAudioTrackType -&gt; Int
+(Int -&gt; CmfcAudioTrackType -&gt; Int)
+-&gt; (CmfcAudioTrackType -&gt; Int) -&gt; Hashable CmfcAudioTrackType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmfcAudioTrackType -&gt; Int
+$chash :: CmfcAudioTrackType -&gt; Int
+hashWithSalt :: Int -&gt; CmfcAudioTrackType -&gt; Int
+$chashWithSalt :: Int -&gt; CmfcAudioTrackType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679945745"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ()
+(CmfcAudioTrackType -&gt; ()) -&gt; NFData CmfcAudioTrackType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmfcAudioTrackType -&gt; ()
+$crnf :: CmfcAudioTrackType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679945742"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcAudioTrackType
+(Text -&gt; Either String CmfcAudioTrackType)
+-&gt; FromText CmfcAudioTrackType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmfcAudioTrackType
+$cfromText :: Text -&gt; Either String CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679945739"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; Text
+(CmfcAudioTrackType -&gt; Text) -&gt; ToText CmfcAudioTrackType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmfcAudioTrackType -&gt; Text
+$ctoText :: CmfcAudioTrackType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679945736"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ByteString
+(CmfcAudioTrackType -&gt; ByteString)
+-&gt; ToByteString CmfcAudioTrackType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmfcAudioTrackType -&gt; ByteString
+$ctoBS :: CmfcAudioTrackType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679945733"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; ByteStringBuilder
+(CmfcAudioTrackType -&gt; ByteStringBuilder)
+-&gt; ToLog CmfcAudioTrackType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmfcAudioTrackType -&gt; ByteStringBuilder
+$cbuild :: CmfcAudioTrackType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679945730"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
+(HeaderName -&gt; CmfcAudioTrackType -&gt; [Header])
+-&gt; ToHeader CmfcAudioTrackType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmfcAudioTrackType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679945727"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; QueryString
+(CmfcAudioTrackType -&gt; QueryString) -&gt; ToQuery CmfcAudioTrackType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmfcAudioTrackType -&gt; QueryString
+$ctoQuery :: CmfcAudioTrackType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679945722"><span id="local-6989586621679945724"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcAudioTrackType]
+Value -&gt; Parser CmfcAudioTrackType
+(Value -&gt; Parser CmfcAudioTrackType)
+-&gt; (Value -&gt; Parser [CmfcAudioTrackType])
+-&gt; FromJSON CmfcAudioTrackType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmfcAudioTrackType]
+$cparseJSONList :: Value -&gt; Parser [CmfcAudioTrackType]
+parseJSON :: Value -&gt; Parser CmfcAudioTrackType
+$cparseJSON :: Value -&gt; Parser CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679945717"><span id="local-6989586621679945719"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcAudioTrackType]
+FromJSONKeyFunction CmfcAudioTrackType
+FromJSONKeyFunction CmfcAudioTrackType
+-&gt; FromJSONKeyFunction [CmfcAudioTrackType]
+-&gt; FromJSONKey CmfcAudioTrackType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmfcAudioTrackType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmfcAudioTrackType]
+fromJSONKey :: FromJSONKeyFunction CmfcAudioTrackType
+$cfromJSONKey :: FromJSONKeyFunction CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679945708"><span id="local-6989586621679945710"><span id="local-6989586621679945712"><span id="local-6989586621679945714"><span class="annot"><span class="annottext">[CmfcAudioTrackType] -&gt; Encoding
+[CmfcAudioTrackType] -&gt; Value
+CmfcAudioTrackType -&gt; Encoding
+CmfcAudioTrackType -&gt; Value
+(CmfcAudioTrackType -&gt; Value)
+-&gt; (CmfcAudioTrackType -&gt; Encoding)
+-&gt; ([CmfcAudioTrackType] -&gt; Value)
+-&gt; ([CmfcAudioTrackType] -&gt; Encoding)
+-&gt; ToJSON CmfcAudioTrackType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmfcAudioTrackType] -&gt; Encoding
+$ctoEncodingList :: [CmfcAudioTrackType] -&gt; Encoding
+toJSONList :: [CmfcAudioTrackType] -&gt; Value
+$ctoJSONList :: [CmfcAudioTrackType] -&gt; Value
+toEncoding :: CmfcAudioTrackType -&gt; Encoding
+$ctoEncoding :: CmfcAudioTrackType -&gt; Encoding
+toJSON :: CmfcAudioTrackType -&gt; Value
+$ctoJSON :: CmfcAudioTrackType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679945703"><span id="local-6989586621679945705"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcAudioTrackType]
+ToJSONKeyFunction CmfcAudioTrackType
+ToJSONKeyFunction CmfcAudioTrackType
+-&gt; ToJSONKeyFunction [CmfcAudioTrackType]
+-&gt; ToJSONKey CmfcAudioTrackType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmfcAudioTrackType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmfcAudioTrackType]
+toJSONKey :: ToJSONKeyFunction CmfcAudioTrackType
+$ctoJSONKey :: ToJSONKeyFunction CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679945700"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcAudioTrackType
+([Node] -&gt; Either String CmfcAudioTrackType)
+-&gt; FromXML CmfcAudioTrackType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmfcAudioTrackType
+$cparseXML :: [Node] -&gt; Either String CmfcAudioTrackType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679945697"><span class="annot"><span class="annottext">CmfcAudioTrackType -&gt; XML
+(CmfcAudioTrackType -&gt; XML) -&gt; ToXML CmfcAudioTrackType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmfcAudioTrackType -&gt; XML
+$ctoXML :: CmfcAudioTrackType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-identifier hs-type">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-type">CmfcAudioTrackType</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span id="%24mCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span id="CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="annot"><span class="annottext">$bCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT :: CmfcAudioTrackType
+$mCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT :: forall r. CmfcAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#%24bCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-identifier hs-var hs-var hs-var">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-identifier hs-type">CmfcAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALTERNATE_AUDIO_AUTO_SELECT&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-identifier hs-type">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-type">CmfcAudioTrackType</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span id="%24mCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span id="CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="annot"><span class="annottext">$bCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT :: CmfcAudioTrackType
+$mCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT :: forall r. CmfcAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#%24bCmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-identifier hs-var hs-var hs-var">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-identifier hs-type">CmfcAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-identifier hs-type">CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType"><span class="hs-identifier hs-type">CmfcAudioTrackType</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span id="%24mCmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span id="CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="annot"><span class="annottext">$bCmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT :: CmfcAudioTrackType
+$mCmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT :: forall r. CmfcAudioTrackType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#%24bCmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-identifier hs-var hs-var hs-var">CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-identifier hs-type">CmfcAudioTrackType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALTERNATE_AUDIO_NOT_AUTO_SELECT&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT"><span class="hs-pragma hs-type">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"><span class="hs-pragma hs-type">CmfcAudioTrackType_ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT"><span class="hs-pragma hs-type">CmfcAudioTrackType_ALTERNATE_AUDIO_NOT_AUTO_SELECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcAudioTrackType.html#CmfcAudioTrackType%27"><span class="hs-pragma hs-type">CmfcAudioTrackType'</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-93"></span></pre></body></html>

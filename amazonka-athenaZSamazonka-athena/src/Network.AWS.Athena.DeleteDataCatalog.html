@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Athena.DeleteDataCatalog</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a data catalog.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Athena.DeleteDataCatalog</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier">DeleteDataCatalog</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#newDeleteDataCatalog"><span class="hs-identifier">newDeleteDataCatalog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#deleteDataCatalog_name"><span class="hs-identifier">deleteDataCatalog_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier">DeleteDataCatalogResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#newDeleteDataCatalogResponse"><span class="hs-identifier">newDeleteDataCatalogResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#deleteDataCatalogResponse_httpStatus"><span class="hs-identifier">deleteDataCatalogResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.html"><span class="hs-identifier">Network.AWS.Athena.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteDataCatalog' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679225933"><span id="local-6989586621679225934"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDataCatalog"><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-var">DeleteDataCatalog</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDataCatalog%27"><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog%27"><span class="hs-identifier hs-var">DeleteDataCatalog'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the data catalog to delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3ADeleteDataCatalog%27"><span class="annot"><span class="annottext">DeleteDataCatalog -&gt; Text
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#%24sel%3Aname%3ADeleteDataCatalog%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225927"><span id="local-6989586621679225929"><span class="annot"><span class="annottext">DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool
+(DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool)
+-&gt; (DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool)
+-&gt; Eq DeleteDataCatalog
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool
+$c/= :: DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool
+== :: DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool
+$c== :: DeleteDataCatalog -&gt; DeleteDataCatalog -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225918"><span id="local-6989586621679225920"><span id="local-6989586621679225922"><span id="local-6989586621679225924"><span class="annot"><span class="annottext">ReadPrec [DeleteDataCatalog]
+ReadPrec DeleteDataCatalog
+Int -&gt; ReadS DeleteDataCatalog
+ReadS [DeleteDataCatalog]
+(Int -&gt; ReadS DeleteDataCatalog)
+-&gt; ReadS [DeleteDataCatalog]
+-&gt; ReadPrec DeleteDataCatalog
+-&gt; ReadPrec [DeleteDataCatalog]
+-&gt; Read DeleteDataCatalog
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDataCatalog]
+$creadListPrec :: ReadPrec [DeleteDataCatalog]
+readPrec :: ReadPrec DeleteDataCatalog
+$creadPrec :: ReadPrec DeleteDataCatalog
+readList :: ReadS [DeleteDataCatalog]
+$creadList :: ReadS [DeleteDataCatalog]
+readsPrec :: Int -&gt; ReadS DeleteDataCatalog
+$creadsPrec :: Int -&gt; ReadS DeleteDataCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225911"><span id="local-6989586621679225913"><span id="local-6989586621679225915"><span class="annot"><span class="annottext">Int -&gt; DeleteDataCatalog -&gt; ShowS
+[DeleteDataCatalog] -&gt; ShowS
+DeleteDataCatalog -&gt; String
+(Int -&gt; DeleteDataCatalog -&gt; ShowS)
+-&gt; (DeleteDataCatalog -&gt; String)
+-&gt; ([DeleteDataCatalog] -&gt; ShowS)
+-&gt; Show DeleteDataCatalog
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDataCatalog] -&gt; ShowS
+$cshowList :: [DeleteDataCatalog] -&gt; ShowS
+show :: DeleteDataCatalog -&gt; String
+$cshow :: DeleteDataCatalog -&gt; String
+showsPrec :: Int -&gt; DeleteDataCatalog -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDataCatalog -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteDataCatalog -&gt; Rep DeleteDataCatalog x)
+-&gt; (forall x. Rep DeleteDataCatalog x -&gt; DeleteDataCatalog)
+-&gt; Generic DeleteDataCatalog
+forall x. Rep DeleteDataCatalog x -&gt; DeleteDataCatalog
+forall x. DeleteDataCatalog -&gt; Rep DeleteDataCatalog x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteDataCatalog x -&gt; DeleteDataCatalog
+$cfrom :: forall x. DeleteDataCatalog -&gt; Rep DeleteDataCatalog x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteDataCatalog' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'name', 'deleteDataCatalog_name' - The name of the data catalog to delete.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#newDeleteDataCatalog"><span class="hs-identifier hs-type">newDeleteDataCatalog</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteDataCatalog"><span class="annot"><span class="annottext">newDeleteDataCatalog :: Text -&gt; DeleteDataCatalog
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#newDeleteDataCatalog"><span class="hs-identifier hs-var hs-var">newDeleteDataCatalog</span></a></span></span><span> </span><span id="local-6989586621679225906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225906"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteDataCatalog' :: Text -&gt; DeleteDataCatalog
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog%27"><span class="hs-identifier hs-type">DeleteDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteDataCatalog' :: Text
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#%24sel%3Aname%3ADeleteDataCatalog%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225906"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the data catalog to delete.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#deleteDataCatalog_name"><span class="hs-identifier hs-type">deleteDataCatalog_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteDataCatalog_name"><span class="annot"><span class="annottext">deleteDataCatalog_name :: (Text -&gt; f Text) -&gt; DeleteDataCatalog -&gt; f DeleteDataCatalog
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#deleteDataCatalog_name"><span class="hs-identifier hs-var hs-var">deleteDataCatalog_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataCatalog -&gt; Text)
+-&gt; (DeleteDataCatalog -&gt; Text -&gt; DeleteDataCatalog)
+-&gt; Lens DeleteDataCatalog DeleteDataCatalog Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog%27"><span class="hs-identifier hs-type">DeleteDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225903"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteDataCatalog' :: DeleteDataCatalog -&gt; Text
+</span><a href="#local-6989586621679225903"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225903"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225902"><span class="annot"><span class="annottext">s :: DeleteDataCatalog
+</span><a href="#local-6989586621679225902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog%27"><span class="hs-identifier hs-type">DeleteDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataCatalog
+</span><a href="#local-6989586621679225902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteDataCatalog' :: Text
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#%24sel%3Aname%3ADeleteDataCatalog%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier hs-type">DeleteDataCatalogResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679225897"><span class="annot"><span class="annottext">request :: DeleteDataCatalog -&gt; Request DeleteDataCatalog
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDataCatalog -&gt; Request DeleteDataCatalog
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679225893"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteDataCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDataCatalog)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteDataCatalog))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteDataCatalog
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteDataCatalog)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225890"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225889"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225889"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225888"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679225888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDataCatalogResponse
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse%27"><span class="hs-identifier hs-var">DeleteDataCatalogResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDataCatalogResponse)
+-&gt; Either String Int -&gt; Either String DeleteDataCatalogResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225890"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225881"><span id="local-6989586621679225883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679225874"><span class="annot"><span class="annottext">toHeaders :: DeleteDataCatalog -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDataCatalog -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonAthena.DeleteDataCatalog&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225864"><span id="local-6989586621679225866"><span id="local-6989586621679225868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679225862"><span class="annot"><span class="annottext">toJSON :: DeleteDataCatalog -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog%27"><span class="hs-identifier hs-type">DeleteDataCatalog'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225860"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteDataCatalog' :: DeleteDataCatalog -&gt; Text
+</span><a href="#local-6989586621679225860"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225860"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679225854"><span class="annot"><span class="annottext">toPath :: DeleteDataCatalog -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDataCatalog -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalog"><span class="hs-identifier hs-type">DeleteDataCatalog</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679225850"><span class="annot"><span class="annottext">toQuery :: DeleteDataCatalog -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDataCatalog -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteDataCatalogResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679225847"><span id="local-6989586621679225848"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDataCatalogResponse"><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier hs-var">DeleteDataCatalogResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDataCatalogResponse%27"><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse%27"><span class="hs-identifier hs-var">DeleteDataCatalogResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDataCatalogResponse%27"><span class="annot"><span class="annottext">DeleteDataCatalogResponse -&gt; Int
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#%24sel%3AhttpStatus%3ADeleteDataCatalogResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225842"><span id="local-6989586621679225844"><span class="annot"><span class="annottext">DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool
+(DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool)
+-&gt; (DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool)
+-&gt; Eq DeleteDataCatalogResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool
+$c/= :: DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool
+== :: DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool
+$c== :: DeleteDataCatalogResponse -&gt; DeleteDataCatalogResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225834"><span id="local-6989586621679225836"><span id="local-6989586621679225838"><span id="local-6989586621679225840"><span class="annot"><span class="annottext">ReadPrec [DeleteDataCatalogResponse]
+ReadPrec DeleteDataCatalogResponse
+Int -&gt; ReadS DeleteDataCatalogResponse
+ReadS [DeleteDataCatalogResponse]
+(Int -&gt; ReadS DeleteDataCatalogResponse)
+-&gt; ReadS [DeleteDataCatalogResponse]
+-&gt; ReadPrec DeleteDataCatalogResponse
+-&gt; ReadPrec [DeleteDataCatalogResponse]
+-&gt; Read DeleteDataCatalogResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteDataCatalogResponse]
+$creadListPrec :: ReadPrec [DeleteDataCatalogResponse]
+readPrec :: ReadPrec DeleteDataCatalogResponse
+$creadPrec :: ReadPrec DeleteDataCatalogResponse
+readList :: ReadS [DeleteDataCatalogResponse]
+$creadList :: ReadS [DeleteDataCatalogResponse]
+readsPrec :: Int -&gt; ReadS DeleteDataCatalogResponse
+$creadsPrec :: Int -&gt; ReadS DeleteDataCatalogResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225828"><span id="local-6989586621679225830"><span id="local-6989586621679225832"><span class="annot"><span class="annottext">Int -&gt; DeleteDataCatalogResponse -&gt; ShowS
+[DeleteDataCatalogResponse] -&gt; ShowS
+DeleteDataCatalogResponse -&gt; String
+(Int -&gt; DeleteDataCatalogResponse -&gt; ShowS)
+-&gt; (DeleteDataCatalogResponse -&gt; String)
+-&gt; ([DeleteDataCatalogResponse] -&gt; ShowS)
+-&gt; Show DeleteDataCatalogResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteDataCatalogResponse] -&gt; ShowS
+$cshowList :: [DeleteDataCatalogResponse] -&gt; ShowS
+show :: DeleteDataCatalogResponse -&gt; String
+$cshow :: DeleteDataCatalogResponse -&gt; String
+showsPrec :: Int -&gt; DeleteDataCatalogResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteDataCatalogResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteDataCatalogResponse -&gt; Rep DeleteDataCatalogResponse x)
+-&gt; (forall x.
+    Rep DeleteDataCatalogResponse x -&gt; DeleteDataCatalogResponse)
+-&gt; Generic DeleteDataCatalogResponse
+forall x.
+Rep DeleteDataCatalogResponse x -&gt; DeleteDataCatalogResponse
+forall x.
+DeleteDataCatalogResponse -&gt; Rep DeleteDataCatalogResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteDataCatalogResponse x -&gt; DeleteDataCatalogResponse
+$cfrom :: forall x.
+DeleteDataCatalogResponse -&gt; Rep DeleteDataCatalogResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'DeleteDataCatalogResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'deleteDataCatalogResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#newDeleteDataCatalogResponse"><span class="hs-identifier hs-type">newDeleteDataCatalogResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier hs-type">DeleteDataCatalogResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newDeleteDataCatalogResponse"><span class="annot"><span class="annottext">newDeleteDataCatalogResponse :: Int -&gt; DeleteDataCatalogResponse
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#newDeleteDataCatalogResponse"><span class="hs-identifier hs-var hs-var">newDeleteDataCatalogResponse</span></a></span></span><span> </span><span id="local-6989586621679225825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteDataCatalogResponse' :: Int -&gt; DeleteDataCatalogResponse
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse%27"><span class="hs-identifier hs-type">DeleteDataCatalogResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDataCatalogResponse' :: Int
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#%24sel%3AhttpStatus%3ADeleteDataCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#deleteDataCatalogResponse_httpStatus"><span class="hs-identifier hs-type">deleteDataCatalogResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier hs-type">DeleteDataCatalogResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="deleteDataCatalogResponse_httpStatus"><span class="annot"><span class="annottext">deleteDataCatalogResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteDataCatalogResponse -&gt; f DeleteDataCatalogResponse
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#deleteDataCatalogResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteDataCatalogResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteDataCatalogResponse -&gt; Int)
+-&gt; (DeleteDataCatalogResponse -&gt; Int -&gt; DeleteDataCatalogResponse)
+-&gt; Lens DeleteDataCatalogResponse DeleteDataCatalogResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse%27"><span class="hs-identifier hs-type">DeleteDataCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225824"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteDataCatalogResponse' :: DeleteDataCatalogResponse -&gt; Int
+</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225823"><span class="annot"><span class="annottext">s :: DeleteDataCatalogResponse
+</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse%27"><span class="hs-identifier hs-type">DeleteDataCatalogResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225822"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataCatalogResponse
+</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDataCatalogResponse' :: Int
+</span><a href="Network.AWS.Athena.DeleteDataCatalog.html#%24sel%3AhttpStatus%3ADeleteDataCatalogResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier hs-type">DeleteDataCatalogResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteDataCatalog.html#DeleteDataCatalogResponse"><span class="hs-identifier hs-type">DeleteDataCatalogResponse</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

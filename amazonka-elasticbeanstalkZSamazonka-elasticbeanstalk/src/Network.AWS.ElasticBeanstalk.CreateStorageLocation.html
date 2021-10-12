@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a bucket in Amazon S3 to store application versions, logs, and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- other files used by Elastic Beanstalk environments. The Elastic</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Beanstalk console and EB CLI call this API the first time you create an</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- environment in a region. If the storage location already exists,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @CreateStorageLocation@ still returns the bucket name but does not</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- create a new bucket.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticBeanstalk.CreateStorageLocation</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier">CreateStorageLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#newCreateStorageLocation"><span class="hs-identifier">newCreateStorageLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier">CreateStorageLocationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#newCreateStorageLocationResponse"><span class="hs-identifier">newCreateStorageLocationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#createStorageLocationResponse_s3Bucket"><span class="hs-identifier">createStorageLocationResponse_s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#createStorageLocationResponse_httpStatus"><span class="hs-identifier">createStorageLocationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.html"><span class="hs-identifier">Network.AWS.ElasticBeanstalk.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateStorageLocation' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679315667"><span id="local-6989586621679315668"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStorageLocation"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-var">CreateStorageLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStorageLocation%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation%27"><span class="hs-identifier hs-var">CreateStorageLocation'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315662"><span id="local-6989586621679315664"><span class="annot"><span class="annottext">CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool
+(CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool)
+-&gt; (CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool)
+-&gt; Eq CreateStorageLocation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool
+$c/= :: CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool
+== :: CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool
+$c== :: CreateStorageLocation -&gt; CreateStorageLocation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315653"><span id="local-6989586621679315655"><span id="local-6989586621679315657"><span id="local-6989586621679315659"><span class="annot"><span class="annottext">ReadPrec [CreateStorageLocation]
+ReadPrec CreateStorageLocation
+Int -&gt; ReadS CreateStorageLocation
+ReadS [CreateStorageLocation]
+(Int -&gt; ReadS CreateStorageLocation)
+-&gt; ReadS [CreateStorageLocation]
+-&gt; ReadPrec CreateStorageLocation
+-&gt; ReadPrec [CreateStorageLocation]
+-&gt; Read CreateStorageLocation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStorageLocation]
+$creadListPrec :: ReadPrec [CreateStorageLocation]
+readPrec :: ReadPrec CreateStorageLocation
+$creadPrec :: ReadPrec CreateStorageLocation
+readList :: ReadS [CreateStorageLocation]
+$creadList :: ReadS [CreateStorageLocation]
+readsPrec :: Int -&gt; ReadS CreateStorageLocation
+$creadsPrec :: Int -&gt; ReadS CreateStorageLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315646"><span id="local-6989586621679315648"><span id="local-6989586621679315650"><span class="annot"><span class="annottext">Int -&gt; CreateStorageLocation -&gt; ShowS
+[CreateStorageLocation] -&gt; ShowS
+CreateStorageLocation -&gt; String
+(Int -&gt; CreateStorageLocation -&gt; ShowS)
+-&gt; (CreateStorageLocation -&gt; String)
+-&gt; ([CreateStorageLocation] -&gt; ShowS)
+-&gt; Show CreateStorageLocation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStorageLocation] -&gt; ShowS
+$cshowList :: [CreateStorageLocation] -&gt; ShowS
+show :: CreateStorageLocation -&gt; String
+$cshow :: CreateStorageLocation -&gt; String
+showsPrec :: Int -&gt; CreateStorageLocation -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStorageLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateStorageLocation -&gt; Rep CreateStorageLocation x)
+-&gt; (forall x. Rep CreateStorageLocation x -&gt; CreateStorageLocation)
+-&gt; Generic CreateStorageLocation
+forall x. Rep CreateStorageLocation x -&gt; CreateStorageLocation
+forall x. CreateStorageLocation -&gt; Rep CreateStorageLocation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateStorageLocation x -&gt; CreateStorageLocation
+$cfrom :: forall x. CreateStorageLocation -&gt; Rep CreateStorageLocation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'CreateStorageLocation' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#newCreateStorageLocation"><span class="hs-identifier hs-type">newCreateStorageLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span><span>
+</span><span id="line-63"></span><span id="newCreateStorageLocation"><span class="annot"><span class="annottext">newCreateStorageLocation :: CreateStorageLocation
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#newCreateStorageLocation"><span class="hs-identifier hs-var hs-var">newCreateStorageLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateStorageLocation
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation%27"><span class="hs-identifier hs-var">CreateStorageLocation'</span></a></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679315638"><span class="annot"><span class="annottext">request :: CreateStorageLocation -&gt; Request CreateStorageLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateStorageLocation -&gt; Request CreateStorageLocation
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679315634"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateStorageLocation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateStorageLocation)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateStorageLocation))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateStorageLocation
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateStorageLocation)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateStorageLocationResult&quot;</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315631"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315631"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315630"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679315630"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315629"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679315629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateStorageLocationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-var">CreateStorageLocationResponse'</span></a></span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateStorageLocationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateStorageLocationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679315629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateStorageLocationResponse)
+-&gt; Either String Int -&gt; Either String CreateStorageLocationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315631"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315621"><span id="local-6989586621679315623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679315614"><span class="annot"><span class="annottext">toHeaders :: CreateStorageLocation -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateStorageLocation -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679315609"><span class="annot"><span class="annottext">toPath :: CreateStorageLocation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateStorageLocation -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocation"><span class="hs-identifier hs-type">CreateStorageLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679315605"><span class="annot"><span class="annottext">toQuery :: CreateStorageLocation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStorageLocation -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateStorageLocation&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Results of a CreateStorageLocationResult call.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- /See:/ 'newCreateStorageLocationResponse' smart constructor.</span><span>
+</span><span id="line-103"></span><span id="local-6989586621679315601"><span id="local-6989586621679315602"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStorageLocationResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-var">CreateStorageLocationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStorageLocationResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-var">CreateStorageLocationResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon S3 bucket created.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3As3Bucket%3ACreateStorageLocationResponse%27"><span class="annot"><span class="annottext">CreateStorageLocationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#%24sel%3As3Bucket%3ACreateStorageLocationResponse%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateStorageLocationResponse%27"><span class="annot"><span class="annottext">CreateStorageLocationResponse -&gt; Int
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#%24sel%3AhttpStatus%3ACreateStorageLocationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315595"><span id="local-6989586621679315597"><span class="annot"><span class="annottext">CreateStorageLocationResponse
+-&gt; CreateStorageLocationResponse -&gt; Bool
+(CreateStorageLocationResponse
+ -&gt; CreateStorageLocationResponse -&gt; Bool)
+-&gt; (CreateStorageLocationResponse
+    -&gt; CreateStorageLocationResponse -&gt; Bool)
+-&gt; Eq CreateStorageLocationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStorageLocationResponse
+-&gt; CreateStorageLocationResponse -&gt; Bool
+$c/= :: CreateStorageLocationResponse
+-&gt; CreateStorageLocationResponse -&gt; Bool
+== :: CreateStorageLocationResponse
+-&gt; CreateStorageLocationResponse -&gt; Bool
+$c== :: CreateStorageLocationResponse
+-&gt; CreateStorageLocationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315587"><span id="local-6989586621679315589"><span id="local-6989586621679315591"><span id="local-6989586621679315593"><span class="annot"><span class="annottext">ReadPrec [CreateStorageLocationResponse]
+ReadPrec CreateStorageLocationResponse
+Int -&gt; ReadS CreateStorageLocationResponse
+ReadS [CreateStorageLocationResponse]
+(Int -&gt; ReadS CreateStorageLocationResponse)
+-&gt; ReadS [CreateStorageLocationResponse]
+-&gt; ReadPrec CreateStorageLocationResponse
+-&gt; ReadPrec [CreateStorageLocationResponse]
+-&gt; Read CreateStorageLocationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStorageLocationResponse]
+$creadListPrec :: ReadPrec [CreateStorageLocationResponse]
+readPrec :: ReadPrec CreateStorageLocationResponse
+$creadPrec :: ReadPrec CreateStorageLocationResponse
+readList :: ReadS [CreateStorageLocationResponse]
+$creadList :: ReadS [CreateStorageLocationResponse]
+readsPrec :: Int -&gt; ReadS CreateStorageLocationResponse
+$creadsPrec :: Int -&gt; ReadS CreateStorageLocationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315581"><span id="local-6989586621679315583"><span id="local-6989586621679315585"><span class="annot"><span class="annottext">Int -&gt; CreateStorageLocationResponse -&gt; ShowS
+[CreateStorageLocationResponse] -&gt; ShowS
+CreateStorageLocationResponse -&gt; String
+(Int -&gt; CreateStorageLocationResponse -&gt; ShowS)
+-&gt; (CreateStorageLocationResponse -&gt; String)
+-&gt; ([CreateStorageLocationResponse] -&gt; ShowS)
+-&gt; Show CreateStorageLocationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStorageLocationResponse] -&gt; ShowS
+$cshowList :: [CreateStorageLocationResponse] -&gt; ShowS
+show :: CreateStorageLocationResponse -&gt; String
+$cshow :: CreateStorageLocationResponse -&gt; String
+showsPrec :: Int -&gt; CreateStorageLocationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStorageLocationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateStorageLocationResponse
+ -&gt; Rep CreateStorageLocationResponse x)
+-&gt; (forall x.
+    Rep CreateStorageLocationResponse x
+    -&gt; CreateStorageLocationResponse)
+-&gt; Generic CreateStorageLocationResponse
+forall x.
+Rep CreateStorageLocationResponse x
+-&gt; CreateStorageLocationResponse
+forall x.
+CreateStorageLocationResponse
+-&gt; Rep CreateStorageLocationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateStorageLocationResponse x
+-&gt; CreateStorageLocationResponse
+$cfrom :: forall x.
+CreateStorageLocationResponse
+-&gt; Rep CreateStorageLocationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'CreateStorageLocationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 's3Bucket', 'createStorageLocationResponse_s3Bucket' - The name of the Amazon S3 bucket created.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'httpStatus', 'createStorageLocationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#newCreateStorageLocationResponse"><span class="hs-identifier hs-type">newCreateStorageLocationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span><span>
+</span><span id="line-126"></span><span id="newCreateStorageLocationResponse"><span class="annot"><span class="annottext">newCreateStorageLocationResponse :: Int -&gt; CreateStorageLocationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#newCreateStorageLocationResponse"><span class="hs-identifier hs-var hs-var">newCreateStorageLocationResponse</span></a></span></span><span> </span><span id="local-6989586621679315578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">CreateStorageLocationResponse' :: Maybe Text -&gt; Int -&gt; CreateStorageLocationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-type">CreateStorageLocationResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Bucket:CreateStorageLocationResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#%24sel%3As3Bucket%3ACreateStorageLocationResponse%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStorageLocationResponse' :: Int
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#%24sel%3AhttpStatus%3ACreateStorageLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket created.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#createStorageLocationResponse_s3Bucket"><span class="hs-identifier hs-type">createStorageLocationResponse_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="createStorageLocationResponse_s3Bucket"><span class="annot"><span class="annottext">createStorageLocationResponse_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStorageLocationResponse -&gt; f CreateStorageLocationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#createStorageLocationResponse_s3Bucket"><span class="hs-identifier hs-var hs-var">createStorageLocationResponse_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStorageLocationResponse -&gt; Maybe Text)
+-&gt; (CreateStorageLocationResponse
+    -&gt; Maybe Text -&gt; CreateStorageLocationResponse)
+-&gt; Lens
+     CreateStorageLocationResponse
+     CreateStorageLocationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-type">CreateStorageLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315575"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:CreateStorageLocationResponse' :: CreateStorageLocationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679315575"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315575"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315574"><span class="annot"><span class="annottext">s :: CreateStorageLocationResponse
+</span><a href="#local-6989586621679315574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-type">CreateStorageLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStorageLocationResponse
+</span><a href="#local-6989586621679315574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:CreateStorageLocationResponse' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#%24sel%3As3Bucket%3ACreateStorageLocationResponse%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#createStorageLocationResponse_httpStatus"><span class="hs-identifier hs-type">createStorageLocationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span id="createStorageLocationResponse_httpStatus"><span class="annot"><span class="annottext">createStorageLocationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateStorageLocationResponse -&gt; f CreateStorageLocationResponse
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#createStorageLocationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createStorageLocationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStorageLocationResponse -&gt; Int)
+-&gt; (CreateStorageLocationResponse
+    -&gt; Int -&gt; CreateStorageLocationResponse)
+-&gt; Lens
+     CreateStorageLocationResponse CreateStorageLocationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-type">CreateStorageLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315572"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateStorageLocationResponse' :: CreateStorageLocationResponse -&gt; Int
+</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315571"><span class="annot"><span class="annottext">s :: CreateStorageLocationResponse
+</span><a href="#local-6989586621679315571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse%27"><span class="hs-identifier hs-type">CreateStorageLocationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStorageLocationResponse
+</span><a href="#local-6989586621679315571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStorageLocationResponse' :: Int
+</span><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#%24sel%3AhttpStatus%3ACreateStorageLocationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.CreateStorageLocation.html#CreateStorageLocationResponse"><span class="hs-identifier hs-type">CreateStorageLocationResponse</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

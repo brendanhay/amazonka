@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.FleetEventType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.FleetEventType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType"><span class="hs-identifier">FleetEventType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Fleet_change"><span class="hs-identifier">FleetEventType_Fleet_change</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Instance_change"><span class="hs-identifier">FleetEventType_Instance_change</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Service_error"><span class="hs-identifier">FleetEventType_Service_error</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681073671"><span id="local-6989586621681073672"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetEventType"><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType"><span class="hs-identifier hs-var">FleetEventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetEventType%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType%27"><span class="hs-identifier hs-var">FleetEventType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetEventType"><span class="annot"><span class="annottext">FleetEventType -&gt; Text
+</span><a href="Network.AWS.EC2.Types.FleetEventType.html#fromFleetEventType"><span class="hs-identifier hs-var hs-var">fromFleetEventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681073663"><span id="local-6989586621681073665"><span id="local-6989586621681073667"><span class="annot"><span class="annottext">Int -&gt; FleetEventType -&gt; ShowS
+[FleetEventType] -&gt; ShowS
+FleetEventType -&gt; String
+(Int -&gt; FleetEventType -&gt; ShowS)
+-&gt; (FleetEventType -&gt; String)
+-&gt; ([FleetEventType] -&gt; ShowS)
+-&gt; Show FleetEventType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetEventType] -&gt; ShowS
+$cshowList :: [FleetEventType] -&gt; ShowS
+show :: FleetEventType -&gt; String
+$cshow :: FleetEventType -&gt; String
+showsPrec :: Int -&gt; FleetEventType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetEventType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681073654"><span id="local-6989586621681073656"><span id="local-6989586621681073658"><span id="local-6989586621681073660"><span class="annot"><span class="annottext">ReadPrec [FleetEventType]
+ReadPrec FleetEventType
+Int -&gt; ReadS FleetEventType
+ReadS [FleetEventType]
+(Int -&gt; ReadS FleetEventType)
+-&gt; ReadS [FleetEventType]
+-&gt; ReadPrec FleetEventType
+-&gt; ReadPrec [FleetEventType]
+-&gt; Read FleetEventType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetEventType]
+$creadListPrec :: ReadPrec [FleetEventType]
+readPrec :: ReadPrec FleetEventType
+$creadPrec :: ReadPrec FleetEventType
+readList :: ReadS [FleetEventType]
+$creadList :: ReadS [FleetEventType]
+readsPrec :: Int -&gt; ReadS FleetEventType
+$creadsPrec :: Int -&gt; ReadS FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681073649"><span id="local-6989586621681073651"><span class="annot"><span class="annottext">FleetEventType -&gt; FleetEventType -&gt; Bool
+(FleetEventType -&gt; FleetEventType -&gt; Bool)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; Bool) -&gt; Eq FleetEventType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetEventType -&gt; FleetEventType -&gt; Bool
+$c/= :: FleetEventType -&gt; FleetEventType -&gt; Bool
+== :: FleetEventType -&gt; FleetEventType -&gt; Bool
+$c== :: FleetEventType -&gt; FleetEventType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681073633"><span id="local-6989586621681073635"><span id="local-6989586621681073637"><span id="local-6989586621681073639"><span id="local-6989586621681073641"><span id="local-6989586621681073643"><span id="local-6989586621681073645"><span class="annot"><span class="annottext">Eq FleetEventType
+Eq FleetEventType
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; Ordering)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; Bool)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; Bool)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; Bool)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; Bool)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; FleetEventType)
+-&gt; (FleetEventType -&gt; FleetEventType -&gt; FleetEventType)
+-&gt; Ord FleetEventType
+FleetEventType -&gt; FleetEventType -&gt; Bool
+FleetEventType -&gt; FleetEventType -&gt; Ordering
+FleetEventType -&gt; FleetEventType -&gt; FleetEventType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FleetEventType -&gt; FleetEventType -&gt; FleetEventType
+$cmin :: FleetEventType -&gt; FleetEventType -&gt; FleetEventType
+max :: FleetEventType -&gt; FleetEventType -&gt; FleetEventType
+$cmax :: FleetEventType -&gt; FleetEventType -&gt; FleetEventType
+&gt;= :: FleetEventType -&gt; FleetEventType -&gt; Bool
+$c&gt;= :: FleetEventType -&gt; FleetEventType -&gt; Bool
+&gt; :: FleetEventType -&gt; FleetEventType -&gt; Bool
+$c&gt; :: FleetEventType -&gt; FleetEventType -&gt; Bool
+&lt;= :: FleetEventType -&gt; FleetEventType -&gt; Bool
+$c&lt;= :: FleetEventType -&gt; FleetEventType -&gt; Bool
+&lt; :: FleetEventType -&gt; FleetEventType -&gt; Bool
+$c&lt; :: FleetEventType -&gt; FleetEventType -&gt; Bool
+compare :: FleetEventType -&gt; FleetEventType -&gt; Ordering
+$ccompare :: FleetEventType -&gt; FleetEventType -&gt; Ordering
+$cp1Ord :: Eq FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FleetEventType -&gt; Rep FleetEventType x)
+-&gt; (forall x. Rep FleetEventType x -&gt; FleetEventType)
+-&gt; Generic FleetEventType
+forall x. Rep FleetEventType x -&gt; FleetEventType
+forall x. FleetEventType -&gt; Rep FleetEventType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FleetEventType x -&gt; FleetEventType
+$cfrom :: forall x. FleetEventType -&gt; Rep FleetEventType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681073625"><span id="local-6989586621681073627"><span class="annot"><span class="annottext">Int -&gt; FleetEventType -&gt; Int
+FleetEventType -&gt; Int
+(Int -&gt; FleetEventType -&gt; Int)
+-&gt; (FleetEventType -&gt; Int) -&gt; Hashable FleetEventType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FleetEventType -&gt; Int
+$chash :: FleetEventType -&gt; Int
+hashWithSalt :: Int -&gt; FleetEventType -&gt; Int
+$chashWithSalt :: Int -&gt; FleetEventType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681073622"><span class="annot"><span class="annottext">FleetEventType -&gt; ()
+(FleetEventType -&gt; ()) -&gt; NFData FleetEventType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FleetEventType -&gt; ()
+$crnf :: FleetEventType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681073619"><span class="annot"><span class="annottext">Text -&gt; Either String FleetEventType
+(Text -&gt; Either String FleetEventType) -&gt; FromText FleetEventType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FleetEventType
+$cfromText :: Text -&gt; Either String FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681073616"><span class="annot"><span class="annottext">FleetEventType -&gt; Text
+(FleetEventType -&gt; Text) -&gt; ToText FleetEventType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FleetEventType -&gt; Text
+$ctoText :: FleetEventType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681073613"><span class="annot"><span class="annottext">FleetEventType -&gt; ByteString
+(FleetEventType -&gt; ByteString) -&gt; ToByteString FleetEventType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FleetEventType -&gt; ByteString
+$ctoBS :: FleetEventType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681073610"><span class="annot"><span class="annottext">FleetEventType -&gt; ByteStringBuilder
+(FleetEventType -&gt; ByteStringBuilder) -&gt; ToLog FleetEventType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FleetEventType -&gt; ByteStringBuilder
+$cbuild :: FleetEventType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681073607"><span class="annot"><span class="annottext">HeaderName -&gt; FleetEventType -&gt; [Header]
+(HeaderName -&gt; FleetEventType -&gt; [Header])
+-&gt; ToHeader FleetEventType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FleetEventType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FleetEventType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681073604"><span class="annot"><span class="annottext">FleetEventType -&gt; QueryString
+(FleetEventType -&gt; QueryString) -&gt; ToQuery FleetEventType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FleetEventType -&gt; QueryString
+$ctoQuery :: FleetEventType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681073599"><span id="local-6989586621681073601"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetEventType]
+Value -&gt; Parser FleetEventType
+(Value -&gt; Parser FleetEventType)
+-&gt; (Value -&gt; Parser [FleetEventType]) -&gt; FromJSON FleetEventType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FleetEventType]
+$cparseJSONList :: Value -&gt; Parser [FleetEventType]
+parseJSON :: Value -&gt; Parser FleetEventType
+$cparseJSON :: Value -&gt; Parser FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681073594"><span id="local-6989586621681073596"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetEventType]
+FromJSONKeyFunction FleetEventType
+FromJSONKeyFunction FleetEventType
+-&gt; FromJSONKeyFunction [FleetEventType]
+-&gt; FromJSONKey FleetEventType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FleetEventType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FleetEventType]
+fromJSONKey :: FromJSONKeyFunction FleetEventType
+$cfromJSONKey :: FromJSONKeyFunction FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681073585"><span id="local-6989586621681073587"><span id="local-6989586621681073589"><span id="local-6989586621681073591"><span class="annot"><span class="annottext">[FleetEventType] -&gt; Encoding
+[FleetEventType] -&gt; Value
+FleetEventType -&gt; Encoding
+FleetEventType -&gt; Value
+(FleetEventType -&gt; Value)
+-&gt; (FleetEventType -&gt; Encoding)
+-&gt; ([FleetEventType] -&gt; Value)
+-&gt; ([FleetEventType] -&gt; Encoding)
+-&gt; ToJSON FleetEventType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FleetEventType] -&gt; Encoding
+$ctoEncodingList :: [FleetEventType] -&gt; Encoding
+toJSONList :: [FleetEventType] -&gt; Value
+$ctoJSONList :: [FleetEventType] -&gt; Value
+toEncoding :: FleetEventType -&gt; Encoding
+$ctoEncoding :: FleetEventType -&gt; Encoding
+toJSON :: FleetEventType -&gt; Value
+$ctoJSON :: FleetEventType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681073580"><span id="local-6989586621681073582"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetEventType]
+ToJSONKeyFunction FleetEventType
+ToJSONKeyFunction FleetEventType
+-&gt; ToJSONKeyFunction [FleetEventType] -&gt; ToJSONKey FleetEventType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FleetEventType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FleetEventType]
+toJSONKey :: ToJSONKeyFunction FleetEventType
+$ctoJSONKey :: ToJSONKeyFunction FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681073577"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetEventType
+([Node] -&gt; Either String FleetEventType) -&gt; FromXML FleetEventType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FleetEventType
+$cparseXML :: [Node] -&gt; Either String FleetEventType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681073574"><span class="annot"><span class="annottext">FleetEventType -&gt; XML
+(FleetEventType -&gt; XML) -&gt; ToXML FleetEventType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FleetEventType -&gt; XML
+$ctoXML :: FleetEventType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Fleet_change"><span class="hs-identifier hs-type">FleetEventType_Fleet_change</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType"><span class="hs-identifier hs-type">FleetEventType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetEventType_Fleet_change"><span id="%24mFleetEventType_Fleet_change"><span id="FleetEventType_Fleet_change"><span class="annot"><span class="annottext">$bFleetEventType_Fleet_change :: FleetEventType
+$mFleetEventType_Fleet_change :: forall r. FleetEventType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.FleetEventType.html#%24bFleetEventType_Fleet_change"><span class="hs-identifier hs-var hs-var hs-var">FleetEventType_Fleet_change</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType%27"><span class="hs-identifier hs-type">FleetEventType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;fleet-change&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Instance_change"><span class="hs-identifier hs-type">FleetEventType_Instance_change</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType"><span class="hs-identifier hs-type">FleetEventType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetEventType_Instance_change"><span id="%24mFleetEventType_Instance_change"><span id="FleetEventType_Instance_change"><span class="annot"><span class="annottext">$bFleetEventType_Instance_change :: FleetEventType
+$mFleetEventType_Instance_change :: forall r. FleetEventType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.FleetEventType.html#%24bFleetEventType_Instance_change"><span class="hs-identifier hs-var hs-var hs-var">FleetEventType_Instance_change</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType%27"><span class="hs-identifier hs-type">FleetEventType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;instance-change&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Service_error"><span class="hs-identifier hs-type">FleetEventType_Service_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType"><span class="hs-identifier hs-type">FleetEventType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetEventType_Service_error"><span id="%24mFleetEventType_Service_error"><span id="FleetEventType_Service_error"><span class="annot"><span class="annottext">$bFleetEventType_Service_error :: FleetEventType
+$mFleetEventType_Service_error :: forall r. FleetEventType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.FleetEventType.html#%24bFleetEventType_Service_error"><span class="hs-identifier hs-var hs-var hs-var">FleetEventType_Service_error</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType%27"><span class="hs-identifier hs-type">FleetEventType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;service-error&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Fleet_change"><span class="hs-pragma hs-type">FleetEventType_Fleet_change</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Instance_change"><span class="hs-pragma hs-type">FleetEventType_Instance_change</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType_Service_error"><span class="hs-pragma hs-type">FleetEventType_Service_error</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetEventType.html#FleetEventType%27"><span class="hs-pragma hs-type">FleetEventType'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

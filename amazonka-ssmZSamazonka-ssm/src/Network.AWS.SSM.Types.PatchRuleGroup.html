@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSM.Types.PatchRuleGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSM.Types.PatchRuleGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRule.html"><span class="hs-identifier">Network.AWS.SSM.Types.PatchRule</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A set of rules defining the approval rules for a patch baseline.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPatchRuleGroup' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679808068"><span id="local-6989586621679808069"></span></span><span class="hs-keyword">data</span><span> </span><span id="PatchRuleGroup"><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-var">PatchRuleGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchRuleGroup%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup%27"><span class="hs-identifier hs-var">PatchRuleGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rules that make up the rule group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3ApatchRules%3APatchRuleGroup%27"><span class="annot"><span class="annottext">PatchRuleGroup -&gt; [PatchRule]
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#%24sel%3ApatchRules%3APatchRuleGroup%27"><span class="hs-identifier hs-var hs-var">patchRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRule.html#PatchRule"><span class="hs-identifier hs-type">PatchRule</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679808062"><span id="local-6989586621679808064"><span class="annot"><span class="annottext">PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool
+(PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool)
+-&gt; (PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool) -&gt; Eq PatchRuleGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool
+$c/= :: PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool
+== :: PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool
+$c== :: PatchRuleGroup -&gt; PatchRuleGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679808053"><span id="local-6989586621679808055"><span id="local-6989586621679808057"><span id="local-6989586621679808059"><span class="annot"><span class="annottext">ReadPrec [PatchRuleGroup]
+ReadPrec PatchRuleGroup
+Int -&gt; ReadS PatchRuleGroup
+ReadS [PatchRuleGroup]
+(Int -&gt; ReadS PatchRuleGroup)
+-&gt; ReadS [PatchRuleGroup]
+-&gt; ReadPrec PatchRuleGroup
+-&gt; ReadPrec [PatchRuleGroup]
+-&gt; Read PatchRuleGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchRuleGroup]
+$creadListPrec :: ReadPrec [PatchRuleGroup]
+readPrec :: ReadPrec PatchRuleGroup
+$creadPrec :: ReadPrec PatchRuleGroup
+readList :: ReadS [PatchRuleGroup]
+$creadList :: ReadS [PatchRuleGroup]
+readsPrec :: Int -&gt; ReadS PatchRuleGroup
+$creadsPrec :: Int -&gt; ReadS PatchRuleGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679808046"><span id="local-6989586621679808048"><span id="local-6989586621679808050"><span class="annot"><span class="annottext">Int -&gt; PatchRuleGroup -&gt; ShowS
+[PatchRuleGroup] -&gt; ShowS
+PatchRuleGroup -&gt; String
+(Int -&gt; PatchRuleGroup -&gt; ShowS)
+-&gt; (PatchRuleGroup -&gt; String)
+-&gt; ([PatchRuleGroup] -&gt; ShowS)
+-&gt; Show PatchRuleGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchRuleGroup] -&gt; ShowS
+$cshowList :: [PatchRuleGroup] -&gt; ShowS
+show :: PatchRuleGroup -&gt; String
+$cshow :: PatchRuleGroup -&gt; String
+showsPrec :: Int -&gt; PatchRuleGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchRuleGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PatchRuleGroup -&gt; Rep PatchRuleGroup x)
+-&gt; (forall x. Rep PatchRuleGroup x -&gt; PatchRuleGroup)
+-&gt; Generic PatchRuleGroup
+forall x. Rep PatchRuleGroup x -&gt; PatchRuleGroup
+forall x. PatchRuleGroup -&gt; Rep PatchRuleGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchRuleGroup x -&gt; PatchRuleGroup
+$cfrom :: forall x. PatchRuleGroup -&gt; Rep PatchRuleGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'PatchRuleGroup' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'patchRules', 'patchRuleGroup_patchRules' - The rules that make up the rule group.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#newPatchRuleGroup"><span class="hs-identifier hs-type">newPatchRuleGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span><span>
+</span><span id="line-47"></span><span id="newPatchRuleGroup"><span class="annot"><span class="annottext">newPatchRuleGroup :: PatchRuleGroup
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#newPatchRuleGroup"><span class="hs-identifier hs-var hs-var">newPatchRuleGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">PatchRuleGroup' :: [PatchRule] -&gt; PatchRuleGroup
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup%27"><span class="hs-identifier hs-type">PatchRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchRules:PatchRuleGroup' :: [PatchRule]
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#%24sel%3ApatchRules%3APatchRuleGroup%27"><span class="hs-identifier hs-var">patchRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PatchRule]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The rules that make up the rule group.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#patchRuleGroup_patchRules"><span class="hs-identifier hs-type">patchRuleGroup_patchRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRule.html#PatchRule"><span class="hs-identifier hs-type">PatchRule</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-52"></span><span id="patchRuleGroup_patchRules"><span class="annot"><span class="annottext">patchRuleGroup_patchRules :: ([PatchRule] -&gt; f [PatchRule])
+-&gt; PatchRuleGroup -&gt; f PatchRuleGroup
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#patchRuleGroup_patchRules"><span class="hs-identifier hs-var hs-var">patchRuleGroup_patchRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PatchRuleGroup -&gt; [PatchRule])
+-&gt; (PatchRuleGroup -&gt; [PatchRule] -&gt; PatchRuleGroup)
+-&gt; Lens PatchRuleGroup PatchRuleGroup [PatchRule] [PatchRule]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup%27"><span class="hs-identifier hs-type">PatchRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679808037"><span class="annot"><span class="annottext">[PatchRule]
+patchRules :: [PatchRule]
+$sel:patchRules:PatchRuleGroup' :: PatchRuleGroup -&gt; [PatchRule]
+</span><a href="#local-6989586621679808037"><span class="hs-identifier hs-var hs-var">patchRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PatchRule]
+</span><a href="#local-6989586621679808037"><span class="hs-identifier hs-var">patchRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679808036"><span class="annot"><span class="annottext">s :: PatchRuleGroup
+</span><a href="#local-6989586621679808036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup%27"><span class="hs-identifier hs-type">PatchRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679808035"><span class="annot"><span class="annottext">[PatchRule]
+</span><a href="#local-6989586621679808035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PatchRuleGroup
+</span><a href="#local-6989586621679808036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchRules:PatchRuleGroup' :: [PatchRule]
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#%24sel%3ApatchRules%3APatchRuleGroup%27"><span class="hs-identifier hs-var">patchRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PatchRule]
+</span><a href="#local-6989586621679808035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PatchRule] -&gt; f [PatchRule])
+ -&gt; PatchRuleGroup -&gt; f PatchRuleGroup)
+-&gt; (([PatchRule] -&gt; f [PatchRule]) -&gt; [PatchRule] -&gt; f [PatchRule])
+-&gt; ([PatchRule] -&gt; f [PatchRule])
+-&gt; PatchRuleGroup
+-&gt; f PatchRuleGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PatchRule] -&gt; f [PatchRule]) -&gt; [PatchRule] -&gt; f [PatchRule]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808030"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679808028"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PatchRuleGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PatchRuleGroup)
+-&gt; Value
+-&gt; Parser PatchRuleGroup
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PatchRuleGroup&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679808025"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679808025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">[PatchRule] -&gt; PatchRuleGroup
+</span><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup%27"><span class="hs-identifier hs-var">PatchRuleGroup'</span></a></span><span>
+</span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">([PatchRule] -&gt; PatchRuleGroup)
+-&gt; Parser [PatchRule] -&gt; Parser PatchRuleGroup
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679808025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [PatchRule])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [PatchRule]) -&gt; [PatchRule] -&gt; Parser [PatchRule]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[PatchRule]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808018"><span id="local-6989586621679808020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679808007"><span id="local-6989586621679808009"><span id="local-6989586621679808011"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup"><span class="hs-identifier hs-type">PatchRuleGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679808005"><span class="annot"><span class="annottext">toJSON :: PatchRuleGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchRuleGroup.html#PatchRuleGroup%27"><span class="hs-identifier hs-type">PatchRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679808003"><span class="annot"><span class="annottext">[PatchRule]
+patchRules :: [PatchRule]
+$sel:patchRules:PatchRuleGroup' :: PatchRuleGroup -&gt; [PatchRule]
+</span><a href="#local-6989586621679808003"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-71"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PatchRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[PatchRule]
+</span><a href="#local-6989586621679808003"><span class="hs-identifier hs-var">patchRules</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span></pre></body></html>

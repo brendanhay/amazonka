@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CertificateManager.Types.ValidationMethod</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CertificateManager.Types.ValidationMethod</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod"><span class="hs-identifier">ValidationMethod</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod_DNS"><span class="hs-identifier">ValidationMethod_DNS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod_EMAIL"><span class="hs-identifier">ValidationMethod_EMAIL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679189897"><span id="local-6989586621679189898"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidationMethod"><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod"><span class="hs-identifier hs-var">ValidationMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationMethod%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod%27"><span class="hs-identifier hs-var">ValidationMethod'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromValidationMethod"><span class="annot"><span class="annottext">ValidationMethod -&gt; Text
+</span><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#fromValidationMethod"><span class="hs-identifier hs-var hs-var">fromValidationMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189889"><span id="local-6989586621679189891"><span id="local-6989586621679189893"><span class="annot"><span class="annottext">Int -&gt; ValidationMethod -&gt; ShowS
+[ValidationMethod] -&gt; ShowS
+ValidationMethod -&gt; String
+(Int -&gt; ValidationMethod -&gt; ShowS)
+-&gt; (ValidationMethod -&gt; String)
+-&gt; ([ValidationMethod] -&gt; ShowS)
+-&gt; Show ValidationMethod
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidationMethod] -&gt; ShowS
+$cshowList :: [ValidationMethod] -&gt; ShowS
+show :: ValidationMethod -&gt; String
+$cshow :: ValidationMethod -&gt; String
+showsPrec :: Int -&gt; ValidationMethod -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidationMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679189880"><span id="local-6989586621679189882"><span id="local-6989586621679189884"><span id="local-6989586621679189886"><span class="annot"><span class="annottext">ReadPrec [ValidationMethod]
+ReadPrec ValidationMethod
+Int -&gt; ReadS ValidationMethod
+ReadS [ValidationMethod]
+(Int -&gt; ReadS ValidationMethod)
+-&gt; ReadS [ValidationMethod]
+-&gt; ReadPrec ValidationMethod
+-&gt; ReadPrec [ValidationMethod]
+-&gt; Read ValidationMethod
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidationMethod]
+$creadListPrec :: ReadPrec [ValidationMethod]
+readPrec :: ReadPrec ValidationMethod
+$creadPrec :: ReadPrec ValidationMethod
+readList :: ReadS [ValidationMethod]
+$creadList :: ReadS [ValidationMethod]
+readsPrec :: Int -&gt; ReadS ValidationMethod
+$creadsPrec :: Int -&gt; ReadS ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679189875"><span id="local-6989586621679189877"><span class="annot"><span class="annottext">ValidationMethod -&gt; ValidationMethod -&gt; Bool
+(ValidationMethod -&gt; ValidationMethod -&gt; Bool)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; Bool)
+-&gt; Eq ValidationMethod
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+$c/= :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+== :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+$c== :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679189859"><span id="local-6989586621679189861"><span id="local-6989586621679189863"><span id="local-6989586621679189865"><span id="local-6989586621679189867"><span id="local-6989586621679189869"><span id="local-6989586621679189871"><span class="annot"><span class="annottext">Eq ValidationMethod
+Eq ValidationMethod
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; Ordering)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; Bool)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; Bool)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; Bool)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; Bool)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod)
+-&gt; (ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod)
+-&gt; Ord ValidationMethod
+ValidationMethod -&gt; ValidationMethod -&gt; Bool
+ValidationMethod -&gt; ValidationMethod -&gt; Ordering
+ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod
+$cmin :: ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod
+max :: ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod
+$cmax :: ValidationMethod -&gt; ValidationMethod -&gt; ValidationMethod
+&gt;= :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+$c&gt;= :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+&gt; :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+$c&gt; :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+&lt;= :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+$c&lt;= :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+&lt; :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+$c&lt; :: ValidationMethod -&gt; ValidationMethod -&gt; Bool
+compare :: ValidationMethod -&gt; ValidationMethod -&gt; Ordering
+$ccompare :: ValidationMethod -&gt; ValidationMethod -&gt; Ordering
+$cp1Ord :: Eq ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ValidationMethod -&gt; Rep ValidationMethod x)
+-&gt; (forall x. Rep ValidationMethod x -&gt; ValidationMethod)
+-&gt; Generic ValidationMethod
+forall x. Rep ValidationMethod x -&gt; ValidationMethod
+forall x. ValidationMethod -&gt; Rep ValidationMethod x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ValidationMethod x -&gt; ValidationMethod
+$cfrom :: forall x. ValidationMethod -&gt; Rep ValidationMethod x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189851"><span id="local-6989586621679189853"><span class="annot"><span class="annottext">Int -&gt; ValidationMethod -&gt; Int
+ValidationMethod -&gt; Int
+(Int -&gt; ValidationMethod -&gt; Int)
+-&gt; (ValidationMethod -&gt; Int) -&gt; Hashable ValidationMethod
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ValidationMethod -&gt; Int
+$chash :: ValidationMethod -&gt; Int
+hashWithSalt :: Int -&gt; ValidationMethod -&gt; Int
+$chashWithSalt :: Int -&gt; ValidationMethod -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679189848"><span class="annot"><span class="annottext">ValidationMethod -&gt; ()
+(ValidationMethod -&gt; ()) -&gt; NFData ValidationMethod
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ValidationMethod -&gt; ()
+$crnf :: ValidationMethod -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679189845"><span class="annot"><span class="annottext">Text -&gt; Either String ValidationMethod
+(Text -&gt; Either String ValidationMethod)
+-&gt; FromText ValidationMethod
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ValidationMethod
+$cfromText :: Text -&gt; Either String ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679189842"><span class="annot"><span class="annottext">ValidationMethod -&gt; Text
+(ValidationMethod -&gt; Text) -&gt; ToText ValidationMethod
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ValidationMethod -&gt; Text
+$ctoText :: ValidationMethod -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679189839"><span class="annot"><span class="annottext">ValidationMethod -&gt; ByteString
+(ValidationMethod -&gt; ByteString) -&gt; ToByteString ValidationMethod
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ValidationMethod -&gt; ByteString
+$ctoBS :: ValidationMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679189836"><span class="annot"><span class="annottext">ValidationMethod -&gt; ByteStringBuilder
+(ValidationMethod -&gt; ByteStringBuilder) -&gt; ToLog ValidationMethod
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ValidationMethod -&gt; ByteStringBuilder
+$cbuild :: ValidationMethod -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679189833"><span class="annot"><span class="annottext">HeaderName -&gt; ValidationMethod -&gt; [Header]
+(HeaderName -&gt; ValidationMethod -&gt; [Header])
+-&gt; ToHeader ValidationMethod
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ValidationMethod -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ValidationMethod -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679189830"><span class="annot"><span class="annottext">ValidationMethod -&gt; QueryString
+(ValidationMethod -&gt; QueryString) -&gt; ToQuery ValidationMethod
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ValidationMethod -&gt; QueryString
+$ctoQuery :: ValidationMethod -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679189825"><span id="local-6989586621679189827"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidationMethod]
+Value -&gt; Parser ValidationMethod
+(Value -&gt; Parser ValidationMethod)
+-&gt; (Value -&gt; Parser [ValidationMethod])
+-&gt; FromJSON ValidationMethod
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ValidationMethod]
+$cparseJSONList :: Value -&gt; Parser [ValidationMethod]
+parseJSON :: Value -&gt; Parser ValidationMethod
+$cparseJSON :: Value -&gt; Parser ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679189820"><span id="local-6989586621679189822"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidationMethod]
+FromJSONKeyFunction ValidationMethod
+FromJSONKeyFunction ValidationMethod
+-&gt; FromJSONKeyFunction [ValidationMethod]
+-&gt; FromJSONKey ValidationMethod
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ValidationMethod]
+$cfromJSONKeyList :: FromJSONKeyFunction [ValidationMethod]
+fromJSONKey :: FromJSONKeyFunction ValidationMethod
+$cfromJSONKey :: FromJSONKeyFunction ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679189811"><span id="local-6989586621679189813"><span id="local-6989586621679189815"><span id="local-6989586621679189817"><span class="annot"><span class="annottext">[ValidationMethod] -&gt; Encoding
+[ValidationMethod] -&gt; Value
+ValidationMethod -&gt; Encoding
+ValidationMethod -&gt; Value
+(ValidationMethod -&gt; Value)
+-&gt; (ValidationMethod -&gt; Encoding)
+-&gt; ([ValidationMethod] -&gt; Value)
+-&gt; ([ValidationMethod] -&gt; Encoding)
+-&gt; ToJSON ValidationMethod
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ValidationMethod] -&gt; Encoding
+$ctoEncodingList :: [ValidationMethod] -&gt; Encoding
+toJSONList :: [ValidationMethod] -&gt; Value
+$ctoJSONList :: [ValidationMethod] -&gt; Value
+toEncoding :: ValidationMethod -&gt; Encoding
+$ctoEncoding :: ValidationMethod -&gt; Encoding
+toJSON :: ValidationMethod -&gt; Value
+$ctoJSON :: ValidationMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679189806"><span id="local-6989586621679189808"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidationMethod]
+ToJSONKeyFunction ValidationMethod
+ToJSONKeyFunction ValidationMethod
+-&gt; ToJSONKeyFunction [ValidationMethod]
+-&gt; ToJSONKey ValidationMethod
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ValidationMethod]
+$ctoJSONKeyList :: ToJSONKeyFunction [ValidationMethod]
+toJSONKey :: ToJSONKeyFunction ValidationMethod
+$ctoJSONKey :: ToJSONKeyFunction ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679189803"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidationMethod
+([Node] -&gt; Either String ValidationMethod)
+-&gt; FromXML ValidationMethod
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ValidationMethod
+$cparseXML :: [Node] -&gt; Either String ValidationMethod
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679189800"><span class="annot"><span class="annottext">ValidationMethod -&gt; XML
+(ValidationMethod -&gt; XML) -&gt; ToXML ValidationMethod
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ValidationMethod -&gt; XML
+$ctoXML :: ValidationMethod -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod_DNS"><span class="hs-identifier hs-type">ValidationMethod_DNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod"><span class="hs-identifier hs-type">ValidationMethod</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationMethod_DNS"><span id="%24mValidationMethod_DNS"><span id="ValidationMethod_DNS"><span class="annot"><span class="annottext">$bValidationMethod_DNS :: ValidationMethod
+$mValidationMethod_DNS :: forall r. ValidationMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#%24bValidationMethod_DNS"><span class="hs-identifier hs-var hs-var hs-var">ValidationMethod_DNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod%27"><span class="hs-identifier hs-type">ValidationMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DNS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod_EMAIL"><span class="hs-identifier hs-type">ValidationMethod_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod"><span class="hs-identifier hs-type">ValidationMethod</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationMethod_EMAIL"><span id="%24mValidationMethod_EMAIL"><span id="ValidationMethod_EMAIL"><span class="annot"><span class="annottext">$bValidationMethod_EMAIL :: ValidationMethod
+$mValidationMethod_EMAIL :: forall r. ValidationMethod -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#%24bValidationMethod_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">ValidationMethod_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod%27"><span class="hs-identifier hs-type">ValidationMethod'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod_DNS"><span class="hs-pragma hs-type">ValidationMethod_DNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod_EMAIL"><span class="hs-pragma hs-type">ValidationMethod_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ValidationMethod.html#ValidationMethod%27"><span class="hs-pragma hs-type">ValidationMethod'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

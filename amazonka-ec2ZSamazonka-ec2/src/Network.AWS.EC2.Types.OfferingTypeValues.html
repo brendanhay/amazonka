@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.OfferingTypeValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.OfferingTypeValues</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier">OfferingTypeValues</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_All_Upfront"><span class="hs-identifier">OfferingTypeValues_All_Upfront</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Heavy_Utilization"><span class="hs-identifier">OfferingTypeValues_Heavy_Utilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Light_Utilization"><span class="hs-identifier">OfferingTypeValues_Light_Utilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Medium_Utilization"><span class="hs-identifier">OfferingTypeValues_Medium_Utilization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_No_Upfront"><span class="hs-identifier">OfferingTypeValues_No_Upfront</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Partial_Upfront"><span class="hs-identifier">OfferingTypeValues_Partial_Upfront</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621681096423"><span id="local-6989586621681096424"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OfferingTypeValues"><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-var">OfferingTypeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OfferingTypeValues%27"><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-var">OfferingTypeValues'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOfferingTypeValues"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; Text
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#fromOfferingTypeValues"><span class="hs-identifier hs-var hs-var">fromOfferingTypeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096415"><span id="local-6989586621681096417"><span id="local-6989586621681096419"><span class="annot"><span class="annottext">Int -&gt; OfferingTypeValues -&gt; ShowS
+[OfferingTypeValues] -&gt; ShowS
+OfferingTypeValues -&gt; String
+(Int -&gt; OfferingTypeValues -&gt; ShowS)
+-&gt; (OfferingTypeValues -&gt; String)
+-&gt; ([OfferingTypeValues] -&gt; ShowS)
+-&gt; Show OfferingTypeValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OfferingTypeValues] -&gt; ShowS
+$cshowList :: [OfferingTypeValues] -&gt; ShowS
+show :: OfferingTypeValues -&gt; String
+$cshow :: OfferingTypeValues -&gt; String
+showsPrec :: Int -&gt; OfferingTypeValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; OfferingTypeValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681096406"><span id="local-6989586621681096408"><span id="local-6989586621681096410"><span id="local-6989586621681096412"><span class="annot"><span class="annottext">ReadPrec [OfferingTypeValues]
+ReadPrec OfferingTypeValues
+Int -&gt; ReadS OfferingTypeValues
+ReadS [OfferingTypeValues]
+(Int -&gt; ReadS OfferingTypeValues)
+-&gt; ReadS [OfferingTypeValues]
+-&gt; ReadPrec OfferingTypeValues
+-&gt; ReadPrec [OfferingTypeValues]
+-&gt; Read OfferingTypeValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OfferingTypeValues]
+$creadListPrec :: ReadPrec [OfferingTypeValues]
+readPrec :: ReadPrec OfferingTypeValues
+$creadPrec :: ReadPrec OfferingTypeValues
+readList :: ReadS [OfferingTypeValues]
+$creadList :: ReadS [OfferingTypeValues]
+readsPrec :: Int -&gt; ReadS OfferingTypeValues
+$creadsPrec :: Int -&gt; ReadS OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681096401"><span id="local-6989586621681096403"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+(OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool)
+-&gt; Eq OfferingTypeValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+$c/= :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+== :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+$c== :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681096385"><span id="local-6989586621681096387"><span id="local-6989586621681096389"><span id="local-6989586621681096391"><span id="local-6989586621681096393"><span id="local-6989586621681096395"><span id="local-6989586621681096397"><span class="annot"><span class="annottext">Eq OfferingTypeValues
+Eq OfferingTypeValues
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; Ordering)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues)
+-&gt; (OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues)
+-&gt; Ord OfferingTypeValues
+OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+OfferingTypeValues -&gt; OfferingTypeValues -&gt; Ordering
+OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues
+$cmin :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues
+max :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues
+$cmax :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; OfferingTypeValues
+&gt;= :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+$c&gt;= :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+&gt; :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+$c&gt; :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+&lt;= :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+$c&lt;= :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+&lt; :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+$c&lt; :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Bool
+compare :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Ordering
+$ccompare :: OfferingTypeValues -&gt; OfferingTypeValues -&gt; Ordering
+$cp1Ord :: Eq OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OfferingTypeValues -&gt; Rep OfferingTypeValues x)
+-&gt; (forall x. Rep OfferingTypeValues x -&gt; OfferingTypeValues)
+-&gt; Generic OfferingTypeValues
+forall x. Rep OfferingTypeValues x -&gt; OfferingTypeValues
+forall x. OfferingTypeValues -&gt; Rep OfferingTypeValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OfferingTypeValues x -&gt; OfferingTypeValues
+$cfrom :: forall x. OfferingTypeValues -&gt; Rep OfferingTypeValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096377"><span id="local-6989586621681096379"><span class="annot"><span class="annottext">Int -&gt; OfferingTypeValues -&gt; Int
+OfferingTypeValues -&gt; Int
+(Int -&gt; OfferingTypeValues -&gt; Int)
+-&gt; (OfferingTypeValues -&gt; Int) -&gt; Hashable OfferingTypeValues
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OfferingTypeValues -&gt; Int
+$chash :: OfferingTypeValues -&gt; Int
+hashWithSalt :: Int -&gt; OfferingTypeValues -&gt; Int
+$chashWithSalt :: Int -&gt; OfferingTypeValues -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096374"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; ()
+(OfferingTypeValues -&gt; ()) -&gt; NFData OfferingTypeValues
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OfferingTypeValues -&gt; ()
+$crnf :: OfferingTypeValues -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096371"><span class="annot"><span class="annottext">Text -&gt; Either String OfferingTypeValues
+(Text -&gt; Either String OfferingTypeValues)
+-&gt; FromText OfferingTypeValues
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OfferingTypeValues
+$cfromText :: Text -&gt; Either String OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096368"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; Text
+(OfferingTypeValues -&gt; Text) -&gt; ToText OfferingTypeValues
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OfferingTypeValues -&gt; Text
+$ctoText :: OfferingTypeValues -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096365"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; ByteString
+(OfferingTypeValues -&gt; ByteString)
+-&gt; ToByteString OfferingTypeValues
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OfferingTypeValues -&gt; ByteString
+$ctoBS :: OfferingTypeValues -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096362"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; ByteStringBuilder
+(OfferingTypeValues -&gt; ByteStringBuilder)
+-&gt; ToLog OfferingTypeValues
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OfferingTypeValues -&gt; ByteStringBuilder
+$cbuild :: OfferingTypeValues -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096359"><span class="annot"><span class="annottext">HeaderName -&gt; OfferingTypeValues -&gt; [Header]
+(HeaderName -&gt; OfferingTypeValues -&gt; [Header])
+-&gt; ToHeader OfferingTypeValues
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OfferingTypeValues -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OfferingTypeValues -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096356"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; QueryString
+(OfferingTypeValues -&gt; QueryString) -&gt; ToQuery OfferingTypeValues
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OfferingTypeValues -&gt; QueryString
+$ctoQuery :: OfferingTypeValues -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096351"><span id="local-6989586621681096353"><span class="annot"><span class="annottext">Value -&gt; Parser [OfferingTypeValues]
+Value -&gt; Parser OfferingTypeValues
+(Value -&gt; Parser OfferingTypeValues)
+-&gt; (Value -&gt; Parser [OfferingTypeValues])
+-&gt; FromJSON OfferingTypeValues
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OfferingTypeValues]
+$cparseJSONList :: Value -&gt; Parser [OfferingTypeValues]
+parseJSON :: Value -&gt; Parser OfferingTypeValues
+$cparseJSON :: Value -&gt; Parser OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681096346"><span id="local-6989586621681096348"><span class="annot"><span class="annottext">FromJSONKeyFunction [OfferingTypeValues]
+FromJSONKeyFunction OfferingTypeValues
+FromJSONKeyFunction OfferingTypeValues
+-&gt; FromJSONKeyFunction [OfferingTypeValues]
+-&gt; FromJSONKey OfferingTypeValues
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OfferingTypeValues]
+$cfromJSONKeyList :: FromJSONKeyFunction [OfferingTypeValues]
+fromJSONKey :: FromJSONKeyFunction OfferingTypeValues
+$cfromJSONKey :: FromJSONKeyFunction OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681096337"><span id="local-6989586621681096339"><span id="local-6989586621681096341"><span id="local-6989586621681096343"><span class="annot"><span class="annottext">[OfferingTypeValues] -&gt; Encoding
+[OfferingTypeValues] -&gt; Value
+OfferingTypeValues -&gt; Encoding
+OfferingTypeValues -&gt; Value
+(OfferingTypeValues -&gt; Value)
+-&gt; (OfferingTypeValues -&gt; Encoding)
+-&gt; ([OfferingTypeValues] -&gt; Value)
+-&gt; ([OfferingTypeValues] -&gt; Encoding)
+-&gt; ToJSON OfferingTypeValues
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OfferingTypeValues] -&gt; Encoding
+$ctoEncodingList :: [OfferingTypeValues] -&gt; Encoding
+toJSONList :: [OfferingTypeValues] -&gt; Value
+$ctoJSONList :: [OfferingTypeValues] -&gt; Value
+toEncoding :: OfferingTypeValues -&gt; Encoding
+$ctoEncoding :: OfferingTypeValues -&gt; Encoding
+toJSON :: OfferingTypeValues -&gt; Value
+$ctoJSON :: OfferingTypeValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681096332"><span id="local-6989586621681096334"><span class="annot"><span class="annottext">ToJSONKeyFunction [OfferingTypeValues]
+ToJSONKeyFunction OfferingTypeValues
+ToJSONKeyFunction OfferingTypeValues
+-&gt; ToJSONKeyFunction [OfferingTypeValues]
+-&gt; ToJSONKey OfferingTypeValues
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OfferingTypeValues]
+$ctoJSONKeyList :: ToJSONKeyFunction [OfferingTypeValues]
+toJSONKey :: ToJSONKeyFunction OfferingTypeValues
+$ctoJSONKey :: ToJSONKeyFunction OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681096329"><span class="annot"><span class="annottext">[Node] -&gt; Either String OfferingTypeValues
+([Node] -&gt; Either String OfferingTypeValues)
+-&gt; FromXML OfferingTypeValues
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OfferingTypeValues
+$cparseXML :: [Node] -&gt; Either String OfferingTypeValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681096326"><span class="annot"><span class="annottext">OfferingTypeValues -&gt; XML
+(OfferingTypeValues -&gt; XML) -&gt; ToXML OfferingTypeValues
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OfferingTypeValues -&gt; XML
+$ctoXML :: OfferingTypeValues -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_All_Upfront"><span class="hs-identifier hs-type">OfferingTypeValues_All_Upfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-type">OfferingTypeValues</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingTypeValues_All_Upfront"><span id="%24mOfferingTypeValues_All_Upfront"><span id="OfferingTypeValues_All_Upfront"><span class="annot"><span class="annottext">$bOfferingTypeValues_All_Upfront :: OfferingTypeValues
+$mOfferingTypeValues_All_Upfront :: forall r. OfferingTypeValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#%24bOfferingTypeValues_All_Upfront"><span class="hs-identifier hs-var hs-var hs-var">OfferingTypeValues_All_Upfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-type">OfferingTypeValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;All Upfront&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Heavy_Utilization"><span class="hs-identifier hs-type">OfferingTypeValues_Heavy_Utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-type">OfferingTypeValues</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingTypeValues_Heavy_Utilization"><span id="%24mOfferingTypeValues_Heavy_Utilization"><span id="OfferingTypeValues_Heavy_Utilization"><span class="annot"><span class="annottext">$bOfferingTypeValues_Heavy_Utilization :: OfferingTypeValues
+$mOfferingTypeValues_Heavy_Utilization :: forall r. OfferingTypeValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#%24bOfferingTypeValues_Heavy_Utilization"><span class="hs-identifier hs-var hs-var hs-var">OfferingTypeValues_Heavy_Utilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-type">OfferingTypeValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Heavy Utilization&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Light_Utilization"><span class="hs-identifier hs-type">OfferingTypeValues_Light_Utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-type">OfferingTypeValues</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingTypeValues_Light_Utilization"><span id="%24mOfferingTypeValues_Light_Utilization"><span id="OfferingTypeValues_Light_Utilization"><span class="annot"><span class="annottext">$bOfferingTypeValues_Light_Utilization :: OfferingTypeValues
+$mOfferingTypeValues_Light_Utilization :: forall r. OfferingTypeValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#%24bOfferingTypeValues_Light_Utilization"><span class="hs-identifier hs-var hs-var hs-var">OfferingTypeValues_Light_Utilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-type">OfferingTypeValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Light Utilization&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Medium_Utilization"><span class="hs-identifier hs-type">OfferingTypeValues_Medium_Utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-type">OfferingTypeValues</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingTypeValues_Medium_Utilization"><span id="%24mOfferingTypeValues_Medium_Utilization"><span id="OfferingTypeValues_Medium_Utilization"><span class="annot"><span class="annottext">$bOfferingTypeValues_Medium_Utilization :: OfferingTypeValues
+$mOfferingTypeValues_Medium_Utilization :: forall r. OfferingTypeValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#%24bOfferingTypeValues_Medium_Utilization"><span class="hs-identifier hs-var hs-var hs-var">OfferingTypeValues_Medium_Utilization</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-type">OfferingTypeValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Medium Utilization&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_No_Upfront"><span class="hs-identifier hs-type">OfferingTypeValues_No_Upfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-type">OfferingTypeValues</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingTypeValues_No_Upfront"><span id="%24mOfferingTypeValues_No_Upfront"><span id="OfferingTypeValues_No_Upfront"><span class="annot"><span class="annottext">$bOfferingTypeValues_No_Upfront :: OfferingTypeValues
+$mOfferingTypeValues_No_Upfront :: forall r. OfferingTypeValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#%24bOfferingTypeValues_No_Upfront"><span class="hs-identifier hs-var hs-var hs-var">OfferingTypeValues_No_Upfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-type">OfferingTypeValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;No Upfront&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Partial_Upfront"><span class="hs-identifier hs-type">OfferingTypeValues_Partial_Upfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues"><span class="hs-identifier hs-type">OfferingTypeValues</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOfferingTypeValues_Partial_Upfront"><span id="%24mOfferingTypeValues_Partial_Upfront"><span id="OfferingTypeValues_Partial_Upfront"><span class="annot"><span class="annottext">$bOfferingTypeValues_Partial_Upfront :: OfferingTypeValues
+$mOfferingTypeValues_Partial_Upfront :: forall r. OfferingTypeValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#%24bOfferingTypeValues_Partial_Upfront"><span class="hs-identifier hs-var hs-var hs-var">OfferingTypeValues_Partial_Upfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-identifier hs-type">OfferingTypeValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Partial Upfront&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_All_Upfront"><span class="hs-pragma hs-type">OfferingTypeValues_All_Upfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Heavy_Utilization"><span class="hs-pragma hs-type">OfferingTypeValues_Heavy_Utilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Light_Utilization"><span class="hs-pragma hs-type">OfferingTypeValues_Light_Utilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Medium_Utilization"><span class="hs-pragma hs-type">OfferingTypeValues_Medium_Utilization</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_No_Upfront"><span class="hs-pragma hs-type">OfferingTypeValues_No_Upfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues_Partial_Upfront"><span class="hs-pragma hs-type">OfferingTypeValues_Partial_Upfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.OfferingTypeValues.html#OfferingTypeValues%27"><span class="hs-pragma hs-type">OfferingTypeValues'</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-92"></span></pre></body></html>

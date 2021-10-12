@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier">ConnectionAuthorizationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_API_KEY"><span class="hs-identifier">ConnectionAuthorizationType_API_KEY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_BASIC"><span class="hs-identifier">ConnectionAuthorizationType_BASIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span class="hs-identifier">ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679299960"><span id="local-6989586621679299961"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionAuthorizationType"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier hs-var">ConnectionAuthorizationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionAuthorizationType%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType%27"><span class="hs-identifier hs-var">ConnectionAuthorizationType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionAuthorizationType"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#fromConnectionAuthorizationType"><span class="hs-identifier hs-var hs-var">fromConnectionAuthorizationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299952"><span id="local-6989586621679299954"><span id="local-6989586621679299956"><span class="annot"><span class="annottext">Int -&gt; ConnectionAuthorizationType -&gt; ShowS
+[ConnectionAuthorizationType] -&gt; ShowS
+ConnectionAuthorizationType -&gt; String
+(Int -&gt; ConnectionAuthorizationType -&gt; ShowS)
+-&gt; (ConnectionAuthorizationType -&gt; String)
+-&gt; ([ConnectionAuthorizationType] -&gt; ShowS)
+-&gt; Show ConnectionAuthorizationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectionAuthorizationType] -&gt; ShowS
+$cshowList :: [ConnectionAuthorizationType] -&gt; ShowS
+show :: ConnectionAuthorizationType -&gt; String
+$cshow :: ConnectionAuthorizationType -&gt; String
+showsPrec :: Int -&gt; ConnectionAuthorizationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectionAuthorizationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299943"><span id="local-6989586621679299945"><span id="local-6989586621679299947"><span id="local-6989586621679299949"><span class="annot"><span class="annottext">ReadPrec [ConnectionAuthorizationType]
+ReadPrec ConnectionAuthorizationType
+Int -&gt; ReadS ConnectionAuthorizationType
+ReadS [ConnectionAuthorizationType]
+(Int -&gt; ReadS ConnectionAuthorizationType)
+-&gt; ReadS [ConnectionAuthorizationType]
+-&gt; ReadPrec ConnectionAuthorizationType
+-&gt; ReadPrec [ConnectionAuthorizationType]
+-&gt; Read ConnectionAuthorizationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectionAuthorizationType]
+$creadListPrec :: ReadPrec [ConnectionAuthorizationType]
+readPrec :: ReadPrec ConnectionAuthorizationType
+$creadPrec :: ReadPrec ConnectionAuthorizationType
+readList :: ReadS [ConnectionAuthorizationType]
+$creadList :: ReadS [ConnectionAuthorizationType]
+readsPrec :: Int -&gt; ReadS ConnectionAuthorizationType
+$creadsPrec :: Int -&gt; ReadS ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299938"><span id="local-6989586621679299940"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+(ConnectionAuthorizationType
+ -&gt; ConnectionAuthorizationType -&gt; Bool)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; Bool)
+-&gt; Eq ConnectionAuthorizationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+$c/= :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+== :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+$c== :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679299922"><span id="local-6989586621679299924"><span id="local-6989586621679299926"><span id="local-6989586621679299928"><span id="local-6989586621679299930"><span id="local-6989586621679299932"><span id="local-6989586621679299934"><span class="annot"><span class="annottext">Eq ConnectionAuthorizationType
+Eq ConnectionAuthorizationType
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; Ordering)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; Bool)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; Bool)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; Bool)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; Bool)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType)
+-&gt; (ConnectionAuthorizationType
+    -&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType)
+-&gt; Ord ConnectionAuthorizationType
+ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; Ordering
+ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType
+$cmin :: ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType
+max :: ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType
+$cmax :: ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; ConnectionAuthorizationType
+&gt;= :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+$c&gt;= :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+&gt; :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+$c&gt; :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+&lt;= :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+$c&lt;= :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+&lt; :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+$c&lt; :: ConnectionAuthorizationType -&gt; ConnectionAuthorizationType -&gt; Bool
+compare :: ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; Ordering
+$ccompare :: ConnectionAuthorizationType
+-&gt; ConnectionAuthorizationType -&gt; Ordering
+$cp1Ord :: Eq ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ConnectionAuthorizationType -&gt; Rep ConnectionAuthorizationType x)
+-&gt; (forall x.
+    Rep ConnectionAuthorizationType x -&gt; ConnectionAuthorizationType)
+-&gt; Generic ConnectionAuthorizationType
+forall x.
+Rep ConnectionAuthorizationType x -&gt; ConnectionAuthorizationType
+forall x.
+ConnectionAuthorizationType -&gt; Rep ConnectionAuthorizationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConnectionAuthorizationType x -&gt; ConnectionAuthorizationType
+$cfrom :: forall x.
+ConnectionAuthorizationType -&gt; Rep ConnectionAuthorizationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299914"><span id="local-6989586621679299916"><span class="annot"><span class="annottext">Int -&gt; ConnectionAuthorizationType -&gt; Int
+ConnectionAuthorizationType -&gt; Int
+(Int -&gt; ConnectionAuthorizationType -&gt; Int)
+-&gt; (ConnectionAuthorizationType -&gt; Int)
+-&gt; Hashable ConnectionAuthorizationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConnectionAuthorizationType -&gt; Int
+$chash :: ConnectionAuthorizationType -&gt; Int
+hashWithSalt :: Int -&gt; ConnectionAuthorizationType -&gt; Int
+$chashWithSalt :: Int -&gt; ConnectionAuthorizationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299911"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; ()
+(ConnectionAuthorizationType -&gt; ())
+-&gt; NFData ConnectionAuthorizationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConnectionAuthorizationType -&gt; ()
+$crnf :: ConnectionAuthorizationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299908"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionAuthorizationType
+(Text -&gt; Either String ConnectionAuthorizationType)
+-&gt; FromText ConnectionAuthorizationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConnectionAuthorizationType
+$cfromText :: Text -&gt; Either String ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299905"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; Text
+(ConnectionAuthorizationType -&gt; Text)
+-&gt; ToText ConnectionAuthorizationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConnectionAuthorizationType -&gt; Text
+$ctoText :: ConnectionAuthorizationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299902"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; ByteString
+(ConnectionAuthorizationType -&gt; ByteString)
+-&gt; ToByteString ConnectionAuthorizationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConnectionAuthorizationType -&gt; ByteString
+$ctoBS :: ConnectionAuthorizationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299899"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; ByteStringBuilder
+(ConnectionAuthorizationType -&gt; ByteStringBuilder)
+-&gt; ToLog ConnectionAuthorizationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConnectionAuthorizationType -&gt; ByteStringBuilder
+$cbuild :: ConnectionAuthorizationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299896"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionAuthorizationType -&gt; [Header]
+(HeaderName -&gt; ConnectionAuthorizationType -&gt; [Header])
+-&gt; ToHeader ConnectionAuthorizationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConnectionAuthorizationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConnectionAuthorizationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299893"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; QueryString
+(ConnectionAuthorizationType -&gt; QueryString)
+-&gt; ToQuery ConnectionAuthorizationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConnectionAuthorizationType -&gt; QueryString
+$ctoQuery :: ConnectionAuthorizationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299888"><span id="local-6989586621679299890"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionAuthorizationType]
+Value -&gt; Parser ConnectionAuthorizationType
+(Value -&gt; Parser ConnectionAuthorizationType)
+-&gt; (Value -&gt; Parser [ConnectionAuthorizationType])
+-&gt; FromJSON ConnectionAuthorizationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConnectionAuthorizationType]
+$cparseJSONList :: Value -&gt; Parser [ConnectionAuthorizationType]
+parseJSON :: Value -&gt; Parser ConnectionAuthorizationType
+$cparseJSON :: Value -&gt; Parser ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299883"><span id="local-6989586621679299885"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionAuthorizationType]
+FromJSONKeyFunction ConnectionAuthorizationType
+FromJSONKeyFunction ConnectionAuthorizationType
+-&gt; FromJSONKeyFunction [ConnectionAuthorizationType]
+-&gt; FromJSONKey ConnectionAuthorizationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConnectionAuthorizationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConnectionAuthorizationType]
+fromJSONKey :: FromJSONKeyFunction ConnectionAuthorizationType
+$cfromJSONKey :: FromJSONKeyFunction ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299874"><span id="local-6989586621679299876"><span id="local-6989586621679299878"><span id="local-6989586621679299880"><span class="annot"><span class="annottext">[ConnectionAuthorizationType] -&gt; Encoding
+[ConnectionAuthorizationType] -&gt; Value
+ConnectionAuthorizationType -&gt; Encoding
+ConnectionAuthorizationType -&gt; Value
+(ConnectionAuthorizationType -&gt; Value)
+-&gt; (ConnectionAuthorizationType -&gt; Encoding)
+-&gt; ([ConnectionAuthorizationType] -&gt; Value)
+-&gt; ([ConnectionAuthorizationType] -&gt; Encoding)
+-&gt; ToJSON ConnectionAuthorizationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConnectionAuthorizationType] -&gt; Encoding
+$ctoEncodingList :: [ConnectionAuthorizationType] -&gt; Encoding
+toJSONList :: [ConnectionAuthorizationType] -&gt; Value
+$ctoJSONList :: [ConnectionAuthorizationType] -&gt; Value
+toEncoding :: ConnectionAuthorizationType -&gt; Encoding
+$ctoEncoding :: ConnectionAuthorizationType -&gt; Encoding
+toJSON :: ConnectionAuthorizationType -&gt; Value
+$ctoJSON :: ConnectionAuthorizationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299869"><span id="local-6989586621679299871"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionAuthorizationType]
+ToJSONKeyFunction ConnectionAuthorizationType
+ToJSONKeyFunction ConnectionAuthorizationType
+-&gt; ToJSONKeyFunction [ConnectionAuthorizationType]
+-&gt; ToJSONKey ConnectionAuthorizationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConnectionAuthorizationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConnectionAuthorizationType]
+toJSONKey :: ToJSONKeyFunction ConnectionAuthorizationType
+$ctoJSONKey :: ToJSONKeyFunction ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299866"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionAuthorizationType
+([Node] -&gt; Either String ConnectionAuthorizationType)
+-&gt; FromXML ConnectionAuthorizationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConnectionAuthorizationType
+$cparseXML :: [Node] -&gt; Either String ConnectionAuthorizationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299863"><span class="annot"><span class="annottext">ConnectionAuthorizationType -&gt; XML
+(ConnectionAuthorizationType -&gt; XML)
+-&gt; ToXML ConnectionAuthorizationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConnectionAuthorizationType -&gt; XML
+$ctoXML :: ConnectionAuthorizationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_API_KEY"><span class="hs-identifier hs-type">ConnectionAuthorizationType_API_KEY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier hs-type">ConnectionAuthorizationType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionAuthorizationType_API_KEY"><span id="%24mConnectionAuthorizationType_API_KEY"><span id="ConnectionAuthorizationType_API_KEY"><span class="annot"><span class="annottext">$bConnectionAuthorizationType_API_KEY :: ConnectionAuthorizationType
+$mConnectionAuthorizationType_API_KEY :: forall r.
+ConnectionAuthorizationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#%24bConnectionAuthorizationType_API_KEY"><span class="hs-identifier hs-var hs-var hs-var">ConnectionAuthorizationType_API_KEY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType%27"><span class="hs-identifier hs-type">ConnectionAuthorizationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;API_KEY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_BASIC"><span class="hs-identifier hs-type">ConnectionAuthorizationType_BASIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier hs-type">ConnectionAuthorizationType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionAuthorizationType_BASIC"><span id="%24mConnectionAuthorizationType_BASIC"><span id="ConnectionAuthorizationType_BASIC"><span class="annot"><span class="annottext">$bConnectionAuthorizationType_BASIC :: ConnectionAuthorizationType
+$mConnectionAuthorizationType_BASIC :: forall r.
+ConnectionAuthorizationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#%24bConnectionAuthorizationType_BASIC"><span class="hs-identifier hs-var hs-var hs-var">ConnectionAuthorizationType_BASIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType%27"><span class="hs-identifier hs-type">ConnectionAuthorizationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BASIC&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span class="hs-identifier hs-type">ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType"><span class="hs-identifier hs-type">ConnectionAuthorizationType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span id="%24mConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span id="ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span class="annot"><span class="annottext">$bConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS :: ConnectionAuthorizationType
+$mConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS :: forall r.
+ConnectionAuthorizationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#%24bConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span class="hs-identifier hs-var hs-var hs-var">ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType%27"><span class="hs-identifier hs-type">ConnectionAuthorizationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OAUTH_CLIENT_CREDENTIALS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_API_KEY"><span class="hs-pragma hs-type">ConnectionAuthorizationType_API_KEY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_BASIC"><span class="hs-pragma hs-type">ConnectionAuthorizationType_BASIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS"><span class="hs-pragma hs-type">ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionAuthorizationType.html#ConnectionAuthorizationType%27"><span class="hs-pragma hs-type">ConnectionAuthorizationType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

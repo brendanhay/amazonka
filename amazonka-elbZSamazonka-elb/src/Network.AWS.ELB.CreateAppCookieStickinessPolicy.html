@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates a stickiness policy with sticky session lifetimes that follow</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- that of an application-generated cookie. This policy can be associated</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- only with HTTP\/HTTPS listeners.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This policy is similar to the policy created by</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- CreateLBCookieStickinessPolicy, except that the lifetime of the special</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Elastic Load Balancing cookie, @AWSELB@, follows the lifetime of the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- application-generated cookie specified in the policy configuration. The</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- load balancer only inserts a new stickiness cookie when the application</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- response includes a new application cookie.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If the application cookie is explicitly removed or expires, the session</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- stops being sticky until a new application cookie is issued.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness&gt;</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- in the /Classic Load Balancers Guide/.</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELB.CreateAppCookieStickinessPolicy</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#newCreateAppCookieStickinessPolicy"><span class="hs-identifier">newCreateAppCookieStickinessPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_loadBalancerName"><span class="hs-identifier">createAppCookieStickinessPolicy_loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_policyName"><span class="hs-identifier">createAppCookieStickinessPolicy_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_cookieName"><span class="hs-identifier">createAppCookieStickinessPolicy_cookieName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier">CreateAppCookieStickinessPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#newCreateAppCookieStickinessPolicyResponse"><span class="hs-identifier">newCreateAppCookieStickinessPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicyResponse_httpStatus"><span class="hs-identifier">createAppCookieStickinessPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.html"><span class="hs-identifier">Network.AWS.ELB.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Contains the parameters for CreateAppCookieStickinessPolicy.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newCreateAppCookieStickinessPolicy' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679203471"><span id="local-6989586621679203472"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppCookieStickinessPolicy"><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-var">CreateAppCookieStickinessPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppCookieStickinessPolicy%27"><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">CreateAppCookieStickinessPolicy'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ACreateAppCookieStickinessPolicy%27"><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AloadBalancerName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the policy being created. Policy names must consist of</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- alphanumeric characters and dashes (-). This name must be unique within</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the set of policies for this load balancer.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ApolicyName%3ACreateAppCookieStickinessPolicy%27"><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3ApolicyName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the application cookie used for stickiness.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AcookieName%3ACreateAppCookieStickinessPolicy%27"><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AcookieName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var hs-var">cookieName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203463"><span id="local-6989586621679203465"><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy
+-&gt; CreateAppCookieStickinessPolicy -&gt; Bool
+(CreateAppCookieStickinessPolicy
+ -&gt; CreateAppCookieStickinessPolicy -&gt; Bool)
+-&gt; (CreateAppCookieStickinessPolicy
+    -&gt; CreateAppCookieStickinessPolicy -&gt; Bool)
+-&gt; Eq CreateAppCookieStickinessPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAppCookieStickinessPolicy
+-&gt; CreateAppCookieStickinessPolicy -&gt; Bool
+$c/= :: CreateAppCookieStickinessPolicy
+-&gt; CreateAppCookieStickinessPolicy -&gt; Bool
+== :: CreateAppCookieStickinessPolicy
+-&gt; CreateAppCookieStickinessPolicy -&gt; Bool
+$c== :: CreateAppCookieStickinessPolicy
+-&gt; CreateAppCookieStickinessPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203454"><span id="local-6989586621679203456"><span id="local-6989586621679203458"><span id="local-6989586621679203460"><span class="annot"><span class="annottext">ReadPrec [CreateAppCookieStickinessPolicy]
+ReadPrec CreateAppCookieStickinessPolicy
+Int -&gt; ReadS CreateAppCookieStickinessPolicy
+ReadS [CreateAppCookieStickinessPolicy]
+(Int -&gt; ReadS CreateAppCookieStickinessPolicy)
+-&gt; ReadS [CreateAppCookieStickinessPolicy]
+-&gt; ReadPrec CreateAppCookieStickinessPolicy
+-&gt; ReadPrec [CreateAppCookieStickinessPolicy]
+-&gt; Read CreateAppCookieStickinessPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAppCookieStickinessPolicy]
+$creadListPrec :: ReadPrec [CreateAppCookieStickinessPolicy]
+readPrec :: ReadPrec CreateAppCookieStickinessPolicy
+$creadPrec :: ReadPrec CreateAppCookieStickinessPolicy
+readList :: ReadS [CreateAppCookieStickinessPolicy]
+$creadList :: ReadS [CreateAppCookieStickinessPolicy]
+readsPrec :: Int -&gt; ReadS CreateAppCookieStickinessPolicy
+$creadsPrec :: Int -&gt; ReadS CreateAppCookieStickinessPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203447"><span id="local-6989586621679203449"><span id="local-6989586621679203451"><span class="annot"><span class="annottext">Int -&gt; CreateAppCookieStickinessPolicy -&gt; ShowS
+[CreateAppCookieStickinessPolicy] -&gt; ShowS
+CreateAppCookieStickinessPolicy -&gt; String
+(Int -&gt; CreateAppCookieStickinessPolicy -&gt; ShowS)
+-&gt; (CreateAppCookieStickinessPolicy -&gt; String)
+-&gt; ([CreateAppCookieStickinessPolicy] -&gt; ShowS)
+-&gt; Show CreateAppCookieStickinessPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAppCookieStickinessPolicy] -&gt; ShowS
+$cshowList :: [CreateAppCookieStickinessPolicy] -&gt; ShowS
+show :: CreateAppCookieStickinessPolicy -&gt; String
+$cshow :: CreateAppCookieStickinessPolicy -&gt; String
+showsPrec :: Int -&gt; CreateAppCookieStickinessPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAppCookieStickinessPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAppCookieStickinessPolicy
+ -&gt; Rep CreateAppCookieStickinessPolicy x)
+-&gt; (forall x.
+    Rep CreateAppCookieStickinessPolicy x
+    -&gt; CreateAppCookieStickinessPolicy)
+-&gt; Generic CreateAppCookieStickinessPolicy
+forall x.
+Rep CreateAppCookieStickinessPolicy x
+-&gt; CreateAppCookieStickinessPolicy
+forall x.
+CreateAppCookieStickinessPolicy
+-&gt; Rep CreateAppCookieStickinessPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAppCookieStickinessPolicy x
+-&gt; CreateAppCookieStickinessPolicy
+$cfrom :: forall x.
+CreateAppCookieStickinessPolicy
+-&gt; Rep CreateAppCookieStickinessPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'CreateAppCookieStickinessPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'loadBalancerName', 'createAppCookieStickinessPolicy_loadBalancerName' - The name of the load balancer.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'policyName', 'createAppCookieStickinessPolicy_policyName' - The name of the policy being created. Policy names must consist of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- alphanumeric characters and dashes (-). This name must be unique within</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the set of policies for this load balancer.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'cookieName', 'createAppCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#newCreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">newCreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'loadBalancerName'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'policyName'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'cookieName'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span>
+</span><span id="line-104"></span><span id="newCreateAppCookieStickinessPolicy"><span class="annot"><span class="annottext">newCreateAppCookieStickinessPolicy :: Text -&gt; Text -&gt; Text -&gt; CreateAppCookieStickinessPolicy
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#newCreateAppCookieStickinessPolicy"><span class="hs-identifier hs-var hs-var">newCreateAppCookieStickinessPolicy</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679203442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203442"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679203441"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203441"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679203440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203440"><span class="hs-identifier hs-var">pCookieName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy' :: Text -&gt; Text -&gt; Text -&gt; CreateAppCookieStickinessPolicy
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateAppCookieStickinessPolicy' :: Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AloadBalancerName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203442"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyName:CreateAppCookieStickinessPolicy' :: Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3ApolicyName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203441"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:cookieName:CreateAppCookieStickinessPolicy' :: Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AcookieName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">cookieName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203440"><span class="hs-identifier hs-var">pCookieName_</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the load balancer.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_loadBalancerName"><span class="hs-identifier hs-type">createAppCookieStickinessPolicy_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="createAppCookieStickinessPolicy_loadBalancerName"><span class="annot"><span class="annottext">createAppCookieStickinessPolicy_loadBalancerName :: (Text -&gt; f Text)
+-&gt; CreateAppCookieStickinessPolicy
+-&gt; f CreateAppCookieStickinessPolicy
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_loadBalancerName"><span class="hs-identifier hs-var hs-var">createAppCookieStickinessPolicy_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppCookieStickinessPolicy -&gt; Text)
+-&gt; (CreateAppCookieStickinessPolicy
+    -&gt; Text -&gt; CreateAppCookieStickinessPolicy)
+-&gt; Lens
+     CreateAppCookieStickinessPolicy
+     CreateAppCookieStickinessPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203437"><span class="annot"><span class="annottext">Text
+loadBalancerName :: Text
+$sel:loadBalancerName:CreateAppCookieStickinessPolicy' :: CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="#local-6989586621679203437"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203437"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203436"><span class="annot"><span class="annottext">s :: CreateAppCookieStickinessPolicy
+</span><a href="#local-6989586621679203436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy
+</span><a href="#local-6989586621679203436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateAppCookieStickinessPolicy' :: Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AloadBalancerName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The name of the policy being created. Policy names must consist of</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- alphanumeric characters and dashes (-). This name must be unique within</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the set of policies for this load balancer.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_policyName"><span class="hs-identifier hs-type">createAppCookieStickinessPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="createAppCookieStickinessPolicy_policyName"><span class="annot"><span class="annottext">createAppCookieStickinessPolicy_policyName :: (Text -&gt; f Text)
+-&gt; CreateAppCookieStickinessPolicy
+-&gt; f CreateAppCookieStickinessPolicy
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_policyName"><span class="hs-identifier hs-var hs-var">createAppCookieStickinessPolicy_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppCookieStickinessPolicy -&gt; Text)
+-&gt; (CreateAppCookieStickinessPolicy
+    -&gt; Text -&gt; CreateAppCookieStickinessPolicy)
+-&gt; Lens
+     CreateAppCookieStickinessPolicy
+     CreateAppCookieStickinessPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203434"><span class="annot"><span class="annottext">Text
+policyName :: Text
+$sel:policyName:CreateAppCookieStickinessPolicy' :: CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="#local-6989586621679203434"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203434"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203433"><span class="annot"><span class="annottext">s :: CreateAppCookieStickinessPolicy
+</span><a href="#local-6989586621679203433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203432"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy
+</span><a href="#local-6989586621679203433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:CreateAppCookieStickinessPolicy' :: Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3ApolicyName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the application cookie used for stickiness.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_cookieName"><span class="hs-identifier hs-type">createAppCookieStickinessPolicy_cookieName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="createAppCookieStickinessPolicy_cookieName"><span class="annot"><span class="annottext">createAppCookieStickinessPolicy_cookieName :: (Text -&gt; f Text)
+-&gt; CreateAppCookieStickinessPolicy
+-&gt; f CreateAppCookieStickinessPolicy
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicy_cookieName"><span class="hs-identifier hs-var hs-var">createAppCookieStickinessPolicy_cookieName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppCookieStickinessPolicy -&gt; Text)
+-&gt; (CreateAppCookieStickinessPolicy
+    -&gt; Text -&gt; CreateAppCookieStickinessPolicy)
+-&gt; Lens
+     CreateAppCookieStickinessPolicy
+     CreateAppCookieStickinessPolicy
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203431"><span class="annot"><span class="annottext">Text
+cookieName :: Text
+$sel:cookieName:CreateAppCookieStickinessPolicy' :: CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="#local-6989586621679203431"><span class="hs-identifier hs-var hs-var">cookieName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203431"><span class="hs-identifier hs-var">cookieName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203430"><span class="annot"><span class="annottext">s :: CreateAppCookieStickinessPolicy
+</span><a href="#local-6989586621679203430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicy
+</span><a href="#local-6989586621679203430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookieName:CreateAppCookieStickinessPolicy' :: Text
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AcookieName%3ACreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-var">cookieName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679203425"><span class="annot"><span class="annottext">request :: CreateAppCookieStickinessPolicy
+-&gt; Request CreateAppCookieStickinessPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateAppCookieStickinessPolicy
+-&gt; Request CreateAppCookieStickinessPolicy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679203421"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateAppCookieStickinessPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateAppCookieStickinessPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse CreateAppCookieStickinessPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateAppCookieStickinessPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateAppCookieStickinessPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateAppCookieStickinessPolicyResult&quot;</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203418"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203418"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203417"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203417"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203416"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679203416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateAppCookieStickinessPolicyResponse
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-var">CreateAppCookieStickinessPolicyResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateAppCookieStickinessPolicyResponse)
+-&gt; Either String Int
+-&gt; Either String CreateAppCookieStickinessPolicyResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203418"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679203409"><span id="local-6989586621679203411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679203406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679203402"><span class="annot"><span class="annottext">toHeaders :: CreateAppCookieStickinessPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateAppCookieStickinessPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679203397"><span class="annot"><span class="annottext">toPath :: CreateAppCookieStickinessPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAppCookieStickinessPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679203393"><span class="annot"><span class="annottext">toQuery :: CreateAppCookieStickinessPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicy%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203389"><span id="local-6989586621679203390"><span id="local-6989586621679203391"><span class="annot"><span class="annottext">Text
+cookieName :: Text
+policyName :: Text
+loadBalancerName :: Text
+$sel:cookieName:CreateAppCookieStickinessPolicy' :: CreateAppCookieStickinessPolicy -&gt; Text
+$sel:policyName:CreateAppCookieStickinessPolicy' :: CreateAppCookieStickinessPolicy -&gt; Text
+$sel:loadBalancerName:CreateAppCookieStickinessPolicy' :: CreateAppCookieStickinessPolicy -&gt; Text
+</span><a href="#local-6989586621679203389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateAppCookieStickinessPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-06-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203391"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203390"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CookieName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203389"><span class="hs-identifier hs-var">cookieName</span></a></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | Contains the output for CreateAppCookieStickinessPolicy.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- /See:/ 'newCreateAppCookieStickinessPolicyResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679203386"><span id="local-6989586621679203387"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppCookieStickinessPolicyResponse"><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-var">CreateAppCookieStickinessPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppCookieStickinessPolicyResponse%27"><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-var">CreateAppCookieStickinessPolicyResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAppCookieStickinessPolicyResponse%27"><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicyResponse -&gt; Int
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AhttpStatus%3ACreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203381"><span id="local-6989586621679203383"><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicyResponse
+-&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool
+(CreateAppCookieStickinessPolicyResponse
+ -&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool)
+-&gt; (CreateAppCookieStickinessPolicyResponse
+    -&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool)
+-&gt; Eq CreateAppCookieStickinessPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateAppCookieStickinessPolicyResponse
+-&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool
+$c/= :: CreateAppCookieStickinessPolicyResponse
+-&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool
+== :: CreateAppCookieStickinessPolicyResponse
+-&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool
+$c== :: CreateAppCookieStickinessPolicyResponse
+-&gt; CreateAppCookieStickinessPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203373"><span id="local-6989586621679203375"><span id="local-6989586621679203377"><span id="local-6989586621679203379"><span class="annot"><span class="annottext">ReadPrec [CreateAppCookieStickinessPolicyResponse]
+ReadPrec CreateAppCookieStickinessPolicyResponse
+Int -&gt; ReadS CreateAppCookieStickinessPolicyResponse
+ReadS [CreateAppCookieStickinessPolicyResponse]
+(Int -&gt; ReadS CreateAppCookieStickinessPolicyResponse)
+-&gt; ReadS [CreateAppCookieStickinessPolicyResponse]
+-&gt; ReadPrec CreateAppCookieStickinessPolicyResponse
+-&gt; ReadPrec [CreateAppCookieStickinessPolicyResponse]
+-&gt; Read CreateAppCookieStickinessPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateAppCookieStickinessPolicyResponse]
+$creadListPrec :: ReadPrec [CreateAppCookieStickinessPolicyResponse]
+readPrec :: ReadPrec CreateAppCookieStickinessPolicyResponse
+$creadPrec :: ReadPrec CreateAppCookieStickinessPolicyResponse
+readList :: ReadS [CreateAppCookieStickinessPolicyResponse]
+$creadList :: ReadS [CreateAppCookieStickinessPolicyResponse]
+readsPrec :: Int -&gt; ReadS CreateAppCookieStickinessPolicyResponse
+$creadsPrec :: Int -&gt; ReadS CreateAppCookieStickinessPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203367"><span id="local-6989586621679203369"><span id="local-6989586621679203371"><span class="annot"><span class="annottext">Int -&gt; CreateAppCookieStickinessPolicyResponse -&gt; ShowS
+[CreateAppCookieStickinessPolicyResponse] -&gt; ShowS
+CreateAppCookieStickinessPolicyResponse -&gt; String
+(Int -&gt; CreateAppCookieStickinessPolicyResponse -&gt; ShowS)
+-&gt; (CreateAppCookieStickinessPolicyResponse -&gt; String)
+-&gt; ([CreateAppCookieStickinessPolicyResponse] -&gt; ShowS)
+-&gt; Show CreateAppCookieStickinessPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateAppCookieStickinessPolicyResponse] -&gt; ShowS
+$cshowList :: [CreateAppCookieStickinessPolicyResponse] -&gt; ShowS
+show :: CreateAppCookieStickinessPolicyResponse -&gt; String
+$cshow :: CreateAppCookieStickinessPolicyResponse -&gt; String
+showsPrec :: Int -&gt; CreateAppCookieStickinessPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateAppCookieStickinessPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateAppCookieStickinessPolicyResponse
+ -&gt; Rep CreateAppCookieStickinessPolicyResponse x)
+-&gt; (forall x.
+    Rep CreateAppCookieStickinessPolicyResponse x
+    -&gt; CreateAppCookieStickinessPolicyResponse)
+-&gt; Generic CreateAppCookieStickinessPolicyResponse
+forall x.
+Rep CreateAppCookieStickinessPolicyResponse x
+-&gt; CreateAppCookieStickinessPolicyResponse
+forall x.
+CreateAppCookieStickinessPolicyResponse
+-&gt; Rep CreateAppCookieStickinessPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateAppCookieStickinessPolicyResponse x
+-&gt; CreateAppCookieStickinessPolicyResponse
+$cfrom :: forall x.
+CreateAppCookieStickinessPolicyResponse
+-&gt; Rep CreateAppCookieStickinessPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'CreateAppCookieStickinessPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'createAppCookieStickinessPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#newCreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-type">newCreateAppCookieStickinessPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newCreateAppCookieStickinessPolicyResponse"><span class="annot"><span class="annottext">newCreateAppCookieStickinessPolicyResponse :: Int -&gt; CreateAppCookieStickinessPolicyResponse
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#newCreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-var hs-var">newCreateAppCookieStickinessPolicyResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679203364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203364"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicyResponse' :: Int -&gt; CreateAppCookieStickinessPolicyResponse
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppCookieStickinessPolicyResponse' :: Int
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AhttpStatus%3ACreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203364"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicyResponse_httpStatus"><span class="hs-identifier hs-type">createAppCookieStickinessPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span id="createAppCookieStickinessPolicyResponse_httpStatus"><span class="annot"><span class="annottext">createAppCookieStickinessPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateAppCookieStickinessPolicyResponse
+-&gt; f CreateAppCookieStickinessPolicyResponse
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#createAppCookieStickinessPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createAppCookieStickinessPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateAppCookieStickinessPolicyResponse -&gt; Int)
+-&gt; (CreateAppCookieStickinessPolicyResponse
+    -&gt; Int -&gt; CreateAppCookieStickinessPolicyResponse)
+-&gt; Lens
+     CreateAppCookieStickinessPolicyResponse
+     CreateAppCookieStickinessPolicyResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203363"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateAppCookieStickinessPolicyResponse' :: CreateAppCookieStickinessPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679203363"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203363"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203362"><span class="annot"><span class="annottext">s :: CreateAppCookieStickinessPolicyResponse
+</span><a href="#local-6989586621679203362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppCookieStickinessPolicyResponse
+</span><a href="#local-6989586621679203362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppCookieStickinessPolicyResponse' :: Int
+</span><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#%24sel%3AhttpStatus%3ACreateAppCookieStickinessPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679203359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.CreateAppCookieStickinessPolicy.html#CreateAppCookieStickinessPolicyResponse"><span class="hs-identifier hs-type">CreateAppCookieStickinessPolicyResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

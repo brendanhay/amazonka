@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Lightsail.Types.AccessDirection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lightsail.Types.AccessDirection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection"><span class="hs-identifier">AccessDirection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection_Inbound"><span class="hs-identifier">AccessDirection_Inbound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection_Outbound"><span class="hs-identifier">AccessDirection_Outbound</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679602340"><span id="local-6989586621679602341"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessDirection"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection"><span class="hs-identifier hs-var">AccessDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessDirection%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection%27"><span class="hs-identifier hs-var">AccessDirection'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessDirection"><span class="annot"><span class="annottext">AccessDirection -&gt; Text
+</span><a href="Network.AWS.Lightsail.Types.AccessDirection.html#fromAccessDirection"><span class="hs-identifier hs-var hs-var">fromAccessDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679602332"><span id="local-6989586621679602334"><span id="local-6989586621679602336"><span class="annot"><span class="annottext">Int -&gt; AccessDirection -&gt; ShowS
+[AccessDirection] -&gt; ShowS
+AccessDirection -&gt; String
+(Int -&gt; AccessDirection -&gt; ShowS)
+-&gt; (AccessDirection -&gt; String)
+-&gt; ([AccessDirection] -&gt; ShowS)
+-&gt; Show AccessDirection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessDirection] -&gt; ShowS
+$cshowList :: [AccessDirection] -&gt; ShowS
+show :: AccessDirection -&gt; String
+$cshow :: AccessDirection -&gt; String
+showsPrec :: Int -&gt; AccessDirection -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessDirection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679602323"><span id="local-6989586621679602325"><span id="local-6989586621679602327"><span id="local-6989586621679602329"><span class="annot"><span class="annottext">ReadPrec [AccessDirection]
+ReadPrec AccessDirection
+Int -&gt; ReadS AccessDirection
+ReadS [AccessDirection]
+(Int -&gt; ReadS AccessDirection)
+-&gt; ReadS [AccessDirection]
+-&gt; ReadPrec AccessDirection
+-&gt; ReadPrec [AccessDirection]
+-&gt; Read AccessDirection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessDirection]
+$creadListPrec :: ReadPrec [AccessDirection]
+readPrec :: ReadPrec AccessDirection
+$creadPrec :: ReadPrec AccessDirection
+readList :: ReadS [AccessDirection]
+$creadList :: ReadS [AccessDirection]
+readsPrec :: Int -&gt; ReadS AccessDirection
+$creadsPrec :: Int -&gt; ReadS AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679602318"><span id="local-6989586621679602320"><span class="annot"><span class="annottext">AccessDirection -&gt; AccessDirection -&gt; Bool
+(AccessDirection -&gt; AccessDirection -&gt; Bool)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; Bool)
+-&gt; Eq AccessDirection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessDirection -&gt; AccessDirection -&gt; Bool
+$c/= :: AccessDirection -&gt; AccessDirection -&gt; Bool
+== :: AccessDirection -&gt; AccessDirection -&gt; Bool
+$c== :: AccessDirection -&gt; AccessDirection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679602302"><span id="local-6989586621679602304"><span id="local-6989586621679602306"><span id="local-6989586621679602308"><span id="local-6989586621679602310"><span id="local-6989586621679602312"><span id="local-6989586621679602314"><span class="annot"><span class="annottext">Eq AccessDirection
+Eq AccessDirection
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; Ordering)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; Bool)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; Bool)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; Bool)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; Bool)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; AccessDirection)
+-&gt; (AccessDirection -&gt; AccessDirection -&gt; AccessDirection)
+-&gt; Ord AccessDirection
+AccessDirection -&gt; AccessDirection -&gt; Bool
+AccessDirection -&gt; AccessDirection -&gt; Ordering
+AccessDirection -&gt; AccessDirection -&gt; AccessDirection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccessDirection -&gt; AccessDirection -&gt; AccessDirection
+$cmin :: AccessDirection -&gt; AccessDirection -&gt; AccessDirection
+max :: AccessDirection -&gt; AccessDirection -&gt; AccessDirection
+$cmax :: AccessDirection -&gt; AccessDirection -&gt; AccessDirection
+&gt;= :: AccessDirection -&gt; AccessDirection -&gt; Bool
+$c&gt;= :: AccessDirection -&gt; AccessDirection -&gt; Bool
+&gt; :: AccessDirection -&gt; AccessDirection -&gt; Bool
+$c&gt; :: AccessDirection -&gt; AccessDirection -&gt; Bool
+&lt;= :: AccessDirection -&gt; AccessDirection -&gt; Bool
+$c&lt;= :: AccessDirection -&gt; AccessDirection -&gt; Bool
+&lt; :: AccessDirection -&gt; AccessDirection -&gt; Bool
+$c&lt; :: AccessDirection -&gt; AccessDirection -&gt; Bool
+compare :: AccessDirection -&gt; AccessDirection -&gt; Ordering
+$ccompare :: AccessDirection -&gt; AccessDirection -&gt; Ordering
+$cp1Ord :: Eq AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccessDirection -&gt; Rep AccessDirection x)
+-&gt; (forall x. Rep AccessDirection x -&gt; AccessDirection)
+-&gt; Generic AccessDirection
+forall x. Rep AccessDirection x -&gt; AccessDirection
+forall x. AccessDirection -&gt; Rep AccessDirection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessDirection x -&gt; AccessDirection
+$cfrom :: forall x. AccessDirection -&gt; Rep AccessDirection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679602294"><span id="local-6989586621679602296"><span class="annot"><span class="annottext">Int -&gt; AccessDirection -&gt; Int
+AccessDirection -&gt; Int
+(Int -&gt; AccessDirection -&gt; Int)
+-&gt; (AccessDirection -&gt; Int) -&gt; Hashable AccessDirection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccessDirection -&gt; Int
+$chash :: AccessDirection -&gt; Int
+hashWithSalt :: Int -&gt; AccessDirection -&gt; Int
+$chashWithSalt :: Int -&gt; AccessDirection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679602291"><span class="annot"><span class="annottext">AccessDirection -&gt; ()
+(AccessDirection -&gt; ()) -&gt; NFData AccessDirection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccessDirection -&gt; ()
+$crnf :: AccessDirection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679602288"><span class="annot"><span class="annottext">Text -&gt; Either String AccessDirection
+(Text -&gt; Either String AccessDirection) -&gt; FromText AccessDirection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccessDirection
+$cfromText :: Text -&gt; Either String AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679602285"><span class="annot"><span class="annottext">AccessDirection -&gt; Text
+(AccessDirection -&gt; Text) -&gt; ToText AccessDirection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccessDirection -&gt; Text
+$ctoText :: AccessDirection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679602282"><span class="annot"><span class="annottext">AccessDirection -&gt; ByteString
+(AccessDirection -&gt; ByteString) -&gt; ToByteString AccessDirection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccessDirection -&gt; ByteString
+$ctoBS :: AccessDirection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679602279"><span class="annot"><span class="annottext">AccessDirection -&gt; ByteStringBuilder
+(AccessDirection -&gt; ByteStringBuilder) -&gt; ToLog AccessDirection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccessDirection -&gt; ByteStringBuilder
+$cbuild :: AccessDirection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679602276"><span class="annot"><span class="annottext">HeaderName -&gt; AccessDirection -&gt; [Header]
+(HeaderName -&gt; AccessDirection -&gt; [Header])
+-&gt; ToHeader AccessDirection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccessDirection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccessDirection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679602273"><span class="annot"><span class="annottext">AccessDirection -&gt; QueryString
+(AccessDirection -&gt; QueryString) -&gt; ToQuery AccessDirection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccessDirection -&gt; QueryString
+$ctoQuery :: AccessDirection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679602268"><span id="local-6989586621679602270"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessDirection]
+Value -&gt; Parser AccessDirection
+(Value -&gt; Parser AccessDirection)
+-&gt; (Value -&gt; Parser [AccessDirection]) -&gt; FromJSON AccessDirection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccessDirection]
+$cparseJSONList :: Value -&gt; Parser [AccessDirection]
+parseJSON :: Value -&gt; Parser AccessDirection
+$cparseJSON :: Value -&gt; Parser AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679602263"><span id="local-6989586621679602265"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessDirection]
+FromJSONKeyFunction AccessDirection
+FromJSONKeyFunction AccessDirection
+-&gt; FromJSONKeyFunction [AccessDirection]
+-&gt; FromJSONKey AccessDirection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccessDirection]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccessDirection]
+fromJSONKey :: FromJSONKeyFunction AccessDirection
+$cfromJSONKey :: FromJSONKeyFunction AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679602254"><span id="local-6989586621679602256"><span id="local-6989586621679602258"><span id="local-6989586621679602260"><span class="annot"><span class="annottext">[AccessDirection] -&gt; Encoding
+[AccessDirection] -&gt; Value
+AccessDirection -&gt; Encoding
+AccessDirection -&gt; Value
+(AccessDirection -&gt; Value)
+-&gt; (AccessDirection -&gt; Encoding)
+-&gt; ([AccessDirection] -&gt; Value)
+-&gt; ([AccessDirection] -&gt; Encoding)
+-&gt; ToJSON AccessDirection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccessDirection] -&gt; Encoding
+$ctoEncodingList :: [AccessDirection] -&gt; Encoding
+toJSONList :: [AccessDirection] -&gt; Value
+$ctoJSONList :: [AccessDirection] -&gt; Value
+toEncoding :: AccessDirection -&gt; Encoding
+$ctoEncoding :: AccessDirection -&gt; Encoding
+toJSON :: AccessDirection -&gt; Value
+$ctoJSON :: AccessDirection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679602249"><span id="local-6989586621679602251"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessDirection]
+ToJSONKeyFunction AccessDirection
+ToJSONKeyFunction AccessDirection
+-&gt; ToJSONKeyFunction [AccessDirection] -&gt; ToJSONKey AccessDirection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccessDirection]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccessDirection]
+toJSONKey :: ToJSONKeyFunction AccessDirection
+$ctoJSONKey :: ToJSONKeyFunction AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679602246"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessDirection
+([Node] -&gt; Either String AccessDirection)
+-&gt; FromXML AccessDirection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccessDirection
+$cparseXML :: [Node] -&gt; Either String AccessDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679602243"><span class="annot"><span class="annottext">AccessDirection -&gt; XML
+(AccessDirection -&gt; XML) -&gt; ToXML AccessDirection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccessDirection -&gt; XML
+$ctoXML :: AccessDirection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection_Inbound"><span class="hs-identifier hs-type">AccessDirection_Inbound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection"><span class="hs-identifier hs-type">AccessDirection</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessDirection_Inbound"><span id="%24mAccessDirection_Inbound"><span id="AccessDirection_Inbound"><span class="annot"><span class="annottext">$bAccessDirection_Inbound :: AccessDirection
+$mAccessDirection_Inbound :: forall r. AccessDirection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.AccessDirection.html#%24bAccessDirection_Inbound"><span class="hs-identifier hs-var hs-var hs-var">AccessDirection_Inbound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection%27"><span class="hs-identifier hs-type">AccessDirection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;inbound&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection_Outbound"><span class="hs-identifier hs-type">AccessDirection_Outbound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection"><span class="hs-identifier hs-type">AccessDirection</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessDirection_Outbound"><span id="%24mAccessDirection_Outbound"><span id="AccessDirection_Outbound"><span class="annot"><span class="annottext">$bAccessDirection_Outbound :: AccessDirection
+$mAccessDirection_Outbound :: forall r. AccessDirection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Lightsail.Types.AccessDirection.html#%24bAccessDirection_Outbound"><span class="hs-identifier hs-var hs-var hs-var">AccessDirection_Outbound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection%27"><span class="hs-identifier hs-type">AccessDirection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;outbound&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection_Inbound"><span class="hs-pragma hs-type">AccessDirection_Inbound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection_Outbound"><span class="hs-pragma hs-type">AccessDirection_Outbound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessDirection.html#AccessDirection%27"><span class="hs-pragma hs-type">AccessDirection'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

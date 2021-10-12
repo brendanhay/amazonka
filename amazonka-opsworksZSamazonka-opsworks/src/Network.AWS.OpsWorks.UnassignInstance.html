@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.OpsWorks.UnassignInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Unassigns a registered instance from all layers that are using the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- instance. The instance remains in the stack as an unassigned instance,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- and can be assigned to another layer as needed. You cannot use this</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- action with instances that were created with AWS OpsWorks Stacks.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- __Required Permissions__: To use this action, an IAM user must have a</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Manage permissions level for the stack or an attached policy that</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- explicitly grants permissions. For more information about user</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- permissions, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpsWorks.UnassignInstance</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier">UnassignInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#newUnassignInstance"><span class="hs-identifier">newUnassignInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#unassignInstance_instanceId"><span class="hs-identifier">unassignInstance_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse"><span class="hs-identifier">UnassignInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#newUnassignInstanceResponse"><span class="hs-identifier">newUnassignInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.html"><span class="hs-identifier">Network.AWS.OpsWorks.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUnassignInstance' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679395364"><span id="local-6989586621679395365"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnassignInstance"><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-var">UnassignInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnassignInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance%27"><span class="hs-identifier hs-var">UnassignInstance'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceId%3AUnassignInstance%27"><span class="annot"><span class="annottext">UnassignInstance -&gt; Text
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#%24sel%3AinstanceId%3AUnassignInstance%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395358"><span id="local-6989586621679395360"><span class="annot"><span class="annottext">UnassignInstance -&gt; UnassignInstance -&gt; Bool
+(UnassignInstance -&gt; UnassignInstance -&gt; Bool)
+-&gt; (UnassignInstance -&gt; UnassignInstance -&gt; Bool)
+-&gt; Eq UnassignInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnassignInstance -&gt; UnassignInstance -&gt; Bool
+$c/= :: UnassignInstance -&gt; UnassignInstance -&gt; Bool
+== :: UnassignInstance -&gt; UnassignInstance -&gt; Bool
+$c== :: UnassignInstance -&gt; UnassignInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395349"><span id="local-6989586621679395351"><span id="local-6989586621679395353"><span id="local-6989586621679395355"><span class="annot"><span class="annottext">ReadPrec [UnassignInstance]
+ReadPrec UnassignInstance
+Int -&gt; ReadS UnassignInstance
+ReadS [UnassignInstance]
+(Int -&gt; ReadS UnassignInstance)
+-&gt; ReadS [UnassignInstance]
+-&gt; ReadPrec UnassignInstance
+-&gt; ReadPrec [UnassignInstance]
+-&gt; Read UnassignInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnassignInstance]
+$creadListPrec :: ReadPrec [UnassignInstance]
+readPrec :: ReadPrec UnassignInstance
+$creadPrec :: ReadPrec UnassignInstance
+readList :: ReadS [UnassignInstance]
+$creadList :: ReadS [UnassignInstance]
+readsPrec :: Int -&gt; ReadS UnassignInstance
+$creadsPrec :: Int -&gt; ReadS UnassignInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395342"><span id="local-6989586621679395344"><span id="local-6989586621679395346"><span class="annot"><span class="annottext">Int -&gt; UnassignInstance -&gt; ShowS
+[UnassignInstance] -&gt; ShowS
+UnassignInstance -&gt; String
+(Int -&gt; UnassignInstance -&gt; ShowS)
+-&gt; (UnassignInstance -&gt; String)
+-&gt; ([UnassignInstance] -&gt; ShowS)
+-&gt; Show UnassignInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnassignInstance] -&gt; ShowS
+$cshowList :: [UnassignInstance] -&gt; ShowS
+show :: UnassignInstance -&gt; String
+$cshow :: UnassignInstance -&gt; String
+showsPrec :: Int -&gt; UnassignInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnassignInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UnassignInstance -&gt; Rep UnassignInstance x)
+-&gt; (forall x. Rep UnassignInstance x -&gt; UnassignInstance)
+-&gt; Generic UnassignInstance
+forall x. Rep UnassignInstance x -&gt; UnassignInstance
+forall x. UnassignInstance -&gt; Rep UnassignInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UnassignInstance x -&gt; UnassignInstance
+$cfrom :: forall x. UnassignInstance -&gt; Rep UnassignInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'UnassignInstance' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'instanceId', 'unassignInstance_instanceId' - The instance ID.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#newUnassignInstance"><span class="hs-identifier hs-type">newUnassignInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span>
+</span><span id="line-74"></span><span id="newUnassignInstance"><span class="annot"><span class="annottext">newUnassignInstance :: Text -&gt; UnassignInstance
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#newUnassignInstance"><span class="hs-identifier hs-var hs-var">newUnassignInstance</span></a></span></span><span> </span><span id="local-6989586621679395337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395337"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">UnassignInstance' :: Text -&gt; UnassignInstance
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance%27"><span class="hs-identifier hs-type">UnassignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UnassignInstance' :: Text
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#%24sel%3AinstanceId%3AUnassignInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395337"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The instance ID.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#unassignInstance_instanceId"><span class="hs-identifier hs-type">unassignInstance_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="unassignInstance_instanceId"><span class="annot"><span class="annottext">unassignInstance_instanceId :: (Text -&gt; f Text) -&gt; UnassignInstance -&gt; f UnassignInstance
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#unassignInstance_instanceId"><span class="hs-identifier hs-var hs-var">unassignInstance_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnassignInstance -&gt; Text)
+-&gt; (UnassignInstance -&gt; Text -&gt; UnassignInstance)
+-&gt; Lens UnassignInstance UnassignInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance%27"><span class="hs-identifier hs-type">UnassignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395334"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:UnassignInstance' :: UnassignInstance -&gt; Text
+</span><a href="#local-6989586621679395334"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395334"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395333"><span class="annot"><span class="annottext">s :: UnassignInstance
+</span><a href="#local-6989586621679395333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance%27"><span class="hs-identifier hs-type">UnassignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnassignInstance
+</span><a href="#local-6989586621679395333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UnassignInstance' :: Text
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#%24sel%3AinstanceId%3AUnassignInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse"><span class="hs-identifier hs-type">UnassignInstanceResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679395328"><span class="annot"><span class="annottext">request :: UnassignInstance -&gt; Request UnassignInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UnassignInstance -&gt; Request UnassignInstance
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679395324"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UnassignInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UnassignInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UnassignInstance
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UnassignInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UnassignInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UnassignInstance
+UnassignInstanceResponse
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse%27"><span class="hs-identifier hs-var">UnassignInstanceResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395317"><span id="local-6989586621679395319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679395310"><span class="annot"><span class="annottext">toHeaders :: UnassignInstance -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UnassignInstance -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorks_20130218.UnassignInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395300"><span id="local-6989586621679395302"><span id="local-6989586621679395304"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679395298"><span class="annot"><span class="annottext">toJSON :: UnassignInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance%27"><span class="hs-identifier hs-type">UnassignInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395296"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:UnassignInstance' :: UnassignInstance -&gt; Text
+</span><a href="#local-6989586621679395296"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395296"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679395290"><span class="annot"><span class="annottext">toPath :: UnassignInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UnassignInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstance"><span class="hs-identifier hs-type">UnassignInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679395286"><span class="annot"><span class="annottext">toQuery :: UnassignInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UnassignInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newUnassignInstanceResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679395283"><span id="local-6989586621679395284"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnassignInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse"><span class="hs-identifier hs-var">UnassignInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnassignInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse%27"><span class="hs-identifier hs-var">UnassignInstanceResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395279"><span id="local-6989586621679395281"><span class="annot"><span class="annottext">UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool
+(UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool)
+-&gt; (UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool)
+-&gt; Eq UnassignInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool
+$c/= :: UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool
+== :: UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool
+$c== :: UnassignInstanceResponse -&gt; UnassignInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395271"><span id="local-6989586621679395273"><span id="local-6989586621679395275"><span id="local-6989586621679395277"><span class="annot"><span class="annottext">ReadPrec [UnassignInstanceResponse]
+ReadPrec UnassignInstanceResponse
+Int -&gt; ReadS UnassignInstanceResponse
+ReadS [UnassignInstanceResponse]
+(Int -&gt; ReadS UnassignInstanceResponse)
+-&gt; ReadS [UnassignInstanceResponse]
+-&gt; ReadPrec UnassignInstanceResponse
+-&gt; ReadPrec [UnassignInstanceResponse]
+-&gt; Read UnassignInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnassignInstanceResponse]
+$creadListPrec :: ReadPrec [UnassignInstanceResponse]
+readPrec :: ReadPrec UnassignInstanceResponse
+$creadPrec :: ReadPrec UnassignInstanceResponse
+readList :: ReadS [UnassignInstanceResponse]
+$creadList :: ReadS [UnassignInstanceResponse]
+readsPrec :: Int -&gt; ReadS UnassignInstanceResponse
+$creadsPrec :: Int -&gt; ReadS UnassignInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395265"><span id="local-6989586621679395267"><span id="local-6989586621679395269"><span class="annot"><span class="annottext">Int -&gt; UnassignInstanceResponse -&gt; ShowS
+[UnassignInstanceResponse] -&gt; ShowS
+UnassignInstanceResponse -&gt; String
+(Int -&gt; UnassignInstanceResponse -&gt; ShowS)
+-&gt; (UnassignInstanceResponse -&gt; String)
+-&gt; ([UnassignInstanceResponse] -&gt; ShowS)
+-&gt; Show UnassignInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnassignInstanceResponse] -&gt; ShowS
+$cshowList :: [UnassignInstanceResponse] -&gt; ShowS
+show :: UnassignInstanceResponse -&gt; String
+$cshow :: UnassignInstanceResponse -&gt; String
+showsPrec :: Int -&gt; UnassignInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnassignInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UnassignInstanceResponse -&gt; Rep UnassignInstanceResponse x)
+-&gt; (forall x.
+    Rep UnassignInstanceResponse x -&gt; UnassignInstanceResponse)
+-&gt; Generic UnassignInstanceResponse
+forall x.
+Rep UnassignInstanceResponse x -&gt; UnassignInstanceResponse
+forall x.
+UnassignInstanceResponse -&gt; Rep UnassignInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UnassignInstanceResponse x -&gt; UnassignInstanceResponse
+$cfrom :: forall x.
+UnassignInstanceResponse -&gt; Rep UnassignInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'UnassignInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#newUnassignInstanceResponse"><span class="hs-identifier hs-type">newUnassignInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse"><span class="hs-identifier hs-type">UnassignInstanceResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newUnassignInstanceResponse"><span class="annot"><span class="annottext">newUnassignInstanceResponse :: UnassignInstanceResponse
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#newUnassignInstanceResponse"><span class="hs-identifier hs-var hs-var">newUnassignInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">UnassignInstanceResponse
+</span><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse%27"><span class="hs-identifier hs-var">UnassignInstanceResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UnassignInstance.html#UnassignInstanceResponse"><span class="hs-identifier hs-type">UnassignInstanceResponse</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

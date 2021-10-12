@@ -1,0 +1,1290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DAX.Types.Cluster</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DAX.Types.Cluster</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.ClusterEndpointEncryptionType.html"><span class="hs-identifier">Network.AWS.DAX.Types.ClusterEndpointEncryptionType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Endpoint.html"><span class="hs-identifier">Network.AWS.DAX.Types.Endpoint</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html"><span class="hs-identifier">Network.AWS.DAX.Types.Node</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.NotificationConfiguration.html"><span class="hs-identifier">Network.AWS.DAX.Types.NotificationConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.ParameterGroupStatus.html"><span class="hs-identifier">Network.AWS.DAX.Types.ParameterGroupStatus</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html"><span class="hs-identifier">Network.AWS.DAX.Types.SSEDescription</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SecurityGroupMembership.html"><span class="hs-identifier">Network.AWS.DAX.Types.SecurityGroupMembership</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Contains all of the attributes of a specific DAX cluster.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newCluster' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679195758"><span id="local-6989586621679195759"></span></span><span class="hs-keyword">data</span><span> </span><span id="Cluster"><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-var">Cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Cluster%27"><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-var">Cluster'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AclusterArn%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterArn%3ACluster%27"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The current status of the cluster.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Astatus%3ACluster%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- runtime, DAX will assume this role and use the role\'s permissions to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- access DynamoDB on your behalf.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AiamRoleArn%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AiamRoleArn%3ACluster%27"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The subnet group where the DAX cluster is running.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsubnetGroup%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsubnetGroup%3ACluster%27"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The total number of nodes in the cluster.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtotalNodes%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Int
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AtotalNodes%3ACluster%27"><span class="hs-identifier hs-var hs-var">totalNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The parameter group being used by nodes in the cluster.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AparameterGroup%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe ParameterGroupStatus
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AparameterGroup%3ACluster%27"><span class="hs-identifier hs-var hs-var">parameterGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.ParameterGroupStatus.html#ParameterGroupStatus"><span class="hs-identifier hs-type">ParameterGroupStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The type of encryption supported by the cluster\'s endpoint. Values are:</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @NONE@ for no encryption</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     @TLS@ for Transport Layer Security</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AclusterEndpointEncryptionType%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe ClusterEndpointEncryptionType
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterEndpointEncryptionType%3ACluster%27"><span class="hs-identifier hs-var hs-var">clusterEndpointEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A list of nodes that are currently in the cluster.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Anodes%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [Node]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Anodes%3ACluster%27"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Describes a notification topic and its status. Notification topics are</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- used for publishing DAX events to subscribers using Amazon Simple</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Notification Service (SNS).</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe NotificationConfiguration
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnotificationConfiguration%3ACluster%27"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of security groups, and the status of each, for the nodes in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsecurityGroups%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [SecurityGroupMembership]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsecurityGroups%3ACluster%27"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.SecurityGroupMembership.html#SecurityGroupMembership"><span class="hs-identifier hs-type">SecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The number of nodes in the cluster that are active (i.e., capable of</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- serving requests).</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AactiveNodes%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Int
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AactiveNodes%3ACluster%27"><span class="hs-identifier hs-var hs-var">activeNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A range of time when maintenance of DAX cluster software will be</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- performed. For example: @sun:01:00-sun:09:00@. Cluster maintenance</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- normally takes less than 30 minutes, and is performed automatically</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- within the maintenance window.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3ApreferredMaintenanceWindow%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3ApreferredMaintenanceWindow%3ACluster%27"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The description of the cluster.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Adescription%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Adescription%3ACluster%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The description of the server-side encryption status on the specified</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- DAX cluster.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsSEDescription%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe SSEDescription
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsSEDescription%3ACluster%27"><span class="hs-identifier hs-var hs-var">sSEDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A list of nodes to be removed from the cluster.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnodeIdsToRemove%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe [Text]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnodeIdsToRemove%3ACluster%27"><span class="hs-identifier hs-var hs-var">nodeIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The endpoint for this DAX cluster, consisting of a DNS name, a port</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- number, and a URL. Applications should use the URL to configure the DAX</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- client to find their cluster.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AclusterDiscoveryEndpoint%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Endpoint
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterDiscoveryEndpoint%3ACluster%27"><span class="hs-identifier hs-var hs-var">clusterDiscoveryEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The node type for the nodes in the cluster. (All nodes in a DAX cluster</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- are of the same type.)</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AnodeType%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnodeType%3ACluster%27"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The name of the DAX cluster.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AclusterName%3ACluster%27"><span class="annot"><span class="annottext">Cluster -&gt; Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterName%3ACluster%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195735"><span id="local-6989586621679195737"><span class="annot"><span class="annottext">Cluster -&gt; Cluster -&gt; Bool
+(Cluster -&gt; Cluster -&gt; Bool)
+-&gt; (Cluster -&gt; Cluster -&gt; Bool) -&gt; Eq Cluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Cluster -&gt; Cluster -&gt; Bool
+$c/= :: Cluster -&gt; Cluster -&gt; Bool
+== :: Cluster -&gt; Cluster -&gt; Bool
+$c== :: Cluster -&gt; Cluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195726"><span id="local-6989586621679195728"><span id="local-6989586621679195730"><span id="local-6989586621679195732"><span class="annot"><span class="annottext">ReadPrec [Cluster]
+ReadPrec Cluster
+Int -&gt; ReadS Cluster
+ReadS [Cluster]
+(Int -&gt; ReadS Cluster)
+-&gt; ReadS [Cluster]
+-&gt; ReadPrec Cluster
+-&gt; ReadPrec [Cluster]
+-&gt; Read Cluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Cluster]
+$creadListPrec :: ReadPrec [Cluster]
+readPrec :: ReadPrec Cluster
+$creadPrec :: ReadPrec Cluster
+readList :: ReadS [Cluster]
+$creadList :: ReadS [Cluster]
+readsPrec :: Int -&gt; ReadS Cluster
+$creadsPrec :: Int -&gt; ReadS Cluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195719"><span id="local-6989586621679195721"><span id="local-6989586621679195723"><span class="annot"><span class="annottext">Int -&gt; Cluster -&gt; ShowS
+[Cluster] -&gt; ShowS
+Cluster -&gt; String
+(Int -&gt; Cluster -&gt; ShowS)
+-&gt; (Cluster -&gt; String) -&gt; ([Cluster] -&gt; ShowS) -&gt; Show Cluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Cluster] -&gt; ShowS
+$cshowList :: [Cluster] -&gt; ShowS
+show :: Cluster -&gt; String
+$cshow :: Cluster -&gt; String
+showsPrec :: Int -&gt; Cluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; Cluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Cluster -&gt; Rep Cluster x)
+-&gt; (forall x. Rep Cluster x -&gt; Cluster) -&gt; Generic Cluster
+forall x. Rep Cluster x -&gt; Cluster
+forall x. Cluster -&gt; Rep Cluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Cluster x -&gt; Cluster
+$cfrom :: forall x. Cluster -&gt; Rep Cluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'Cluster' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'status', 'cluster_status' - The current status of the cluster.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'iamRoleArn', 'cluster_iamRoleArn' - A valid Amazon Resource Name (ARN) that identifies an IAM role. At</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- runtime, DAX will assume this role and use the role\'s permissions to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- access DynamoDB on your behalf.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'subnetGroup', 'cluster_subnetGroup' - The subnet group where the DAX cluster is running.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'totalNodes', 'cluster_totalNodes' - The total number of nodes in the cluster.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'parameterGroup', 'cluster_parameterGroup' - The parameter group being used by nodes in the cluster.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'clusterEndpointEncryptionType', 'cluster_clusterEndpointEncryptionType' - The type of encryption supported by the cluster\'s endpoint. Values are:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @NONE@ for no encryption</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     @TLS@ for Transport Layer Security</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'nodes', 'cluster_nodes' - A list of nodes that are currently in the cluster.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'notificationConfiguration', 'cluster_notificationConfiguration' - Describes a notification topic and its status. Notification topics are</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- used for publishing DAX events to subscribers using Amazon Simple</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Notification Service (SNS).</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'securityGroups', 'cluster_securityGroups' - A list of security groups, and the status of each, for the nodes in the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'activeNodes', 'cluster_activeNodes' - The number of nodes in the cluster that are active (i.e., capable of</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- serving requests).</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'preferredMaintenanceWindow', 'cluster_preferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- performed. For example: @sun:01:00-sun:09:00@. Cluster maintenance</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- normally takes less than 30 minutes, and is performed automatically</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- within the maintenance window.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'description', 'cluster_description' - The description of the cluster.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'sSEDescription', 'cluster_sSEDescription' - The description of the server-side encryption status on the specified</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- DAX cluster.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'nodeIdsToRemove', 'cluster_nodeIdsToRemove' - A list of nodes to be removed from the cluster.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'clusterDiscoveryEndpoint', 'cluster_clusterDiscoveryEndpoint' - The endpoint for this DAX cluster, consisting of a DNS name, a port</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- number, and a URL. Applications should use the URL to configure the DAX</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- client to find their cluster.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'nodeType', 'cluster_nodeType' - The node type for the nodes in the cluster. (All nodes in a DAX cluster</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- are of the same type.)</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'clusterName', 'cluster_clusterName' - The name of the DAX cluster.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#newCluster"><span class="hs-identifier hs-type">newCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span>
+</span><span id="line-155"></span><span id="newCluster"><span class="annot"><span class="annottext">newCluster :: Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#newCluster"><span class="hs-identifier hs-var hs-var">newCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">Cluster' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ParameterGroupStatus
+-&gt; Maybe ClusterEndpointEncryptionType
+-&gt; Maybe [Node]
+-&gt; Maybe NotificationConfiguration
+-&gt; Maybe [SecurityGroupMembership]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SSEDescription
+-&gt; Maybe [Text]
+-&gt; Maybe Endpoint
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterArn:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterArn%3ACluster%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Astatus%3ACluster%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRoleArn:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AiamRoleArn%3ACluster%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroup:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsubnetGroup%3ACluster%27"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalNodes:Cluster' :: Maybe Int
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AtotalNodes%3ACluster%27"><span class="hs-identifier hs-var">totalNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterGroup:Cluster' :: Maybe ParameterGroupStatus
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AparameterGroup%3ACluster%27"><span class="hs-identifier hs-var">parameterGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterGroupStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterEndpointEncryptionType:Cluster' :: Maybe ClusterEndpointEncryptionType
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterEndpointEncryptionType%3ACluster%27"><span class="hs-identifier hs-var">clusterEndpointEncryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterEndpointEncryptionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodes:Cluster' :: Maybe [Node]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Anodes%3ACluster%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:Cluster' :: Maybe NotificationConfiguration
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnotificationConfiguration%3ACluster%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityGroups:Cluster' :: Maybe [SecurityGroupMembership]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsecurityGroups%3ACluster%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupMembership]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:activeNodes:Cluster' :: Maybe Int
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AactiveNodes%3ACluster%27"><span class="hs-identifier hs-var">activeNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3ApreferredMaintenanceWindow%3ACluster%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Adescription%3ACluster%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:sSEDescription:Cluster' :: Maybe SSEDescription
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsSEDescription%3ACluster%27"><span class="hs-identifier hs-var">sSEDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeIdsToRemove:Cluster' :: Maybe [Text]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnodeIdsToRemove%3ACluster%27"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterDiscoveryEndpoint:Cluster' :: Maybe Endpoint
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterDiscoveryEndpoint%3ACluster%27"><span class="hs-identifier hs-var">clusterDiscoveryEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnodeType%3ACluster%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterName%3ACluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterArn"><span class="hs-identifier hs-type">cluster_clusterArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="cluster_clusterArn"><span class="annot"><span class="annottext">cluster_clusterArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterArn"><span class="hs-identifier hs-var hs-var">cluster_clusterArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195710"><span class="annot"><span class="annottext">Maybe Text
+clusterArn :: Maybe Text
+$sel:clusterArn:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195710"><span class="hs-identifier hs-var hs-var">clusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195710"><span class="hs-identifier hs-var">clusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195709"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195708"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterArn:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterArn%3ACluster%27"><span class="hs-identifier hs-var">clusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The current status of the cluster.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-type">cluster_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="cluster_status"><span class="annot"><span class="annottext">cluster_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_status"><span class="hs-identifier hs-var hs-var">cluster_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195706"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195706"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195706"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195705"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Astatus%3ACluster%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- runtime, DAX will assume this role and use the role\'s permissions to</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- access DynamoDB on your behalf.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_iamRoleArn"><span class="hs-identifier hs-type">cluster_iamRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="cluster_iamRoleArn"><span class="annot"><span class="annottext">cluster_iamRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_iamRoleArn"><span class="hs-identifier hs-var hs-var">cluster_iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195702"><span class="annot"><span class="annottext">Maybe Text
+iamRoleArn :: Maybe Text
+$sel:iamRoleArn:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195702"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195702"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195701"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AiamRoleArn%3ACluster%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The subnet group where the DAX cluster is running.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_subnetGroup"><span class="hs-identifier hs-type">cluster_subnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="cluster_subnetGroup"><span class="annot"><span class="annottext">cluster_subnetGroup :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_subnetGroup"><span class="hs-identifier hs-var hs-var">cluster_subnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195698"><span class="annot"><span class="annottext">Maybe Text
+subnetGroup :: Maybe Text
+$sel:subnetGroup:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195698"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195698"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195697"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroup:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsubnetGroup%3ACluster%27"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The total number of nodes in the cluster.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_totalNodes"><span class="hs-identifier hs-type">cluster_totalNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="cluster_totalNodes"><span class="annot"><span class="annottext">cluster_totalNodes :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_totalNodes"><span class="hs-identifier hs-var hs-var">cluster_totalNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Int)
+-&gt; (Cluster -&gt; Maybe Int -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195694"><span class="annot"><span class="annottext">Maybe Int
+totalNodes :: Maybe Int
+$sel:totalNodes:Cluster' :: Cluster -&gt; Maybe Int
+</span><a href="#local-6989586621679195694"><span class="hs-identifier hs-var hs-var">totalNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195694"><span class="hs-identifier hs-var">totalNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195693"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195692"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalNodes:Cluster' :: Maybe Int
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AtotalNodes%3ACluster%27"><span class="hs-identifier hs-var">totalNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The parameter group being used by nodes in the cluster.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_parameterGroup"><span class="hs-identifier hs-type">cluster_parameterGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.ParameterGroupStatus.html#ParameterGroupStatus"><span class="hs-identifier hs-type">ParameterGroupStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="cluster_parameterGroup"><span class="annot"><span class="annottext">cluster_parameterGroup :: (Maybe ParameterGroupStatus -&gt; f (Maybe ParameterGroupStatus))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_parameterGroup"><span class="hs-identifier hs-var hs-var">cluster_parameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe ParameterGroupStatus)
+-&gt; (Cluster -&gt; Maybe ParameterGroupStatus -&gt; Cluster)
+-&gt; Lens
+     Cluster
+     Cluster
+     (Maybe ParameterGroupStatus)
+     (Maybe ParameterGroupStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195690"><span class="annot"><span class="annottext">Maybe ParameterGroupStatus
+parameterGroup :: Maybe ParameterGroupStatus
+$sel:parameterGroup:Cluster' :: Cluster -&gt; Maybe ParameterGroupStatus
+</span><a href="#local-6989586621679195690"><span class="hs-identifier hs-var hs-var">parameterGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterGroupStatus
+</span><a href="#local-6989586621679195690"><span class="hs-identifier hs-var">parameterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195689"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195688"><span class="annot"><span class="annottext">Maybe ParameterGroupStatus
+</span><a href="#local-6989586621679195688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroup:Cluster' :: Maybe ParameterGroupStatus
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AparameterGroup%3ACluster%27"><span class="hs-identifier hs-var">parameterGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterGroupStatus
+</span><a href="#local-6989586621679195688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The type of encryption supported by the cluster\'s endpoint. Values are:</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @NONE@ for no encryption</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     @TLS@ for Transport Layer Security</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterEndpointEncryptionType"><span class="hs-identifier hs-type">cluster_clusterEndpointEncryptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.ClusterEndpointEncryptionType.html#ClusterEndpointEncryptionType"><span class="hs-identifier hs-type">ClusterEndpointEncryptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="cluster_clusterEndpointEncryptionType"><span class="annot"><span class="annottext">cluster_clusterEndpointEncryptionType :: (Maybe ClusterEndpointEncryptionType
+ -&gt; f (Maybe ClusterEndpointEncryptionType))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterEndpointEncryptionType"><span class="hs-identifier hs-var hs-var">cluster_clusterEndpointEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe ClusterEndpointEncryptionType)
+-&gt; (Cluster -&gt; Maybe ClusterEndpointEncryptionType -&gt; Cluster)
+-&gt; Lens
+     Cluster
+     Cluster
+     (Maybe ClusterEndpointEncryptionType)
+     (Maybe ClusterEndpointEncryptionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195686"><span class="annot"><span class="annottext">Maybe ClusterEndpointEncryptionType
+clusterEndpointEncryptionType :: Maybe ClusterEndpointEncryptionType
+$sel:clusterEndpointEncryptionType:Cluster' :: Cluster -&gt; Maybe ClusterEndpointEncryptionType
+</span><a href="#local-6989586621679195686"><span class="hs-identifier hs-var hs-var">clusterEndpointEncryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterEndpointEncryptionType
+</span><a href="#local-6989586621679195686"><span class="hs-identifier hs-var">clusterEndpointEncryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195685"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195684"><span class="annot"><span class="annottext">Maybe ClusterEndpointEncryptionType
+</span><a href="#local-6989586621679195684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterEndpointEncryptionType:Cluster' :: Maybe ClusterEndpointEncryptionType
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterEndpointEncryptionType%3ACluster%27"><span class="hs-identifier hs-var">clusterEndpointEncryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterEndpointEncryptionType
+</span><a href="#local-6989586621679195684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | A list of nodes that are currently in the cluster.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_nodes"><span class="hs-identifier hs-type">cluster_nodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="cluster_nodes"><span class="annot"><span class="annottext">cluster_nodes :: (Maybe [Node] -&gt; f (Maybe [Node])) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_nodes"><span class="hs-identifier hs-var hs-var">cluster_nodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [Node])
+-&gt; (Cluster -&gt; Maybe [Node] -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe [Node]) (Maybe [Node])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195682"><span class="annot"><span class="annottext">Maybe [Node]
+nodes :: Maybe [Node]
+$sel:nodes:Cluster' :: Cluster -&gt; Maybe [Node]
+</span><a href="#local-6989586621679195682"><span class="hs-identifier hs-var hs-var">nodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679195682"><span class="hs-identifier hs-var">nodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195681"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195680"><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679195680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodes:Cluster' :: Maybe [Node]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Anodes%3ACluster%27"><span class="hs-identifier hs-var">nodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+</span><a href="#local-6989586621679195680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Node] -&gt; f (Maybe [Node])) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [Node] -&gt; f (Maybe [Node]))
+    -&gt; Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; (Maybe [Node] -&gt; f (Maybe [Node]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Node] [Node] [Node] [Node]
+-&gt; Iso (Maybe [Node]) (Maybe [Node]) (Maybe [Node]) (Maybe [Node])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Node] [Node] [Node] [Node]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | Describes a notification topic and its status. Notification topics are</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- used for publishing DAX events to subscribers using Amazon Simple</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Notification Service (SNS).</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_notificationConfiguration"><span class="hs-identifier hs-type">cluster_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="cluster_notificationConfiguration"><span class="annot"><span class="annottext">cluster_notificationConfiguration :: (Maybe NotificationConfiguration
+ -&gt; f (Maybe NotificationConfiguration))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_notificationConfiguration"><span class="hs-identifier hs-var hs-var">cluster_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe NotificationConfiguration)
+-&gt; (Cluster -&gt; Maybe NotificationConfiguration -&gt; Cluster)
+-&gt; Lens
+     Cluster
+     Cluster
+     (Maybe NotificationConfiguration)
+     (Maybe NotificationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195675"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+notificationConfiguration :: Maybe NotificationConfiguration
+$sel:notificationConfiguration:Cluster' :: Cluster -&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621679195675"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621679195675"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195674"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195673"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621679195673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:Cluster' :: Maybe NotificationConfiguration
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnotificationConfiguration%3ACluster%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621679195673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | A list of security groups, and the status of each, for the nodes in the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_securityGroups"><span class="hs-identifier hs-type">cluster_securityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DAX.Types.SecurityGroupMembership.html#SecurityGroupMembership"><span class="hs-identifier hs-type">SecurityGroupMembership</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="cluster_securityGroups"><span class="annot"><span class="annottext">cluster_securityGroups :: (Maybe [SecurityGroupMembership]
+ -&gt; f (Maybe [SecurityGroupMembership]))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_securityGroups"><span class="hs-identifier hs-var hs-var">cluster_securityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [SecurityGroupMembership])
+-&gt; (Cluster -&gt; Maybe [SecurityGroupMembership] -&gt; Cluster)
+-&gt; Lens
+     Cluster
+     Cluster
+     (Maybe [SecurityGroupMembership])
+     (Maybe [SecurityGroupMembership])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195671"><span class="annot"><span class="annottext">Maybe [SecurityGroupMembership]
+securityGroups :: Maybe [SecurityGroupMembership]
+$sel:securityGroups:Cluster' :: Cluster -&gt; Maybe [SecurityGroupMembership]
+</span><a href="#local-6989586621679195671"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupMembership]
+</span><a href="#local-6989586621679195671"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195670"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195669"><span class="annot"><span class="annottext">Maybe [SecurityGroupMembership]
+</span><a href="#local-6989586621679195669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:Cluster' :: Maybe [SecurityGroupMembership]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsecurityGroups%3ACluster%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupMembership]
+</span><a href="#local-6989586621679195669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SecurityGroupMembership]
+  -&gt; f (Maybe [SecurityGroupMembership]))
+ -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [SecurityGroupMembership]
+     -&gt; f (Maybe [SecurityGroupMembership]))
+    -&gt; Maybe [SecurityGroupMembership]
+    -&gt; f (Maybe [SecurityGroupMembership]))
+-&gt; (Maybe [SecurityGroupMembership]
+    -&gt; f (Maybe [SecurityGroupMembership]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SecurityGroupMembership]
+  [SecurityGroupMembership]
+  [SecurityGroupMembership]
+  [SecurityGroupMembership]
+-&gt; Iso
+     (Maybe [SecurityGroupMembership])
+     (Maybe [SecurityGroupMembership])
+     (Maybe [SecurityGroupMembership])
+     (Maybe [SecurityGroupMembership])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SecurityGroupMembership]
+  [SecurityGroupMembership]
+  [SecurityGroupMembership]
+  [SecurityGroupMembership]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The number of nodes in the cluster that are active (i.e., capable of</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- serving requests).</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_activeNodes"><span class="hs-identifier hs-type">cluster_activeNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="cluster_activeNodes"><span class="annot"><span class="annottext">cluster_activeNodes :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_activeNodes"><span class="hs-identifier hs-var hs-var">cluster_activeNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Int)
+-&gt; (Cluster -&gt; Maybe Int -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195667"><span class="annot"><span class="annottext">Maybe Int
+activeNodes :: Maybe Int
+$sel:activeNodes:Cluster' :: Cluster -&gt; Maybe Int
+</span><a href="#local-6989586621679195667"><span class="hs-identifier hs-var hs-var">activeNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195667"><span class="hs-identifier hs-var">activeNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195666"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195665"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeNodes:Cluster' :: Maybe Int
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AactiveNodes%3ACluster%27"><span class="hs-identifier hs-var">activeNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | A range of time when maintenance of DAX cluster software will be</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- performed. For example: @sun:01:00-sun:09:00@. Cluster maintenance</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- normally takes less than 30 minutes, and is performed automatically</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- within the maintenance window.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_preferredMaintenanceWindow"><span class="hs-identifier hs-type">cluster_preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="cluster_preferredMaintenanceWindow"><span class="annot"><span class="annottext">cluster_preferredMaintenanceWindow :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_preferredMaintenanceWindow"><span class="hs-identifier hs-var hs-var">cluster_preferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195663"><span class="annot"><span class="annottext">Maybe Text
+preferredMaintenanceWindow :: Maybe Text
+$sel:preferredMaintenanceWindow:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195663"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195663"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195662"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195661"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3ApreferredMaintenanceWindow%3ACluster%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The description of the cluster.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_description"><span class="hs-identifier hs-type">cluster_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="cluster_description"><span class="annot"><span class="annottext">cluster_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_description"><span class="hs-identifier hs-var hs-var">cluster_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195659"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195659"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195659"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195658"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3Adescription%3ACluster%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The description of the server-side encryption status on the specified</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- DAX cluster.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_sSEDescription"><span class="hs-identifier hs-type">cluster_sSEDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="cluster_sSEDescription"><span class="annot"><span class="annottext">cluster_sSEDescription :: (Maybe SSEDescription -&gt; f (Maybe SSEDescription))
+-&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_sSEDescription"><span class="hs-identifier hs-var hs-var">cluster_sSEDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe SSEDescription)
+-&gt; (Cluster -&gt; Maybe SSEDescription -&gt; Cluster)
+-&gt; Lens
+     Cluster Cluster (Maybe SSEDescription) (Maybe SSEDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195655"><span class="annot"><span class="annottext">Maybe SSEDescription
+sSEDescription :: Maybe SSEDescription
+$sel:sSEDescription:Cluster' :: Cluster -&gt; Maybe SSEDescription
+</span><a href="#local-6989586621679195655"><span class="hs-identifier hs-var hs-var">sSEDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEDescription
+</span><a href="#local-6989586621679195655"><span class="hs-identifier hs-var">sSEDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195654"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195653"><span class="annot"><span class="annottext">Maybe SSEDescription
+</span><a href="#local-6989586621679195653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSEDescription:Cluster' :: Maybe SSEDescription
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AsSEDescription%3ACluster%27"><span class="hs-identifier hs-var">sSEDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEDescription
+</span><a href="#local-6989586621679195653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | A list of nodes to be removed from the cluster.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_nodeIdsToRemove"><span class="hs-identifier hs-type">cluster_nodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="cluster_nodeIdsToRemove"><span class="annot"><span class="annottext">cluster_nodeIdsToRemove :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_nodeIdsToRemove"><span class="hs-identifier hs-var hs-var">cluster_nodeIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe [Text])
+-&gt; (Cluster -&gt; Maybe [Text] -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195651"><span class="annot"><span class="annottext">Maybe [Text]
+nodeIdsToRemove :: Maybe [Text]
+$sel:nodeIdsToRemove:Cluster' :: Cluster -&gt; Maybe [Text]
+</span><a href="#local-6989586621679195651"><span class="hs-identifier hs-var hs-var">nodeIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679195651"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195650"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195649"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679195649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeIdsToRemove:Cluster' :: Maybe [Text]
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnodeIdsToRemove%3ACluster%27"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679195649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Cluster -&gt; f Cluster)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Cluster
+-&gt; f Cluster
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The endpoint for this DAX cluster, consisting of a DNS name, a port</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- number, and a URL. Applications should use the URL to configure the DAX</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- client to find their cluster.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterDiscoveryEndpoint"><span class="hs-identifier hs-type">cluster_clusterDiscoveryEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="cluster_clusterDiscoveryEndpoint"><span class="annot"><span class="annottext">cluster_clusterDiscoveryEndpoint :: (Maybe Endpoint -&gt; f (Maybe Endpoint)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterDiscoveryEndpoint"><span class="hs-identifier hs-var hs-var">cluster_clusterDiscoveryEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Endpoint)
+-&gt; (Cluster -&gt; Maybe Endpoint -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Endpoint) (Maybe Endpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195647"><span class="annot"><span class="annottext">Maybe Endpoint
+clusterDiscoveryEndpoint :: Maybe Endpoint
+$sel:clusterDiscoveryEndpoint:Cluster' :: Cluster -&gt; Maybe Endpoint
+</span><a href="#local-6989586621679195647"><span class="hs-identifier hs-var hs-var">clusterDiscoveryEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679195647"><span class="hs-identifier hs-var">clusterDiscoveryEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195646"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195645"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679195645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterDiscoveryEndpoint:Cluster' :: Maybe Endpoint
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterDiscoveryEndpoint%3ACluster%27"><span class="hs-identifier hs-var">clusterDiscoveryEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679195645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The node type for the nodes in the cluster. (All nodes in a DAX cluster</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- are of the same type.)</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_nodeType"><span class="hs-identifier hs-type">cluster_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="cluster_nodeType"><span class="annot"><span class="annottext">cluster_nodeType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_nodeType"><span class="hs-identifier hs-var hs-var">cluster_nodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195643"><span class="annot"><span class="annottext">Maybe Text
+nodeType :: Maybe Text
+$sel:nodeType:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195643"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195643"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195642"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195641"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AnodeType%3ACluster%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The name of the DAX cluster.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterName"><span class="hs-identifier hs-type">cluster_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="cluster_clusterName"><span class="annot"><span class="annottext">cluster_clusterName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Cluster -&gt; f Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#cluster_clusterName"><span class="hs-identifier hs-var hs-var">cluster_clusterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Cluster -&gt; Maybe Text)
+-&gt; (Cluster -&gt; Maybe Text -&gt; Cluster)
+-&gt; Lens Cluster Cluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195639"><span class="annot"><span class="annottext">Maybe Text
+clusterName :: Maybe Text
+$sel:clusterName:Cluster' :: Cluster -&gt; Maybe Text
+</span><a href="#local-6989586621679195639"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195639"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195638"><span class="annot"><span class="annottext">s :: Cluster
+</span><a href="#local-6989586621679195638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-type">Cluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cluster
+</span><a href="#local-6989586621679195638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:Cluster' :: Maybe Text
+</span><a href="Network.AWS.DAX.Types.Cluster.html#%24sel%3AclusterName%3ACluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195634"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679195632"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Cluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Cluster) -&gt; Value -&gt; Parser Cluster
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Cluster&quot;</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195629"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe ParameterGroupStatus
+-&gt; Maybe ClusterEndpointEncryptionType
+-&gt; Maybe [Node]
+-&gt; Maybe NotificationConfiguration
+-&gt; Maybe [SecurityGroupMembership]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe SSEDescription
+-&gt; Maybe [Text]
+-&gt; Maybe Endpoint
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Cluster
+</span><a href="Network.AWS.DAX.Types.Cluster.html#Cluster%27"><span class="hs-identifier hs-var">Cluster'</span></a></span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe ParameterGroupStatus
+ -&gt; Maybe ClusterEndpointEncryptionType
+ -&gt; Maybe [Node]
+ -&gt; Maybe NotificationConfiguration
+ -&gt; Maybe [SecurityGroupMembership]
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe SSEDescription
+ -&gt; Maybe [Text]
+ -&gt; Maybe Endpoint
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ParameterGroupStatus
+      -&gt; Maybe ClusterEndpointEncryptionType
+      -&gt; Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ParameterGroupStatus
+   -&gt; Maybe ClusterEndpointEncryptionType
+   -&gt; Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ParameterGroupStatus
+      -&gt; Maybe ClusterEndpointEncryptionType
+      -&gt; Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ParameterGroupStatus
+   -&gt; Maybe ClusterEndpointEncryptionType
+   -&gt; Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe ParameterGroupStatus
+      -&gt; Maybe ClusterEndpointEncryptionType
+      -&gt; Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe ParameterGroupStatus
+   -&gt; Maybe ClusterEndpointEncryptionType
+   -&gt; Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ParameterGroupStatus
+      -&gt; Maybe ClusterEndpointEncryptionType
+      -&gt; Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ParameterGroupStatus
+   -&gt; Maybe ClusterEndpointEncryptionType
+   -&gt; Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ParameterGroupStatus
+      -&gt; Maybe ClusterEndpointEncryptionType
+      -&gt; Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalNodes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ParameterGroupStatus
+   -&gt; Maybe ClusterEndpointEncryptionType
+   -&gt; Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe ParameterGroupStatus)
+-&gt; Parser
+     (Maybe ClusterEndpointEncryptionType
+      -&gt; Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParameterGroupStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParameterGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ClusterEndpointEncryptionType
+   -&gt; Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe ClusterEndpointEncryptionType)
+-&gt; Parser
+     (Maybe [Node]
+      -&gt; Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClusterEndpointEncryptionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterEndpointEncryptionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Node]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe [Node])
+-&gt; Parser
+     (Maybe NotificationConfiguration
+      -&gt; Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Node]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Nodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Node]))
+-&gt; Maybe [Node] -&gt; Parser (Maybe [Node])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NotificationConfiguration
+   -&gt; Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe NotificationConfiguration)
+-&gt; Parser
+     (Maybe [SecurityGroupMembership]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [SecurityGroupMembership]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe [SecurityGroupMembership])
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SecurityGroupMembership]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SecurityGroupMembership]))
+-&gt; Maybe [SecurityGroupMembership]
+-&gt; Parser (Maybe [SecurityGroupMembership])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SecurityGroupMembership]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActiveNodes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreferredMaintenanceWindow&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SSEDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Endpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SSEDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Endpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Cluster)
+-&gt; Parser (Maybe SSEDescription)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Endpoint -&gt; Maybe Text -&gt; Maybe Text -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SSEDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Endpoint -&gt; Maybe Text -&gt; Maybe Text -&gt; Cluster)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Endpoint -&gt; Maybe Text -&gt; Maybe Text -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeIdsToRemove&quot;</span></span><span>
+</span><span id="line-287"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-288"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Endpoint -&gt; Maybe Text -&gt; Maybe Text -&gt; Cluster)
+-&gt; Parser (Maybe Endpoint)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Endpoint)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterDiscoveryEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Cluster)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Cluster)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Cluster)
+-&gt; Parser (Maybe Text) -&gt; Parser Cluster
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195622"><span id="local-6989586621679195624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span></span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span></span><span>
+</span><span id="line-297"></span></pre></body></html>

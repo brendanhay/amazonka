@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMaker.Types.Workforce</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMaker.Types.Workforce</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CognitoConfig.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.CognitoConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfigForResponse.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.OidcConfigForResponse</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html"><span class="hs-identifier">Network.AWS.SageMaker.Types.SourceIpConfig</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A single private workforce, which is automatically created when you</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- create your first private work team. You can create one private work</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- force in each Amazon Web Services Region. By default, any</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- workforce-related API operation used in a specific region will apply to</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the workforce created in that region. To learn how to create a private</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- workforce, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newWorkforce' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621680360191"><span id="local-6989586621680360192"></span></span><span class="hs-keyword">data</span><span> </span><span id="Workforce"><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-var">Workforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Workforce%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-var">Workforce'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The most recent date that was used to successfully add one or more IP</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- address ranges</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- to a private workforce\'s allow list.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AlastUpdatedDate%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date that the workforce is created.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreateDate%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AcreateDate%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The subdomain for your OIDC Identity Provider.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsubDomain%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AsubDomain%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">subDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A list of one to ten IP address ranges</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to be added to the workforce allow list. By default, a workforce isn\'t</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- restricted to specific IP addresses.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsourceIpConfig%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Maybe SourceIpConfig
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AsourceIpConfig%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The configuration of an OIDC Identity Provider (IdP) private workforce.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AoidcConfig%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Maybe OidcConfigForResponse
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AoidcConfig%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">oidcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfigForResponse.html#OidcConfigForResponse"><span class="hs-identifier hs-type">OidcConfigForResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The configuration of an Amazon Cognito workforce. A single Cognito</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- workforce is created using and corresponds to a single</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool&gt;.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcognitoConfig%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Maybe CognitoConfig
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AcognitoConfig%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">cognitoConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CognitoConfig.html#CognitoConfig"><span class="hs-identifier hs-type">CognitoConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the private workforce.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AworkforceName%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AworkforceName%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the private workforce.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AworkforceArn%3AWorkforce%27"><span class="annot"><span class="annottext">Workforce -&gt; Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AworkforceArn%3AWorkforce%27"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680360178"><span id="local-6989586621680360180"><span class="annot"><span class="annottext">Workforce -&gt; Workforce -&gt; Bool
+(Workforce -&gt; Workforce -&gt; Bool)
+-&gt; (Workforce -&gt; Workforce -&gt; Bool) -&gt; Eq Workforce
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Workforce -&gt; Workforce -&gt; Bool
+$c/= :: Workforce -&gt; Workforce -&gt; Bool
+== :: Workforce -&gt; Workforce -&gt; Bool
+$c== :: Workforce -&gt; Workforce -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680360169"><span id="local-6989586621680360171"><span id="local-6989586621680360173"><span id="local-6989586621680360175"><span class="annot"><span class="annottext">ReadPrec [Workforce]
+ReadPrec Workforce
+Int -&gt; ReadS Workforce
+ReadS [Workforce]
+(Int -&gt; ReadS Workforce)
+-&gt; ReadS [Workforce]
+-&gt; ReadPrec Workforce
+-&gt; ReadPrec [Workforce]
+-&gt; Read Workforce
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Workforce]
+$creadListPrec :: ReadPrec [Workforce]
+readPrec :: ReadPrec Workforce
+$creadPrec :: ReadPrec Workforce
+readList :: ReadS [Workforce]
+$creadList :: ReadS [Workforce]
+readsPrec :: Int -&gt; ReadS Workforce
+$creadsPrec :: Int -&gt; ReadS Workforce
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680360162"><span id="local-6989586621680360164"><span id="local-6989586621680360166"><span class="annot"><span class="annottext">Int -&gt; Workforce -&gt; ShowS
+[Workforce] -&gt; ShowS
+Workforce -&gt; String
+(Int -&gt; Workforce -&gt; ShowS)
+-&gt; (Workforce -&gt; String)
+-&gt; ([Workforce] -&gt; ShowS)
+-&gt; Show Workforce
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Workforce] -&gt; ShowS
+$cshowList :: [Workforce] -&gt; ShowS
+show :: Workforce -&gt; String
+$cshow :: Workforce -&gt; String
+showsPrec :: Int -&gt; Workforce -&gt; ShowS
+$cshowsPrec :: Int -&gt; Workforce -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Workforce -&gt; Rep Workforce x)
+-&gt; (forall x. Rep Workforce x -&gt; Workforce) -&gt; Generic Workforce
+forall x. Rep Workforce x -&gt; Workforce
+forall x. Workforce -&gt; Rep Workforce x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Workforce x -&gt; Workforce
+$cfrom :: forall x. Workforce -&gt; Rep Workforce x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'Workforce' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'lastUpdatedDate', 'workforce_lastUpdatedDate' - The most recent date that was used to successfully add one or more IP</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- address ranges</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- to a private workforce\'s allow list.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'createDate', 'workforce_createDate' - The date that the workforce is created.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'subDomain', 'workforce_subDomain' - The subdomain for your OIDC Identity Provider.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'sourceIpConfig', 'workforce_sourceIpConfig' - A list of one to ten IP address ranges</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- to be added to the workforce allow list. By default, a workforce isn\'t</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- restricted to specific IP addresses.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'oidcConfig', 'workforce_oidcConfig' - The configuration of an OIDC Identity Provider (IdP) private workforce.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'cognitoConfig', 'workforce_cognitoConfig' - The configuration of an Amazon Cognito workforce. A single Cognito</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- workforce is created using and corresponds to a single</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool&gt;.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'workforceName', 'workforce_workforceName' - The name of the private workforce.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'workforceArn', 'workforce_workforceArn' - The Amazon Resource Name (ARN) of the private workforce.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#newWorkforce"><span class="hs-identifier hs-type">newWorkforce</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'workforceName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'workforceArn'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span>
+</span><span id="line-103"></span><span id="newWorkforce"><span class="annot"><span class="annottext">newWorkforce :: Text -&gt; Text -&gt; Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#newWorkforce"><span class="hs-identifier hs-var hs-var">newWorkforce</span></a></span></span><span> </span><span id="local-6989586621680360156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360156"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span></span><span> </span><span id="local-6989586621680360155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360155"><span class="hs-identifier hs-var">pWorkforceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">Workforce' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe SourceIpConfig
+-&gt; Maybe OidcConfigForResponse
+-&gt; Maybe CognitoConfig
+-&gt; Text
+-&gt; Text
+-&gt; Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:Workforce' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AlastUpdatedDate%3AWorkforce%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:Workforce' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AcreateDate%3AWorkforce%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:subDomain:Workforce' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AsubDomain%3AWorkforce%27"><span class="hs-identifier hs-var">subDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceIpConfig:Workforce' :: Maybe SourceIpConfig
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AsourceIpConfig%3AWorkforce%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:oidcConfig:Workforce' :: Maybe OidcConfigForResponse
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AoidcConfig%3AWorkforce%27"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfigForResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:cognitoConfig:Workforce' :: Maybe CognitoConfig
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AcognitoConfig%3AWorkforce%27"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:workforceName:Workforce' :: Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AworkforceName%3AWorkforce%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360156"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:workforceArn:Workforce' :: Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AworkforceArn%3AWorkforce%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360155"><span class="hs-identifier hs-var">pWorkforceArn_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The most recent date that was used to successfully add one or more IP</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- address ranges</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- to a private workforce\'s allow list.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_lastUpdatedDate"><span class="hs-identifier hs-type">workforce_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="workforce_lastUpdatedDate"><span class="annot"><span class="annottext">workforce_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">workforce_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Maybe POSIX)
+-&gt; (Workforce -&gt; Maybe POSIX -&gt; Workforce)
+-&gt; Lens Workforce Workforce (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360151"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDate :: Maybe POSIX
+$sel:lastUpdatedDate:Workforce' :: Workforce -&gt; Maybe POSIX
+</span><a href="#local-6989586621680360151"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680360151"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360150"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360149"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680360149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:Workforce' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AlastUpdatedDate%3AWorkforce%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680360149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workforce -&gt; f Workforce)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Workforce
+-&gt; f Workforce
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The date that the workforce is created.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_createDate"><span class="hs-identifier hs-type">workforce_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="workforce_createDate"><span class="annot"><span class="annottext">workforce_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_createDate"><span class="hs-identifier hs-var hs-var">workforce_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Maybe POSIX)
+-&gt; (Workforce -&gt; Maybe POSIX -&gt; Workforce)
+-&gt; Lens Workforce Workforce (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360144"><span class="annot"><span class="annottext">Maybe POSIX
+createDate :: Maybe POSIX
+$sel:createDate:Workforce' :: Workforce -&gt; Maybe POSIX
+</span><a href="#local-6989586621680360144"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680360144"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360143"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360142"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680360142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Workforce' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AcreateDate%3AWorkforce%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680360142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workforce -&gt; f Workforce)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Workforce
+-&gt; f Workforce
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The subdomain for your OIDC Identity Provider.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_subDomain"><span class="hs-identifier hs-type">workforce_subDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="workforce_subDomain"><span class="annot"><span class="annottext">workforce_subDomain :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_subDomain"><span class="hs-identifier hs-var hs-var">workforce_subDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Maybe Text)
+-&gt; (Workforce -&gt; Maybe Text -&gt; Workforce)
+-&gt; Lens Workforce Workforce (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360140"><span class="annot"><span class="annottext">Maybe Text
+subDomain :: Maybe Text
+$sel:subDomain:Workforce' :: Workforce -&gt; Maybe Text
+</span><a href="#local-6989586621680360140"><span class="hs-identifier hs-var hs-var">subDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360140"><span class="hs-identifier hs-var">subDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360139"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subDomain:Workforce' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AsubDomain%3AWorkforce%27"><span class="hs-identifier hs-var">subDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680360138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A list of one to ten IP address ranges</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- to be added to the workforce allow list. By default, a workforce isn\'t</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- restricted to specific IP addresses.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_sourceIpConfig"><span class="hs-identifier hs-type">workforce_sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="workforce_sourceIpConfig"><span class="annot"><span class="annottext">workforce_sourceIpConfig :: (Maybe SourceIpConfig -&gt; f (Maybe SourceIpConfig))
+-&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_sourceIpConfig"><span class="hs-identifier hs-var hs-var">workforce_sourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Maybe SourceIpConfig)
+-&gt; (Workforce -&gt; Maybe SourceIpConfig -&gt; Workforce)
+-&gt; Lens
+     Workforce Workforce (Maybe SourceIpConfig) (Maybe SourceIpConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360136"><span class="annot"><span class="annottext">Maybe SourceIpConfig
+sourceIpConfig :: Maybe SourceIpConfig
+$sel:sourceIpConfig:Workforce' :: Workforce -&gt; Maybe SourceIpConfig
+</span><a href="#local-6989586621680360136"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680360136"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360135"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360134"><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680360134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:Workforce' :: Maybe SourceIpConfig
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AsourceIpConfig%3AWorkforce%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680360134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The configuration of an OIDC Identity Provider (IdP) private workforce.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_oidcConfig"><span class="hs-identifier hs-type">workforce_oidcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcConfigForResponse.html#OidcConfigForResponse"><span class="hs-identifier hs-type">OidcConfigForResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="workforce_oidcConfig"><span class="annot"><span class="annottext">workforce_oidcConfig :: (Maybe OidcConfigForResponse -&gt; f (Maybe OidcConfigForResponse))
+-&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_oidcConfig"><span class="hs-identifier hs-var hs-var">workforce_oidcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Maybe OidcConfigForResponse)
+-&gt; (Workforce -&gt; Maybe OidcConfigForResponse -&gt; Workforce)
+-&gt; Lens
+     Workforce
+     Workforce
+     (Maybe OidcConfigForResponse)
+     (Maybe OidcConfigForResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360132"><span class="annot"><span class="annottext">Maybe OidcConfigForResponse
+oidcConfig :: Maybe OidcConfigForResponse
+$sel:oidcConfig:Workforce' :: Workforce -&gt; Maybe OidcConfigForResponse
+</span><a href="#local-6989586621680360132"><span class="hs-identifier hs-var hs-var">oidcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfigForResponse
+</span><a href="#local-6989586621680360132"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360131"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360130"><span class="annot"><span class="annottext">Maybe OidcConfigForResponse
+</span><a href="#local-6989586621680360130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcConfig:Workforce' :: Maybe OidcConfigForResponse
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AoidcConfig%3AWorkforce%27"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfigForResponse
+</span><a href="#local-6989586621680360130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The configuration of an Amazon Cognito workforce. A single Cognito</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- workforce is created using and corresponds to a single</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool&gt;.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_cognitoConfig"><span class="hs-identifier hs-type">workforce_cognitoConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CognitoConfig.html#CognitoConfig"><span class="hs-identifier hs-type">CognitoConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="workforce_cognitoConfig"><span class="annot"><span class="annottext">workforce_cognitoConfig :: (Maybe CognitoConfig -&gt; f (Maybe CognitoConfig))
+-&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_cognitoConfig"><span class="hs-identifier hs-var hs-var">workforce_cognitoConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Maybe CognitoConfig)
+-&gt; (Workforce -&gt; Maybe CognitoConfig -&gt; Workforce)
+-&gt; Lens
+     Workforce Workforce (Maybe CognitoConfig) (Maybe CognitoConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360128"><span class="annot"><span class="annottext">Maybe CognitoConfig
+cognitoConfig :: Maybe CognitoConfig
+$sel:cognitoConfig:Workforce' :: Workforce -&gt; Maybe CognitoConfig
+</span><a href="#local-6989586621680360128"><span class="hs-identifier hs-var hs-var">cognitoConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
+</span><a href="#local-6989586621680360128"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360127"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360126"><span class="annot"><span class="annottext">Maybe CognitoConfig
+</span><a href="#local-6989586621680360126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoConfig:Workforce' :: Maybe CognitoConfig
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AcognitoConfig%3AWorkforce%27"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
+</span><a href="#local-6989586621680360126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name of the private workforce.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_workforceName"><span class="hs-identifier hs-type">workforce_workforceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="workforce_workforceName"><span class="annot"><span class="annottext">workforce_workforceName :: (Text -&gt; f Text) -&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_workforceName"><span class="hs-identifier hs-var hs-var">workforce_workforceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Text)
+-&gt; (Workforce -&gt; Text -&gt; Workforce)
+-&gt; Lens Workforce Workforce Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360124"><span class="annot"><span class="annottext">Text
+workforceName :: Text
+$sel:workforceName:Workforce' :: Workforce -&gt; Text
+</span><a href="#local-6989586621680360124"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360124"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360123"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceName:Workforce' :: Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AworkforceName%3AWorkforce%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the private workforce.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_workforceArn"><span class="hs-identifier hs-type">workforce_workforceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-153"></span><span id="workforce_workforceArn"><span class="annot"><span class="annottext">workforce_workforceArn :: (Text -&gt; f Text) -&gt; Workforce -&gt; f Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#workforce_workforceArn"><span class="hs-identifier hs-var hs-var">workforce_workforceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workforce -&gt; Text)
+-&gt; (Workforce -&gt; Text -&gt; Workforce)
+-&gt; Lens Workforce Workforce Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360120"><span class="annot"><span class="annottext">Text
+workforceArn :: Text
+$sel:workforceArn:Workforce' :: Workforce -&gt; Text
+</span><a href="#local-6989586621680360120"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360120"><span class="hs-identifier hs-var">workforceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360119"><span class="annot"><span class="annottext">s :: Workforce
+</span><a href="#local-6989586621680360119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-type">Workforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360118"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680360119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceArn:Workforce' :: Text
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#%24sel%3AworkforceArn%3AWorkforce%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680360118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680360113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Workforce
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Workforce) -&gt; Value -&gt; Parser Workforce
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Workforce&quot;</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680360110"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe SourceIpConfig
+-&gt; Maybe OidcConfigForResponse
+-&gt; Maybe CognitoConfig
+-&gt; Text
+-&gt; Text
+-&gt; Workforce
+</span><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce%27"><span class="hs-identifier hs-var">Workforce'</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe SourceIpConfig
+ -&gt; Maybe OidcConfigForResponse
+ -&gt; Maybe CognitoConfig
+ -&gt; Text
+ -&gt; Text
+ -&gt; Workforce)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe SourceIpConfig
+      -&gt; Maybe OidcConfigForResponse
+      -&gt; Maybe CognitoConfig
+      -&gt; Text
+      -&gt; Text
+      -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe SourceIpConfig
+   -&gt; Maybe OidcConfigForResponse
+   -&gt; Maybe CognitoConfig
+   -&gt; Text
+   -&gt; Text
+   -&gt; Workforce)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SourceIpConfig
+      -&gt; Maybe OidcConfigForResponse
+      -&gt; Maybe CognitoConfig
+      -&gt; Text
+      -&gt; Text
+      -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SourceIpConfig
+   -&gt; Maybe OidcConfigForResponse
+   -&gt; Maybe CognitoConfig
+   -&gt; Text
+   -&gt; Text
+   -&gt; Workforce)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SourceIpConfig
+      -&gt; Maybe OidcConfigForResponse
+      -&gt; Maybe CognitoConfig
+      -&gt; Text
+      -&gt; Text
+      -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubDomain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SourceIpConfig
+   -&gt; Maybe OidcConfigForResponse
+   -&gt; Maybe CognitoConfig
+   -&gt; Text
+   -&gt; Text
+   -&gt; Workforce)
+-&gt; Parser (Maybe SourceIpConfig)
+-&gt; Parser
+     (Maybe OidcConfigForResponse
+      -&gt; Maybe CognitoConfig -&gt; Text -&gt; Text -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceIpConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceIpConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OidcConfigForResponse
+   -&gt; Maybe CognitoConfig -&gt; Text -&gt; Text -&gt; Workforce)
+-&gt; Parser (Maybe OidcConfigForResponse)
+-&gt; Parser (Maybe CognitoConfig -&gt; Text -&gt; Text -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OidcConfigForResponse)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OidcConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CognitoConfig -&gt; Text -&gt; Text -&gt; Workforce)
+-&gt; Parser (Maybe CognitoConfig)
+-&gt; Parser (Text -&gt; Text -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CognitoConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CognitoConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Workforce)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Workforce)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkforceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Workforce) -&gt; Parser Text -&gt; Parser Workforce
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680360110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkforceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360103"><span id="local-6989586621680360105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

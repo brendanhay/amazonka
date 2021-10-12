@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Greengrass.CreateSoftwareUpdateJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a software update for a core or group of cores (specified as an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- IoT thing group.) Use this to update the OTA Agent as well as the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Greengrass core software. It makes use of the IoT Jobs feature which</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- provides additional commands to manage a Greengrass core software update</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Greengrass.CreateSoftwareUpdateJob</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#newCreateSoftwareUpdateJob"><span class="hs-identifier">newCreateSoftwareUpdateJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateAgentLogLevel"><span class="hs-identifier">createSoftwareUpdateJob_updateAgentLogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_amznClientToken"><span class="hs-identifier">createSoftwareUpdateJob_amznClientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_s3UrlSignerRole"><span class="hs-identifier">createSoftwareUpdateJob_s3UrlSignerRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargetsArchitecture"><span class="hs-identifier">createSoftwareUpdateJob_updateTargetsArchitecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_softwareToUpdate"><span class="hs-identifier">createSoftwareUpdateJob_softwareToUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargets"><span class="hs-identifier">createSoftwareUpdateJob_updateTargets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargetsOperatingSystem"><span class="hs-identifier">createSoftwareUpdateJob_updateTargetsOperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier">CreateSoftwareUpdateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#newCreateSoftwareUpdateJobResponse"><span class="hs-identifier">newCreateSoftwareUpdateJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_iotJobId"><span class="hs-identifier">createSoftwareUpdateJobResponse_iotJobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_iotJobArn"><span class="hs-identifier">createSoftwareUpdateJobResponse_iotJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_platformSoftwareVersion"><span class="hs-identifier">createSoftwareUpdateJobResponse_platformSoftwareVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_httpStatus"><span class="hs-identifier">createSoftwareUpdateJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.html"><span class="hs-identifier">Network.AWS.Greengrass.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateSoftwareUpdateJob' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679363121"><span id="local-6989586621679363122"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSoftwareUpdateJob"><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-var">CreateSoftwareUpdateJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSoftwareUpdateJob%27"><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">CreateSoftwareUpdateJob'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AupdateAgentLogLevel%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; Maybe UpdateAgentLogLevel
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateAgentLogLevel%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">updateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A client token used to correlate requests and responses.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AamznClientToken%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AamznClientToken%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">amznClientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3As3UrlSignerRole%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3As3UrlSignerRole%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">s3UrlSignerRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AupdateTargetsArchitecture%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; UpdateTargetsArchitecture
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargetsArchitecture%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">updateTargetsArchitecture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture"><span class="hs-identifier hs-type">UpdateTargetsArchitecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AsoftwareToUpdate%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; SoftwareToUpdate
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AsoftwareToUpdate%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">softwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-type">SoftwareToUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AupdateTargets%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; [Text]
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargets%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">updateTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AupdateTargetsOperatingSystem%3ACreateSoftwareUpdateJob%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; UpdateTargetsOperatingSystem
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargetsOperatingSystem%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var hs-var">updateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363109"><span id="local-6989586621679363111"><span class="annot"><span class="annottext">CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool
+(CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool)
+-&gt; (CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool)
+-&gt; Eq CreateSoftwareUpdateJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool
+$c/= :: CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool
+== :: CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool
+$c== :: CreateSoftwareUpdateJob -&gt; CreateSoftwareUpdateJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363100"><span id="local-6989586621679363102"><span id="local-6989586621679363104"><span id="local-6989586621679363106"><span class="annot"><span class="annottext">ReadPrec [CreateSoftwareUpdateJob]
+ReadPrec CreateSoftwareUpdateJob
+Int -&gt; ReadS CreateSoftwareUpdateJob
+ReadS [CreateSoftwareUpdateJob]
+(Int -&gt; ReadS CreateSoftwareUpdateJob)
+-&gt; ReadS [CreateSoftwareUpdateJob]
+-&gt; ReadPrec CreateSoftwareUpdateJob
+-&gt; ReadPrec [CreateSoftwareUpdateJob]
+-&gt; Read CreateSoftwareUpdateJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSoftwareUpdateJob]
+$creadListPrec :: ReadPrec [CreateSoftwareUpdateJob]
+readPrec :: ReadPrec CreateSoftwareUpdateJob
+$creadPrec :: ReadPrec CreateSoftwareUpdateJob
+readList :: ReadS [CreateSoftwareUpdateJob]
+$creadList :: ReadS [CreateSoftwareUpdateJob]
+readsPrec :: Int -&gt; ReadS CreateSoftwareUpdateJob
+$creadsPrec :: Int -&gt; ReadS CreateSoftwareUpdateJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363093"><span id="local-6989586621679363095"><span id="local-6989586621679363097"><span class="annot"><span class="annottext">Int -&gt; CreateSoftwareUpdateJob -&gt; ShowS
+[CreateSoftwareUpdateJob] -&gt; ShowS
+CreateSoftwareUpdateJob -&gt; String
+(Int -&gt; CreateSoftwareUpdateJob -&gt; ShowS)
+-&gt; (CreateSoftwareUpdateJob -&gt; String)
+-&gt; ([CreateSoftwareUpdateJob] -&gt; ShowS)
+-&gt; Show CreateSoftwareUpdateJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSoftwareUpdateJob] -&gt; ShowS
+$cshowList :: [CreateSoftwareUpdateJob] -&gt; ShowS
+show :: CreateSoftwareUpdateJob -&gt; String
+$cshow :: CreateSoftwareUpdateJob -&gt; String
+showsPrec :: Int -&gt; CreateSoftwareUpdateJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSoftwareUpdateJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSoftwareUpdateJob -&gt; Rep CreateSoftwareUpdateJob x)
+-&gt; (forall x.
+    Rep CreateSoftwareUpdateJob x -&gt; CreateSoftwareUpdateJob)
+-&gt; Generic CreateSoftwareUpdateJob
+forall x. Rep CreateSoftwareUpdateJob x -&gt; CreateSoftwareUpdateJob
+forall x. CreateSoftwareUpdateJob -&gt; Rep CreateSoftwareUpdateJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSoftwareUpdateJob x -&gt; CreateSoftwareUpdateJob
+$cfrom :: forall x. CreateSoftwareUpdateJob -&gt; Rep CreateSoftwareUpdateJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'CreateSoftwareUpdateJob' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'updateAgentLogLevel', 'createSoftwareUpdateJob_updateAgentLogLevel' - Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'amznClientToken', 'createSoftwareUpdateJob_amznClientToken' - A client token used to correlate requests and responses.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 's3UrlSignerRole', 'createSoftwareUpdateJob_s3UrlSignerRole' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'updateTargetsArchitecture', 'createSoftwareUpdateJob_updateTargetsArchitecture' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'softwareToUpdate', 'createSoftwareUpdateJob_softwareToUpdate' - Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'updateTargets', 'createSoftwareUpdateJob_updateTargets' - Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'updateTargetsOperatingSystem', 'createSoftwareUpdateJob_updateTargetsOperatingSystem' - Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#newCreateSoftwareUpdateJob"><span class="hs-identifier hs-type">newCreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 's3UrlSignerRole'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'updateTargetsArchitecture'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture"><span class="hs-identifier hs-type">UpdateTargetsArchitecture</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'softwareToUpdate'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-type">SoftwareToUpdate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'updateTargetsOperatingSystem'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span>
+</span><span id="line-105"></span><span id="newCreateSoftwareUpdateJob"><span class="annot"><span class="annottext">newCreateSoftwareUpdateJob :: Text
+-&gt; UpdateTargetsArchitecture
+-&gt; SoftwareToUpdate
+-&gt; UpdateTargetsOperatingSystem
+-&gt; CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#newCreateSoftwareUpdateJob"><span class="hs-identifier hs-var hs-var">newCreateSoftwareUpdateJob</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679363088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363088"><span class="hs-identifier hs-var">pS3UrlSignerRole_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679363087"><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363087"><span class="hs-identifier hs-var">pUpdateTargetsArchitecture_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679363086"><span class="annot"><span class="annottext">SoftwareToUpdate
+</span><a href="#local-6989586621679363086"><span class="hs-identifier hs-var">pSoftwareToUpdate_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679363085"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363085"><span class="hs-identifier hs-var">pUpdateTargetsOperatingSystem_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob' :: Maybe UpdateAgentLogLevel
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateTargetsArchitecture
+-&gt; SoftwareToUpdate
+-&gt; [Text]
+-&gt; UpdateTargetsOperatingSystem
+-&gt; CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:updateAgentLogLevel:CreateSoftwareUpdateJob' :: Maybe UpdateAgentLogLevel
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateAgentLogLevel%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateAgentLogLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe UpdateAgentLogLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:amznClientToken:CreateSoftwareUpdateJob' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AamznClientToken%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3UrlSignerRole:CreateSoftwareUpdateJob' :: Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3As3UrlSignerRole%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">s3UrlSignerRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363088"><span class="hs-identifier hs-var">pS3UrlSignerRole_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTargetsArchitecture:CreateSoftwareUpdateJob' :: UpdateTargetsArchitecture
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargetsArchitecture%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateTargetsArchitecture</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363087"><span class="hs-identifier hs-var">pUpdateTargetsArchitecture_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:softwareToUpdate:CreateSoftwareUpdateJob' :: SoftwareToUpdate
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AsoftwareToUpdate%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">softwareToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SoftwareToUpdate
+</span><a href="#local-6989586621679363086"><span class="hs-identifier hs-var">pSoftwareToUpdate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTargets:CreateSoftwareUpdateJob' :: [Text]
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargets%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTargetsOperatingSystem:CreateSoftwareUpdateJob' :: UpdateTargetsOperatingSystem
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargetsOperatingSystem%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateTargetsOperatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363085"><span class="hs-identifier hs-var">pUpdateTargetsOperatingSystem_</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateAgentLogLevel"><span class="hs-identifier hs-type">createSoftwareUpdateJob_updateAgentLogLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-type">UpdateAgentLogLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createSoftwareUpdateJob_updateAgentLogLevel"><span class="annot"><span class="annottext">createSoftwareUpdateJob_updateAgentLogLevel :: (Maybe UpdateAgentLogLevel -&gt; f (Maybe UpdateAgentLogLevel))
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateAgentLogLevel"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_updateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; Maybe UpdateAgentLogLevel)
+-&gt; (CreateSoftwareUpdateJob
+    -&gt; Maybe UpdateAgentLogLevel -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens
+     CreateSoftwareUpdateJob
+     CreateSoftwareUpdateJob
+     (Maybe UpdateAgentLogLevel)
+     (Maybe UpdateAgentLogLevel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363082"><span class="annot"><span class="annottext">Maybe UpdateAgentLogLevel
+updateAgentLogLevel :: Maybe UpdateAgentLogLevel
+$sel:updateAgentLogLevel:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363082"><span class="hs-identifier hs-var hs-var">updateAgentLogLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363082"><span class="hs-identifier hs-var">updateAgentLogLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363081"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363080"><span class="annot"><span class="annottext">Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateAgentLogLevel:CreateSoftwareUpdateJob' :: Maybe UpdateAgentLogLevel
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateAgentLogLevel%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateAgentLogLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A client token used to correlate requests and responses.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_amznClientToken"><span class="hs-identifier hs-type">createSoftwareUpdateJob_amznClientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="createSoftwareUpdateJob_amznClientToken"><span class="annot"><span class="annottext">createSoftwareUpdateJob_amznClientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_amznClientToken"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_amznClientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; Maybe Text)
+-&gt; (CreateSoftwareUpdateJob
+    -&gt; Maybe Text -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens
+     CreateSoftwareUpdateJob
+     CreateSoftwareUpdateJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363079"><span class="annot"><span class="annottext">Maybe Text
+amznClientToken :: Maybe Text
+$sel:amznClientToken:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Maybe Text
+</span><a href="#local-6989586621679363079"><span class="hs-identifier hs-var hs-var">amznClientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363079"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363078"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amznClientToken:CreateSoftwareUpdateJob' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AamznClientToken%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_s3UrlSignerRole"><span class="hs-identifier hs-type">createSoftwareUpdateJob_s3UrlSignerRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-133"></span><span id="createSoftwareUpdateJob_s3UrlSignerRole"><span class="annot"><span class="annottext">createSoftwareUpdateJob_s3UrlSignerRole :: (Text -&gt; f Text)
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_s3UrlSignerRole"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_s3UrlSignerRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; Text)
+-&gt; (CreateSoftwareUpdateJob -&gt; Text -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens CreateSoftwareUpdateJob CreateSoftwareUpdateJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363076"><span class="annot"><span class="annottext">Text
+s3UrlSignerRole :: Text
+$sel:s3UrlSignerRole:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Text
+</span><a href="#local-6989586621679363076"><span class="hs-identifier hs-var hs-var">s3UrlSignerRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363076"><span class="hs-identifier hs-var">s3UrlSignerRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363075"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3UrlSignerRole:CreateSoftwareUpdateJob' :: Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3As3UrlSignerRole%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">s3UrlSignerRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargetsArchitecture"><span class="hs-identifier hs-type">createSoftwareUpdateJob_updateTargetsArchitecture</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsArchitecture.html#UpdateTargetsArchitecture"><span class="hs-identifier hs-type">UpdateTargetsArchitecture</span></a></span><span>
+</span><span id="line-137"></span><span id="createSoftwareUpdateJob_updateTargetsArchitecture"><span class="annot"><span class="annottext">createSoftwareUpdateJob_updateTargetsArchitecture :: (UpdateTargetsArchitecture -&gt; f UpdateTargetsArchitecture)
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargetsArchitecture"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_updateTargetsArchitecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; UpdateTargetsArchitecture)
+-&gt; (CreateSoftwareUpdateJob
+    -&gt; UpdateTargetsArchitecture -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens
+     CreateSoftwareUpdateJob
+     CreateSoftwareUpdateJob
+     UpdateTargetsArchitecture
+     UpdateTargetsArchitecture
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363073"><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+updateTargetsArchitecture :: UpdateTargetsArchitecture
+$sel:updateTargetsArchitecture:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363073"><span class="hs-identifier hs-var hs-var">updateTargetsArchitecture</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363073"><span class="hs-identifier hs-var">updateTargetsArchitecture</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363072"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363071"><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTargetsArchitecture:CreateSoftwareUpdateJob' :: UpdateTargetsArchitecture
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargetsArchitecture%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateTargetsArchitecture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_softwareToUpdate"><span class="hs-identifier hs-type">createSoftwareUpdateJob_softwareToUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.SoftwareToUpdate.html#SoftwareToUpdate"><span class="hs-identifier hs-type">SoftwareToUpdate</span></a></span><span>
+</span><span id="line-141"></span><span id="createSoftwareUpdateJob_softwareToUpdate"><span class="annot"><span class="annottext">createSoftwareUpdateJob_softwareToUpdate :: (SoftwareToUpdate -&gt; f SoftwareToUpdate)
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_softwareToUpdate"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_softwareToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; SoftwareToUpdate)
+-&gt; (CreateSoftwareUpdateJob
+    -&gt; SoftwareToUpdate -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens
+     CreateSoftwareUpdateJob
+     CreateSoftwareUpdateJob
+     SoftwareToUpdate
+     SoftwareToUpdate
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363070"><span class="annot"><span class="annottext">SoftwareToUpdate
+softwareToUpdate :: SoftwareToUpdate
+$sel:softwareToUpdate:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; SoftwareToUpdate
+</span><a href="#local-6989586621679363070"><span class="hs-identifier hs-var hs-var">softwareToUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SoftwareToUpdate
+</span><a href="#local-6989586621679363070"><span class="hs-identifier hs-var">softwareToUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363069"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363068"><span class="annot"><span class="annottext">SoftwareToUpdate
+</span><a href="#local-6989586621679363068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareToUpdate:CreateSoftwareUpdateJob' :: SoftwareToUpdate
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AsoftwareToUpdate%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">softwareToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SoftwareToUpdate
+</span><a href="#local-6989586621679363068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargets"><span class="hs-identifier hs-type">createSoftwareUpdateJob_updateTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span id="createSoftwareUpdateJob_updateTargets"><span class="annot"><span class="annottext">createSoftwareUpdateJob_updateTargets :: ([Text] -&gt; f [Text])
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargets"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_updateTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; [Text])
+-&gt; (CreateSoftwareUpdateJob -&gt; [Text] -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens
+     CreateSoftwareUpdateJob CreateSoftwareUpdateJob [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363067"><span class="annot"><span class="annottext">[Text]
+updateTargets :: [Text]
+$sel:updateTargets:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; [Text]
+</span><a href="#local-6989586621679363067"><span class="hs-identifier hs-var hs-var">updateTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679363067"><span class="hs-identifier hs-var">updateTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363066"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363065"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679363065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTargets:CreateSoftwareUpdateJob' :: [Text]
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargets%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679363065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateSoftwareUpdateJob
+-&gt; f CreateSoftwareUpdateJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargetsOperatingSystem"><span class="hs-identifier hs-type">createSoftwareUpdateJob_updateTargetsOperatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-type">UpdateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-149"></span><span id="createSoftwareUpdateJob_updateTargetsOperatingSystem"><span class="annot"><span class="annottext">createSoftwareUpdateJob_updateTargetsOperatingSystem :: (UpdateTargetsOperatingSystem -&gt; f UpdateTargetsOperatingSystem)
+-&gt; CreateSoftwareUpdateJob -&gt; f CreateSoftwareUpdateJob
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJob_updateTargetsOperatingSystem"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJob_updateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJob -&gt; UpdateTargetsOperatingSystem)
+-&gt; (CreateSoftwareUpdateJob
+    -&gt; UpdateTargetsOperatingSystem -&gt; CreateSoftwareUpdateJob)
+-&gt; Lens
+     CreateSoftwareUpdateJob
+     CreateSoftwareUpdateJob
+     UpdateTargetsOperatingSystem
+     UpdateTargetsOperatingSystem
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363062"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+updateTargetsOperatingSystem :: UpdateTargetsOperatingSystem
+$sel:updateTargetsOperatingSystem:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363062"><span class="hs-identifier hs-var hs-var">updateTargetsOperatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363062"><span class="hs-identifier hs-var">updateTargetsOperatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363061"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363060"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJob
+</span><a href="#local-6989586621679363061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTargetsOperatingSystem:CreateSoftwareUpdateJob' :: UpdateTargetsOperatingSystem
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AupdateTargetsOperatingSystem%3ACreateSoftwareUpdateJob%27"><span class="hs-identifier hs-var">updateTargetsOperatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679363056"><span class="annot"><span class="annottext">request :: CreateSoftwareUpdateJob -&gt; Request CreateSoftwareUpdateJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateSoftwareUpdateJob -&gt; Request CreateSoftwareUpdateJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679363052"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSoftwareUpdateJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSoftwareUpdateJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSoftwareUpdateJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSoftwareUpdateJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSoftwareUpdateJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363049"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679363048"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679363048"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679363047"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">CreateSoftwareUpdateJobResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; CreateSoftwareUpdateJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IotJobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateSoftwareUpdateJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IotJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateSoftwareUpdateJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlatformSoftwareVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Either String Int
+-&gt; Either String CreateSoftwareUpdateJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679363049"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363039"><span id="local-6989586621679363041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679363032"><span class="annot"><span class="annottext">toHeaders :: CreateSoftwareUpdateJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363024"><span id="local-6989586621679363025"><span id="local-6989586621679363026"><span id="local-6989586621679363027"><span id="local-6989586621679363028"><span id="local-6989586621679363029"><span id="local-6989586621679363030"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Maybe UpdateAgentLogLevel
+Text
+SoftwareToUpdate
+UpdateTargetsArchitecture
+UpdateTargetsOperatingSystem
+updateTargetsOperatingSystem :: UpdateTargetsOperatingSystem
+updateTargets :: [Text]
+softwareToUpdate :: SoftwareToUpdate
+updateTargetsArchitecture :: UpdateTargetsArchitecture
+s3UrlSignerRole :: Text
+amznClientToken :: Maybe Text
+updateAgentLogLevel :: Maybe UpdateAgentLogLevel
+$sel:updateTargetsOperatingSystem:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; UpdateTargetsOperatingSystem
+$sel:updateTargets:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; [Text]
+$sel:softwareToUpdate:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; SoftwareToUpdate
+$sel:updateTargetsArchitecture:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; UpdateTargetsArchitecture
+$sel:s3UrlSignerRole:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Text
+$sel:amznClientToken:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Maybe Text
+$sel:updateAgentLogLevel:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363024"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amzn-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363029"><span class="hs-identifier hs-var">amznClientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363016"><span id="local-6989586621679363018"><span id="local-6989586621679363020"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679363014"><span class="annot"><span class="annottext">toJSON :: CreateSoftwareUpdateJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363006"><span id="local-6989586621679363007"><span id="local-6989586621679363008"><span id="local-6989586621679363009"><span id="local-6989586621679363010"><span id="local-6989586621679363011"><span id="local-6989586621679363012"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Maybe UpdateAgentLogLevel
+Text
+SoftwareToUpdate
+UpdateTargetsArchitecture
+UpdateTargetsOperatingSystem
+updateTargetsOperatingSystem :: UpdateTargetsOperatingSystem
+updateTargets :: [Text]
+softwareToUpdate :: SoftwareToUpdate
+updateTargetsArchitecture :: UpdateTargetsArchitecture
+s3UrlSignerRole :: Text
+amznClientToken :: Maybe Text
+updateAgentLogLevel :: Maybe UpdateAgentLogLevel
+$sel:updateTargetsOperatingSystem:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; UpdateTargetsOperatingSystem
+$sel:updateTargets:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; [Text]
+$sel:softwareToUpdate:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; SoftwareToUpdate
+$sel:updateTargetsArchitecture:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; UpdateTargetsArchitecture
+$sel:s3UrlSignerRole:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Text
+$sel:amznClientToken:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Maybe Text
+$sel:updateAgentLogLevel:CreateSoftwareUpdateJob' :: CreateSoftwareUpdateJob -&gt; Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363006"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateAgentLogLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateAgentLogLevel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(UpdateAgentLogLevel -&gt; Pair)
+-&gt; Maybe UpdateAgentLogLevel -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateAgentLogLevel
+</span><a href="#local-6989586621679363012"><span class="hs-identifier hs-var">updateAgentLogLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3UrlSignerRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679363010"><span class="hs-identifier hs-var">s3UrlSignerRole</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateTargetsArchitecture&quot;</span></span><span>
+</span><span id="line-188"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; UpdateTargetsArchitecture -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UpdateTargetsArchitecture
+</span><a href="#local-6989586621679363009"><span class="hs-identifier hs-var">updateTargetsArchitecture</span></a></span><span>
+</span><span id="line-189"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SoftwareToUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SoftwareToUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SoftwareToUpdate
+</span><a href="#local-6989586621679363008"><span class="hs-identifier hs-var">softwareToUpdate</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679363007"><span class="hs-identifier hs-var">updateTargets</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateTargetsOperatingSystem&quot;</span></span><span>
+</span><span id="line-195"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; UpdateTargetsOperatingSystem -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><a href="#local-6989586621679363006"><span class="hs-identifier hs-var">updateTargetsOperatingSystem</span></a></span><span>
+</span><span id="line-196"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679363000"><span class="annot"><span class="annottext">toPath :: CreateSoftwareUpdateJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSoftwareUpdateJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/updates&quot;</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJob"><span class="hs-identifier hs-type">CreateSoftwareUpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679362995"><span class="annot"><span class="annottext">toQuery :: CreateSoftwareUpdateJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSoftwareUpdateJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newCreateSoftwareUpdateJobResponse' smart constructor.</span><span>
+</span><span id="line-207"></span><span id="local-6989586621679362992"><span id="local-6989586621679362993"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSoftwareUpdateJobResponse"><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-var">CreateSoftwareUpdateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSoftwareUpdateJobResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">CreateSoftwareUpdateJobResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IoT Job Id corresponding to this update.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AiotJobId%3ACreateSoftwareUpdateJobResponse%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AiotJobId%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var hs-var">iotJobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The IoT Job ARN corresponding to this update.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AiotJobArn%3ACreateSoftwareUpdateJobResponse%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AiotJobArn%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var hs-var">iotJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The software version installed on the device or devices after the</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AplatformSoftwareVersion%3ACreateSoftwareUpdateJobResponse%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AplatformSoftwareVersion%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var hs-var">platformSoftwareVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSoftwareUpdateJobResponse%27"><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse -&gt; Int
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AhttpStatus%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362984"><span id="local-6989586621679362986"><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse
+-&gt; CreateSoftwareUpdateJobResponse -&gt; Bool
+(CreateSoftwareUpdateJobResponse
+ -&gt; CreateSoftwareUpdateJobResponse -&gt; Bool)
+-&gt; (CreateSoftwareUpdateJobResponse
+    -&gt; CreateSoftwareUpdateJobResponse -&gt; Bool)
+-&gt; Eq CreateSoftwareUpdateJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSoftwareUpdateJobResponse
+-&gt; CreateSoftwareUpdateJobResponse -&gt; Bool
+$c/= :: CreateSoftwareUpdateJobResponse
+-&gt; CreateSoftwareUpdateJobResponse -&gt; Bool
+== :: CreateSoftwareUpdateJobResponse
+-&gt; CreateSoftwareUpdateJobResponse -&gt; Bool
+$c== :: CreateSoftwareUpdateJobResponse
+-&gt; CreateSoftwareUpdateJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362976"><span id="local-6989586621679362978"><span id="local-6989586621679362980"><span id="local-6989586621679362982"><span class="annot"><span class="annottext">ReadPrec [CreateSoftwareUpdateJobResponse]
+ReadPrec CreateSoftwareUpdateJobResponse
+Int -&gt; ReadS CreateSoftwareUpdateJobResponse
+ReadS [CreateSoftwareUpdateJobResponse]
+(Int -&gt; ReadS CreateSoftwareUpdateJobResponse)
+-&gt; ReadS [CreateSoftwareUpdateJobResponse]
+-&gt; ReadPrec CreateSoftwareUpdateJobResponse
+-&gt; ReadPrec [CreateSoftwareUpdateJobResponse]
+-&gt; Read CreateSoftwareUpdateJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSoftwareUpdateJobResponse]
+$creadListPrec :: ReadPrec [CreateSoftwareUpdateJobResponse]
+readPrec :: ReadPrec CreateSoftwareUpdateJobResponse
+$creadPrec :: ReadPrec CreateSoftwareUpdateJobResponse
+readList :: ReadS [CreateSoftwareUpdateJobResponse]
+$creadList :: ReadS [CreateSoftwareUpdateJobResponse]
+readsPrec :: Int -&gt; ReadS CreateSoftwareUpdateJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateSoftwareUpdateJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362970"><span id="local-6989586621679362972"><span id="local-6989586621679362974"><span class="annot"><span class="annottext">Int -&gt; CreateSoftwareUpdateJobResponse -&gt; ShowS
+[CreateSoftwareUpdateJobResponse] -&gt; ShowS
+CreateSoftwareUpdateJobResponse -&gt; String
+(Int -&gt; CreateSoftwareUpdateJobResponse -&gt; ShowS)
+-&gt; (CreateSoftwareUpdateJobResponse -&gt; String)
+-&gt; ([CreateSoftwareUpdateJobResponse] -&gt; ShowS)
+-&gt; Show CreateSoftwareUpdateJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSoftwareUpdateJobResponse] -&gt; ShowS
+$cshowList :: [CreateSoftwareUpdateJobResponse] -&gt; ShowS
+show :: CreateSoftwareUpdateJobResponse -&gt; String
+$cshow :: CreateSoftwareUpdateJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateSoftwareUpdateJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSoftwareUpdateJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSoftwareUpdateJobResponse
+ -&gt; Rep CreateSoftwareUpdateJobResponse x)
+-&gt; (forall x.
+    Rep CreateSoftwareUpdateJobResponse x
+    -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Generic CreateSoftwareUpdateJobResponse
+forall x.
+Rep CreateSoftwareUpdateJobResponse x
+-&gt; CreateSoftwareUpdateJobResponse
+forall x.
+CreateSoftwareUpdateJobResponse
+-&gt; Rep CreateSoftwareUpdateJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSoftwareUpdateJobResponse x
+-&gt; CreateSoftwareUpdateJobResponse
+$cfrom :: forall x.
+CreateSoftwareUpdateJobResponse
+-&gt; Rep CreateSoftwareUpdateJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'CreateSoftwareUpdateJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'iotJobId', 'createSoftwareUpdateJobResponse_iotJobId' - The IoT Job Id corresponding to this update.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'iotJobArn', 'createSoftwareUpdateJobResponse_iotJobArn' - The IoT Job ARN corresponding to this update.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'platformSoftwareVersion', 'createSoftwareUpdateJobResponse_platformSoftwareVersion' - The software version installed on the device or devices after the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'httpStatus', 'createSoftwareUpdateJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#newCreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">newCreateSoftwareUpdateJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span>
+</span><span id="line-240"></span><span id="newCreateSoftwareUpdateJobResponse"><span class="annot"><span class="annottext">newCreateSoftwareUpdateJobResponse :: Int -&gt; CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#newCreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-var hs-var">newCreateSoftwareUpdateJobResponse</span></a></span></span><span> </span><span id="local-6989586621679362967"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iotJobId:CreateSoftwareUpdateJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AiotJobId%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">iotJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotJobArn:CreateSoftwareUpdateJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AiotJobArn%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">iotJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:platformSoftwareVersion:CreateSoftwareUpdateJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AplatformSoftwareVersion%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">platformSoftwareVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSoftwareUpdateJobResponse' :: Int
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AhttpStatus%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The IoT Job Id corresponding to this update.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_iotJobId"><span class="hs-identifier hs-type">createSoftwareUpdateJobResponse_iotJobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="createSoftwareUpdateJobResponse_iotJobId"><span class="annot"><span class="annottext">createSoftwareUpdateJobResponse_iotJobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSoftwareUpdateJobResponse
+-&gt; f CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_iotJobId"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJobResponse_iotJobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJobResponse -&gt; Maybe Text)
+-&gt; (CreateSoftwareUpdateJobResponse
+    -&gt; Maybe Text -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Lens
+     CreateSoftwareUpdateJobResponse
+     CreateSoftwareUpdateJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362966"><span class="annot"><span class="annottext">Maybe Text
+iotJobId :: Maybe Text
+$sel:iotJobId:CreateSoftwareUpdateJobResponse' :: CreateSoftwareUpdateJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679362966"><span class="hs-identifier hs-var hs-var">iotJobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362966"><span class="hs-identifier hs-var">iotJobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362965"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotJobId:CreateSoftwareUpdateJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AiotJobId%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">iotJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The IoT Job ARN corresponding to this update.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_iotJobArn"><span class="hs-identifier hs-type">createSoftwareUpdateJobResponse_iotJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createSoftwareUpdateJobResponse_iotJobArn"><span class="annot"><span class="annottext">createSoftwareUpdateJobResponse_iotJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSoftwareUpdateJobResponse
+-&gt; f CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_iotJobArn"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJobResponse_iotJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJobResponse -&gt; Maybe Text)
+-&gt; (CreateSoftwareUpdateJobResponse
+    -&gt; Maybe Text -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Lens
+     CreateSoftwareUpdateJobResponse
+     CreateSoftwareUpdateJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362963"><span class="annot"><span class="annottext">Maybe Text
+iotJobArn :: Maybe Text
+$sel:iotJobArn:CreateSoftwareUpdateJobResponse' :: CreateSoftwareUpdateJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679362963"><span class="hs-identifier hs-var hs-var">iotJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362963"><span class="hs-identifier hs-var">iotJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362962"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotJobArn:CreateSoftwareUpdateJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AiotJobArn%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">iotJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The software version installed on the device or devices after the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_platformSoftwareVersion"><span class="hs-identifier hs-type">createSoftwareUpdateJobResponse_platformSoftwareVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="createSoftwareUpdateJobResponse_platformSoftwareVersion"><span class="annot"><span class="annottext">createSoftwareUpdateJobResponse_platformSoftwareVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSoftwareUpdateJobResponse
+-&gt; f CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_platformSoftwareVersion"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJobResponse_platformSoftwareVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJobResponse -&gt; Maybe Text)
+-&gt; (CreateSoftwareUpdateJobResponse
+    -&gt; Maybe Text -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Lens
+     CreateSoftwareUpdateJobResponse
+     CreateSoftwareUpdateJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362960"><span class="annot"><span class="annottext">Maybe Text
+platformSoftwareVersion :: Maybe Text
+$sel:platformSoftwareVersion:CreateSoftwareUpdateJobResponse' :: CreateSoftwareUpdateJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679362960"><span class="hs-identifier hs-var hs-var">platformSoftwareVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362960"><span class="hs-identifier hs-var">platformSoftwareVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362959"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformSoftwareVersion:CreateSoftwareUpdateJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AplatformSoftwareVersion%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">platformSoftwareVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679362958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_httpStatus"><span class="hs-identifier hs-type">createSoftwareUpdateJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-264"></span><span id="createSoftwareUpdateJobResponse_httpStatus"><span class="annot"><span class="annottext">createSoftwareUpdateJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSoftwareUpdateJobResponse
+-&gt; f CreateSoftwareUpdateJobResponse
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#createSoftwareUpdateJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSoftwareUpdateJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSoftwareUpdateJobResponse -&gt; Int)
+-&gt; (CreateSoftwareUpdateJobResponse
+    -&gt; Int -&gt; CreateSoftwareUpdateJobResponse)
+-&gt; Lens
+     CreateSoftwareUpdateJobResponse
+     CreateSoftwareUpdateJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362957"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSoftwareUpdateJobResponse' :: CreateSoftwareUpdateJobResponse -&gt; Int
+</span><a href="#local-6989586621679362957"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362957"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362956"><span class="annot"><span class="annottext">s :: CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSoftwareUpdateJobResponse
+</span><a href="#local-6989586621679362956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSoftwareUpdateJobResponse' :: Int
+</span><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#%24sel%3AhttpStatus%3ACreateSoftwareUpdateJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679362953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.CreateSoftwareUpdateJob.html#CreateSoftwareUpdateJobResponse"><span class="hs-identifier hs-type">CreateSoftwareUpdateJobResponse</span></a></span></span><span>
+</span><span id="line-269"></span></pre></body></html>

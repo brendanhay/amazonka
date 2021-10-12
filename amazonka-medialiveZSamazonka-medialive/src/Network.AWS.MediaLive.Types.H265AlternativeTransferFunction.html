@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.H265AlternativeTransferFunction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.H265AlternativeTransferFunction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction"><span class="hs-identifier">H265AlternativeTransferFunction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction_INSERT"><span class="hs-identifier">H265AlternativeTransferFunction_INSERT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction_OMIT"><span class="hs-identifier">H265AlternativeTransferFunction_OMIT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | H265 Alternative Transfer Function</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679876147"><span id="local-6989586621679876148"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265AlternativeTransferFunction"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction"><span class="hs-identifier hs-var">H265AlternativeTransferFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265AlternativeTransferFunction%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction%27"><span class="hs-identifier hs-var">H265AlternativeTransferFunction'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265AlternativeTransferFunction"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#fromH265AlternativeTransferFunction"><span class="hs-identifier hs-var hs-var">fromH265AlternativeTransferFunction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876139"><span id="local-6989586621679876141"><span id="local-6989586621679876143"><span class="annot"><span class="annottext">Int -&gt; H265AlternativeTransferFunction -&gt; ShowS
+[H265AlternativeTransferFunction] -&gt; ShowS
+H265AlternativeTransferFunction -&gt; String
+(Int -&gt; H265AlternativeTransferFunction -&gt; ShowS)
+-&gt; (H265AlternativeTransferFunction -&gt; String)
+-&gt; ([H265AlternativeTransferFunction] -&gt; ShowS)
+-&gt; Show H265AlternativeTransferFunction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H265AlternativeTransferFunction] -&gt; ShowS
+$cshowList :: [H265AlternativeTransferFunction] -&gt; ShowS
+show :: H265AlternativeTransferFunction -&gt; String
+$cshow :: H265AlternativeTransferFunction -&gt; String
+showsPrec :: Int -&gt; H265AlternativeTransferFunction -&gt; ShowS
+$cshowsPrec :: Int -&gt; H265AlternativeTransferFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679876130"><span id="local-6989586621679876132"><span id="local-6989586621679876134"><span id="local-6989586621679876136"><span class="annot"><span class="annottext">ReadPrec [H265AlternativeTransferFunction]
+ReadPrec H265AlternativeTransferFunction
+Int -&gt; ReadS H265AlternativeTransferFunction
+ReadS [H265AlternativeTransferFunction]
+(Int -&gt; ReadS H265AlternativeTransferFunction)
+-&gt; ReadS [H265AlternativeTransferFunction]
+-&gt; ReadPrec H265AlternativeTransferFunction
+-&gt; ReadPrec [H265AlternativeTransferFunction]
+-&gt; Read H265AlternativeTransferFunction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H265AlternativeTransferFunction]
+$creadListPrec :: ReadPrec [H265AlternativeTransferFunction]
+readPrec :: ReadPrec H265AlternativeTransferFunction
+$creadPrec :: ReadPrec H265AlternativeTransferFunction
+readList :: ReadS [H265AlternativeTransferFunction]
+$creadList :: ReadS [H265AlternativeTransferFunction]
+readsPrec :: Int -&gt; ReadS H265AlternativeTransferFunction
+$creadsPrec :: Int -&gt; ReadS H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679876125"><span id="local-6989586621679876127"><span class="annot"><span class="annottext">H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+(H265AlternativeTransferFunction
+ -&gt; H265AlternativeTransferFunction -&gt; Bool)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction -&gt; Bool)
+-&gt; Eq H265AlternativeTransferFunction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+$c/= :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+== :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+$c== :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679876109"><span id="local-6989586621679876111"><span id="local-6989586621679876113"><span id="local-6989586621679876115"><span id="local-6989586621679876117"><span id="local-6989586621679876119"><span id="local-6989586621679876121"><span class="annot"><span class="annottext">Eq H265AlternativeTransferFunction
+Eq H265AlternativeTransferFunction
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction -&gt; Ordering)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction -&gt; Bool)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction -&gt; Bool)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction -&gt; Bool)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction -&gt; Bool)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction)
+-&gt; (H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction
+    -&gt; H265AlternativeTransferFunction)
+-&gt; Ord H265AlternativeTransferFunction
+H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Ordering
+H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+$cmin :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+max :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+$cmax :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction
+&gt;= :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+$c&gt;= :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+&gt; :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+$c&gt; :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+&lt;= :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+$c&lt;= :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+&lt; :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+$c&lt; :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Bool
+compare :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Ordering
+$ccompare :: H265AlternativeTransferFunction
+-&gt; H265AlternativeTransferFunction -&gt; Ordering
+$cp1Ord :: Eq H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ H265AlternativeTransferFunction
+ -&gt; Rep H265AlternativeTransferFunction x)
+-&gt; (forall x.
+    Rep H265AlternativeTransferFunction x
+    -&gt; H265AlternativeTransferFunction)
+-&gt; Generic H265AlternativeTransferFunction
+forall x.
+Rep H265AlternativeTransferFunction x
+-&gt; H265AlternativeTransferFunction
+forall x.
+H265AlternativeTransferFunction
+-&gt; Rep H265AlternativeTransferFunction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep H265AlternativeTransferFunction x
+-&gt; H265AlternativeTransferFunction
+$cfrom :: forall x.
+H265AlternativeTransferFunction
+-&gt; Rep H265AlternativeTransferFunction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876101"><span id="local-6989586621679876103"><span class="annot"><span class="annottext">Int -&gt; H265AlternativeTransferFunction -&gt; Int
+H265AlternativeTransferFunction -&gt; Int
+(Int -&gt; H265AlternativeTransferFunction -&gt; Int)
+-&gt; (H265AlternativeTransferFunction -&gt; Int)
+-&gt; Hashable H265AlternativeTransferFunction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H265AlternativeTransferFunction -&gt; Int
+$chash :: H265AlternativeTransferFunction -&gt; Int
+hashWithSalt :: Int -&gt; H265AlternativeTransferFunction -&gt; Int
+$chashWithSalt :: Int -&gt; H265AlternativeTransferFunction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679876098"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; ()
+(H265AlternativeTransferFunction -&gt; ())
+-&gt; NFData H265AlternativeTransferFunction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H265AlternativeTransferFunction -&gt; ()
+$crnf :: H265AlternativeTransferFunction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679876095"><span class="annot"><span class="annottext">Text -&gt; Either String H265AlternativeTransferFunction
+(Text -&gt; Either String H265AlternativeTransferFunction)
+-&gt; FromText H265AlternativeTransferFunction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H265AlternativeTransferFunction
+$cfromText :: Text -&gt; Either String H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679876092"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; Text
+(H265AlternativeTransferFunction -&gt; Text)
+-&gt; ToText H265AlternativeTransferFunction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H265AlternativeTransferFunction -&gt; Text
+$ctoText :: H265AlternativeTransferFunction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679876089"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; ByteString
+(H265AlternativeTransferFunction -&gt; ByteString)
+-&gt; ToByteString H265AlternativeTransferFunction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H265AlternativeTransferFunction -&gt; ByteString
+$ctoBS :: H265AlternativeTransferFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679876086"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; ByteStringBuilder
+(H265AlternativeTransferFunction -&gt; ByteStringBuilder)
+-&gt; ToLog H265AlternativeTransferFunction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H265AlternativeTransferFunction -&gt; ByteStringBuilder
+$cbuild :: H265AlternativeTransferFunction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679876083"><span class="annot"><span class="annottext">HeaderName -&gt; H265AlternativeTransferFunction -&gt; [Header]
+(HeaderName -&gt; H265AlternativeTransferFunction -&gt; [Header])
+-&gt; ToHeader H265AlternativeTransferFunction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H265AlternativeTransferFunction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H265AlternativeTransferFunction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679876080"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; QueryString
+(H265AlternativeTransferFunction -&gt; QueryString)
+-&gt; ToQuery H265AlternativeTransferFunction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H265AlternativeTransferFunction -&gt; QueryString
+$ctoQuery :: H265AlternativeTransferFunction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679876075"><span id="local-6989586621679876077"><span class="annot"><span class="annottext">Value -&gt; Parser [H265AlternativeTransferFunction]
+Value -&gt; Parser H265AlternativeTransferFunction
+(Value -&gt; Parser H265AlternativeTransferFunction)
+-&gt; (Value -&gt; Parser [H265AlternativeTransferFunction])
+-&gt; FromJSON H265AlternativeTransferFunction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H265AlternativeTransferFunction]
+$cparseJSONList :: Value -&gt; Parser [H265AlternativeTransferFunction]
+parseJSON :: Value -&gt; Parser H265AlternativeTransferFunction
+$cparseJSON :: Value -&gt; Parser H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679876070"><span id="local-6989586621679876072"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265AlternativeTransferFunction]
+FromJSONKeyFunction H265AlternativeTransferFunction
+FromJSONKeyFunction H265AlternativeTransferFunction
+-&gt; FromJSONKeyFunction [H265AlternativeTransferFunction]
+-&gt; FromJSONKey H265AlternativeTransferFunction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H265AlternativeTransferFunction]
+$cfromJSONKeyList :: FromJSONKeyFunction [H265AlternativeTransferFunction]
+fromJSONKey :: FromJSONKeyFunction H265AlternativeTransferFunction
+$cfromJSONKey :: FromJSONKeyFunction H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679876061"><span id="local-6989586621679876063"><span id="local-6989586621679876065"><span id="local-6989586621679876067"><span class="annot"><span class="annottext">[H265AlternativeTransferFunction] -&gt; Encoding
+[H265AlternativeTransferFunction] -&gt; Value
+H265AlternativeTransferFunction -&gt; Encoding
+H265AlternativeTransferFunction -&gt; Value
+(H265AlternativeTransferFunction -&gt; Value)
+-&gt; (H265AlternativeTransferFunction -&gt; Encoding)
+-&gt; ([H265AlternativeTransferFunction] -&gt; Value)
+-&gt; ([H265AlternativeTransferFunction] -&gt; Encoding)
+-&gt; ToJSON H265AlternativeTransferFunction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H265AlternativeTransferFunction] -&gt; Encoding
+$ctoEncodingList :: [H265AlternativeTransferFunction] -&gt; Encoding
+toJSONList :: [H265AlternativeTransferFunction] -&gt; Value
+$ctoJSONList :: [H265AlternativeTransferFunction] -&gt; Value
+toEncoding :: H265AlternativeTransferFunction -&gt; Encoding
+$ctoEncoding :: H265AlternativeTransferFunction -&gt; Encoding
+toJSON :: H265AlternativeTransferFunction -&gt; Value
+$ctoJSON :: H265AlternativeTransferFunction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679876056"><span id="local-6989586621679876058"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265AlternativeTransferFunction]
+ToJSONKeyFunction H265AlternativeTransferFunction
+ToJSONKeyFunction H265AlternativeTransferFunction
+-&gt; ToJSONKeyFunction [H265AlternativeTransferFunction]
+-&gt; ToJSONKey H265AlternativeTransferFunction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H265AlternativeTransferFunction]
+$ctoJSONKeyList :: ToJSONKeyFunction [H265AlternativeTransferFunction]
+toJSONKey :: ToJSONKeyFunction H265AlternativeTransferFunction
+$ctoJSONKey :: ToJSONKeyFunction H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679876053"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265AlternativeTransferFunction
+([Node] -&gt; Either String H265AlternativeTransferFunction)
+-&gt; FromXML H265AlternativeTransferFunction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H265AlternativeTransferFunction
+$cparseXML :: [Node] -&gt; Either String H265AlternativeTransferFunction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679876050"><span class="annot"><span class="annottext">H265AlternativeTransferFunction -&gt; XML
+(H265AlternativeTransferFunction -&gt; XML)
+-&gt; ToXML H265AlternativeTransferFunction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H265AlternativeTransferFunction -&gt; XML
+$ctoXML :: H265AlternativeTransferFunction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction_INSERT"><span class="hs-identifier hs-type">H265AlternativeTransferFunction_INSERT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction"><span class="hs-identifier hs-type">H265AlternativeTransferFunction</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265AlternativeTransferFunction_INSERT"><span id="%24mH265AlternativeTransferFunction_INSERT"><span id="H265AlternativeTransferFunction_INSERT"><span class="annot"><span class="annottext">$bH265AlternativeTransferFunction_INSERT :: H265AlternativeTransferFunction
+$mH265AlternativeTransferFunction_INSERT :: forall r.
+H265AlternativeTransferFunction
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#%24bH265AlternativeTransferFunction_INSERT"><span class="hs-identifier hs-var hs-var hs-var">H265AlternativeTransferFunction_INSERT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction%27"><span class="hs-identifier hs-type">H265AlternativeTransferFunction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSERT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction_OMIT"><span class="hs-identifier hs-type">H265AlternativeTransferFunction_OMIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction"><span class="hs-identifier hs-type">H265AlternativeTransferFunction</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH265AlternativeTransferFunction_OMIT"><span id="%24mH265AlternativeTransferFunction_OMIT"><span id="H265AlternativeTransferFunction_OMIT"><span class="annot"><span class="annottext">$bH265AlternativeTransferFunction_OMIT :: H265AlternativeTransferFunction
+$mH265AlternativeTransferFunction_OMIT :: forall r.
+H265AlternativeTransferFunction
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#%24bH265AlternativeTransferFunction_OMIT"><span class="hs-identifier hs-var hs-var hs-var">H265AlternativeTransferFunction_OMIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction%27"><span class="hs-identifier hs-type">H265AlternativeTransferFunction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OMIT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction_INSERT"><span class="hs-pragma hs-type">H265AlternativeTransferFunction_INSERT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction_OMIT"><span class="hs-pragma hs-type">H265AlternativeTransferFunction_OMIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.H265AlternativeTransferFunction.html#H265AlternativeTransferFunction%27"><span class="hs-pragma hs-type">H265AlternativeTransferFunction'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

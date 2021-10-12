@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Shield.Types.ProtectionGroupAggregation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Shield.Types.ProtectionGroupAggregation</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier">ProtectionGroupAggregation</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_MAX"><span class="hs-identifier">ProtectionGroupAggregation_MAX</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_MEAN"><span class="hs-identifier">ProtectionGroupAggregation_MEAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_SUM"><span class="hs-identifier">ProtectionGroupAggregation_SUM</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679202770"><span id="local-6989586621679202771"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProtectionGroupAggregation"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-var">ProtectionGroupAggregation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtectionGroupAggregation%27"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation%27"><span class="hs-identifier hs-var">ProtectionGroupAggregation'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProtectionGroupAggregation"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; Text
+</span><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#fromProtectionGroupAggregation"><span class="hs-identifier hs-var hs-var">fromProtectionGroupAggregation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202762"><span id="local-6989586621679202764"><span id="local-6989586621679202766"><span class="annot"><span class="annottext">Int -&gt; ProtectionGroupAggregation -&gt; ShowS
+[ProtectionGroupAggregation] -&gt; ShowS
+ProtectionGroupAggregation -&gt; String
+(Int -&gt; ProtectionGroupAggregation -&gt; ShowS)
+-&gt; (ProtectionGroupAggregation -&gt; String)
+-&gt; ([ProtectionGroupAggregation] -&gt; ShowS)
+-&gt; Show ProtectionGroupAggregation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProtectionGroupAggregation] -&gt; ShowS
+$cshowList :: [ProtectionGroupAggregation] -&gt; ShowS
+show :: ProtectionGroupAggregation -&gt; String
+$cshow :: ProtectionGroupAggregation -&gt; String
+showsPrec :: Int -&gt; ProtectionGroupAggregation -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProtectionGroupAggregation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679202753"><span id="local-6989586621679202755"><span id="local-6989586621679202757"><span id="local-6989586621679202759"><span class="annot"><span class="annottext">ReadPrec [ProtectionGroupAggregation]
+ReadPrec ProtectionGroupAggregation
+Int -&gt; ReadS ProtectionGroupAggregation
+ReadS [ProtectionGroupAggregation]
+(Int -&gt; ReadS ProtectionGroupAggregation)
+-&gt; ReadS [ProtectionGroupAggregation]
+-&gt; ReadPrec ProtectionGroupAggregation
+-&gt; ReadPrec [ProtectionGroupAggregation]
+-&gt; Read ProtectionGroupAggregation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProtectionGroupAggregation]
+$creadListPrec :: ReadPrec [ProtectionGroupAggregation]
+readPrec :: ReadPrec ProtectionGroupAggregation
+$creadPrec :: ReadPrec ProtectionGroupAggregation
+readList :: ReadS [ProtectionGroupAggregation]
+$creadList :: ReadS [ProtectionGroupAggregation]
+readsPrec :: Int -&gt; ReadS ProtectionGroupAggregation
+$creadsPrec :: Int -&gt; ReadS ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679202748"><span id="local-6989586621679202750"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+(ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; Bool)
+-&gt; Eq ProtectionGroupAggregation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+$c/= :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+== :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+$c== :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679202732"><span id="local-6989586621679202734"><span id="local-6989586621679202736"><span id="local-6989586621679202738"><span id="local-6989586621679202740"><span id="local-6989586621679202742"><span id="local-6989586621679202744"><span class="annot"><span class="annottext">Eq ProtectionGroupAggregation
+Eq ProtectionGroupAggregation
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; Ordering)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; Bool)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; Bool)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; Bool)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; Bool)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation)
+-&gt; (ProtectionGroupAggregation
+    -&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation)
+-&gt; Ord ProtectionGroupAggregation
+ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; Ordering
+ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation
+$cmin :: ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation
+max :: ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation
+$cmax :: ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; ProtectionGroupAggregation
+&gt;= :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+$c&gt;= :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+&gt; :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+$c&gt; :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+&lt;= :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+$c&lt;= :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+&lt; :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+$c&lt; :: ProtectionGroupAggregation -&gt; ProtectionGroupAggregation -&gt; Bool
+compare :: ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; Ordering
+$ccompare :: ProtectionGroupAggregation
+-&gt; ProtectionGroupAggregation -&gt; Ordering
+$cp1Ord :: Eq ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ProtectionGroupAggregation -&gt; Rep ProtectionGroupAggregation x)
+-&gt; (forall x.
+    Rep ProtectionGroupAggregation x -&gt; ProtectionGroupAggregation)
+-&gt; Generic ProtectionGroupAggregation
+forall x.
+Rep ProtectionGroupAggregation x -&gt; ProtectionGroupAggregation
+forall x.
+ProtectionGroupAggregation -&gt; Rep ProtectionGroupAggregation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ProtectionGroupAggregation x -&gt; ProtectionGroupAggregation
+$cfrom :: forall x.
+ProtectionGroupAggregation -&gt; Rep ProtectionGroupAggregation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202724"><span id="local-6989586621679202726"><span class="annot"><span class="annottext">Int -&gt; ProtectionGroupAggregation -&gt; Int
+ProtectionGroupAggregation -&gt; Int
+(Int -&gt; ProtectionGroupAggregation -&gt; Int)
+-&gt; (ProtectionGroupAggregation -&gt; Int)
+-&gt; Hashable ProtectionGroupAggregation
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ProtectionGroupAggregation -&gt; Int
+$chash :: ProtectionGroupAggregation -&gt; Int
+hashWithSalt :: Int -&gt; ProtectionGroupAggregation -&gt; Int
+$chashWithSalt :: Int -&gt; ProtectionGroupAggregation -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679202721"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; ()
+(ProtectionGroupAggregation -&gt; ())
+-&gt; NFData ProtectionGroupAggregation
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ProtectionGroupAggregation -&gt; ()
+$crnf :: ProtectionGroupAggregation -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202718"><span class="annot"><span class="annottext">Text -&gt; Either String ProtectionGroupAggregation
+(Text -&gt; Either String ProtectionGroupAggregation)
+-&gt; FromText ProtectionGroupAggregation
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ProtectionGroupAggregation
+$cfromText :: Text -&gt; Either String ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202715"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; Text
+(ProtectionGroupAggregation -&gt; Text)
+-&gt; ToText ProtectionGroupAggregation
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ProtectionGroupAggregation -&gt; Text
+$ctoText :: ProtectionGroupAggregation -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202712"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; ByteString
+(ProtectionGroupAggregation -&gt; ByteString)
+-&gt; ToByteString ProtectionGroupAggregation
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ProtectionGroupAggregation -&gt; ByteString
+$ctoBS :: ProtectionGroupAggregation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202709"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; ByteStringBuilder
+(ProtectionGroupAggregation -&gt; ByteStringBuilder)
+-&gt; ToLog ProtectionGroupAggregation
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ProtectionGroupAggregation -&gt; ByteStringBuilder
+$cbuild :: ProtectionGroupAggregation -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202706"><span class="annot"><span class="annottext">HeaderName -&gt; ProtectionGroupAggregation -&gt; [Header]
+(HeaderName -&gt; ProtectionGroupAggregation -&gt; [Header])
+-&gt; ToHeader ProtectionGroupAggregation
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ProtectionGroupAggregation -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ProtectionGroupAggregation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202703"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; QueryString
+(ProtectionGroupAggregation -&gt; QueryString)
+-&gt; ToQuery ProtectionGroupAggregation
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ProtectionGroupAggregation -&gt; QueryString
+$ctoQuery :: ProtectionGroupAggregation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202698"><span id="local-6989586621679202700"><span class="annot"><span class="annottext">Value -&gt; Parser [ProtectionGroupAggregation]
+Value -&gt; Parser ProtectionGroupAggregation
+(Value -&gt; Parser ProtectionGroupAggregation)
+-&gt; (Value -&gt; Parser [ProtectionGroupAggregation])
+-&gt; FromJSON ProtectionGroupAggregation
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ProtectionGroupAggregation]
+$cparseJSONList :: Value -&gt; Parser [ProtectionGroupAggregation]
+parseJSON :: Value -&gt; Parser ProtectionGroupAggregation
+$cparseJSON :: Value -&gt; Parser ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202693"><span id="local-6989586621679202695"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProtectionGroupAggregation]
+FromJSONKeyFunction ProtectionGroupAggregation
+FromJSONKeyFunction ProtectionGroupAggregation
+-&gt; FromJSONKeyFunction [ProtectionGroupAggregation]
+-&gt; FromJSONKey ProtectionGroupAggregation
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ProtectionGroupAggregation]
+$cfromJSONKeyList :: FromJSONKeyFunction [ProtectionGroupAggregation]
+fromJSONKey :: FromJSONKeyFunction ProtectionGroupAggregation
+$cfromJSONKey :: FromJSONKeyFunction ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202684"><span id="local-6989586621679202686"><span id="local-6989586621679202688"><span id="local-6989586621679202690"><span class="annot"><span class="annottext">[ProtectionGroupAggregation] -&gt; Encoding
+[ProtectionGroupAggregation] -&gt; Value
+ProtectionGroupAggregation -&gt; Encoding
+ProtectionGroupAggregation -&gt; Value
+(ProtectionGroupAggregation -&gt; Value)
+-&gt; (ProtectionGroupAggregation -&gt; Encoding)
+-&gt; ([ProtectionGroupAggregation] -&gt; Value)
+-&gt; ([ProtectionGroupAggregation] -&gt; Encoding)
+-&gt; ToJSON ProtectionGroupAggregation
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ProtectionGroupAggregation] -&gt; Encoding
+$ctoEncodingList :: [ProtectionGroupAggregation] -&gt; Encoding
+toJSONList :: [ProtectionGroupAggregation] -&gt; Value
+$ctoJSONList :: [ProtectionGroupAggregation] -&gt; Value
+toEncoding :: ProtectionGroupAggregation -&gt; Encoding
+$ctoEncoding :: ProtectionGroupAggregation -&gt; Encoding
+toJSON :: ProtectionGroupAggregation -&gt; Value
+$ctoJSON :: ProtectionGroupAggregation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202679"><span id="local-6989586621679202681"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProtectionGroupAggregation]
+ToJSONKeyFunction ProtectionGroupAggregation
+ToJSONKeyFunction ProtectionGroupAggregation
+-&gt; ToJSONKeyFunction [ProtectionGroupAggregation]
+-&gt; ToJSONKey ProtectionGroupAggregation
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ProtectionGroupAggregation]
+$ctoJSONKeyList :: ToJSONKeyFunction [ProtectionGroupAggregation]
+toJSONKey :: ToJSONKeyFunction ProtectionGroupAggregation
+$ctoJSONKey :: ToJSONKeyFunction ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202676"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProtectionGroupAggregation
+([Node] -&gt; Either String ProtectionGroupAggregation)
+-&gt; FromXML ProtectionGroupAggregation
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ProtectionGroupAggregation
+$cparseXML :: [Node] -&gt; Either String ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202673"><span class="annot"><span class="annottext">ProtectionGroupAggregation -&gt; XML
+(ProtectionGroupAggregation -&gt; XML)
+-&gt; ToXML ProtectionGroupAggregation
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ProtectionGroupAggregation -&gt; XML
+$ctoXML :: ProtectionGroupAggregation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_MAX"><span class="hs-identifier hs-type">ProtectionGroupAggregation_MAX</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-type">ProtectionGroupAggregation</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProtectionGroupAggregation_MAX"><span id="%24mProtectionGroupAggregation_MAX"><span id="ProtectionGroupAggregation_MAX"><span class="annot"><span class="annottext">$bProtectionGroupAggregation_MAX :: ProtectionGroupAggregation
+$mProtectionGroupAggregation_MAX :: forall r.
+ProtectionGroupAggregation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#%24bProtectionGroupAggregation_MAX"><span class="hs-identifier hs-var hs-var hs-var">ProtectionGroupAggregation_MAX</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation%27"><span class="hs-identifier hs-type">ProtectionGroupAggregation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MAX&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_MEAN"><span class="hs-identifier hs-type">ProtectionGroupAggregation_MEAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-type">ProtectionGroupAggregation</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProtectionGroupAggregation_MEAN"><span id="%24mProtectionGroupAggregation_MEAN"><span id="ProtectionGroupAggregation_MEAN"><span class="annot"><span class="annottext">$bProtectionGroupAggregation_MEAN :: ProtectionGroupAggregation
+$mProtectionGroupAggregation_MEAN :: forall r.
+ProtectionGroupAggregation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#%24bProtectionGroupAggregation_MEAN"><span class="hs-identifier hs-var hs-var hs-var">ProtectionGroupAggregation_MEAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation%27"><span class="hs-identifier hs-type">ProtectionGroupAggregation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEAN&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_SUM"><span class="hs-identifier hs-type">ProtectionGroupAggregation_SUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation"><span class="hs-identifier hs-type">ProtectionGroupAggregation</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bProtectionGroupAggregation_SUM"><span id="%24mProtectionGroupAggregation_SUM"><span id="ProtectionGroupAggregation_SUM"><span class="annot"><span class="annottext">$bProtectionGroupAggregation_SUM :: ProtectionGroupAggregation
+$mProtectionGroupAggregation_SUM :: forall r.
+ProtectionGroupAggregation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#%24bProtectionGroupAggregation_SUM"><span class="hs-identifier hs-var hs-var hs-var">ProtectionGroupAggregation_SUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation%27"><span class="hs-identifier hs-type">ProtectionGroupAggregation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUM&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_MAX"><span class="hs-pragma hs-type">ProtectionGroupAggregation_MAX</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_MEAN"><span class="hs-pragma hs-type">ProtectionGroupAggregation_MEAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation_SUM"><span class="hs-pragma hs-type">ProtectionGroupAggregation_SUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupAggregation.html#ProtectionGroupAggregation%27"><span class="hs-pragma hs-type">ProtectionGroupAggregation'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

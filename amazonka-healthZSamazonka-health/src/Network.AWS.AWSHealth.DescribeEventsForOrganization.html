@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AWSHealth.DescribeEventsForOrganization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about events across your organization in AWS</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Organizations. You can use the@filters@ parameter to specify the events</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- that you want to return. Events are returned in a summary form and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- don\'t include the affected accounts, detailed description, any</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- additional metadata that depends on the event type, or any affected</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- resources. To retrieve that information, use the following operations:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedAccountsForOrganization.html DescribeAffectedAccountsForOrganization&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html DescribeAffectedEntitiesForOrganization&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- If you don\'t specify a @filter@, the @DescribeEventsForOrganizations@</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- returns all events across your organization. Results are sorted by</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @lastModifiedTime@, starting with the most recent event.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For more information about the different types of AWS Health events, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Before you can call this operation, you must first enable AWS Health to</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- work with AWS Organizations. To do this, call the</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- operation from your organization\'s management account.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- This API operation uses pagination. Specify the @nextToken@ parameter in</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- the next request to return more results.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AWSHealth.DescribeEventsForOrganization</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#newDescribeEventsForOrganization"><span class="hs-identifier">newDescribeEventsForOrganization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_nextToken"><span class="hs-identifier">describeEventsForOrganization_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_maxResults"><span class="hs-identifier">describeEventsForOrganization_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_locale"><span class="hs-identifier">describeEventsForOrganization_locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_filter"><span class="hs-identifier">describeEventsForOrganization_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier">DescribeEventsForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#newDescribeEventsForOrganizationResponse"><span class="hs-identifier">newDescribeEventsForOrganizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_nextToken"><span class="hs-identifier">describeEventsForOrganizationResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_events"><span class="hs-identifier">describeEventsForOrganizationResponse_events</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_httpStatus"><span class="hs-identifier">describeEventsForOrganizationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.html"><span class="hs-identifier">Network.AWS.AWSHealth.Types</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventsForOrganization' smart constructor.</span><span>
+</span><span id="line-82"></span><span id="local-6989586621679189574"><span id="local-6989586621679189575"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventsForOrganization"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-var">DescribeEventsForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventsForOrganization%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-var">DescribeEventsForOrganization'</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEventsForOrganization%27"><span class="annot"><span class="annottext">DescribeEventsForOrganization -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AnextToken%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- inclusive.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeEventsForOrganization%27"><span class="annot"><span class="annottext">DescribeEventsForOrganization -&gt; Maybe Natural
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AmaxResults%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Alocale%3ADescribeEventsForOrganization%27"><span class="annot"><span class="annottext">DescribeEventsForOrganization -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Alocale%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeEventsForOrganization%27"><span class="annot"><span class="annottext">DescribeEventsForOrganization -&gt; Maybe OrganizationEventFilter
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Afilter%27%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventFilter.html#OrganizationEventFilter"><span class="hs-identifier hs-type">OrganizationEventFilter</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189565"><span id="local-6989586621679189567"><span class="annot"><span class="annottext">DescribeEventsForOrganization
+-&gt; DescribeEventsForOrganization -&gt; Bool
+(DescribeEventsForOrganization
+ -&gt; DescribeEventsForOrganization -&gt; Bool)
+-&gt; (DescribeEventsForOrganization
+    -&gt; DescribeEventsForOrganization -&gt; Bool)
+-&gt; Eq DescribeEventsForOrganization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventsForOrganization
+-&gt; DescribeEventsForOrganization -&gt; Bool
+$c/= :: DescribeEventsForOrganization
+-&gt; DescribeEventsForOrganization -&gt; Bool
+== :: DescribeEventsForOrganization
+-&gt; DescribeEventsForOrganization -&gt; Bool
+$c== :: DescribeEventsForOrganization
+-&gt; DescribeEventsForOrganization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189556"><span id="local-6989586621679189558"><span id="local-6989586621679189560"><span id="local-6989586621679189562"><span class="annot"><span class="annottext">ReadPrec [DescribeEventsForOrganization]
+ReadPrec DescribeEventsForOrganization
+Int -&gt; ReadS DescribeEventsForOrganization
+ReadS [DescribeEventsForOrganization]
+(Int -&gt; ReadS DescribeEventsForOrganization)
+-&gt; ReadS [DescribeEventsForOrganization]
+-&gt; ReadPrec DescribeEventsForOrganization
+-&gt; ReadPrec [DescribeEventsForOrganization]
+-&gt; Read DescribeEventsForOrganization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventsForOrganization]
+$creadListPrec :: ReadPrec [DescribeEventsForOrganization]
+readPrec :: ReadPrec DescribeEventsForOrganization
+$creadPrec :: ReadPrec DescribeEventsForOrganization
+readList :: ReadS [DescribeEventsForOrganization]
+$creadList :: ReadS [DescribeEventsForOrganization]
+readsPrec :: Int -&gt; ReadS DescribeEventsForOrganization
+$creadsPrec :: Int -&gt; ReadS DescribeEventsForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189549"><span id="local-6989586621679189551"><span id="local-6989586621679189553"><span class="annot"><span class="annottext">Int -&gt; DescribeEventsForOrganization -&gt; ShowS
+[DescribeEventsForOrganization] -&gt; ShowS
+DescribeEventsForOrganization -&gt; String
+(Int -&gt; DescribeEventsForOrganization -&gt; ShowS)
+-&gt; (DescribeEventsForOrganization -&gt; String)
+-&gt; ([DescribeEventsForOrganization] -&gt; ShowS)
+-&gt; Show DescribeEventsForOrganization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventsForOrganization] -&gt; ShowS
+$cshowList :: [DescribeEventsForOrganization] -&gt; ShowS
+show :: DescribeEventsForOrganization -&gt; String
+$cshow :: DescribeEventsForOrganization -&gt; String
+showsPrec :: Int -&gt; DescribeEventsForOrganization -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventsForOrganization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventsForOrganization
+ -&gt; Rep DescribeEventsForOrganization x)
+-&gt; (forall x.
+    Rep DescribeEventsForOrganization x
+    -&gt; DescribeEventsForOrganization)
+-&gt; Generic DescribeEventsForOrganization
+forall x.
+Rep DescribeEventsForOrganization x
+-&gt; DescribeEventsForOrganization
+forall x.
+DescribeEventsForOrganization
+-&gt; Rep DescribeEventsForOrganization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventsForOrganization x
+-&gt; DescribeEventsForOrganization
+$cfrom :: forall x.
+DescribeEventsForOrganization
+-&gt; Rep DescribeEventsForOrganization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Create a value of 'DescribeEventsForOrganization' with all optional fields omitted.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'nextToken', 'describeEventsForOrganization_nextToken' - If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'maxResults', 'describeEventsForOrganization_maxResults' - The maximum number of items to return in one batch, between 10 and 100,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- inclusive.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'locale', 'describeEventsForOrganization_locale' - The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'filter'', 'describeEventsForOrganization_filter' - Values to narrow the results returned.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#newDescribeEventsForOrganization"><span class="hs-identifier hs-type">newDescribeEventsForOrganization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span>
+</span><span id="line-123"></span><span id="newDescribeEventsForOrganization"><span class="annot"><span class="annottext">newDescribeEventsForOrganization :: DescribeEventsForOrganization
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#newDescribeEventsForOrganization"><span class="hs-identifier hs-var hs-var">newDescribeEventsForOrganization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventsForOrganization' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe OrganizationEventFilter
+-&gt; DescribeEventsForOrganization
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventsForOrganization' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AnextToken%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventsForOrganization' :: Maybe Natural
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AmaxResults%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:locale:DescribeEventsForOrganization' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Alocale%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeEventsForOrganization' :: Maybe OrganizationEventFilter
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Afilter%27%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationEventFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_nextToken"><span class="hs-identifier hs-type">describeEventsForOrganization_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="describeEventsForOrganization_nextToken"><span class="annot"><span class="annottext">describeEventsForOrganization_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventsForOrganization -&gt; f DescribeEventsForOrganization
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_nextToken"><span class="hs-identifier hs-var hs-var">describeEventsForOrganization_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganization -&gt; Maybe Text)
+-&gt; (DescribeEventsForOrganization
+    -&gt; Maybe Text -&gt; DescribeEventsForOrganization)
+-&gt; Lens
+     DescribeEventsForOrganization
+     DescribeEventsForOrganization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189543"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe Text
+</span><a href="#local-6989586621679189543"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189543"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189542"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganization
+</span><a href="#local-6989586621679189542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+</span><a href="#local-6989586621679189542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventsForOrganization' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AnextToken%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- inclusive.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_maxResults"><span class="hs-identifier hs-type">describeEventsForOrganization_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="describeEventsForOrganization_maxResults"><span class="annot"><span class="annottext">describeEventsForOrganization_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeEventsForOrganization -&gt; f DescribeEventsForOrganization
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_maxResults"><span class="hs-identifier hs-var hs-var">describeEventsForOrganization_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganization -&gt; Maybe Natural)
+-&gt; (DescribeEventsForOrganization
+    -&gt; Maybe Natural -&gt; DescribeEventsForOrganization)
+-&gt; Lens
+     DescribeEventsForOrganization
+     DescribeEventsForOrganization
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189540"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe Natural
+</span><a href="#local-6989586621679189540"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189540"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189539"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganization
+</span><a href="#local-6989586621679189539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189538"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+</span><a href="#local-6989586621679189539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventsForOrganization' :: Maybe Natural
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AmaxResults%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_locale"><span class="hs-identifier hs-type">describeEventsForOrganization_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="describeEventsForOrganization_locale"><span class="annot"><span class="annottext">describeEventsForOrganization_locale :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventsForOrganization -&gt; f DescribeEventsForOrganization
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_locale"><span class="hs-identifier hs-var hs-var">describeEventsForOrganization_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganization -&gt; Maybe Text)
+-&gt; (DescribeEventsForOrganization
+    -&gt; Maybe Text -&gt; DescribeEventsForOrganization)
+-&gt; Lens
+     DescribeEventsForOrganization
+     DescribeEventsForOrganization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189537"><span class="annot"><span class="annottext">Maybe Text
+locale :: Maybe Text
+$sel:locale:DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe Text
+</span><a href="#local-6989586621679189537"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189537"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189536"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganization
+</span><a href="#local-6989586621679189536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189535"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+</span><a href="#local-6989586621679189536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeEventsForOrganization' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Alocale%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_filter"><span class="hs-identifier hs-type">describeEventsForOrganization_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventFilter.html#OrganizationEventFilter"><span class="hs-identifier hs-type">OrganizationEventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="describeEventsForOrganization_filter"><span class="annot"><span class="annottext">describeEventsForOrganization_filter :: (Maybe OrganizationEventFilter
+ -&gt; f (Maybe OrganizationEventFilter))
+-&gt; DescribeEventsForOrganization -&gt; f DescribeEventsForOrganization
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_filter"><span class="hs-identifier hs-var hs-var">describeEventsForOrganization_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganization -&gt; Maybe OrganizationEventFilter)
+-&gt; (DescribeEventsForOrganization
+    -&gt; Maybe OrganizationEventFilter -&gt; DescribeEventsForOrganization)
+-&gt; Lens
+     DescribeEventsForOrganization
+     DescribeEventsForOrganization
+     (Maybe OrganizationEventFilter)
+     (Maybe OrganizationEventFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189534"><span class="annot"><span class="annottext">Maybe OrganizationEventFilter
+filter' :: Maybe OrganizationEventFilter
+$sel:filter':DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe OrganizationEventFilter
+</span><a href="#local-6989586621679189534"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationEventFilter
+</span><a href="#local-6989586621679189534"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189533"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganization
+</span><a href="#local-6989586621679189533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189532"><span class="annot"><span class="annottext">Maybe OrganizationEventFilter
+</span><a href="#local-6989586621679189532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+</span><a href="#local-6989586621679189533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeEventsForOrganization' :: Maybe OrganizationEventFilter
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Afilter%27%3ADescribeEventsForOrganization%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationEventFilter
+</span><a href="#local-6989586621679189532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679189528"><span class="annot"><span class="annottext">page :: DescribeEventsForOrganization
+-&gt; AWSResponse DescribeEventsForOrganization
+-&gt; Maybe DescribeEventsForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679189526"><span class="annot"><span class="annottext">DescribeEventsForOrganization
+</span><a href="#local-6989586621679189526"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679189525"><span class="annot"><span class="annottext">AWSResponse DescribeEventsForOrganization
+</span><a href="#local-6989586621679189525"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-157"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventsForOrganization
+DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189525"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+-&gt; Getting (First Text) DescribeEventsForOrganizationResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; Const (First Text) DescribeEventsForOrganizationResponse
+Lens' DescribeEventsForOrganizationResponse (Maybe Text)
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_nextToken"><span class="hs-identifier hs-var">describeEventsForOrganizationResponse_nextToken</span></a></span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeEventsForOrganizationResponse
+ -&gt; Const (First Text) DescribeEventsForOrganizationResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeEventsForOrganizationResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-160"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEventsForOrganization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEvent] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventsForOrganization
+DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189525"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+-&gt; Getting
+     (First [OrganizationEvent])
+     DescribeEventsForOrganizationResponse
+     [OrganizationEvent]
+-&gt; Maybe [OrganizationEvent]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [OrganizationEvent]
+ -&gt; Const (First [OrganizationEvent]) (Maybe [OrganizationEvent]))
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; Const
+     (First [OrganizationEvent]) DescribeEventsForOrganizationResponse
+Lens'
+  DescribeEventsForOrganizationResponse (Maybe [OrganizationEvent])
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_events"><span class="hs-identifier hs-var">describeEventsForOrganizationResponse_events</span></a></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [OrganizationEvent]
+  -&gt; Const (First [OrganizationEvent]) (Maybe [OrganizationEvent]))
+ -&gt; DescribeEventsForOrganizationResponse
+ -&gt; Const
+      (First [OrganizationEvent]) DescribeEventsForOrganizationResponse)
+-&gt; (([OrganizationEvent]
+     -&gt; Const (First [OrganizationEvent]) [OrganizationEvent])
+    -&gt; Maybe [OrganizationEvent]
+    -&gt; Const (First [OrganizationEvent]) (Maybe [OrganizationEvent]))
+-&gt; Getting
+     (First [OrganizationEvent])
+     DescribeEventsForOrganizationResponse
+     [OrganizationEvent]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([OrganizationEvent]
+ -&gt; Const (First [OrganizationEvent]) [OrganizationEvent])
+-&gt; Maybe [OrganizationEvent]
+-&gt; Const (First [OrganizationEvent]) (Maybe [OrganizationEvent])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-166"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeEventsForOrganization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+-&gt; Maybe DescribeEventsForOrganization
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganization
+ -&gt; Maybe DescribeEventsForOrganization)
+-&gt; DescribeEventsForOrganization
+-&gt; Maybe DescribeEventsForOrganization
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+</span><a href="#local-6989586621679189526"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventsForOrganization
+-&gt; (DescribeEventsForOrganization -&gt; DescribeEventsForOrganization)
+-&gt; DescribeEventsForOrganization
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeEventsForOrganization
+-&gt; Identity DescribeEventsForOrganization
+Lens
+  DescribeEventsForOrganization
+  DescribeEventsForOrganization
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganization_nextToken"><span class="hs-identifier hs-var">describeEventsForOrganization_nextToken</span></a></span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeEventsForOrganization
+ -&gt; Identity DescribeEventsForOrganization)
+-&gt; Maybe Text
+-&gt; DescribeEventsForOrganization
+-&gt; DescribeEventsForOrganization
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventsForOrganization
+DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189525"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+-&gt; Getting (First Text) DescribeEventsForOrganizationResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; Const (First Text) DescribeEventsForOrganizationResponse
+Lens' DescribeEventsForOrganizationResponse (Maybe Text)
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_nextToken"><span class="hs-identifier hs-var">describeEventsForOrganizationResponse_nextToken</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeEventsForOrganizationResponse
+ -&gt; Const (First Text) DescribeEventsForOrganizationResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeEventsForOrganizationResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679189515"><span class="annot"><span class="annottext">request :: DescribeEventsForOrganization
+-&gt; Request DescribeEventsForOrganization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeEventsForOrganization
+-&gt; Request DescribeEventsForOrganization
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AWSHealth.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679189511"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeEventsForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEventsForOrganization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeEventsForOrganization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeEventsForOrganization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeEventsForOrganization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189508"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189507"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189507"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189506"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [OrganizationEvent]
+-&gt; Int
+-&gt; DescribeEventsForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">DescribeEventsForOrganizationResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [OrganizationEvent]
+ -&gt; Int
+ -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [OrganizationEvent]
+      -&gt; Int -&gt; DescribeEventsForOrganizationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [OrganizationEvent]
+   -&gt; Int -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Either String (Maybe [OrganizationEvent])
+-&gt; Either String (Int -&gt; DescribeEventsForOrganizationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OrganizationEvent]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OrganizationEvent]))
+-&gt; Maybe [OrganizationEvent]
+-&gt; Either String (Maybe [OrganizationEvent])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeEventsForOrganizationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189508"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679189497"><span id="local-6989586621679189499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679189490"><span class="annot"><span class="annottext">toHeaders :: DescribeEventsForOrganization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventsForOrganization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHealth_20160804.DescribeEventsForOrganization&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-206"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-210"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189480"><span id="local-6989586621679189482"><span id="local-6989586621679189484"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679189478"><span class="annot"><span class="annottext">toJSON :: DescribeEventsForOrganization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization%27"><span class="hs-identifier hs-type">DescribeEventsForOrganization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189473"><span id="local-6989586621679189474"><span id="local-6989586621679189475"><span id="local-6989586621679189476"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe OrganizationEventFilter
+filter' :: Maybe OrganizationEventFilter
+locale :: Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filter':DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe OrganizationEventFilter
+$sel:locale:DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe Text
+$sel:maxResults:DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe Natural
+$sel:nextToken:DescribeEventsForOrganization' :: DescribeEventsForOrganization -&gt; Maybe Text
+</span><a href="#local-6989586621679189473"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189476"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189475"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;locale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189474"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrganizationEventFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrganizationEventFilter -&gt; Pair)
+-&gt; Maybe OrganizationEventFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationEventFilter
+</span><a href="#local-6989586621679189473"><span class="hs-identifier hs-var">filter'</span></a></span><span>
+</span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679189467"><span class="annot"><span class="annottext">toPath :: DescribeEventsForOrganization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventsForOrganization -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganization"><span class="hs-identifier hs-type">DescribeEventsForOrganization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679189463"><span class="annot"><span class="annottext">toQuery :: DescribeEventsForOrganization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEventsForOrganization -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventsForOrganizationResponse' smart constructor.</span><span>
+</span><span id="line-232"></span><span id="local-6989586621679189460"><span id="local-6989586621679189461"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventsForOrganizationResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-var">DescribeEventsForOrganizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventsForOrganizationResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">DescribeEventsForOrganizationResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEventsForOrganizationResponse%27"><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AnextToken%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The events that match the specified filter criteria.</span><span>
+</span><span id="line-240"></span><span>    </span><span id="%24sel%3Aevents%3ADescribeEventsForOrganizationResponse%27"><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse -&gt; Maybe [OrganizationEvent]
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Aevents%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEvent.html#OrganizationEvent"><span class="hs-identifier hs-type">OrganizationEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-242"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventsForOrganizationResponse%27"><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse -&gt; Int
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AhttpStatus%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189453"><span id="local-6989586621679189455"><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+-&gt; DescribeEventsForOrganizationResponse -&gt; Bool
+(DescribeEventsForOrganizationResponse
+ -&gt; DescribeEventsForOrganizationResponse -&gt; Bool)
+-&gt; (DescribeEventsForOrganizationResponse
+    -&gt; DescribeEventsForOrganizationResponse -&gt; Bool)
+-&gt; Eq DescribeEventsForOrganizationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeEventsForOrganizationResponse
+-&gt; DescribeEventsForOrganizationResponse -&gt; Bool
+$c/= :: DescribeEventsForOrganizationResponse
+-&gt; DescribeEventsForOrganizationResponse -&gt; Bool
+== :: DescribeEventsForOrganizationResponse
+-&gt; DescribeEventsForOrganizationResponse -&gt; Bool
+$c== :: DescribeEventsForOrganizationResponse
+-&gt; DescribeEventsForOrganizationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189445"><span id="local-6989586621679189447"><span id="local-6989586621679189449"><span id="local-6989586621679189451"><span class="annot"><span class="annottext">ReadPrec [DescribeEventsForOrganizationResponse]
+ReadPrec DescribeEventsForOrganizationResponse
+Int -&gt; ReadS DescribeEventsForOrganizationResponse
+ReadS [DescribeEventsForOrganizationResponse]
+(Int -&gt; ReadS DescribeEventsForOrganizationResponse)
+-&gt; ReadS [DescribeEventsForOrganizationResponse]
+-&gt; ReadPrec DescribeEventsForOrganizationResponse
+-&gt; ReadPrec [DescribeEventsForOrganizationResponse]
+-&gt; Read DescribeEventsForOrganizationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeEventsForOrganizationResponse]
+$creadListPrec :: ReadPrec [DescribeEventsForOrganizationResponse]
+readPrec :: ReadPrec DescribeEventsForOrganizationResponse
+$creadPrec :: ReadPrec DescribeEventsForOrganizationResponse
+readList :: ReadS [DescribeEventsForOrganizationResponse]
+$creadList :: ReadS [DescribeEventsForOrganizationResponse]
+readsPrec :: Int -&gt; ReadS DescribeEventsForOrganizationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeEventsForOrganizationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189439"><span id="local-6989586621679189441"><span id="local-6989586621679189443"><span class="annot"><span class="annottext">Int -&gt; DescribeEventsForOrganizationResponse -&gt; ShowS
+[DescribeEventsForOrganizationResponse] -&gt; ShowS
+DescribeEventsForOrganizationResponse -&gt; String
+(Int -&gt; DescribeEventsForOrganizationResponse -&gt; ShowS)
+-&gt; (DescribeEventsForOrganizationResponse -&gt; String)
+-&gt; ([DescribeEventsForOrganizationResponse] -&gt; ShowS)
+-&gt; Show DescribeEventsForOrganizationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeEventsForOrganizationResponse] -&gt; ShowS
+$cshowList :: [DescribeEventsForOrganizationResponse] -&gt; ShowS
+show :: DescribeEventsForOrganizationResponse -&gt; String
+$cshow :: DescribeEventsForOrganizationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeEventsForOrganizationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeEventsForOrganizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeEventsForOrganizationResponse
+ -&gt; Rep DescribeEventsForOrganizationResponse x)
+-&gt; (forall x.
+    Rep DescribeEventsForOrganizationResponse x
+    -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Generic DescribeEventsForOrganizationResponse
+forall x.
+Rep DescribeEventsForOrganizationResponse x
+-&gt; DescribeEventsForOrganizationResponse
+forall x.
+DescribeEventsForOrganizationResponse
+-&gt; Rep DescribeEventsForOrganizationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeEventsForOrganizationResponse x
+-&gt; DescribeEventsForOrganizationResponse
+$cfrom :: forall x.
+DescribeEventsForOrganizationResponse
+-&gt; Rep DescribeEventsForOrganizationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Create a value of 'DescribeEventsForOrganizationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'nextToken', 'describeEventsForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'events', 'describeEventsForOrganizationResponse_events' - The events that match the specified filter criteria.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- 'httpStatus', 'describeEventsForOrganizationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#newDescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">newDescribeEventsForOrganizationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span>
+</span><span id="line-267"></span><span id="newDescribeEventsForOrganizationResponse"><span class="annot"><span class="annottext">newDescribeEventsForOrganizationResponse :: Int -&gt; DescribeEventsForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#newDescribeEventsForOrganizationResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventsForOrganizationResponse</span></a></span></span><span> </span><span id="local-6989586621679189436"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189436"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse' :: Maybe Text
+-&gt; Maybe [OrganizationEvent]
+-&gt; Int
+-&gt; DescribeEventsForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventsForOrganizationResponse' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AnextToken%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:DescribeEventsForOrganizationResponse' :: Maybe [OrganizationEvent]
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Aevents%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEvent]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventsForOrganizationResponse' :: Int
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AhttpStatus%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189436"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_nextToken"><span class="hs-identifier hs-type">describeEventsForOrganizationResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="describeEventsForOrganizationResponse_nextToken"><span class="annot"><span class="annottext">describeEventsForOrganizationResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; f DescribeEventsForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeEventsForOrganizationResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganizationResponse -&gt; Maybe Text)
+-&gt; (DescribeEventsForOrganizationResponse
+    -&gt; Maybe Text -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Lens' DescribeEventsForOrganizationResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189435"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEventsForOrganizationResponse' :: DescribeEventsForOrganizationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679189435"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189435"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189434"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventsForOrganizationResponse' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AnextToken%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | The events that match the specified filter criteria.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_events"><span class="hs-identifier hs-type">describeEventsForOrganizationResponse_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEvent.html#OrganizationEvent"><span class="hs-identifier hs-type">OrganizationEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="describeEventsForOrganizationResponse_events"><span class="annot"><span class="annottext">describeEventsForOrganizationResponse_events :: (Maybe [OrganizationEvent] -&gt; f (Maybe [OrganizationEvent]))
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; f DescribeEventsForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_events"><span class="hs-identifier hs-var hs-var">describeEventsForOrganizationResponse_events</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganizationResponse
+ -&gt; Maybe [OrganizationEvent])
+-&gt; (DescribeEventsForOrganizationResponse
+    -&gt; Maybe [OrganizationEvent]
+    -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Lens'
+     DescribeEventsForOrganizationResponse (Maybe [OrganizationEvent])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189432"><span class="annot"><span class="annottext">Maybe [OrganizationEvent]
+events :: Maybe [OrganizationEvent]
+$sel:events:DescribeEventsForOrganizationResponse' :: DescribeEventsForOrganizationResponse -&gt; Maybe [OrganizationEvent]
+</span><a href="#local-6989586621679189432"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEvent]
+</span><a href="#local-6989586621679189432"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189431"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189430"><span class="annot"><span class="annottext">Maybe [OrganizationEvent]
+</span><a href="#local-6989586621679189430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:DescribeEventsForOrganizationResponse' :: Maybe [OrganizationEvent]
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3Aevents%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationEvent]
+</span><a href="#local-6989586621679189430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OrganizationEvent] -&gt; f (Maybe [OrganizationEvent]))
+ -&gt; DescribeEventsForOrganizationResponse
+ -&gt; f DescribeEventsForOrganizationResponse)
+-&gt; ((Maybe [OrganizationEvent] -&gt; f (Maybe [OrganizationEvent]))
+    -&gt; Maybe [OrganizationEvent] -&gt; f (Maybe [OrganizationEvent]))
+-&gt; (Maybe [OrganizationEvent] -&gt; f (Maybe [OrganizationEvent]))
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; f DescribeEventsForOrganizationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OrganizationEvent]
+  [OrganizationEvent]
+  [OrganizationEvent]
+  [OrganizationEvent]
+-&gt; Iso
+     (Maybe [OrganizationEvent])
+     (Maybe [OrganizationEvent])
+     (Maybe [OrganizationEvent])
+     (Maybe [OrganizationEvent])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [OrganizationEvent]
+  [OrganizationEvent]
+  [OrganizationEvent]
+  [OrganizationEvent]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_httpStatus"><span class="hs-identifier hs-type">describeEventsForOrganizationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-289"></span><span id="describeEventsForOrganizationResponse_httpStatus"><span class="annot"><span class="annottext">describeEventsForOrganizationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeEventsForOrganizationResponse
+-&gt; f DescribeEventsForOrganizationResponse
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#describeEventsForOrganizationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeEventsForOrganizationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventsForOrganizationResponse -&gt; Int)
+-&gt; (DescribeEventsForOrganizationResponse
+    -&gt; Int -&gt; DescribeEventsForOrganizationResponse)
+-&gt; Lens
+     DescribeEventsForOrganizationResponse
+     DescribeEventsForOrganizationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189427"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeEventsForOrganizationResponse' :: DescribeEventsForOrganizationResponse -&gt; Int
+</span><a href="#local-6989586621679189427"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189427"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189426"><span class="annot"><span class="annottext">s :: DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventsForOrganizationResponse
+</span><a href="#local-6989586621679189426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventsForOrganizationResponse' :: Int
+</span><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#%24sel%3AhttpStatus%3ADescribeEventsForOrganizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679189423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventsForOrganization.html#DescribeEventsForOrganizationResponse"><span class="hs-identifier hs-type">DescribeEventsForOrganizationResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

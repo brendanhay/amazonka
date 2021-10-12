@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DeviceFarm.GetUpload</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets information about an upload.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DeviceFarm.GetUpload</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier">GetUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#newGetUpload"><span class="hs-identifier">newGetUpload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#getUpload_arn"><span class="hs-identifier">getUpload_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier">GetUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#newGetUploadResponse"><span class="hs-identifier">newGetUploadResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#getUploadResponse_upload"><span class="hs-identifier">getUploadResponse_upload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#getUploadResponse_httpStatus"><span class="hs-identifier">getUploadResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.html"><span class="hs-identifier">Network.AWS.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | Represents a request to the get upload operation.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetUpload' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679381509"><span id="local-6989586621679381510"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUpload"><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-var">GetUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUpload%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload%27"><span class="hs-identifier hs-var">GetUpload'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upload\'s ARN.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AGetUpload%27"><span class="annot"><span class="annottext">GetUpload -&gt; Text
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3Aarn%3AGetUpload%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381503"><span id="local-6989586621679381505"><span class="annot"><span class="annottext">GetUpload -&gt; GetUpload -&gt; Bool
+(GetUpload -&gt; GetUpload -&gt; Bool)
+-&gt; (GetUpload -&gt; GetUpload -&gt; Bool) -&gt; Eq GetUpload
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUpload -&gt; GetUpload -&gt; Bool
+$c/= :: GetUpload -&gt; GetUpload -&gt; Bool
+== :: GetUpload -&gt; GetUpload -&gt; Bool
+$c== :: GetUpload -&gt; GetUpload -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381494"><span id="local-6989586621679381496"><span id="local-6989586621679381498"><span id="local-6989586621679381500"><span class="annot"><span class="annottext">ReadPrec [GetUpload]
+ReadPrec GetUpload
+Int -&gt; ReadS GetUpload
+ReadS [GetUpload]
+(Int -&gt; ReadS GetUpload)
+-&gt; ReadS [GetUpload]
+-&gt; ReadPrec GetUpload
+-&gt; ReadPrec [GetUpload]
+-&gt; Read GetUpload
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetUpload]
+$creadListPrec :: ReadPrec [GetUpload]
+readPrec :: ReadPrec GetUpload
+$creadPrec :: ReadPrec GetUpload
+readList :: ReadS [GetUpload]
+$creadList :: ReadS [GetUpload]
+readsPrec :: Int -&gt; ReadS GetUpload
+$creadsPrec :: Int -&gt; ReadS GetUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381487"><span id="local-6989586621679381489"><span id="local-6989586621679381491"><span class="annot"><span class="annottext">Int -&gt; GetUpload -&gt; ShowS
+[GetUpload] -&gt; ShowS
+GetUpload -&gt; String
+(Int -&gt; GetUpload -&gt; ShowS)
+-&gt; (GetUpload -&gt; String)
+-&gt; ([GetUpload] -&gt; ShowS)
+-&gt; Show GetUpload
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUpload] -&gt; ShowS
+$cshowList :: [GetUpload] -&gt; ShowS
+show :: GetUpload -&gt; String
+$cshow :: GetUpload -&gt; String
+showsPrec :: Int -&gt; GetUpload -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetUpload -&gt; Rep GetUpload x)
+-&gt; (forall x. Rep GetUpload x -&gt; GetUpload) -&gt; Generic GetUpload
+forall x. Rep GetUpload x -&gt; GetUpload
+forall x. GetUpload -&gt; Rep GetUpload x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetUpload x -&gt; GetUpload
+$cfrom :: forall x. GetUpload -&gt; Rep GetUpload x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetUpload' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'arn', 'getUpload_arn' - The upload\'s ARN.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#newGetUpload"><span class="hs-identifier hs-type">newGetUpload</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span>
+</span><span id="line-71"></span><span id="newGetUpload"><span class="annot"><span class="annottext">newGetUpload :: Text -&gt; GetUpload
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#newGetUpload"><span class="hs-identifier hs-var hs-var">newGetUpload</span></a></span></span><span> </span><span id="local-6989586621679381482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381482"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetUpload' :: Text -&gt; GetUpload
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload%27"><span class="hs-identifier hs-type">GetUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetUpload' :: Text
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3Aarn%3AGetUpload%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381482"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The upload\'s ARN.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#getUpload_arn"><span class="hs-identifier hs-type">getUpload_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="getUpload_arn"><span class="annot"><span class="annottext">getUpload_arn :: (Text -&gt; f Text) -&gt; GetUpload -&gt; f GetUpload
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#getUpload_arn"><span class="hs-identifier hs-var hs-var">getUpload_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUpload -&gt; Text)
+-&gt; (GetUpload -&gt; Text -&gt; GetUpload)
+-&gt; Lens GetUpload GetUpload Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload%27"><span class="hs-identifier hs-type">GetUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381479"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetUpload' :: GetUpload -&gt; Text
+</span><a href="#local-6989586621679381479"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381479"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381478"><span class="annot"><span class="annottext">s :: GetUpload
+</span><a href="#local-6989586621679381478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload%27"><span class="hs-identifier hs-type">GetUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUpload
+</span><a href="#local-6989586621679381478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetUpload' :: Text
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3Aarn%3AGetUpload%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679381473"><span class="annot"><span class="annottext">request :: GetUpload -&gt; Request GetUpload
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUpload -&gt; Request GetUpload
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679381469"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetUpload
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetUpload)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetUpload))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetUpload
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetUpload)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381466"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381465"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381465"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381464"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381464"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Upload -&gt; Int -&gt; GetUploadResponse
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-var">GetUploadResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Upload -&gt; Int -&gt; GetUploadResponse)
+-&gt; Either String (Maybe Upload)
+-&gt; Either String (Int -&gt; GetUploadResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381464"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Upload)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;upload&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetUploadResponse)
+-&gt; Either String Int -&gt; Either String GetUploadResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381466"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381456"><span id="local-6989586621679381458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679381449"><span class="annot"><span class="annottext">toHeaders :: GetUpload -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUpload -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.GetUpload&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381439"><span id="local-6989586621679381441"><span id="local-6989586621679381443"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679381437"><span class="annot"><span class="annottext">toJSON :: GetUpload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload%27"><span class="hs-identifier hs-type">GetUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381435"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:GetUpload' :: GetUpload -&gt; Text
+</span><a href="#local-6989586621679381435"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679381435"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679381429"><span class="annot"><span class="annottext">toPath :: GetUpload -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetUpload -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUpload"><span class="hs-identifier hs-type">GetUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679381425"><span class="annot"><span class="annottext">toQuery :: GetUpload -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetUpload -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Represents the result of a get upload request.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- /See:/ 'newGetUploadResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679381422"><span id="local-6989586621679381423"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUploadResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-var">GetUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUploadResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-var">GetUploadResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An app or a set of one or more tests to upload or that have been</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- uploaded.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3Aupload%3AGetUploadResponse%27"><span class="annot"><span class="annottext">GetUploadResponse -&gt; Maybe Upload
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3Aupload%3AGetUploadResponse%27"><span class="hs-identifier hs-var hs-var">upload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Upload.html#Upload"><span class="hs-identifier hs-type">Upload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUploadResponse%27"><span class="annot"><span class="annottext">GetUploadResponse -&gt; Int
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3AhttpStatus%3AGetUploadResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381416"><span id="local-6989586621679381418"><span class="annot"><span class="annottext">GetUploadResponse -&gt; GetUploadResponse -&gt; Bool
+(GetUploadResponse -&gt; GetUploadResponse -&gt; Bool)
+-&gt; (GetUploadResponse -&gt; GetUploadResponse -&gt; Bool)
+-&gt; Eq GetUploadResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetUploadResponse -&gt; GetUploadResponse -&gt; Bool
+$c/= :: GetUploadResponse -&gt; GetUploadResponse -&gt; Bool
+== :: GetUploadResponse -&gt; GetUploadResponse -&gt; Bool
+$c== :: GetUploadResponse -&gt; GetUploadResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381410"><span id="local-6989586621679381412"><span id="local-6989586621679381414"><span class="annot"><span class="annottext">Int -&gt; GetUploadResponse -&gt; ShowS
+[GetUploadResponse] -&gt; ShowS
+GetUploadResponse -&gt; String
+(Int -&gt; GetUploadResponse -&gt; ShowS)
+-&gt; (GetUploadResponse -&gt; String)
+-&gt; ([GetUploadResponse] -&gt; ShowS)
+-&gt; Show GetUploadResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetUploadResponse] -&gt; ShowS
+$cshowList :: [GetUploadResponse] -&gt; ShowS
+show :: GetUploadResponse -&gt; String
+$cshow :: GetUploadResponse -&gt; String
+showsPrec :: Int -&gt; GetUploadResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetUploadResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetUploadResponse -&gt; Rep GetUploadResponse x)
+-&gt; (forall x. Rep GetUploadResponse x -&gt; GetUploadResponse)
+-&gt; Generic GetUploadResponse
+forall x. Rep GetUploadResponse x -&gt; GetUploadResponse
+forall x. GetUploadResponse -&gt; Rep GetUploadResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetUploadResponse x -&gt; GetUploadResponse
+$cfrom :: forall x. GetUploadResponse -&gt; Rep GetUploadResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'GetUploadResponse' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'upload', 'getUploadResponse_upload' - An app or a set of one or more tests to upload or that have been</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- uploaded.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'httpStatus', 'getUploadResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#newGetUploadResponse"><span class="hs-identifier hs-type">newGetUploadResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span><span>
+</span><span id="line-148"></span><span id="newGetUploadResponse"><span class="annot"><span class="annottext">newGetUploadResponse :: Int -&gt; GetUploadResponse
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#newGetUploadResponse"><span class="hs-identifier hs-var hs-var">newGetUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679381407"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">GetUploadResponse' :: Maybe Upload -&gt; Int -&gt; GetUploadResponse
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-type">GetUploadResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:upload:GetUploadResponse' :: Maybe Upload
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3Aupload%3AGetUploadResponse%27"><span class="hs-identifier hs-var">upload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUploadResponse' :: Int
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3AhttpStatus%3AGetUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | An app or a set of one or more tests to upload or that have been</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- uploaded.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#getUploadResponse_upload"><span class="hs-identifier hs-type">getUploadResponse_upload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Upload.html#Upload"><span class="hs-identifier hs-type">Upload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="getUploadResponse_upload"><span class="annot"><span class="annottext">getUploadResponse_upload :: (Maybe Upload -&gt; f (Maybe Upload))
+-&gt; GetUploadResponse -&gt; f GetUploadResponse
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#getUploadResponse_upload"><span class="hs-identifier hs-var hs-var">getUploadResponse_upload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadResponse -&gt; Maybe Upload)
+-&gt; (GetUploadResponse -&gt; Maybe Upload -&gt; GetUploadResponse)
+-&gt; Lens
+     GetUploadResponse GetUploadResponse (Maybe Upload) (Maybe Upload)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-type">GetUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381406"><span class="annot"><span class="annottext">Maybe Upload
+upload :: Maybe Upload
+$sel:upload:GetUploadResponse' :: GetUploadResponse -&gt; Maybe Upload
+</span><a href="#local-6989586621679381406"><span class="hs-identifier hs-var hs-var">upload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679381406"><span class="hs-identifier hs-var">upload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381405"><span class="annot"><span class="annottext">s :: GetUploadResponse
+</span><a href="#local-6989586621679381405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-type">GetUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381404"><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679381404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadResponse
+</span><a href="#local-6989586621679381405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upload:GetUploadResponse' :: Maybe Upload
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3Aupload%3AGetUploadResponse%27"><span class="hs-identifier hs-var">upload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679381404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#getUploadResponse_httpStatus"><span class="hs-identifier hs-type">getUploadResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="getUploadResponse_httpStatus"><span class="annot"><span class="annottext">getUploadResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetUploadResponse -&gt; f GetUploadResponse
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#getUploadResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getUploadResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUploadResponse -&gt; Int)
+-&gt; (GetUploadResponse -&gt; Int -&gt; GetUploadResponse)
+-&gt; Lens GetUploadResponse GetUploadResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-type">GetUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381403"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetUploadResponse' :: GetUploadResponse -&gt; Int
+</span><a href="#local-6989586621679381403"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381403"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381402"><span class="annot"><span class="annottext">s :: GetUploadResponse
+</span><a href="#local-6989586621679381402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse%27"><span class="hs-identifier hs-type">GetUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUploadResponse
+</span><a href="#local-6989586621679381402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUploadResponse' :: Int
+</span><a href="Network.AWS.DeviceFarm.GetUpload.html#%24sel%3AhttpStatus%3AGetUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetUpload.html#GetUploadResponse"><span class="hs-identifier hs-type">GetUploadResponse</span></a></span></span><span>
+</span><span id="line-164"></span></pre></body></html>

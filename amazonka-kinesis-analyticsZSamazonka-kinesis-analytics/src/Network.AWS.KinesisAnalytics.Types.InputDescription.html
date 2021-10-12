@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalytics.Types.InputDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.InputDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html"><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.InputParallelism</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription.html"><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.SourceSchema.html"><span class="hs-identifier">Network.AWS.KinesisAnalytics.Types.SourceSchema</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Describes the application input configuration. For more information, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newInputDescription' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679210466"><span id="local-6989586621679210467"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-var">InputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-var">InputDescription'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the format of the data in the streaming source, and how each</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- data element maps to corresponding columns in the in-application stream</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- that is being created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinputSchema%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe SourceSchema
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputSchema%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">inputSchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.SourceSchema.html#SourceSchema"><span class="hs-identifier hs-type">SourceSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Point at which the application is configured to read from the input</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AinputStartingPositionConfiguration%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe InputStartingPositionConfiguration
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputStartingPositionConfiguration%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">inputStartingPositionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration.html#InputStartingPositionConfiguration"><span class="hs-identifier hs-type">InputStartingPositionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The description of the preprocessor that executes on records in this</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- input before the application\'s code is run.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AinputProcessingConfigurationDescription%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe InputProcessingConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputProcessingConfigurationDescription%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">inputProcessingConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription.html#InputProcessingConfigurationDescription"><span class="hs-identifier hs-type">InputProcessingConfigurationDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Describes the configured parallelism (number of in-application streams</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- mapped to the streaming source).</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AinputParallelism%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe InputParallelism
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputParallelism%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">inputParallelism</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | In-application name prefix.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AnamePrefix%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AnamePrefix%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | If an Amazon Kinesis stream is configured as streaming source, provides</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Amazon Kinesis stream\'s Amazon Resource Name (ARN) and an IAM role that</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- enables Amazon Kinesis Analytics to access the stream on your behalf.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AkinesisStreamsInputDescription%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe KinesisStreamsInputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AkinesisStreamsInputDescription%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">kinesisStreamsInputDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription.html#KinesisStreamsInputDescription"><span class="hs-identifier hs-type">KinesisStreamsInputDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | If an Amazon Kinesis Firehose delivery stream is configured as a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- streaming source, provides the delivery stream\'s ARN and an IAM role</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- that enables Amazon Kinesis Analytics to access the stream on your</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- behalf.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AkinesisFirehoseInputDescription%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe KinesisFirehoseInputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AkinesisFirehoseInputDescription%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">kinesisFirehoseInputDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription.html#KinesisFirehoseInputDescription"><span class="hs-identifier hs-type">KinesisFirehoseInputDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Returns the in-application stream names that are mapped to the stream</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AinAppStreamNames%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe [Text]
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinAppStreamNames%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">inAppStreamNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Input ID associated with the application input. This is the ID that</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Amazon Kinesis Analytics assigns to each input configuration you add to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- your application.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AinputId%3AInputDescription%27"><span class="annot"><span class="annottext">InputDescription -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputId%3AInputDescription%27"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210452"><span id="local-6989586621679210454"><span class="annot"><span class="annottext">InputDescription -&gt; InputDescription -&gt; Bool
+(InputDescription -&gt; InputDescription -&gt; Bool)
+-&gt; (InputDescription -&gt; InputDescription -&gt; Bool)
+-&gt; Eq InputDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputDescription -&gt; InputDescription -&gt; Bool
+$c/= :: InputDescription -&gt; InputDescription -&gt; Bool
+== :: InputDescription -&gt; InputDescription -&gt; Bool
+$c== :: InputDescription -&gt; InputDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210443"><span id="local-6989586621679210445"><span id="local-6989586621679210447"><span id="local-6989586621679210449"><span class="annot"><span class="annottext">ReadPrec [InputDescription]
+ReadPrec InputDescription
+Int -&gt; ReadS InputDescription
+ReadS [InputDescription]
+(Int -&gt; ReadS InputDescription)
+-&gt; ReadS [InputDescription]
+-&gt; ReadPrec InputDescription
+-&gt; ReadPrec [InputDescription]
+-&gt; Read InputDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputDescription]
+$creadListPrec :: ReadPrec [InputDescription]
+readPrec :: ReadPrec InputDescription
+$creadPrec :: ReadPrec InputDescription
+readList :: ReadS [InputDescription]
+$creadList :: ReadS [InputDescription]
+readsPrec :: Int -&gt; ReadS InputDescription
+$creadsPrec :: Int -&gt; ReadS InputDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210436"><span id="local-6989586621679210438"><span id="local-6989586621679210440"><span class="annot"><span class="annottext">Int -&gt; InputDescription -&gt; ShowS
+[InputDescription] -&gt; ShowS
+InputDescription -&gt; String
+(Int -&gt; InputDescription -&gt; ShowS)
+-&gt; (InputDescription -&gt; String)
+-&gt; ([InputDescription] -&gt; ShowS)
+-&gt; Show InputDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputDescription] -&gt; ShowS
+$cshowList :: [InputDescription] -&gt; ShowS
+show :: InputDescription -&gt; String
+$cshow :: InputDescription -&gt; String
+showsPrec :: Int -&gt; InputDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputDescription -&gt; Rep InputDescription x)
+-&gt; (forall x. Rep InputDescription x -&gt; InputDescription)
+-&gt; Generic InputDescription
+forall x. Rep InputDescription x -&gt; InputDescription
+forall x. InputDescription -&gt; Rep InputDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputDescription x -&gt; InputDescription
+$cfrom :: forall x. InputDescription -&gt; Rep InputDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'InputDescription' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'inputSchema', 'inputDescription_inputSchema' - Describes the format of the data in the streaming source, and how each</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- data element maps to corresponding columns in the in-application stream</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- that is being created.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'inputStartingPositionConfiguration', 'inputDescription_inputStartingPositionConfiguration' - Point at which the application is configured to read from the input</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'inputProcessingConfigurationDescription', 'inputDescription_inputProcessingConfigurationDescription' - The description of the preprocessor that executes on records in this</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- input before the application\'s code is run.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'inputParallelism', 'inputDescription_inputParallelism' - Describes the configured parallelism (number of in-application streams</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- mapped to the streaming source).</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'namePrefix', 'inputDescription_namePrefix' - In-application name prefix.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'kinesisStreamsInputDescription', 'inputDescription_kinesisStreamsInputDescription' - If an Amazon Kinesis stream is configured as streaming source, provides</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Amazon Kinesis stream\'s Amazon Resource Name (ARN) and an IAM role that</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- enables Amazon Kinesis Analytics to access the stream on your behalf.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'kinesisFirehoseInputDescription', 'inputDescription_kinesisFirehoseInputDescription' - If an Amazon Kinesis Firehose delivery stream is configured as a</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- streaming source, provides the delivery stream\'s ARN and an IAM role</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- that enables Amazon Kinesis Analytics to access the stream on your</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- behalf.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'inAppStreamNames', 'inputDescription_inAppStreamNames' - Returns the in-application stream names that are mapped to the stream</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'inputId', 'inputDescription_inputId' - Input ID associated with the application input. This is the ID that</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Amazon Kinesis Analytics assigns to each input configuration you add to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- your application.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#newInputDescription"><span class="hs-identifier hs-type">newInputDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span>
+</span><span id="line-111"></span><span id="newInputDescription"><span class="annot"><span class="annottext">newInputDescription :: InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#newInputDescription"><span class="hs-identifier hs-var hs-var">newInputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">InputDescription' :: Maybe SourceSchema
+-&gt; Maybe InputStartingPositionConfiguration
+-&gt; Maybe InputProcessingConfigurationDescription
+-&gt; Maybe InputParallelism
+-&gt; Maybe Text
+-&gt; Maybe KinesisStreamsInputDescription
+-&gt; Maybe KinesisFirehoseInputDescription
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputSchema:InputDescription' :: Maybe SourceSchema
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputSchema%3AInputDescription%27"><span class="hs-identifier hs-var">inputSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSchema
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputStartingPositionConfiguration:InputDescription' :: Maybe InputStartingPositionConfiguration
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputStartingPositionConfiguration%3AInputDescription%27"><span class="hs-identifier hs-var">inputStartingPositionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputStartingPositionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputProcessingConfigurationDescription:InputDescription' :: Maybe InputProcessingConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputProcessingConfigurationDescription%3AInputDescription%27"><span class="hs-identifier hs-var">inputProcessingConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputParallelism:InputDescription' :: Maybe InputParallelism
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputParallelism%3AInputDescription%27"><span class="hs-identifier hs-var">inputParallelism</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelism
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePrefix:InputDescription' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AnamePrefix%3AInputDescription%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamsInputDescription:InputDescription' :: Maybe KinesisStreamsInputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AkinesisStreamsInputDescription%3AInputDescription%27"><span class="hs-identifier hs-var">kinesisStreamsInputDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseInputDescription:InputDescription' :: Maybe KinesisFirehoseInputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AkinesisFirehoseInputDescription%3AInputDescription%27"><span class="hs-identifier hs-var">kinesisFirehoseInputDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:inAppStreamNames:InputDescription' :: Maybe [Text]
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinAppStreamNames%3AInputDescription%27"><span class="hs-identifier hs-var">inAppStreamNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputId:InputDescription' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputId%3AInputDescription%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Describes the format of the data in the streaming source, and how each</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- data element maps to corresponding columns in the in-application stream</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- that is being created.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputSchema"><span class="hs-identifier hs-type">inputDescription_inputSchema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.SourceSchema.html#SourceSchema"><span class="hs-identifier hs-type">SourceSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="inputDescription_inputSchema"><span class="annot"><span class="annottext">inputDescription_inputSchema :: (Maybe SourceSchema -&gt; f (Maybe SourceSchema))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputSchema"><span class="hs-identifier hs-var hs-var">inputDescription_inputSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe SourceSchema)
+-&gt; (InputDescription -&gt; Maybe SourceSchema -&gt; InputDescription)
+-&gt; Lens
+     InputDescription
+     InputDescription
+     (Maybe SourceSchema)
+     (Maybe SourceSchema)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210427"><span class="annot"><span class="annottext">Maybe SourceSchema
+inputSchema :: Maybe SourceSchema
+$sel:inputSchema:InputDescription' :: InputDescription -&gt; Maybe SourceSchema
+</span><a href="#local-6989586621679210427"><span class="hs-identifier hs-var hs-var">inputSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSchema
+</span><a href="#local-6989586621679210427"><span class="hs-identifier hs-var">inputSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210426"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210425"><span class="annot"><span class="annottext">Maybe SourceSchema
+</span><a href="#local-6989586621679210425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSchema:InputDescription' :: Maybe SourceSchema
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputSchema%3AInputDescription%27"><span class="hs-identifier hs-var">inputSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSchema
+</span><a href="#local-6989586621679210425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Point at which the application is configured to read from the input</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputStartingPositionConfiguration"><span class="hs-identifier hs-type">inputDescription_inputStartingPositionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration.html#InputStartingPositionConfiguration"><span class="hs-identifier hs-type">InputStartingPositionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="inputDescription_inputStartingPositionConfiguration"><span class="annot"><span class="annottext">inputDescription_inputStartingPositionConfiguration :: (Maybe InputStartingPositionConfiguration
+ -&gt; f (Maybe InputStartingPositionConfiguration))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputStartingPositionConfiguration"><span class="hs-identifier hs-var hs-var">inputDescription_inputStartingPositionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe InputStartingPositionConfiguration)
+-&gt; (InputDescription
+    -&gt; Maybe InputStartingPositionConfiguration -&gt; InputDescription)
+-&gt; Lens
+     InputDescription
+     InputDescription
+     (Maybe InputStartingPositionConfiguration)
+     (Maybe InputStartingPositionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210423"><span class="annot"><span class="annottext">Maybe InputStartingPositionConfiguration
+inputStartingPositionConfiguration :: Maybe InputStartingPositionConfiguration
+$sel:inputStartingPositionConfiguration:InputDescription' :: InputDescription -&gt; Maybe InputStartingPositionConfiguration
+</span><a href="#local-6989586621679210423"><span class="hs-identifier hs-var hs-var">inputStartingPositionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputStartingPositionConfiguration
+</span><a href="#local-6989586621679210423"><span class="hs-identifier hs-var">inputStartingPositionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210422"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210421"><span class="annot"><span class="annottext">Maybe InputStartingPositionConfiguration
+</span><a href="#local-6989586621679210421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputStartingPositionConfiguration:InputDescription' :: Maybe InputStartingPositionConfiguration
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputStartingPositionConfiguration%3AInputDescription%27"><span class="hs-identifier hs-var">inputStartingPositionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputStartingPositionConfiguration
+</span><a href="#local-6989586621679210421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The description of the preprocessor that executes on records in this</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- input before the application\'s code is run.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputProcessingConfigurationDescription"><span class="hs-identifier hs-type">inputDescription_inputProcessingConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription.html#InputProcessingConfigurationDescription"><span class="hs-identifier hs-type">InputProcessingConfigurationDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="inputDescription_inputProcessingConfigurationDescription"><span class="annot"><span class="annottext">inputDescription_inputProcessingConfigurationDescription :: (Maybe InputProcessingConfigurationDescription
+ -&gt; f (Maybe InputProcessingConfigurationDescription))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputProcessingConfigurationDescription"><span class="hs-identifier hs-var hs-var">inputDescription_inputProcessingConfigurationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe InputProcessingConfigurationDescription)
+-&gt; (InputDescription
+    -&gt; Maybe InputProcessingConfigurationDescription
+    -&gt; InputDescription)
+-&gt; Lens
+     InputDescription
+     InputDescription
+     (Maybe InputProcessingConfigurationDescription)
+     (Maybe InputProcessingConfigurationDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210419"><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationDescription
+inputProcessingConfigurationDescription :: Maybe InputProcessingConfigurationDescription
+$sel:inputProcessingConfigurationDescription:InputDescription' :: InputDescription -&gt; Maybe InputProcessingConfigurationDescription
+</span><a href="#local-6989586621679210419"><span class="hs-identifier hs-var hs-var">inputProcessingConfigurationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationDescription
+</span><a href="#local-6989586621679210419"><span class="hs-identifier hs-var">inputProcessingConfigurationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210418"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210417"><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationDescription
+</span><a href="#local-6989586621679210417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputProcessingConfigurationDescription:InputDescription' :: Maybe InputProcessingConfigurationDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputProcessingConfigurationDescription%3AInputDescription%27"><span class="hs-identifier hs-var">inputProcessingConfigurationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationDescription
+</span><a href="#local-6989586621679210417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Describes the configured parallelism (number of in-application streams</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- mapped to the streaming source).</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputParallelism"><span class="hs-identifier hs-type">inputDescription_inputParallelism</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputParallelism.html#InputParallelism"><span class="hs-identifier hs-type">InputParallelism</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="inputDescription_inputParallelism"><span class="annot"><span class="annottext">inputDescription_inputParallelism :: (Maybe InputParallelism -&gt; f (Maybe InputParallelism))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputParallelism"><span class="hs-identifier hs-var hs-var">inputDescription_inputParallelism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe InputParallelism)
+-&gt; (InputDescription -&gt; Maybe InputParallelism -&gt; InputDescription)
+-&gt; Lens
+     InputDescription
+     InputDescription
+     (Maybe InputParallelism)
+     (Maybe InputParallelism)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210415"><span class="annot"><span class="annottext">Maybe InputParallelism
+inputParallelism :: Maybe InputParallelism
+$sel:inputParallelism:InputDescription' :: InputDescription -&gt; Maybe InputParallelism
+</span><a href="#local-6989586621679210415"><span class="hs-identifier hs-var hs-var">inputParallelism</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelism
+</span><a href="#local-6989586621679210415"><span class="hs-identifier hs-var">inputParallelism</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210414"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210413"><span class="annot"><span class="annottext">Maybe InputParallelism
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputParallelism:InputDescription' :: Maybe InputParallelism
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputParallelism%3AInputDescription%27"><span class="hs-identifier hs-var">inputParallelism</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelism
+</span><a href="#local-6989586621679210413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | In-application name prefix.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_namePrefix"><span class="hs-identifier hs-type">inputDescription_namePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="inputDescription_namePrefix"><span class="annot"><span class="annottext">inputDescription_namePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_namePrefix"><span class="hs-identifier hs-var hs-var">inputDescription_namePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe Text)
+-&gt; (InputDescription -&gt; Maybe Text -&gt; InputDescription)
+-&gt; Lens InputDescription InputDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210411"><span class="annot"><span class="annottext">Maybe Text
+namePrefix :: Maybe Text
+$sel:namePrefix:InputDescription' :: InputDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679210411"><span class="hs-identifier hs-var hs-var">namePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210411"><span class="hs-identifier hs-var">namePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210410"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefix:InputDescription' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AnamePrefix%3AInputDescription%27"><span class="hs-identifier hs-var">namePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | If an Amazon Kinesis stream is configured as streaming source, provides</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Amazon Kinesis stream\'s Amazon Resource Name (ARN) and an IAM role that</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- enables Amazon Kinesis Analytics to access the stream on your behalf.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_kinesisStreamsInputDescription"><span class="hs-identifier hs-type">inputDescription_kinesisStreamsInputDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription.html#KinesisStreamsInputDescription"><span class="hs-identifier hs-type">KinesisStreamsInputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="inputDescription_kinesisStreamsInputDescription"><span class="annot"><span class="annottext">inputDescription_kinesisStreamsInputDescription :: (Maybe KinesisStreamsInputDescription
+ -&gt; f (Maybe KinesisStreamsInputDescription))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_kinesisStreamsInputDescription"><span class="hs-identifier hs-var hs-var">inputDescription_kinesisStreamsInputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe KinesisStreamsInputDescription)
+-&gt; (InputDescription
+    -&gt; Maybe KinesisStreamsInputDescription -&gt; InputDescription)
+-&gt; Lens
+     InputDescription
+     InputDescription
+     (Maybe KinesisStreamsInputDescription)
+     (Maybe KinesisStreamsInputDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210407"><span class="annot"><span class="annottext">Maybe KinesisStreamsInputDescription
+kinesisStreamsInputDescription :: Maybe KinesisStreamsInputDescription
+$sel:kinesisStreamsInputDescription:InputDescription' :: InputDescription -&gt; Maybe KinesisStreamsInputDescription
+</span><a href="#local-6989586621679210407"><span class="hs-identifier hs-var hs-var">kinesisStreamsInputDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputDescription
+</span><a href="#local-6989586621679210407"><span class="hs-identifier hs-var">kinesisStreamsInputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210406"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210405"><span class="annot"><span class="annottext">Maybe KinesisStreamsInputDescription
+</span><a href="#local-6989586621679210405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamsInputDescription:InputDescription' :: Maybe KinesisStreamsInputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AkinesisStreamsInputDescription%3AInputDescription%27"><span class="hs-identifier hs-var">kinesisStreamsInputDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputDescription
+</span><a href="#local-6989586621679210405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | If an Amazon Kinesis Firehose delivery stream is configured as a</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- streaming source, provides the delivery stream\'s ARN and an IAM role</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- that enables Amazon Kinesis Analytics to access the stream on your</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- behalf.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_kinesisFirehoseInputDescription"><span class="hs-identifier hs-type">inputDescription_kinesisFirehoseInputDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription.html#KinesisFirehoseInputDescription"><span class="hs-identifier hs-type">KinesisFirehoseInputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="inputDescription_kinesisFirehoseInputDescription"><span class="annot"><span class="annottext">inputDescription_kinesisFirehoseInputDescription :: (Maybe KinesisFirehoseInputDescription
+ -&gt; f (Maybe KinesisFirehoseInputDescription))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_kinesisFirehoseInputDescription"><span class="hs-identifier hs-var hs-var">inputDescription_kinesisFirehoseInputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe KinesisFirehoseInputDescription)
+-&gt; (InputDescription
+    -&gt; Maybe KinesisFirehoseInputDescription -&gt; InputDescription)
+-&gt; Lens
+     InputDescription
+     InputDescription
+     (Maybe KinesisFirehoseInputDescription)
+     (Maybe KinesisFirehoseInputDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210403"><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputDescription
+kinesisFirehoseInputDescription :: Maybe KinesisFirehoseInputDescription
+$sel:kinesisFirehoseInputDescription:InputDescription' :: InputDescription -&gt; Maybe KinesisFirehoseInputDescription
+</span><a href="#local-6989586621679210403"><span class="hs-identifier hs-var hs-var">kinesisFirehoseInputDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputDescription
+</span><a href="#local-6989586621679210403"><span class="hs-identifier hs-var">kinesisFirehoseInputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210402"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210401"><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputDescription
+</span><a href="#local-6989586621679210401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseInputDescription:InputDescription' :: Maybe KinesisFirehoseInputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AkinesisFirehoseInputDescription%3AInputDescription%27"><span class="hs-identifier hs-var">kinesisFirehoseInputDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputDescription
+</span><a href="#local-6989586621679210401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Returns the in-application stream names that are mapped to the stream</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inAppStreamNames"><span class="hs-identifier hs-type">inputDescription_inAppStreamNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="inputDescription_inAppStreamNames"><span class="annot"><span class="annottext">inputDescription_inAppStreamNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inAppStreamNames"><span class="hs-identifier hs-var hs-var">inputDescription_inAppStreamNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe [Text])
+-&gt; (InputDescription -&gt; Maybe [Text] -&gt; InputDescription)
+-&gt; Lens
+     InputDescription InputDescription (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210399"><span class="annot"><span class="annottext">Maybe [Text]
+inAppStreamNames :: Maybe [Text]
+$sel:inAppStreamNames:InputDescription' :: InputDescription -&gt; Maybe [Text]
+</span><a href="#local-6989586621679210399"><span class="hs-identifier hs-var hs-var">inAppStreamNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210399"><span class="hs-identifier hs-var">inAppStreamNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210398"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210397"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inAppStreamNames:InputDescription' :: Maybe [Text]
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinAppStreamNames%3AInputDescription%27"><span class="hs-identifier hs-var">inAppStreamNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; InputDescription -&gt; f InputDescription)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InputDescription
+-&gt; f InputDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Input ID associated with the application input. This is the ID that</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Amazon Kinesis Analytics assigns to each input configuration you add to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- your application.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputId"><span class="hs-identifier hs-type">inputDescription_inputId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="inputDescription_inputId"><span class="annot"><span class="annottext">inputDescription_inputId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InputDescription -&gt; f InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#inputDescription_inputId"><span class="hs-identifier hs-var hs-var">inputDescription_inputId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputDescription -&gt; Maybe Text)
+-&gt; (InputDescription -&gt; Maybe Text -&gt; InputDescription)
+-&gt; Lens InputDescription InputDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210392"><span class="annot"><span class="annottext">Maybe Text
+inputId :: Maybe Text
+$sel:inputId:InputDescription' :: InputDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679210392"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210392"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210391"><span class="annot"><span class="annottext">s :: InputDescription
+</span><a href="#local-6989586621679210391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-type">InputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDescription
+</span><a href="#local-6989586621679210391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:InputDescription' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#%24sel%3AinputId%3AInputDescription%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210387"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679210385"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InputDescription)
+-&gt; Value
+-&gt; Parser InputDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InputDescription&quot;</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210382"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe SourceSchema
+-&gt; Maybe InputStartingPositionConfiguration
+-&gt; Maybe InputProcessingConfigurationDescription
+-&gt; Maybe InputParallelism
+-&gt; Maybe Text
+-&gt; Maybe KinesisStreamsInputDescription
+-&gt; Maybe KinesisFirehoseInputDescription
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; InputDescription
+</span><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription%27"><span class="hs-identifier hs-var">InputDescription'</span></a></span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SourceSchema
+ -&gt; Maybe InputStartingPositionConfiguration
+ -&gt; Maybe InputProcessingConfigurationDescription
+ -&gt; Maybe InputParallelism
+ -&gt; Maybe Text
+ -&gt; Maybe KinesisStreamsInputDescription
+ -&gt; Maybe KinesisFirehoseInputDescription
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; InputDescription)
+-&gt; Parser (Maybe SourceSchema)
+-&gt; Parser
+     (Maybe InputStartingPositionConfiguration
+      -&gt; Maybe InputProcessingConfigurationDescription
+      -&gt; Maybe InputParallelism
+      -&gt; Maybe Text
+      -&gt; Maybe KinesisStreamsInputDescription
+      -&gt; Maybe KinesisFirehoseInputDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceSchema)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputSchema&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputStartingPositionConfiguration
+   -&gt; Maybe InputProcessingConfigurationDescription
+   -&gt; Maybe InputParallelism
+   -&gt; Maybe Text
+   -&gt; Maybe KinesisStreamsInputDescription
+   -&gt; Maybe KinesisFirehoseInputDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; InputDescription)
+-&gt; Parser (Maybe InputStartingPositionConfiguration)
+-&gt; Parser
+     (Maybe InputProcessingConfigurationDescription
+      -&gt; Maybe InputParallelism
+      -&gt; Maybe Text
+      -&gt; Maybe KinesisStreamsInputDescription
+      -&gt; Maybe KinesisFirehoseInputDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputStartingPositionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputStartingPositionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputProcessingConfigurationDescription
+   -&gt; Maybe InputParallelism
+   -&gt; Maybe Text
+   -&gt; Maybe KinesisStreamsInputDescription
+   -&gt; Maybe KinesisFirehoseInputDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; InputDescription)
+-&gt; Parser (Maybe InputProcessingConfigurationDescription)
+-&gt; Parser
+     (Maybe InputParallelism
+      -&gt; Maybe Text
+      -&gt; Maybe KinesisStreamsInputDescription
+      -&gt; Maybe KinesisFirehoseInputDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-183"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe InputProcessingConfigurationDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputProcessingConfigurationDescription&quot;</span></span><span>
+</span><span id="line-184"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InputParallelism
+   -&gt; Maybe Text
+   -&gt; Maybe KinesisStreamsInputDescription
+   -&gt; Maybe KinesisFirehoseInputDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; InputDescription)
+-&gt; Parser (Maybe InputParallelism)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe KinesisStreamsInputDescription
+      -&gt; Maybe KinesisFirehoseInputDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputParallelism)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputParallelism&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe KinesisStreamsInputDescription
+   -&gt; Maybe KinesisFirehoseInputDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; InputDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe KinesisStreamsInputDescription
+      -&gt; Maybe KinesisFirehoseInputDescription
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NamePrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe KinesisStreamsInputDescription
+   -&gt; Maybe KinesisFirehoseInputDescription
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; InputDescription)
+-&gt; Parser (Maybe KinesisStreamsInputDescription)
+-&gt; Parser
+     (Maybe KinesisFirehoseInputDescription
+      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisStreamsInputDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisStreamsInputDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe KinesisFirehoseInputDescription
+   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; InputDescription)
+-&gt; Parser (Maybe KinesisFirehoseInputDescription)
+-&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisFirehoseInputDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisFirehoseInputDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; InputDescription)
+-&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; InputDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InAppStreamNames&quot;</span></span><span>
+</span><span id="line-190"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-191"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InputDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser InputDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210375"><span id="local-6989586621679210377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span></span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

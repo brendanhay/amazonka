@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkMail.DeleteGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a group from Amazon WorkMail.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkMail.DeleteGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier">DeleteGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier">newDeleteGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroup_organizationId"><span class="hs-identifier">deleteGroup_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroup_groupId"><span class="hs-identifier">deleteGroup_groupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier">DeleteGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier">newDeleteGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroupResponse_httpStatus"><span class="hs-identifier">deleteGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroup' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679271406"><span id="local-6989586621679271407"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroup"><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-var">DeleteGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroup%27"><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-var">DeleteGroup'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The organization that contains the group.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AorganizationId%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Text
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AorganizationId%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The identifier of the group to be deleted.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AgroupId%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Text
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AgroupId%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271399"><span id="local-6989586621679271401"><span class="annot"><span class="annottext">DeleteGroup -&gt; DeleteGroup -&gt; Bool
+(DeleteGroup -&gt; DeleteGroup -&gt; Bool)
+-&gt; (DeleteGroup -&gt; DeleteGroup -&gt; Bool) -&gt; Eq DeleteGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+$c/= :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+== :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+$c== :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271390"><span id="local-6989586621679271392"><span id="local-6989586621679271394"><span id="local-6989586621679271396"><span class="annot"><span class="annottext">ReadPrec [DeleteGroup]
+ReadPrec DeleteGroup
+Int -&gt; ReadS DeleteGroup
+ReadS [DeleteGroup]
+(Int -&gt; ReadS DeleteGroup)
+-&gt; ReadS [DeleteGroup]
+-&gt; ReadPrec DeleteGroup
+-&gt; ReadPrec [DeleteGroup]
+-&gt; Read DeleteGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGroup]
+$creadListPrec :: ReadPrec [DeleteGroup]
+readPrec :: ReadPrec DeleteGroup
+$creadPrec :: ReadPrec DeleteGroup
+readList :: ReadS [DeleteGroup]
+$creadList :: ReadS [DeleteGroup]
+readsPrec :: Int -&gt; ReadS DeleteGroup
+$creadsPrec :: Int -&gt; ReadS DeleteGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271383"><span id="local-6989586621679271385"><span id="local-6989586621679271387"><span class="annot"><span class="annottext">Int -&gt; DeleteGroup -&gt; ShowS
+[DeleteGroup] -&gt; ShowS
+DeleteGroup -&gt; String
+(Int -&gt; DeleteGroup -&gt; ShowS)
+-&gt; (DeleteGroup -&gt; String)
+-&gt; ([DeleteGroup] -&gt; ShowS)
+-&gt; Show DeleteGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGroup] -&gt; ShowS
+$cshowList :: [DeleteGroup] -&gt; ShowS
+show :: DeleteGroup -&gt; String
+$cshow :: DeleteGroup -&gt; String
+showsPrec :: Int -&gt; DeleteGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGroup -&gt; Rep DeleteGroup x)
+-&gt; (forall x. Rep DeleteGroup x -&gt; DeleteGroup)
+-&gt; Generic DeleteGroup
+forall x. Rep DeleteGroup x -&gt; DeleteGroup
+forall x. DeleteGroup -&gt; Rep DeleteGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGroup x -&gt; DeleteGroup
+$cfrom :: forall x. DeleteGroup -&gt; Rep DeleteGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteGroup' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'organizationId', 'deleteGroup_organizationId' - The organization that contains the group.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'groupId', 'deleteGroup_groupId' - The identifier of the group to be deleted.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier hs-type">newDeleteGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'groupId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span>
+</span><span id="line-75"></span><span id="newDeleteGroup"><span class="annot"><span class="annottext">newDeleteGroup :: Text -&gt; Text -&gt; DeleteGroup
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier hs-var hs-var">newDeleteGroup</span></a></span></span><span> </span><span id="local-6989586621679271378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271378"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679271377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271377"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroup' :: Text -&gt; Text -&gt; DeleteGroup
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:DeleteGroup' :: Text
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AorganizationId%3ADeleteGroup%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271378"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:DeleteGroup' :: Text
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AgroupId%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271377"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The organization that contains the group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroup_organizationId"><span class="hs-identifier hs-type">deleteGroup_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="deleteGroup_organizationId"><span class="annot"><span class="annottext">deleteGroup_organizationId :: (Text -&gt; f Text) -&gt; DeleteGroup -&gt; f DeleteGroup
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroup_organizationId"><span class="hs-identifier hs-var hs-var">deleteGroup_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroup -&gt; Text)
+-&gt; (DeleteGroup -&gt; Text -&gt; DeleteGroup)
+-&gt; Lens DeleteGroup DeleteGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271374"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679271374"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271374"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271373"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679271373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679271373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DeleteGroup' :: Text
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AorganizationId%3ADeleteGroup%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The identifier of the group to be deleted.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroup_groupId"><span class="hs-identifier hs-type">deleteGroup_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="deleteGroup_groupId"><span class="annot"><span class="annottext">deleteGroup_groupId :: (Text -&gt; f Text) -&gt; DeleteGroup -&gt; f DeleteGroup
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroup_groupId"><span class="hs-identifier hs-var hs-var">deleteGroup_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroup -&gt; Text)
+-&gt; (DeleteGroup -&gt; Text -&gt; DeleteGroup)
+-&gt; Lens DeleteGroup DeleteGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271371"><span class="annot"><span class="annottext">Text
+groupId :: Text
+$sel:groupId:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679271371"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271371"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271370"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679271370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679271370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:DeleteGroup' :: Text
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AgroupId%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679271365"><span class="annot"><span class="annottext">request :: DeleteGroup -&gt; Request DeleteGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGroup -&gt; Request DeleteGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679271361"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271358"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679271357"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679271357"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679271356"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679271356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteGroupResponse)
+-&gt; Either String Int -&gt; Either String DeleteGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271358"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271349"><span id="local-6989586621679271351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679271342"><span class="annot"><span class="annottext">toHeaders :: DeleteGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.DeleteGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271332"><span id="local-6989586621679271334"><span id="local-6989586621679271336"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679271330"><span class="annot"><span class="annottext">toJSON :: DeleteGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271327"><span id="local-6989586621679271328"><span class="annot"><span class="annottext">Text
+groupId :: Text
+organizationId :: Text
+$sel:groupId:DeleteGroup' :: DeleteGroup -&gt; Text
+$sel:organizationId:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679271327"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271328"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271327"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679271321"><span class="annot"><span class="annottext">toPath :: DeleteGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679271317"><span class="annot"><span class="annottext">toQuery :: DeleteGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroupResponse' smart constructor.</span><span>
+</span><span id="line-135"></span><span id="local-6989586621679271314"><span id="local-6989586621679271315"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupResponse"><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-var">DeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; Int
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271309"><span id="local-6989586621679271311"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+(DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
+-&gt; (DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
+-&gt; Eq DeleteGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+$c/= :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+== :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+$c== :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271301"><span id="local-6989586621679271303"><span id="local-6989586621679271305"><span id="local-6989586621679271307"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupResponse]
+ReadPrec DeleteGroupResponse
+Int -&gt; ReadS DeleteGroupResponse
+ReadS [DeleteGroupResponse]
+(Int -&gt; ReadS DeleteGroupResponse)
+-&gt; ReadS [DeleteGroupResponse]
+-&gt; ReadPrec DeleteGroupResponse
+-&gt; ReadPrec [DeleteGroupResponse]
+-&gt; Read DeleteGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGroupResponse]
+$creadListPrec :: ReadPrec [DeleteGroupResponse]
+readPrec :: ReadPrec DeleteGroupResponse
+$creadPrec :: ReadPrec DeleteGroupResponse
+readList :: ReadS [DeleteGroupResponse]
+$creadList :: ReadS [DeleteGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271295"><span id="local-6989586621679271297"><span id="local-6989586621679271299"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse -&gt; ShowS
+[DeleteGroupResponse] -&gt; ShowS
+DeleteGroupResponse -&gt; String
+(Int -&gt; DeleteGroupResponse -&gt; ShowS)
+-&gt; (DeleteGroupResponse -&gt; String)
+-&gt; ([DeleteGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteGroupResponse] -&gt; ShowS
+show :: DeleteGroupResponse -&gt; String
+$cshow :: DeleteGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x)
+-&gt; (forall x. Rep DeleteGroupResponse x -&gt; DeleteGroupResponse)
+-&gt; Generic DeleteGroupResponse
+forall x. Rep DeleteGroupResponse x -&gt; DeleteGroupResponse
+forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGroupResponse x -&gt; DeleteGroupResponse
+$cfrom :: forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Create a value of 'DeleteGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'deleteGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-type">newDeleteGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newDeleteGroupResponse"><span class="annot"><span class="annottext">newDeleteGroupResponse :: Int -&gt; DeleteGroupResponse
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679271292"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271292"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroupResponse' :: Int -&gt; DeleteGroupResponse
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGroupResponse' :: Int
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271292"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="deleteGroupResponse_httpStatus"><span class="annot"><span class="annottext">deleteGroupResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteGroupResponse -&gt; f DeleteGroupResponse
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#deleteGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroupResponse -&gt; Int)
+-&gt; (DeleteGroupResponse -&gt; Int -&gt; DeleteGroupResponse)
+-&gt; Lens DeleteGroupResponse DeleteGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271291"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteGroupResponse' :: DeleteGroupResponse -&gt; Int
+</span><a href="#local-6989586621679271291"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271291"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271290"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
+</span><a href="#local-6989586621679271290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
+</span><a href="#local-6989586621679271290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGroupResponse' :: Int
+</span><a href="Network.AWS.WorkMail.DeleteGroup.html#%24sel%3AhttpStatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

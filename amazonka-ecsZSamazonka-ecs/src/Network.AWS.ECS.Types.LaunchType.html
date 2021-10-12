@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ECS.Types.LaunchType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ECS.Types.LaunchType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier">LaunchType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_EC2"><span class="hs-identifier">LaunchType_EC2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_EXTERNAL"><span class="hs-identifier">LaunchType_EXTERNAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_FARGATE"><span class="hs-identifier">LaunchType_FARGATE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679454406"><span id="local-6989586621679454407"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchType"><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier hs-var">LaunchType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchType%27"><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-identifier hs-var">LaunchType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLaunchType"><span class="annot"><span class="annottext">LaunchType -&gt; Text
+</span><a href="Network.AWS.ECS.Types.LaunchType.html#fromLaunchType"><span class="hs-identifier hs-var hs-var">fromLaunchType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679454398"><span id="local-6989586621679454400"><span id="local-6989586621679454402"><span class="annot"><span class="annottext">Int -&gt; LaunchType -&gt; ShowS
+[LaunchType] -&gt; ShowS
+LaunchType -&gt; String
+(Int -&gt; LaunchType -&gt; ShowS)
+-&gt; (LaunchType -&gt; String)
+-&gt; ([LaunchType] -&gt; ShowS)
+-&gt; Show LaunchType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LaunchType] -&gt; ShowS
+$cshowList :: [LaunchType] -&gt; ShowS
+show :: LaunchType -&gt; String
+$cshow :: LaunchType -&gt; String
+showsPrec :: Int -&gt; LaunchType -&gt; ShowS
+$cshowsPrec :: Int -&gt; LaunchType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679454389"><span id="local-6989586621679454391"><span id="local-6989586621679454393"><span id="local-6989586621679454395"><span class="annot"><span class="annottext">ReadPrec [LaunchType]
+ReadPrec LaunchType
+Int -&gt; ReadS LaunchType
+ReadS [LaunchType]
+(Int -&gt; ReadS LaunchType)
+-&gt; ReadS [LaunchType]
+-&gt; ReadPrec LaunchType
+-&gt; ReadPrec [LaunchType]
+-&gt; Read LaunchType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LaunchType]
+$creadListPrec :: ReadPrec [LaunchType]
+readPrec :: ReadPrec LaunchType
+$creadPrec :: ReadPrec LaunchType
+readList :: ReadS [LaunchType]
+$creadList :: ReadS [LaunchType]
+readsPrec :: Int -&gt; ReadS LaunchType
+$creadsPrec :: Int -&gt; ReadS LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679454384"><span id="local-6989586621679454386"><span class="annot"><span class="annottext">LaunchType -&gt; LaunchType -&gt; Bool
+(LaunchType -&gt; LaunchType -&gt; Bool)
+-&gt; (LaunchType -&gt; LaunchType -&gt; Bool) -&gt; Eq LaunchType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LaunchType -&gt; LaunchType -&gt; Bool
+$c/= :: LaunchType -&gt; LaunchType -&gt; Bool
+== :: LaunchType -&gt; LaunchType -&gt; Bool
+$c== :: LaunchType -&gt; LaunchType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679454368"><span id="local-6989586621679454370"><span id="local-6989586621679454372"><span id="local-6989586621679454374"><span id="local-6989586621679454376"><span id="local-6989586621679454378"><span id="local-6989586621679454380"><span class="annot"><span class="annottext">Eq LaunchType
+Eq LaunchType
+-&gt; (LaunchType -&gt; LaunchType -&gt; Ordering)
+-&gt; (LaunchType -&gt; LaunchType -&gt; Bool)
+-&gt; (LaunchType -&gt; LaunchType -&gt; Bool)
+-&gt; (LaunchType -&gt; LaunchType -&gt; Bool)
+-&gt; (LaunchType -&gt; LaunchType -&gt; Bool)
+-&gt; (LaunchType -&gt; LaunchType -&gt; LaunchType)
+-&gt; (LaunchType -&gt; LaunchType -&gt; LaunchType)
+-&gt; Ord LaunchType
+LaunchType -&gt; LaunchType -&gt; Bool
+LaunchType -&gt; LaunchType -&gt; Ordering
+LaunchType -&gt; LaunchType -&gt; LaunchType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LaunchType -&gt; LaunchType -&gt; LaunchType
+$cmin :: LaunchType -&gt; LaunchType -&gt; LaunchType
+max :: LaunchType -&gt; LaunchType -&gt; LaunchType
+$cmax :: LaunchType -&gt; LaunchType -&gt; LaunchType
+&gt;= :: LaunchType -&gt; LaunchType -&gt; Bool
+$c&gt;= :: LaunchType -&gt; LaunchType -&gt; Bool
+&gt; :: LaunchType -&gt; LaunchType -&gt; Bool
+$c&gt; :: LaunchType -&gt; LaunchType -&gt; Bool
+&lt;= :: LaunchType -&gt; LaunchType -&gt; Bool
+$c&lt;= :: LaunchType -&gt; LaunchType -&gt; Bool
+&lt; :: LaunchType -&gt; LaunchType -&gt; Bool
+$c&lt; :: LaunchType -&gt; LaunchType -&gt; Bool
+compare :: LaunchType -&gt; LaunchType -&gt; Ordering
+$ccompare :: LaunchType -&gt; LaunchType -&gt; Ordering
+$cp1Ord :: Eq LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LaunchType -&gt; Rep LaunchType x)
+-&gt; (forall x. Rep LaunchType x -&gt; LaunchType) -&gt; Generic LaunchType
+forall x. Rep LaunchType x -&gt; LaunchType
+forall x. LaunchType -&gt; Rep LaunchType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LaunchType x -&gt; LaunchType
+$cfrom :: forall x. LaunchType -&gt; Rep LaunchType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679454360"><span id="local-6989586621679454362"><span class="annot"><span class="annottext">Int -&gt; LaunchType -&gt; Int
+LaunchType -&gt; Int
+(Int -&gt; LaunchType -&gt; Int)
+-&gt; (LaunchType -&gt; Int) -&gt; Hashable LaunchType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LaunchType -&gt; Int
+$chash :: LaunchType -&gt; Int
+hashWithSalt :: Int -&gt; LaunchType -&gt; Int
+$chashWithSalt :: Int -&gt; LaunchType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679454357"><span class="annot"><span class="annottext">LaunchType -&gt; ()
+(LaunchType -&gt; ()) -&gt; NFData LaunchType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LaunchType -&gt; ()
+$crnf :: LaunchType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679454354"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchType
+(Text -&gt; Either String LaunchType) -&gt; FromText LaunchType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LaunchType
+$cfromText :: Text -&gt; Either String LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679454351"><span class="annot"><span class="annottext">LaunchType -&gt; Text
+(LaunchType -&gt; Text) -&gt; ToText LaunchType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LaunchType -&gt; Text
+$ctoText :: LaunchType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679454348"><span class="annot"><span class="annottext">LaunchType -&gt; ByteString
+(LaunchType -&gt; ByteString) -&gt; ToByteString LaunchType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LaunchType -&gt; ByteString
+$ctoBS :: LaunchType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679454345"><span class="annot"><span class="annottext">LaunchType -&gt; ByteStringBuilder
+(LaunchType -&gt; ByteStringBuilder) -&gt; ToLog LaunchType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LaunchType -&gt; ByteStringBuilder
+$cbuild :: LaunchType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679454342"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchType -&gt; [Header]
+(HeaderName -&gt; LaunchType -&gt; [Header]) -&gt; ToHeader LaunchType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LaunchType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LaunchType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679454339"><span class="annot"><span class="annottext">LaunchType -&gt; QueryString
+(LaunchType -&gt; QueryString) -&gt; ToQuery LaunchType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LaunchType -&gt; QueryString
+$ctoQuery :: LaunchType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679454334"><span id="local-6989586621679454336"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchType]
+Value -&gt; Parser LaunchType
+(Value -&gt; Parser LaunchType)
+-&gt; (Value -&gt; Parser [LaunchType]) -&gt; FromJSON LaunchType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LaunchType]
+$cparseJSONList :: Value -&gt; Parser [LaunchType]
+parseJSON :: Value -&gt; Parser LaunchType
+$cparseJSON :: Value -&gt; Parser LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679454329"><span id="local-6989586621679454331"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchType]
+FromJSONKeyFunction LaunchType
+FromJSONKeyFunction LaunchType
+-&gt; FromJSONKeyFunction [LaunchType] -&gt; FromJSONKey LaunchType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LaunchType]
+$cfromJSONKeyList :: FromJSONKeyFunction [LaunchType]
+fromJSONKey :: FromJSONKeyFunction LaunchType
+$cfromJSONKey :: FromJSONKeyFunction LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679454320"><span id="local-6989586621679454322"><span id="local-6989586621679454324"><span id="local-6989586621679454326"><span class="annot"><span class="annottext">[LaunchType] -&gt; Encoding
+[LaunchType] -&gt; Value
+LaunchType -&gt; Encoding
+LaunchType -&gt; Value
+(LaunchType -&gt; Value)
+-&gt; (LaunchType -&gt; Encoding)
+-&gt; ([LaunchType] -&gt; Value)
+-&gt; ([LaunchType] -&gt; Encoding)
+-&gt; ToJSON LaunchType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LaunchType] -&gt; Encoding
+$ctoEncodingList :: [LaunchType] -&gt; Encoding
+toJSONList :: [LaunchType] -&gt; Value
+$ctoJSONList :: [LaunchType] -&gt; Value
+toEncoding :: LaunchType -&gt; Encoding
+$ctoEncoding :: LaunchType -&gt; Encoding
+toJSON :: LaunchType -&gt; Value
+$ctoJSON :: LaunchType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679454315"><span id="local-6989586621679454317"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchType]
+ToJSONKeyFunction LaunchType
+ToJSONKeyFunction LaunchType
+-&gt; ToJSONKeyFunction [LaunchType] -&gt; ToJSONKey LaunchType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LaunchType]
+$ctoJSONKeyList :: ToJSONKeyFunction [LaunchType]
+toJSONKey :: ToJSONKeyFunction LaunchType
+$ctoJSONKey :: ToJSONKeyFunction LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679454312"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchType
+([Node] -&gt; Either String LaunchType) -&gt; FromXML LaunchType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LaunchType
+$cparseXML :: [Node] -&gt; Either String LaunchType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679454309"><span class="annot"><span class="annottext">LaunchType -&gt; XML
+(LaunchType -&gt; XML) -&gt; ToXML LaunchType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LaunchType -&gt; XML
+$ctoXML :: LaunchType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_EC2"><span class="hs-identifier hs-type">LaunchType_EC2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier hs-type">LaunchType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchType_EC2"><span id="%24mLaunchType_EC2"><span id="LaunchType_EC2"><span class="annot"><span class="annottext">$bLaunchType_EC2 :: LaunchType
+$mLaunchType_EC2 :: forall r. LaunchType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.LaunchType.html#%24bLaunchType_EC2"><span class="hs-identifier hs-var hs-var hs-var">LaunchType_EC2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-identifier hs-type">LaunchType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_EXTERNAL"><span class="hs-identifier hs-type">LaunchType_EXTERNAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier hs-type">LaunchType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchType_EXTERNAL"><span id="%24mLaunchType_EXTERNAL"><span id="LaunchType_EXTERNAL"><span class="annot"><span class="annottext">$bLaunchType_EXTERNAL :: LaunchType
+$mLaunchType_EXTERNAL :: forall r. LaunchType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.LaunchType.html#%24bLaunchType_EXTERNAL"><span class="hs-identifier hs-var hs-var hs-var">LaunchType_EXTERNAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-identifier hs-type">LaunchType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXTERNAL&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_FARGATE"><span class="hs-identifier hs-type">LaunchType_FARGATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType"><span class="hs-identifier hs-type">LaunchType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchType_FARGATE"><span id="%24mLaunchType_FARGATE"><span id="LaunchType_FARGATE"><span class="annot"><span class="annottext">$bLaunchType_FARGATE :: LaunchType
+$mLaunchType_FARGATE :: forall r. LaunchType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ECS.Types.LaunchType.html#%24bLaunchType_FARGATE"><span class="hs-identifier hs-var hs-var hs-var">LaunchType_FARGATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-identifier hs-type">LaunchType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FARGATE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_EC2"><span class="hs-pragma hs-type">LaunchType_EC2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_EXTERNAL"><span class="hs-pragma hs-type">LaunchType_EXTERNAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType_FARGATE"><span class="hs-pragma hs-type">LaunchType_FARGATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.LaunchType.html#LaunchType%27"><span class="hs-pragma hs-type">LaunchType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.DeleteTransitGatewayRoute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified route from the specified transit gateway route</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.DeleteTransitGatewayRoute</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#newDeleteTransitGatewayRoute"><span class="hs-identifier">newDeleteTransitGatewayRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_dryRun"><span class="hs-identifier">deleteTransitGatewayRoute_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_transitGatewayRouteTableId"><span class="hs-identifier">deleteTransitGatewayRoute_transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_destinationCidrBlock"><span class="hs-identifier">deleteTransitGatewayRoute_destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier">DeleteTransitGatewayRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#newDeleteTransitGatewayRouteResponse"><span class="hs-identifier">newDeleteTransitGatewayRouteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRouteResponse_route"><span class="hs-identifier">deleteTransitGatewayRouteResponse_route</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRouteResponse_httpStatus"><span class="hs-identifier">deleteTransitGatewayRouteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteTransitGatewayRoute' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621681240177"><span id="local-6989586621681240178"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTransitGatewayRoute"><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-var">DeleteTransitGatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTransitGatewayRoute%27"><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">DeleteTransitGatewayRoute'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteTransitGatewayRoute%27"><span class="annot"><span class="annottext">DeleteTransitGatewayRoute -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AdryRun%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway route table.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtransitGatewayRouteTableId%3ADeleteTransitGatewayRoute%27"><span class="annot"><span class="annottext">DeleteTransitGatewayRoute -&gt; Text
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AtransitGatewayRouteTableId%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The CIDR range for the route. This must match the CIDR for the route</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- exactly.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3ADeleteTransitGatewayRoute%27"><span class="annot"><span class="annottext">DeleteTransitGatewayRoute -&gt; Text
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681240169"><span id="local-6989586621681240171"><span class="annot"><span class="annottext">DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool
+(DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool)
+-&gt; (DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool)
+-&gt; Eq DeleteTransitGatewayRoute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool
+$c/= :: DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool
+== :: DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool
+$c== :: DeleteTransitGatewayRoute -&gt; DeleteTransitGatewayRoute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681240160"><span id="local-6989586621681240162"><span id="local-6989586621681240164"><span id="local-6989586621681240166"><span class="annot"><span class="annottext">ReadPrec [DeleteTransitGatewayRoute]
+ReadPrec DeleteTransitGatewayRoute
+Int -&gt; ReadS DeleteTransitGatewayRoute
+ReadS [DeleteTransitGatewayRoute]
+(Int -&gt; ReadS DeleteTransitGatewayRoute)
+-&gt; ReadS [DeleteTransitGatewayRoute]
+-&gt; ReadPrec DeleteTransitGatewayRoute
+-&gt; ReadPrec [DeleteTransitGatewayRoute]
+-&gt; Read DeleteTransitGatewayRoute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTransitGatewayRoute]
+$creadListPrec :: ReadPrec [DeleteTransitGatewayRoute]
+readPrec :: ReadPrec DeleteTransitGatewayRoute
+$creadPrec :: ReadPrec DeleteTransitGatewayRoute
+readList :: ReadS [DeleteTransitGatewayRoute]
+$creadList :: ReadS [DeleteTransitGatewayRoute]
+readsPrec :: Int -&gt; ReadS DeleteTransitGatewayRoute
+$creadsPrec :: Int -&gt; ReadS DeleteTransitGatewayRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681240153"><span id="local-6989586621681240155"><span id="local-6989586621681240157"><span class="annot"><span class="annottext">Int -&gt; DeleteTransitGatewayRoute -&gt; ShowS
+[DeleteTransitGatewayRoute] -&gt; ShowS
+DeleteTransitGatewayRoute -&gt; String
+(Int -&gt; DeleteTransitGatewayRoute -&gt; ShowS)
+-&gt; (DeleteTransitGatewayRoute -&gt; String)
+-&gt; ([DeleteTransitGatewayRoute] -&gt; ShowS)
+-&gt; Show DeleteTransitGatewayRoute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTransitGatewayRoute] -&gt; ShowS
+$cshowList :: [DeleteTransitGatewayRoute] -&gt; ShowS
+show :: DeleteTransitGatewayRoute -&gt; String
+$cshow :: DeleteTransitGatewayRoute -&gt; String
+showsPrec :: Int -&gt; DeleteTransitGatewayRoute -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTransitGatewayRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteTransitGatewayRoute -&gt; Rep DeleteTransitGatewayRoute x)
+-&gt; (forall x.
+    Rep DeleteTransitGatewayRoute x -&gt; DeleteTransitGatewayRoute)
+-&gt; Generic DeleteTransitGatewayRoute
+forall x.
+Rep DeleteTransitGatewayRoute x -&gt; DeleteTransitGatewayRoute
+forall x.
+DeleteTransitGatewayRoute -&gt; Rep DeleteTransitGatewayRoute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteTransitGatewayRoute x -&gt; DeleteTransitGatewayRoute
+$cfrom :: forall x.
+DeleteTransitGatewayRoute -&gt; Rep DeleteTransitGatewayRoute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DeleteTransitGatewayRoute' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'dryRun', 'deleteTransitGatewayRoute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'transitGatewayRouteTableId', 'deleteTransitGatewayRoute_transitGatewayRouteTableId' - The ID of the transit gateway route table.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'destinationCidrBlock', 'deleteTransitGatewayRoute_destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- exactly.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#newDeleteTransitGatewayRoute"><span class="hs-identifier hs-type">newDeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayRouteTableId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'destinationCidrBlock'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span>
+</span><span id="line-90"></span><span id="newDeleteTransitGatewayRoute"><span class="annot"><span class="annottext">newDeleteTransitGatewayRoute :: Text -&gt; Text -&gt; DeleteTransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#newDeleteTransitGatewayRoute"><span class="hs-identifier hs-var hs-var">newDeleteTransitGatewayRoute</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681240148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240148"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621681240147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240147"><span class="hs-identifier hs-var">pDestinationCidrBlock_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">DeleteTransitGatewayRoute' :: Maybe Bool -&gt; Text -&gt; Text -&gt; DeleteTransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteTransitGatewayRoute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AdryRun%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:DeleteTransitGatewayRoute' :: Text
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AtransitGatewayRouteTableId%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240148"><span class="hs-identifier hs-var">pTransitGatewayRouteTableId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:DeleteTransitGatewayRoute' :: Text
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240147"><span class="hs-identifier hs-var">pDestinationCidrBlock_</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_dryRun"><span class="hs-identifier hs-type">deleteTransitGatewayRoute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="deleteTransitGatewayRoute_dryRun"><span class="annot"><span class="annottext">deleteTransitGatewayRoute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteTransitGatewayRoute -&gt; f DeleteTransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_dryRun"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayRoute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayRoute -&gt; Maybe Bool)
+-&gt; (DeleteTransitGatewayRoute
+    -&gt; Maybe Bool -&gt; DeleteTransitGatewayRoute)
+-&gt; Lens
+     DeleteTransitGatewayRoute
+     DeleteTransitGatewayRoute
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681240144"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeleteTransitGatewayRoute' :: DeleteTransitGatewayRoute -&gt; Maybe Bool
+</span><a href="#local-6989586621681240144"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681240144"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681240143"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayRoute
+</span><a href="#local-6989586621681240143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681240142"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681240142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayRoute
+</span><a href="#local-6989586621681240143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteTransitGatewayRoute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AdryRun%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681240142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the transit gateway route table.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_transitGatewayRouteTableId"><span class="hs-identifier hs-type">deleteTransitGatewayRoute_transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="deleteTransitGatewayRoute_transitGatewayRouteTableId"><span class="annot"><span class="annottext">deleteTransitGatewayRoute_transitGatewayRouteTableId :: (Text -&gt; f Text)
+-&gt; DeleteTransitGatewayRoute -&gt; f DeleteTransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_transitGatewayRouteTableId"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayRoute_transitGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayRoute -&gt; Text)
+-&gt; (DeleteTransitGatewayRoute -&gt; Text -&gt; DeleteTransitGatewayRoute)
+-&gt; Lens
+     DeleteTransitGatewayRoute DeleteTransitGatewayRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681240141"><span class="annot"><span class="annottext">Text
+transitGatewayRouteTableId :: Text
+$sel:transitGatewayRouteTableId:DeleteTransitGatewayRoute' :: DeleteTransitGatewayRoute -&gt; Text
+</span><a href="#local-6989586621681240141"><span class="hs-identifier hs-var hs-var">transitGatewayRouteTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240141"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681240140"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayRoute
+</span><a href="#local-6989586621681240140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681240139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayRoute
+</span><a href="#local-6989586621681240140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayRouteTableId:DeleteTransitGatewayRoute' :: Text
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AtransitGatewayRouteTableId%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The CIDR range for the route. This must match the CIDR for the route</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- exactly.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_destinationCidrBlock"><span class="hs-identifier hs-type">deleteTransitGatewayRoute_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="deleteTransitGatewayRoute_destinationCidrBlock"><span class="annot"><span class="annottext">deleteTransitGatewayRoute_destinationCidrBlock :: (Text -&gt; f Text)
+-&gt; DeleteTransitGatewayRoute -&gt; f DeleteTransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRoute_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayRoute_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayRoute -&gt; Text)
+-&gt; (DeleteTransitGatewayRoute -&gt; Text -&gt; DeleteTransitGatewayRoute)
+-&gt; Lens
+     DeleteTransitGatewayRoute DeleteTransitGatewayRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681240138"><span class="annot"><span class="annottext">Text
+destinationCidrBlock :: Text
+$sel:destinationCidrBlock:DeleteTransitGatewayRoute' :: DeleteTransitGatewayRoute -&gt; Text
+</span><a href="#local-6989586621681240138"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240138"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681240137"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayRoute
+</span><a href="#local-6989586621681240137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681240136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayRoute
+</span><a href="#local-6989586621681240137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:DeleteTransitGatewayRoute' :: Text
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ADeleteTransitGatewayRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681240132"><span class="annot"><span class="annottext">request :: DeleteTransitGatewayRoute -&gt; Request DeleteTransitGatewayRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteTransitGatewayRoute -&gt; Request DeleteTransitGatewayRoute
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681240128"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteTransitGatewayRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteTransitGatewayRoute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DeleteTransitGatewayRoute))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteTransitGatewayRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteTransitGatewayRoute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681240125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681240124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681240124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681240123"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681240123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayRoute
+-&gt; Int -&gt; DeleteTransitGatewayRouteResponse
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var">DeleteTransitGatewayRouteResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayRoute
+ -&gt; Int -&gt; DeleteTransitGatewayRouteResponse)
+-&gt; Either String (Maybe TransitGatewayRoute)
+-&gt; Either String (Int -&gt; DeleteTransitGatewayRouteResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681240123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayRoute)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;route&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteTransitGatewayRouteResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteTransitGatewayRouteResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681240115"><span id="local-6989586621681240117"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681240112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621681240108"><span class="annot"><span class="annottext">toHeaders :: DeleteTransitGatewayRoute -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTransitGatewayRoute -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681240103"><span class="annot"><span class="annottext">toPath :: DeleteTransitGatewayRoute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTransitGatewayRoute -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681240099"><span class="annot"><span class="annottext">toQuery :: DeleteTransitGatewayRoute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRoute%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681240095"><span id="local-6989586621681240096"><span id="local-6989586621681240097"><span class="annot"><span class="annottext">Maybe Bool
+Text
+destinationCidrBlock :: Text
+transitGatewayRouteTableId :: Text
+dryRun :: Maybe Bool
+$sel:destinationCidrBlock:DeleteTransitGatewayRoute' :: DeleteTransitGatewayRoute -&gt; Text
+$sel:transitGatewayRouteTableId:DeleteTransitGatewayRoute' :: DeleteTransitGatewayRoute -&gt; Text
+$sel:dryRun:DeleteTransitGatewayRoute' :: DeleteTransitGatewayRoute -&gt; Maybe Bool
+</span><a href="#local-6989586621681240095"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteTransitGatewayRoute&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681240097"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayRouteTableId&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240096"><span class="hs-identifier hs-var">transitGatewayRouteTableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationCidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681240095"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newDeleteTransitGatewayRouteResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621681240092"><span id="local-6989586621681240093"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTransitGatewayRouteResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-var">DeleteTransitGatewayRouteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTransitGatewayRouteResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var">DeleteTransitGatewayRouteResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the route.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Aroute%3ADeleteTransitGatewayRouteResponse%27"><span class="annot"><span class="annottext">DeleteTransitGatewayRouteResponse -&gt; Maybe TransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3Aroute%3ADeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var hs-var">route</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayRoute.html#TransitGatewayRoute"><span class="hs-identifier hs-type">TransitGatewayRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTransitGatewayRouteResponse%27"><span class="annot"><span class="annottext">DeleteTransitGatewayRouteResponse -&gt; Int
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AhttpStatus%3ADeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681240086"><span id="local-6989586621681240088"><span class="annot"><span class="annottext">DeleteTransitGatewayRouteResponse
+-&gt; DeleteTransitGatewayRouteResponse -&gt; Bool
+(DeleteTransitGatewayRouteResponse
+ -&gt; DeleteTransitGatewayRouteResponse -&gt; Bool)
+-&gt; (DeleteTransitGatewayRouteResponse
+    -&gt; DeleteTransitGatewayRouteResponse -&gt; Bool)
+-&gt; Eq DeleteTransitGatewayRouteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTransitGatewayRouteResponse
+-&gt; DeleteTransitGatewayRouteResponse -&gt; Bool
+$c/= :: DeleteTransitGatewayRouteResponse
+-&gt; DeleteTransitGatewayRouteResponse -&gt; Bool
+== :: DeleteTransitGatewayRouteResponse
+-&gt; DeleteTransitGatewayRouteResponse -&gt; Bool
+$c== :: DeleteTransitGatewayRouteResponse
+-&gt; DeleteTransitGatewayRouteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681240078"><span id="local-6989586621681240080"><span id="local-6989586621681240082"><span id="local-6989586621681240084"><span class="annot"><span class="annottext">ReadPrec [DeleteTransitGatewayRouteResponse]
+ReadPrec DeleteTransitGatewayRouteResponse
+Int -&gt; ReadS DeleteTransitGatewayRouteResponse
+ReadS [DeleteTransitGatewayRouteResponse]
+(Int -&gt; ReadS DeleteTransitGatewayRouteResponse)
+-&gt; ReadS [DeleteTransitGatewayRouteResponse]
+-&gt; ReadPrec DeleteTransitGatewayRouteResponse
+-&gt; ReadPrec [DeleteTransitGatewayRouteResponse]
+-&gt; Read DeleteTransitGatewayRouteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTransitGatewayRouteResponse]
+$creadListPrec :: ReadPrec [DeleteTransitGatewayRouteResponse]
+readPrec :: ReadPrec DeleteTransitGatewayRouteResponse
+$creadPrec :: ReadPrec DeleteTransitGatewayRouteResponse
+readList :: ReadS [DeleteTransitGatewayRouteResponse]
+$creadList :: ReadS [DeleteTransitGatewayRouteResponse]
+readsPrec :: Int -&gt; ReadS DeleteTransitGatewayRouteResponse
+$creadsPrec :: Int -&gt; ReadS DeleteTransitGatewayRouteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681240072"><span id="local-6989586621681240074"><span id="local-6989586621681240076"><span class="annot"><span class="annottext">Int -&gt; DeleteTransitGatewayRouteResponse -&gt; ShowS
+[DeleteTransitGatewayRouteResponse] -&gt; ShowS
+DeleteTransitGatewayRouteResponse -&gt; String
+(Int -&gt; DeleteTransitGatewayRouteResponse -&gt; ShowS)
+-&gt; (DeleteTransitGatewayRouteResponse -&gt; String)
+-&gt; ([DeleteTransitGatewayRouteResponse] -&gt; ShowS)
+-&gt; Show DeleteTransitGatewayRouteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTransitGatewayRouteResponse] -&gt; ShowS
+$cshowList :: [DeleteTransitGatewayRouteResponse] -&gt; ShowS
+show :: DeleteTransitGatewayRouteResponse -&gt; String
+$cshow :: DeleteTransitGatewayRouteResponse -&gt; String
+showsPrec :: Int -&gt; DeleteTransitGatewayRouteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTransitGatewayRouteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteTransitGatewayRouteResponse
+ -&gt; Rep DeleteTransitGatewayRouteResponse x)
+-&gt; (forall x.
+    Rep DeleteTransitGatewayRouteResponse x
+    -&gt; DeleteTransitGatewayRouteResponse)
+-&gt; Generic DeleteTransitGatewayRouteResponse
+forall x.
+Rep DeleteTransitGatewayRouteResponse x
+-&gt; DeleteTransitGatewayRouteResponse
+forall x.
+DeleteTransitGatewayRouteResponse
+-&gt; Rep DeleteTransitGatewayRouteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteTransitGatewayRouteResponse x
+-&gt; DeleteTransitGatewayRouteResponse
+$cfrom :: forall x.
+DeleteTransitGatewayRouteResponse
+-&gt; Rep DeleteTransitGatewayRouteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'DeleteTransitGatewayRouteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'route', 'deleteTransitGatewayRouteResponse_route' - Information about the route.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'httpStatus', 'deleteTransitGatewayRouteResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#newDeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">newDeleteTransitGatewayRouteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newDeleteTransitGatewayRouteResponse"><span class="annot"><span class="annottext">newDeleteTransitGatewayRouteResponse :: Int -&gt; DeleteTransitGatewayRouteResponse
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#newDeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-var hs-var">newDeleteTransitGatewayRouteResponse</span></a></span></span><span> </span><span id="local-6989586621681240069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">DeleteTransitGatewayRouteResponse' :: Maybe TransitGatewayRoute
+-&gt; Int -&gt; DeleteTransitGatewayRouteResponse
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:route:DeleteTransitGatewayRouteResponse' :: Maybe TransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3Aroute%3ADeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var">route</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Maybe TransitGatewayRoute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTransitGatewayRouteResponse' :: Int
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AhttpStatus%3ADeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Information about the route.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRouteResponse_route"><span class="hs-identifier hs-type">deleteTransitGatewayRouteResponse_route</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayRoute.html#TransitGatewayRoute"><span class="hs-identifier hs-type">TransitGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="deleteTransitGatewayRouteResponse_route"><span class="annot"><span class="annottext">deleteTransitGatewayRouteResponse_route :: (Maybe TransitGatewayRoute -&gt; f (Maybe TransitGatewayRoute))
+-&gt; DeleteTransitGatewayRouteResponse
+-&gt; f DeleteTransitGatewayRouteResponse
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRouteResponse_route"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayRouteResponse_route</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayRouteResponse -&gt; Maybe TransitGatewayRoute)
+-&gt; (DeleteTransitGatewayRouteResponse
+    -&gt; Maybe TransitGatewayRoute -&gt; DeleteTransitGatewayRouteResponse)
+-&gt; Lens
+     DeleteTransitGatewayRouteResponse
+     DeleteTransitGatewayRouteResponse
+     (Maybe TransitGatewayRoute)
+     (Maybe TransitGatewayRoute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681240068"><span class="annot"><span class="annottext">Maybe TransitGatewayRoute
+route :: Maybe TransitGatewayRoute
+$sel:route:DeleteTransitGatewayRouteResponse' :: DeleteTransitGatewayRouteResponse -&gt; Maybe TransitGatewayRoute
+</span><a href="#local-6989586621681240068"><span class="hs-identifier hs-var hs-var">route</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayRoute
+</span><a href="#local-6989586621681240068"><span class="hs-identifier hs-var">route</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681240067"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayRouteResponse
+</span><a href="#local-6989586621681240067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681240066"><span class="annot"><span class="annottext">Maybe TransitGatewayRoute
+</span><a href="#local-6989586621681240066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayRouteResponse
+</span><a href="#local-6989586621681240067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:route:DeleteTransitGatewayRouteResponse' :: Maybe TransitGatewayRoute
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3Aroute%3ADeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var">route</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayRoute
+</span><a href="#local-6989586621681240066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRouteResponse_httpStatus"><span class="hs-identifier hs-type">deleteTransitGatewayRouteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="deleteTransitGatewayRouteResponse_httpStatus"><span class="annot"><span class="annottext">deleteTransitGatewayRouteResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteTransitGatewayRouteResponse
+-&gt; f DeleteTransitGatewayRouteResponse
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#deleteTransitGatewayRouteResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteTransitGatewayRouteResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTransitGatewayRouteResponse -&gt; Int)
+-&gt; (DeleteTransitGatewayRouteResponse
+    -&gt; Int -&gt; DeleteTransitGatewayRouteResponse)
+-&gt; Lens
+     DeleteTransitGatewayRouteResponse
+     DeleteTransitGatewayRouteResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681240065"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteTransitGatewayRouteResponse' :: DeleteTransitGatewayRouteResponse -&gt; Int
+</span><a href="#local-6989586621681240065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681240064"><span class="annot"><span class="annottext">s :: DeleteTransitGatewayRouteResponse
+</span><a href="#local-6989586621681240064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681240063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTransitGatewayRouteResponse
+</span><a href="#local-6989586621681240064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTransitGatewayRouteResponse' :: Int
+</span><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#%24sel%3AhttpStatus%3ADeleteTransitGatewayRouteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681240063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681240061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeleteTransitGatewayRoute.html#DeleteTransitGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteTransitGatewayRouteResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

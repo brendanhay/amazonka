@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Textract.Types.Geometry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Textract.Types.Geometry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html"><span class="hs-identifier">Network.AWS.Textract.Types.BoundingBox</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Point.html"><span class="hs-identifier">Network.AWS.Textract.Types.Point</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about where the following items are located on a document</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- page: detected page, text, key-value pairs, tables, table cells, and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- selection elements.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newGeometry' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679176262"><span id="local-6989586621679176263"></span></span><span class="hs-keyword">data</span><span> </span><span id="Geometry"><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-var">Geometry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Geometry%27"><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-var">Geometry'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Within the bounding box, a fine-grained polygon around the recognized</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- item.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apolygon%3AGeometry%27"><span class="annot"><span class="annottext">Geometry -&gt; Maybe [Point]
+</span><a href="Network.AWS.Textract.Types.Geometry.html#%24sel%3Apolygon%3AGeometry%27"><span class="hs-identifier hs-var hs-var">polygon</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.Point.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An axis-aligned coarse representation of the location of the recognized</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- item on the document page.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AboundingBox%3AGeometry%27"><span class="annot"><span class="annottext">Geometry -&gt; Maybe BoundingBox
+</span><a href="Network.AWS.Textract.Types.Geometry.html#%24sel%3AboundingBox%3AGeometry%27"><span class="hs-identifier hs-var hs-var">boundingBox</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176255"><span id="local-6989586621679176257"><span class="annot"><span class="annottext">Geometry -&gt; Geometry -&gt; Bool
+(Geometry -&gt; Geometry -&gt; Bool)
+-&gt; (Geometry -&gt; Geometry -&gt; Bool) -&gt; Eq Geometry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Geometry -&gt; Geometry -&gt; Bool
+$c/= :: Geometry -&gt; Geometry -&gt; Bool
+== :: Geometry -&gt; Geometry -&gt; Bool
+$c== :: Geometry -&gt; Geometry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176246"><span id="local-6989586621679176248"><span id="local-6989586621679176250"><span id="local-6989586621679176252"><span class="annot"><span class="annottext">ReadPrec [Geometry]
+ReadPrec Geometry
+Int -&gt; ReadS Geometry
+ReadS [Geometry]
+(Int -&gt; ReadS Geometry)
+-&gt; ReadS [Geometry]
+-&gt; ReadPrec Geometry
+-&gt; ReadPrec [Geometry]
+-&gt; Read Geometry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Geometry]
+$creadListPrec :: ReadPrec [Geometry]
+readPrec :: ReadPrec Geometry
+$creadPrec :: ReadPrec Geometry
+readList :: ReadS [Geometry]
+$creadList :: ReadS [Geometry]
+readsPrec :: Int -&gt; ReadS Geometry
+$creadsPrec :: Int -&gt; ReadS Geometry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176239"><span id="local-6989586621679176241"><span id="local-6989586621679176243"><span class="annot"><span class="annottext">Int -&gt; Geometry -&gt; ShowS
+[Geometry] -&gt; ShowS
+Geometry -&gt; String
+(Int -&gt; Geometry -&gt; ShowS)
+-&gt; (Geometry -&gt; String) -&gt; ([Geometry] -&gt; ShowS) -&gt; Show Geometry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Geometry] -&gt; ShowS
+$cshowList :: [Geometry] -&gt; ShowS
+show :: Geometry -&gt; String
+$cshow :: Geometry -&gt; String
+showsPrec :: Int -&gt; Geometry -&gt; ShowS
+$cshowsPrec :: Int -&gt; Geometry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Geometry -&gt; Rep Geometry x)
+-&gt; (forall x. Rep Geometry x -&gt; Geometry) -&gt; Generic Geometry
+forall x. Rep Geometry x -&gt; Geometry
+forall x. Geometry -&gt; Rep Geometry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Geometry x -&gt; Geometry
+$cfrom :: forall x. Geometry -&gt; Rep Geometry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'Geometry' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'polygon', 'geometry_polygon' - Within the bounding box, a fine-grained polygon around the recognized</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- item.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'boundingBox', 'geometry_boundingBox' - An axis-aligned coarse representation of the location of the recognized</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- item on the document page.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#newGeometry"><span class="hs-identifier hs-type">newGeometry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span>
+</span><span id="line-58"></span><span id="newGeometry"><span class="annot"><span class="annottext">newGeometry :: Geometry
+</span><a href="Network.AWS.Textract.Types.Geometry.html#newGeometry"><span class="hs-identifier hs-var hs-var">newGeometry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Geometry' :: Maybe [Point] -&gt; Maybe BoundingBox -&gt; Geometry
+</span><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-type">Geometry'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:polygon:Geometry' :: Maybe [Point]
+</span><a href="Network.AWS.Textract.Types.Geometry.html#%24sel%3Apolygon%3AGeometry%27"><span class="hs-identifier hs-var">polygon</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Point]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:boundingBox:Geometry' :: Maybe BoundingBox
+</span><a href="Network.AWS.Textract.Types.Geometry.html#%24sel%3AboundingBox%3AGeometry%27"><span class="hs-identifier hs-var">boundingBox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BoundingBox
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Within the bounding box, a fine-grained polygon around the recognized</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- item.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#geometry_polygon"><span class="hs-identifier hs-type">geometry_polygon</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Textract.Types.Point.html#Point"><span class="hs-identifier hs-type">Point</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="geometry_polygon"><span class="annot"><span class="annottext">geometry_polygon :: (Maybe [Point] -&gt; f (Maybe [Point])) -&gt; Geometry -&gt; f Geometry
+</span><a href="Network.AWS.Textract.Types.Geometry.html#geometry_polygon"><span class="hs-identifier hs-var hs-var">geometry_polygon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Geometry -&gt; Maybe [Point])
+-&gt; (Geometry -&gt; Maybe [Point] -&gt; Geometry)
+-&gt; Lens Geometry Geometry (Maybe [Point]) (Maybe [Point])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-type">Geometry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176230"><span class="annot"><span class="annottext">Maybe [Point]
+polygon :: Maybe [Point]
+$sel:polygon:Geometry' :: Geometry -&gt; Maybe [Point]
+</span><a href="#local-6989586621679176230"><span class="hs-identifier hs-var hs-var">polygon</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Point]
+</span><a href="#local-6989586621679176230"><span class="hs-identifier hs-var">polygon</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176229"><span class="annot"><span class="annottext">s :: Geometry
+</span><a href="#local-6989586621679176229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-type">Geometry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176228"><span class="annot"><span class="annottext">Maybe [Point]
+</span><a href="#local-6989586621679176228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Geometry
+</span><a href="#local-6989586621679176229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:polygon:Geometry' :: Maybe [Point]
+</span><a href="Network.AWS.Textract.Types.Geometry.html#%24sel%3Apolygon%3AGeometry%27"><span class="hs-identifier hs-var">polygon</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Point]
+</span><a href="#local-6989586621679176228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Point] -&gt; f (Maybe [Point])) -&gt; Geometry -&gt; f Geometry)
+-&gt; ((Maybe [Point] -&gt; f (Maybe [Point]))
+    -&gt; Maybe [Point] -&gt; f (Maybe [Point]))
+-&gt; (Maybe [Point] -&gt; f (Maybe [Point]))
+-&gt; Geometry
+-&gt; f Geometry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Point] [Point] [Point] [Point]
+-&gt; Iso
+     (Maybe [Point]) (Maybe [Point]) (Maybe [Point]) (Maybe [Point])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Point] [Point] [Point] [Point]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | An axis-aligned coarse representation of the location of the recognized</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- item on the document page.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#geometry_boundingBox"><span class="hs-identifier hs-type">geometry_boundingBox</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="geometry_boundingBox"><span class="annot"><span class="annottext">geometry_boundingBox :: (Maybe BoundingBox -&gt; f (Maybe BoundingBox))
+-&gt; Geometry -&gt; f Geometry
+</span><a href="Network.AWS.Textract.Types.Geometry.html#geometry_boundingBox"><span class="hs-identifier hs-var hs-var">geometry_boundingBox</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Geometry -&gt; Maybe BoundingBox)
+-&gt; (Geometry -&gt; Maybe BoundingBox -&gt; Geometry)
+-&gt; Lens Geometry Geometry (Maybe BoundingBox) (Maybe BoundingBox)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-type">Geometry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176223"><span class="annot"><span class="annottext">Maybe BoundingBox
+boundingBox :: Maybe BoundingBox
+$sel:boundingBox:Geometry' :: Geometry -&gt; Maybe BoundingBox
+</span><a href="#local-6989586621679176223"><span class="hs-identifier hs-var hs-var">boundingBox</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BoundingBox
+</span><a href="#local-6989586621679176223"><span class="hs-identifier hs-var">boundingBox</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176222"><span class="annot"><span class="annottext">s :: Geometry
+</span><a href="#local-6989586621679176222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-type">Geometry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176221"><span class="annot"><span class="annottext">Maybe BoundingBox
+</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Geometry
+</span><a href="#local-6989586621679176222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:boundingBox:Geometry' :: Maybe BoundingBox
+</span><a href="Network.AWS.Textract.Types.Geometry.html#%24sel%3AboundingBox%3AGeometry%27"><span class="hs-identifier hs-var">boundingBox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BoundingBox
+</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176218"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679176216"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Geometry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Geometry) -&gt; Value -&gt; Parser Geometry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Geometry&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176213"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Point] -&gt; Maybe BoundingBox -&gt; Geometry
+</span><a href="Network.AWS.Textract.Types.Geometry.html#Geometry%27"><span class="hs-identifier hs-var">Geometry'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Point] -&gt; Maybe BoundingBox -&gt; Geometry)
+-&gt; Parser (Maybe [Point]) -&gt; Parser (Maybe BoundingBox -&gt; Geometry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Point]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Polygon&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Point]))
+-&gt; Maybe [Point] -&gt; Parser (Maybe [Point])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Point]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BoundingBox -&gt; Geometry)
+-&gt; Parser (Maybe BoundingBox) -&gt; Parser Geometry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BoundingBox)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BoundingBox&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176206"><span id="local-6989586621679176208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.EnableEbsEncryptionByDefault</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables EBS encryption by default for your account in the current</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- After you enable encryption by default, the EBS volumes that you create</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- are always encrypted, either using the default KMS key or the KMS key</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that you specified when you created each volume. For more information,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You can specify the default KMS key for encryption by default using</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- ModifyEbsDefaultKmsKeyId or ResetEbsDefaultKmsKeyId.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Enabling encryption by default has no effect on the encryption status of</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- your existing volumes.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- After you enable encryption by default, you can no longer launch</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- instances using instance types that do not support encryption. For more</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types&gt;.</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.EnableEbsEncryptionByDefault</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#newEnableEbsEncryptionByDefault"><span class="hs-identifier">newEnableEbsEncryptionByDefault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefault_dryRun"><span class="hs-identifier">enableEbsEncryptionByDefault_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier">EnableEbsEncryptionByDefaultResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#newEnableEbsEncryptionByDefaultResponse"><span class="hs-identifier">newEnableEbsEncryptionByDefaultResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault"><span class="hs-identifier">enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefaultResponse_httpStatus"><span class="hs-identifier">enableEbsEncryptionByDefaultResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.html"><span class="hs-identifier">Network.AWS.EC2.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newEnableEbsEncryptionByDefault' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621681198257"><span id="local-6989586621681198258"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableEbsEncryptionByDefault"><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-var">EnableEbsEncryptionByDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableEbsEncryptionByDefault%27"><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-var">EnableEbsEncryptionByDefault'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdryRun%3AEnableEbsEncryptionByDefault%27"><span class="annot"><span class="annottext">EnableEbsEncryptionByDefault -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AdryRun%3AEnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681198251"><span id="local-6989586621681198253"><span class="annot"><span class="annottext">EnableEbsEncryptionByDefault
+-&gt; EnableEbsEncryptionByDefault -&gt; Bool
+(EnableEbsEncryptionByDefault
+ -&gt; EnableEbsEncryptionByDefault -&gt; Bool)
+-&gt; (EnableEbsEncryptionByDefault
+    -&gt; EnableEbsEncryptionByDefault -&gt; Bool)
+-&gt; Eq EnableEbsEncryptionByDefault
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableEbsEncryptionByDefault
+-&gt; EnableEbsEncryptionByDefault -&gt; Bool
+$c/= :: EnableEbsEncryptionByDefault
+-&gt; EnableEbsEncryptionByDefault -&gt; Bool
+== :: EnableEbsEncryptionByDefault
+-&gt; EnableEbsEncryptionByDefault -&gt; Bool
+$c== :: EnableEbsEncryptionByDefault
+-&gt; EnableEbsEncryptionByDefault -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681198242"><span id="local-6989586621681198244"><span id="local-6989586621681198246"><span id="local-6989586621681198248"><span class="annot"><span class="annottext">ReadPrec [EnableEbsEncryptionByDefault]
+ReadPrec EnableEbsEncryptionByDefault
+Int -&gt; ReadS EnableEbsEncryptionByDefault
+ReadS [EnableEbsEncryptionByDefault]
+(Int -&gt; ReadS EnableEbsEncryptionByDefault)
+-&gt; ReadS [EnableEbsEncryptionByDefault]
+-&gt; ReadPrec EnableEbsEncryptionByDefault
+-&gt; ReadPrec [EnableEbsEncryptionByDefault]
+-&gt; Read EnableEbsEncryptionByDefault
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableEbsEncryptionByDefault]
+$creadListPrec :: ReadPrec [EnableEbsEncryptionByDefault]
+readPrec :: ReadPrec EnableEbsEncryptionByDefault
+$creadPrec :: ReadPrec EnableEbsEncryptionByDefault
+readList :: ReadS [EnableEbsEncryptionByDefault]
+$creadList :: ReadS [EnableEbsEncryptionByDefault]
+readsPrec :: Int -&gt; ReadS EnableEbsEncryptionByDefault
+$creadsPrec :: Int -&gt; ReadS EnableEbsEncryptionByDefault
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681198235"><span id="local-6989586621681198237"><span id="local-6989586621681198239"><span class="annot"><span class="annottext">Int -&gt; EnableEbsEncryptionByDefault -&gt; ShowS
+[EnableEbsEncryptionByDefault] -&gt; ShowS
+EnableEbsEncryptionByDefault -&gt; String
+(Int -&gt; EnableEbsEncryptionByDefault -&gt; ShowS)
+-&gt; (EnableEbsEncryptionByDefault -&gt; String)
+-&gt; ([EnableEbsEncryptionByDefault] -&gt; ShowS)
+-&gt; Show EnableEbsEncryptionByDefault
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableEbsEncryptionByDefault] -&gt; ShowS
+$cshowList :: [EnableEbsEncryptionByDefault] -&gt; ShowS
+show :: EnableEbsEncryptionByDefault -&gt; String
+$cshow :: EnableEbsEncryptionByDefault -&gt; String
+showsPrec :: Int -&gt; EnableEbsEncryptionByDefault -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableEbsEncryptionByDefault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EnableEbsEncryptionByDefault -&gt; Rep EnableEbsEncryptionByDefault x)
+-&gt; (forall x.
+    Rep EnableEbsEncryptionByDefault x -&gt; EnableEbsEncryptionByDefault)
+-&gt; Generic EnableEbsEncryptionByDefault
+forall x.
+Rep EnableEbsEncryptionByDefault x -&gt; EnableEbsEncryptionByDefault
+forall x.
+EnableEbsEncryptionByDefault -&gt; Rep EnableEbsEncryptionByDefault x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EnableEbsEncryptionByDefault x -&gt; EnableEbsEncryptionByDefault
+$cfrom :: forall x.
+EnableEbsEncryptionByDefault -&gt; Rep EnableEbsEncryptionByDefault x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'EnableEbsEncryptionByDefault' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'dryRun', 'enableEbsEncryptionByDefault_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#newEnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">newEnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span>
+</span><span id="line-92"></span><span id="newEnableEbsEncryptionByDefault"><span class="annot"><span class="annottext">newEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefault
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#newEnableEbsEncryptionByDefault"><span class="hs-identifier hs-var hs-var">newEnableEbsEncryptionByDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">EnableEbsEncryptionByDefault' :: Maybe Bool -&gt; EnableEbsEncryptionByDefault
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:EnableEbsEncryptionByDefault' :: Maybe Bool
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AdryRun%3AEnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefault_dryRun"><span class="hs-identifier hs-type">enableEbsEncryptionByDefault_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="enableEbsEncryptionByDefault_dryRun"><span class="annot"><span class="annottext">enableEbsEncryptionByDefault_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; EnableEbsEncryptionByDefault -&gt; f EnableEbsEncryptionByDefault
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefault_dryRun"><span class="hs-identifier hs-var hs-var">enableEbsEncryptionByDefault_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableEbsEncryptionByDefault -&gt; Maybe Bool)
+-&gt; (EnableEbsEncryptionByDefault
+    -&gt; Maybe Bool -&gt; EnableEbsEncryptionByDefault)
+-&gt; Lens
+     EnableEbsEncryptionByDefault
+     EnableEbsEncryptionByDefault
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681198228"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:EnableEbsEncryptionByDefault' :: EnableEbsEncryptionByDefault -&gt; Maybe Bool
+</span><a href="#local-6989586621681198228"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198228"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681198227"><span class="annot"><span class="annottext">s :: EnableEbsEncryptionByDefault
+</span><a href="#local-6989586621681198227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681198226"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEbsEncryptionByDefault
+</span><a href="#local-6989586621681198227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:EnableEbsEncryptionByDefault' :: Maybe Bool
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AdryRun%3AEnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621681198222"><span class="annot"><span class="annottext">request :: EnableEbsEncryptionByDefault
+-&gt; Request EnableEbsEncryptionByDefault
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; EnableEbsEncryptionByDefault
+-&gt; Request EnableEbsEncryptionByDefault
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621681198218"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy EnableEbsEncryptionByDefault
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableEbsEncryptionByDefault)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse EnableEbsEncryptionByDefault))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy EnableEbsEncryptionByDefault
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableEbsEncryptionByDefault)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681198215"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198215"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681198214"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681198214"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681198213"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681198213"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; EnableEbsEncryptionByDefaultResponse
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var">EnableEbsEncryptionByDefaultResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; EnableEbsEncryptionByDefaultResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; EnableEbsEncryptionByDefaultResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681198213"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebsEncryptionByDefault&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; EnableEbsEncryptionByDefaultResponse)
+-&gt; Either String Int
+-&gt; Either String EnableEbsEncryptionByDefaultResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198215"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681198205"><span id="local-6989586621681198207"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681198202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621681198198"><span class="annot"><span class="annottext">toHeaders :: EnableEbsEncryptionByDefault -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableEbsEncryptionByDefault -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681198193"><span class="annot"><span class="annottext">toPath :: EnableEbsEncryptionByDefault -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableEbsEncryptionByDefault -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681198189"><span class="annot"><span class="annottext">toQuery :: EnableEbsEncryptionByDefault -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefault%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681198187"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:EnableEbsEncryptionByDefault' :: EnableEbsEncryptionByDefault -&gt; Maybe Bool
+</span><a href="#local-6989586621681198187"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnableEbsEncryptionByDefault&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198187"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newEnableEbsEncryptionByDefaultResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621681198184"><span id="local-6989586621681198185"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableEbsEncryptionByDefaultResponse"><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-var">EnableEbsEncryptionByDefaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableEbsEncryptionByDefaultResponse%27"><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var">EnableEbsEncryptionByDefaultResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated status of encryption by default.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AebsEncryptionByDefault%3AEnableEbsEncryptionByDefaultResponse%27"><span class="annot"><span class="annottext">EnableEbsEncryptionByDefaultResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AebsEncryptionByDefault%3AEnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var hs-var">ebsEncryptionByDefault</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableEbsEncryptionByDefaultResponse%27"><span class="annot"><span class="annottext">EnableEbsEncryptionByDefaultResponse -&gt; Int
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AhttpStatus%3AEnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681198178"><span id="local-6989586621681198180"><span class="annot"><span class="annottext">EnableEbsEncryptionByDefaultResponse
+-&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool
+(EnableEbsEncryptionByDefaultResponse
+ -&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool)
+-&gt; (EnableEbsEncryptionByDefaultResponse
+    -&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool)
+-&gt; Eq EnableEbsEncryptionByDefaultResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableEbsEncryptionByDefaultResponse
+-&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool
+$c/= :: EnableEbsEncryptionByDefaultResponse
+-&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool
+== :: EnableEbsEncryptionByDefaultResponse
+-&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool
+$c== :: EnableEbsEncryptionByDefaultResponse
+-&gt; EnableEbsEncryptionByDefaultResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681198170"><span id="local-6989586621681198172"><span id="local-6989586621681198174"><span id="local-6989586621681198176"><span class="annot"><span class="annottext">ReadPrec [EnableEbsEncryptionByDefaultResponse]
+ReadPrec EnableEbsEncryptionByDefaultResponse
+Int -&gt; ReadS EnableEbsEncryptionByDefaultResponse
+ReadS [EnableEbsEncryptionByDefaultResponse]
+(Int -&gt; ReadS EnableEbsEncryptionByDefaultResponse)
+-&gt; ReadS [EnableEbsEncryptionByDefaultResponse]
+-&gt; ReadPrec EnableEbsEncryptionByDefaultResponse
+-&gt; ReadPrec [EnableEbsEncryptionByDefaultResponse]
+-&gt; Read EnableEbsEncryptionByDefaultResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableEbsEncryptionByDefaultResponse]
+$creadListPrec :: ReadPrec [EnableEbsEncryptionByDefaultResponse]
+readPrec :: ReadPrec EnableEbsEncryptionByDefaultResponse
+$creadPrec :: ReadPrec EnableEbsEncryptionByDefaultResponse
+readList :: ReadS [EnableEbsEncryptionByDefaultResponse]
+$creadList :: ReadS [EnableEbsEncryptionByDefaultResponse]
+readsPrec :: Int -&gt; ReadS EnableEbsEncryptionByDefaultResponse
+$creadsPrec :: Int -&gt; ReadS EnableEbsEncryptionByDefaultResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681198164"><span id="local-6989586621681198166"><span id="local-6989586621681198168"><span class="annot"><span class="annottext">Int -&gt; EnableEbsEncryptionByDefaultResponse -&gt; ShowS
+[EnableEbsEncryptionByDefaultResponse] -&gt; ShowS
+EnableEbsEncryptionByDefaultResponse -&gt; String
+(Int -&gt; EnableEbsEncryptionByDefaultResponse -&gt; ShowS)
+-&gt; (EnableEbsEncryptionByDefaultResponse -&gt; String)
+-&gt; ([EnableEbsEncryptionByDefaultResponse] -&gt; ShowS)
+-&gt; Show EnableEbsEncryptionByDefaultResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableEbsEncryptionByDefaultResponse] -&gt; ShowS
+$cshowList :: [EnableEbsEncryptionByDefaultResponse] -&gt; ShowS
+show :: EnableEbsEncryptionByDefaultResponse -&gt; String
+$cshow :: EnableEbsEncryptionByDefaultResponse -&gt; String
+showsPrec :: Int -&gt; EnableEbsEncryptionByDefaultResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableEbsEncryptionByDefaultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EnableEbsEncryptionByDefaultResponse
+ -&gt; Rep EnableEbsEncryptionByDefaultResponse x)
+-&gt; (forall x.
+    Rep EnableEbsEncryptionByDefaultResponse x
+    -&gt; EnableEbsEncryptionByDefaultResponse)
+-&gt; Generic EnableEbsEncryptionByDefaultResponse
+forall x.
+Rep EnableEbsEncryptionByDefaultResponse x
+-&gt; EnableEbsEncryptionByDefaultResponse
+forall x.
+EnableEbsEncryptionByDefaultResponse
+-&gt; Rep EnableEbsEncryptionByDefaultResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EnableEbsEncryptionByDefaultResponse x
+-&gt; EnableEbsEncryptionByDefaultResponse
+$cfrom :: forall x.
+EnableEbsEncryptionByDefaultResponse
+-&gt; Rep EnableEbsEncryptionByDefaultResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'EnableEbsEncryptionByDefaultResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'ebsEncryptionByDefault', 'enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault' - The updated status of encryption by default.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'httpStatus', 'enableEbsEncryptionByDefaultResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#newEnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">newEnableEbsEncryptionByDefaultResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span><span>
+</span><span id="line-166"></span><span id="newEnableEbsEncryptionByDefaultResponse"><span class="annot"><span class="annottext">newEnableEbsEncryptionByDefaultResponse :: Int -&gt; EnableEbsEncryptionByDefaultResponse
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#newEnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-var hs-var">newEnableEbsEncryptionByDefaultResponse</span></a></span></span><span> </span><span id="local-6989586621681198161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">EnableEbsEncryptionByDefaultResponse' :: Maybe Bool -&gt; Int -&gt; EnableEbsEncryptionByDefaultResponse
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ebsEncryptionByDefault:EnableEbsEncryptionByDefaultResponse' :: Maybe Bool
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AebsEncryptionByDefault%3AEnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var">ebsEncryptionByDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:EnableEbsEncryptionByDefaultResponse' :: Int
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AhttpStatus%3AEnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The updated status of encryption by default.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault"><span class="hs-identifier hs-type">enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault"><span class="annot"><span class="annottext">enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; EnableEbsEncryptionByDefaultResponse
+-&gt; f EnableEbsEncryptionByDefaultResponse
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault"><span class="hs-identifier hs-var hs-var">enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableEbsEncryptionByDefaultResponse -&gt; Maybe Bool)
+-&gt; (EnableEbsEncryptionByDefaultResponse
+    -&gt; Maybe Bool -&gt; EnableEbsEncryptionByDefaultResponse)
+-&gt; Lens
+     EnableEbsEncryptionByDefaultResponse
+     EnableEbsEncryptionByDefaultResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681198160"><span class="annot"><span class="annottext">Maybe Bool
+ebsEncryptionByDefault :: Maybe Bool
+$sel:ebsEncryptionByDefault:EnableEbsEncryptionByDefaultResponse' :: EnableEbsEncryptionByDefaultResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621681198160"><span class="hs-identifier hs-var hs-var">ebsEncryptionByDefault</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198160"><span class="hs-identifier hs-var">ebsEncryptionByDefault</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681198159"><span class="annot"><span class="annottext">s :: EnableEbsEncryptionByDefaultResponse
+</span><a href="#local-6989586621681198159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681198158"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEbsEncryptionByDefaultResponse
+</span><a href="#local-6989586621681198159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsEncryptionByDefault:EnableEbsEncryptionByDefaultResponse' :: Maybe Bool
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AebsEncryptionByDefault%3AEnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var">ebsEncryptionByDefault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681198158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefaultResponse_httpStatus"><span class="hs-identifier hs-type">enableEbsEncryptionByDefaultResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="enableEbsEncryptionByDefaultResponse_httpStatus"><span class="annot"><span class="annottext">enableEbsEncryptionByDefaultResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; EnableEbsEncryptionByDefaultResponse
+-&gt; f EnableEbsEncryptionByDefaultResponse
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#enableEbsEncryptionByDefaultResponse_httpStatus"><span class="hs-identifier hs-var hs-var">enableEbsEncryptionByDefaultResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableEbsEncryptionByDefaultResponse -&gt; Int)
+-&gt; (EnableEbsEncryptionByDefaultResponse
+    -&gt; Int -&gt; EnableEbsEncryptionByDefaultResponse)
+-&gt; Lens
+     EnableEbsEncryptionByDefaultResponse
+     EnableEbsEncryptionByDefaultResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681198157"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:EnableEbsEncryptionByDefaultResponse' :: EnableEbsEncryptionByDefaultResponse -&gt; Int
+</span><a href="#local-6989586621681198157"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198157"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681198156"><span class="annot"><span class="annottext">s :: EnableEbsEncryptionByDefaultResponse
+</span><a href="#local-6989586621681198156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681198155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEbsEncryptionByDefaultResponse
+</span><a href="#local-6989586621681198156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableEbsEncryptionByDefaultResponse' :: Int
+</span><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#%24sel%3AhttpStatus%3AEnableEbsEncryptionByDefaultResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681198155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621681198153"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.EnableEbsEncryptionByDefault.html#EnableEbsEncryptionByDefaultResponse"><span class="hs-identifier hs-type">EnableEbsEncryptionByDefaultResponse</span></a></span></span><span>
+</span><span id="line-184"></span></pre></body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.Types.DkimSigningAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.Types.DkimSigningAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that contains information about the tokens used for setting up</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Bring Your Own DKIM (BYODKIM).</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDkimSigningAttributes' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679324578"><span id="local-6989586621679324579"></span></span><span class="hs-keyword">data</span><span> </span><span id="DkimSigningAttributes"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-var">DkimSigningAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DkimSigningAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-var">DkimSigningAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that\'s used to identify a public key in the DNS configuration</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- for a domain.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdomainSigningSelector%3ADkimSigningAttributes%27"><span class="annot"><span class="annottext">DkimSigningAttributes -&gt; Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#%24sel%3AdomainSigningSelector%3ADkimSigningAttributes%27"><span class="hs-identifier hs-var hs-var">domainSigningSelector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A private key that\'s used to generate a DKIM signature.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- The private key must use 1024-bit RSA encryption, and must be encoded</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- using base64 encoding.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdomainSigningPrivateKey%3ADkimSigningAttributes%27"><span class="annot"><span class="annottext">DkimSigningAttributes -&gt; Sensitive Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#%24sel%3AdomainSigningPrivateKey%3ADkimSigningAttributes%27"><span class="hs-identifier hs-var hs-var">domainSigningPrivateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324571"><span id="local-6989586621679324573"><span class="annot"><span class="annottext">DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool
+(DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool)
+-&gt; (DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool)
+-&gt; Eq DkimSigningAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool
+$c/= :: DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool
+== :: DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool
+$c== :: DkimSigningAttributes -&gt; DkimSigningAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324564"><span id="local-6989586621679324566"><span id="local-6989586621679324568"><span class="annot"><span class="annottext">Int -&gt; DkimSigningAttributes -&gt; ShowS
+[DkimSigningAttributes] -&gt; ShowS
+DkimSigningAttributes -&gt; String
+(Int -&gt; DkimSigningAttributes -&gt; ShowS)
+-&gt; (DkimSigningAttributes -&gt; String)
+-&gt; ([DkimSigningAttributes] -&gt; ShowS)
+-&gt; Show DkimSigningAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DkimSigningAttributes] -&gt; ShowS
+$cshowList :: [DkimSigningAttributes] -&gt; ShowS
+show :: DkimSigningAttributes -&gt; String
+$cshow :: DkimSigningAttributes -&gt; String
+showsPrec :: Int -&gt; DkimSigningAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; DkimSigningAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DkimSigningAttributes -&gt; Rep DkimSigningAttributes x)
+-&gt; (forall x. Rep DkimSigningAttributes x -&gt; DkimSigningAttributes)
+-&gt; Generic DkimSigningAttributes
+forall x. Rep DkimSigningAttributes x -&gt; DkimSigningAttributes
+forall x. DkimSigningAttributes -&gt; Rep DkimSigningAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DkimSigningAttributes x -&gt; DkimSigningAttributes
+$cfrom :: forall x. DkimSigningAttributes -&gt; Rep DkimSigningAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'DkimSigningAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'domainSigningSelector', 'dkimSigningAttributes_domainSigningSelector' - A string that\'s used to identify a public key in the DNS configuration</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for a domain.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'domainSigningPrivateKey', 'dkimSigningAttributes_domainSigningPrivateKey' - A private key that\'s used to generate a DKIM signature.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The private key must use 1024-bit RSA encryption, and must be encoded</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- using base64 encoding.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#newDkimSigningAttributes"><span class="hs-identifier hs-type">newDkimSigningAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'domainSigningSelector'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'domainSigningPrivateKey'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span><span>
+</span><span id="line-63"></span><span id="newDkimSigningAttributes"><span class="annot"><span class="annottext">newDkimSigningAttributes :: Text -&gt; Text -&gt; DkimSigningAttributes
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#newDkimSigningAttributes"><span class="hs-identifier hs-var hs-var">newDkimSigningAttributes</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679324558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324558"><span class="hs-identifier hs-var">pDomainSigningSelector_</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679324557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324557"><span class="hs-identifier hs-var">pDomainSigningPrivateKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">DkimSigningAttributes' :: Text -&gt; Sensitive Text -&gt; DkimSigningAttributes
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-type">DkimSigningAttributes'</span></a></span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainSigningSelector:DkimSigningAttributes' :: Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#%24sel%3AdomainSigningSelector%3ADkimSigningAttributes%27"><span class="hs-identifier hs-var">domainSigningSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324558"><span class="hs-identifier hs-var">pDomainSigningSelector_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainSigningPrivateKey:DkimSigningAttributes' :: Sensitive Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#%24sel%3AdomainSigningPrivateKey%3ADkimSigningAttributes%27"><span class="hs-identifier hs-var">domainSigningPrivateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324557"><span class="hs-identifier hs-var">pDomainSigningPrivateKey_</span></a></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | A string that\'s used to identify a public key in the DNS configuration</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for a domain.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#dkimSigningAttributes_domainSigningSelector"><span class="hs-identifier hs-type">dkimSigningAttributes_domainSigningSelector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="dkimSigningAttributes_domainSigningSelector"><span class="annot"><span class="annottext">dkimSigningAttributes_domainSigningSelector :: (Text -&gt; f Text)
+-&gt; DkimSigningAttributes -&gt; f DkimSigningAttributes
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#dkimSigningAttributes_domainSigningSelector"><span class="hs-identifier hs-var hs-var">dkimSigningAttributes_domainSigningSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DkimSigningAttributes -&gt; Text)
+-&gt; (DkimSigningAttributes -&gt; Text -&gt; DkimSigningAttributes)
+-&gt; Lens DkimSigningAttributes DkimSigningAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-type">DkimSigningAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324551"><span class="annot"><span class="annottext">Text
+domainSigningSelector :: Text
+$sel:domainSigningSelector:DkimSigningAttributes' :: DkimSigningAttributes -&gt; Text
+</span><a href="#local-6989586621679324551"><span class="hs-identifier hs-var hs-var">domainSigningSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324551"><span class="hs-identifier hs-var">domainSigningSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324550"><span class="annot"><span class="annottext">s :: DkimSigningAttributes
+</span><a href="#local-6989586621679324550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-type">DkimSigningAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324549"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DkimSigningAttributes
+</span><a href="#local-6989586621679324550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainSigningSelector:DkimSigningAttributes' :: Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#%24sel%3AdomainSigningSelector%3ADkimSigningAttributes%27"><span class="hs-identifier hs-var">domainSigningSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | A private key that\'s used to generate a DKIM signature.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The private key must use 1024-bit RSA encryption, and must be encoded</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- using base64 encoding.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#dkimSigningAttributes_domainSigningPrivateKey"><span class="hs-identifier hs-type">dkimSigningAttributes_domainSigningPrivateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-83"></span><span id="dkimSigningAttributes_domainSigningPrivateKey"><span class="annot"><span class="annottext">dkimSigningAttributes_domainSigningPrivateKey :: (Text -&gt; f Text)
+-&gt; DkimSigningAttributes -&gt; f DkimSigningAttributes
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#dkimSigningAttributes_domainSigningPrivateKey"><span class="hs-identifier hs-var hs-var">dkimSigningAttributes_domainSigningPrivateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DkimSigningAttributes -&gt; Sensitive Text)
+-&gt; (DkimSigningAttributes
+    -&gt; Sensitive Text -&gt; DkimSigningAttributes)
+-&gt; Lens
+     DkimSigningAttributes
+     DkimSigningAttributes
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-type">DkimSigningAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324547"><span class="annot"><span class="annottext">Sensitive Text
+domainSigningPrivateKey :: Sensitive Text
+$sel:domainSigningPrivateKey:DkimSigningAttributes' :: DkimSigningAttributes -&gt; Sensitive Text
+</span><a href="#local-6989586621679324547"><span class="hs-identifier hs-var hs-var">domainSigningPrivateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324547"><span class="hs-identifier hs-var">domainSigningPrivateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324546"><span class="annot"><span class="annottext">s :: DkimSigningAttributes
+</span><a href="#local-6989586621679324546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-type">DkimSigningAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324545"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DkimSigningAttributes
+</span><a href="#local-6989586621679324546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainSigningPrivateKey:DkimSigningAttributes' :: Sensitive Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#%24sel%3AdomainSigningPrivateKey%3ADkimSigningAttributes%27"><span class="hs-identifier hs-var">domainSigningPrivateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; DkimSigningAttributes -&gt; f DkimSigningAttributes)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; DkimSigningAttributes
+-&gt; f DkimSigningAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324540"><span id="local-6989586621679324542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324529"><span id="local-6989586621679324531"><span id="local-6989586621679324533"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes"><span class="hs-identifier hs-type">DkimSigningAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679324527"><span class="annot"><span class="annottext">toJSON :: DkimSigningAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributes.html#DkimSigningAttributes%27"><span class="hs-identifier hs-type">DkimSigningAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324524"><span id="local-6989586621679324525"><span class="annot"><span class="annottext">Text
+Sensitive Text
+domainSigningPrivateKey :: Sensitive Text
+domainSigningSelector :: Text
+$sel:domainSigningPrivateKey:DkimSigningAttributes' :: DkimSigningAttributes -&gt; Sensitive Text
+$sel:domainSigningSelector:DkimSigningAttributes' :: DkimSigningAttributes -&gt; Text
+</span><a href="#local-6989586621679324524"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainSigningSelector&quot;</span></span><span>
+</span><span id="line-95"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324525"><span class="hs-identifier hs-var">domainSigningSelector</span></a></span><span>
+</span><span id="line-96"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainSigningPrivateKey&quot;</span></span><span>
+</span><span id="line-99"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679324524"><span class="hs-identifier hs-var">domainSigningPrivateKey</span></a></span><span>
+</span><span id="line-100"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span></pre></body></html>

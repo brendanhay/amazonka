@@ -1,0 +1,940 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SWF.RegisterWorkflowType</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers a new /workflow type/ and its configuration settings in the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified domain.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The retention period for the workflow history is set by the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- RegisterDomain action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- If the type already exists, then a @TypeAlreadyExists@ fault is</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- returned. You cannot change the configuration settings of a workflow</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- type once it is registered and it must be registered as a new version.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- __Access Control__</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- You can use IAM policies to control this action\'s access to Amazon SWF</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- resources as follows:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   Use a @Resource@ element with the domain name to limit the action to</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     only specified domains.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   Use an @Action@ element to allow or deny permission to call this</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     action.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   Constrain the following parameters by using a @Condition@ element</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     with the appropriate keys.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     -   @defaultTaskList.name@: String constraint. The key is</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--         @swf:defaultTaskList.name@.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     -   @name@: String constraint. The key is @swf:name@.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     -   @version@: String constraint. The key is @swf:version@.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- If the caller doesn\'t have sufficient permissions to invoke the action,</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- or the parameter values fall outside the specified constraints, the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- action fails. The associated event attribute\'s @cause@ parameter is set</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- to @OPERATION_NOT_PERMITTED@. For details and example IAM policies, see</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows&gt;</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SWF.RegisterWorkflowType</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#newRegisterWorkflowType"><span class="hs-identifier">newRegisterWorkflowType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultExecutionStartToCloseTimeout"><span class="hs-identifier">registerWorkflowType_defaultExecutionStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskPriority"><span class="hs-identifier">registerWorkflowType_defaultTaskPriority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskList"><span class="hs-identifier">registerWorkflowType_defaultTaskList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultChildPolicy"><span class="hs-identifier">registerWorkflowType_defaultChildPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_description"><span class="hs-identifier">registerWorkflowType_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskStartToCloseTimeout"><span class="hs-identifier">registerWorkflowType_defaultTaskStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultLambdaRole"><span class="hs-identifier">registerWorkflowType_defaultLambdaRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_domain"><span class="hs-identifier">registerWorkflowType_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_name"><span class="hs-identifier">registerWorkflowType_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_version"><span class="hs-identifier">registerWorkflowType_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse"><span class="hs-identifier">RegisterWorkflowTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#newRegisterWorkflowTypeResponse"><span class="hs-identifier">newRegisterWorkflowTypeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.html"><span class="hs-identifier">Network.AWS.SWF.Types</span></a></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | /See:/ 'newRegisterWorkflowType' smart constructor.</span><span>
+</span><span id="line-91"></span><span id="local-6989586621679360780"><span id="local-6989586621679360781"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterWorkflowType"><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-var">RegisterWorkflowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterWorkflowType%27"><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-var">RegisterWorkflowType'</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set, specifies the default maximum duration for executions of this</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- workflow type. You can override this default when starting an execution</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- through the StartWorkflowExecution Action or</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds; an integer greater than or equal</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- to 0. Unlike some of the other timeout parameters in Amazon SWF, you</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- cannot specify a value of \&quot;NONE\&quot; for</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- the time that a workflow execution can run. Exceeding this limit always</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- causes the workflow execution to time out.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AdefaultExecutionStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultExecutionStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">defaultExecutionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The default task priority to assign to the workflow type. If not</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- assigned, then @0@ is used. Valid values are integers that range from</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- Java\'s @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- (2147483647). Higher numbers indicate higher priority.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- For more information about setting task priority, see</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority&gt;</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AdefaultTaskPriority%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskPriority%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">defaultTaskPriority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | If set, specifies the default task list to use for scheduling decision</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- tasks for executions of this workflow type. This default is used only if</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- a task list isn\'t provided when starting the execution through the</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AdefaultTaskList%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe TaskList
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskList%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">defaultTaskList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TaskList.html#TaskList"><span class="hs-identifier hs-type">TaskList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | If set, specifies the default policy to use for the child workflow</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- executions when a workflow execution of this type is terminated, by</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- calling the TerminateWorkflowExecution action explicitly or due to an</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- expired timeout. This default can be overridden when starting a workflow</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- execution using the StartWorkflowExecution action or the</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- The supported child policies are:</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   @TERMINATE@ &#8211; The child executions are terminated.</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- -   @REQUEST_CANCEL@ &#8211; A request to cancel is attempted for each child</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     execution by recording a @WorkflowExecutionCancelRequested@ event in</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     its history. It is up to the decider to take appropriate actions</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--     when it receives an execution history with this event.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- -   @ABANDON@ &#8211; No action is taken. The child executions continue to</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--     run.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AdefaultChildPolicy%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe ChildPolicy
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultChildPolicy%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">defaultChildPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildPolicy.html#ChildPolicy"><span class="hs-identifier hs-type">ChildPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | Textual description of the workflow type.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Adescription%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Adescription%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | If set, specifies the default maximum duration of decision tasks for</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- this workflow type. This default can be overridden when starting a</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- workflow execution using the StartWorkflowExecution action or the</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AdefaultTaskStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">defaultTaskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The default IAM role attached to this workflow type.</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- Executions of this workflow type need IAM roles to invoke Lambda</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- functions. If you don\'t specify an IAM role when you start this</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- workflow type, the default Lambda role is attached to the execution. For</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html&gt;</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AdefaultLambdaRole%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultLambdaRole%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">defaultLambdaRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The name of the domain in which to register the workflow type.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Adomain%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Adomain%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The name of the workflow type.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Aname%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Aname%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The version of the workflow type.</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- The workflow type consists of the name and version, the combination of</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- which must be unique within the domain. To get a list of all currently</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- registered workflow types, use the ListWorkflowTypes action.</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3Aversion%3ARegisterWorkflowType%27"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Aversion%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360765"><span id="local-6989586621679360767"><span class="annot"><span class="annottext">RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool
+(RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool)
+-&gt; (RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool)
+-&gt; Eq RegisterWorkflowType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool
+$c/= :: RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool
+== :: RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool
+$c== :: RegisterWorkflowType -&gt; RegisterWorkflowType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360756"><span id="local-6989586621679360758"><span id="local-6989586621679360760"><span id="local-6989586621679360762"><span class="annot"><span class="annottext">ReadPrec [RegisterWorkflowType]
+ReadPrec RegisterWorkflowType
+Int -&gt; ReadS RegisterWorkflowType
+ReadS [RegisterWorkflowType]
+(Int -&gt; ReadS RegisterWorkflowType)
+-&gt; ReadS [RegisterWorkflowType]
+-&gt; ReadPrec RegisterWorkflowType
+-&gt; ReadPrec [RegisterWorkflowType]
+-&gt; Read RegisterWorkflowType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterWorkflowType]
+$creadListPrec :: ReadPrec [RegisterWorkflowType]
+readPrec :: ReadPrec RegisterWorkflowType
+$creadPrec :: ReadPrec RegisterWorkflowType
+readList :: ReadS [RegisterWorkflowType]
+$creadList :: ReadS [RegisterWorkflowType]
+readsPrec :: Int -&gt; ReadS RegisterWorkflowType
+$creadsPrec :: Int -&gt; ReadS RegisterWorkflowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360749"><span id="local-6989586621679360751"><span id="local-6989586621679360753"><span class="annot"><span class="annottext">Int -&gt; RegisterWorkflowType -&gt; ShowS
+[RegisterWorkflowType] -&gt; ShowS
+RegisterWorkflowType -&gt; String
+(Int -&gt; RegisterWorkflowType -&gt; ShowS)
+-&gt; (RegisterWorkflowType -&gt; String)
+-&gt; ([RegisterWorkflowType] -&gt; ShowS)
+-&gt; Show RegisterWorkflowType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterWorkflowType] -&gt; ShowS
+$cshowList :: [RegisterWorkflowType] -&gt; ShowS
+show :: RegisterWorkflowType -&gt; String
+$cshow :: RegisterWorkflowType -&gt; String
+showsPrec :: Int -&gt; RegisterWorkflowType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterWorkflowType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterWorkflowType -&gt; Rep RegisterWorkflowType x)
+-&gt; (forall x. Rep RegisterWorkflowType x -&gt; RegisterWorkflowType)
+-&gt; Generic RegisterWorkflowType
+forall x. Rep RegisterWorkflowType x -&gt; RegisterWorkflowType
+forall x. RegisterWorkflowType -&gt; Rep RegisterWorkflowType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterWorkflowType x -&gt; RegisterWorkflowType
+$cfrom :: forall x. RegisterWorkflowType -&gt; Rep RegisterWorkflowType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'RegisterWorkflowType' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'defaultExecutionStartToCloseTimeout', 'registerWorkflowType_defaultExecutionStartToCloseTimeout' - If set, specifies the default maximum duration for executions of this</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- workflow type. You can override this default when starting an execution</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- through the StartWorkflowExecution Action or</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The duration is specified in seconds; an integer greater than or equal</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- to 0. Unlike some of the other timeout parameters in Amazon SWF, you</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- cannot specify a value of \&quot;NONE\&quot; for</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- the time that a workflow execution can run. Exceeding this limit always</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- causes the workflow execution to time out.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'defaultTaskPriority', 'registerWorkflowType_defaultTaskPriority' - The default task priority to assign to the workflow type. If not</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- assigned, then @0@ is used. Valid values are integers that range from</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Java\'s @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- (2147483647). Higher numbers indicate higher priority.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- For more information about setting task priority, see</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority&gt;</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'defaultTaskList', 'registerWorkflowType_defaultTaskList' - If set, specifies the default task list to use for scheduling decision</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- tasks for executions of this workflow type. This default is used only if</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- a task list isn\'t provided when starting the execution through the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'defaultChildPolicy', 'registerWorkflowType_defaultChildPolicy' - If set, specifies the default policy to use for the child workflow</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- executions when a workflow execution of this type is terminated, by</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- calling the TerminateWorkflowExecution action explicitly or due to an</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- expired timeout. This default can be overridden when starting a workflow</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- execution using the StartWorkflowExecution action or the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The supported child policies are:</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   @TERMINATE@ &#8211; The child executions are terminated.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   @REQUEST_CANCEL@ &#8211; A request to cancel is attempted for each child</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     execution by recording a @WorkflowExecutionCancelRequested@ event in</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     its history. It is up to the decider to take appropriate actions</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     when it receives an execution history with this event.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   @ABANDON@ &#8211; No action is taken. The child executions continue to</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     run.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'description', 'registerWorkflowType_description' - Textual description of the workflow type.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'defaultTaskStartToCloseTimeout', 'registerWorkflowType_defaultTaskStartToCloseTimeout' - If set, specifies the default maximum duration of decision tasks for</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- this workflow type. This default can be overridden when starting a</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- workflow execution using the StartWorkflowExecution action or the</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'defaultLambdaRole', 'registerWorkflowType_defaultLambdaRole' - The default IAM role attached to this workflow type.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Executions of this workflow type need IAM roles to invoke Lambda</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- functions. If you don\'t specify an IAM role when you start this</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- workflow type, the default Lambda role is attached to the execution. For</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html&gt;</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'domain', 'registerWorkflowType_domain' - The name of the domain in which to register the workflow type.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'name', 'registerWorkflowType_name' - The name of the workflow type.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'version', 'registerWorkflowType_version' - The version of the workflow type.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- The workflow type consists of the name and version, the combination of</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- which must be unique within the domain. To get a list of all currently</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- registered workflow types, use the ListWorkflowTypes action.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#newRegisterWorkflowType"><span class="hs-identifier hs-type">newRegisterWorkflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-272"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-comment">-- | 'version'</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span>
+</span><span id="line-278"></span><span id="newRegisterWorkflowType"><span class="annot"><span class="annottext">newRegisterWorkflowType :: Text -&gt; Text -&gt; Text -&gt; RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#newRegisterWorkflowType"><span class="hs-identifier hs-var hs-var">newRegisterWorkflowType</span></a></span></span><span> </span><span id="local-6989586621679360744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360744"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span> </span><span id="local-6989586621679360743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360743"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679360742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360742"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>  </span><span class="annot"><span class="annottext">RegisterWorkflowType' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TaskList
+-&gt; Maybe ChildPolicy
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultExecutionStartToCloseTimeout:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultExecutionStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultExecutionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultTaskPriority:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskPriority%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultTaskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultTaskList:RegisterWorkflowType' :: Maybe TaskList
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskList%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultTaskList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultChildPolicy:RegisterWorkflowType' :: Maybe ChildPolicy
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultChildPolicy%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultChildPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Adescription%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultTaskStartToCloseTimeout:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultTaskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultLambdaRole:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultLambdaRole%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultLambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:RegisterWorkflowType' :: Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Adomain%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360744"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RegisterWorkflowType' :: Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Aname%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360743"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:RegisterWorkflowType' :: Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Aversion%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360742"><span class="hs-identifier hs-var">pVersion_</span></a></span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | If set, specifies the default maximum duration for executions of this</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- workflow type. You can override this default when starting an execution</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- through the StartWorkflowExecution Action or</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- The duration is specified in seconds; an integer greater than or equal</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- to 0. Unlike some of the other timeout parameters in Amazon SWF, you</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- cannot specify a value of \&quot;NONE\&quot; for</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- the time that a workflow execution can run. Exceeding this limit always</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- causes the workflow execution to time out.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultExecutionStartToCloseTimeout"><span class="hs-identifier hs-type">registerWorkflowType_defaultExecutionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="registerWorkflowType_defaultExecutionStartToCloseTimeout"><span class="annot"><span class="annottext">registerWorkflowType_defaultExecutionStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultExecutionStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">registerWorkflowType_defaultExecutionStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe Text)
+-&gt; (RegisterWorkflowType -&gt; Maybe Text -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType RegisterWorkflowType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360739"><span class="annot"><span class="annottext">Maybe Text
+defaultExecutionStartToCloseTimeout :: Maybe Text
+$sel:defaultExecutionStartToCloseTimeout:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+</span><a href="#local-6989586621679360739"><span class="hs-identifier hs-var hs-var">defaultExecutionStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360739"><span class="hs-identifier hs-var">defaultExecutionStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360738"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultExecutionStartToCloseTimeout:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultExecutionStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultExecutionStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | The default task priority to assign to the workflow type. If not</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- assigned, then @0@ is used. Valid values are integers that range from</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- Java\'s @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- (2147483647). Higher numbers indicate higher priority.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- For more information about setting task priority, see</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority&gt;</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskPriority"><span class="hs-identifier hs-type">registerWorkflowType_defaultTaskPriority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="registerWorkflowType_defaultTaskPriority"><span class="annot"><span class="annottext">registerWorkflowType_defaultTaskPriority :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskPriority"><span class="hs-identifier hs-var hs-var">registerWorkflowType_defaultTaskPriority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe Text)
+-&gt; (RegisterWorkflowType -&gt; Maybe Text -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType RegisterWorkflowType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360736"><span class="annot"><span class="annottext">Maybe Text
+defaultTaskPriority :: Maybe Text
+$sel:defaultTaskPriority:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+</span><a href="#local-6989586621679360736"><span class="hs-identifier hs-var hs-var">defaultTaskPriority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360736"><span class="hs-identifier hs-var">defaultTaskPriority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360735"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360734"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTaskPriority:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskPriority%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultTaskPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | If set, specifies the default task list to use for scheduling decision</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- tasks for executions of this workflow type. This default is used only if</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- a task list isn\'t provided when starting the execution through the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskList"><span class="hs-identifier hs-type">registerWorkflowType_defaultTaskList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.TaskList.html#TaskList"><span class="hs-identifier hs-type">TaskList</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span id="registerWorkflowType_defaultTaskList"><span class="annot"><span class="annottext">registerWorkflowType_defaultTaskList :: (Maybe TaskList -&gt; f (Maybe TaskList))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskList"><span class="hs-identifier hs-var hs-var">registerWorkflowType_defaultTaskList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe TaskList)
+-&gt; (RegisterWorkflowType -&gt; Maybe TaskList -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType
+     RegisterWorkflowType
+     (Maybe TaskList)
+     (Maybe TaskList)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360733"><span class="annot"><span class="annottext">Maybe TaskList
+defaultTaskList :: Maybe TaskList
+$sel:defaultTaskList:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe TaskList
+</span><a href="#local-6989586621679360733"><span class="hs-identifier hs-var hs-var">defaultTaskList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679360733"><span class="hs-identifier hs-var">defaultTaskList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360732"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360731"><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679360731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTaskList:RegisterWorkflowType' :: Maybe TaskList
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskList%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultTaskList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679360731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | If set, specifies the default policy to use for the child workflow</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- executions when a workflow execution of this type is terminated, by</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- calling the TerminateWorkflowExecution action explicitly or due to an</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- expired timeout. This default can be overridden when starting a workflow</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- execution using the StartWorkflowExecution action or the</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- The supported child policies are:</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- -   @TERMINATE@ &#8211; The child executions are terminated.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- -   @REQUEST_CANCEL@ &#8211; A request to cancel is attempted for each child</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     execution by recording a @WorkflowExecutionCancelRequested@ event in</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     its history. It is up to the decider to take appropriate actions</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     when it receives an execution history with this event.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- -   @ABANDON@ &#8211; No action is taken. The child executions continue to</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     run.</span><span>
+</span><span id="line-343"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultChildPolicy"><span class="hs-identifier hs-type">registerWorkflowType_defaultChildPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildPolicy.html#ChildPolicy"><span class="hs-identifier hs-type">ChildPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span id="registerWorkflowType_defaultChildPolicy"><span class="annot"><span class="annottext">registerWorkflowType_defaultChildPolicy :: (Maybe ChildPolicy -&gt; f (Maybe ChildPolicy))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultChildPolicy"><span class="hs-identifier hs-var hs-var">registerWorkflowType_defaultChildPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe ChildPolicy)
+-&gt; (RegisterWorkflowType
+    -&gt; Maybe ChildPolicy -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType
+     RegisterWorkflowType
+     (Maybe ChildPolicy)
+     (Maybe ChildPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360730"><span class="annot"><span class="annottext">Maybe ChildPolicy
+defaultChildPolicy :: Maybe ChildPolicy
+$sel:defaultChildPolicy:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe ChildPolicy
+</span><a href="#local-6989586621679360730"><span class="hs-identifier hs-var hs-var">defaultChildPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679360730"><span class="hs-identifier hs-var">defaultChildPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360729"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360728"><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679360728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultChildPolicy:RegisterWorkflowType' :: Maybe ChildPolicy
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultChildPolicy%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultChildPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679360728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | Textual description of the workflow type.</span><span>
+</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_description"><span class="hs-identifier hs-type">registerWorkflowType_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span id="registerWorkflowType_description"><span class="annot"><span class="annottext">registerWorkflowType_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_description"><span class="hs-identifier hs-var hs-var">registerWorkflowType_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe Text)
+-&gt; (RegisterWorkflowType -&gt; Maybe Text -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType RegisterWorkflowType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360727"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+</span><a href="#local-6989586621679360727"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360727"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360726"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Adescription%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- | If set, specifies the default maximum duration of decision tasks for</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- this workflow type. This default can be overridden when starting a</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- workflow execution using the StartWorkflowExecution action or the</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- @StartChildWorkflowExecution@ Decision.</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- The duration is specified in seconds, an integer greater than or equal</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- to @0@. You can use @NONE@ to specify unlimited duration.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskStartToCloseTimeout"><span class="hs-identifier hs-type">registerWorkflowType_defaultTaskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="registerWorkflowType_defaultTaskStartToCloseTimeout"><span class="annot"><span class="annottext">registerWorkflowType_defaultTaskStartToCloseTimeout :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultTaskStartToCloseTimeout"><span class="hs-identifier hs-var hs-var">registerWorkflowType_defaultTaskStartToCloseTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe Text)
+-&gt; (RegisterWorkflowType -&gt; Maybe Text -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType RegisterWorkflowType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360724"><span class="annot"><span class="annottext">Maybe Text
+defaultTaskStartToCloseTimeout :: Maybe Text
+$sel:defaultTaskStartToCloseTimeout:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+</span><a href="#local-6989586621679360724"><span class="hs-identifier hs-var hs-var">defaultTaskStartToCloseTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360724"><span class="hs-identifier hs-var">defaultTaskStartToCloseTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360723"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTaskStartToCloseTimeout:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultTaskStartToCloseTimeout%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultTaskStartToCloseTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The default IAM role attached to this workflow type.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- Executions of this workflow type need IAM roles to invoke Lambda</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- functions. If you don\'t specify an IAM role when you start this</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- workflow type, the default Lambda role is attached to the execution. For</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html&gt;</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultLambdaRole"><span class="hs-identifier hs-type">registerWorkflowType_defaultLambdaRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span id="registerWorkflowType_defaultLambdaRole"><span class="annot"><span class="annottext">registerWorkflowType_defaultLambdaRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_defaultLambdaRole"><span class="hs-identifier hs-var hs-var">registerWorkflowType_defaultLambdaRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Maybe Text)
+-&gt; (RegisterWorkflowType -&gt; Maybe Text -&gt; RegisterWorkflowType)
+-&gt; Lens
+     RegisterWorkflowType RegisterWorkflowType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360721"><span class="annot"><span class="annottext">Maybe Text
+defaultLambdaRole :: Maybe Text
+$sel:defaultLambdaRole:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+</span><a href="#local-6989586621679360721"><span class="hs-identifier hs-var hs-var">defaultLambdaRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360721"><span class="hs-identifier hs-var">defaultLambdaRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360720"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultLambdaRole:RegisterWorkflowType' :: Maybe Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3AdefaultLambdaRole%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">defaultLambdaRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- | The name of the domain in which to register the workflow type.</span><span>
+</span><span id="line-372"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_domain"><span class="hs-identifier hs-type">registerWorkflowType_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-373"></span><span id="registerWorkflowType_domain"><span class="annot"><span class="annottext">registerWorkflowType_domain :: (Text -&gt; f Text) -&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_domain"><span class="hs-identifier hs-var hs-var">registerWorkflowType_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Text)
+-&gt; (RegisterWorkflowType -&gt; Text -&gt; RegisterWorkflowType)
+-&gt; Lens RegisterWorkflowType RegisterWorkflowType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360718"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Text
+</span><a href="#local-6989586621679360718"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360718"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360717"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:RegisterWorkflowType' :: Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Adomain%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- | The name of the workflow type.</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-381"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_name"><span class="hs-identifier hs-type">registerWorkflowType_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-382"></span><span id="registerWorkflowType_name"><span class="annot"><span class="annottext">registerWorkflowType_name :: (Text -&gt; f Text) -&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_name"><span class="hs-identifier hs-var hs-var">registerWorkflowType_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Text)
+-&gt; (RegisterWorkflowType -&gt; Text -&gt; RegisterWorkflowType)
+-&gt; Lens RegisterWorkflowType RegisterWorkflowType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360715"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Text
+</span><a href="#local-6989586621679360715"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360715"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360714"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360713"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RegisterWorkflowType' :: Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Aname%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- | The version of the workflow type.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- The workflow type consists of the name and version, the combination of</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- which must be unique within the domain. To get a list of all currently</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- registered workflow types, use the ListWorkflowTypes action.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- The specified string must not start or end with whitespace. It must not</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- /be/ the literal string @arn@.</span><span>
+</span><span id="line-394"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_version"><span class="hs-identifier hs-type">registerWorkflowType_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-395"></span><span id="registerWorkflowType_version"><span class="annot"><span class="annottext">registerWorkflowType_version :: (Text -&gt; f Text) -&gt; RegisterWorkflowType -&gt; f RegisterWorkflowType
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#registerWorkflowType_version"><span class="hs-identifier hs-var hs-var">registerWorkflowType_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterWorkflowType -&gt; Text)
+-&gt; (RegisterWorkflowType -&gt; Text -&gt; RegisterWorkflowType)
+-&gt; Lens RegisterWorkflowType RegisterWorkflowType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360712"><span class="annot"><span class="annottext">Text
+version :: Text
+$sel:version:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Text
+</span><a href="#local-6989586621679360712"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360712"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360711"><span class="annot"><span class="annottext">s :: RegisterWorkflowType
+</span><a href="#local-6989586621679360711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterWorkflowType
+</span><a href="#local-6989586621679360711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:RegisterWorkflowType' :: Text
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#%24sel%3Aversion%3ARegisterWorkflowType%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-398"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-399"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-400"></span><span>      </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse"><span class="hs-identifier hs-type">RegisterWorkflowTypeResponse</span></a></span><span>
+</span><span id="line-401"></span><span>  </span><span id="local-6989586621679360706"><span class="annot"><span class="annottext">request :: RegisterWorkflowType -&gt; Request RegisterWorkflowType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterWorkflowType -&gt; Request RegisterWorkflowType
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SWF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-402"></span><span>  </span><span id="local-6989586621679360702"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterWorkflowType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterWorkflowType)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse RegisterWorkflowType
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterWorkflowType
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterWorkflowType)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse RegisterWorkflowType
+RegisterWorkflowTypeResponse
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse%27"><span class="hs-identifier hs-var">RegisterWorkflowTypeResponse'</span></a></span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360695"><span id="local-6989586621679360697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span></span></span><span>
+</span><span id="line-406"></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span></span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-410"></span><span>  </span><span id="local-6989586621679360688"><span class="annot"><span class="annottext">toHeaders :: RegisterWorkflowType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-411"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RegisterWorkflowType -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-412"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-413"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-414"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SimpleWorkflowService.RegisterWorkflowType&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-415"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-416"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-418"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-419"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-420"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-422"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360678"><span id="local-6989586621679360680"><span id="local-6989586621679360682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-425"></span><span>  </span><span id="local-6989586621679360676"><span class="annot"><span class="annottext">toJSON :: RegisterWorkflowType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType%27"><span class="hs-identifier hs-type">RegisterWorkflowType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360665"><span id="local-6989586621679360666"><span id="local-6989586621679360667"><span id="local-6989586621679360668"><span id="local-6989586621679360669"><span id="local-6989586621679360670"><span id="local-6989586621679360671"><span id="local-6989586621679360672"><span id="local-6989586621679360673"><span id="local-6989586621679360674"><span class="annot"><span class="annottext">Maybe Text
+Maybe ChildPolicy
+Maybe TaskList
+Text
+version :: Text
+name :: Text
+domain :: Text
+defaultLambdaRole :: Maybe Text
+defaultTaskStartToCloseTimeout :: Maybe Text
+description :: Maybe Text
+defaultChildPolicy :: Maybe ChildPolicy
+defaultTaskList :: Maybe TaskList
+defaultTaskPriority :: Maybe Text
+defaultExecutionStartToCloseTimeout :: Maybe Text
+$sel:version:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Text
+$sel:name:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Text
+$sel:domain:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Text
+$sel:defaultLambdaRole:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+$sel:defaultTaskStartToCloseTimeout:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+$sel:description:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+$sel:defaultChildPolicy:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe ChildPolicy
+$sel:defaultTaskList:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe TaskList
+$sel:defaultTaskPriority:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+$sel:defaultExecutionStartToCloseTimeout:RegisterWorkflowType' :: RegisterWorkflowType -&gt; Maybe Text
+</span><a href="#local-6989586621679360665"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-427"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-428"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultExecutionStartToCloseTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360674"><span class="hs-identifier hs-var">defaultExecutionStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultTaskPriority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360673"><span class="hs-identifier hs-var">defaultTaskPriority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultTaskList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskList -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-433"></span><span>              </span><span class="annot"><span class="annottext">(TaskList -&gt; Pair) -&gt; Maybe TaskList -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskList
+</span><a href="#local-6989586621679360672"><span class="hs-identifier hs-var">defaultTaskList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultChildPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChildPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-435"></span><span>              </span><span class="annot"><span class="annottext">(ChildPolicy -&gt; Pair) -&gt; Maybe ChildPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ChildPolicy
+</span><a href="#local-6989586621679360671"><span class="hs-identifier hs-var">defaultChildPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-436"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360670"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-437"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultTaskStartToCloseTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360669"><span class="hs-identifier hs-var">defaultTaskStartToCloseTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultLambdaRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-440"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360668"><span class="hs-identifier hs-var">defaultLambdaRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-441"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360667"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-442"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360666"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-443"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360665"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-444"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-445"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-446"></span><span>
+</span><span id="line-447"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-448"></span><span>  </span><span id="local-6989586621679360658"><span class="annot"><span class="annottext">toPath :: RegisterWorkflowType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterWorkflowType -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowType"><span class="hs-identifier hs-type">RegisterWorkflowType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-451"></span><span>  </span><span id="local-6989586621679360654"><span class="annot"><span class="annottext">toQuery :: RegisterWorkflowType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterWorkflowType -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-452"></span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- | /See:/ 'newRegisterWorkflowTypeResponse' smart constructor.</span><span>
+</span><span id="line-454"></span><span id="local-6989586621679360651"><span id="local-6989586621679360652"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterWorkflowTypeResponse"><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse"><span class="hs-identifier hs-var">RegisterWorkflowTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterWorkflowTypeResponse%27"><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse%27"><span class="hs-identifier hs-var">RegisterWorkflowTypeResponse'</span></a></span></span><span>
+</span><span id="line-455"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-456"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-457"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360647"><span id="local-6989586621679360649"><span class="annot"><span class="annottext">RegisterWorkflowTypeResponse
+-&gt; RegisterWorkflowTypeResponse -&gt; Bool
+(RegisterWorkflowTypeResponse
+ -&gt; RegisterWorkflowTypeResponse -&gt; Bool)
+-&gt; (RegisterWorkflowTypeResponse
+    -&gt; RegisterWorkflowTypeResponse -&gt; Bool)
+-&gt; Eq RegisterWorkflowTypeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterWorkflowTypeResponse
+-&gt; RegisterWorkflowTypeResponse -&gt; Bool
+$c/= :: RegisterWorkflowTypeResponse
+-&gt; RegisterWorkflowTypeResponse -&gt; Bool
+== :: RegisterWorkflowTypeResponse
+-&gt; RegisterWorkflowTypeResponse -&gt; Bool
+$c== :: RegisterWorkflowTypeResponse
+-&gt; RegisterWorkflowTypeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360639"><span id="local-6989586621679360641"><span id="local-6989586621679360643"><span id="local-6989586621679360645"><span class="annot"><span class="annottext">ReadPrec [RegisterWorkflowTypeResponse]
+ReadPrec RegisterWorkflowTypeResponse
+Int -&gt; ReadS RegisterWorkflowTypeResponse
+ReadS [RegisterWorkflowTypeResponse]
+(Int -&gt; ReadS RegisterWorkflowTypeResponse)
+-&gt; ReadS [RegisterWorkflowTypeResponse]
+-&gt; ReadPrec RegisterWorkflowTypeResponse
+-&gt; ReadPrec [RegisterWorkflowTypeResponse]
+-&gt; Read RegisterWorkflowTypeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterWorkflowTypeResponse]
+$creadListPrec :: ReadPrec [RegisterWorkflowTypeResponse]
+readPrec :: ReadPrec RegisterWorkflowTypeResponse
+$creadPrec :: ReadPrec RegisterWorkflowTypeResponse
+readList :: ReadS [RegisterWorkflowTypeResponse]
+$creadList :: ReadS [RegisterWorkflowTypeResponse]
+readsPrec :: Int -&gt; ReadS RegisterWorkflowTypeResponse
+$creadsPrec :: Int -&gt; ReadS RegisterWorkflowTypeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360633"><span id="local-6989586621679360635"><span id="local-6989586621679360637"><span class="annot"><span class="annottext">Int -&gt; RegisterWorkflowTypeResponse -&gt; ShowS
+[RegisterWorkflowTypeResponse] -&gt; ShowS
+RegisterWorkflowTypeResponse -&gt; String
+(Int -&gt; RegisterWorkflowTypeResponse -&gt; ShowS)
+-&gt; (RegisterWorkflowTypeResponse -&gt; String)
+-&gt; ([RegisterWorkflowTypeResponse] -&gt; ShowS)
+-&gt; Show RegisterWorkflowTypeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterWorkflowTypeResponse] -&gt; ShowS
+$cshowList :: [RegisterWorkflowTypeResponse] -&gt; ShowS
+show :: RegisterWorkflowTypeResponse -&gt; String
+$cshow :: RegisterWorkflowTypeResponse -&gt; String
+showsPrec :: Int -&gt; RegisterWorkflowTypeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterWorkflowTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterWorkflowTypeResponse -&gt; Rep RegisterWorkflowTypeResponse x)
+-&gt; (forall x.
+    Rep RegisterWorkflowTypeResponse x -&gt; RegisterWorkflowTypeResponse)
+-&gt; Generic RegisterWorkflowTypeResponse
+forall x.
+Rep RegisterWorkflowTypeResponse x -&gt; RegisterWorkflowTypeResponse
+forall x.
+RegisterWorkflowTypeResponse -&gt; Rep RegisterWorkflowTypeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterWorkflowTypeResponse x -&gt; RegisterWorkflowTypeResponse
+$cfrom :: forall x.
+RegisterWorkflowTypeResponse -&gt; Rep RegisterWorkflowTypeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-458"></span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- Create a value of 'RegisterWorkflowTypeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-463"></span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#newRegisterWorkflowTypeResponse"><span class="hs-identifier hs-type">newRegisterWorkflowTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-464"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse"><span class="hs-identifier hs-type">RegisterWorkflowTypeResponse</span></a></span><span>
+</span><span id="line-465"></span><span id="newRegisterWorkflowTypeResponse"><span class="annot"><span class="annottext">newRegisterWorkflowTypeResponse :: RegisterWorkflowTypeResponse
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#newRegisterWorkflowTypeResponse"><span class="hs-identifier hs-var hs-var">newRegisterWorkflowTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-466"></span><span>  </span><span class="annot"><span class="annottext">RegisterWorkflowTypeResponse
+</span><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse%27"><span class="hs-identifier hs-var">RegisterWorkflowTypeResponse'</span></a></span><span>
+</span><span id="line-467"></span><span>
+</span><span id="line-468"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.RegisterWorkflowType.html#RegisterWorkflowTypeResponse"><span class="hs-identifier hs-type">RegisterWorkflowTypeResponse</span></a></span></span><span>
+</span><span id="line-469"></span></pre></body></html>

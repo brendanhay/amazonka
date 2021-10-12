@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.InputSerialization</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.InputSerialization</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html"><span class="hs-identifier">Network.AWS.S3.Types.CSVInput</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompressionType.html"><span class="hs-identifier">Network.AWS.S3.Types.CompressionType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html"><span class="hs-identifier">Network.AWS.S3.Types.JSONInput</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ParquetInput.html"><span class="hs-identifier">Network.AWS.S3.Types.ParquetInput</span></a></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Describes the serialization format of the object.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newInputSerialization' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679547320"><span id="local-6989586621679547321"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSerialization"><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-var">InputSerialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSerialization%27"><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-var">InputSerialization'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies Parquet as object\'s input serialization format.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aparquet%3AInputSerialization%27"><span class="annot"><span class="annottext">InputSerialization -&gt; Maybe ParquetInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Aparquet%3AInputSerialization%27"><span class="hs-identifier hs-var hs-var">parquet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ParquetInput.html#ParquetInput"><span class="hs-identifier hs-type">ParquetInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Describes the serialization of a CSV-encoded object.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acsv%3AInputSerialization%27"><span class="annot"><span class="annottext">InputSerialization -&gt; Maybe CSVInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Acsv%3AInputSerialization%27"><span class="hs-identifier hs-var hs-var">csv</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies JSON as object\'s input serialization format.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Ajson%3AInputSerialization%27"><span class="annot"><span class="annottext">InputSerialization -&gt; Maybe JSONInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Ajson%3AInputSerialization%27"><span class="hs-identifier hs-var hs-var">json</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Default Value: NONE.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcompressionType%3AInputSerialization%27"><span class="annot"><span class="annottext">InputSerialization -&gt; Maybe CompressionType
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3AcompressionType%3AInputSerialization%27"><span class="hs-identifier hs-var hs-var">compressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-type">CompressionType</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547311"><span id="local-6989586621679547313"><span class="annot"><span class="annottext">InputSerialization -&gt; InputSerialization -&gt; Bool
+(InputSerialization -&gt; InputSerialization -&gt; Bool)
+-&gt; (InputSerialization -&gt; InputSerialization -&gt; Bool)
+-&gt; Eq InputSerialization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputSerialization -&gt; InputSerialization -&gt; Bool
+$c/= :: InputSerialization -&gt; InputSerialization -&gt; Bool
+== :: InputSerialization -&gt; InputSerialization -&gt; Bool
+$c== :: InputSerialization -&gt; InputSerialization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547302"><span id="local-6989586621679547304"><span id="local-6989586621679547306"><span id="local-6989586621679547308"><span class="annot"><span class="annottext">ReadPrec [InputSerialization]
+ReadPrec InputSerialization
+Int -&gt; ReadS InputSerialization
+ReadS [InputSerialization]
+(Int -&gt; ReadS InputSerialization)
+-&gt; ReadS [InputSerialization]
+-&gt; ReadPrec InputSerialization
+-&gt; ReadPrec [InputSerialization]
+-&gt; Read InputSerialization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputSerialization]
+$creadListPrec :: ReadPrec [InputSerialization]
+readPrec :: ReadPrec InputSerialization
+$creadPrec :: ReadPrec InputSerialization
+readList :: ReadS [InputSerialization]
+$creadList :: ReadS [InputSerialization]
+readsPrec :: Int -&gt; ReadS InputSerialization
+$creadsPrec :: Int -&gt; ReadS InputSerialization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547295"><span id="local-6989586621679547297"><span id="local-6989586621679547299"><span class="annot"><span class="annottext">Int -&gt; InputSerialization -&gt; ShowS
+[InputSerialization] -&gt; ShowS
+InputSerialization -&gt; String
+(Int -&gt; InputSerialization -&gt; ShowS)
+-&gt; (InputSerialization -&gt; String)
+-&gt; ([InputSerialization] -&gt; ShowS)
+-&gt; Show InputSerialization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputSerialization] -&gt; ShowS
+$cshowList :: [InputSerialization] -&gt; ShowS
+show :: InputSerialization -&gt; String
+$cshow :: InputSerialization -&gt; String
+showsPrec :: Int -&gt; InputSerialization -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputSerialization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputSerialization -&gt; Rep InputSerialization x)
+-&gt; (forall x. Rep InputSerialization x -&gt; InputSerialization)
+-&gt; Generic InputSerialization
+forall x. Rep InputSerialization x -&gt; InputSerialization
+forall x. InputSerialization -&gt; Rep InputSerialization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputSerialization x -&gt; InputSerialization
+$cfrom :: forall x. InputSerialization -&gt; Rep InputSerialization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'InputSerialization' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'parquet', 'inputSerialization_parquet' - Specifies Parquet as object\'s input serialization format.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'csv', 'inputSerialization_csv' - Describes the serialization of a CSV-encoded object.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'json', 'inputSerialization_json' - Specifies JSON as object\'s input serialization format.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'compressionType', 'inputSerialization_compressionType' - Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Default Value: NONE.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#newInputSerialization"><span class="hs-identifier hs-type">newInputSerialization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span>
+</span><span id="line-65"></span><span id="newInputSerialization"><span class="annot"><span class="annottext">newInputSerialization :: InputSerialization
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#newInputSerialization"><span class="hs-identifier hs-var hs-var">newInputSerialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">InputSerialization' :: Maybe ParquetInput
+-&gt; Maybe CSVInput
+-&gt; Maybe JSONInput
+-&gt; Maybe CompressionType
+-&gt; InputSerialization
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parquet:InputSerialization' :: Maybe ParquetInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Aparquet%3AInputSerialization%27"><span class="hs-identifier hs-var">parquet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:csv:InputSerialization' :: Maybe CSVInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Acsv%3AInputSerialization%27"><span class="hs-identifier hs-var">csv</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:json:InputSerialization' :: Maybe JSONInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Ajson%3AInputSerialization%27"><span class="hs-identifier hs-var">json</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JSONInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:compressionType:InputSerialization' :: Maybe CompressionType
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3AcompressionType%3AInputSerialization%27"><span class="hs-identifier hs-var">compressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Specifies Parquet as object\'s input serialization format.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_parquet"><span class="hs-identifier hs-type">inputSerialization_parquet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ParquetInput.html#ParquetInput"><span class="hs-identifier hs-type">ParquetInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="inputSerialization_parquet"><span class="annot"><span class="annottext">inputSerialization_parquet :: (Maybe ParquetInput -&gt; f (Maybe ParquetInput))
+-&gt; InputSerialization -&gt; f InputSerialization
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_parquet"><span class="hs-identifier hs-var hs-var">inputSerialization_parquet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSerialization -&gt; Maybe ParquetInput)
+-&gt; (InputSerialization -&gt; Maybe ParquetInput -&gt; InputSerialization)
+-&gt; Lens
+     InputSerialization
+     InputSerialization
+     (Maybe ParquetInput)
+     (Maybe ParquetInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547286"><span class="annot"><span class="annottext">Maybe ParquetInput
+parquet :: Maybe ParquetInput
+$sel:parquet:InputSerialization' :: InputSerialization -&gt; Maybe ParquetInput
+</span><a href="#local-6989586621679547286"><span class="hs-identifier hs-var hs-var">parquet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetInput
+</span><a href="#local-6989586621679547286"><span class="hs-identifier hs-var">parquet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547285"><span class="annot"><span class="annottext">s :: InputSerialization
+</span><a href="#local-6989586621679547285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547284"><span class="annot"><span class="annottext">Maybe ParquetInput
+</span><a href="#local-6989586621679547284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679547285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parquet:InputSerialization' :: Maybe ParquetInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Aparquet%3AInputSerialization%27"><span class="hs-identifier hs-var">parquet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetInput
+</span><a href="#local-6989586621679547284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Describes the serialization of a CSV-encoded object.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_csv"><span class="hs-identifier hs-type">inputSerialization_csv</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CSVInput.html#CSVInput"><span class="hs-identifier hs-type">CSVInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="inputSerialization_csv"><span class="annot"><span class="annottext">inputSerialization_csv :: (Maybe CSVInput -&gt; f (Maybe CSVInput))
+-&gt; InputSerialization -&gt; f InputSerialization
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_csv"><span class="hs-identifier hs-var hs-var">inputSerialization_csv</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSerialization -&gt; Maybe CSVInput)
+-&gt; (InputSerialization -&gt; Maybe CSVInput -&gt; InputSerialization)
+-&gt; Lens
+     InputSerialization
+     InputSerialization
+     (Maybe CSVInput)
+     (Maybe CSVInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547282"><span class="annot"><span class="annottext">Maybe CSVInput
+csv :: Maybe CSVInput
+$sel:csv:InputSerialization' :: InputSerialization -&gt; Maybe CSVInput
+</span><a href="#local-6989586621679547282"><span class="hs-identifier hs-var hs-var">csv</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679547282"><span class="hs-identifier hs-var">csv</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547281"><span class="annot"><span class="annottext">s :: InputSerialization
+</span><a href="#local-6989586621679547281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547280"><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679547280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679547281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csv:InputSerialization' :: Maybe CSVInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Acsv%3AInputSerialization%27"><span class="hs-identifier hs-var">csv</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679547280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Specifies JSON as object\'s input serialization format.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_json"><span class="hs-identifier hs-type">inputSerialization_json</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.JSONInput.html#JSONInput"><span class="hs-identifier hs-type">JSONInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="inputSerialization_json"><span class="annot"><span class="annottext">inputSerialization_json :: (Maybe JSONInput -&gt; f (Maybe JSONInput))
+-&gt; InputSerialization -&gt; f InputSerialization
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_json"><span class="hs-identifier hs-var hs-var">inputSerialization_json</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSerialization -&gt; Maybe JSONInput)
+-&gt; (InputSerialization -&gt; Maybe JSONInput -&gt; InputSerialization)
+-&gt; Lens
+     InputSerialization
+     InputSerialization
+     (Maybe JSONInput)
+     (Maybe JSONInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547278"><span class="annot"><span class="annottext">Maybe JSONInput
+json :: Maybe JSONInput
+$sel:json:InputSerialization' :: InputSerialization -&gt; Maybe JSONInput
+</span><a href="#local-6989586621679547278"><span class="hs-identifier hs-var hs-var">json</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JSONInput
+</span><a href="#local-6989586621679547278"><span class="hs-identifier hs-var">json</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547277"><span class="annot"><span class="annottext">s :: InputSerialization
+</span><a href="#local-6989586621679547277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547276"><span class="annot"><span class="annottext">Maybe JSONInput
+</span><a href="#local-6989586621679547276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679547277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:json:InputSerialization' :: Maybe JSONInput
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3Ajson%3AInputSerialization%27"><span class="hs-identifier hs-var">json</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JSONInput
+</span><a href="#local-6989586621679547276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Default Value: NONE.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_compressionType"><span class="hs-identifier hs-type">inputSerialization_compressionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-type">CompressionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="inputSerialization_compressionType"><span class="annot"><span class="annottext">inputSerialization_compressionType :: (Maybe CompressionType -&gt; f (Maybe CompressionType))
+-&gt; InputSerialization -&gt; f InputSerialization
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#inputSerialization_compressionType"><span class="hs-identifier hs-var hs-var">inputSerialization_compressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputSerialization -&gt; Maybe CompressionType)
+-&gt; (InputSerialization
+    -&gt; Maybe CompressionType -&gt; InputSerialization)
+-&gt; Lens
+     InputSerialization
+     InputSerialization
+     (Maybe CompressionType)
+     (Maybe CompressionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547274"><span class="annot"><span class="annottext">Maybe CompressionType
+compressionType :: Maybe CompressionType
+$sel:compressionType:InputSerialization' :: InputSerialization -&gt; Maybe CompressionType
+</span><a href="#local-6989586621679547274"><span class="hs-identifier hs-var hs-var">compressionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621679547274"><span class="hs-identifier hs-var">compressionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547273"><span class="annot"><span class="annottext">s :: InputSerialization
+</span><a href="#local-6989586621679547273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547272"><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621679547272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSerialization
+</span><a href="#local-6989586621679547273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compressionType:InputSerialization' :: Maybe CompressionType
+</span><a href="Network.AWS.S3.Types.InputSerialization.html#%24sel%3AcompressionType%3AInputSerialization%27"><span class="hs-identifier hs-var">compressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621679547272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547268"><span id="local-6989586621679547270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization"><span class="hs-identifier hs-type">InputSerialization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679547261"><span class="annot"><span class="annottext">toXML :: InputSerialization -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InputSerialization.html#InputSerialization%27"><span class="hs-identifier hs-type">InputSerialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547256"><span id="local-6989586621679547257"><span id="local-6989586621679547258"><span id="local-6989586621679547259"><span class="annot"><span class="annottext">Maybe CompressionType
+Maybe CSVInput
+Maybe JSONInput
+Maybe ParquetInput
+compressionType :: Maybe CompressionType
+json :: Maybe JSONInput
+csv :: Maybe CSVInput
+parquet :: Maybe ParquetInput
+$sel:compressionType:InputSerialization' :: InputSerialization -&gt; Maybe CompressionType
+$sel:json:InputSerialization' :: InputSerialization -&gt; Maybe JSONInput
+$sel:csv:InputSerialization' :: InputSerialization -&gt; Maybe CSVInput
+$sel:parquet:InputSerialization' :: InputSerialization -&gt; Maybe ParquetInput
+</span><a href="#local-6989586621679547256"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Parquet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ParquetInput -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetInput
+</span><a href="#local-6989586621679547259"><span class="hs-identifier hs-var">parquet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;CSV&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe CSVInput -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe CSVInput
+</span><a href="#local-6989586621679547258"><span class="hs-identifier hs-var">csv</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;JSON&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe JSONInput -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe JSONInput
+</span><a href="#local-6989586621679547257"><span class="hs-identifier hs-var">json</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;CompressionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe CompressionType -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe CompressionType
+</span><a href="#local-6989586621679547256"><span class="hs-identifier hs-var">compressionType</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span></pre></body></html>

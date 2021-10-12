@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a gateway\'s weekly maintenance start time information,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- including day and time of the week. The maintenance time is the time in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- your gateway\'s time zone.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.UpdateMaintenanceStartTime</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#newUpdateMaintenanceStartTime"><span class="hs-identifier">newUpdateMaintenanceStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_dayOfMonth"><span class="hs-identifier">updateMaintenanceStartTime_dayOfMonth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_dayOfWeek"><span class="hs-identifier">updateMaintenanceStartTime_dayOfWeek</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_gatewayARN"><span class="hs-identifier">updateMaintenanceStartTime_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_hourOfDay"><span class="hs-identifier">updateMaintenanceStartTime_hourOfDay</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_minuteOfHour"><span class="hs-identifier">updateMaintenanceStartTime_minuteOfHour</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier">UpdateMaintenanceStartTimeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#newUpdateMaintenanceStartTimeResponse"><span class="hs-identifier">newUpdateMaintenanceStartTimeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTimeResponse_gatewayARN"><span class="hs-identifier">updateMaintenanceStartTimeResponse_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTimeResponse_httpStatus"><span class="hs-identifier">updateMaintenanceStartTimeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | A JSON object containing the following fields:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -   UpdateMaintenanceStartTimeInput$DayOfMonth</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   UpdateMaintenanceStartTimeInput$DayOfWeek</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   UpdateMaintenanceStartTimeInput$HourOfDay</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- -   UpdateMaintenanceStartTimeInput$MinuteOfHour</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newUpdateMaintenanceStartTime' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679392650"><span id="local-6989586621679392651"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMaintenanceStartTime"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-var">UpdateMaintenanceStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMaintenanceStartTime%27"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">UpdateMaintenanceStartTime'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The day of the month component of the maintenance start time represented</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- as an ordinal number from 1 to 28, where 1 represents the first day of</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the month and 28 represents the last day of the month.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdayOfMonth%3AUpdateMaintenanceStartTime%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTime -&gt; Maybe Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AdayOfMonth%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var hs-var">dayOfMonth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The day of the week component of the maintenance start time week</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- represented as an ordinal number from 0 to 6, where 0 represents Sunday</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- and 6 Saturday.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdayOfWeek%3AUpdateMaintenanceStartTime%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTime -&gt; Maybe Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AdayOfWeek%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AgatewayARN%3AUpdateMaintenanceStartTime%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTime -&gt; Text
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AgatewayARN%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The hour component of the maintenance start time represented as /hh/,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- where /hh/ is the hour (00 to 23). The hour of the day is in the time</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- zone of the gateway.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AhourOfDay%3AUpdateMaintenanceStartTime%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTime -&gt; Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AhourOfDay%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var hs-var">hourOfDay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The minute component of the maintenance start time represented as /mm/,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- where /mm/ is the minute (00 to 59). The minute of the hour is in the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- time zone of the gateway.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AminuteOfHour%3AUpdateMaintenanceStartTime%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTime -&gt; Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AminuteOfHour%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var hs-var">minuteOfHour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392640"><span id="local-6989586621679392642"><span class="annot"><span class="annottext">UpdateMaintenanceStartTime -&gt; UpdateMaintenanceStartTime -&gt; Bool
+(UpdateMaintenanceStartTime -&gt; UpdateMaintenanceStartTime -&gt; Bool)
+-&gt; (UpdateMaintenanceStartTime
+    -&gt; UpdateMaintenanceStartTime -&gt; Bool)
+-&gt; Eq UpdateMaintenanceStartTime
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMaintenanceStartTime -&gt; UpdateMaintenanceStartTime -&gt; Bool
+$c/= :: UpdateMaintenanceStartTime -&gt; UpdateMaintenanceStartTime -&gt; Bool
+== :: UpdateMaintenanceStartTime -&gt; UpdateMaintenanceStartTime -&gt; Bool
+$c== :: UpdateMaintenanceStartTime -&gt; UpdateMaintenanceStartTime -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392631"><span id="local-6989586621679392633"><span id="local-6989586621679392635"><span id="local-6989586621679392637"><span class="annot"><span class="annottext">ReadPrec [UpdateMaintenanceStartTime]
+ReadPrec UpdateMaintenanceStartTime
+Int -&gt; ReadS UpdateMaintenanceStartTime
+ReadS [UpdateMaintenanceStartTime]
+(Int -&gt; ReadS UpdateMaintenanceStartTime)
+-&gt; ReadS [UpdateMaintenanceStartTime]
+-&gt; ReadPrec UpdateMaintenanceStartTime
+-&gt; ReadPrec [UpdateMaintenanceStartTime]
+-&gt; Read UpdateMaintenanceStartTime
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMaintenanceStartTime]
+$creadListPrec :: ReadPrec [UpdateMaintenanceStartTime]
+readPrec :: ReadPrec UpdateMaintenanceStartTime
+$creadPrec :: ReadPrec UpdateMaintenanceStartTime
+readList :: ReadS [UpdateMaintenanceStartTime]
+$creadList :: ReadS [UpdateMaintenanceStartTime]
+readsPrec :: Int -&gt; ReadS UpdateMaintenanceStartTime
+$creadsPrec :: Int -&gt; ReadS UpdateMaintenanceStartTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392624"><span id="local-6989586621679392626"><span id="local-6989586621679392628"><span class="annot"><span class="annottext">Int -&gt; UpdateMaintenanceStartTime -&gt; ShowS
+[UpdateMaintenanceStartTime] -&gt; ShowS
+UpdateMaintenanceStartTime -&gt; String
+(Int -&gt; UpdateMaintenanceStartTime -&gt; ShowS)
+-&gt; (UpdateMaintenanceStartTime -&gt; String)
+-&gt; ([UpdateMaintenanceStartTime] -&gt; ShowS)
+-&gt; Show UpdateMaintenanceStartTime
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMaintenanceStartTime] -&gt; ShowS
+$cshowList :: [UpdateMaintenanceStartTime] -&gt; ShowS
+show :: UpdateMaintenanceStartTime -&gt; String
+$cshow :: UpdateMaintenanceStartTime -&gt; String
+showsPrec :: Int -&gt; UpdateMaintenanceStartTime -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMaintenanceStartTime -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateMaintenanceStartTime -&gt; Rep UpdateMaintenanceStartTime x)
+-&gt; (forall x.
+    Rep UpdateMaintenanceStartTime x -&gt; UpdateMaintenanceStartTime)
+-&gt; Generic UpdateMaintenanceStartTime
+forall x.
+Rep UpdateMaintenanceStartTime x -&gt; UpdateMaintenanceStartTime
+forall x.
+UpdateMaintenanceStartTime -&gt; Rep UpdateMaintenanceStartTime x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateMaintenanceStartTime x -&gt; UpdateMaintenanceStartTime
+$cfrom :: forall x.
+UpdateMaintenanceStartTime -&gt; Rep UpdateMaintenanceStartTime x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'UpdateMaintenanceStartTime' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'dayOfMonth', 'updateMaintenanceStartTime_dayOfMonth' - The day of the month component of the maintenance start time represented</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- as an ordinal number from 1 to 28, where 1 represents the first day of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the month and 28 represents the last day of the month.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'dayOfWeek', 'updateMaintenanceStartTime_dayOfWeek' - The day of the week component of the maintenance start time week</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- represented as an ordinal number from 0 to 6, where 0 represents Sunday</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- and 6 Saturday.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'gatewayARN', 'updateMaintenanceStartTime_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'hourOfDay', 'updateMaintenanceStartTime_hourOfDay' - The hour component of the maintenance start time represented as /hh/,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- where /hh/ is the hour (00 to 23). The hour of the day is in the time</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- zone of the gateway.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'minuteOfHour', 'updateMaintenanceStartTime_minuteOfHour' - The minute component of the maintenance start time represented as /mm/,</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- where /mm/ is the minute (00 to 59). The minute of the hour is in the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- time zone of the gateway.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#newUpdateMaintenanceStartTime"><span class="hs-identifier hs-type">newUpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'gatewayARN'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'hourOfDay'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-comment">-- | 'minuteOfHour'</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span>
+</span><span id="line-120"></span><span id="newUpdateMaintenanceStartTime"><span class="annot"><span class="annottext">newUpdateMaintenanceStartTime :: Text -&gt; Natural -&gt; Natural -&gt; UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#newUpdateMaintenanceStartTime"><span class="hs-identifier hs-var hs-var">newUpdateMaintenanceStartTime</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679392619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392619"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679392618"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392618"><span class="hs-identifier hs-var">pHourOfDay_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679392617"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392617"><span class="hs-identifier hs-var">pMinuteOfHour_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTime' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dayOfMonth:UpdateMaintenanceStartTime' :: Maybe Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AdayOfMonth%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">dayOfMonth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:dayOfWeek:UpdateMaintenanceStartTime' :: Maybe Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AdayOfWeek%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateMaintenanceStartTime' :: Text
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AgatewayARN%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392619"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:hourOfDay:UpdateMaintenanceStartTime' :: Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AhourOfDay%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">hourOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392618"><span class="hs-identifier hs-var">pHourOfDay_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:minuteOfHour:UpdateMaintenanceStartTime' :: Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AminuteOfHour%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">minuteOfHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392617"><span class="hs-identifier hs-var">pMinuteOfHour_</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The day of the month component of the maintenance start time represented</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- as an ordinal number from 1 to 28, where 1 represents the first day of</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the month and 28 represents the last day of the month.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_dayOfMonth"><span class="hs-identifier hs-type">updateMaintenanceStartTime_dayOfMonth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="updateMaintenanceStartTime_dayOfMonth"><span class="annot"><span class="annottext">updateMaintenanceStartTime_dayOfMonth :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateMaintenanceStartTime -&gt; f UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_dayOfMonth"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTime_dayOfMonth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTime -&gt; Maybe Natural)
+-&gt; (UpdateMaintenanceStartTime
+    -&gt; Maybe Natural -&gt; UpdateMaintenanceStartTime)
+-&gt; Lens
+     UpdateMaintenanceStartTime
+     UpdateMaintenanceStartTime
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392614"><span class="annot"><span class="annottext">Maybe Natural
+dayOfMonth :: Maybe Natural
+$sel:dayOfMonth:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Maybe Natural
+</span><a href="#local-6989586621679392614"><span class="hs-identifier hs-var hs-var">dayOfMonth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392614"><span class="hs-identifier hs-var">dayOfMonth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392613"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392612"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dayOfMonth:UpdateMaintenanceStartTime' :: Maybe Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AdayOfMonth%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">dayOfMonth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The day of the week component of the maintenance start time week</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- represented as an ordinal number from 0 to 6, where 0 represents Sunday</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- and 6 Saturday.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_dayOfWeek"><span class="hs-identifier hs-type">updateMaintenanceStartTime_dayOfWeek</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="updateMaintenanceStartTime_dayOfWeek"><span class="annot"><span class="annottext">updateMaintenanceStartTime_dayOfWeek :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateMaintenanceStartTime -&gt; f UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_dayOfWeek"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTime_dayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTime -&gt; Maybe Natural)
+-&gt; (UpdateMaintenanceStartTime
+    -&gt; Maybe Natural -&gt; UpdateMaintenanceStartTime)
+-&gt; Lens
+     UpdateMaintenanceStartTime
+     UpdateMaintenanceStartTime
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392611"><span class="annot"><span class="annottext">Maybe Natural
+dayOfWeek :: Maybe Natural
+$sel:dayOfWeek:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Maybe Natural
+</span><a href="#local-6989586621679392611"><span class="hs-identifier hs-var hs-var">dayOfWeek</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392611"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392610"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392609"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dayOfWeek:UpdateMaintenanceStartTime' :: Maybe Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AdayOfWeek%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_gatewayARN"><span class="hs-identifier hs-type">updateMaintenanceStartTime_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-147"></span><span id="updateMaintenanceStartTime_gatewayARN"><span class="annot"><span class="annottext">updateMaintenanceStartTime_gatewayARN :: (Text -&gt; f Text)
+-&gt; UpdateMaintenanceStartTime -&gt; f UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_gatewayARN"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTime_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTime -&gt; Text)
+-&gt; (UpdateMaintenanceStartTime
+    -&gt; Text -&gt; UpdateMaintenanceStartTime)
+-&gt; Lens
+     UpdateMaintenanceStartTime UpdateMaintenanceStartTime Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392608"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Text
+</span><a href="#local-6989586621679392608"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392608"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392607"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateMaintenanceStartTime' :: Text
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AgatewayARN%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The hour component of the maintenance start time represented as /hh/,</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- where /hh/ is the hour (00 to 23). The hour of the day is in the time</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- zone of the gateway.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_hourOfDay"><span class="hs-identifier hs-type">updateMaintenanceStartTime_hourOfDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-153"></span><span id="updateMaintenanceStartTime_hourOfDay"><span class="annot"><span class="annottext">updateMaintenanceStartTime_hourOfDay :: (Natural -&gt; f Natural)
+-&gt; UpdateMaintenanceStartTime -&gt; f UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_hourOfDay"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTime_hourOfDay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTime -&gt; Natural)
+-&gt; (UpdateMaintenanceStartTime
+    -&gt; Natural -&gt; UpdateMaintenanceStartTime)
+-&gt; Lens
+     UpdateMaintenanceStartTime
+     UpdateMaintenanceStartTime
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392605"><span class="annot"><span class="annottext">Natural
+hourOfDay :: Natural
+$sel:hourOfDay:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Natural
+</span><a href="#local-6989586621679392605"><span class="hs-identifier hs-var hs-var">hourOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392605"><span class="hs-identifier hs-var">hourOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392604"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392603"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hourOfDay:UpdateMaintenanceStartTime' :: Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AhourOfDay%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">hourOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The minute component of the maintenance start time represented as /mm/,</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- where /mm/ is the minute (00 to 59). The minute of the hour is in the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- time zone of the gateway.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_minuteOfHour"><span class="hs-identifier hs-type">updateMaintenanceStartTime_minuteOfHour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-159"></span><span id="updateMaintenanceStartTime_minuteOfHour"><span class="annot"><span class="annottext">updateMaintenanceStartTime_minuteOfHour :: (Natural -&gt; f Natural)
+-&gt; UpdateMaintenanceStartTime -&gt; f UpdateMaintenanceStartTime
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTime_minuteOfHour"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTime_minuteOfHour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTime -&gt; Natural)
+-&gt; (UpdateMaintenanceStartTime
+    -&gt; Natural -&gt; UpdateMaintenanceStartTime)
+-&gt; Lens
+     UpdateMaintenanceStartTime
+     UpdateMaintenanceStartTime
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392602"><span class="annot"><span class="annottext">Natural
+minuteOfHour :: Natural
+$sel:minuteOfHour:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Natural
+</span><a href="#local-6989586621679392602"><span class="hs-identifier hs-var hs-var">minuteOfHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392602"><span class="hs-identifier hs-var">minuteOfHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392601"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392600"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTime
+</span><a href="#local-6989586621679392601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minuteOfHour:UpdateMaintenanceStartTime' :: Natural
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AminuteOfHour%3AUpdateMaintenanceStartTime%27"><span class="hs-identifier hs-var">minuteOfHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679392596"><span class="annot"><span class="annottext">request :: UpdateMaintenanceStartTime -&gt; Request UpdateMaintenanceStartTime
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateMaintenanceStartTime -&gt; Request UpdateMaintenanceStartTime
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679392592"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateMaintenanceStartTime
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateMaintenanceStartTime)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateMaintenanceStartTime))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateMaintenanceStartTime
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateMaintenanceStartTime)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392589"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392588"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392588"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392587"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateMaintenanceStartTimeResponse
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var">UpdateMaintenanceStartTimeResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateMaintenanceStartTimeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateMaintenanceStartTimeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392587"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateMaintenanceStartTimeResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateMaintenanceStartTimeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392589"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392579"><span id="local-6989586621679392581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679392572"><span class="annot"><span class="annottext">toHeaders :: UpdateMaintenanceStartTime -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateMaintenanceStartTime -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.UpdateMaintenanceStartTime&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-189"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392562"><span id="local-6989586621679392564"><span id="local-6989586621679392566"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679392560"><span class="annot"><span class="annottext">toJSON :: UpdateMaintenanceStartTime -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392554"><span id="local-6989586621679392555"><span id="local-6989586621679392556"><span id="local-6989586621679392557"><span id="local-6989586621679392558"><span class="annot"><span class="annottext">Natural
+Maybe Natural
+Text
+minuteOfHour :: Natural
+hourOfDay :: Natural
+gatewayARN :: Text
+dayOfWeek :: Maybe Natural
+dayOfMonth :: Maybe Natural
+$sel:minuteOfHour:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Natural
+$sel:hourOfDay:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Natural
+$sel:gatewayARN:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Text
+$sel:dayOfWeek:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Maybe Natural
+$sel:dayOfMonth:UpdateMaintenanceStartTime' :: UpdateMaintenanceStartTime -&gt; Maybe Natural
+</span><a href="#local-6989586621679392554"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DayOfMonth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392558"><span class="hs-identifier hs-var">dayOfMonth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DayOfWeek&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679392557"><span class="hs-identifier hs-var">dayOfWeek</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392556"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HourOfDay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392555"><span class="hs-identifier hs-var">hourOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinuteOfHour&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679392554"><span class="hs-identifier hs-var">minuteOfHour</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679392548"><span class="annot"><span class="annottext">toPath :: UpdateMaintenanceStartTime -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateMaintenanceStartTime -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTime"><span class="hs-identifier hs-type">UpdateMaintenanceStartTime</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679392544"><span class="annot"><span class="annottext">toQuery :: UpdateMaintenanceStartTime -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateMaintenanceStartTime -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- whose maintenance start time is updated.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- /See:/ 'newUpdateMaintenanceStartTimeResponse' smart constructor.</span><span>
+</span><span id="line-215"></span><span id="local-6989586621679392541"><span id="local-6989586621679392542"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMaintenanceStartTimeResponse"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-var">UpdateMaintenanceStartTimeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMaintenanceStartTimeResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var">UpdateMaintenanceStartTimeResponse'</span></a></span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AUpdateMaintenanceStartTimeResponse%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTimeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AgatewayARN%3AUpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateMaintenanceStartTimeResponse%27"><span class="annot"><span class="annottext">UpdateMaintenanceStartTimeResponse -&gt; Int
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AhttpStatus%3AUpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392535"><span id="local-6989586621679392537"><span class="annot"><span class="annottext">UpdateMaintenanceStartTimeResponse
+-&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool
+(UpdateMaintenanceStartTimeResponse
+ -&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool)
+-&gt; (UpdateMaintenanceStartTimeResponse
+    -&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool)
+-&gt; Eq UpdateMaintenanceStartTimeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateMaintenanceStartTimeResponse
+-&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool
+$c/= :: UpdateMaintenanceStartTimeResponse
+-&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool
+== :: UpdateMaintenanceStartTimeResponse
+-&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool
+$c== :: UpdateMaintenanceStartTimeResponse
+-&gt; UpdateMaintenanceStartTimeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392527"><span id="local-6989586621679392529"><span id="local-6989586621679392531"><span id="local-6989586621679392533"><span class="annot"><span class="annottext">ReadPrec [UpdateMaintenanceStartTimeResponse]
+ReadPrec UpdateMaintenanceStartTimeResponse
+Int -&gt; ReadS UpdateMaintenanceStartTimeResponse
+ReadS [UpdateMaintenanceStartTimeResponse]
+(Int -&gt; ReadS UpdateMaintenanceStartTimeResponse)
+-&gt; ReadS [UpdateMaintenanceStartTimeResponse]
+-&gt; ReadPrec UpdateMaintenanceStartTimeResponse
+-&gt; ReadPrec [UpdateMaintenanceStartTimeResponse]
+-&gt; Read UpdateMaintenanceStartTimeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateMaintenanceStartTimeResponse]
+$creadListPrec :: ReadPrec [UpdateMaintenanceStartTimeResponse]
+readPrec :: ReadPrec UpdateMaintenanceStartTimeResponse
+$creadPrec :: ReadPrec UpdateMaintenanceStartTimeResponse
+readList :: ReadS [UpdateMaintenanceStartTimeResponse]
+$creadList :: ReadS [UpdateMaintenanceStartTimeResponse]
+readsPrec :: Int -&gt; ReadS UpdateMaintenanceStartTimeResponse
+$creadsPrec :: Int -&gt; ReadS UpdateMaintenanceStartTimeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392521"><span id="local-6989586621679392523"><span id="local-6989586621679392525"><span class="annot"><span class="annottext">Int -&gt; UpdateMaintenanceStartTimeResponse -&gt; ShowS
+[UpdateMaintenanceStartTimeResponse] -&gt; ShowS
+UpdateMaintenanceStartTimeResponse -&gt; String
+(Int -&gt; UpdateMaintenanceStartTimeResponse -&gt; ShowS)
+-&gt; (UpdateMaintenanceStartTimeResponse -&gt; String)
+-&gt; ([UpdateMaintenanceStartTimeResponse] -&gt; ShowS)
+-&gt; Show UpdateMaintenanceStartTimeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateMaintenanceStartTimeResponse] -&gt; ShowS
+$cshowList :: [UpdateMaintenanceStartTimeResponse] -&gt; ShowS
+show :: UpdateMaintenanceStartTimeResponse -&gt; String
+$cshow :: UpdateMaintenanceStartTimeResponse -&gt; String
+showsPrec :: Int -&gt; UpdateMaintenanceStartTimeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateMaintenanceStartTimeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateMaintenanceStartTimeResponse
+ -&gt; Rep UpdateMaintenanceStartTimeResponse x)
+-&gt; (forall x.
+    Rep UpdateMaintenanceStartTimeResponse x
+    -&gt; UpdateMaintenanceStartTimeResponse)
+-&gt; Generic UpdateMaintenanceStartTimeResponse
+forall x.
+Rep UpdateMaintenanceStartTimeResponse x
+-&gt; UpdateMaintenanceStartTimeResponse
+forall x.
+UpdateMaintenanceStartTimeResponse
+-&gt; Rep UpdateMaintenanceStartTimeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateMaintenanceStartTimeResponse x
+-&gt; UpdateMaintenanceStartTimeResponse
+$cfrom :: forall x.
+UpdateMaintenanceStartTimeResponse
+-&gt; Rep UpdateMaintenanceStartTimeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Create a value of 'UpdateMaintenanceStartTimeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'gatewayARN', 'updateMaintenanceStartTimeResponse_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'httpStatus', 'updateMaintenanceStartTimeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#newUpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">newUpdateMaintenanceStartTimeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span><span>
+</span><span id="line-237"></span><span id="newUpdateMaintenanceStartTimeResponse"><span class="annot"><span class="annottext">newUpdateMaintenanceStartTimeResponse :: Int -&gt; UpdateMaintenanceStartTimeResponse
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#newUpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-var hs-var">newUpdateMaintenanceStartTimeResponse</span></a></span></span><span> </span><span id="local-6989586621679392518"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392518"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTimeResponse' :: Maybe Text -&gt; Int -&gt; UpdateMaintenanceStartTimeResponse
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse'</span></a></span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateMaintenanceStartTimeResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AgatewayARN%3AUpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMaintenanceStartTimeResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AhttpStatus%3AUpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392518"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTimeResponse_gatewayARN"><span class="hs-identifier hs-type">updateMaintenanceStartTimeResponse_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="updateMaintenanceStartTimeResponse_gatewayARN"><span class="annot"><span class="annottext">updateMaintenanceStartTimeResponse_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateMaintenanceStartTimeResponse
+-&gt; f UpdateMaintenanceStartTimeResponse
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTimeResponse_gatewayARN"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTimeResponse_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTimeResponse -&gt; Maybe Text)
+-&gt; (UpdateMaintenanceStartTimeResponse
+    -&gt; Maybe Text -&gt; UpdateMaintenanceStartTimeResponse)
+-&gt; Lens
+     UpdateMaintenanceStartTimeResponse
+     UpdateMaintenanceStartTimeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392517"><span class="annot"><span class="annottext">Maybe Text
+gatewayARN :: Maybe Text
+$sel:gatewayARN:UpdateMaintenanceStartTimeResponse' :: UpdateMaintenanceStartTimeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679392517"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392517"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392516"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTimeResponse
+</span><a href="#local-6989586621679392516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTimeResponse
+</span><a href="#local-6989586621679392516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:UpdateMaintenanceStartTimeResponse' :: Maybe Text
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AgatewayARN%3AUpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTimeResponse_httpStatus"><span class="hs-identifier hs-type">updateMaintenanceStartTimeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="updateMaintenanceStartTimeResponse_httpStatus"><span class="annot"><span class="annottext">updateMaintenanceStartTimeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateMaintenanceStartTimeResponse
+-&gt; f UpdateMaintenanceStartTimeResponse
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#updateMaintenanceStartTimeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateMaintenanceStartTimeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateMaintenanceStartTimeResponse -&gt; Int)
+-&gt; (UpdateMaintenanceStartTimeResponse
+    -&gt; Int -&gt; UpdateMaintenanceStartTimeResponse)
+-&gt; Lens
+     UpdateMaintenanceStartTimeResponse
+     UpdateMaintenanceStartTimeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392514"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateMaintenanceStartTimeResponse' :: UpdateMaintenanceStartTimeResponse -&gt; Int
+</span><a href="#local-6989586621679392514"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392514"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392513"><span class="annot"><span class="annottext">s :: UpdateMaintenanceStartTimeResponse
+</span><a href="#local-6989586621679392513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMaintenanceStartTimeResponse
+</span><a href="#local-6989586621679392513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateMaintenanceStartTimeResponse' :: Int
+</span><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#%24sel%3AhttpStatus%3AUpdateMaintenanceStartTimeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679392510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.UpdateMaintenanceStartTime.html#UpdateMaintenanceStartTimeResponse"><span class="hs-identifier hs-type">UpdateMaintenanceStartTimeResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

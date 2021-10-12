@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.PutConfigurationSetDeliveryOptions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associate a configuration set with a dedicated IP pool. You can use</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- dedicated IP pools to create groups of dedicated IP addresses for</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- sending specific types of email.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.PutConfigurationSetDeliveryOptions</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier">PutConfigurationSetDeliveryOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#newPutConfigurationSetDeliveryOptions"><span class="hs-identifier">newPutConfigurationSetDeliveryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_sendingPoolName"><span class="hs-identifier">putConfigurationSetDeliveryOptions_sendingPoolName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_tlsPolicy"><span class="hs-identifier">putConfigurationSetDeliveryOptions_tlsPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_configurationSetName"><span class="hs-identifier">putConfigurationSetDeliveryOptions_configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier">PutConfigurationSetDeliveryOptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#newPutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier">newPutConfigurationSetDeliveryOptionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptionsResponse_httpStatus"><span class="hs-identifier">putConfigurationSetDeliveryOptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.html"><span class="hs-identifier">Network.AWS.SESv2.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | A request to associate a configuration set with a dedicated IP pool.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newPutConfigurationSetDeliveryOptions' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679338194"><span id="local-6989586621679338195"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigurationSetDeliveryOptions"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-var">PutConfigurationSetDeliveryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigurationSetDeliveryOptions%27"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">PutConfigurationSetDeliveryOptions'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dedicated IP pool that you want to associate with the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsendingPoolName%3APutConfigurationSetDeliveryOptions%27"><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AsendingPoolName%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Specifies whether messages that use the configuration set are required</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtlsPolicy%3APutConfigurationSetDeliveryOptions%27"><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions -&gt; Maybe TlsPolicy
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AtlsPolicy%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-type">TlsPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the configuration set that you want to associate with a</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- dedicated IP pool.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AconfigurationSetName%3APutConfigurationSetDeliveryOptions%27"><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions -&gt; Text
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AconfigurationSetName%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338186"><span id="local-6989586621679338188"><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions
+-&gt; PutConfigurationSetDeliveryOptions -&gt; Bool
+(PutConfigurationSetDeliveryOptions
+ -&gt; PutConfigurationSetDeliveryOptions -&gt; Bool)
+-&gt; (PutConfigurationSetDeliveryOptions
+    -&gt; PutConfigurationSetDeliveryOptions -&gt; Bool)
+-&gt; Eq PutConfigurationSetDeliveryOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutConfigurationSetDeliveryOptions
+-&gt; PutConfigurationSetDeliveryOptions -&gt; Bool
+$c/= :: PutConfigurationSetDeliveryOptions
+-&gt; PutConfigurationSetDeliveryOptions -&gt; Bool
+== :: PutConfigurationSetDeliveryOptions
+-&gt; PutConfigurationSetDeliveryOptions -&gt; Bool
+$c== :: PutConfigurationSetDeliveryOptions
+-&gt; PutConfigurationSetDeliveryOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338177"><span id="local-6989586621679338179"><span id="local-6989586621679338181"><span id="local-6989586621679338183"><span class="annot"><span class="annottext">ReadPrec [PutConfigurationSetDeliveryOptions]
+ReadPrec PutConfigurationSetDeliveryOptions
+Int -&gt; ReadS PutConfigurationSetDeliveryOptions
+ReadS [PutConfigurationSetDeliveryOptions]
+(Int -&gt; ReadS PutConfigurationSetDeliveryOptions)
+-&gt; ReadS [PutConfigurationSetDeliveryOptions]
+-&gt; ReadPrec PutConfigurationSetDeliveryOptions
+-&gt; ReadPrec [PutConfigurationSetDeliveryOptions]
+-&gt; Read PutConfigurationSetDeliveryOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutConfigurationSetDeliveryOptions]
+$creadListPrec :: ReadPrec [PutConfigurationSetDeliveryOptions]
+readPrec :: ReadPrec PutConfigurationSetDeliveryOptions
+$creadPrec :: ReadPrec PutConfigurationSetDeliveryOptions
+readList :: ReadS [PutConfigurationSetDeliveryOptions]
+$creadList :: ReadS [PutConfigurationSetDeliveryOptions]
+readsPrec :: Int -&gt; ReadS PutConfigurationSetDeliveryOptions
+$creadsPrec :: Int -&gt; ReadS PutConfigurationSetDeliveryOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338170"><span id="local-6989586621679338172"><span id="local-6989586621679338174"><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetDeliveryOptions -&gt; ShowS
+[PutConfigurationSetDeliveryOptions] -&gt; ShowS
+PutConfigurationSetDeliveryOptions -&gt; String
+(Int -&gt; PutConfigurationSetDeliveryOptions -&gt; ShowS)
+-&gt; (PutConfigurationSetDeliveryOptions -&gt; String)
+-&gt; ([PutConfigurationSetDeliveryOptions] -&gt; ShowS)
+-&gt; Show PutConfigurationSetDeliveryOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutConfigurationSetDeliveryOptions] -&gt; ShowS
+$cshowList :: [PutConfigurationSetDeliveryOptions] -&gt; ShowS
+show :: PutConfigurationSetDeliveryOptions -&gt; String
+$cshow :: PutConfigurationSetDeliveryOptions -&gt; String
+showsPrec :: Int -&gt; PutConfigurationSetDeliveryOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutConfigurationSetDeliveryOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutConfigurationSetDeliveryOptions
+ -&gt; Rep PutConfigurationSetDeliveryOptions x)
+-&gt; (forall x.
+    Rep PutConfigurationSetDeliveryOptions x
+    -&gt; PutConfigurationSetDeliveryOptions)
+-&gt; Generic PutConfigurationSetDeliveryOptions
+forall x.
+Rep PutConfigurationSetDeliveryOptions x
+-&gt; PutConfigurationSetDeliveryOptions
+forall x.
+PutConfigurationSetDeliveryOptions
+-&gt; Rep PutConfigurationSetDeliveryOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutConfigurationSetDeliveryOptions x
+-&gt; PutConfigurationSetDeliveryOptions
+$cfrom :: forall x.
+PutConfigurationSetDeliveryOptions
+-&gt; Rep PutConfigurationSetDeliveryOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'PutConfigurationSetDeliveryOptions' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'sendingPoolName', 'putConfigurationSetDeliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tlsPolicy', 'putConfigurationSetDeliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'configurationSetName', 'putConfigurationSetDeliveryOptions_configurationSetName' - The name of the configuration set that you want to associate with a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- dedicated IP pool.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#newPutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">newPutConfigurationSetDeliveryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'configurationSetName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span>
+</span><span id="line-94"></span><span id="newPutConfigurationSetDeliveryOptions"><span class="annot"><span class="annottext">newPutConfigurationSetDeliveryOptions :: Text -&gt; PutConfigurationSetDeliveryOptions
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#newPutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-var hs-var">newPutConfigurationSetDeliveryOptions</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679338165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338165"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions' :: Maybe Text
+-&gt; Maybe TlsPolicy -&gt; Text -&gt; PutConfigurationSetDeliveryOptions
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sendingPoolName:PutConfigurationSetDeliveryOptions' :: Maybe Text
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AsendingPoolName%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:tlsPolicy:PutConfigurationSetDeliveryOptions' :: Maybe TlsPolicy
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AtlsPolicy%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:configurationSetName:PutConfigurationSetDeliveryOptions' :: Text
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AconfigurationSetName%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338165"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The name of the dedicated IP pool that you want to associate with the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- configuration set.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_sendingPoolName"><span class="hs-identifier hs-type">putConfigurationSetDeliveryOptions_sendingPoolName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="putConfigurationSetDeliveryOptions_sendingPoolName"><span class="annot"><span class="annottext">putConfigurationSetDeliveryOptions_sendingPoolName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutConfigurationSetDeliveryOptions
+-&gt; f PutConfigurationSetDeliveryOptions
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_sendingPoolName"><span class="hs-identifier hs-var hs-var">putConfigurationSetDeliveryOptions_sendingPoolName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutConfigurationSetDeliveryOptions -&gt; Maybe Text)
+-&gt; (PutConfigurationSetDeliveryOptions
+    -&gt; Maybe Text -&gt; PutConfigurationSetDeliveryOptions)
+-&gt; Lens
+     PutConfigurationSetDeliveryOptions
+     PutConfigurationSetDeliveryOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338162"><span class="annot"><span class="annottext">Maybe Text
+sendingPoolName :: Maybe Text
+$sel:sendingPoolName:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679338162"><span class="hs-identifier hs-var hs-var">sendingPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338162"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338161"><span class="annot"><span class="annottext">s :: PutConfigurationSetDeliveryOptions
+</span><a href="#local-6989586621679338161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338160"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions
+</span><a href="#local-6989586621679338161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingPoolName:PutConfigurationSetDeliveryOptions' :: Maybe Text
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AsendingPoolName%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Specifies whether messages that use the configuration set are required</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- to use Transport Layer Security (TLS). If the value is @Require@,</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_tlsPolicy"><span class="hs-identifier hs-type">putConfigurationSetDeliveryOptions_tlsPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-type">TlsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="putConfigurationSetDeliveryOptions_tlsPolicy"><span class="annot"><span class="annottext">putConfigurationSetDeliveryOptions_tlsPolicy :: (Maybe TlsPolicy -&gt; f (Maybe TlsPolicy))
+-&gt; PutConfigurationSetDeliveryOptions
+-&gt; f PutConfigurationSetDeliveryOptions
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_tlsPolicy"><span class="hs-identifier hs-var hs-var">putConfigurationSetDeliveryOptions_tlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutConfigurationSetDeliveryOptions -&gt; Maybe TlsPolicy)
+-&gt; (PutConfigurationSetDeliveryOptions
+    -&gt; Maybe TlsPolicy -&gt; PutConfigurationSetDeliveryOptions)
+-&gt; Lens
+     PutConfigurationSetDeliveryOptions
+     PutConfigurationSetDeliveryOptions
+     (Maybe TlsPolicy)
+     (Maybe TlsPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338159"><span class="annot"><span class="annottext">Maybe TlsPolicy
+tlsPolicy :: Maybe TlsPolicy
+$sel:tlsPolicy:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Maybe TlsPolicy
+</span><a href="#local-6989586621679338159"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679338159"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338158"><span class="annot"><span class="annottext">s :: PutConfigurationSetDeliveryOptions
+</span><a href="#local-6989586621679338158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338157"><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679338157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions
+</span><a href="#local-6989586621679338158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsPolicy:PutConfigurationSetDeliveryOptions' :: Maybe TlsPolicy
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AtlsPolicy%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679338157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of the configuration set that you want to associate with a</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- dedicated IP pool.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_configurationSetName"><span class="hs-identifier hs-type">putConfigurationSetDeliveryOptions_configurationSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="putConfigurationSetDeliveryOptions_configurationSetName"><span class="annot"><span class="annottext">putConfigurationSetDeliveryOptions_configurationSetName :: (Text -&gt; f Text)
+-&gt; PutConfigurationSetDeliveryOptions
+-&gt; f PutConfigurationSetDeliveryOptions
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptions_configurationSetName"><span class="hs-identifier hs-var hs-var">putConfigurationSetDeliveryOptions_configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutConfigurationSetDeliveryOptions -&gt; Text)
+-&gt; (PutConfigurationSetDeliveryOptions
+    -&gt; Text -&gt; PutConfigurationSetDeliveryOptions)
+-&gt; Lens
+     PutConfigurationSetDeliveryOptions
+     PutConfigurationSetDeliveryOptions
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338156"><span class="annot"><span class="annottext">Text
+configurationSetName :: Text
+$sel:configurationSetName:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Text
+</span><a href="#local-6989586621679338156"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338156"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338155"><span class="annot"><span class="annottext">s :: PutConfigurationSetDeliveryOptions
+</span><a href="#local-6989586621679338155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptions
+</span><a href="#local-6989586621679338155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:PutConfigurationSetDeliveryOptions' :: Text
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AconfigurationSetName%3APutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679338150"><span class="annot"><span class="annottext">request :: PutConfigurationSetDeliveryOptions
+-&gt; Request PutConfigurationSetDeliveryOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutConfigurationSetDeliveryOptions
+-&gt; Request PutConfigurationSetDeliveryOptions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679338146"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutConfigurationSetDeliveryOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutConfigurationSetDeliveryOptions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse PutConfigurationSetDeliveryOptions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutConfigurationSetDeliveryOptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse PutConfigurationSetDeliveryOptions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338143"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338143"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338142"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679338142"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338141"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679338141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetDeliveryOptionsResponse
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-var">PutConfigurationSetDeliveryOptionsResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutConfigurationSetDeliveryOptionsResponse)
+-&gt; Either String Int
+-&gt; Either String PutConfigurationSetDeliveryOptionsResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338143"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679338134"><span id="local-6989586621679338136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679338131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679338127"><span class="annot"><span class="annottext">toHeaders :: PutConfigurationSetDeliveryOptions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; PutConfigurationSetDeliveryOptions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679338117"><span id="local-6989586621679338119"><span id="local-6989586621679338121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span></span></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679338115"><span class="annot"><span class="annottext">toJSON :: PutConfigurationSetDeliveryOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338111"><span id="local-6989586621679338112"><span id="local-6989586621679338113"><span class="annot"><span class="annottext">Maybe Text
+Maybe TlsPolicy
+Text
+configurationSetName :: Text
+tlsPolicy :: Maybe TlsPolicy
+sendingPoolName :: Maybe Text
+$sel:configurationSetName:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Text
+$sel:tlsPolicy:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Maybe TlsPolicy
+$sel:sendingPoolName:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679338111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendingPoolName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338113"><span class="hs-identifier hs-var">sendingPoolName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TlsPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TlsPolicy -&gt; Pair) -&gt; Maybe TlsPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679338112"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679338105"><span class="annot"><span class="annottext">toPath :: PutConfigurationSetDeliveryOptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338101"><span id="local-6989586621679338102"><span id="local-6989586621679338103"><span class="annot"><span class="annottext">Maybe Text
+Maybe TlsPolicy
+Text
+configurationSetName :: Text
+tlsPolicy :: Maybe TlsPolicy
+sendingPoolName :: Maybe Text
+$sel:configurationSetName:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Text
+$sel:tlsPolicy:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Maybe TlsPolicy
+$sel:sendingPoolName:PutConfigurationSetDeliveryOptions' :: PutConfigurationSetDeliveryOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679338101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/email/configuration-sets/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338101"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/delivery-options&quot;</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptions"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptions</span></a></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679338097"><span class="annot"><span class="annottext">toQuery :: PutConfigurationSetDeliveryOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutConfigurationSetDeliveryOptions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | An HTTP 200 response if the request succeeds, or an error message if the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- request fails.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- /See:/ 'newPutConfigurationSetDeliveryOptionsResponse' smart constructor.</span><span>
+</span><span id="line-193"></span><span id="local-6989586621679338094"><span id="local-6989586621679338095"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigurationSetDeliveryOptionsResponse"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-var">PutConfigurationSetDeliveryOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigurationSetDeliveryOptionsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-var">PutConfigurationSetDeliveryOptionsResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutConfigurationSetDeliveryOptionsResponse%27"><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptionsResponse -&gt; Int
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AhttpStatus%3APutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338089"><span id="local-6989586621679338091"><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptionsResponse
+-&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool
+(PutConfigurationSetDeliveryOptionsResponse
+ -&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool)
+-&gt; (PutConfigurationSetDeliveryOptionsResponse
+    -&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool)
+-&gt; Eq PutConfigurationSetDeliveryOptionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutConfigurationSetDeliveryOptionsResponse
+-&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool
+$c/= :: PutConfigurationSetDeliveryOptionsResponse
+-&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool
+== :: PutConfigurationSetDeliveryOptionsResponse
+-&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool
+$c== :: PutConfigurationSetDeliveryOptionsResponse
+-&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338081"><span id="local-6989586621679338083"><span id="local-6989586621679338085"><span id="local-6989586621679338087"><span class="annot"><span class="annottext">ReadPrec [PutConfigurationSetDeliveryOptionsResponse]
+ReadPrec PutConfigurationSetDeliveryOptionsResponse
+Int -&gt; ReadS PutConfigurationSetDeliveryOptionsResponse
+ReadS [PutConfigurationSetDeliveryOptionsResponse]
+(Int -&gt; ReadS PutConfigurationSetDeliveryOptionsResponse)
+-&gt; ReadS [PutConfigurationSetDeliveryOptionsResponse]
+-&gt; ReadPrec PutConfigurationSetDeliveryOptionsResponse
+-&gt; ReadPrec [PutConfigurationSetDeliveryOptionsResponse]
+-&gt; Read PutConfigurationSetDeliveryOptionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutConfigurationSetDeliveryOptionsResponse]
+$creadListPrec :: ReadPrec [PutConfigurationSetDeliveryOptionsResponse]
+readPrec :: ReadPrec PutConfigurationSetDeliveryOptionsResponse
+$creadPrec :: ReadPrec PutConfigurationSetDeliveryOptionsResponse
+readList :: ReadS [PutConfigurationSetDeliveryOptionsResponse]
+$creadList :: ReadS [PutConfigurationSetDeliveryOptionsResponse]
+readsPrec :: Int -&gt; ReadS PutConfigurationSetDeliveryOptionsResponse
+$creadsPrec :: Int -&gt; ReadS PutConfigurationSetDeliveryOptionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338075"><span id="local-6989586621679338077"><span id="local-6989586621679338079"><span class="annot"><span class="annottext">Int -&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; ShowS
+[PutConfigurationSetDeliveryOptionsResponse] -&gt; ShowS
+PutConfigurationSetDeliveryOptionsResponse -&gt; String
+(Int -&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; ShowS)
+-&gt; (PutConfigurationSetDeliveryOptionsResponse -&gt; String)
+-&gt; ([PutConfigurationSetDeliveryOptionsResponse] -&gt; ShowS)
+-&gt; Show PutConfigurationSetDeliveryOptionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutConfigurationSetDeliveryOptionsResponse] -&gt; ShowS
+$cshowList :: [PutConfigurationSetDeliveryOptionsResponse] -&gt; ShowS
+show :: PutConfigurationSetDeliveryOptionsResponse -&gt; String
+$cshow :: PutConfigurationSetDeliveryOptionsResponse -&gt; String
+showsPrec :: Int -&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutConfigurationSetDeliveryOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutConfigurationSetDeliveryOptionsResponse
+ -&gt; Rep PutConfigurationSetDeliveryOptionsResponse x)
+-&gt; (forall x.
+    Rep PutConfigurationSetDeliveryOptionsResponse x
+    -&gt; PutConfigurationSetDeliveryOptionsResponse)
+-&gt; Generic PutConfigurationSetDeliveryOptionsResponse
+forall x.
+Rep PutConfigurationSetDeliveryOptionsResponse x
+-&gt; PutConfigurationSetDeliveryOptionsResponse
+forall x.
+PutConfigurationSetDeliveryOptionsResponse
+-&gt; Rep PutConfigurationSetDeliveryOptionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutConfigurationSetDeliveryOptionsResponse x
+-&gt; PutConfigurationSetDeliveryOptionsResponse
+$cfrom :: forall x.
+PutConfigurationSetDeliveryOptionsResponse
+-&gt; Rep PutConfigurationSetDeliveryOptionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'PutConfigurationSetDeliveryOptionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'httpStatus', 'putConfigurationSetDeliveryOptionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#newPutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-type">newPutConfigurationSetDeliveryOptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newPutConfigurationSetDeliveryOptionsResponse"><span class="annot"><span class="annottext">newPutConfigurationSetDeliveryOptionsResponse :: Int -&gt; PutConfigurationSetDeliveryOptionsResponse
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#newPutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-var hs-var">newPutConfigurationSetDeliveryOptionsResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679338072"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptionsResponse' :: Int -&gt; PutConfigurationSetDeliveryOptionsResponse
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse'</span></a></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutConfigurationSetDeliveryOptionsResponse' :: Int
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AhttpStatus%3APutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptionsResponse_httpStatus"><span class="hs-identifier hs-type">putConfigurationSetDeliveryOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-221"></span><span id="putConfigurationSetDeliveryOptionsResponse_httpStatus"><span class="annot"><span class="annottext">putConfigurationSetDeliveryOptionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutConfigurationSetDeliveryOptionsResponse
+-&gt; f PutConfigurationSetDeliveryOptionsResponse
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#putConfigurationSetDeliveryOptionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putConfigurationSetDeliveryOptionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutConfigurationSetDeliveryOptionsResponse -&gt; Int)
+-&gt; (PutConfigurationSetDeliveryOptionsResponse
+    -&gt; Int -&gt; PutConfigurationSetDeliveryOptionsResponse)
+-&gt; Lens
+     PutConfigurationSetDeliveryOptionsResponse
+     PutConfigurationSetDeliveryOptionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338071"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutConfigurationSetDeliveryOptionsResponse' :: PutConfigurationSetDeliveryOptionsResponse -&gt; Int
+</span><a href="#local-6989586621679338071"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338071"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338070"><span class="annot"><span class="annottext">s :: PutConfigurationSetDeliveryOptionsResponse
+</span><a href="#local-6989586621679338070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigurationSetDeliveryOptionsResponse
+</span><a href="#local-6989586621679338070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutConfigurationSetDeliveryOptionsResponse' :: Int
+</span><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#%24sel%3AhttpStatus%3APutConfigurationSetDeliveryOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679338067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutConfigurationSetDeliveryOptions.html#PutConfigurationSetDeliveryOptionsResponse"><span class="hs-identifier hs-type">PutConfigurationSetDeliveryOptionsResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

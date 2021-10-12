@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MechanicalTurk.Types.NotificationTransport</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MechanicalTurk.Types.NotificationTransport</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport"><span class="hs-identifier">NotificationTransport</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_Email"><span class="hs-identifier">NotificationTransport_Email</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_SNS"><span class="hs-identifier">NotificationTransport_SNS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_SQS"><span class="hs-identifier">NotificationTransport_SQS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679243519"><span id="local-6989586621679243520"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationTransport"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport"><span class="hs-identifier hs-var">NotificationTransport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationTransport%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport%27"><span class="hs-identifier hs-var">NotificationTransport'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotificationTransport"><span class="annot"><span class="annottext">NotificationTransport -&gt; Text
+</span><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#fromNotificationTransport"><span class="hs-identifier hs-var hs-var">fromNotificationTransport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243511"><span id="local-6989586621679243513"><span id="local-6989586621679243515"><span class="annot"><span class="annottext">Int -&gt; NotificationTransport -&gt; ShowS
+[NotificationTransport] -&gt; ShowS
+NotificationTransport -&gt; String
+(Int -&gt; NotificationTransport -&gt; ShowS)
+-&gt; (NotificationTransport -&gt; String)
+-&gt; ([NotificationTransport] -&gt; ShowS)
+-&gt; Show NotificationTransport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotificationTransport] -&gt; ShowS
+$cshowList :: [NotificationTransport] -&gt; ShowS
+show :: NotificationTransport -&gt; String
+$cshow :: NotificationTransport -&gt; String
+showsPrec :: Int -&gt; NotificationTransport -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotificationTransport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679243502"><span id="local-6989586621679243504"><span id="local-6989586621679243506"><span id="local-6989586621679243508"><span class="annot"><span class="annottext">ReadPrec [NotificationTransport]
+ReadPrec NotificationTransport
+Int -&gt; ReadS NotificationTransport
+ReadS [NotificationTransport]
+(Int -&gt; ReadS NotificationTransport)
+-&gt; ReadS [NotificationTransport]
+-&gt; ReadPrec NotificationTransport
+-&gt; ReadPrec [NotificationTransport]
+-&gt; Read NotificationTransport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotificationTransport]
+$creadListPrec :: ReadPrec [NotificationTransport]
+readPrec :: ReadPrec NotificationTransport
+$creadPrec :: ReadPrec NotificationTransport
+readList :: ReadS [NotificationTransport]
+$creadList :: ReadS [NotificationTransport]
+readsPrec :: Int -&gt; ReadS NotificationTransport
+$creadsPrec :: Int -&gt; ReadS NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243497"><span id="local-6989586621679243499"><span class="annot"><span class="annottext">NotificationTransport -&gt; NotificationTransport -&gt; Bool
+(NotificationTransport -&gt; NotificationTransport -&gt; Bool)
+-&gt; (NotificationTransport -&gt; NotificationTransport -&gt; Bool)
+-&gt; Eq NotificationTransport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+$c/= :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+== :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+$c== :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243481"><span id="local-6989586621679243483"><span id="local-6989586621679243485"><span id="local-6989586621679243487"><span id="local-6989586621679243489"><span id="local-6989586621679243491"><span id="local-6989586621679243493"><span class="annot"><span class="annottext">Eq NotificationTransport
+Eq NotificationTransport
+-&gt; (NotificationTransport -&gt; NotificationTransport -&gt; Ordering)
+-&gt; (NotificationTransport -&gt; NotificationTransport -&gt; Bool)
+-&gt; (NotificationTransport -&gt; NotificationTransport -&gt; Bool)
+-&gt; (NotificationTransport -&gt; NotificationTransport -&gt; Bool)
+-&gt; (NotificationTransport -&gt; NotificationTransport -&gt; Bool)
+-&gt; (NotificationTransport
+    -&gt; NotificationTransport -&gt; NotificationTransport)
+-&gt; (NotificationTransport
+    -&gt; NotificationTransport -&gt; NotificationTransport)
+-&gt; Ord NotificationTransport
+NotificationTransport -&gt; NotificationTransport -&gt; Bool
+NotificationTransport -&gt; NotificationTransport -&gt; Ordering
+NotificationTransport
+-&gt; NotificationTransport -&gt; NotificationTransport
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NotificationTransport
+-&gt; NotificationTransport -&gt; NotificationTransport
+$cmin :: NotificationTransport
+-&gt; NotificationTransport -&gt; NotificationTransport
+max :: NotificationTransport
+-&gt; NotificationTransport -&gt; NotificationTransport
+$cmax :: NotificationTransport
+-&gt; NotificationTransport -&gt; NotificationTransport
+&gt;= :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+$c&gt;= :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+&gt; :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+$c&gt; :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+&lt;= :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+$c&lt;= :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+&lt; :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+$c&lt; :: NotificationTransport -&gt; NotificationTransport -&gt; Bool
+compare :: NotificationTransport -&gt; NotificationTransport -&gt; Ordering
+$ccompare :: NotificationTransport -&gt; NotificationTransport -&gt; Ordering
+$cp1Ord :: Eq NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NotificationTransport -&gt; Rep NotificationTransport x)
+-&gt; (forall x. Rep NotificationTransport x -&gt; NotificationTransport)
+-&gt; Generic NotificationTransport
+forall x. Rep NotificationTransport x -&gt; NotificationTransport
+forall x. NotificationTransport -&gt; Rep NotificationTransport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NotificationTransport x -&gt; NotificationTransport
+$cfrom :: forall x. NotificationTransport -&gt; Rep NotificationTransport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243473"><span id="local-6989586621679243475"><span class="annot"><span class="annottext">Int -&gt; NotificationTransport -&gt; Int
+NotificationTransport -&gt; Int
+(Int -&gt; NotificationTransport -&gt; Int)
+-&gt; (NotificationTransport -&gt; Int) -&gt; Hashable NotificationTransport
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NotificationTransport -&gt; Int
+$chash :: NotificationTransport -&gt; Int
+hashWithSalt :: Int -&gt; NotificationTransport -&gt; Int
+$chashWithSalt :: Int -&gt; NotificationTransport -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679243470"><span class="annot"><span class="annottext">NotificationTransport -&gt; ()
+(NotificationTransport -&gt; ()) -&gt; NFData NotificationTransport
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NotificationTransport -&gt; ()
+$crnf :: NotificationTransport -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243467"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationTransport
+(Text -&gt; Either String NotificationTransport)
+-&gt; FromText NotificationTransport
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NotificationTransport
+$cfromText :: Text -&gt; Either String NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243464"><span class="annot"><span class="annottext">NotificationTransport -&gt; Text
+(NotificationTransport -&gt; Text) -&gt; ToText NotificationTransport
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NotificationTransport -&gt; Text
+$ctoText :: NotificationTransport -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243461"><span class="annot"><span class="annottext">NotificationTransport -&gt; ByteString
+(NotificationTransport -&gt; ByteString)
+-&gt; ToByteString NotificationTransport
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NotificationTransport -&gt; ByteString
+$ctoBS :: NotificationTransport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243458"><span class="annot"><span class="annottext">NotificationTransport -&gt; ByteStringBuilder
+(NotificationTransport -&gt; ByteStringBuilder)
+-&gt; ToLog NotificationTransport
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NotificationTransport -&gt; ByteStringBuilder
+$cbuild :: NotificationTransport -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243455"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationTransport -&gt; [Header]
+(HeaderName -&gt; NotificationTransport -&gt; [Header])
+-&gt; ToHeader NotificationTransport
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NotificationTransport -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NotificationTransport -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243452"><span class="annot"><span class="annottext">NotificationTransport -&gt; QueryString
+(NotificationTransport -&gt; QueryString)
+-&gt; ToQuery NotificationTransport
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NotificationTransport -&gt; QueryString
+$ctoQuery :: NotificationTransport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243447"><span id="local-6989586621679243449"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationTransport]
+Value -&gt; Parser NotificationTransport
+(Value -&gt; Parser NotificationTransport)
+-&gt; (Value -&gt; Parser [NotificationTransport])
+-&gt; FromJSON NotificationTransport
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NotificationTransport]
+$cparseJSONList :: Value -&gt; Parser [NotificationTransport]
+parseJSON :: Value -&gt; Parser NotificationTransport
+$cparseJSON :: Value -&gt; Parser NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243442"><span id="local-6989586621679243444"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationTransport]
+FromJSONKeyFunction NotificationTransport
+FromJSONKeyFunction NotificationTransport
+-&gt; FromJSONKeyFunction [NotificationTransport]
+-&gt; FromJSONKey NotificationTransport
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NotificationTransport]
+$cfromJSONKeyList :: FromJSONKeyFunction [NotificationTransport]
+fromJSONKey :: FromJSONKeyFunction NotificationTransport
+$cfromJSONKey :: FromJSONKeyFunction NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243433"><span id="local-6989586621679243435"><span id="local-6989586621679243437"><span id="local-6989586621679243439"><span class="annot"><span class="annottext">[NotificationTransport] -&gt; Encoding
+[NotificationTransport] -&gt; Value
+NotificationTransport -&gt; Encoding
+NotificationTransport -&gt; Value
+(NotificationTransport -&gt; Value)
+-&gt; (NotificationTransport -&gt; Encoding)
+-&gt; ([NotificationTransport] -&gt; Value)
+-&gt; ([NotificationTransport] -&gt; Encoding)
+-&gt; ToJSON NotificationTransport
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NotificationTransport] -&gt; Encoding
+$ctoEncodingList :: [NotificationTransport] -&gt; Encoding
+toJSONList :: [NotificationTransport] -&gt; Value
+$ctoJSONList :: [NotificationTransport] -&gt; Value
+toEncoding :: NotificationTransport -&gt; Encoding
+$ctoEncoding :: NotificationTransport -&gt; Encoding
+toJSON :: NotificationTransport -&gt; Value
+$ctoJSON :: NotificationTransport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243428"><span id="local-6989586621679243430"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationTransport]
+ToJSONKeyFunction NotificationTransport
+ToJSONKeyFunction NotificationTransport
+-&gt; ToJSONKeyFunction [NotificationTransport]
+-&gt; ToJSONKey NotificationTransport
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NotificationTransport]
+$ctoJSONKeyList :: ToJSONKeyFunction [NotificationTransport]
+toJSONKey :: ToJSONKeyFunction NotificationTransport
+$ctoJSONKey :: ToJSONKeyFunction NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243425"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationTransport
+([Node] -&gt; Either String NotificationTransport)
+-&gt; FromXML NotificationTransport
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NotificationTransport
+$cparseXML :: [Node] -&gt; Either String NotificationTransport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243422"><span class="annot"><span class="annottext">NotificationTransport -&gt; XML
+(NotificationTransport -&gt; XML) -&gt; ToXML NotificationTransport
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NotificationTransport -&gt; XML
+$ctoXML :: NotificationTransport -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_Email"><span class="hs-identifier hs-type">NotificationTransport_Email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport"><span class="hs-identifier hs-type">NotificationTransport</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationTransport_Email"><span id="%24mNotificationTransport_Email"><span id="NotificationTransport_Email"><span class="annot"><span class="annottext">$bNotificationTransport_Email :: NotificationTransport
+$mNotificationTransport_Email :: forall r.
+NotificationTransport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#%24bNotificationTransport_Email"><span class="hs-identifier hs-var hs-var hs-var">NotificationTransport_Email</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport%27"><span class="hs-identifier hs-type">NotificationTransport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Email&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_SNS"><span class="hs-identifier hs-type">NotificationTransport_SNS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport"><span class="hs-identifier hs-type">NotificationTransport</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationTransport_SNS"><span id="%24mNotificationTransport_SNS"><span id="NotificationTransport_SNS"><span class="annot"><span class="annottext">$bNotificationTransport_SNS :: NotificationTransport
+$mNotificationTransport_SNS :: forall r.
+NotificationTransport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#%24bNotificationTransport_SNS"><span class="hs-identifier hs-var hs-var hs-var">NotificationTransport_SNS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport%27"><span class="hs-identifier hs-type">NotificationTransport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_SQS"><span class="hs-identifier hs-type">NotificationTransport_SQS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport"><span class="hs-identifier hs-type">NotificationTransport</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNotificationTransport_SQS"><span id="%24mNotificationTransport_SQS"><span id="NotificationTransport_SQS"><span class="annot"><span class="annottext">$bNotificationTransport_SQS :: NotificationTransport
+$mNotificationTransport_SQS :: forall r.
+NotificationTransport -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#%24bNotificationTransport_SQS"><span class="hs-identifier hs-var hs-var hs-var">NotificationTransport_SQS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport%27"><span class="hs-identifier hs-type">NotificationTransport'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SQS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_Email"><span class="hs-pragma hs-type">NotificationTransport_Email</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_SNS"><span class="hs-pragma hs-type">NotificationTransport_SNS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport_SQS"><span class="hs-pragma hs-type">NotificationTransport_SQS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationTransport.html#NotificationTransport%27"><span class="hs-pragma hs-type">NotificationTransport'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.S3.Types.AnalyticsS3ExportFileFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.S3.Types.AnalyticsS3ExportFileFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat"><span class="hs-identifier">AnalyticsS3ExportFileFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat_CSV"><span class="hs-identifier">AnalyticsS3ExportFileFormat_CSV</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679536919"><span id="local-6989586621679536920"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalyticsS3ExportFileFormat"><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat"><span class="hs-identifier hs-var">AnalyticsS3ExportFileFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalyticsS3ExportFileFormat%27"><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat%27"><span class="hs-identifier hs-var">AnalyticsS3ExportFileFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnalyticsS3ExportFileFormat"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; Text
+</span><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#fromAnalyticsS3ExportFileFormat"><span class="hs-identifier hs-var hs-var">fromAnalyticsS3ExportFileFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679536911"><span id="local-6989586621679536913"><span id="local-6989586621679536915"><span class="annot"><span class="annottext">Int -&gt; AnalyticsS3ExportFileFormat -&gt; ShowS
+[AnalyticsS3ExportFileFormat] -&gt; ShowS
+AnalyticsS3ExportFileFormat -&gt; String
+(Int -&gt; AnalyticsS3ExportFileFormat -&gt; ShowS)
+-&gt; (AnalyticsS3ExportFileFormat -&gt; String)
+-&gt; ([AnalyticsS3ExportFileFormat] -&gt; ShowS)
+-&gt; Show AnalyticsS3ExportFileFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalyticsS3ExportFileFormat] -&gt; ShowS
+$cshowList :: [AnalyticsS3ExportFileFormat] -&gt; ShowS
+show :: AnalyticsS3ExportFileFormat -&gt; String
+$cshow :: AnalyticsS3ExportFileFormat -&gt; String
+showsPrec :: Int -&gt; AnalyticsS3ExportFileFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalyticsS3ExportFileFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679536902"><span id="local-6989586621679536904"><span id="local-6989586621679536906"><span id="local-6989586621679536908"><span class="annot"><span class="annottext">ReadPrec [AnalyticsS3ExportFileFormat]
+ReadPrec AnalyticsS3ExportFileFormat
+Int -&gt; ReadS AnalyticsS3ExportFileFormat
+ReadS [AnalyticsS3ExportFileFormat]
+(Int -&gt; ReadS AnalyticsS3ExportFileFormat)
+-&gt; ReadS [AnalyticsS3ExportFileFormat]
+-&gt; ReadPrec AnalyticsS3ExportFileFormat
+-&gt; ReadPrec [AnalyticsS3ExportFileFormat]
+-&gt; Read AnalyticsS3ExportFileFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalyticsS3ExportFileFormat]
+$creadListPrec :: ReadPrec [AnalyticsS3ExportFileFormat]
+readPrec :: ReadPrec AnalyticsS3ExportFileFormat
+$creadPrec :: ReadPrec AnalyticsS3ExportFileFormat
+readList :: ReadS [AnalyticsS3ExportFileFormat]
+$creadList :: ReadS [AnalyticsS3ExportFileFormat]
+readsPrec :: Int -&gt; ReadS AnalyticsS3ExportFileFormat
+$creadsPrec :: Int -&gt; ReadS AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679536897"><span id="local-6989586621679536899"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+(AnalyticsS3ExportFileFormat
+ -&gt; AnalyticsS3ExportFileFormat -&gt; Bool)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; Bool)
+-&gt; Eq AnalyticsS3ExportFileFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+$c/= :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+== :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+$c== :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679536881"><span id="local-6989586621679536883"><span id="local-6989586621679536885"><span id="local-6989586621679536887"><span id="local-6989586621679536889"><span id="local-6989586621679536891"><span id="local-6989586621679536893"><span class="annot"><span class="annottext">Eq AnalyticsS3ExportFileFormat
+Eq AnalyticsS3ExportFileFormat
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; Ordering)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; Bool)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; Bool)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; Bool)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; Bool)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat)
+-&gt; (AnalyticsS3ExportFileFormat
+    -&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat)
+-&gt; Ord AnalyticsS3ExportFileFormat
+AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; Ordering
+AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat
+$cmin :: AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat
+max :: AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat
+$cmax :: AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat
+&gt;= :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+$c&gt;= :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+&gt; :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+$c&gt; :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+&lt;= :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+$c&lt;= :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+&lt; :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+$c&lt; :: AnalyticsS3ExportFileFormat -&gt; AnalyticsS3ExportFileFormat -&gt; Bool
+compare :: AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; Ordering
+$ccompare :: AnalyticsS3ExportFileFormat
+-&gt; AnalyticsS3ExportFileFormat -&gt; Ordering
+$cp1Ord :: Eq AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AnalyticsS3ExportFileFormat -&gt; Rep AnalyticsS3ExportFileFormat x)
+-&gt; (forall x.
+    Rep AnalyticsS3ExportFileFormat x -&gt; AnalyticsS3ExportFileFormat)
+-&gt; Generic AnalyticsS3ExportFileFormat
+forall x.
+Rep AnalyticsS3ExportFileFormat x -&gt; AnalyticsS3ExportFileFormat
+forall x.
+AnalyticsS3ExportFileFormat -&gt; Rep AnalyticsS3ExportFileFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AnalyticsS3ExportFileFormat x -&gt; AnalyticsS3ExportFileFormat
+$cfrom :: forall x.
+AnalyticsS3ExportFileFormat -&gt; Rep AnalyticsS3ExportFileFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679536873"><span id="local-6989586621679536875"><span class="annot"><span class="annottext">Int -&gt; AnalyticsS3ExportFileFormat -&gt; Int
+AnalyticsS3ExportFileFormat -&gt; Int
+(Int -&gt; AnalyticsS3ExportFileFormat -&gt; Int)
+-&gt; (AnalyticsS3ExportFileFormat -&gt; Int)
+-&gt; Hashable AnalyticsS3ExportFileFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AnalyticsS3ExportFileFormat -&gt; Int
+$chash :: AnalyticsS3ExportFileFormat -&gt; Int
+hashWithSalt :: Int -&gt; AnalyticsS3ExportFileFormat -&gt; Int
+$chashWithSalt :: Int -&gt; AnalyticsS3ExportFileFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679536870"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; ()
+(AnalyticsS3ExportFileFormat -&gt; ())
+-&gt; NFData AnalyticsS3ExportFileFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AnalyticsS3ExportFileFormat -&gt; ()
+$crnf :: AnalyticsS3ExportFileFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679536867"><span class="annot"><span class="annottext">Text -&gt; Either String AnalyticsS3ExportFileFormat
+(Text -&gt; Either String AnalyticsS3ExportFileFormat)
+-&gt; FromText AnalyticsS3ExportFileFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AnalyticsS3ExportFileFormat
+$cfromText :: Text -&gt; Either String AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679536864"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; Text
+(AnalyticsS3ExportFileFormat -&gt; Text)
+-&gt; ToText AnalyticsS3ExportFileFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AnalyticsS3ExportFileFormat -&gt; Text
+$ctoText :: AnalyticsS3ExportFileFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679536861"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; ByteString
+(AnalyticsS3ExportFileFormat -&gt; ByteString)
+-&gt; ToByteString AnalyticsS3ExportFileFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AnalyticsS3ExportFileFormat -&gt; ByteString
+$ctoBS :: AnalyticsS3ExportFileFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679536858"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; ByteStringBuilder
+(AnalyticsS3ExportFileFormat -&gt; ByteStringBuilder)
+-&gt; ToLog AnalyticsS3ExportFileFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AnalyticsS3ExportFileFormat -&gt; ByteStringBuilder
+$cbuild :: AnalyticsS3ExportFileFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679536855"><span class="annot"><span class="annottext">HeaderName -&gt; AnalyticsS3ExportFileFormat -&gt; [Header]
+(HeaderName -&gt; AnalyticsS3ExportFileFormat -&gt; [Header])
+-&gt; ToHeader AnalyticsS3ExportFileFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AnalyticsS3ExportFileFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AnalyticsS3ExportFileFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679536852"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; QueryString
+(AnalyticsS3ExportFileFormat -&gt; QueryString)
+-&gt; ToQuery AnalyticsS3ExportFileFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AnalyticsS3ExportFileFormat -&gt; QueryString
+$ctoQuery :: AnalyticsS3ExportFileFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679536847"><span id="local-6989586621679536849"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalyticsS3ExportFileFormat]
+Value -&gt; Parser AnalyticsS3ExportFileFormat
+(Value -&gt; Parser AnalyticsS3ExportFileFormat)
+-&gt; (Value -&gt; Parser [AnalyticsS3ExportFileFormat])
+-&gt; FromJSON AnalyticsS3ExportFileFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AnalyticsS3ExportFileFormat]
+$cparseJSONList :: Value -&gt; Parser [AnalyticsS3ExportFileFormat]
+parseJSON :: Value -&gt; Parser AnalyticsS3ExportFileFormat
+$cparseJSON :: Value -&gt; Parser AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679536842"><span id="local-6989586621679536844"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalyticsS3ExportFileFormat]
+FromJSONKeyFunction AnalyticsS3ExportFileFormat
+FromJSONKeyFunction AnalyticsS3ExportFileFormat
+-&gt; FromJSONKeyFunction [AnalyticsS3ExportFileFormat]
+-&gt; FromJSONKey AnalyticsS3ExportFileFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AnalyticsS3ExportFileFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [AnalyticsS3ExportFileFormat]
+fromJSONKey :: FromJSONKeyFunction AnalyticsS3ExportFileFormat
+$cfromJSONKey :: FromJSONKeyFunction AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679536833"><span id="local-6989586621679536835"><span id="local-6989586621679536837"><span id="local-6989586621679536839"><span class="annot"><span class="annottext">[AnalyticsS3ExportFileFormat] -&gt; Encoding
+[AnalyticsS3ExportFileFormat] -&gt; Value
+AnalyticsS3ExportFileFormat -&gt; Encoding
+AnalyticsS3ExportFileFormat -&gt; Value
+(AnalyticsS3ExportFileFormat -&gt; Value)
+-&gt; (AnalyticsS3ExportFileFormat -&gt; Encoding)
+-&gt; ([AnalyticsS3ExportFileFormat] -&gt; Value)
+-&gt; ([AnalyticsS3ExportFileFormat] -&gt; Encoding)
+-&gt; ToJSON AnalyticsS3ExportFileFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AnalyticsS3ExportFileFormat] -&gt; Encoding
+$ctoEncodingList :: [AnalyticsS3ExportFileFormat] -&gt; Encoding
+toJSONList :: [AnalyticsS3ExportFileFormat] -&gt; Value
+$ctoJSONList :: [AnalyticsS3ExportFileFormat] -&gt; Value
+toEncoding :: AnalyticsS3ExportFileFormat -&gt; Encoding
+$ctoEncoding :: AnalyticsS3ExportFileFormat -&gt; Encoding
+toJSON :: AnalyticsS3ExportFileFormat -&gt; Value
+$ctoJSON :: AnalyticsS3ExportFileFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679536828"><span id="local-6989586621679536830"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalyticsS3ExportFileFormat]
+ToJSONKeyFunction AnalyticsS3ExportFileFormat
+ToJSONKeyFunction AnalyticsS3ExportFileFormat
+-&gt; ToJSONKeyFunction [AnalyticsS3ExportFileFormat]
+-&gt; ToJSONKey AnalyticsS3ExportFileFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AnalyticsS3ExportFileFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [AnalyticsS3ExportFileFormat]
+toJSONKey :: ToJSONKeyFunction AnalyticsS3ExportFileFormat
+$ctoJSONKey :: ToJSONKeyFunction AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679536825"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalyticsS3ExportFileFormat
+([Node] -&gt; Either String AnalyticsS3ExportFileFormat)
+-&gt; FromXML AnalyticsS3ExportFileFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AnalyticsS3ExportFileFormat
+$cparseXML :: [Node] -&gt; Either String AnalyticsS3ExportFileFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679536822"><span class="annot"><span class="annottext">AnalyticsS3ExportFileFormat -&gt; XML
+(AnalyticsS3ExportFileFormat -&gt; XML)
+-&gt; ToXML AnalyticsS3ExportFileFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AnalyticsS3ExportFileFormat -&gt; XML
+$ctoXML :: AnalyticsS3ExportFileFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat_CSV"><span class="hs-identifier hs-type">AnalyticsS3ExportFileFormat_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat"><span class="hs-identifier hs-type">AnalyticsS3ExportFileFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAnalyticsS3ExportFileFormat_CSV"><span id="%24mAnalyticsS3ExportFileFormat_CSV"><span id="AnalyticsS3ExportFileFormat_CSV"><span class="annot"><span class="annottext">$bAnalyticsS3ExportFileFormat_CSV :: AnalyticsS3ExportFileFormat
+$mAnalyticsS3ExportFileFormat_CSV :: forall r.
+AnalyticsS3ExportFileFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#%24bAnalyticsS3ExportFileFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">AnalyticsS3ExportFileFormat_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat%27"><span class="hs-identifier hs-type">AnalyticsS3ExportFileFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat_CSV"><span class="hs-pragma hs-type">AnalyticsS3ExportFileFormat_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsS3ExportFileFormat.html#AnalyticsS3ExportFileFormat%27"><span class="hs-pragma hs-type">AnalyticsS3ExportFileFormat'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

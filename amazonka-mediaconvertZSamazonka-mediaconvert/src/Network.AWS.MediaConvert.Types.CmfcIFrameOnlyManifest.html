@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest"><span class="hs-identifier">CmfcIFrameOnlyManifest</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest_EXCLUDE"><span class="hs-identifier">CmfcIFrameOnlyManifest_EXCLUDE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest_INCLUDE"><span class="hs-identifier">CmfcIFrameOnlyManifest_INCLUDE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- manifest that lists only the I-frames for this rendition, in addition to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- your regular manifest for this rendition. You might use this manifest as</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- part of a workflow that creates preview functions for your video.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- MediaConvert adds both the I-frame only child manifest and the regular</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- child manifest to the parent manifest. When you don\'t need the I-frame</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- only child manifest, keep the default value Exclude (EXCLUDE).</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679946121"><span id="local-6989586621679946122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcIFrameOnlyManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest"><span class="hs-identifier hs-var">CmfcIFrameOnlyManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcIFrameOnlyManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest%27"><span class="hs-identifier hs-var">CmfcIFrameOnlyManifest'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmfcIFrameOnlyManifest"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; Text
+</span><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#fromCmfcIFrameOnlyManifest"><span class="hs-identifier hs-var hs-var">fromCmfcIFrameOnlyManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946113"><span id="local-6989586621679946115"><span id="local-6989586621679946117"><span class="annot"><span class="annottext">Int -&gt; CmfcIFrameOnlyManifest -&gt; ShowS
+[CmfcIFrameOnlyManifest] -&gt; ShowS
+CmfcIFrameOnlyManifest -&gt; String
+(Int -&gt; CmfcIFrameOnlyManifest -&gt; ShowS)
+-&gt; (CmfcIFrameOnlyManifest -&gt; String)
+-&gt; ([CmfcIFrameOnlyManifest] -&gt; ShowS)
+-&gt; Show CmfcIFrameOnlyManifest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CmfcIFrameOnlyManifest] -&gt; ShowS
+$cshowList :: [CmfcIFrameOnlyManifest] -&gt; ShowS
+show :: CmfcIFrameOnlyManifest -&gt; String
+$cshow :: CmfcIFrameOnlyManifest -&gt; String
+showsPrec :: Int -&gt; CmfcIFrameOnlyManifest -&gt; ShowS
+$cshowsPrec :: Int -&gt; CmfcIFrameOnlyManifest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679946104"><span id="local-6989586621679946106"><span id="local-6989586621679946108"><span id="local-6989586621679946110"><span class="annot"><span class="annottext">ReadPrec [CmfcIFrameOnlyManifest]
+ReadPrec CmfcIFrameOnlyManifest
+Int -&gt; ReadS CmfcIFrameOnlyManifest
+ReadS [CmfcIFrameOnlyManifest]
+(Int -&gt; ReadS CmfcIFrameOnlyManifest)
+-&gt; ReadS [CmfcIFrameOnlyManifest]
+-&gt; ReadPrec CmfcIFrameOnlyManifest
+-&gt; ReadPrec [CmfcIFrameOnlyManifest]
+-&gt; Read CmfcIFrameOnlyManifest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CmfcIFrameOnlyManifest]
+$creadListPrec :: ReadPrec [CmfcIFrameOnlyManifest]
+readPrec :: ReadPrec CmfcIFrameOnlyManifest
+$creadPrec :: ReadPrec CmfcIFrameOnlyManifest
+readList :: ReadS [CmfcIFrameOnlyManifest]
+$creadList :: ReadS [CmfcIFrameOnlyManifest]
+readsPrec :: Int -&gt; ReadS CmfcIFrameOnlyManifest
+$creadsPrec :: Int -&gt; ReadS CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679946099"><span id="local-6989586621679946101"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+(CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool)
+-&gt; (CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool)
+-&gt; Eq CmfcIFrameOnlyManifest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+$c/= :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+== :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+$c== :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679946083"><span id="local-6989586621679946085"><span id="local-6989586621679946087"><span id="local-6989586621679946089"><span id="local-6989586621679946091"><span id="local-6989586621679946093"><span id="local-6989586621679946095"><span class="annot"><span class="annottext">Eq CmfcIFrameOnlyManifest
+Eq CmfcIFrameOnlyManifest
+-&gt; (CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Ordering)
+-&gt; (CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool)
+-&gt; (CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool)
+-&gt; (CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool)
+-&gt; (CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool)
+-&gt; (CmfcIFrameOnlyManifest
+    -&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest)
+-&gt; (CmfcIFrameOnlyManifest
+    -&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest)
+-&gt; Ord CmfcIFrameOnlyManifest
+CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Ordering
+CmfcIFrameOnlyManifest
+-&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CmfcIFrameOnlyManifest
+-&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest
+$cmin :: CmfcIFrameOnlyManifest
+-&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest
+max :: CmfcIFrameOnlyManifest
+-&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest
+$cmax :: CmfcIFrameOnlyManifest
+-&gt; CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest
+&gt;= :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+$c&gt;= :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+&gt; :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+$c&gt; :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+&lt;= :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+$c&lt;= :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+&lt; :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+$c&lt; :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Bool
+compare :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Ordering
+$ccompare :: CmfcIFrameOnlyManifest -&gt; CmfcIFrameOnlyManifest -&gt; Ordering
+$cp1Ord :: Eq CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CmfcIFrameOnlyManifest -&gt; Rep CmfcIFrameOnlyManifest x)
+-&gt; (forall x.
+    Rep CmfcIFrameOnlyManifest x -&gt; CmfcIFrameOnlyManifest)
+-&gt; Generic CmfcIFrameOnlyManifest
+forall x. Rep CmfcIFrameOnlyManifest x -&gt; CmfcIFrameOnlyManifest
+forall x. CmfcIFrameOnlyManifest -&gt; Rep CmfcIFrameOnlyManifest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CmfcIFrameOnlyManifest x -&gt; CmfcIFrameOnlyManifest
+$cfrom :: forall x. CmfcIFrameOnlyManifest -&gt; Rep CmfcIFrameOnlyManifest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946075"><span id="local-6989586621679946077"><span class="annot"><span class="annottext">Int -&gt; CmfcIFrameOnlyManifest -&gt; Int
+CmfcIFrameOnlyManifest -&gt; Int
+(Int -&gt; CmfcIFrameOnlyManifest -&gt; Int)
+-&gt; (CmfcIFrameOnlyManifest -&gt; Int)
+-&gt; Hashable CmfcIFrameOnlyManifest
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CmfcIFrameOnlyManifest -&gt; Int
+$chash :: CmfcIFrameOnlyManifest -&gt; Int
+hashWithSalt :: Int -&gt; CmfcIFrameOnlyManifest -&gt; Int
+$chashWithSalt :: Int -&gt; CmfcIFrameOnlyManifest -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679946072"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; ()
+(CmfcIFrameOnlyManifest -&gt; ()) -&gt; NFData CmfcIFrameOnlyManifest
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CmfcIFrameOnlyManifest -&gt; ()
+$crnf :: CmfcIFrameOnlyManifest -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679946069"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcIFrameOnlyManifest
+(Text -&gt; Either String CmfcIFrameOnlyManifest)
+-&gt; FromText CmfcIFrameOnlyManifest
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CmfcIFrameOnlyManifest
+$cfromText :: Text -&gt; Either String CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679946066"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; Text
+(CmfcIFrameOnlyManifest -&gt; Text) -&gt; ToText CmfcIFrameOnlyManifest
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CmfcIFrameOnlyManifest -&gt; Text
+$ctoText :: CmfcIFrameOnlyManifest -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679946063"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; ByteString
+(CmfcIFrameOnlyManifest -&gt; ByteString)
+-&gt; ToByteString CmfcIFrameOnlyManifest
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CmfcIFrameOnlyManifest -&gt; ByteString
+$ctoBS :: CmfcIFrameOnlyManifest -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679946060"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; ByteStringBuilder
+(CmfcIFrameOnlyManifest -&gt; ByteStringBuilder)
+-&gt; ToLog CmfcIFrameOnlyManifest
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CmfcIFrameOnlyManifest -&gt; ByteStringBuilder
+$cbuild :: CmfcIFrameOnlyManifest -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679946057"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcIFrameOnlyManifest -&gt; [Header]
+(HeaderName -&gt; CmfcIFrameOnlyManifest -&gt; [Header])
+-&gt; ToHeader CmfcIFrameOnlyManifest
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CmfcIFrameOnlyManifest -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CmfcIFrameOnlyManifest -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679946054"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; QueryString
+(CmfcIFrameOnlyManifest -&gt; QueryString)
+-&gt; ToQuery CmfcIFrameOnlyManifest
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CmfcIFrameOnlyManifest -&gt; QueryString
+$ctoQuery :: CmfcIFrameOnlyManifest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679946049"><span id="local-6989586621679946051"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcIFrameOnlyManifest]
+Value -&gt; Parser CmfcIFrameOnlyManifest
+(Value -&gt; Parser CmfcIFrameOnlyManifest)
+-&gt; (Value -&gt; Parser [CmfcIFrameOnlyManifest])
+-&gt; FromJSON CmfcIFrameOnlyManifest
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CmfcIFrameOnlyManifest]
+$cparseJSONList :: Value -&gt; Parser [CmfcIFrameOnlyManifest]
+parseJSON :: Value -&gt; Parser CmfcIFrameOnlyManifest
+$cparseJSON :: Value -&gt; Parser CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679946044"><span id="local-6989586621679946046"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcIFrameOnlyManifest]
+FromJSONKeyFunction CmfcIFrameOnlyManifest
+FromJSONKeyFunction CmfcIFrameOnlyManifest
+-&gt; FromJSONKeyFunction [CmfcIFrameOnlyManifest]
+-&gt; FromJSONKey CmfcIFrameOnlyManifest
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CmfcIFrameOnlyManifest]
+$cfromJSONKeyList :: FromJSONKeyFunction [CmfcIFrameOnlyManifest]
+fromJSONKey :: FromJSONKeyFunction CmfcIFrameOnlyManifest
+$cfromJSONKey :: FromJSONKeyFunction CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679946035"><span id="local-6989586621679946037"><span id="local-6989586621679946039"><span id="local-6989586621679946041"><span class="annot"><span class="annottext">[CmfcIFrameOnlyManifest] -&gt; Encoding
+[CmfcIFrameOnlyManifest] -&gt; Value
+CmfcIFrameOnlyManifest -&gt; Encoding
+CmfcIFrameOnlyManifest -&gt; Value
+(CmfcIFrameOnlyManifest -&gt; Value)
+-&gt; (CmfcIFrameOnlyManifest -&gt; Encoding)
+-&gt; ([CmfcIFrameOnlyManifest] -&gt; Value)
+-&gt; ([CmfcIFrameOnlyManifest] -&gt; Encoding)
+-&gt; ToJSON CmfcIFrameOnlyManifest
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CmfcIFrameOnlyManifest] -&gt; Encoding
+$ctoEncodingList :: [CmfcIFrameOnlyManifest] -&gt; Encoding
+toJSONList :: [CmfcIFrameOnlyManifest] -&gt; Value
+$ctoJSONList :: [CmfcIFrameOnlyManifest] -&gt; Value
+toEncoding :: CmfcIFrameOnlyManifest -&gt; Encoding
+$ctoEncoding :: CmfcIFrameOnlyManifest -&gt; Encoding
+toJSON :: CmfcIFrameOnlyManifest -&gt; Value
+$ctoJSON :: CmfcIFrameOnlyManifest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679946030"><span id="local-6989586621679946032"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcIFrameOnlyManifest]
+ToJSONKeyFunction CmfcIFrameOnlyManifest
+ToJSONKeyFunction CmfcIFrameOnlyManifest
+-&gt; ToJSONKeyFunction [CmfcIFrameOnlyManifest]
+-&gt; ToJSONKey CmfcIFrameOnlyManifest
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CmfcIFrameOnlyManifest]
+$ctoJSONKeyList :: ToJSONKeyFunction [CmfcIFrameOnlyManifest]
+toJSONKey :: ToJSONKeyFunction CmfcIFrameOnlyManifest
+$ctoJSONKey :: ToJSONKeyFunction CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679946027"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcIFrameOnlyManifest
+([Node] -&gt; Either String CmfcIFrameOnlyManifest)
+-&gt; FromXML CmfcIFrameOnlyManifest
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CmfcIFrameOnlyManifest
+$cparseXML :: [Node] -&gt; Either String CmfcIFrameOnlyManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679946024"><span class="annot"><span class="annottext">CmfcIFrameOnlyManifest -&gt; XML
+(CmfcIFrameOnlyManifest -&gt; XML) -&gt; ToXML CmfcIFrameOnlyManifest
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CmfcIFrameOnlyManifest -&gt; XML
+$ctoXML :: CmfcIFrameOnlyManifest -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest_EXCLUDE"><span class="hs-identifier hs-type">CmfcIFrameOnlyManifest_EXCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest"><span class="hs-identifier hs-type">CmfcIFrameOnlyManifest</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmfcIFrameOnlyManifest_EXCLUDE"><span id="%24mCmfcIFrameOnlyManifest_EXCLUDE"><span id="CmfcIFrameOnlyManifest_EXCLUDE"><span class="annot"><span class="annottext">$bCmfcIFrameOnlyManifest_EXCLUDE :: CmfcIFrameOnlyManifest
+$mCmfcIFrameOnlyManifest_EXCLUDE :: forall r.
+CmfcIFrameOnlyManifest -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#%24bCmfcIFrameOnlyManifest_EXCLUDE"><span class="hs-identifier hs-var hs-var hs-var">CmfcIFrameOnlyManifest_EXCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest%27"><span class="hs-identifier hs-type">CmfcIFrameOnlyManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXCLUDE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest_INCLUDE"><span class="hs-identifier hs-type">CmfcIFrameOnlyManifest_INCLUDE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest"><span class="hs-identifier hs-type">CmfcIFrameOnlyManifest</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCmfcIFrameOnlyManifest_INCLUDE"><span id="%24mCmfcIFrameOnlyManifest_INCLUDE"><span id="CmfcIFrameOnlyManifest_INCLUDE"><span class="annot"><span class="annottext">$bCmfcIFrameOnlyManifest_INCLUDE :: CmfcIFrameOnlyManifest
+$mCmfcIFrameOnlyManifest_INCLUDE :: forall r.
+CmfcIFrameOnlyManifest -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#%24bCmfcIFrameOnlyManifest_INCLUDE"><span class="hs-identifier hs-var hs-var hs-var">CmfcIFrameOnlyManifest_INCLUDE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest%27"><span class="hs-identifier hs-type">CmfcIFrameOnlyManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INCLUDE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest_EXCLUDE"><span class="hs-pragma hs-type">CmfcIFrameOnlyManifest_EXCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest_INCLUDE"><span class="hs-pragma hs-type">CmfcIFrameOnlyManifest_INCLUDE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest.html#CmfcIFrameOnlyManifest%27"><span class="hs-pragma hs-type">CmfcIFrameOnlyManifest'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

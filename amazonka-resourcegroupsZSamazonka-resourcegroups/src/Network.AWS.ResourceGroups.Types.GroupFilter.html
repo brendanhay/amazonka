@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ResourceGroups.Types.GroupFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ResourceGroups.Types.GroupFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html"><span class="hs-identifier">Network.AWS.ResourceGroups.Types.GroupFilterName</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A filter collection that you can use to restrict the results from a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @List@ operation to only those you want to include.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGroupFilter' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679175981"><span id="local-6989586621679175982"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupFilter"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-var">GroupFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupFilter%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-var">GroupFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter. Filter names are case-sensitive.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AGroupFilter%27"><span class="annot"><span class="annottext">GroupFilter -&gt; GroupFilterName
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#%24sel%3Aname%3AGroupFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-type">GroupFilterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One or more filter values. Allowed filter values vary by group filter</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- name, and are case-sensitive.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalues%3AGroupFilter%27"><span class="annot"><span class="annottext">GroupFilter -&gt; NonEmpty Text
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#%24sel%3Avalues%3AGroupFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175974"><span id="local-6989586621679175976"><span class="annot"><span class="annottext">GroupFilter -&gt; GroupFilter -&gt; Bool
+(GroupFilter -&gt; GroupFilter -&gt; Bool)
+-&gt; (GroupFilter -&gt; GroupFilter -&gt; Bool) -&gt; Eq GroupFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GroupFilter -&gt; GroupFilter -&gt; Bool
+$c/= :: GroupFilter -&gt; GroupFilter -&gt; Bool
+== :: GroupFilter -&gt; GroupFilter -&gt; Bool
+$c== :: GroupFilter -&gt; GroupFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175965"><span id="local-6989586621679175967"><span id="local-6989586621679175969"><span id="local-6989586621679175971"><span class="annot"><span class="annottext">ReadPrec [GroupFilter]
+ReadPrec GroupFilter
+Int -&gt; ReadS GroupFilter
+ReadS [GroupFilter]
+(Int -&gt; ReadS GroupFilter)
+-&gt; ReadS [GroupFilter]
+-&gt; ReadPrec GroupFilter
+-&gt; ReadPrec [GroupFilter]
+-&gt; Read GroupFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GroupFilter]
+$creadListPrec :: ReadPrec [GroupFilter]
+readPrec :: ReadPrec GroupFilter
+$creadPrec :: ReadPrec GroupFilter
+readList :: ReadS [GroupFilter]
+$creadList :: ReadS [GroupFilter]
+readsPrec :: Int -&gt; ReadS GroupFilter
+$creadsPrec :: Int -&gt; ReadS GroupFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175958"><span id="local-6989586621679175960"><span id="local-6989586621679175962"><span class="annot"><span class="annottext">Int -&gt; GroupFilter -&gt; ShowS
+[GroupFilter] -&gt; ShowS
+GroupFilter -&gt; String
+(Int -&gt; GroupFilter -&gt; ShowS)
+-&gt; (GroupFilter -&gt; String)
+-&gt; ([GroupFilter] -&gt; ShowS)
+-&gt; Show GroupFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GroupFilter] -&gt; ShowS
+$cshowList :: [GroupFilter] -&gt; ShowS
+show :: GroupFilter -&gt; String
+$cshow :: GroupFilter -&gt; String
+showsPrec :: Int -&gt; GroupFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; GroupFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GroupFilter -&gt; Rep GroupFilter x)
+-&gt; (forall x. Rep GroupFilter x -&gt; GroupFilter)
+-&gt; Generic GroupFilter
+forall x. Rep GroupFilter x -&gt; GroupFilter
+forall x. GroupFilter -&gt; Rep GroupFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GroupFilter x -&gt; GroupFilter
+$cfrom :: forall x. GroupFilter -&gt; Rep GroupFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'GroupFilter' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'groupFilter_name' - The name of the filter. Filter names are case-sensitive.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'values', 'groupFilter_values' - One or more filter values. Allowed filter values vary by group filter</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- name, and are case-sensitive.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#newGroupFilter"><span class="hs-identifier hs-type">newGroupFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-type">GroupFilterName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'values'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span><span>
+</span><span id="line-58"></span><span id="newGroupFilter"><span class="annot"><span class="annottext">newGroupFilter :: GroupFilterName -&gt; NonEmpty Text -&gt; GroupFilter
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#newGroupFilter"><span class="hs-identifier hs-var hs-var">newGroupFilter</span></a></span></span><span> </span><span id="local-6989586621679175952"><span class="annot"><span class="annottext">GroupFilterName
+</span><a href="#local-6989586621679175952"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679175951"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679175951"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">GroupFilter' :: GroupFilterName -&gt; NonEmpty Text -&gt; GroupFilter
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-type">GroupFilter'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:GroupFilter' :: GroupFilterName
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#%24sel%3Aname%3AGroupFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GroupFilterName
+</span><a href="#local-6989586621679175952"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:GroupFilter' :: NonEmpty Text
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#%24sel%3Avalues%3AGroupFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679175951"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The name of the filter. Filter names are case-sensitive.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#groupFilter_name"><span class="hs-identifier hs-type">groupFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-type">GroupFilterName</span></a></span><span>
+</span><span id="line-66"></span><span id="groupFilter_name"><span class="annot"><span class="annottext">groupFilter_name :: (GroupFilterName -&gt; f GroupFilterName)
+-&gt; GroupFilter -&gt; f GroupFilter
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#groupFilter_name"><span class="hs-identifier hs-var hs-var">groupFilter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupFilter -&gt; GroupFilterName)
+-&gt; (GroupFilter -&gt; GroupFilterName -&gt; GroupFilter)
+-&gt; Lens GroupFilter GroupFilter GroupFilterName GroupFilterName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-type">GroupFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175945"><span class="annot"><span class="annottext">GroupFilterName
+name :: GroupFilterName
+$sel:name:GroupFilter' :: GroupFilter -&gt; GroupFilterName
+</span><a href="#local-6989586621679175945"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupFilterName
+</span><a href="#local-6989586621679175945"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175944"><span class="annot"><span class="annottext">s :: GroupFilter
+</span><a href="#local-6989586621679175944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-type">GroupFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175943"><span class="annot"><span class="annottext">GroupFilterName
+</span><a href="#local-6989586621679175943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupFilter
+</span><a href="#local-6989586621679175944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GroupFilter' :: GroupFilterName
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#%24sel%3Aname%3AGroupFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GroupFilterName
+</span><a href="#local-6989586621679175943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | One or more filter values. Allowed filter values vary by group filter</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- name, and are case-sensitive.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#groupFilter_values"><span class="hs-identifier hs-type">groupFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="groupFilter_values"><span class="annot"><span class="annottext">groupFilter_values :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GroupFilter -&gt; f GroupFilter
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#groupFilter_values"><span class="hs-identifier hs-var hs-var">groupFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupFilter -&gt; NonEmpty Text)
+-&gt; (GroupFilter -&gt; NonEmpty Text -&gt; GroupFilter)
+-&gt; Lens GroupFilter GroupFilter (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-type">GroupFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175941"><span class="annot"><span class="annottext">NonEmpty Text
+values :: NonEmpty Text
+$sel:values:GroupFilter' :: GroupFilter -&gt; NonEmpty Text
+</span><a href="#local-6989586621679175941"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679175941"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175940"><span class="annot"><span class="annottext">s :: GroupFilter
+</span><a href="#local-6989586621679175940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-type">GroupFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175939"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679175939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupFilter
+</span><a href="#local-6989586621679175940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:GroupFilter' :: NonEmpty Text
+</span><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#%24sel%3Avalues%3AGroupFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679175939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; GroupFilter -&gt; f GroupFilter)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; GroupFilter
+-&gt; f GroupFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175934"><span id="local-6989586621679175936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175923"><span id="local-6989586621679175925"><span id="local-6989586621679175927"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter"><span class="hs-identifier hs-type">GroupFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679175921"><span class="annot"><span class="annottext">toJSON :: GroupFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilter.html#GroupFilter%27"><span class="hs-identifier hs-type">GroupFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175918"><span id="local-6989586621679175919"><span class="annot"><span class="annottext">NonEmpty Text
+GroupFilterName
+values :: NonEmpty Text
+name :: GroupFilterName
+$sel:values:GroupFilter' :: GroupFilter -&gt; NonEmpty Text
+$sel:name:GroupFilter' :: GroupFilter -&gt; GroupFilterName
+</span><a href="#local-6989586621679175918"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GroupFilterName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">GroupFilterName
+</span><a href="#local-6989586621679175919"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679175918"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span></pre></body></html>

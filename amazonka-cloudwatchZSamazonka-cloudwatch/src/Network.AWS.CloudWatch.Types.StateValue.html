@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatch.Types.StateValue</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatch.Types.StateValue</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier">StateValue</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_ALARM"><span class="hs-identifier">StateValue_ALARM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_INSUFFICIENT_DATA"><span class="hs-identifier">StateValue_INSUFFICIENT_DATA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_OK"><span class="hs-identifier">StateValue_OK</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679256851"><span id="local-6989586621679256852"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateValue"><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-var">StateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateValue%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-identifier hs-var">StateValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStateValue"><span class="annot"><span class="annottext">StateValue -&gt; Text
+</span><a href="Network.AWS.CloudWatch.Types.StateValue.html#fromStateValue"><span class="hs-identifier hs-var hs-var">fromStateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256843"><span id="local-6989586621679256845"><span id="local-6989586621679256847"><span class="annot"><span class="annottext">Int -&gt; StateValue -&gt; ShowS
+[StateValue] -&gt; ShowS
+StateValue -&gt; String
+(Int -&gt; StateValue -&gt; ShowS)
+-&gt; (StateValue -&gt; String)
+-&gt; ([StateValue] -&gt; ShowS)
+-&gt; Show StateValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StateValue] -&gt; ShowS
+$cshowList :: [StateValue] -&gt; ShowS
+show :: StateValue -&gt; String
+$cshow :: StateValue -&gt; String
+showsPrec :: Int -&gt; StateValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; StateValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679256834"><span id="local-6989586621679256836"><span id="local-6989586621679256838"><span id="local-6989586621679256840"><span class="annot"><span class="annottext">ReadPrec [StateValue]
+ReadPrec StateValue
+Int -&gt; ReadS StateValue
+ReadS [StateValue]
+(Int -&gt; ReadS StateValue)
+-&gt; ReadS [StateValue]
+-&gt; ReadPrec StateValue
+-&gt; ReadPrec [StateValue]
+-&gt; Read StateValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StateValue]
+$creadListPrec :: ReadPrec [StateValue]
+readPrec :: ReadPrec StateValue
+$creadPrec :: ReadPrec StateValue
+readList :: ReadS [StateValue]
+$creadList :: ReadS [StateValue]
+readsPrec :: Int -&gt; ReadS StateValue
+$creadsPrec :: Int -&gt; ReadS StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256829"><span id="local-6989586621679256831"><span class="annot"><span class="annottext">StateValue -&gt; StateValue -&gt; Bool
+(StateValue -&gt; StateValue -&gt; Bool)
+-&gt; (StateValue -&gt; StateValue -&gt; Bool) -&gt; Eq StateValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StateValue -&gt; StateValue -&gt; Bool
+$c/= :: StateValue -&gt; StateValue -&gt; Bool
+== :: StateValue -&gt; StateValue -&gt; Bool
+$c== :: StateValue -&gt; StateValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679256813"><span id="local-6989586621679256815"><span id="local-6989586621679256817"><span id="local-6989586621679256819"><span id="local-6989586621679256821"><span id="local-6989586621679256823"><span id="local-6989586621679256825"><span class="annot"><span class="annottext">Eq StateValue
+Eq StateValue
+-&gt; (StateValue -&gt; StateValue -&gt; Ordering)
+-&gt; (StateValue -&gt; StateValue -&gt; Bool)
+-&gt; (StateValue -&gt; StateValue -&gt; Bool)
+-&gt; (StateValue -&gt; StateValue -&gt; Bool)
+-&gt; (StateValue -&gt; StateValue -&gt; Bool)
+-&gt; (StateValue -&gt; StateValue -&gt; StateValue)
+-&gt; (StateValue -&gt; StateValue -&gt; StateValue)
+-&gt; Ord StateValue
+StateValue -&gt; StateValue -&gt; Bool
+StateValue -&gt; StateValue -&gt; Ordering
+StateValue -&gt; StateValue -&gt; StateValue
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StateValue -&gt; StateValue -&gt; StateValue
+$cmin :: StateValue -&gt; StateValue -&gt; StateValue
+max :: StateValue -&gt; StateValue -&gt; StateValue
+$cmax :: StateValue -&gt; StateValue -&gt; StateValue
+&gt;= :: StateValue -&gt; StateValue -&gt; Bool
+$c&gt;= :: StateValue -&gt; StateValue -&gt; Bool
+&gt; :: StateValue -&gt; StateValue -&gt; Bool
+$c&gt; :: StateValue -&gt; StateValue -&gt; Bool
+&lt;= :: StateValue -&gt; StateValue -&gt; Bool
+$c&lt;= :: StateValue -&gt; StateValue -&gt; Bool
+&lt; :: StateValue -&gt; StateValue -&gt; Bool
+$c&lt; :: StateValue -&gt; StateValue -&gt; Bool
+compare :: StateValue -&gt; StateValue -&gt; Ordering
+$ccompare :: StateValue -&gt; StateValue -&gt; Ordering
+$cp1Ord :: Eq StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StateValue -&gt; Rep StateValue x)
+-&gt; (forall x. Rep StateValue x -&gt; StateValue) -&gt; Generic StateValue
+forall x. Rep StateValue x -&gt; StateValue
+forall x. StateValue -&gt; Rep StateValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StateValue x -&gt; StateValue
+$cfrom :: forall x. StateValue -&gt; Rep StateValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256805"><span id="local-6989586621679256807"><span class="annot"><span class="annottext">Int -&gt; StateValue -&gt; Int
+StateValue -&gt; Int
+(Int -&gt; StateValue -&gt; Int)
+-&gt; (StateValue -&gt; Int) -&gt; Hashable StateValue
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StateValue -&gt; Int
+$chash :: StateValue -&gt; Int
+hashWithSalt :: Int -&gt; StateValue -&gt; Int
+$chashWithSalt :: Int -&gt; StateValue -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679256802"><span class="annot"><span class="annottext">StateValue -&gt; ()
+(StateValue -&gt; ()) -&gt; NFData StateValue
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StateValue -&gt; ()
+$crnf :: StateValue -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256799"><span class="annot"><span class="annottext">Text -&gt; Either String StateValue
+(Text -&gt; Either String StateValue) -&gt; FromText StateValue
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StateValue
+$cfromText :: Text -&gt; Either String StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256796"><span class="annot"><span class="annottext">StateValue -&gt; Text
+(StateValue -&gt; Text) -&gt; ToText StateValue
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StateValue -&gt; Text
+$ctoText :: StateValue -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256793"><span class="annot"><span class="annottext">StateValue -&gt; ByteString
+(StateValue -&gt; ByteString) -&gt; ToByteString StateValue
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StateValue -&gt; ByteString
+$ctoBS :: StateValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256790"><span class="annot"><span class="annottext">StateValue -&gt; ByteStringBuilder
+(StateValue -&gt; ByteStringBuilder) -&gt; ToLog StateValue
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StateValue -&gt; ByteStringBuilder
+$cbuild :: StateValue -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256787"><span class="annot"><span class="annottext">HeaderName -&gt; StateValue -&gt; [Header]
+(HeaderName -&gt; StateValue -&gt; [Header]) -&gt; ToHeader StateValue
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StateValue -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StateValue -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256784"><span class="annot"><span class="annottext">StateValue -&gt; QueryString
+(StateValue -&gt; QueryString) -&gt; ToQuery StateValue
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StateValue -&gt; QueryString
+$ctoQuery :: StateValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256779"><span id="local-6989586621679256781"><span class="annot"><span class="annottext">Value -&gt; Parser [StateValue]
+Value -&gt; Parser StateValue
+(Value -&gt; Parser StateValue)
+-&gt; (Value -&gt; Parser [StateValue]) -&gt; FromJSON StateValue
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StateValue]
+$cparseJSONList :: Value -&gt; Parser [StateValue]
+parseJSON :: Value -&gt; Parser StateValue
+$cparseJSON :: Value -&gt; Parser StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256774"><span id="local-6989586621679256776"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateValue]
+FromJSONKeyFunction StateValue
+FromJSONKeyFunction StateValue
+-&gt; FromJSONKeyFunction [StateValue] -&gt; FromJSONKey StateValue
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StateValue]
+$cfromJSONKeyList :: FromJSONKeyFunction [StateValue]
+fromJSONKey :: FromJSONKeyFunction StateValue
+$cfromJSONKey :: FromJSONKeyFunction StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256765"><span id="local-6989586621679256767"><span id="local-6989586621679256769"><span id="local-6989586621679256771"><span class="annot"><span class="annottext">[StateValue] -&gt; Encoding
+[StateValue] -&gt; Value
+StateValue -&gt; Encoding
+StateValue -&gt; Value
+(StateValue -&gt; Value)
+-&gt; (StateValue -&gt; Encoding)
+-&gt; ([StateValue] -&gt; Value)
+-&gt; ([StateValue] -&gt; Encoding)
+-&gt; ToJSON StateValue
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StateValue] -&gt; Encoding
+$ctoEncodingList :: [StateValue] -&gt; Encoding
+toJSONList :: [StateValue] -&gt; Value
+$ctoJSONList :: [StateValue] -&gt; Value
+toEncoding :: StateValue -&gt; Encoding
+$ctoEncoding :: StateValue -&gt; Encoding
+toJSON :: StateValue -&gt; Value
+$ctoJSON :: StateValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256760"><span id="local-6989586621679256762"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateValue]
+ToJSONKeyFunction StateValue
+ToJSONKeyFunction StateValue
+-&gt; ToJSONKeyFunction [StateValue] -&gt; ToJSONKey StateValue
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StateValue]
+$ctoJSONKeyList :: ToJSONKeyFunction [StateValue]
+toJSONKey :: ToJSONKeyFunction StateValue
+$ctoJSONKey :: ToJSONKeyFunction StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256757"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateValue
+([Node] -&gt; Either String StateValue) -&gt; FromXML StateValue
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StateValue
+$cparseXML :: [Node] -&gt; Either String StateValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679256754"><span class="annot"><span class="annottext">StateValue -&gt; XML
+(StateValue -&gt; XML) -&gt; ToXML StateValue
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StateValue -&gt; XML
+$ctoXML :: StateValue -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_ALARM"><span class="hs-identifier hs-type">StateValue_ALARM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-type">StateValue</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateValue_ALARM"><span id="%24mStateValue_ALARM"><span id="StateValue_ALARM"><span class="annot"><span class="annottext">$bStateValue_ALARM :: StateValue
+$mStateValue_ALARM :: forall r. StateValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatch.Types.StateValue.html#%24bStateValue_ALARM"><span class="hs-identifier hs-var hs-var hs-var">StateValue_ALARM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-identifier hs-type">StateValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALARM&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_INSUFFICIENT_DATA"><span class="hs-identifier hs-type">StateValue_INSUFFICIENT_DATA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-type">StateValue</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateValue_INSUFFICIENT_DATA"><span id="%24mStateValue_INSUFFICIENT_DATA"><span id="StateValue_INSUFFICIENT_DATA"><span class="annot"><span class="annottext">$bStateValue_INSUFFICIENT_DATA :: StateValue
+$mStateValue_INSUFFICIENT_DATA :: forall r. StateValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatch.Types.StateValue.html#%24bStateValue_INSUFFICIENT_DATA"><span class="hs-identifier hs-var hs-var hs-var">StateValue_INSUFFICIENT_DATA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-identifier hs-type">StateValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INSUFFICIENT_DATA&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_OK"><span class="hs-identifier hs-type">StateValue_OK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-type">StateValue</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStateValue_OK"><span id="%24mStateValue_OK"><span id="StateValue_OK"><span class="annot"><span class="annottext">$bStateValue_OK :: StateValue
+$mStateValue_OK :: forall r. StateValue -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CloudWatch.Types.StateValue.html#%24bStateValue_OK"><span class="hs-identifier hs-var hs-var hs-var">StateValue_OK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-identifier hs-type">StateValue'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OK&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_ALARM"><span class="hs-pragma hs-type">StateValue_ALARM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_INSUFFICIENT_DATA"><span class="hs-pragma hs-type">StateValue_INSUFFICIENT_DATA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue_OK"><span class="hs-pragma hs-type">StateValue_OK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue%27"><span class="hs-pragma hs-type">StateValue'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CloudWatch.Types.MetricStat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudWatch.Types.MetricStat</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Metric.html"><span class="hs-identifier">Network.AWS.CloudWatch.Types.Metric</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StandardUnit.html"><span class="hs-identifier">Network.AWS.CloudWatch.Types.StandardUnit</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | This structure defines the metric to be returned, along with the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- statistics, period, and units.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetricStat' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679256388"><span id="local-6989586621679256389"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStat"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-var">MetricStat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStat%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-var">MetricStat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When you are using a @Put@ operation, this defines what unit you want to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- use when storing the metric.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- In a @Get@ operation, if you omit @Unit@ then all data that was</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- collected with any unit is returned, along with the corresponding units</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- that were specified when the data was reported to CloudWatch. If you</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specify a unit, the operation returns only data that was collected with</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- that unit specified. If you specify a unit that does not match the data</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- collected, the results of the operation are null. CloudWatch does not</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- perform unit conversions.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aunit%3AMetricStat%27"><span class="annot"><span class="annottext">MetricStat -&gt; Maybe StandardUnit
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aunit%3AMetricStat%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-type">StandardUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The metric to return, including the metric name, namespace, and</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Ametric%3AMetricStat%27"><span class="annot"><span class="annottext">MetricStat -&gt; Metric
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Ametric%3AMetricStat%27"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The granularity, in seconds, of the returned data points. For metrics</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- with regular resolution, a period can be as short as one minute (60</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- seconds) and must be a multiple of 60. For high-resolution metrics that</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- are collected at intervals of less than one minute, the period can be 1,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- metrics stored by a @PutMetricData@ call that includes a</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @StorageResolution@ of 1 second.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- If the @StartTime@ parameter specifies a time stamp that is greater than</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- 3 hours ago, you must specify the period as follows or no data points in</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- that time range is returned:</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   Start time between 3 hours and 15 days ago - Use a multiple of 60</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     seconds (1 minute).</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   Start time between 15 and 63 days ago - Use a multiple of 300</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     seconds (5 minutes).</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     (1 hour).</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aperiod%3AMetricStat%27"><span class="annot"><span class="annottext">MetricStat -&gt; Natural
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aperiod%3AMetricStat%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The statistic to return. It can include any CloudWatch statistic or</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- extended statistic.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Astat%3AMetricStat%27"><span class="annot"><span class="annottext">MetricStat -&gt; Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Astat%3AMetricStat%27"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256379"><span id="local-6989586621679256381"><span class="annot"><span class="annottext">MetricStat -&gt; MetricStat -&gt; Bool
+(MetricStat -&gt; MetricStat -&gt; Bool)
+-&gt; (MetricStat -&gt; MetricStat -&gt; Bool) -&gt; Eq MetricStat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricStat -&gt; MetricStat -&gt; Bool
+$c/= :: MetricStat -&gt; MetricStat -&gt; Bool
+== :: MetricStat -&gt; MetricStat -&gt; Bool
+$c== :: MetricStat -&gt; MetricStat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256370"><span id="local-6989586621679256372"><span id="local-6989586621679256374"><span id="local-6989586621679256376"><span class="annot"><span class="annottext">ReadPrec [MetricStat]
+ReadPrec MetricStat
+Int -&gt; ReadS MetricStat
+ReadS [MetricStat]
+(Int -&gt; ReadS MetricStat)
+-&gt; ReadS [MetricStat]
+-&gt; ReadPrec MetricStat
+-&gt; ReadPrec [MetricStat]
+-&gt; Read MetricStat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricStat]
+$creadListPrec :: ReadPrec [MetricStat]
+readPrec :: ReadPrec MetricStat
+$creadPrec :: ReadPrec MetricStat
+readList :: ReadS [MetricStat]
+$creadList :: ReadS [MetricStat]
+readsPrec :: Int -&gt; ReadS MetricStat
+$creadsPrec :: Int -&gt; ReadS MetricStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256363"><span id="local-6989586621679256365"><span id="local-6989586621679256367"><span class="annot"><span class="annottext">Int -&gt; MetricStat -&gt; ShowS
+[MetricStat] -&gt; ShowS
+MetricStat -&gt; String
+(Int -&gt; MetricStat -&gt; ShowS)
+-&gt; (MetricStat -&gt; String)
+-&gt; ([MetricStat] -&gt; ShowS)
+-&gt; Show MetricStat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricStat] -&gt; ShowS
+$cshowList :: [MetricStat] -&gt; ShowS
+show :: MetricStat -&gt; String
+$cshow :: MetricStat -&gt; String
+showsPrec :: Int -&gt; MetricStat -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricStat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MetricStat -&gt; Rep MetricStat x)
+-&gt; (forall x. Rep MetricStat x -&gt; MetricStat) -&gt; Generic MetricStat
+forall x. Rep MetricStat x -&gt; MetricStat
+forall x. MetricStat -&gt; Rep MetricStat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricStat x -&gt; MetricStat
+$cfrom :: forall x. MetricStat -&gt; Rep MetricStat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'MetricStat' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'unit', 'metricStat_unit' - When you are using a @Put@ operation, this defines what unit you want to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- use when storing the metric.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- In a @Get@ operation, if you omit @Unit@ then all data that was</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- collected with any unit is returned, along with the corresponding units</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- that were specified when the data was reported to CloudWatch. If you</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- specify a unit, the operation returns only data that was collected with</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- that unit specified. If you specify a unit that does not match the data</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- collected, the results of the operation are null. CloudWatch does not</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- perform unit conversions.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'metric', 'metricStat_metric' - The metric to return, including the metric name, namespace, and</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'period', 'metricStat_period' - The granularity, in seconds, of the returned data points. For metrics</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- with regular resolution, a period can be as short as one minute (60</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- seconds) and must be a multiple of 60. For high-resolution metrics that</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- are collected at intervals of less than one minute, the period can be 1,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- metrics stored by a @PutMetricData@ call that includes a</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @StorageResolution@ of 1 second.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If the @StartTime@ parameter specifies a time stamp that is greater than</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 3 hours ago, you must specify the period as follows or no data points in</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- that time range is returned:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   Start time between 3 hours and 15 days ago - Use a multiple of 60</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     seconds (1 minute).</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   Start time between 15 and 63 days ago - Use a multiple of 300</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     seconds (5 minutes).</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     (1 hour).</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'stat', 'metricStat_stat' - The statistic to return. It can include any CloudWatch statistic or</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- extended statistic.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#newMetricStat"><span class="hs-identifier hs-type">newMetricStat</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'metric'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'period'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'stat'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span>
+</span><span id="line-127"></span><span id="newMetricStat"><span class="annot"><span class="annottext">newMetricStat :: Metric -&gt; Natural -&gt; Text -&gt; MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#newMetricStat"><span class="hs-identifier hs-var hs-var">newMetricStat</span></a></span></span><span> </span><span id="local-6989586621679256357"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256357"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span> </span><span id="local-6989586621679256356"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256356"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span> </span><span id="local-6989586621679256355"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256355"><span class="hs-identifier hs-var">pStat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">MetricStat' :: Maybe StandardUnit -&gt; Metric -&gt; Natural -&gt; Text -&gt; MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unit:MetricStat' :: Maybe StandardUnit
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aunit%3AMetricStat%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:metric:MetricStat' :: Metric
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Ametric%3AMetricStat%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256357"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:period:MetricStat' :: Natural
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aperiod%3AMetricStat%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256356"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:stat:MetricStat' :: Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Astat%3AMetricStat%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256355"><span class="hs-identifier hs-var">pStat_</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | When you are using a @Put@ operation, this defines what unit you want to</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- use when storing the metric.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- In a @Get@ operation, if you omit @Unit@ then all data that was</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- collected with any unit is returned, along with the corresponding units</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- that were specified when the data was reported to CloudWatch. If you</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- specify a unit, the operation returns only data that was collected with</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- that unit specified. If you specify a unit that does not match the data</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- collected, the results of the operation are null. CloudWatch does not</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- perform unit conversions.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_unit"><span class="hs-identifier hs-type">metricStat_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StandardUnit.html#StandardUnit"><span class="hs-identifier hs-type">StandardUnit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="metricStat_unit"><span class="annot"><span class="annottext">metricStat_unit :: (Maybe StandardUnit -&gt; f (Maybe StandardUnit))
+-&gt; MetricStat -&gt; f MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_unit"><span class="hs-identifier hs-var hs-var">metricStat_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStat -&gt; Maybe StandardUnit)
+-&gt; (MetricStat -&gt; Maybe StandardUnit -&gt; MetricStat)
+-&gt; Lens
+     MetricStat MetricStat (Maybe StandardUnit) (Maybe StandardUnit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256351"><span class="annot"><span class="annottext">Maybe StandardUnit
+unit :: Maybe StandardUnit
+$sel:unit:MetricStat' :: MetricStat -&gt; Maybe StandardUnit
+</span><a href="#local-6989586621679256351"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679256351"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256350"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256349"><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679256349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricStat' :: Maybe StandardUnit
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aunit%3AMetricStat%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679256349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The metric to return, including the metric name, namespace, and</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- dimensions.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_metric"><span class="hs-identifier hs-type">metricStat_metric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span>
+</span><span id="line-151"></span><span id="metricStat_metric"><span class="annot"><span class="annottext">metricStat_metric :: (Metric -&gt; f Metric) -&gt; MetricStat -&gt; f MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_metric"><span class="hs-identifier hs-var hs-var">metricStat_metric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStat -&gt; Metric)
+-&gt; (MetricStat -&gt; Metric -&gt; MetricStat)
+-&gt; Lens MetricStat MetricStat Metric Metric
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256347"><span class="annot"><span class="annottext">Metric
+metric :: Metric
+$sel:metric:MetricStat' :: MetricStat -&gt; Metric
+</span><a href="#local-6989586621679256347"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256347"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256346"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256345"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:MetricStat' :: Metric
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Ametric%3AMetricStat%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The granularity, in seconds, of the returned data points. For metrics</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- with regular resolution, a period can be as short as one minute (60</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- seconds) and must be a multiple of 60. For high-resolution metrics that</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- are collected at intervals of less than one minute, the period can be 1,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- metrics stored by a @PutMetricData@ call that includes a</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @StorageResolution@ of 1 second.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- If the @StartTime@ parameter specifies a time stamp that is greater than</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 3 hours ago, you must specify the period as follows or no data points in</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- that time range is returned:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   Start time between 3 hours and 15 days ago - Use a multiple of 60</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     seconds (1 minute).</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   Start time between 15 and 63 days ago - Use a multiple of 300</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     seconds (5 minutes).</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   Start time greater than 63 days ago - Use a multiple of 3600 seconds</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     (1 hour).</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_period"><span class="hs-identifier hs-type">metricStat_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-174"></span><span id="metricStat_period"><span class="annot"><span class="annottext">metricStat_period :: (Natural -&gt; f Natural) -&gt; MetricStat -&gt; f MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_period"><span class="hs-identifier hs-var hs-var">metricStat_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStat -&gt; Natural)
+-&gt; (MetricStat -&gt; Natural -&gt; MetricStat)
+-&gt; Lens MetricStat MetricStat Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256343"><span class="annot"><span class="annottext">Natural
+period :: Natural
+$sel:period:MetricStat' :: MetricStat -&gt; Natural
+</span><a href="#local-6989586621679256343"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256343"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256342"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256341"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:MetricStat' :: Natural
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aperiod%3AMetricStat%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The statistic to return. It can include any CloudWatch statistic or</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- extended statistic.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_stat"><span class="hs-identifier hs-type">metricStat_stat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-179"></span><span id="metricStat_stat"><span class="annot"><span class="annottext">metricStat_stat :: (Text -&gt; f Text) -&gt; MetricStat -&gt; f MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#metricStat_stat"><span class="hs-identifier hs-var hs-var">metricStat_stat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricStat -&gt; Text)
+-&gt; (MetricStat -&gt; Text -&gt; MetricStat)
+-&gt; Lens MetricStat MetricStat Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256339"><span class="annot"><span class="annottext">Text
+stat :: Text
+$sel:stat:MetricStat' :: MetricStat -&gt; Text
+</span><a href="#local-6989586621679256339"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256339"><span class="hs-identifier hs-var">stat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256338"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stat:MetricStat' :: Text
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Astat%3AMetricStat%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679256334"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679256332"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">Maybe StandardUnit -&gt; Metric -&gt; Natural -&gt; Text -&gt; MetricStat
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-var">MetricStat'</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">(Maybe StandardUnit -&gt; Metric -&gt; Natural -&gt; Text -&gt; MetricStat)
+-&gt; Either String (Maybe StandardUnit)
+-&gt; Either String (Metric -&gt; Natural -&gt; Text -&gt; MetricStat)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StandardUnit)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either String (Metric -&gt; Natural -&gt; Text -&gt; MetricStat)
+-&gt; Either String Metric
+-&gt; Either String (Natural -&gt; Text -&gt; MetricStat)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Metric
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metric&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either String (Natural -&gt; Text -&gt; MetricStat)
+-&gt; Either String Natural -&gt; Either String (Text -&gt; MetricStat)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Period&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; MetricStat)
+-&gt; Either String Text -&gt; Either String MetricStat
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Stat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256325"><span id="local-6989586621679256327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679256318"><span class="annot"><span class="annottext">toQuery :: MetricStat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256313"><span id="local-6989586621679256314"><span id="local-6989586621679256315"><span id="local-6989586621679256316"><span class="annot"><span class="annottext">Natural
+Maybe StandardUnit
+Text
+Metric
+stat :: Text
+period :: Natural
+metric :: Metric
+unit :: Maybe StandardUnit
+$sel:stat:MetricStat' :: MetricStat -&gt; Text
+$sel:period:MetricStat' :: MetricStat -&gt; Natural
+$sel:metric:MetricStat' :: MetricStat -&gt; Metric
+$sel:unit:MetricStat' :: MetricStat -&gt; Maybe StandardUnit
+</span><a href="#local-6989586621679256313"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe StandardUnit -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679256316"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Metric -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256315"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Period&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256314"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Stat&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256313"><span class="hs-identifier hs-var">stat</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span></pre></body></html>

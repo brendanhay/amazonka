@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MachineLearning.Types.DataSourceFilterVariable</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MachineLearning.Types.DataSourceFilterVariable</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_CreatedAt"><span class="hs-identifier">DataSourceFilterVariable_CreatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_DataLocationS3"><span class="hs-identifier">DataSourceFilterVariable_DataLocationS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_IAMUser"><span class="hs-identifier">DataSourceFilterVariable_IAMUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_LastUpdatedAt"><span class="hs-identifier">DataSourceFilterVariable_LastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_Name"><span class="hs-identifier">DataSourceFilterVariable_Name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_Status"><span class="hs-identifier">DataSourceFilterVariable_Status</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | A list of the variables to use in searching or filtering @DataSource@.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     date.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   @Status@ - Sets the search criteria to @DataSource@ status.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   @Name@ - Sets the search criteria to the contents of @DataSource@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     @Name@.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   @DataUri@ - Sets the search criteria to the URI of data files used</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     to create the @DataSource@. The URI can identify either a file or an</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     Amazon Simple Storage Service (Amazon S3) bucket or directory.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- -   @IAMUser@ - Sets the search criteria to the user account that</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--     invoked the @DataSource@ creation.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- __Note:__ The variable names should match the variable names in the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @DataSource@.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679249866"><span id="local-6989586621679249867"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSourceFilterVariable"><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-var">DataSourceFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceFilterVariable%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-var">DataSourceFilterVariable'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataSourceFilterVariable"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; Text
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#fromDataSourceFilterVariable"><span class="hs-identifier hs-var hs-var">fromDataSourceFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249858"><span id="local-6989586621679249860"><span id="local-6989586621679249862"><span class="annot"><span class="annottext">Int -&gt; DataSourceFilterVariable -&gt; ShowS
+[DataSourceFilterVariable] -&gt; ShowS
+DataSourceFilterVariable -&gt; String
+(Int -&gt; DataSourceFilterVariable -&gt; ShowS)
+-&gt; (DataSourceFilterVariable -&gt; String)
+-&gt; ([DataSourceFilterVariable] -&gt; ShowS)
+-&gt; Show DataSourceFilterVariable
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSourceFilterVariable] -&gt; ShowS
+$cshowList :: [DataSourceFilterVariable] -&gt; ShowS
+show :: DataSourceFilterVariable -&gt; String
+$cshow :: DataSourceFilterVariable -&gt; String
+showsPrec :: Int -&gt; DataSourceFilterVariable -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSourceFilterVariable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679249849"><span id="local-6989586621679249851"><span id="local-6989586621679249853"><span id="local-6989586621679249855"><span class="annot"><span class="annottext">ReadPrec [DataSourceFilterVariable]
+ReadPrec DataSourceFilterVariable
+Int -&gt; ReadS DataSourceFilterVariable
+ReadS [DataSourceFilterVariable]
+(Int -&gt; ReadS DataSourceFilterVariable)
+-&gt; ReadS [DataSourceFilterVariable]
+-&gt; ReadPrec DataSourceFilterVariable
+-&gt; ReadPrec [DataSourceFilterVariable]
+-&gt; Read DataSourceFilterVariable
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSourceFilterVariable]
+$creadListPrec :: ReadPrec [DataSourceFilterVariable]
+readPrec :: ReadPrec DataSourceFilterVariable
+$creadPrec :: ReadPrec DataSourceFilterVariable
+readList :: ReadS [DataSourceFilterVariable]
+$creadList :: ReadS [DataSourceFilterVariable]
+readsPrec :: Int -&gt; ReadS DataSourceFilterVariable
+$creadsPrec :: Int -&gt; ReadS DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679249844"><span id="local-6989586621679249846"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+(DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool)
+-&gt; (DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool)
+-&gt; Eq DataSourceFilterVariable
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+$c/= :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+== :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+$c== :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679249828"><span id="local-6989586621679249830"><span id="local-6989586621679249832"><span id="local-6989586621679249834"><span id="local-6989586621679249836"><span id="local-6989586621679249838"><span id="local-6989586621679249840"><span class="annot"><span class="annottext">Eq DataSourceFilterVariable
+Eq DataSourceFilterVariable
+-&gt; (DataSourceFilterVariable
+    -&gt; DataSourceFilterVariable -&gt; Ordering)
+-&gt; (DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool)
+-&gt; (DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool)
+-&gt; (DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool)
+-&gt; (DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool)
+-&gt; (DataSourceFilterVariable
+    -&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable)
+-&gt; (DataSourceFilterVariable
+    -&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable)
+-&gt; Ord DataSourceFilterVariable
+DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Ordering
+DataSourceFilterVariable
+-&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataSourceFilterVariable
+-&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable
+$cmin :: DataSourceFilterVariable
+-&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable
+max :: DataSourceFilterVariable
+-&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable
+$cmax :: DataSourceFilterVariable
+-&gt; DataSourceFilterVariable -&gt; DataSourceFilterVariable
+&gt;= :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+$c&gt;= :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+&gt; :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+$c&gt; :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+&lt;= :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+$c&lt;= :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+&lt; :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+$c&lt; :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Bool
+compare :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Ordering
+$ccompare :: DataSourceFilterVariable -&gt; DataSourceFilterVariable -&gt; Ordering
+$cp1Ord :: Eq DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DataSourceFilterVariable -&gt; Rep DataSourceFilterVariable x)
+-&gt; (forall x.
+    Rep DataSourceFilterVariable x -&gt; DataSourceFilterVariable)
+-&gt; Generic DataSourceFilterVariable
+forall x.
+Rep DataSourceFilterVariable x -&gt; DataSourceFilterVariable
+forall x.
+DataSourceFilterVariable -&gt; Rep DataSourceFilterVariable x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DataSourceFilterVariable x -&gt; DataSourceFilterVariable
+$cfrom :: forall x.
+DataSourceFilterVariable -&gt; Rep DataSourceFilterVariable x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249820"><span id="local-6989586621679249822"><span class="annot"><span class="annottext">Int -&gt; DataSourceFilterVariable -&gt; Int
+DataSourceFilterVariable -&gt; Int
+(Int -&gt; DataSourceFilterVariable -&gt; Int)
+-&gt; (DataSourceFilterVariable -&gt; Int)
+-&gt; Hashable DataSourceFilterVariable
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataSourceFilterVariable -&gt; Int
+$chash :: DataSourceFilterVariable -&gt; Int
+hashWithSalt :: Int -&gt; DataSourceFilterVariable -&gt; Int
+$chashWithSalt :: Int -&gt; DataSourceFilterVariable -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679249817"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; ()
+(DataSourceFilterVariable -&gt; ()) -&gt; NFData DataSourceFilterVariable
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataSourceFilterVariable -&gt; ()
+$crnf :: DataSourceFilterVariable -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679249814"><span class="annot"><span class="annottext">Text -&gt; Either String DataSourceFilterVariable
+(Text -&gt; Either String DataSourceFilterVariable)
+-&gt; FromText DataSourceFilterVariable
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataSourceFilterVariable
+$cfromText :: Text -&gt; Either String DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679249811"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; Text
+(DataSourceFilterVariable -&gt; Text)
+-&gt; ToText DataSourceFilterVariable
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataSourceFilterVariable -&gt; Text
+$ctoText :: DataSourceFilterVariable -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679249808"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; ByteString
+(DataSourceFilterVariable -&gt; ByteString)
+-&gt; ToByteString DataSourceFilterVariable
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataSourceFilterVariable -&gt; ByteString
+$ctoBS :: DataSourceFilterVariable -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679249805"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; ByteStringBuilder
+(DataSourceFilterVariable -&gt; ByteStringBuilder)
+-&gt; ToLog DataSourceFilterVariable
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataSourceFilterVariable -&gt; ByteStringBuilder
+$cbuild :: DataSourceFilterVariable -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679249802"><span class="annot"><span class="annottext">HeaderName -&gt; DataSourceFilterVariable -&gt; [Header]
+(HeaderName -&gt; DataSourceFilterVariable -&gt; [Header])
+-&gt; ToHeader DataSourceFilterVariable
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataSourceFilterVariable -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataSourceFilterVariable -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679249799"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; QueryString
+(DataSourceFilterVariable -&gt; QueryString)
+-&gt; ToQuery DataSourceFilterVariable
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataSourceFilterVariable -&gt; QueryString
+$ctoQuery :: DataSourceFilterVariable -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679249794"><span id="local-6989586621679249796"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSourceFilterVariable]
+Value -&gt; Parser DataSourceFilterVariable
+(Value -&gt; Parser DataSourceFilterVariable)
+-&gt; (Value -&gt; Parser [DataSourceFilterVariable])
+-&gt; FromJSON DataSourceFilterVariable
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataSourceFilterVariable]
+$cparseJSONList :: Value -&gt; Parser [DataSourceFilterVariable]
+parseJSON :: Value -&gt; Parser DataSourceFilterVariable
+$cparseJSON :: Value -&gt; Parser DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679249789"><span id="local-6989586621679249791"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSourceFilterVariable]
+FromJSONKeyFunction DataSourceFilterVariable
+FromJSONKeyFunction DataSourceFilterVariable
+-&gt; FromJSONKeyFunction [DataSourceFilterVariable]
+-&gt; FromJSONKey DataSourceFilterVariable
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataSourceFilterVariable]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataSourceFilterVariable]
+fromJSONKey :: FromJSONKeyFunction DataSourceFilterVariable
+$cfromJSONKey :: FromJSONKeyFunction DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679249780"><span id="local-6989586621679249782"><span id="local-6989586621679249784"><span id="local-6989586621679249786"><span class="annot"><span class="annottext">[DataSourceFilterVariable] -&gt; Encoding
+[DataSourceFilterVariable] -&gt; Value
+DataSourceFilterVariable -&gt; Encoding
+DataSourceFilterVariable -&gt; Value
+(DataSourceFilterVariable -&gt; Value)
+-&gt; (DataSourceFilterVariable -&gt; Encoding)
+-&gt; ([DataSourceFilterVariable] -&gt; Value)
+-&gt; ([DataSourceFilterVariable] -&gt; Encoding)
+-&gt; ToJSON DataSourceFilterVariable
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataSourceFilterVariable] -&gt; Encoding
+$ctoEncodingList :: [DataSourceFilterVariable] -&gt; Encoding
+toJSONList :: [DataSourceFilterVariable] -&gt; Value
+$ctoJSONList :: [DataSourceFilterVariable] -&gt; Value
+toEncoding :: DataSourceFilterVariable -&gt; Encoding
+$ctoEncoding :: DataSourceFilterVariable -&gt; Encoding
+toJSON :: DataSourceFilterVariable -&gt; Value
+$ctoJSON :: DataSourceFilterVariable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679249775"><span id="local-6989586621679249777"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSourceFilterVariable]
+ToJSONKeyFunction DataSourceFilterVariable
+ToJSONKeyFunction DataSourceFilterVariable
+-&gt; ToJSONKeyFunction [DataSourceFilterVariable]
+-&gt; ToJSONKey DataSourceFilterVariable
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataSourceFilterVariable]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataSourceFilterVariable]
+toJSONKey :: ToJSONKeyFunction DataSourceFilterVariable
+$ctoJSONKey :: ToJSONKeyFunction DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679249772"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSourceFilterVariable
+([Node] -&gt; Either String DataSourceFilterVariable)
+-&gt; FromXML DataSourceFilterVariable
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataSourceFilterVariable
+$cparseXML :: [Node] -&gt; Either String DataSourceFilterVariable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679249769"><span class="annot"><span class="annottext">DataSourceFilterVariable -&gt; XML
+(DataSourceFilterVariable -&gt; XML) -&gt; ToXML DataSourceFilterVariable
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataSourceFilterVariable -&gt; XML
+$ctoXML :: DataSourceFilterVariable -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_CreatedAt"><span class="hs-identifier hs-type">DataSourceFilterVariable_CreatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-type">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceFilterVariable_CreatedAt"><span id="%24mDataSourceFilterVariable_CreatedAt"><span id="DataSourceFilterVariable_CreatedAt"><span class="annot"><span class="annottext">$bDataSourceFilterVariable_CreatedAt :: DataSourceFilterVariable
+$mDataSourceFilterVariable_CreatedAt :: forall r.
+DataSourceFilterVariable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#%24bDataSourceFilterVariable_CreatedAt"><span class="hs-identifier hs-var hs-var hs-var">DataSourceFilterVariable_CreatedAt</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-type">DataSourceFilterVariable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreatedAt&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_DataLocationS3"><span class="hs-identifier hs-type">DataSourceFilterVariable_DataLocationS3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-type">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceFilterVariable_DataLocationS3"><span id="%24mDataSourceFilterVariable_DataLocationS3"><span id="DataSourceFilterVariable_DataLocationS3"><span class="annot"><span class="annottext">$bDataSourceFilterVariable_DataLocationS3 :: DataSourceFilterVariable
+$mDataSourceFilterVariable_DataLocationS3 :: forall r.
+DataSourceFilterVariable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#%24bDataSourceFilterVariable_DataLocationS3"><span class="hs-identifier hs-var hs-var hs-var">DataSourceFilterVariable_DataLocationS3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-type">DataSourceFilterVariable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DataLocationS3&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_IAMUser"><span class="hs-identifier hs-type">DataSourceFilterVariable_IAMUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-type">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceFilterVariable_IAMUser"><span id="%24mDataSourceFilterVariable_IAMUser"><span id="DataSourceFilterVariable_IAMUser"><span class="annot"><span class="annottext">$bDataSourceFilterVariable_IAMUser :: DataSourceFilterVariable
+$mDataSourceFilterVariable_IAMUser :: forall r.
+DataSourceFilterVariable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#%24bDataSourceFilterVariable_IAMUser"><span class="hs-identifier hs-var hs-var hs-var">DataSourceFilterVariable_IAMUser</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-type">DataSourceFilterVariable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IAMUser&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_LastUpdatedAt"><span class="hs-identifier hs-type">DataSourceFilterVariable_LastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-type">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceFilterVariable_LastUpdatedAt"><span id="%24mDataSourceFilterVariable_LastUpdatedAt"><span id="DataSourceFilterVariable_LastUpdatedAt"><span class="annot"><span class="annottext">$bDataSourceFilterVariable_LastUpdatedAt :: DataSourceFilterVariable
+$mDataSourceFilterVariable_LastUpdatedAt :: forall r.
+DataSourceFilterVariable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#%24bDataSourceFilterVariable_LastUpdatedAt"><span class="hs-identifier hs-var hs-var hs-var">DataSourceFilterVariable_LastUpdatedAt</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-type">DataSourceFilterVariable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LastUpdatedAt&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_Name"><span class="hs-identifier hs-type">DataSourceFilterVariable_Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-type">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceFilterVariable_Name"><span id="%24mDataSourceFilterVariable_Name"><span id="DataSourceFilterVariable_Name"><span class="annot"><span class="annottext">$bDataSourceFilterVariable_Name :: DataSourceFilterVariable
+$mDataSourceFilterVariable_Name :: forall r.
+DataSourceFilterVariable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#%24bDataSourceFilterVariable_Name"><span class="hs-identifier hs-var hs-var hs-var">DataSourceFilterVariable_Name</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-type">DataSourceFilterVariable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Name&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_Status"><span class="hs-identifier hs-type">DataSourceFilterVariable_Status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable"><span class="hs-identifier hs-type">DataSourceFilterVariable</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceFilterVariable_Status"><span id="%24mDataSourceFilterVariable_Status"><span id="DataSourceFilterVariable_Status"><span class="annot"><span class="annottext">$bDataSourceFilterVariable_Status :: DataSourceFilterVariable
+$mDataSourceFilterVariable_Status :: forall r.
+DataSourceFilterVariable -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#%24bDataSourceFilterVariable_Status"><span class="hs-identifier hs-var hs-var hs-var">DataSourceFilterVariable_Status</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-identifier hs-type">DataSourceFilterVariable'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Status&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_CreatedAt"><span class="hs-pragma hs-type">DataSourceFilterVariable_CreatedAt</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_DataLocationS3"><span class="hs-pragma hs-type">DataSourceFilterVariable_DataLocationS3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_IAMUser"><span class="hs-pragma hs-type">DataSourceFilterVariable_IAMUser</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_LastUpdatedAt"><span class="hs-pragma hs-type">DataSourceFilterVariable_LastUpdatedAt</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_Name"><span class="hs-pragma hs-type">DataSourceFilterVariable_Name</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable_Status"><span class="hs-pragma hs-type">DataSourceFilterVariable_Status</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.DataSourceFilterVariable.html#DataSourceFilterVariable%27"><span class="hs-pragma hs-type">DataSourceFilterVariable'</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-110"></span></pre></body></html>

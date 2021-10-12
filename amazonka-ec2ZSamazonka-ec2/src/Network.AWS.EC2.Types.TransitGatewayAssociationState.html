@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.TransitGatewayAssociationState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.TransitGatewayAssociationState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState"><span class="hs-identifier">TransitGatewayAssociationState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Associated"><span class="hs-identifier">TransitGatewayAssociationState_Associated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Associating"><span class="hs-identifier">TransitGatewayAssociationState_Associating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Disassociated"><span class="hs-identifier">TransitGatewayAssociationState_Disassociated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Disassociating"><span class="hs-identifier">TransitGatewayAssociationState_Disassociating</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681134468"><span id="local-6989586621681134469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransitGatewayAssociationState"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState"><span class="hs-identifier hs-var">TransitGatewayAssociationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayAssociationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState%27"><span class="hs-identifier hs-var">TransitGatewayAssociationState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransitGatewayAssociationState"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#fromTransitGatewayAssociationState"><span class="hs-identifier hs-var hs-var">fromTransitGatewayAssociationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681134460"><span id="local-6989586621681134462"><span id="local-6989586621681134464"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayAssociationState -&gt; ShowS
+[TransitGatewayAssociationState] -&gt; ShowS
+TransitGatewayAssociationState -&gt; String
+(Int -&gt; TransitGatewayAssociationState -&gt; ShowS)
+-&gt; (TransitGatewayAssociationState -&gt; String)
+-&gt; ([TransitGatewayAssociationState] -&gt; ShowS)
+-&gt; Show TransitGatewayAssociationState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransitGatewayAssociationState] -&gt; ShowS
+$cshowList :: [TransitGatewayAssociationState] -&gt; ShowS
+show :: TransitGatewayAssociationState -&gt; String
+$cshow :: TransitGatewayAssociationState -&gt; String
+showsPrec :: Int -&gt; TransitGatewayAssociationState -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransitGatewayAssociationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681134451"><span id="local-6989586621681134453"><span id="local-6989586621681134455"><span id="local-6989586621681134457"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayAssociationState]
+ReadPrec TransitGatewayAssociationState
+Int -&gt; ReadS TransitGatewayAssociationState
+ReadS [TransitGatewayAssociationState]
+(Int -&gt; ReadS TransitGatewayAssociationState)
+-&gt; ReadS [TransitGatewayAssociationState]
+-&gt; ReadPrec TransitGatewayAssociationState
+-&gt; ReadPrec [TransitGatewayAssociationState]
+-&gt; Read TransitGatewayAssociationState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransitGatewayAssociationState]
+$creadListPrec :: ReadPrec [TransitGatewayAssociationState]
+readPrec :: ReadPrec TransitGatewayAssociationState
+$creadPrec :: ReadPrec TransitGatewayAssociationState
+readList :: ReadS [TransitGatewayAssociationState]
+$creadList :: ReadS [TransitGatewayAssociationState]
+readsPrec :: Int -&gt; ReadS TransitGatewayAssociationState
+$creadsPrec :: Int -&gt; ReadS TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681134446"><span id="local-6989586621681134448"><span class="annot"><span class="annottext">TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+(TransitGatewayAssociationState
+ -&gt; TransitGatewayAssociationState -&gt; Bool)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState -&gt; Bool)
+-&gt; Eq TransitGatewayAssociationState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+$c/= :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+== :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+$c== :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681134430"><span id="local-6989586621681134432"><span id="local-6989586621681134434"><span id="local-6989586621681134436"><span id="local-6989586621681134438"><span id="local-6989586621681134440"><span id="local-6989586621681134442"><span class="annot"><span class="annottext">Eq TransitGatewayAssociationState
+Eq TransitGatewayAssociationState
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState -&gt; Ordering)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState -&gt; Bool)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState -&gt; Bool)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState -&gt; Bool)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState -&gt; Bool)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState)
+-&gt; (TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState
+    -&gt; TransitGatewayAssociationState)
+-&gt; Ord TransitGatewayAssociationState
+TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Ordering
+TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; TransitGatewayAssociationState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; TransitGatewayAssociationState
+$cmin :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; TransitGatewayAssociationState
+max :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; TransitGatewayAssociationState
+$cmax :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; TransitGatewayAssociationState
+&gt;= :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+$c&gt;= :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+&gt; :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+$c&gt; :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+&lt;= :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+$c&lt;= :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+&lt; :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+$c&lt; :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Bool
+compare :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Ordering
+$ccompare :: TransitGatewayAssociationState
+-&gt; TransitGatewayAssociationState -&gt; Ordering
+$cp1Ord :: Eq TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TransitGatewayAssociationState
+ -&gt; Rep TransitGatewayAssociationState x)
+-&gt; (forall x.
+    Rep TransitGatewayAssociationState x
+    -&gt; TransitGatewayAssociationState)
+-&gt; Generic TransitGatewayAssociationState
+forall x.
+Rep TransitGatewayAssociationState x
+-&gt; TransitGatewayAssociationState
+forall x.
+TransitGatewayAssociationState
+-&gt; Rep TransitGatewayAssociationState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TransitGatewayAssociationState x
+-&gt; TransitGatewayAssociationState
+$cfrom :: forall x.
+TransitGatewayAssociationState
+-&gt; Rep TransitGatewayAssociationState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681134422"><span id="local-6989586621681134424"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayAssociationState -&gt; Int
+TransitGatewayAssociationState -&gt; Int
+(Int -&gt; TransitGatewayAssociationState -&gt; Int)
+-&gt; (TransitGatewayAssociationState -&gt; Int)
+-&gt; Hashable TransitGatewayAssociationState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TransitGatewayAssociationState -&gt; Int
+$chash :: TransitGatewayAssociationState -&gt; Int
+hashWithSalt :: Int -&gt; TransitGatewayAssociationState -&gt; Int
+$chashWithSalt :: Int -&gt; TransitGatewayAssociationState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681134419"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; ()
+(TransitGatewayAssociationState -&gt; ())
+-&gt; NFData TransitGatewayAssociationState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TransitGatewayAssociationState -&gt; ()
+$crnf :: TransitGatewayAssociationState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681134416"><span class="annot"><span class="annottext">Text -&gt; Either String TransitGatewayAssociationState
+(Text -&gt; Either String TransitGatewayAssociationState)
+-&gt; FromText TransitGatewayAssociationState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TransitGatewayAssociationState
+$cfromText :: Text -&gt; Either String TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681134413"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; Text
+(TransitGatewayAssociationState -&gt; Text)
+-&gt; ToText TransitGatewayAssociationState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TransitGatewayAssociationState -&gt; Text
+$ctoText :: TransitGatewayAssociationState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681134410"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; ByteString
+(TransitGatewayAssociationState -&gt; ByteString)
+-&gt; ToByteString TransitGatewayAssociationState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TransitGatewayAssociationState -&gt; ByteString
+$ctoBS :: TransitGatewayAssociationState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681134407"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; ByteStringBuilder
+(TransitGatewayAssociationState -&gt; ByteStringBuilder)
+-&gt; ToLog TransitGatewayAssociationState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TransitGatewayAssociationState -&gt; ByteStringBuilder
+$cbuild :: TransitGatewayAssociationState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681134404"><span class="annot"><span class="annottext">HeaderName -&gt; TransitGatewayAssociationState -&gt; [Header]
+(HeaderName -&gt; TransitGatewayAssociationState -&gt; [Header])
+-&gt; ToHeader TransitGatewayAssociationState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TransitGatewayAssociationState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TransitGatewayAssociationState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681134401"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; QueryString
+(TransitGatewayAssociationState -&gt; QueryString)
+-&gt; ToQuery TransitGatewayAssociationState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TransitGatewayAssociationState -&gt; QueryString
+$ctoQuery :: TransitGatewayAssociationState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681134396"><span id="local-6989586621681134398"><span class="annot"><span class="annottext">Value -&gt; Parser [TransitGatewayAssociationState]
+Value -&gt; Parser TransitGatewayAssociationState
+(Value -&gt; Parser TransitGatewayAssociationState)
+-&gt; (Value -&gt; Parser [TransitGatewayAssociationState])
+-&gt; FromJSON TransitGatewayAssociationState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TransitGatewayAssociationState]
+$cparseJSONList :: Value -&gt; Parser [TransitGatewayAssociationState]
+parseJSON :: Value -&gt; Parser TransitGatewayAssociationState
+$cparseJSON :: Value -&gt; Parser TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681134391"><span id="local-6989586621681134393"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransitGatewayAssociationState]
+FromJSONKeyFunction TransitGatewayAssociationState
+FromJSONKeyFunction TransitGatewayAssociationState
+-&gt; FromJSONKeyFunction [TransitGatewayAssociationState]
+-&gt; FromJSONKey TransitGatewayAssociationState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TransitGatewayAssociationState]
+$cfromJSONKeyList :: FromJSONKeyFunction [TransitGatewayAssociationState]
+fromJSONKey :: FromJSONKeyFunction TransitGatewayAssociationState
+$cfromJSONKey :: FromJSONKeyFunction TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681134382"><span id="local-6989586621681134384"><span id="local-6989586621681134386"><span id="local-6989586621681134388"><span class="annot"><span class="annottext">[TransitGatewayAssociationState] -&gt; Encoding
+[TransitGatewayAssociationState] -&gt; Value
+TransitGatewayAssociationState -&gt; Encoding
+TransitGatewayAssociationState -&gt; Value
+(TransitGatewayAssociationState -&gt; Value)
+-&gt; (TransitGatewayAssociationState -&gt; Encoding)
+-&gt; ([TransitGatewayAssociationState] -&gt; Value)
+-&gt; ([TransitGatewayAssociationState] -&gt; Encoding)
+-&gt; ToJSON TransitGatewayAssociationState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TransitGatewayAssociationState] -&gt; Encoding
+$ctoEncodingList :: [TransitGatewayAssociationState] -&gt; Encoding
+toJSONList :: [TransitGatewayAssociationState] -&gt; Value
+$ctoJSONList :: [TransitGatewayAssociationState] -&gt; Value
+toEncoding :: TransitGatewayAssociationState -&gt; Encoding
+$ctoEncoding :: TransitGatewayAssociationState -&gt; Encoding
+toJSON :: TransitGatewayAssociationState -&gt; Value
+$ctoJSON :: TransitGatewayAssociationState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681134377"><span id="local-6989586621681134379"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransitGatewayAssociationState]
+ToJSONKeyFunction TransitGatewayAssociationState
+ToJSONKeyFunction TransitGatewayAssociationState
+-&gt; ToJSONKeyFunction [TransitGatewayAssociationState]
+-&gt; ToJSONKey TransitGatewayAssociationState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TransitGatewayAssociationState]
+$ctoJSONKeyList :: ToJSONKeyFunction [TransitGatewayAssociationState]
+toJSONKey :: ToJSONKeyFunction TransitGatewayAssociationState
+$ctoJSONKey :: ToJSONKeyFunction TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681134374"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransitGatewayAssociationState
+([Node] -&gt; Either String TransitGatewayAssociationState)
+-&gt; FromXML TransitGatewayAssociationState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TransitGatewayAssociationState
+$cparseXML :: [Node] -&gt; Either String TransitGatewayAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681134371"><span class="annot"><span class="annottext">TransitGatewayAssociationState -&gt; XML
+(TransitGatewayAssociationState -&gt; XML)
+-&gt; ToXML TransitGatewayAssociationState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TransitGatewayAssociationState -&gt; XML
+$ctoXML :: TransitGatewayAssociationState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Associated"><span class="hs-identifier hs-type">TransitGatewayAssociationState_Associated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState"><span class="hs-identifier hs-type">TransitGatewayAssociationState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayAssociationState_Associated"><span id="%24mTransitGatewayAssociationState_Associated"><span id="TransitGatewayAssociationState_Associated"><span class="annot"><span class="annottext">$bTransitGatewayAssociationState_Associated :: TransitGatewayAssociationState
+$mTransitGatewayAssociationState_Associated :: forall r.
+TransitGatewayAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#%24bTransitGatewayAssociationState_Associated"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayAssociationState_Associated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associated&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Associating"><span class="hs-identifier hs-type">TransitGatewayAssociationState_Associating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState"><span class="hs-identifier hs-type">TransitGatewayAssociationState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayAssociationState_Associating"><span id="%24mTransitGatewayAssociationState_Associating"><span id="TransitGatewayAssociationState_Associating"><span class="annot"><span class="annottext">$bTransitGatewayAssociationState_Associating :: TransitGatewayAssociationState
+$mTransitGatewayAssociationState_Associating :: forall r.
+TransitGatewayAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#%24bTransitGatewayAssociationState_Associating"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayAssociationState_Associating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associating&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Disassociated"><span class="hs-identifier hs-type">TransitGatewayAssociationState_Disassociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState"><span class="hs-identifier hs-type">TransitGatewayAssociationState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayAssociationState_Disassociated"><span id="%24mTransitGatewayAssociationState_Disassociated"><span id="TransitGatewayAssociationState_Disassociated"><span class="annot"><span class="annottext">$bTransitGatewayAssociationState_Disassociated :: TransitGatewayAssociationState
+$mTransitGatewayAssociationState_Disassociated :: forall r.
+TransitGatewayAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#%24bTransitGatewayAssociationState_Disassociated"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayAssociationState_Disassociated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociated&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Disassociating"><span class="hs-identifier hs-type">TransitGatewayAssociationState_Disassociating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState"><span class="hs-identifier hs-type">TransitGatewayAssociationState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayAssociationState_Disassociating"><span id="%24mTransitGatewayAssociationState_Disassociating"><span id="TransitGatewayAssociationState_Disassociating"><span class="annot"><span class="annottext">$bTransitGatewayAssociationState_Disassociating :: TransitGatewayAssociationState
+$mTransitGatewayAssociationState_Disassociating :: forall r.
+TransitGatewayAssociationState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#%24bTransitGatewayAssociationState_Disassociating"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayAssociationState_Disassociating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociating&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Associated"><span class="hs-pragma hs-type">TransitGatewayAssociationState_Associated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Associating"><span class="hs-pragma hs-type">TransitGatewayAssociationState_Associating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Disassociated"><span class="hs-pragma hs-type">TransitGatewayAssociationState_Disassociated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState_Disassociating"><span class="hs-pragma hs-type">TransitGatewayAssociationState_Disassociating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAssociationState.html#TransitGatewayAssociationState%27"><span class="hs-pragma hs-type">TransitGatewayAssociationState'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

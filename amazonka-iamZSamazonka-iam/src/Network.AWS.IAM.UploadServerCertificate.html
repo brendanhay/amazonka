@@ -1,0 +1,1013 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IAM.UploadServerCertificate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Uploads a server certificate entity for the Amazon Web Services account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- The server certificate entity includes a public key certificate, a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- private key, and an optional certificate chain, which should all be</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- PEM-encoded.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- We recommend that you use</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/ Certificate Manager&gt; to provision,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- manage, and deploy your server certificates. With ACM you can request a</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- certificate, deploy it to Amazon Web Services resources, and let ACM</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- handle certificate renewals for you. Certificates provided by ACM are</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- free. For more information about using ACM, see the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- For more information about working with server certificates, see</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with server certificates&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- in the /IAM User Guide/. This topic includes a list of Amazon Web</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Services services that can use the server certificates that you manage</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- with IAM.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- For information about the number of server certificates you can upload,</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html IAM and STS quotas&gt;</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Because the body of the public key certificate, private key, and the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- certificate chain can be large, you should use POST rather than GET when</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- calling @UploadServerCertificate@. For information about setting up</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- signatures and authorization through the API, see</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing Amazon Web Services API requests&gt;</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/. For general information</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- about using the Query API with IAM, see</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by making HTTP query requests&gt;</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IAM.UploadServerCertificate</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier">UploadServerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#newUploadServerCertificate"><span class="hs-identifier">newUploadServerCertificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_tags"><span class="hs-identifier">uploadServerCertificate_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_certificateChain"><span class="hs-identifier">uploadServerCertificate_certificateChain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_path"><span class="hs-identifier">uploadServerCertificate_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_serverCertificateName"><span class="hs-identifier">uploadServerCertificate_serverCertificateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_certificateBody"><span class="hs-identifier">uploadServerCertificate_certificateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_privateKey"><span class="hs-identifier">uploadServerCertificate_privateKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier">UploadServerCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#newUploadServerCertificateResponse"><span class="hs-identifier">newUploadServerCertificateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_serverCertificateMetadata"><span class="hs-identifier">uploadServerCertificateResponse_serverCertificateMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_tags"><span class="hs-identifier">uploadServerCertificateResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_httpStatus"><span class="hs-identifier">uploadServerCertificateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.html"><span class="hs-identifier">Network.AWS.IAM.Types</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newUploadServerCertificate' smart constructor.</span><span>
+</span><span id="line-88"></span><span id="local-6989586621679465289"><span id="local-6989586621679465290"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadServerCertificate"><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-var">UploadServerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadServerCertificate%27"><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-var">UploadServerCertificate'</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags that you want to attach to the new IAM server certificate</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- resource. Each tag consists of a key name and an associated value. For</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- more information about tagging, see</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Atags%3AUploadServerCertificate%27"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Atags%3AUploadServerCertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The contents of the certificate chain. This is typically a concatenation</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- of the PEM-encoded public key certificates of the chain.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AcertificateChain%3AUploadServerCertificate%27"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AcertificateChain%3AUploadServerCertificate%27"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The path for the server certificate. For more information about paths,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- slash (\/). This parameter allows (through its</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- If you are uploading a server certificate specifically for use with</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- Amazon CloudFront distributions, you must specify a path using the</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- @path@ parameter. The path must begin with @\/cloudfront@ and must</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- include a trailing slash (for example, @\/cloudfront\/test\/@).</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Apath%3AUploadServerCertificate%27"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Apath%3AUploadServerCertificate%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The name for the server certificate. Do not include the path in this</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- value. The name of the certificate cannot contain any spaces.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AserverCertificateName%3AUploadServerCertificate%27"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AserverCertificateName%3AUploadServerCertificate%27"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The contents of the public key certificate in PEM-encoded format.</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AcertificateBody%3AUploadServerCertificate%27"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AcertificateBody%3AUploadServerCertificate%27"><span class="hs-identifier hs-var hs-var">certificateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The contents of the private key in PEM-encoded format.</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AprivateKey%3AUploadServerCertificate%27"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; Sensitive Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AprivateKey%3AUploadServerCertificate%27"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465278"><span id="local-6989586621679465280"><span class="annot"><span class="annottext">UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool
+(UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool)
+-&gt; (UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool)
+-&gt; Eq UploadServerCertificate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool
+$c/= :: UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool
+== :: UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool
+$c== :: UploadServerCertificate -&gt; UploadServerCertificate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465271"><span id="local-6989586621679465273"><span id="local-6989586621679465275"><span class="annot"><span class="annottext">Int -&gt; UploadServerCertificate -&gt; ShowS
+[UploadServerCertificate] -&gt; ShowS
+UploadServerCertificate -&gt; String
+(Int -&gt; UploadServerCertificate -&gt; ShowS)
+-&gt; (UploadServerCertificate -&gt; String)
+-&gt; ([UploadServerCertificate] -&gt; ShowS)
+-&gt; Show UploadServerCertificate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UploadServerCertificate] -&gt; ShowS
+$cshowList :: [UploadServerCertificate] -&gt; ShowS
+show :: UploadServerCertificate -&gt; String
+$cshow :: UploadServerCertificate -&gt; String
+showsPrec :: Int -&gt; UploadServerCertificate -&gt; ShowS
+$cshowsPrec :: Int -&gt; UploadServerCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UploadServerCertificate -&gt; Rep UploadServerCertificate x)
+-&gt; (forall x.
+    Rep UploadServerCertificate x -&gt; UploadServerCertificate)
+-&gt; Generic UploadServerCertificate
+forall x. Rep UploadServerCertificate x -&gt; UploadServerCertificate
+forall x. UploadServerCertificate -&gt; Rep UploadServerCertificate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UploadServerCertificate x -&gt; UploadServerCertificate
+$cfrom :: forall x. UploadServerCertificate -&gt; Rep UploadServerCertificate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Create a value of 'UploadServerCertificate' with all optional fields omitted.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'tags', 'uploadServerCertificate_tags' - A list of tags that you want to attach to the new IAM server certificate</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- resource. Each tag consists of a key name and an associated value. For</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- more information about tagging, see</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'certificateChain', 'uploadServerCertificate_certificateChain' - The contents of the certificate chain. This is typically a concatenation</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- of the PEM-encoded public key certificates of the chain.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'path', 'uploadServerCertificate_path' - The path for the server certificate. For more information about paths,</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- slash (\/). This parameter allows (through its</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- If you are uploading a server certificate specifically for use with</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Amazon CloudFront distributions, you must specify a path using the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- @path@ parameter. The path must begin with @\/cloudfront@ and must</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- include a trailing slash (for example, @\/cloudfront\/test\/@).</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'serverCertificateName', 'uploadServerCertificate_serverCertificateName' - The name for the server certificate. Do not include the path in this</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- value. The name of the certificate cannot contain any spaces.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'certificateBody', 'uploadServerCertificate_certificateBody' - The contents of the public key certificate in PEM-encoded format.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'privateKey', 'uploadServerCertificate_privateKey' - The contents of the private key in PEM-encoded format.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#newUploadServerCertificate"><span class="hs-identifier hs-type">newUploadServerCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-comment">-- | 'serverCertificateName'</span><span>
+</span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-comment">-- | 'certificateBody'</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'privateKey'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span>
+</span><span id="line-267"></span><span id="newUploadServerCertificate"><span class="annot"><span class="annottext">newUploadServerCertificate :: Text -&gt; Text -&gt; Text -&gt; UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#newUploadServerCertificate"><span class="hs-identifier hs-var hs-var">newUploadServerCertificate</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679465266"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465266"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679465265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465265"><span class="hs-identifier hs-var">pCertificateBody_</span></a></span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679465264"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465264"><span class="hs-identifier hs-var">pPrivateKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">UploadServerCertificate' :: Maybe [Tag]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:UploadServerCertificate' :: Maybe [Tag]
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Atags%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateChain:UploadServerCertificate' :: Maybe Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AcertificateChain%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:path:UploadServerCertificate' :: Maybe Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Apath%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:serverCertificateName:UploadServerCertificate' :: Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AserverCertificateName%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465266"><span class="hs-identifier hs-var">pServerCertificateName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateBody:UploadServerCertificate' :: Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AcertificateBody%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">certificateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465265"><span class="hs-identifier hs-var">pCertificateBody_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">$sel:privateKey:UploadServerCertificate' :: Sensitive Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AprivateKey%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465264"><span class="hs-identifier hs-var">pPrivateKey_</span></a></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | A list of tags that you want to attach to the new IAM server certificate</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- resource. Each tag consists of a key name and an associated value. For</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- more information about tagging, see</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_tags"><span class="hs-identifier hs-type">uploadServerCertificate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="uploadServerCertificate_tags"><span class="annot"><span class="annottext">uploadServerCertificate_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UploadServerCertificate -&gt; f UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_tags"><span class="hs-identifier hs-var hs-var">uploadServerCertificate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificate -&gt; Maybe [Tag])
+-&gt; (UploadServerCertificate
+    -&gt; Maybe [Tag] -&gt; UploadServerCertificate)
+-&gt; Lens
+     UploadServerCertificate
+     UploadServerCertificate
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465259"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:UploadServerCertificate' :: UploadServerCertificate -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679465259"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465259"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465258"><span class="annot"><span class="annottext">s :: UploadServerCertificate
+</span><a href="#local-6989586621679465258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465257"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificate
+</span><a href="#local-6989586621679465258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UploadServerCertificate' :: Maybe [Tag]
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Atags%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; UploadServerCertificate -&gt; f UploadServerCertificate)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UploadServerCertificate
+-&gt; f UploadServerCertificate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The contents of the certificate chain. This is typically a concatenation</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- of the PEM-encoded public key certificates of the chain.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_certificateChain"><span class="hs-identifier hs-type">uploadServerCertificate_certificateChain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="uploadServerCertificate_certificateChain"><span class="annot"><span class="annottext">uploadServerCertificate_certificateChain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UploadServerCertificate -&gt; f UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_certificateChain"><span class="hs-identifier hs-var hs-var">uploadServerCertificate_certificateChain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificate -&gt; Maybe Text)
+-&gt; (UploadServerCertificate
+    -&gt; Maybe Text -&gt; UploadServerCertificate)
+-&gt; Lens
+     UploadServerCertificate
+     UploadServerCertificate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465253"><span class="annot"><span class="annottext">Maybe Text
+certificateChain :: Maybe Text
+$sel:certificateChain:UploadServerCertificate' :: UploadServerCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679465253"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465253"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465252"><span class="annot"><span class="annottext">s :: UploadServerCertificate
+</span><a href="#local-6989586621679465252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificate
+</span><a href="#local-6989586621679465252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateChain:UploadServerCertificate' :: Maybe Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AcertificateChain%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The path for the server certificate. For more information about paths,</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- slash (\/). This parameter allows (through its</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- If you are uploading a server certificate specifically for use with</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- Amazon CloudFront distributions, you must specify a path using the</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- @path@ parameter. The path must begin with @\/cloudfront@ and must</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- include a trailing slash (for example, @\/cloudfront\/test\/@).</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_path"><span class="hs-identifier hs-type">uploadServerCertificate_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span id="uploadServerCertificate_path"><span class="annot"><span class="annottext">uploadServerCertificate_path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UploadServerCertificate -&gt; f UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_path"><span class="hs-identifier hs-var hs-var">uploadServerCertificate_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificate -&gt; Maybe Text)
+-&gt; (UploadServerCertificate
+    -&gt; Maybe Text -&gt; UploadServerCertificate)
+-&gt; Lens
+     UploadServerCertificate
+     UploadServerCertificate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465250"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:UploadServerCertificate' :: UploadServerCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679465250"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465250"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465249"><span class="annot"><span class="annottext">s :: UploadServerCertificate
+</span><a href="#local-6989586621679465249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificate
+</span><a href="#local-6989586621679465249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:UploadServerCertificate' :: Maybe Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Apath%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | The name for the server certificate. Do not include the path in this</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- value. The name of the certificate cannot contain any spaces.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-337"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_serverCertificateName"><span class="hs-identifier hs-type">uploadServerCertificate_serverCertificateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-338"></span><span id="uploadServerCertificate_serverCertificateName"><span class="annot"><span class="annottext">uploadServerCertificate_serverCertificateName :: (Text -&gt; f Text)
+-&gt; UploadServerCertificate -&gt; f UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_serverCertificateName"><span class="hs-identifier hs-var hs-var">uploadServerCertificate_serverCertificateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificate -&gt; Text)
+-&gt; (UploadServerCertificate -&gt; Text -&gt; UploadServerCertificate)
+-&gt; Lens UploadServerCertificate UploadServerCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465247"><span class="annot"><span class="annottext">Text
+serverCertificateName :: Text
+$sel:serverCertificateName:UploadServerCertificate' :: UploadServerCertificate -&gt; Text
+</span><a href="#local-6989586621679465247"><span class="hs-identifier hs-var hs-var">serverCertificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465247"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465246"><span class="annot"><span class="annottext">s :: UploadServerCertificate
+</span><a href="#local-6989586621679465246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificate
+</span><a href="#local-6989586621679465246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateName:UploadServerCertificate' :: Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AserverCertificateName%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- | The contents of the public key certificate in PEM-encoded format.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-353"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_certificateBody"><span class="hs-identifier hs-type">uploadServerCertificate_certificateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-354"></span><span id="uploadServerCertificate_certificateBody"><span class="annot"><span class="annottext">uploadServerCertificate_certificateBody :: (Text -&gt; f Text)
+-&gt; UploadServerCertificate -&gt; f UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_certificateBody"><span class="hs-identifier hs-var hs-var">uploadServerCertificate_certificateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificate -&gt; Text)
+-&gt; (UploadServerCertificate -&gt; Text -&gt; UploadServerCertificate)
+-&gt; Lens UploadServerCertificate UploadServerCertificate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465244"><span class="annot"><span class="annottext">Text
+certificateBody :: Text
+$sel:certificateBody:UploadServerCertificate' :: UploadServerCertificate -&gt; Text
+</span><a href="#local-6989586621679465244"><span class="hs-identifier hs-var hs-var">certificateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465244"><span class="hs-identifier hs-var">certificateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465243"><span class="annot"><span class="annottext">s :: UploadServerCertificate
+</span><a href="#local-6989586621679465243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificate
+</span><a href="#local-6989586621679465243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateBody:UploadServerCertificate' :: Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AcertificateBody%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">certificateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- | The contents of the private key in PEM-encoded format.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; used to validate</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- this parameter is a string of characters consisting of the following:</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- -   Any printable ASCII character ranging from the space character</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     (@\\u0020@) through the end of the ASCII character range</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- -   The printable characters in the Basic Latin and Latin-1 Supplement</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--     character set (through @\\u00FF@)</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--     carriage return (@\\u000D@)</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_privateKey"><span class="hs-identifier hs-type">uploadServerCertificate_privateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-370"></span><span id="uploadServerCertificate_privateKey"><span class="annot"><span class="annottext">uploadServerCertificate_privateKey :: (Text -&gt; f Text)
+-&gt; UploadServerCertificate -&gt; f UploadServerCertificate
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificate_privateKey"><span class="hs-identifier hs-var hs-var">uploadServerCertificate_privateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificate -&gt; Sensitive Text)
+-&gt; (UploadServerCertificate
+    -&gt; Sensitive Text -&gt; UploadServerCertificate)
+-&gt; Lens
+     UploadServerCertificate
+     UploadServerCertificate
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465241"><span class="annot"><span class="annottext">Sensitive Text
+privateKey :: Sensitive Text
+$sel:privateKey:UploadServerCertificate' :: UploadServerCertificate -&gt; Sensitive Text
+</span><a href="#local-6989586621679465241"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679465241"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465240"><span class="annot"><span class="annottext">s :: UploadServerCertificate
+</span><a href="#local-6989586621679465240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465239"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679465239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificate
+</span><a href="#local-6989586621679465240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:UploadServerCertificate' :: Sensitive Text
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AprivateKey%3AUploadServerCertificate%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679465239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; UploadServerCertificate -&gt; f UploadServerCertificate)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; UploadServerCertificate
+-&gt; f UploadServerCertificate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-371"></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-373"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-374"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-375"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span>
+</span><span id="line-376"></span><span>  </span><span id="local-6989586621679465235"><span class="annot"><span class="annottext">request :: UploadServerCertificate -&gt; Request UploadServerCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UploadServerCertificate -&gt; Request UploadServerCertificate
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-377"></span><span>  </span><span id="local-6989586621679465231"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UploadServerCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UploadServerCertificate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse UploadServerCertificate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UploadServerCertificate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UploadServerCertificate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UploadServerCertificateResult&quot;</span></span><span>
+</span><span id="line-380"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465228"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465227"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679465227"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465226"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679465226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-381"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServerCertificateMetadata
+-&gt; Maybe [Tag] -&gt; Int -&gt; UploadServerCertificateResponse
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-var">UploadServerCertificateResponse'</span></a></span><span>
+</span><span id="line-382"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServerCertificateMetadata
+ -&gt; Maybe [Tag] -&gt; Int -&gt; UploadServerCertificateResponse)
+-&gt; Either String (Maybe ServerCertificateMetadata)
+-&gt; Either
+     String (Maybe [Tag] -&gt; Int -&gt; UploadServerCertificateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679465226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ServerCertificateMetadata)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerCertificateMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Tag] -&gt; Int -&gt; UploadServerCertificateResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Int -&gt; UploadServerCertificateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679465226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-384"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UploadServerCertificateResponse)
+-&gt; Either String Int
+-&gt; Either String UploadServerCertificateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465228"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-388"></span><span>
+</span><span id="line-389"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465215"><span id="local-6989586621679465217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span></span></span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span></span><span>
+</span><span id="line-392"></span><span>
+</span><span id="line-393"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-394"></span><span>  </span><span id="local-6989586621679465208"><span class="annot"><span class="annottext">toHeaders :: UploadServerCertificate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UploadServerCertificate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-397"></span><span>  </span><span id="local-6989586621679465203"><span class="annot"><span class="annottext">toPath :: UploadServerCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UploadServerCertificate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate"><span class="hs-identifier hs-type">UploadServerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-400"></span><span>  </span><span id="local-6989586621679465199"><span class="annot"><span class="annottext">toQuery :: UploadServerCertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificate%27"><span class="hs-identifier hs-type">UploadServerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465192"><span id="local-6989586621679465193"><span id="local-6989586621679465194"><span id="local-6989586621679465195"><span id="local-6989586621679465196"><span id="local-6989586621679465197"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+Sensitive Text
+privateKey :: Sensitive Text
+certificateBody :: Text
+serverCertificateName :: Text
+path :: Maybe Text
+certificateChain :: Maybe Text
+tags :: Maybe [Tag]
+$sel:privateKey:UploadServerCertificate' :: UploadServerCertificate -&gt; Sensitive Text
+$sel:certificateBody:UploadServerCertificate' :: UploadServerCertificate -&gt; Text
+$sel:serverCertificateName:UploadServerCertificate' :: UploadServerCertificate -&gt; Text
+$sel:path:UploadServerCertificate' :: UploadServerCertificate -&gt; Maybe Text
+$sel:certificateChain:UploadServerCertificate' :: UploadServerCertificate -&gt; Maybe Text
+$sel:tags:UploadServerCertificate' :: UploadServerCertificate -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679465192"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-402"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-403"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;UploadServerCertificate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-405"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span>
+</span><span id="line-407"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-408"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465197"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CertificateChain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465196"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465195"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServerCertificateName&quot;</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465194"><span class="hs-identifier hs-var">serverCertificateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-413"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CertificateBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465193"><span class="hs-identifier hs-var">certificateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-414"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PrivateKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Sensitive Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679465192"><span class="hs-identifier hs-var">privateKey</span></a></span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- | Contains the response to a successful UploadServerCertificate request.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- /See:/ 'newUploadServerCertificateResponse' smart constructor.</span><span>
+</span><span id="line-420"></span><span id="local-6989586621679465188"><span id="local-6989586621679465189"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadServerCertificateResponse"><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-var">UploadServerCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadServerCertificateResponse%27"><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-var">UploadServerCertificateResponse'</span></a></span></span><span>
+</span><span id="line-421"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The meta information of the uploaded server certificate without its</span><span>
+</span><span id="line-422"></span><span>    </span><span class="hs-comment">-- certificate body, certificate chain, and private key.</span><span>
+</span><span id="line-423"></span><span>    </span><span id="%24sel%3AserverCertificateMetadata%3AUploadServerCertificateResponse%27"><span class="annot"><span class="annottext">UploadServerCertificateResponse -&gt; Maybe ServerCertificateMetadata
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AserverCertificateMetadata%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var hs-var">serverCertificateMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServerCertificateMetadata.html#ServerCertificateMetadata"><span class="hs-identifier hs-type">ServerCertificateMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>    </span><span class="hs-comment">-- | A list of tags that are attached to the new IAM server certificate. The</span><span>
+</span><span id="line-425"></span><span>    </span><span class="hs-comment">-- returned list of tags is sorted by tag key. For more information about</span><span>
+</span><span id="line-426"></span><span>    </span><span class="hs-comment">-- tagging, see</span><span>
+</span><span id="line-427"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-428"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-429"></span><span>    </span><span id="%24sel%3Atags%3AUploadServerCertificateResponse%27"><span class="annot"><span class="annottext">UploadServerCertificateResponse -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Atags%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-431"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUploadServerCertificateResponse%27"><span class="annot"><span class="annottext">UploadServerCertificateResponse -&gt; Int
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AhttpStatus%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-432"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-433"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465181"><span id="local-6989586621679465183"><span class="annot"><span class="annottext">UploadServerCertificateResponse
+-&gt; UploadServerCertificateResponse -&gt; Bool
+(UploadServerCertificateResponse
+ -&gt; UploadServerCertificateResponse -&gt; Bool)
+-&gt; (UploadServerCertificateResponse
+    -&gt; UploadServerCertificateResponse -&gt; Bool)
+-&gt; Eq UploadServerCertificateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UploadServerCertificateResponse
+-&gt; UploadServerCertificateResponse -&gt; Bool
+$c/= :: UploadServerCertificateResponse
+-&gt; UploadServerCertificateResponse -&gt; Bool
+== :: UploadServerCertificateResponse
+-&gt; UploadServerCertificateResponse -&gt; Bool
+$c== :: UploadServerCertificateResponse
+-&gt; UploadServerCertificateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465173"><span id="local-6989586621679465175"><span id="local-6989586621679465177"><span id="local-6989586621679465179"><span class="annot"><span class="annottext">ReadPrec [UploadServerCertificateResponse]
+ReadPrec UploadServerCertificateResponse
+Int -&gt; ReadS UploadServerCertificateResponse
+ReadS [UploadServerCertificateResponse]
+(Int -&gt; ReadS UploadServerCertificateResponse)
+-&gt; ReadS [UploadServerCertificateResponse]
+-&gt; ReadPrec UploadServerCertificateResponse
+-&gt; ReadPrec [UploadServerCertificateResponse]
+-&gt; Read UploadServerCertificateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UploadServerCertificateResponse]
+$creadListPrec :: ReadPrec [UploadServerCertificateResponse]
+readPrec :: ReadPrec UploadServerCertificateResponse
+$creadPrec :: ReadPrec UploadServerCertificateResponse
+readList :: ReadS [UploadServerCertificateResponse]
+$creadList :: ReadS [UploadServerCertificateResponse]
+readsPrec :: Int -&gt; ReadS UploadServerCertificateResponse
+$creadsPrec :: Int -&gt; ReadS UploadServerCertificateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465166"><span id="local-6989586621679465168"><span id="local-6989586621679465170"><span class="annot"><span class="annottext">Int -&gt; UploadServerCertificateResponse -&gt; ShowS
+[UploadServerCertificateResponse] -&gt; ShowS
+UploadServerCertificateResponse -&gt; String
+(Int -&gt; UploadServerCertificateResponse -&gt; ShowS)
+-&gt; (UploadServerCertificateResponse -&gt; String)
+-&gt; ([UploadServerCertificateResponse] -&gt; ShowS)
+-&gt; Show UploadServerCertificateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UploadServerCertificateResponse] -&gt; ShowS
+$cshowList :: [UploadServerCertificateResponse] -&gt; ShowS
+show :: UploadServerCertificateResponse -&gt; String
+$cshow :: UploadServerCertificateResponse -&gt; String
+showsPrec :: Int -&gt; UploadServerCertificateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UploadServerCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UploadServerCertificateResponse
+ -&gt; Rep UploadServerCertificateResponse x)
+-&gt; (forall x.
+    Rep UploadServerCertificateResponse x
+    -&gt; UploadServerCertificateResponse)
+-&gt; Generic UploadServerCertificateResponse
+forall x.
+Rep UploadServerCertificateResponse x
+-&gt; UploadServerCertificateResponse
+forall x.
+UploadServerCertificateResponse
+-&gt; Rep UploadServerCertificateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UploadServerCertificateResponse x
+-&gt; UploadServerCertificateResponse
+$cfrom :: forall x.
+UploadServerCertificateResponse
+-&gt; Rep UploadServerCertificateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-434"></span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- Create a value of 'UploadServerCertificateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-437"></span><span class="hs-comment">--</span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-442"></span><span class="hs-comment">--</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- 'serverCertificateMetadata', 'uploadServerCertificateResponse_serverCertificateMetadata' - The meta information of the uploaded server certificate without its</span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- certificate body, certificate chain, and private key.</span><span>
+</span><span id="line-445"></span><span class="hs-comment">--</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- 'tags', 'uploadServerCertificateResponse_tags' - A list of tags that are attached to the new IAM server certificate. The</span><span>
+</span><span id="line-447"></span><span class="hs-comment">-- returned list of tags is sorted by tag key. For more information about</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- tagging, see</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- 'httpStatus', 'uploadServerCertificateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-453"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#newUploadServerCertificateResponse"><span class="hs-identifier hs-type">newUploadServerCertificateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-454"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-455"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-456"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span>
+</span><span id="line-457"></span><span id="newUploadServerCertificateResponse"><span class="annot"><span class="annottext">newUploadServerCertificateResponse :: Int -&gt; UploadServerCertificateResponse
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#newUploadServerCertificateResponse"><span class="hs-identifier hs-var hs-var">newUploadServerCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679465163"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465163"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-458"></span><span>  </span><span class="annot"><span class="annottext">UploadServerCertificateResponse' :: Maybe ServerCertificateMetadata
+-&gt; Maybe [Tag] -&gt; Int -&gt; UploadServerCertificateResponse
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span>
+</span><span id="line-459"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serverCertificateMetadata:UploadServerCertificateResponse' :: Maybe ServerCertificateMetadata
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AserverCertificateMetadata%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var">serverCertificateMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-460"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServerCertificateMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-461"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:UploadServerCertificateResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Atags%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-462"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UploadServerCertificateResponse' :: Int
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AhttpStatus%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465163"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-463"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-464"></span><span>
+</span><span id="line-465"></span><span class="hs-comment">-- | The meta information of the uploaded server certificate without its</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- certificate body, certificate chain, and private key.</span><span>
+</span><span id="line-467"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_serverCertificateMetadata"><span class="hs-identifier hs-type">uploadServerCertificateResponse_serverCertificateMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServerCertificateMetadata.html#ServerCertificateMetadata"><span class="hs-identifier hs-type">ServerCertificateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span id="uploadServerCertificateResponse_serverCertificateMetadata"><span class="annot"><span class="annottext">uploadServerCertificateResponse_serverCertificateMetadata :: (Maybe ServerCertificateMetadata
+ -&gt; f (Maybe ServerCertificateMetadata))
+-&gt; UploadServerCertificateResponse
+-&gt; f UploadServerCertificateResponse
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_serverCertificateMetadata"><span class="hs-identifier hs-var hs-var">uploadServerCertificateResponse_serverCertificateMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificateResponse
+ -&gt; Maybe ServerCertificateMetadata)
+-&gt; (UploadServerCertificateResponse
+    -&gt; Maybe ServerCertificateMetadata
+    -&gt; UploadServerCertificateResponse)
+-&gt; Lens
+     UploadServerCertificateResponse
+     UploadServerCertificateResponse
+     (Maybe ServerCertificateMetadata)
+     (Maybe ServerCertificateMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465162"><span class="annot"><span class="annottext">Maybe ServerCertificateMetadata
+serverCertificateMetadata :: Maybe ServerCertificateMetadata
+$sel:serverCertificateMetadata:UploadServerCertificateResponse' :: UploadServerCertificateResponse -&gt; Maybe ServerCertificateMetadata
+</span><a href="#local-6989586621679465162"><span class="hs-identifier hs-var hs-var">serverCertificateMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerCertificateMetadata
+</span><a href="#local-6989586621679465162"><span class="hs-identifier hs-var">serverCertificateMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465161"><span class="annot"><span class="annottext">s :: UploadServerCertificateResponse
+</span><a href="#local-6989586621679465161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465160"><span class="annot"><span class="annottext">Maybe ServerCertificateMetadata
+</span><a href="#local-6989586621679465160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificateResponse
+</span><a href="#local-6989586621679465161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateMetadata:UploadServerCertificateResponse' :: Maybe ServerCertificateMetadata
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AserverCertificateMetadata%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var">serverCertificateMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerCertificateMetadata
+</span><a href="#local-6989586621679465160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- | A list of tags that are attached to the new IAM server certificate. The</span><span>
+</span><span id="line-471"></span><span class="hs-comment">-- returned list of tags is sorted by tag key. For more information about</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- tagging, see</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-474"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-475"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_tags"><span class="hs-identifier hs-type">uploadServerCertificateResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-476"></span><span id="uploadServerCertificateResponse_tags"><span class="annot"><span class="annottext">uploadServerCertificateResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UploadServerCertificateResponse
+-&gt; f UploadServerCertificateResponse
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_tags"><span class="hs-identifier hs-var hs-var">uploadServerCertificateResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificateResponse -&gt; Maybe [Tag])
+-&gt; (UploadServerCertificateResponse
+    -&gt; Maybe [Tag] -&gt; UploadServerCertificateResponse)
+-&gt; Lens
+     UploadServerCertificateResponse
+     UploadServerCertificateResponse
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465159"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:UploadServerCertificateResponse' :: UploadServerCertificateResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679465159"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465159"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465158"><span class="annot"><span class="annottext">s :: UploadServerCertificateResponse
+</span><a href="#local-6989586621679465158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465157"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificateResponse
+</span><a href="#local-6989586621679465158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UploadServerCertificateResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3Atags%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679465157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; UploadServerCertificateResponse
+ -&gt; f UploadServerCertificateResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UploadServerCertificateResponse
+-&gt; f UploadServerCertificateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
+</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span id="line-477"></span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-479"></span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_httpStatus"><span class="hs-identifier hs-type">uploadServerCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-480"></span><span id="uploadServerCertificateResponse_httpStatus"><span class="annot"><span class="annottext">uploadServerCertificateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UploadServerCertificateResponse
+-&gt; f UploadServerCertificateResponse
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#uploadServerCertificateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">uploadServerCertificateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadServerCertificateResponse -&gt; Int)
+-&gt; (UploadServerCertificateResponse
+    -&gt; Int -&gt; UploadServerCertificateResponse)
+-&gt; Lens
+     UploadServerCertificateResponse
+     UploadServerCertificateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465156"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UploadServerCertificateResponse' :: UploadServerCertificateResponse -&gt; Int
+</span><a href="#local-6989586621679465156"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465156"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465155"><span class="annot"><span class="annottext">s :: UploadServerCertificateResponse
+</span><a href="#local-6989586621679465155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse%27"><span class="hs-identifier hs-type">UploadServerCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadServerCertificateResponse
+</span><a href="#local-6989586621679465155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UploadServerCertificateResponse' :: Int
+</span><a href="Network.AWS.IAM.UploadServerCertificate.html#%24sel%3AhttpStatus%3AUploadServerCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-481"></span><span>
+</span><span id="line-482"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-483"></span><span>  </span><span id="local-6989586621679465152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.UploadServerCertificate.html#UploadServerCertificateResponse"><span class="hs-identifier hs-type">UploadServerCertificateResponse</span></a></span></span><span>
+</span><span id="line-485"></span></pre></body></html>

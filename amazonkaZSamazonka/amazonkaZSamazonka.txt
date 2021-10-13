@@ -7402,7 +7402,7 @@ fromTemporarySession :: AccessKey -> SecretKey -> SessionToken -> UTCTime -> Aut
 --   
 --   <i>See:</i> <a>envAccessKey</a>, <a>envSecretKey</a>,
 --   <a>envSessionToken</a>
-fromEnv :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
+fromEnv :: MonadIO m => m (Auth, Maybe Region)
 
 -- | Retrieve access key, secret key and a session token from specific
 --   environment variables.
@@ -7410,7 +7410,7 @@ fromEnv :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
 --   Throws <a>MissingEnvError</a> if either of the specified key
 --   environment variables cannot be read, but not if the session token is
 --   absent.
-fromEnvKeys :: (Applicative m, MonadIO m) => Text -> Text -> Maybe Text -> Maybe Text -> m (Auth, Maybe Region)
+fromEnvKeys :: MonadIO m => Text -> Text -> Maybe Text -> Maybe Text -> m (Auth, Maybe Region)
 
 -- | Loads the default <tt>credentials</tt> INI file using the default
 --   profile name.
@@ -7419,7 +7419,7 @@ fromEnvKeys :: (Applicative m, MonadIO m) => Text -> Text -> Maybe Text -> Maybe
 --   <a>InvalidFileError</a> if an error occurs during parsing.
 --   
 --   <i>See:</i> <a>credProfile</a>, <a>credFile</a>, and <a>envProfile</a>
-fromFile :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
+fromFile :: MonadIO m => m (Auth, Maybe Region)
 fromFilePath :: MonadIO m => Text -> FilePath -> FilePath -> m (Auth, Maybe Region)
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.

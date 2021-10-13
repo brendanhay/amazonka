@@ -41,21 +41,21 @@
 </span><span id="line-41"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
 </span><span id="line-42"></span><span id="newSigner"><span class="annot"><span class="annottext">newSigner :: RequestHeaders
 -&gt; ByteString -&gt; ByteString -&gt; QueryString -&gt; ByteString
-</span><a href="Network.AWS.Sign.V2Header.Base.html#newSigner"><span class="hs-identifier hs-var hs-var">newSigner</span></a></span></span><span> </span><span id="local-6989586621679197719"><span class="annot"><span class="annottext">RequestHeaders
-</span><a href="#local-6989586621679197719"><span class="hs-identifier hs-var">headers</span></a></span></span><span> </span><span id="local-6989586621679197718"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197718"><span class="hs-identifier hs-var">method</span></a></span></span><span> </span><span id="local-6989586621679197717"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197717"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679197716"><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197716"><span class="hs-identifier hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197715"><span class="hs-identifier hs-var">signer</span></a></span><span>
+</span><a href="Network.AWS.Sign.V2Header.Base.html#newSigner"><span class="hs-identifier hs-var hs-var">newSigner</span></a></span></span><span> </span><span id="local-6989586621679197642"><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679197642"><span class="hs-identifier hs-var">headers</span></a></span></span><span> </span><span id="local-6989586621679197641"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197641"><span class="hs-identifier hs-var">method</span></a></span></span><span> </span><span id="local-6989586621679197640"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197640"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679197639"><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679197639"><span class="hs-identifier hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197638"><span class="hs-identifier hs-var">signer</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-44"></span><span>    </span><span id="local-6989586621679197715"><span class="annot"><span class="annottext">signer :: ByteString
-</span><a href="#local-6989586621679197715"><span class="hs-identifier hs-var hs-var">signer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-44"></span><span>    </span><span id="local-6989586621679197638"><span class="annot"><span class="annottext">signer :: ByteString
+</span><a href="#local-6989586621679197638"><span class="hs-identifier hs-var hs-var">signer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; ByteString
 </span><span class="hs-identifier hs-var">BS8.intercalate</span></span><span>
 </span><span id="line-46"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;\n&quot;</span></span><span>
 </span><span id="line-47"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197718"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; [ByteString]
+</span><a href="#local-6989586621679197641"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; [ByteString]
 forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-glyph hs-var">:</span></span><span>
 </span><span id="line-48"></span><span>          </span><span class="annot"><span class="annottext">(Header -&gt; ByteString) -&gt; RequestHeaders -&gt; [ByteString]
@@ -64,28 +64,28 @@ forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
 </span><a href="Network.AWS.Sign.V2Header.Base.html#constructSigningHeader"><span class="hs-identifier hs-var">constructSigningHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RequestHeaders -&gt; RequestHeaders
 forall a. Ord a =&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">List.sort</span></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
-</span><a href="#local-6989586621679197712"><span class="hs-identifier hs-var">filteredHeaders</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197635"><span class="hs-identifier hs-var">filteredHeaders</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>            </span><span class="annot"><span class="annottext">[ByteString] -&gt; [ByteString] -&gt; [ByteString]
 forall a. [a] -&gt; [a] -&gt; [a]
 </span><span class="hs-operator hs-var">++</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 </span><a href="Network.AWS.Sign.V2Header.Base.html#constructFullPath"><span class="hs-identifier hs-var">constructFullPath</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197717"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">QueryString -&gt; ByteString
+</span><a href="#local-6989586621679197640"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">QueryString -&gt; ByteString
 </span><a href="Network.AWS.Sign.V2Header.Base.html#toSignerQueryBS"><span class="hs-identifier hs-var">toSignerQueryBS</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197711"><span class="hs-identifier hs-var">filteredQuery</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679197634"><span class="hs-identifier hs-var">filteredQuery</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span>    </span><span id="local-6989586621679197712"><span class="annot"><span class="annottext">filteredHeaders :: RequestHeaders
-</span><a href="#local-6989586621679197712"><span class="hs-identifier hs-var hs-var">filteredHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestHeaders -&gt; RequestHeaders
+</span><span id="line-52"></span><span>    </span><span id="local-6989586621679197635"><span class="annot"><span class="annottext">filteredHeaders :: RequestHeaders
+</span><a href="#local-6989586621679197635"><span class="hs-identifier hs-var hs-var">filteredHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestHeaders -&gt; RequestHeaders
 </span><a href="Network.AWS.Sign.V2Header.Base.html#unionNecessaryHeaders"><span class="hs-identifier hs-var">unionNecessaryHeaders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Header -&gt; Bool) -&gt; RequestHeaders -&gt; RequestHeaders
 forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; Bool
 </span><a href="Network.AWS.Sign.V2Header.Base.html#isInterestingHeader"><span class="hs-identifier hs-var">isInterestingHeader</span></a></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
-</span><a href="#local-6989586621679197719"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197642"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span>    </span><span id="local-6989586621679197711"><span class="annot"><span class="annottext">filteredQuery :: QueryString
-</span><a href="#local-6989586621679197711"><span class="hs-identifier hs-var hs-var">filteredQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; QueryString
+</span><span id="line-54"></span><span>    </span><span id="local-6989586621679197634"><span class="annot"><span class="annottext">filteredQuery :: QueryString
+</span><a href="#local-6989586621679197634"><span class="hs-identifier hs-var hs-var">filteredQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; QueryString
 </span><a href="Network.AWS.Sign.V2Header.Base.html#constructSigningQuery"><span class="hs-identifier hs-var">constructSigningQuery</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197716"><span class="hs-identifier hs-var">query</span></a></span><span>
+</span><a href="#local-6989586621679197639"><span class="hs-identifier hs-var">query</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | The following function mostly follows the toBS in amazonka QueryString</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- except for single QValue or single QPair keys not being suffixed with</span><span>
@@ -102,7 +102,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 -&gt; (QueryString -&gt; Builder) -&gt; QueryString -&gt; ByteString
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">[ByteString] -&gt; Builder
-</span><a href="#local-6989586621679197706"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">([ByteString] -&gt; Builder)
+</span><a href="#local-6989586621679197629"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">([ByteString] -&gt; Builder)
 -&gt; (QueryString -&gt; [ByteString]) -&gt; QueryString -&gt; Builder
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">[ByteString] -&gt; [ByteString]
@@ -111,103 +111,103 @@ forall a. Ord a =&gt; [a] -&gt; [a]
 -&gt; (QueryString -&gt; [ByteString]) -&gt; QueryString -&gt; [ByteString]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
-</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="#local-6989586621679197705"><span class="hs-identifier hs-type">enc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span>
-</span><span id="line-64"></span><span>    </span><span id="local-6989586621679197705"><span class="annot"><span class="annottext">enc :: Maybe ByteString -&gt; QueryString -&gt; [ByteString]
-</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var hs-var">enc</span></a></span></span><span> </span><span id="local-6989586621679197704"><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.Data.Query.html#QList"><span class="hs-identifier hs-type">Query.QList</span></a></span><span> </span><span id="local-6989586621679197702"><span class="annot"><span class="annottext">[QueryString]
-</span><a href="#local-6989586621679197702"><span class="hs-identifier hs-var">xs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">(QueryString -&gt; [ByteString]) -&gt; [QueryString] -&gt; [ByteString]
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="#local-6989586621679197628"><span class="hs-identifier hs-type">enc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span>
+</span><span id="line-64"></span><span>    </span><span id="local-6989586621679197628"><span class="annot"><span class="annottext">enc :: Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var hs-var">enc</span></a></span></span><span> </span><span id="local-6989586621679197627"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679197627"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.Data.Query.html#QList"><span class="hs-identifier hs-type">Query.QList</span></a></span><span> </span><span id="local-6989586621679197625"><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679197625"><span class="hs-identifier hs-var">xs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">(QueryString -&gt; [ByteString]) -&gt; [QueryString] -&gt; [ByteString]
 forall (t :: * -&gt; *) a b. Foldable t =&gt; (a -&gt; [b]) -&gt; t a -&gt; [b]
 </span><span class="hs-identifier hs-var">concatMap</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
-</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[QueryString]
-</span><a href="#local-6989586621679197702"><span class="hs-identifier hs-var">xs</span></a></span><span>
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679197627"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679197625"><span class="hs-identifier hs-var">xs</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><a href="Network.AWS.Data.Query.html#QPair"><span class="hs-identifier hs-type">Query.QPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool -&gt; ByteString -&gt; ByteString
 </span><span class="hs-identifier hs-var">URI.urlEncode</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679197698"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197698"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679197697"><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197697"><span class="hs-identifier hs-var">x</span></a></span></span><span>
-</span><span id="line-67"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679197696"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197696"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
-</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
+</span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679197621"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197621"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679197620"><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679197620"><span class="hs-identifier hs-var">x</span></a></span></span><span>
+</span><span id="line-67"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679197619"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197619"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679197627"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197696"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679197619"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197695"><span class="hs-identifier hs-var">kdelim</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679197618"><span class="hs-identifier hs-var">kdelim</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197698"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-comment">-- &lt;prev&gt;.key &lt;recur&gt;</span><span>
+</span><a href="#local-6989586621679197621"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679197620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-comment">-- &lt;prev&gt;.key &lt;recur&gt;</span><span>
 </span><span id="line-68"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
-</span><a href="#local-6989586621679197705"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
+</span><a href="#local-6989586621679197628"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197698"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-comment">-- key &lt;recur&gt;</span><span>
+</span><a href="#local-6989586621679197621"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679197620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-comment">-- key &lt;recur&gt;</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><a href="Network.AWS.Data.Query.html#QValue"><span class="hs-identifier hs-type">Query.QValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool -&gt; ByteString -&gt; ByteString
 </span><span class="hs-identifier hs-var">URI.urlEncode</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679197693"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197693"><span class="hs-identifier hs-var">v</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679197692"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197692"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197692"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679197616"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197616"><span class="hs-identifier hs-var">v</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679197615"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197615"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679197627"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197615"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197691"><span class="hs-identifier hs-var">vsep</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679197614"><span class="hs-identifier hs-var">vsep</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197693"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-comment">-- key=value</span><span>
+</span><a href="#local-6989586621679197616"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-comment">-- key=value</span><span>
 </span><span id="line-71"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197693"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679197616"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-identifier">_</span></span><span>
-</span><span id="line-73"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679197690"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197690"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679197704"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197690"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-73"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679197613"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197613"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679197627"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197613"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="#local-6989586621679197706"><span class="hs-identifier hs-type">cat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span id="local-6989586621679197706"><span class="annot"><span class="annottext">cat :: [ByteString] -&gt; Builder
-</span><a href="#local-6989586621679197706"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Builder
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="#local-6989586621679197629"><span class="hs-identifier hs-type">cat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span id="local-6989586621679197629"><span class="annot"><span class="annottext">cat :: [ByteString] -&gt; Builder
+</span><a href="#local-6989586621679197629"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Builder
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">mempty</span></span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><a href="#local-6989586621679197706"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="hs-special">[</span><span id="local-6989586621679197688"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197688"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Builder
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="#local-6989586621679197629"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="hs-special">[</span><span id="local-6989586621679197611"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197611"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Builder
 </span><span class="hs-identifier hs-var">Build.byteString</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197688"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><a href="#local-6989586621679197706"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197686"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span> </span><span id="local-6989586621679197685"><span class="annot"><span class="annottext">[ByteString]
-</span><a href="#local-6989586621679197685"><span class="hs-identifier hs-var">xs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Builder
+</span><a href="#local-6989586621679197611"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="#local-6989586621679197629"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197609"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197609"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span> </span><span id="local-6989586621679197608"><span class="annot"><span class="annottext">[ByteString]
+</span><a href="#local-6989586621679197608"><span class="hs-identifier hs-var">xs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Builder
 </span><span class="hs-identifier hs-var">Build.byteString</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Builder
+</span><a href="#local-6989586621679197609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Builder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Builder
-</span><a href="#local-6989586621679197684"><span class="hs-identifier hs-var">ksep</span></a></span><span> </span><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Builder
+</span><a href="#local-6989586621679197607"><span class="hs-identifier hs-var">ksep</span></a></span><span> </span><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Builder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">[ByteString] -&gt; Builder
-</span><a href="#local-6989586621679197706"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">[ByteString]
-</span><a href="#local-6989586621679197685"><span class="hs-identifier hs-var">xs</span></a></span><span>
+</span><a href="#local-6989586621679197629"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">[ByteString]
+</span><a href="#local-6989586621679197608"><span class="hs-identifier hs-var">xs</span></a></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span>    </span><span id="local-6989586621679197695"><span class="annot"><span class="annottext">kdelim :: ByteString
-</span><a href="#local-6989586621679197695"><span class="hs-identifier hs-var hs-var">kdelim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-81"></span><span>    </span><span id="local-6989586621679197618"><span class="annot"><span class="annottext">kdelim :: ByteString
+</span><a href="#local-6989586621679197618"><span class="hs-identifier hs-var hs-var">kdelim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.&quot;</span></span><span>
-</span><span id="line-82"></span><span>    </span><span id="local-6989586621679197684"><span class="annot"><span class="annottext">ksep :: Builder
-</span><a href="#local-6989586621679197684"><span class="hs-identifier hs-var hs-var">ksep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Builder
+</span><span id="line-82"></span><span>    </span><span id="local-6989586621679197607"><span class="annot"><span class="annottext">ksep :: Builder
+</span><a href="#local-6989586621679197607"><span class="hs-identifier hs-var hs-var">ksep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Builder
 </span><span class="hs-string">&quot;&amp;&quot;</span></span><span>
-</span><span id="line-83"></span><span>    </span><span id="local-6989586621679197691"><span class="annot"><span class="annottext">vsep :: ByteString
-</span><a href="#local-6989586621679197691"><span class="hs-identifier hs-var hs-var">vsep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-83"></span><span>    </span><span id="local-6989586621679197614"><span class="annot"><span class="annottext">vsep :: ByteString
+</span><a href="#local-6989586621679197614"><span class="hs-identifier hs-var hs-var">vsep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;=&quot;</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Sign.V2Header.Base.html#hasAWSPrefix"><span class="hs-identifier hs-type">hasAWSPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">CI.CI</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
@@ -316,30 +316,30 @@ forall s. CI s -&gt; s
 </span><span id="line-121"></span><span class="hs-comment">-- | Filter for 'interesting' header fields</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Sign.V2Header.Base.html#isInterestingHeader"><span class="hs-identifier hs-type">isInterestingHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
 </span><span id="line-123"></span><span id="isInterestingHeader"><span class="annot"><span class="annottext">isInterestingHeader :: Header -&gt; Bool
-</span><a href="Network.AWS.Sign.V2Header.Base.html#isInterestingHeader"><span class="hs-identifier hs-var hs-var">isInterestingHeader</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197679"><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197679"><span class="hs-identifier hs-var">name</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="Network.AWS.Sign.V2Header.Base.html#isInterestingHeader"><span class="hs-identifier hs-var hs-var">isInterestingHeader</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197602"><span class="annot"><span class="annottext">CI ByteString
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">name</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-identifier">_</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197679"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; CI ByteString -&gt; Bool
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; CI ByteString -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-identifier hs-var">HTTP.hDate</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197679"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; CI ByteString -&gt; Bool
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; CI ByteString -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-identifier hs-var">HTTP.hContentMD5</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197679"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; CI ByteString -&gt; Bool
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; CI ByteString -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-identifier hs-var">HTTP.hContentType</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; Bool
 </span><a href="Network.AWS.Sign.V2Header.Base.html#hasAWSPrefix"><span class="hs-identifier hs-var">hasAWSPrefix</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197679"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679197602"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
@@ -353,22 +353,22 @@ forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><a href="Network.AWS.Data.Query.html#QValue"><span class="hs-identifier hs-var">Query.QValue</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
-</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Query.html#QList"><span class="hs-identifier hs-type">Query.QList</span></a></span><span> </span><span id="local-6989586621679197675"><span class="annot"><span class="annottext">[QueryString]
-</span><a href="#local-6989586621679197675"><span class="hs-identifier hs-var">qs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Query.html#QList"><span class="hs-identifier hs-type">Query.QList</span></a></span><span> </span><span id="local-6989586621679197598"><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">qs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 </span><a href="Network.AWS.Data.Query.html#QList"><span class="hs-identifier hs-var">Query.QList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(QueryString -&gt; QueryString) -&gt; [QueryString] -&gt; [QueryString]
 forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
 </span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; QueryString
 </span><a href="Network.AWS.Sign.V2Header.Base.html#constructSigningQuery"><span class="hs-identifier hs-var">constructSigningQuery</span></a></span><span> </span><span class="annot"><span class="annottext">[QueryString]
-</span><a href="#local-6989586621679197675"><span class="hs-identifier hs-var">qs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Query.html#QPair"><span class="hs-identifier hs-type">Query.QPair</span></a></span><span> </span><span id="local-6989586621679197674"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197674"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679197673"><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197673"><span class="hs-identifier hs-var">v</span></a></span></span><span>
+</span><a href="#local-6989586621679197598"><span class="hs-identifier hs-var">qs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Query.html#QPair"><span class="hs-identifier hs-type">Query.QPair</span></a></span><span> </span><span id="local-6989586621679197597"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197597"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679197596"><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679197596"><span class="hs-identifier hs-var">v</span></a></span></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool
 </span><a href="Network.AWS.Sign.V2Header.Base.html#isInterestingQueryKey"><span class="hs-identifier hs-var">isInterestingQueryKey</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197674"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><a href="#local-6989586621679197597"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 </span><a href="Network.AWS.Data.Query.html#QPair"><span class="hs-identifier hs-var">Query.QPair</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197674"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
-</span><a href="#local-6989586621679197673"><span class="hs-identifier hs-var">v</span></a></span><span>
+</span><a href="#local-6989586621679197597"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679197596"><span class="hs-identifier hs-var">v</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString
 </span><a href="Network.AWS.Data.Query.html#QValue"><span class="hs-identifier hs-var">Query.QValue</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
@@ -378,43 +378,43 @@ forall a. Maybe a
 </span><span id="line-139"></span><span class="hs-comment">-- | Construct a header string for signing</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Sign.V2Header.Base.html#constructSigningHeader"><span class="hs-identifier hs-type">constructSigningHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
 </span><span id="line-141"></span><span id="constructSigningHeader"><span class="annot"><span class="annottext">constructSigningHeader :: Header -&gt; ByteString
-</span><a href="Network.AWS.Sign.V2Header.Base.html#constructSigningHeader"><span class="hs-identifier hs-var hs-var">constructSigningHeader</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197672"><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197672"><span class="hs-identifier hs-var">name</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197671"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197671"><span class="hs-identifier hs-var">value</span></a></span></span><span class="hs-special">)</span><span>
+</span><a href="Network.AWS.Sign.V2Header.Base.html#constructSigningHeader"><span class="hs-identifier hs-var hs-var">constructSigningHeader</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197595"><span class="annot"><span class="annottext">CI ByteString
+</span><a href="#local-6989586621679197595"><span class="hs-identifier hs-var">name</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197594"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197594"><span class="hs-identifier hs-var">value</span></a></span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; Bool
 </span><a href="Network.AWS.Sign.V2Header.Base.html#hasAWSPrefix"><span class="hs-identifier hs-var">hasAWSPrefix</span></a></span><span> </span><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197672"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; ByteString
+</span><a href="#local-6989586621679197595"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; ByteString
 forall s. CI s -&gt; s
 </span><span class="hs-identifier hs-var hs-var">CI.foldedCase</span></span><span> </span><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679197672"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679197595"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197671"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679197594"><span class="hs-identifier hs-var">value</span></a></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197671"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679197594"><span class="hs-identifier hs-var">value</span></a></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Sign.V2Header.Base.html#constructFullPath"><span class="hs-identifier hs-type">constructFullPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
 </span><span id="line-146"></span><span id="constructFullPath"><span class="annot"><span class="annottext">constructFullPath :: ByteString -&gt; ByteString -&gt; ByteString
-</span><a href="Network.AWS.Sign.V2Header.Base.html#constructFullPath"><span class="hs-identifier hs-var hs-var">constructFullPath</span></a></span></span><span> </span><span id="local-6989586621679197670"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197670"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679197669"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197669"><span class="hs-identifier hs-var">q</span></a></span></span><span>
+</span><a href="Network.AWS.Sign.V2Header.Base.html#constructFullPath"><span class="hs-identifier hs-var hs-var">constructFullPath</span></a></span></span><span> </span><span id="local-6989586621679197593"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197593"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679197592"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197592"><span class="hs-identifier hs-var">q</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool
 </span><span class="hs-identifier hs-var">BS8.null</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197669"><span class="hs-identifier hs-var">q</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197670"><span class="hs-identifier hs-var">path</span></a></span><span>
+</span><a href="#local-6989586621679197592"><span class="hs-identifier hs-var">q</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197593"><span class="hs-identifier hs-var">path</span></a></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197670"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679197593"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;?&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197669"><span class="hs-identifier hs-var">q</span></a></span><span>
+</span><a href="#local-6989586621679197592"><span class="hs-identifier hs-var">q</span></a></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Sign.V2Header.Base.html#unionNecessaryHeaders"><span class="hs-identifier hs-type">unionNecessaryHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span id="unionNecessaryHeaders"><span class="annot"><span class="annottext">unionNecessaryHeaders :: RequestHeaders -&gt; RequestHeaders

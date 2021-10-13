@@ -26,84 +26,84 @@
 </span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
 </span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Numeric</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Numeric</span></span><span>
 </span><span id="line-28"></span><span>
-</span><span id="line-29"></span><span class="hs-keyword">class</span><span> </span><span id="ToLog"><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-var">ToLog</span></a></span></span><span> </span><span id="local-6989586621679196817"><span class="annot"><a href="#local-6989586621679196817"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">class</span><span> </span><span id="ToLog"><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-var">ToLog</span></a></span></span><span> </span><span id="local-6989586621679196740"><span class="annot"><a href="#local-6989586621679196740"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-comment">-- | Convert a value to a loggable builder.</span><span>
-</span><span id="line-31"></span><span>  </span><span id="build"><span class="annot"><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-type">build</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679196817"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span>
+</span><span id="line-31"></span><span>  </span><span id="build"><span class="annot"><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-type">build</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679196740"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-34"></span><span>  </span><span id="local-6989586621679196766"><span class="annot"><span class="annottext">build :: ByteStringBuilder -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196766"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder
+</span><span id="line-34"></span><span>  </span><span id="local-6989586621679196689"><span class="annot"><span class="annottext">build :: ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196689"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder
 forall a. a -&gt; a
 </span><span class="hs-identifier hs-var">id</span></span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#ByteStringLazy"><span class="hs-identifier hs-type">ByteStringLazy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-37"></span><span>  </span><span id="local-6989586621679196763"><span class="annot"><span class="annottext">build :: ByteStringLazy -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196763"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; ByteStringBuilder
+</span><span id="line-37"></span><span>  </span><span id="local-6989586621679196686"><span class="annot"><span class="annottext">build :: ByteStringLazy -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196686"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.lazyByteString</span></span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-40"></span><span>  </span><span id="local-6989586621679196760"><span class="annot"><span class="annottext">build :: ByteString -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196760"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span id="line-40"></span><span>  </span><span id="local-6989586621679196683"><span class="annot"><span class="annottext">build :: ByteString -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196683"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.byteString</span></span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-43"></span><span>  </span><span id="local-6989586621679196757"><span class="annot"><span class="annottext">build :: Int -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196757"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679196680"><span class="annot"><span class="annottext">build :: Int -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196680"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.intDec</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int8</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-46"></span><span>  </span><span id="local-6989586621679196754"><span class="annot"><span class="annottext">build :: Int8 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196754"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int8 -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>  </span><span id="local-6989586621679196677"><span class="annot"><span class="annottext">build :: Int8 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196677"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int8 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.int8Dec</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int16</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-49"></span><span>  </span><span id="local-6989586621679196751"><span class="annot"><span class="annottext">build :: Int16 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196751"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int16 -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>  </span><span id="local-6989586621679196674"><span class="annot"><span class="annottext">build :: Int16 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196674"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int16 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.int16Dec</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int32</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621679196748"><span class="annot"><span class="annottext">build :: Int32 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196748"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int32 -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679196671"><span class="annot"><span class="annottext">build :: Int32 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196671"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int32 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.int32Dec</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int64</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679196745"><span class="annot"><span class="annottext">build :: Int64 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196745"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679196668"><span class="annot"><span class="annottext">build :: Int64 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196668"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.int64Dec</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679196742"><span class="annot"><span class="annottext">build :: Integer -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196742"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679196665"><span class="annot"><span class="annottext">build :: Integer -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196665"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.integerDec</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679196739"><span class="annot"><span class="annottext">build :: Word -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196739"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679196662"><span class="annot"><span class="annottext">build :: Word -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196662"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.wordDec</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word8</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679196736"><span class="annot"><span class="annottext">build :: Word8 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196736"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679196659"><span class="annot"><span class="annottext">build :: Word8 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196659"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word8 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.word8Dec</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word16</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679196733"><span class="annot"><span class="annottext">build :: Word16 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196733"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; ByteStringBuilder
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679196656"><span class="annot"><span class="annottext">build :: Word16 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196656"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word16 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.word16Dec</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word32</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679196730"><span class="annot"><span class="annottext">build :: Word32 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196730"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word32 -&gt; ByteStringBuilder
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679196653"><span class="annot"><span class="annottext">build :: Word32 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196653"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word32 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.word32Dec</span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Word64</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679196727"><span class="annot"><span class="annottext">build :: Word64 -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196727"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; ByteStringBuilder
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679196650"><span class="annot"><span class="annottext">build :: Word64 -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196650"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Word64 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.word64Dec</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679196724"><span class="annot"><span class="annottext">build :: UTCTime -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196724"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679196647"><span class="annot"><span class="annottext">build :: UTCTime -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196647"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var">Build.stringUtf8</span></span><span> </span><span class="annot"><span class="annottext">(String -&gt; ByteStringBuilder)
 -&gt; (UTCTime -&gt; String) -&gt; UTCTime -&gt; ByteStringBuilder
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -112,8 +112,8 @@ forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">show</span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Float</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679196719"><span class="annot"><span class="annottext">build :: Float -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196719"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679196642"><span class="annot"><span class="annottext">build :: Float -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196642"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(String -&gt; ByteStringBuilder)
 -&gt; (Float -&gt; String) -&gt; Float -&gt; ByteStringBuilder
@@ -131,8 +131,8 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679196716"><span class="annot"><span class="annottext">build :: Double -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196716"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679196639"><span class="annot"><span class="annottext">build :: Double -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196639"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(String -&gt; ByteStringBuilder)
 -&gt; (Double -&gt; String) -&gt; Double -&gt; ByteStringBuilder
@@ -150,8 +150,8 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679196714"><span class="annot"><span class="annottext">build :: Text -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196714"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679196637"><span class="annot"><span class="annottext">build :: Text -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196637"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteStringBuilder)
 -&gt; (Text -&gt; ByteString) -&gt; Text -&gt; ByteStringBuilder
@@ -160,8 +160,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html#TextLazy"><span class="hs-identifier hs-type">TextLazy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679196711"><span class="annot"><span class="annottext">build :: TextLazy -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196711"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; ByteStringBuilder
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679196634"><span class="annot"><span class="annottext">build :: TextLazy -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196634"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteStringLazy -&gt; ByteStringBuilder)
 -&gt; (TextLazy -&gt; ByteStringLazy) -&gt; TextLazy -&gt; ByteStringBuilder
@@ -170,8 +170,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">LText.encodeUtf8</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679196708"><span class="annot"><span class="annottext">build :: Char -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196708"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteStringBuilder
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679196631"><span class="annot"><span class="annottext">build :: Char -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196631"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ByteStringBuilder)
 -&gt; (Char -&gt; Text) -&gt; Char -&gt; ByteStringBuilder
@@ -180,8 +180,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">Text.singleton</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span class="hs-special">]</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679196705"><span class="annot"><span class="annottext">build :: String -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196705"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextLazy -&gt; ByteStringBuilder
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679196628"><span class="annot"><span class="annottext">build :: String -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196628"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextLazy -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(TextLazy -&gt; ByteStringBuilder)
 -&gt; (String -&gt; TextLazy) -&gt; String -&gt; ByteStringBuilder
@@ -190,8 +190,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">LText.pack</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.StdMethod</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679196702"><span class="annot"><span class="annottext">build :: StdMethod -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196702"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679196625"><span class="annot"><span class="annottext">build :: StdMethod -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196625"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteStringBuilder)
 -&gt; (StdMethod -&gt; ByteString) -&gt; StdMethod -&gt; ByteStringBuilder
@@ -200,8 +200,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">HTTP.renderStdMethod</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Query.html#QueryString"><span class="hs-identifier hs-type">QueryString</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679196699"><span class="annot"><span class="annottext">build :: QueryString -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196699"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679196622"><span class="annot"><span class="annottext">build :: QueryString -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196622"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteStringBuilder)
 -&gt; (QueryString -&gt; ByteString) -&gt; QueryString -&gt; ByteStringBuilder
@@ -211,8 +211,8 @@ forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Data.Path.html#EscapedPath"><span class="hs-identifier hs-type">EscapedPath</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679196696"><span class="annot"><span class="annottext">build :: EscapedPath -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196696"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679196619"><span class="annot"><span class="annottext">build :: EscapedPath -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196619"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteStringBuilder)
 -&gt; (EscapedPath -&gt; ByteString) -&gt; EscapedPath -&gt; ByteStringBuilder
@@ -236,9 +236,9 @@ forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">List.intersperse</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;\n&quot;</span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span id="local-6989586621679196693"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679196693"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679196693"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679196691"><span class="annot"><span class="annottext">build :: CI a -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; ByteStringBuilder
+</span><span id="line-109"></span><span id="local-6989586621679196616"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679196616"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679196616"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679196614"><span class="annot"><span class="annottext">build :: CI a -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196614"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">(a -&gt; ByteStringBuilder)
 -&gt; (CI a -&gt; a) -&gt; CI a -&gt; ByteStringBuilder
@@ -247,23 +247,23 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s. CI s -&gt; s
 </span><span class="hs-identifier hs-var hs-var">CI.foldedCase</span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span id="local-6989586621679196689"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679196689"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="#local-6989586621679196689"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679196687"><span class="annot"><span class="annottext">build :: Maybe a -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196687"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><span class="annottext">Maybe a
+</span><span id="line-112"></span><span id="local-6989586621679196612"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679196612"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><a href="#local-6989586621679196612"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679196610"><span class="annot"><span class="annottext">build :: Maybe a -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196610"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><span class="annottext">Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;Nothing&quot;</span></span><span>
-</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679196686"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679196686"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679196609"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679196609"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;Just &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679196686"><span class="hs-identifier hs-var">x</span></a></span></span><span>
+</span><a href="#local-6989586621679196609"><span class="hs-identifier hs-var">x</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679196684"><span class="annot"><span class="annottext">build :: Bool -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196684"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679196607"><span class="annot"><span class="annottext">build :: Bool -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196607"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;True&quot;</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Bool
@@ -271,13 +271,13 @@ forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><span class="hs-string">&quot;False&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.Status</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679196682"><span class="annot"><span class="annottext">build :: Status -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196682"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196681"><span class="annot"><span class="annottext">Status
-</span><a href="#local-6989586621679196681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679196605"><span class="annot"><span class="annottext">build :: Status -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196605"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196604"><span class="annot"><span class="annottext">Status
+</span><a href="#local-6989586621679196604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Status -&gt; Int
 </span><span class="hs-identifier hs-var hs-var">HTTP.statusCode</span></span><span> </span><span class="annot"><span class="annottext">Status
-</span><a href="#local-6989586621679196681"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196604"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot; &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
@@ -286,11 +286,11 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Status -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var">HTTP.statusMessage</span></span><span> </span><span class="annot"><span class="annottext">Status
-</span><a href="#local-6989586621679196681"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196604"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679196677"><span class="annot"><span class="annottext">build :: [Header] -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196677"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679196600"><span class="annot"><span class="annottext">build :: [Header] -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196600"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteStringBuilder] -&gt; ByteStringBuilder
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span>
@@ -310,12 +310,12 @@ forall a. a -&gt; [a] -&gt; [a]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Header -&gt; ByteStringBuilder) -&gt; [Header] -&gt; [ByteStringBuilder]
 forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
-</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679196676"><span class="annot"><span class="annottext">HeaderName
-</span><a href="#local-6989586621679196676"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196675"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679196675"><span class="hs-identifier hs-var">v</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679196599"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679196599"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196598"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679196598"><span class="hs-identifier hs-var">v</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><a href="#local-6989586621679196676"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196599"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;: &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
@@ -323,14 +323,14 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679196675"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196598"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.HttpVersion</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679196673"><span class="annot"><span class="annottext">build :: HttpVersion -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196673"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.HttpVersion</span></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196671"><span class="annot"><span class="annottext">Int
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679196596"><span class="annot"><span class="annottext">build :: HttpVersion -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196596"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.HttpVersion</span></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196594"><span class="annot"><span class="annottext">Int
 httpMajor :: HttpVersion -&gt; Int
 httpMajor :: Int
-</span><span class="hs-identifier hs-var hs-var">httpMajor</span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196669"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var hs-var">httpMajor</span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196592"><span class="annot"><span class="annottext">Int
 httpMinor :: HttpVersion -&gt; Int
 httpMinor :: Int
 </span><span class="hs-identifier hs-var hs-var">httpMinor</span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
@@ -341,7 +341,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679196671"><span class="hs-identifier hs-var">httpMajor</span></a></span><span>
+</span><a href="#local-6989586621679196594"><span class="hs-identifier hs-var">httpMajor</span></a></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Char -&gt; ByteStringBuilder
@@ -353,45 +353,45 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679196669"><span class="hs-identifier hs-var">httpMinor</span></a></span><span>
+</span><a href="#local-6989586621679196592"><span class="hs-identifier hs-var">httpMinor</span></a></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBody</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679196666"><span class="annot"><span class="annottext">build :: RequestBody -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196666"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
-</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyBuilder</span></span><span> </span><span id="local-6989586621679196664"><span class="annot"><span class="annottext">Int64
-</span><a href="#local-6989586621679196664"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679196589"><span class="annot"><span class="annottext">build :: RequestBody -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196589"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyBuilder</span></span><span> </span><span id="local-6989586621679196587"><span class="annot"><span class="annottext">Int64
+</span><a href="#local-6989586621679196587"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot; &lt;builder:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Int64
-</span><a href="#local-6989586621679196664"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196587"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;&gt;&quot;</span></span><span>
-</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyStream</span></span><span> </span><span id="local-6989586621679196662"><span class="annot"><span class="annottext">Int64
-</span><a href="#local-6989586621679196662"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">GivesPopper ()
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyStream</span></span><span> </span><span id="local-6989586621679196585"><span class="annot"><span class="annottext">Int64
+</span><a href="#local-6989586621679196585"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="annot"><span class="annottext">GivesPopper ()
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot; &lt;stream:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Int64
-</span><a href="#local-6989586621679196662"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196585"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;&gt;&quot;</span></span><span>
-</span><span id="line-140"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyLBS</span></span><span> </span><span id="local-6989586621679196660"><span class="annot"><span class="annottext">ByteStringLazy
-</span><a href="#local-6989586621679196660"><span class="hs-identifier hs-var">lbs</span></a></span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyLBS</span></span><span> </span><span id="local-6989586621679196583"><span class="annot"><span class="annottext">ByteStringLazy
+</span><a href="#local-6989586621679196583"><span class="hs-identifier hs-var">lbs</span></a></span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Int64
-</span><a href="#local-6989586621679196659"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; Int64 -&gt; Bool
+</span><a href="#local-6989586621679196582"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; Int64 -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&lt;=</span></span><span> </span><span class="annot"><span class="annottext">Int64
 </span><span class="hs-number">4096</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
-</span><a href="#local-6989586621679196660"><span class="hs-identifier hs-var">lbs</span></a></span><span>
+</span><a href="#local-6989586621679196583"><span class="hs-identifier hs-var">lbs</span></a></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot; &lt;lazy:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
@@ -399,25 +399,25 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Int64
-</span><a href="#local-6989586621679196659"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196582"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;&gt;&quot;</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>        </span><span id="local-6989586621679196659"><span class="annot"><span class="annottext">n :: Int64
-</span><a href="#local-6989586621679196659"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Int64
+</span><span id="line-144"></span><span>        </span><span id="local-6989586621679196582"><span class="annot"><span class="annottext">n :: Int64
+</span><a href="#local-6989586621679196582"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; Int64
 </span><span class="hs-identifier hs-var">LBS.length</span></span><span> </span><span class="annot"><span class="annottext">ByteStringLazy
-</span><a href="#local-6989586621679196660"><span class="hs-identifier hs-var">lbs</span></a></span><span>
-</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyBS</span></span><span> </span><span id="local-6989586621679196655"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679196655"><span class="hs-identifier hs-var">bs</span></a></span></span><span>
+</span><a href="#local-6989586621679196583"><span class="hs-identifier hs-var">lbs</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-identifier hs-type">Client.RequestBodyBS</span></span><span> </span><span id="local-6989586621679196578"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679196578"><span class="hs-identifier hs-var">bs</span></a></span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679196654"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679196577"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&lt;=</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">4096</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679196655"><span class="hs-identifier hs-var">bs</span></a></span><span>
+</span><a href="#local-6989586621679196578"><span class="hs-identifier hs-var">bs</span></a></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot; &lt;strict:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
@@ -425,23 +425,23 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679196654"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196577"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;&gt;&quot;</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>        </span><span id="local-6989586621679196654"><span class="annot"><span class="annottext">n :: Int
-</span><a href="#local-6989586621679196654"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int
+</span><span id="line-149"></span><span>        </span><span id="local-6989586621679196577"><span class="annot"><span class="annottext">n :: Int
+</span><a href="#local-6989586621679196577"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int
 </span><span class="hs-identifier hs-var">BS.length</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679196655"><span class="hs-identifier hs-var">bs</span></a></span><span>
+</span><a href="#local-6989586621679196578"><span class="hs-identifier hs-var">bs</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">RequestBody
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot; &lt;chunked&gt;&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Client.HttpException</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679196651"><span class="annot"><span class="annottext">build :: HttpException -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196651"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196650"><span class="annot"><span class="annottext">HttpException
-</span><a href="#local-6989586621679196650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679196574"><span class="annot"><span class="annottext">build :: HttpException -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196574"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196573"><span class="annot"><span class="annottext">HttpException
+</span><a href="#local-6989586621679196573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;[HttpException] {\n&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
@@ -449,15 +449,15 @@ forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HttpException -&gt; String
 forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">show</span></span><span> </span><span class="annot"><span class="annottext">HttpException
-</span><a href="#local-6989586621679196650"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196573"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;\n}&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Client.HttpExceptionContent</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679196648"><span class="annot"><span class="annottext">build :: HttpExceptionContent -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196648"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196647"><span class="annot"><span class="annottext">HttpExceptionContent
-</span><a href="#local-6989586621679196647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679196571"><span class="annot"><span class="annottext">build :: HttpExceptionContent -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196571"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196570"><span class="annot"><span class="annottext">HttpExceptionContent
+</span><a href="#local-6989586621679196570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;[HttpExceptionContent] {\n&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteStringBuilder
@@ -465,15 +465,15 @@ forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HttpExceptionContent -&gt; String
 forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">show</span></span><span> </span><span class="annot"><span class="annottext">HttpExceptionContent
-</span><a href="#local-6989586621679196647"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196570"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;\n}&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Client.Request</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679196645"><span class="annot"><span class="annottext">build :: Request -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196645"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196644"><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679196568"><span class="annot"><span class="annottext">build :: Request -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196568"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196567"><span class="annot"><span class="annottext">Request
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[ByteStringBuilder] -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#buildLines"><span class="hs-identifier hs-var">buildLines</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
@@ -485,7 +485,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var">Client.host</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
@@ -494,7 +494,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; Int
 </span><span class="hs-identifier hs-var hs-var">Client.port</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  secure    = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -502,7 +502,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var">Client.secure</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  method    = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -510,14 +510,14 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var">Client.method</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  target    = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; ByteStringBuilder
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
-</span><a href="#local-6989586621679196639"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196562"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  timeout   = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -527,7 +527,7 @@ forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">show</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; ResponseTimeout
 </span><span class="hs-identifier hs-var hs-var">Client.responseTimeout</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  redirects = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -535,7 +535,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; Int
 </span><span class="hs-identifier hs-var hs-var">Client.redirectCount</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  path      = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -543,7 +543,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var">Client.path</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  query     = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -551,7 +551,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var">Client.queryString</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  headers   = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -559,7 +559,7 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var">Client.requestHeaders</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  body      = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -567,23 +567,23 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Request -&gt; RequestBody
 </span><span class="hs-identifier hs-var hs-var">Client.requestBody</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;}&quot;</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>      </span><span id="local-6989586621679196639"><span class="annot"><span class="annottext">target :: Maybe ByteString
-</span><a href="#local-6989586621679196639"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-175"></span><span>      </span><span id="local-6989586621679196562"><span class="annot"><span class="annottext">target :: Maybe ByteString
+</span><a href="#local-6989586621679196562"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><a href="Network.AWS.Data.Headers.html#hAMZTarget"><span class="hs-identifier hs-var">hAMZTarget</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; [Header] -&gt; Maybe ByteString
 forall a b. Eq a =&gt; a -&gt; [(a, b)] -&gt; Maybe b
 </span><span class="hs-operator hs-var">`lookup`</span></span><span> </span><span class="annot"><span class="annottext">Request -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var">Client.requestHeaders</span></span><span> </span><span class="annot"><span class="annottext">Request
-</span><a href="#local-6989586621679196644"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679196567"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span id="local-6989586621679196630"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Client.Response</span></span><span> </span><span class="annot"><a href="#local-6989586621679196630"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679196628"><span class="annot"><span class="annottext">build :: Response a -&gt; ByteStringBuilder
-</span><a href="#local-6989586621679196628"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196627"><span class="annot"><span class="annottext">Response a
-</span><a href="#local-6989586621679196627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span id="local-6989586621679196553"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Client.Response</span></span><span> </span><span class="annot"><a href="#local-6989586621679196553"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679196551"><span class="annot"><span class="annottext">build :: Response a -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679196551"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span id="local-6989586621679196550"><span class="annot"><span class="annottext">Response a
+</span><a href="#local-6989586621679196550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[ByteStringBuilder] -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#buildLines"><span class="hs-identifier hs-var">buildLines</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
@@ -596,7 +596,7 @@ forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Response a -&gt; Status
 forall body. Response body -&gt; Status
 </span><span class="hs-identifier hs-var hs-var">Client.responseStatus</span></span><span> </span><span class="annot"><span class="annottext">Response a
-</span><a href="#local-6989586621679196627"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196550"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;  headers = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
@@ -605,7 +605,7 @@ forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
 </span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Response a -&gt; [Header]
 forall body. Response body -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var">Client.responseHeaders</span></span><span> </span><span class="annot"><span class="annottext">Response a
-</span><a href="#local-6989586621679196627"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196550"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
 </span><span class="hs-string">&quot;}&quot;</span></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span></span><span>

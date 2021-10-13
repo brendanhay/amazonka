@@ -2,18 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://amazonka.brendanhay.nz/documentation/</loc>
+    <loc>/docs/getting-started/</loc>
   </url><url>
-    <loc>https://amazonka.brendanhay.nz/documentation/usage/</loc>
+    <loc>/</loc>
   </url><url>
-    <loc>https://amazonka.brendanhay.nz/documentation/examples/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>https://amazonka.brendanhay.nz/haddock/</loc>
+    <loc>/docs/</loc>
   </url><url>
-    <loc>https://amazonka.brendanhay.nz/categories/</loc>
-  </url><url>
-    <loc>https://amazonka.brendanhay.nz/</loc>
-  </url><url>
-    <loc>https://amazonka.brendanhay.nz/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>

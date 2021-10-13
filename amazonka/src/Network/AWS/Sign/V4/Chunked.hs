@@ -30,10 +30,16 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
   where
     (meta, auth) = base (Tag digest) (prepare rq) a r ts
 
+    -- Although https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html says to include
+    -- `Content-Encoding: aws-chunked`, we don't. If it's the only header, S3 will remove
+    -- `aws-chunked` leaving a blank header, and store `"ContentEncoding": ""` in the object's metadata.
+    -- This breaks some CDNs and HTTP clients.
+    --
+    -- According to https://github.com/fog/fog-aws/pull/147 , AWS support have confirmed that the
+    -- header is not strictly necessary, and S3 will figure out that it's a chunked body.
     prepare =
       requestHeaders
-        <>~ [ (HTTP.hContentEncoding, "aws-chunked"),
-              (hAMZDecodedContentLength, toBS (_chunkedLength c)),
+        <>~ [ (hAMZDecodedContentLength, toBS (_chunkedLength c)),
               (HTTP.hContentLength, toBS (metadataLength c))
             ]
 

@@ -32,7 +32,8 @@ deriving instance Lift UTCTime
 deriving instance Lift Day
 
 -- DiffTime's constructor is not exported, so use a manual instance
-instance Lift DiffTime where
+instance Lift DiffTime
+
 #if MIN_VERSION_template_haskell(2,16,0)
   liftTyped x = [||toEnum $$(liftTyped (fromEnum x))||]
 #else

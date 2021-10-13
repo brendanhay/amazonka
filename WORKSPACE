@@ -31,12 +31,12 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "rules_haskell",
+    patch_args = ["-p1"],
+    patches = ["//:third_party/rules_haskell/haddock_index_root.patch"],
     sha256 = "73941c142bf37df115817083c0834fbc3269c963c7049bfbc345a9c76162e918",
     strip_prefix = "rules_haskell-{version}",
     url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
     version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
-    patches = ["//:third_party/rules_haskell/haddock_index_root.patch"],
-    patch_args = ["-p1"]
 )
 
 versioned_http_archive(

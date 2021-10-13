@@ -20,7 +20,7 @@ hugo_site(
     data = [":packages"],
     hugo = "@nixpkgs_hugo//:bin/hugo",
     layouts = glob(["layouts/**/*"]),
-    static = [":static"]  + glob(["static/**/*"]),
+    static = [":static"] + glob(["static/**/*"]),
     theme = ":theme",
 )
 
@@ -38,9 +38,9 @@ haskell_doc(
     # if they don't have the expected directory prefix. This could be made more
     # robust by using `rules_pkg/mappings.bzl:pkg_files` to assemble the directory.
     name = "static",
-    visibility = ["//visibility:public"],
     # See //:third_party/rules_haskell/haddock_index_root.patch
     index = False,
+    visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "//amazonka-alexa-business",

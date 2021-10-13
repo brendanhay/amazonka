@@ -54,7 +54,6 @@ This repository is organised into the following directory structure:
 * [`examples`](examples): A currently sparse collection of examples for the various services.
 * [`gen`](gen): The code generation binary, along with configuration, templates, and assets.
 * [`scripts`](scripts): CI scripts to manage the release lifecycle of the service libraries.
-* [`share`](share): Makefile plumbing common to all service libraries
 * [`test`](test): The `amazonka-test` library containing common test functionality.
 
 

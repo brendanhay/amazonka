@@ -378,8 +378,8 @@ getAuth ::
   m (Auth, Maybe Region)
 getAuth m =
   liftIO . \case
-    FromKeys a s -> return (fromKeys a s, Nothing)
-    FromSession a s t -> return (fromSession a s t, Nothing)
+    FromKeys a s -> pure (fromKeys a s, Nothing)
+    FromSession a s t -> pure (fromSession a s t, Nothing)
     FromEnv a s t r -> fromEnvKeys a s t r
     FromProfile n -> fromProfileName m n
     FromFile n cred conf -> fromFilePath n cred conf
@@ -409,7 +409,7 @@ getAuth m =
 -- cannot be read, but not if the session token is absent.
 --
 -- /See:/ 'envAccessKey', 'envSecretKey', 'envSessionToken'
-fromEnv :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
+fromEnv :: MonadIO m => m (Auth, Maybe Region)
 fromEnv =
   fromEnvKeys
     envAccessKey
@@ -423,7 +423,7 @@ fromEnv =
 -- Throws 'MissingEnvError' if either of the specified key environment variables
 -- cannot be read, but not if the session token is absent.
 fromEnvKeys ::
-  (Applicative m, MonadIO m) =>
+  MonadIO m =>
   -- | Access key environment variable.
   Text ->
   -- | Secret key environment variable.
@@ -441,28 +441,19 @@ fromEnvKeys access secret session region' =
         <$> (req access <&> AccessKey . BS8.pack)
         <*> (req secret <&> Sensitive . SecretKey . BS8.pack)
         <*> (opt session <&> fmap (Sensitive . SessionToken . BS8.pack))
-        <*> return Nothing
+        <*> pure Nothing
 
-    lookupRegion =
-      runMaybeT $ do
-        k <- MaybeT (return region')
-        r <- MaybeT (opt region')
-
-        case fromText (Text.pack r) of
-          Right x -> return x
-          Left e ->
-            lift . Exception.throwIO . InvalidEnvError $
-              "Unable to parse ENV variable: " <> k <> ", " <> Text.pack e
+    lookupRegion = opt region' <&> fmap (Region' . Text.pack)
 
     req k = do
       m <- opt (Just k)
       maybe
         (Exception.throwIO . MissingEnvError $ "Unable to read ENV variable: " <> k)
-        return
+        pure
         m
 
     opt = \case
-      Nothing -> return Nothing
+      Nothing -> pure Nothing
       Just k -> Environment.lookupEnv (Text.unpack k)
 
 -- | Loads the default @credentials@ INI file using the default profile name.
@@ -471,7 +462,7 @@ fromEnvKeys access secret session region' =
 -- if an error occurs during parsing.
 --
 -- /See:/ 'credProfile', 'credFile', and 'envProfile'
-fromFile :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
+fromFile :: MonadIO m => m (Auth, Maybe Region)
 fromFile = do
   mprofile <- liftIO (Environment.lookupEnv (Text.unpack envProfile))
   cred <- credFile
@@ -501,7 +492,7 @@ fromFilePath profile cred conf =
           <$> (required path credAccessKey ini <&> AccessKey)
           <*> (required path credSecretKey ini <&> Sensitive . SecretKey)
           <*> (optional credSessionToken ini <&> fmap (Sensitive . SessionToken))
-          <*> return Nothing
+          <*> pure Nothing
 
       pure (Auth env)
 
@@ -515,8 +506,8 @@ fromFilePath profile cred conf =
 
           let configProfile =
                 if profile == "default"
-                then profile
-                else "profile " <> profile
+                  then profile
+                  else "profile " <> profile
 
           case INI.lookupValue configProfile confRegion ini of
             Left _ -> pure Nothing
@@ -597,7 +588,7 @@ fromProfileName m name =
     auth <- fetchAuthInBackground getCredentials
     reg <- getRegion
 
-    return (auth, Just reg)
+    pure (auth, Just reg)
   where
     getCredentials =
       Exception.try (metadata m (IAM . SecurityCredentials $ Just name))
@@ -609,7 +600,7 @@ fromProfileName m name =
 
     handleErr f g = \case
       Left e -> Exception.throwIO (RetrievalError e)
-      Right x -> either (Exception.throwIO . g) return (f x)
+      Right x -> either (Exception.throwIO . g) pure (f x)
 
     invalidIAMErr =
       InvalidIAMError
@@ -648,7 +639,7 @@ fromContainer m =
     auth <- fetchAuthInBackground (renew req)
     reg <- getRegion
 
-    return (auth, reg)
+    pure (auth, reg)
   where
     getCredentialsURI :: IO ClientRequest
     getCredentialsURI = do
@@ -656,7 +647,7 @@ fromContainer m =
       p <-
         maybe
           (Exception.throwIO . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
-          return
+          pure
           mp
 
       Client.parseUrlThrow ("http://169.254.170.2" <> p)
@@ -667,7 +658,7 @@ fromContainer m =
 
       either
         (Exception.throwIO . invalidIdentityErr)
-        return
+        pure
         (eitherDecode (Client.responseBody rs))
 
     invalidIdentityErr =
@@ -680,8 +671,8 @@ fromContainer m =
       mr <- MaybeT . liftIO $ Environment.lookupEnv (Text.unpack envRegion)
 
       either
-        (const . MaybeT $ return Nothing)
-        return
+        (const . MaybeT $ pure Nothing)
+        pure
         (fromText (Text.pack mr))
 
 -- | Implements the background fetching behavior used by 'fromProfileName' and
@@ -692,13 +683,13 @@ fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv =
   menv >>= \(!env) -> liftIO $
     case _authExpiration env of
-      Nothing -> return (Auth env)
+      Nothing -> pure (Auth env)
       Just x -> do
         r <- IORef.newIORef env
         p <- Concurrent.myThreadId
         s <- timer menv r p x
 
-        return (Ref s r)
+        pure (Ref s r)
   where
     timer :: IO AuthEnv -> IORef AuthEnv -> ThreadId -> ISO8601 -> IO ThreadId
     timer ma !r !p !x =
@@ -717,10 +708,10 @@ fetchAuthInBackground menv =
         Right !a -> do
           mr <- Weak.deRefWeak w
           case mr of
-            Nothing -> return ()
+            Nothing -> pure ()
             Just r -> do
               IORef.atomicWriteIORef r a
-              maybe (return ()) (loop ma w p) (_authExpiration a)
+              maybe (pure ()) (loop ma w p) (_authExpiration a)
 
     diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
       where

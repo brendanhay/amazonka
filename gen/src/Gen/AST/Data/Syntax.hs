@@ -161,7 +161,7 @@ lensD type' f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
 
 errorS :: Text -> Decl
 errorS n =
-  let cxt = Exts.CxSingle () (Exts.ParenA () (Exts.TypeA () (Exts.TyApp () (tycon "Core.AsError") (tyvar "a"))))
+  let cxt = Exts.CxSingle () (Exts.TypeA () $ tycon "Core.AsError" `tyapp` tyvar "a")
       forall = Exts.TyForall () Nothing (Just cxt)
    in Exts.TypeSig () [ident n] . forall $
         tycon "Lens.Getting"
@@ -430,14 +430,14 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
       | fieldLit f =
         if fieldIsParam f
           then Exts.app (var "Prelude.pure") (var "x")
-          else -- Coerce is inserted here to handle newtypes such as Sensitive.
-
-            Exts.app (var "Prelude.pure")
-              . Exts.paren
-              . Exts.app justE
-              . Exts.paren
-              . Exts.app (var "Prelude.coerce")
-              $ var "x"
+          else
+          -- Coerce is inserted here to handle newtypes such as Sensitive.
+          Exts.app (var "Prelude.pure")
+          . Exts.paren
+          . Exts.app justE
+          . Exts.paren
+          . Exts.app (var "Prelude.coerce")
+          $ var "x"
       -- This ensures anything which is set as a payload,
       -- but is a primitive type is just consumed as a bytestring.
       | otherwise = parseAll

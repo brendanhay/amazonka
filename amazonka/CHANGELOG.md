@@ -64,6 +64,8 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#669](https://github.com/brendanhay/amazonka/pull/669)
 - Fixed S3 to use vhost endpoints, parse `LocationConstraint`s properly, and ensure `Content-MD5` header correctly set.
 [\#673](https://github.com/brendanhay/amazonka/pull/673)
+- Fixed S3 to not set empty `Content-Encoding`, and to be able to set `Content-Encoding` without breaking signing
+[\#681](https://github.com/brendanhay/amazonka/pull/681)
 
 
 ### Other Changes

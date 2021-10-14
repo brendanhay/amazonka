@@ -37,8 +37,7 @@ testEmptyBody :: Property
 testEmptyBody =
   QC.forAll (mkSigned []) $ \Signed {..} ->
     let elem = (`Fold.elem` Client.requestHeaders signedRequest)
-     in elem ("Content-Encoding", "aws-chunked")
-          && elem ("X-Amz-Decoded-Content-Length", "0")
+     in elem ("X-Amz-Decoded-Content-Length", "0")
           && elem ("Content-Length", "86")
 
 testOneChunkBody :: Property
@@ -48,8 +47,7 @@ testOneChunkBody =
       inp = BS8.replicate n 'a'
    in QC.forAll (mkSigned [inp]) $ \Signed {..} ->
         let elem = (`Fold.elem` Client.requestHeaders signedRequest)
-         in elem ("Content-Encoding", "aws-chunked")
-              && elem ("X-Amz-Decoded-Content-Length", str n)
+         in elem ("X-Amz-Decoded-Content-Length", str n)
               && elem ("Content-Length", str (87 + n + 86))
 
 testTwoChunksBody :: Property
@@ -62,8 +60,7 @@ testTwoChunksBody =
       final = BS8.replicate n 'b' -- final non-empty chunk
    in QC.forAll (mkSigned [full, final]) $ \Signed {..} ->
         let elem = (`Fold.elem` Client.requestHeaders signedRequest)
-         in elem ("Content-Encoding", "aws-chunked")
-              && elem ("X-Amz-Decoded-Content-Length", str (size + n))
+         in elem ("X-Amz-Decoded-Content-Length", str (size + n))
               && elem ("Content-Length", str (sizeLen + 85 + size + 87 + n + 86))
 
 mkSigned :: [BS8.ByteString] -> Gen (Signed ())

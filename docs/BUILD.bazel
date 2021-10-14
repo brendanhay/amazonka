@@ -35,7 +35,6 @@ haskell_doc(
     # if they don't have the expected directory prefix. This could be made more
     # robust by using `rules_pkg/mappings.bzl:pkg_files` to assemble the directory.
     name = "static",
-    tags = ["ci"],
     visibility = ["//visibility:public"],
     # deps is auto-populated by the buildozer command in scripts/generate.
     deps = [

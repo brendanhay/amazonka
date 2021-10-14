@@ -3,7 +3,7 @@
 # Usage: generate MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the
-# services definitions in https://github.com/boto/botocore/botocore/data/<MODEL>.
+# services definitions in https://github.com/boto/botocore/tree/develop/botocore/data/<MODEL>.
 #
 # Generates the output per MODEL in a temporary directory, formats .cabal and
 # .hs files, removes the related amazonka-*/gen directories, and finally

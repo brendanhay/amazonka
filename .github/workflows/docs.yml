@@ -1,29 +1,18 @@
-name: build
+name: docs
 
 on:
-  pull_request:
-    branches: develop
-    types:
-      - opened
-      - synchronize
+  workflow_dispatch: null
   push:
-    branches: develop
-    paths-ignore:
-      - 'scripts/**'
-      - 'config/**'
-      - 'cabal.project'
-      - 'README.md'
-      - 'LICENSE'
+    branches: null # develop
+  # pull_request:
+  #   branches: develop
 
 jobs:
-  build:
+  docs:
     strategy:
-      fail-fast: false
       matrix:
         include:
-          - { os: ubuntu-latest, ghc: 884  }
-          - { os: ubuntu-latest, ghc: 8107 }
-          - { os: macos-latest,  ghc: 8107 }
+          - { os: ubuntu-latest, ghc: 8107  }
 
     runs-on: ${{ matrix.os }}
 
@@ -59,7 +48,10 @@ jobs:
       - name: Build and test
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run '
-            set -euo pipefail
-            bazel build //... --build_tag_filters=ci
-            bazel test  //... --build_tag_filters=ci
-            '
+            bazel build //docs'
+
+      - if: ${{ github.repository == 'brendanhay/amazonka' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: bazel-bin/docs/docs

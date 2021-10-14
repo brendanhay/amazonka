@@ -60,6 +60,8 @@ build:ci --experimental_repository_cache_hardlinks
 # Avoid failures of the form `deadline exceeded after ..`.
 # See: https://github.com/tweag/rules_haskell/issues/1498.
 build:ci --keep_backend_build_event_connections_alive=false
+# Add BuildBuddy role metadata.
+build:ci --build_metadata=ROLE=CI
 
 #
 # Local Customisations

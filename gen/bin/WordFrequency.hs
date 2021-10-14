@@ -16,22 +16,23 @@ import qualified Data.IntMap as IntMap
 import qualified Data.Maybe as Maybe
 import Prelude hiding (lines, lookup, words)
 
--- FIXME: investigate moving from bytestring to utf8-string.
-
 -- | A word frequency table ranked according to Zipf\'s law.
 --
--- SO: The best way to proceed is to model the distribution of the output.
+-- The best way to proceed is to model the distribution of the output.
 -- A good first approximation is to assume all words are independently
 -- distributed. Then you only need to know the relative frequency of all
 -- words. It is reasonable to assume that they follow Zipf's law, that is
 -- the word with rank n in the list of words has probability roughly @1\/(n
 -- log N)@ where @N@ is the number of words in the dictionary.
+--
+-- See: https://stackoverflow.com/a/11642687
 data Table = Table
   { longest :: Int,
     frequencies :: IntMap Double
   }
   deriving stock (Show, Eq)
 
+-- | Create a new table from an ordered newline delimited list of ASCII words.
 newTable :: ByteString -> Either String Table
 newTable input = do
   let lines = ByteString.Char8.lines input

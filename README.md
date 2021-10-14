@@ -208,6 +208,6 @@ This repository is organised into the following directory structure:
 
 ## Third Party Packages
 
-It is often desirable to provide supplemental functionality to `amazonka` as an additional library, for example providing S3 encryption via a package such as `amazonka-s3-encryption`.
+When naming an additional library which provides supplemental functionality to `amazonka`, if you want to use the `amazonka-*` namespace, then please consider prefixing your package names with `amazonka-contrib-*`. For example, [amazonka-contrib-rds-utils](https://hackage.haskell.org/package/amazonka-contrib-rds-utils).
 
-Authors of these packages should carefully consider package naming and preferably do not prefix the package with `amazonka-*` to avoid potential future collisions with generated package names.
+This minimises potential future collisions with auto-generated package names and new AWS service and product releases.

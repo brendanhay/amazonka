@@ -59,6 +59,7 @@ haskell_library(
     srcs = glob(["src/**/*.hs"]),
     ghcopts = GHC_OPTS + [
     ],
+    tags = ["ci"],
     visibility = ["//visibility:public"],
     deps = [
         "@stackage//:aeson",
@@ -95,6 +96,7 @@ haskell_binary(
         "-threaded",
         "-rtsopts",
     ],
+    tags = ["ci"],
     visibility = ["//visibility:public"],
     deps = [
         ":lib",
@@ -119,6 +121,7 @@ haskell_binary(
         "-threaded",
         "-rtsopts",
     ],
+    tags = ["ci"],
     visibility = ["//visibility:public"],
     deps = [
         "@stackage//:aeson",

@@ -41,6 +41,7 @@ haskell_doc(
     # See //:third_party/rules_haskell/haddock_index_root.patch
     index = False,
     visibility = ["//visibility:public"],
+    tags = ["ci"],
     deps = [
         "//amazonka",
         "//amazonka-alexa-business",

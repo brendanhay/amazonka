@@ -2,7 +2,7 @@
 write-ghc-environment-files: never
 
 -- O1 by default. You can override this locally via:
---   cabal new-configure --disable-optimization
+--   cabal configure --disable-optimization
 optimization: 1
 
 -- Local packages - without amazonka-examples.

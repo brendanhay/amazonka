@@ -266,10 +266,10 @@ rules_haskell_worker_dependencies()
 register_toolchains("//tools/ghc:toolchain")
 
 haskell_register_ghc_nixpkgs(
-    name = "ghc865",
-    attribute_path = "haskell.compiler.ghc865",
+    name = "ghc8107",
+    attribute_path = "haskell.compiler.ghc8107",
     repository = "@nixpkgs",
-    version = "8.6.5",
+    version = "8.10.7",
 )
 
 haskell_register_ghc_nixpkgs(
@@ -277,13 +277,6 @@ haskell_register_ghc_nixpkgs(
     attribute_path = "haskell.compiler.ghc884",
     repository = "@nixpkgs",
     version = "8.8.4",
-)
-
-haskell_register_ghc_nixpkgs(
-    name = "ghc8107",
-    attribute_path = "haskell.compiler.ghc8107",
-    repository = "@nixpkgs",
-    version = "8.10.7",
 )
 
 gazelle_cabal_dependencies()

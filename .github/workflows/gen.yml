@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/bazel/amazonka/repo
-          key: repo-cache-${{ matrix.os }}-${{ matrix.ghc }}
+          key: repo-cache-${{ runner.os }}
 
       - name: Configure
         env:
@@ -43,6 +43,7 @@ jobs:
       - name: Build and test
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run '
+            set -euo pipefail
             ./scripts/generate-configs
             ./scripts/generate
             '

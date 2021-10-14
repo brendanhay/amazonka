@@ -254,15 +254,15 @@ cc_library(
 load("@rules_haskell//haskell:cabal.bzl", "stack_snapshot")
 load("@rules_haskell//haskell:nixpkgs.bzl", "haskell_register_ghc_nixpkgs")
 load("@rules_haskell//haskell:repositories.bzl", "rules_haskell_dependencies")
-load("@rules_haskell//tools:repositories.bzl", "rules_haskell_worker_dependencies")
 load("@io_tweag_gazelle_cabal//:defs.bzl", "gazelle_cabal_dependencies")
 
 rules_haskell_dependencies()
 
-rules_haskell_worker_dependencies()
-
-# Register custom toolchain prior to rules_haskell toolchains, as Bazel
-# takes precedence into account when determining the toolchain to use.
+# Register custom toolchain prior to rules_haskell own toolchain registration,
+# as Bazel takes precedence into account when determining the toolchain to use
+# thereby allowing us to override the builtin rules_haskell one.
+#
+# See: https://github.com/tweag/rules_haskell/issues/1602#issuecomment-938675602
 register_toolchains("//tools/ghc:toolchain")
 
 haskell_register_ghc_nixpkgs(
@@ -287,6 +287,9 @@ stack_snapshot(
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
     },
+    # The keep comments per package line prevents `bazel run //:gazelle-update-repos`
+    # from pruning packages that are used by hand-written `haskell_library` rules,
+    # such as ./gen and ./docs.
     packages = [
         "QuickCheck",
         "aeson",  # keep

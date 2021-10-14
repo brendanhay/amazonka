@@ -2,7 +2,6 @@
 
 [![MPL2][license-badge]][license]
 [![Hackage][hackage-badge]][hackage]
-[![Cachix][cachix-badge]][cachix]
 [![Build][build-badge]][actions]
 [![Gen][gen-badge]][actions]
 [![Docs][docs-badge]][actions]
@@ -15,8 +14,6 @@
 [docs-badge]: https://github.com/brendanhay/amazonka/workflows/docs/badge.svg
 [hackage]: http://hackage.haskell.org/package/amazonka
 [hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
-[cachix]: https://amazonka.cachix.org
-[cachix-badge]: https://img.shields.io/badge/cachix-amazonka-purple.svg
 
 [Amazonka]: https://www.brendanhay.nz/amazonka
 [Nix]: https://nixos.org/nix/
@@ -25,7 +22,6 @@
 [GHC]: https://www.haskell.org/ghc/
 [Direnv]: https://direnv.net
 [Direnv Wiki]: https://github.com/direnv/direnv/wiki
-[Cachix]: https://docs.cachix.org/
 [hermetic]: https://sre.google/sre-book/release-engineering/#hermetic-builds-nqslhnid
 [lorri]: https://github.com/nix-community/lorri
 
@@ -75,17 +71,6 @@ The [Nix] package manager is used to obtain and build the other dependencies in 
 ```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
-
-Optionally, you can configure Nix to use Amazonka's public build cache to avoid unnecessarily rebuilding artefacts previous built by our continuous integration servers.
-
-You can install and configure [Cachix] via:
-
-```bash
-nix-env -iA cachix -f https://cachix.org/api/v1/install
-cachix use amazonka
-```
-
-> A Bazel remote cache is already configured in the [.bazelrc](.bazelrc).
 
 ### 3. Enter a Nix Shell
 

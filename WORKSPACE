@@ -262,7 +262,7 @@ rules_haskell_dependencies()
 rules_haskell_worker_dependencies()
 
 # Register custom toolchain prior to rules_haskell toolchains, as Bazel
-# takes precedence into account when determining the # toolchain to use.
+# takes precedence into account when determining the toolchain to use.
 register_toolchains("//tools/ghc:toolchain")
 
 haskell_register_ghc_nixpkgs(

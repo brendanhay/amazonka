@@ -30,18 +30,14 @@ hugo_serve(
     hugo = "@nixpkgs_hugo//:bin/hugo",
 )
 
-# FIXME: automate, gazelle, genquery, etc.
-# The deps attribute is the result of:
-#   bazel query 'kind("haskell_library", //... -gen/... -test/...)').
 haskell_doc(
     # Target name is important, otherwise `hugo_site` won't copy over the files
     # if they don't have the expected directory prefix. This could be made more
     # robust by using `rules_pkg/mappings.bzl:pkg_files` to assemble the directory.
     name = "static",
-    # See //:third_party/rules_haskell/haddock_index_root.patch
-    index = False,
-    visibility = ["//visibility:public"],
     tags = ["ci"],
+    visibility = ["//visibility:public"],
+    # deps is auto-populated by the buildozer command in scripts/generate.
     deps = [
         "//amazonka",
         "//amazonka-alexa-business",
@@ -186,6 +182,7 @@ haskell_doc(
         "//amazonka-workmail",
         "//amazonka-workspaces",
         "//amazonka-xray",
+        "//examples:amazonka-examples",
     ],
 )
 

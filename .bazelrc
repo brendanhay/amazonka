@@ -22,7 +22,9 @@ test --test_output=all
 # Platforms and Toolchains
 #
 
+# WORKSPACE currently only supports nix-based toolchains, not bindists.
 build --host_platform=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host
+# Use @local_jdk to utilise the JAVA_HOME set in shell.nix
 build --host_javabase=@local_jdk//:jdk
 build --javabase=@local_jdk//:jdk
 
@@ -30,17 +32,28 @@ build --javabase=@local_jdk//:jdk
 # Caching
 #
 
-build --repository_cache=~/.cache/bazel/amazonka/repo
 build --disk_cache=~/.cache/bazel/amazonka/disk
+build --repository_cache=~/.cache/bazel/amazonka/repo
+# Ensure a stable remote cache namespace.
+build --remote_instance_name=amazonka
+# Extend the default timeout (originally 60s) during upload/download.
+build --remote_timeout=600
+# Don't upload build results to the cache.
+build --remote_upload_local_results=false
 # Push build results to the disk cache despite --remote_upload_local_results.
 build --incompatible_remote_results_ignore_disk=true
-build --remote_cache=grpcs://cloud.buildbuddy.io
-build --remote_timeout=3600
-build --noremote_upload_local_results
 
-build:remote-cache --bes_results_url=https://app.buildbuddy.io/invocation/
-build:remote-cache --bes_backend=grpcs://cloud.buildbuddy.io
-build:remote-cache --remote_upload_local_results
+build:grpc-cache --remote_cache=grpcs://cloud.buildbuddy.io
+build:http-cache --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
+
+# Enabling upload build logs, results, and artefacts.
+build:remote --bes_results_url=https://app.buildbuddy.io/invocation/
+build:remote --bes_backend=grpcs://cloud.buildbuddy.io
+build:remote --bes_timeout=600s
+build:remote --remote_upload_local_results=true
+build:remote --remote_timeout=3600
+# Enable the cache endpoint configuration.
+build:remote --config=grpc-cache
 
 #
 # Continuous Integration
@@ -52,16 +65,19 @@ common:ci --color=no
 # Reduce test output on CI to just failing tests.
 test:ci --test_output=errors
 
-# Enable the remote cache.
-build:ci --config=remote-cache
+# Enable the remote configuration.
+build:ci --config=remote
+# Limit the number of threads in the loading phase.
 build:ci --loading_phase_threads=1
+# Set buildbuddy.io role metadata.
+build:ci --build_metadata=ROLE=CI
+# Disable the disk cache on CI as it won't be saved/restored.
+build:ci --disk_cache=
 # Ensure the repo-cache can be saved/restored via GitHub actions cache.
 build:ci --experimental_repository_cache_hardlinks
 # Avoid failures of the form `deadline exceeded after ..`.
 # See: https://github.com/tweag/rules_haskell/issues/1498.
 build:ci --keep_backend_build_event_connections_alive=false
-# Add BuildBuddy role metadata.
-build:ci --build_metadata=ROLE=CI
 
 #
 # Local Customisations

@@ -45,7 +45,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/bazel/amazonka/repo
-          key: repo-cache-${{ runner.os }}
+          key: repo-cache-${{ matrix.os }}-${{ matrix.ghc }}-build
 
       - name: Configure
         env:

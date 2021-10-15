@@ -35,6 +35,8 @@ versioned_http_archive(
     strip_prefix = "rules_haskell-{version}",
     url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
     version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
+    patches = ["//:third_party/rules_haskell/haddock_index.patch"],
+    patch_args = ["-p1"],
 )
 
 versioned_http_archive(
@@ -268,7 +270,6 @@ haskell_register_ghc_nixpkgs(
     attribute_path = "haskell.compiler.ghc8107",
     haddock_flags = [
         "--no-warnings",
-        "--use-index=/",
     ],
     repository = "@nixpkgs",
     version = "8.10.7",
@@ -279,7 +280,6 @@ haskell_register_ghc_nixpkgs(
     attribute_path = "haskell.compiler.ghc884",
     haddock_flags = [
         "--no-warnings",
-        "--use-index=/",
     ],
     repository = "@nixpkgs",
     version = "8.8.4",

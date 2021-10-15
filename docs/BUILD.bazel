@@ -36,6 +36,8 @@ haskell_doc(
     # robust by using `rules_pkg/mappings.bzl:pkg_files` to assemble the directory.
     name = "static",
     visibility = ["//visibility:public"],
+    # See: //:third_party/rules_haskell/haddock_index.patch
+    index = False,
     # deps is auto-populated by the buildozer command in scripts/generate.
     deps = [
         "//amazonka",

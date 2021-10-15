@@ -37,18 +37,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newArtwork' smart constructor.
 data Artwork = Artwork'
-  { -- | The name of the file to be used as album art. To determine which Amazon
-    -- S3 bucket contains the specified file, Elastic Transcoder checks the
-    -- pipeline specified by @PipelineId@; the @InputBucket@ object in that
-    -- pipeline identifies the bucket.
-    --
-    -- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
-    -- include the prefix in the key. If the file isn\'t in the specified
-    -- bucket, Elastic Transcoder returns an error.
-    inputKey :: Prelude.Maybe Prelude.Text,
-    -- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
-    albumArtFormat :: Prelude.Maybe Prelude.Text,
-    -- | Specify one of the following values to control scaling of the output
+  { -- | Specify one of the following values to control scaling of the output
     -- album art:
     --
     -- -   @Fit:@ Elastic Transcoder scales the output art so it matches the
@@ -81,18 +70,29 @@ data Artwork = Artwork'
     --     If you specify this option, Elastic Transcoder does not scale the
     --     art up.
     sizingPolicy :: Prelude.Maybe Prelude.Text,
-    -- | The encryption settings, if any, that you want Elastic Transcoder to
-    -- apply to your artwork.
-    encryption :: Prelude.Maybe Encryption,
+    -- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
+    albumArtFormat :: Prelude.Maybe Prelude.Text,
+    -- | The maximum height of the output album art in pixels. If you specify
+    -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
+    -- a numeric value, enter an even integer between 32 and 3072, inclusive.
+    maxHeight :: Prelude.Maybe Prelude.Text,
+    -- | The name of the file to be used as album art. To determine which Amazon
+    -- S3 bucket contains the specified file, Elastic Transcoder checks the
+    -- pipeline specified by @PipelineId@; the @InputBucket@ object in that
+    -- pipeline identifies the bucket.
+    --
+    -- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
+    -- include the prefix in the key. If the file isn\'t in the specified
+    -- bucket, Elastic Transcoder returns an error.
+    inputKey :: Prelude.Maybe Prelude.Text,
     -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
     -- bars to the top and bottom and\/or left and right sides of the output
     -- album art to make the total size of the output art match the values that
     -- you specified for @MaxWidth@ and @MaxHeight@.
     paddingPolicy :: Prelude.Maybe Prelude.Text,
-    -- | The maximum height of the output album art in pixels. If you specify
-    -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
-    -- a numeric value, enter an even integer between 32 and 3072, inclusive.
-    maxHeight :: Prelude.Maybe Prelude.Text,
+    -- | The encryption settings, if any, that you want Elastic Transcoder to
+    -- apply to your artwork.
+    encryption :: Prelude.Maybe Encryption,
     -- | The maximum width of the output album art in pixels. If you specify
     -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
     -- a numeric value, enter an even integer between 32 and 4096, inclusive.
@@ -107,17 +107,6 @@ data Artwork = Artwork'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'inputKey', 'artwork_inputKey' - The name of the file to be used as album art. To determine which Amazon
--- S3 bucket contains the specified file, Elastic Transcoder checks the
--- pipeline specified by @PipelineId@; the @InputBucket@ object in that
--- pipeline identifies the bucket.
---
--- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
--- include the prefix in the key. If the file isn\'t in the specified
--- bucket, Elastic Transcoder returns an error.
---
--- 'albumArtFormat', 'artwork_albumArtFormat' - The format of album art, if any. Valid formats are @.jpg@ and @.png@.
 --
 -- 'sizingPolicy', 'artwork_sizingPolicy' - Specify one of the following values to control scaling of the output
 -- album art:
@@ -152,17 +141,28 @@ data Artwork = Artwork'
 --     If you specify this option, Elastic Transcoder does not scale the
 --     art up.
 --
--- 'encryption', 'artwork_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your artwork.
+-- 'albumArtFormat', 'artwork_albumArtFormat' - The format of album art, if any. Valid formats are @.jpg@ and @.png@.
+--
+-- 'maxHeight', 'artwork_maxHeight' - The maximum height of the output album art in pixels. If you specify
+-- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
+-- a numeric value, enter an even integer between 32 and 3072, inclusive.
+--
+-- 'inputKey', 'artwork_inputKey' - The name of the file to be used as album art. To determine which Amazon
+-- S3 bucket contains the specified file, Elastic Transcoder checks the
+-- pipeline specified by @PipelineId@; the @InputBucket@ object in that
+-- pipeline identifies the bucket.
+--
+-- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
+-- include the prefix in the key. If the file isn\'t in the specified
+-- bucket, Elastic Transcoder returns an error.
 --
 -- 'paddingPolicy', 'artwork_paddingPolicy' - When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
 -- bars to the top and bottom and\/or left and right sides of the output
 -- album art to make the total size of the output art match the values that
 -- you specified for @MaxWidth@ and @MaxHeight@.
 --
--- 'maxHeight', 'artwork_maxHeight' - The maximum height of the output album art in pixels. If you specify
--- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
--- a numeric value, enter an even integer between 32 and 3072, inclusive.
+-- 'encryption', 'artwork_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your artwork.
 --
 -- 'maxWidth', 'artwork_maxWidth' - The maximum width of the output album art in pixels. If you specify
 -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
@@ -171,29 +171,14 @@ newArtwork ::
   Artwork
 newArtwork =
   Artwork'
-    { inputKey = Prelude.Nothing,
+    { sizingPolicy = Prelude.Nothing,
       albumArtFormat = Prelude.Nothing,
-      sizingPolicy = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      paddingPolicy = Prelude.Nothing,
       maxHeight = Prelude.Nothing,
+      inputKey = Prelude.Nothing,
+      paddingPolicy = Prelude.Nothing,
+      encryption = Prelude.Nothing,
       maxWidth = Prelude.Nothing
     }
-
--- | The name of the file to be used as album art. To determine which Amazon
--- S3 bucket contains the specified file, Elastic Transcoder checks the
--- pipeline specified by @PipelineId@; the @InputBucket@ object in that
--- pipeline identifies the bucket.
---
--- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
--- include the prefix in the key. If the file isn\'t in the specified
--- bucket, Elastic Transcoder returns an error.
-artwork_inputKey :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
-artwork_inputKey = Lens.lens (\Artwork' {inputKey} -> inputKey) (\s@Artwork' {} a -> s {inputKey = a} :: Artwork)
-
--- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
-artwork_albumArtFormat :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
-artwork_albumArtFormat = Lens.lens (\Artwork' {albumArtFormat} -> albumArtFormat) (\s@Artwork' {} a -> s {albumArtFormat = a} :: Artwork)
 
 -- | Specify one of the following values to control scaling of the output
 -- album art:
@@ -230,10 +215,26 @@ artwork_albumArtFormat = Lens.lens (\Artwork' {albumArtFormat} -> albumArtFormat
 artwork_sizingPolicy :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
 artwork_sizingPolicy = Lens.lens (\Artwork' {sizingPolicy} -> sizingPolicy) (\s@Artwork' {} a -> s {sizingPolicy = a} :: Artwork)
 
--- | The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your artwork.
-artwork_encryption :: Lens.Lens' Artwork (Prelude.Maybe Encryption)
-artwork_encryption = Lens.lens (\Artwork' {encryption} -> encryption) (\s@Artwork' {} a -> s {encryption = a} :: Artwork)
+-- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
+artwork_albumArtFormat :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_albumArtFormat = Lens.lens (\Artwork' {albumArtFormat} -> albumArtFormat) (\s@Artwork' {} a -> s {albumArtFormat = a} :: Artwork)
+
+-- | The maximum height of the output album art in pixels. If you specify
+-- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
+-- a numeric value, enter an even integer between 32 and 3072, inclusive.
+artwork_maxHeight :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_maxHeight = Lens.lens (\Artwork' {maxHeight} -> maxHeight) (\s@Artwork' {} a -> s {maxHeight = a} :: Artwork)
+
+-- | The name of the file to be used as album art. To determine which Amazon
+-- S3 bucket contains the specified file, Elastic Transcoder checks the
+-- pipeline specified by @PipelineId@; the @InputBucket@ object in that
+-- pipeline identifies the bucket.
+--
+-- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
+-- include the prefix in the key. If the file isn\'t in the specified
+-- bucket, Elastic Transcoder returns an error.
+artwork_inputKey :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_inputKey = Lens.lens (\Artwork' {inputKey} -> inputKey) (\s@Artwork' {} a -> s {inputKey = a} :: Artwork)
 
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
 -- bars to the top and bottom and\/or left and right sides of the output
@@ -242,11 +243,10 @@ artwork_encryption = Lens.lens (\Artwork' {encryption} -> encryption) (\s@Artwor
 artwork_paddingPolicy :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
 artwork_paddingPolicy = Lens.lens (\Artwork' {paddingPolicy} -> paddingPolicy) (\s@Artwork' {} a -> s {paddingPolicy = a} :: Artwork)
 
--- | The maximum height of the output album art in pixels. If you specify
--- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
--- a numeric value, enter an even integer between 32 and 3072, inclusive.
-artwork_maxHeight :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
-artwork_maxHeight = Lens.lens (\Artwork' {maxHeight} -> maxHeight) (\s@Artwork' {} a -> s {maxHeight = a} :: Artwork)
+-- | The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your artwork.
+artwork_encryption :: Lens.Lens' Artwork (Prelude.Maybe Encryption)
+artwork_encryption = Lens.lens (\Artwork' {encryption} -> encryption) (\s@Artwork' {} a -> s {encryption = a} :: Artwork)
 
 -- | The maximum width of the output album art in pixels. If you specify
 -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
@@ -260,12 +260,12 @@ instance Core.FromJSON Artwork where
       "Artwork"
       ( \x ->
           Artwork'
-            Prelude.<$> (x Core..:? "InputKey")
+            Prelude.<$> (x Core..:? "SizingPolicy")
             Prelude.<*> (x Core..:? "AlbumArtFormat")
-            Prelude.<*> (x Core..:? "SizingPolicy")
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "PaddingPolicy")
             Prelude.<*> (x Core..:? "MaxHeight")
+            Prelude.<*> (x Core..:? "InputKey")
+            Prelude.<*> (x Core..:? "PaddingPolicy")
+            Prelude.<*> (x Core..:? "Encryption")
             Prelude.<*> (x Core..:? "MaxWidth")
       )
 
@@ -277,13 +277,13 @@ instance Core.ToJSON Artwork where
   toJSON Artwork' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InputKey" Core..=) Prelude.<$> inputKey,
+          [ ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
             ("AlbumArtFormat" Core..=)
               Prelude.<$> albumArtFormat,
-            ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
-            ("Encryption" Core..=) Prelude.<$> encryption,
-            ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
             ("MaxHeight" Core..=) Prelude.<$> maxHeight,
+            ("InputKey" Core..=) Prelude.<$> inputKey,
+            ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
+            ("Encryption" Core..=) Prelude.<$> encryption,
             ("MaxWidth" Core..=) Prelude.<$> maxWidth
           ]
       )

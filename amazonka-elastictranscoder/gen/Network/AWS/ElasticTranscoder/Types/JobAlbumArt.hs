@@ -28,11 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobAlbumArt' smart constructor.
 data JobAlbumArt = JobAlbumArt'
-  { -- | The file to be used as album art. There can be multiple artworks
-    -- associated with an audio file, to a maximum of 20. Valid formats are
-    -- @.jpg@ and @.png@
-    artwork :: Prelude.Maybe [Artwork],
-    -- | A policy that determines how Elastic Transcoder handles the existence of
+  { -- | A policy that determines how Elastic Transcoder handles the existence of
     -- multiple album artwork files.
     --
     -- -   @Replace:@ The specified album art replaces any existing album art.
@@ -47,7 +43,11 @@ data JobAlbumArt = JobAlbumArt'
     --     Transcoder uses that artwork for the output. If the original input
     --     does not contain artwork, Elastic Transcoder uses the specified
     --     album art file.
-    mergePolicy :: Prelude.Maybe Prelude.Text
+    mergePolicy :: Prelude.Maybe Prelude.Text,
+    -- | The file to be used as album art. There can be multiple artworks
+    -- associated with an audio file, to a maximum of 20. Valid formats are
+    -- @.jpg@ and @.png@
+    artwork :: Prelude.Maybe [Artwork]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,10 +58,6 @@ data JobAlbumArt = JobAlbumArt'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'artwork', 'jobAlbumArt_artwork' - The file to be used as album art. There can be multiple artworks
--- associated with an audio file, to a maximum of 20. Valid formats are
--- @.jpg@ and @.png@
 --
 -- 'mergePolicy', 'jobAlbumArt_mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of
 -- multiple album artwork files.
@@ -78,19 +74,17 @@ data JobAlbumArt = JobAlbumArt'
 --     Transcoder uses that artwork for the output. If the original input
 --     does not contain artwork, Elastic Transcoder uses the specified
 --     album art file.
+--
+-- 'artwork', 'jobAlbumArt_artwork' - The file to be used as album art. There can be multiple artworks
+-- associated with an audio file, to a maximum of 20. Valid formats are
+-- @.jpg@ and @.png@
 newJobAlbumArt ::
   JobAlbumArt
 newJobAlbumArt =
   JobAlbumArt'
-    { artwork = Prelude.Nothing,
-      mergePolicy = Prelude.Nothing
+    { mergePolicy = Prelude.Nothing,
+      artwork = Prelude.Nothing
     }
-
--- | The file to be used as album art. There can be multiple artworks
--- associated with an audio file, to a maximum of 20. Valid formats are
--- @.jpg@ and @.png@
-jobAlbumArt_artwork :: Lens.Lens' JobAlbumArt (Prelude.Maybe [Artwork])
-jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple album artwork files.
@@ -110,14 +104,20 @@ jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbu
 jobAlbumArt_mergePolicy :: Lens.Lens' JobAlbumArt (Prelude.Maybe Prelude.Text)
 jobAlbumArt_mergePolicy = Lens.lens (\JobAlbumArt' {mergePolicy} -> mergePolicy) (\s@JobAlbumArt' {} a -> s {mergePolicy = a} :: JobAlbumArt)
 
+-- | The file to be used as album art. There can be multiple artworks
+-- associated with an audio file, to a maximum of 20. Valid formats are
+-- @.jpg@ and @.png@
+jobAlbumArt_artwork :: Lens.Lens' JobAlbumArt (Prelude.Maybe [Artwork])
+jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Prelude.. Lens.mapping Lens._Coerce
+
 instance Core.FromJSON JobAlbumArt where
   parseJSON =
     Core.withObject
       "JobAlbumArt"
       ( \x ->
           JobAlbumArt'
-            Prelude.<$> (x Core..:? "Artwork" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MergePolicy")
+            Prelude.<$> (x Core..:? "MergePolicy")
+            Prelude.<*> (x Core..:? "Artwork" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JobAlbumArt
@@ -128,7 +128,7 @@ instance Core.ToJSON JobAlbumArt where
   toJSON JobAlbumArt' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Artwork" Core..=) Prelude.<$> artwork,
-            ("MergePolicy" Core..=) Prelude.<$> mergePolicy
+          [ ("MergePolicy" Core..=) Prelude.<$> mergePolicy,
+            ("Artwork" Core..=) Prelude.<$> artwork
           ]
       )

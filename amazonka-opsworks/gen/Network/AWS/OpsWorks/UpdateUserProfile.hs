@@ -32,9 +32,9 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     newUpdateUserProfile,
 
     -- * Request Lenses
-    updateUserProfile_sshUsername,
     updateUserProfile_allowSelfManagement,
     updateUserProfile_sshPublicKey,
+    updateUserProfile_sshUsername,
     updateUserProfile_iamUserArn,
 
     -- * Destructuring the Response
@@ -52,18 +52,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
-    -- [0-9], \'-\', and \'_\'. If the specified name includes other
-    -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
-    -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
-    -- name, AWS OpsWorks Stacks generates one from the IAM user name.
-    sshUsername :: Prelude.Maybe Prelude.Text,
-    -- | Whether users can specify their own SSH public key through the My
+  { -- | Whether users can specify their own SSH public key through the My
     -- Settings page. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
     allowSelfManagement :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s new SSH public key.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
+    -- [0-9], \'-\', and \'_\'. If the specified name includes other
+    -- punctuation marks, AWS OpsWorks Stacks removes them. For example,
+    -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
+    -- name, AWS OpsWorks Stacks generates one from the IAM user name.
+    sshUsername :: Prelude.Maybe Prelude.Text,
     -- | The user IAM ARN. This can also be a federated user\'s ARN.
     iamUserArn :: Prelude.Text
   }
@@ -77,17 +77,17 @@ data UpdateUserProfile = UpdateUserProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sshUsername', 'updateUserProfile_sshUsername' - The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
--- [0-9], \'-\', and \'_\'. If the specified name includes other
--- punctuation marks, AWS OpsWorks Stacks removes them. For example,
--- @my.name@ will be changed to @myname@. If you do not specify an SSH user
--- name, AWS OpsWorks Stacks generates one from the IAM user name.
---
 -- 'allowSelfManagement', 'updateUserProfile_allowSelfManagement' - Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
 --
 -- 'sshPublicKey', 'updateUserProfile_sshPublicKey' - The user\'s new SSH public key.
+--
+-- 'sshUsername', 'updateUserProfile_sshUsername' - The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
+-- [0-9], \'-\', and \'_\'. If the specified name includes other
+-- punctuation marks, AWS OpsWorks Stacks removes them. For example,
+-- @my.name@ will be changed to @myname@. If you do not specify an SSH user
+-- name, AWS OpsWorks Stacks generates one from the IAM user name.
 --
 -- 'iamUserArn', 'updateUserProfile_iamUserArn' - The user IAM ARN. This can also be a federated user\'s ARN.
 newUpdateUserProfile ::
@@ -96,19 +96,12 @@ newUpdateUserProfile ::
   UpdateUserProfile
 newUpdateUserProfile pIamUserArn_ =
   UpdateUserProfile'
-    { sshUsername = Prelude.Nothing,
-      allowSelfManagement = Prelude.Nothing,
+    { allowSelfManagement =
+        Prelude.Nothing,
       sshPublicKey = Prelude.Nothing,
+      sshUsername = Prelude.Nothing,
       iamUserArn = pIamUserArn_
     }
-
--- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
--- [0-9], \'-\', and \'_\'. If the specified name includes other
--- punctuation marks, AWS OpsWorks Stacks removes them. For example,
--- @my.name@ will be changed to @myname@. If you do not specify an SSH user
--- name, AWS OpsWorks Stacks generates one from the IAM user name.
-updateUserProfile_sshUsername :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
-updateUserProfile_sshUsername = Lens.lens (\UpdateUserProfile' {sshUsername} -> sshUsername) (\s@UpdateUserProfile' {} a -> s {sshUsername = a} :: UpdateUserProfile)
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
@@ -119,6 +112,14 @@ updateUserProfile_allowSelfManagement = Lens.lens (\UpdateUserProfile' {allowSel
 -- | The user\'s new SSH public key.
 updateUserProfile_sshPublicKey :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
 updateUserProfile_sshPublicKey = Lens.lens (\UpdateUserProfile' {sshPublicKey} -> sshPublicKey) (\s@UpdateUserProfile' {} a -> s {sshPublicKey = a} :: UpdateUserProfile)
+
+-- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
+-- [0-9], \'-\', and \'_\'. If the specified name includes other
+-- punctuation marks, AWS OpsWorks Stacks removes them. For example,
+-- @my.name@ will be changed to @myname@. If you do not specify an SSH user
+-- name, AWS OpsWorks Stacks generates one from the IAM user name.
+updateUserProfile_sshUsername :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
+updateUserProfile_sshUsername = Lens.lens (\UpdateUserProfile' {sshUsername} -> sshUsername) (\s@UpdateUserProfile' {} a -> s {sshUsername = a} :: UpdateUserProfile)
 
 -- | The user IAM ARN. This can also be a federated user\'s ARN.
 updateUserProfile_iamUserArn :: Lens.Lens' UpdateUserProfile Prelude.Text
@@ -155,10 +156,10 @@ instance Core.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SshUsername" Core..=) Prelude.<$> sshUsername,
-            ("AllowSelfManagement" Core..=)
+          [ ("AllowSelfManagement" Core..=)
               Prelude.<$> allowSelfManagement,
             ("SshPublicKey" Core..=) Prelude.<$> sshPublicKey,
+            ("SshUsername" Core..=) Prelude.<$> sshUsername,
             Prelude.Just ("IamUserArn" Core..= iamUserArn)
           ]
       )

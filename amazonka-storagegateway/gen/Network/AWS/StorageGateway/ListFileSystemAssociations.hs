@@ -32,8 +32,8 @@ module Network.AWS.StorageGateway.ListFileSystemAssociations
 
     -- * Request Lenses
     listFileSystemAssociations_gatewayARN,
-    listFileSystemAssociations_limit,
     listFileSystemAssociations_marker,
+    listFileSystemAssociations_limit,
 
     -- * Destructuring the Response
     ListFileSystemAssociationsResponse (..),
@@ -41,8 +41,8 @@ module Network.AWS.StorageGateway.ListFileSystemAssociations
 
     -- * Response Lenses
     listFileSystemAssociationsResponse_fileSystemAssociationSummaryList,
-    listFileSystemAssociationsResponse_nextMarker,
     listFileSystemAssociationsResponse_marker,
+    listFileSystemAssociationsResponse_nextMarker,
     listFileSystemAssociationsResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newListFileSystemAssociations' smart constructor.
 data ListFileSystemAssociations = ListFileSystemAssociations'
   { gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of file system associations to return in the
-    -- response. If present, @Limit@ must be an integer with a value greater
-    -- than zero. Optional.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | Opaque pagination token returned from a previous
     -- @ListFileSystemAssociations@ operation. If present, @Marker@ specifies
     -- where to continue the list from after a previous call to
     -- @ListFileSystemAssociations@. Optional.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of file system associations to return in the
+    -- response. If present, @Limit@ must be an integer with a value greater
+    -- than zero. Optional.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,33 +79,27 @@ data ListFileSystemAssociations = ListFileSystemAssociations'
 --
 -- 'gatewayARN', 'listFileSystemAssociations_gatewayARN' - Undocumented member.
 --
--- 'limit', 'listFileSystemAssociations_limit' - The maximum number of file system associations to return in the
--- response. If present, @Limit@ must be an integer with a value greater
--- than zero. Optional.
---
 -- 'marker', 'listFileSystemAssociations_marker' - Opaque pagination token returned from a previous
 -- @ListFileSystemAssociations@ operation. If present, @Marker@ specifies
 -- where to continue the list from after a previous call to
 -- @ListFileSystemAssociations@. Optional.
+--
+-- 'limit', 'listFileSystemAssociations_limit' - The maximum number of file system associations to return in the
+-- response. If present, @Limit@ must be an integer with a value greater
+-- than zero. Optional.
 newListFileSystemAssociations ::
   ListFileSystemAssociations
 newListFileSystemAssociations =
   ListFileSystemAssociations'
     { gatewayARN =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | Undocumented member.
 listFileSystemAssociations_gatewayARN :: Lens.Lens' ListFileSystemAssociations (Prelude.Maybe Prelude.Text)
 listFileSystemAssociations_gatewayARN = Lens.lens (\ListFileSystemAssociations' {gatewayARN} -> gatewayARN) (\s@ListFileSystemAssociations' {} a -> s {gatewayARN = a} :: ListFileSystemAssociations)
-
--- | The maximum number of file system associations to return in the
--- response. If present, @Limit@ must be an integer with a value greater
--- than zero. Optional.
-listFileSystemAssociations_limit :: Lens.Lens' ListFileSystemAssociations (Prelude.Maybe Prelude.Natural)
-listFileSystemAssociations_limit = Lens.lens (\ListFileSystemAssociations' {limit} -> limit) (\s@ListFileSystemAssociations' {} a -> s {limit = a} :: ListFileSystemAssociations)
 
 -- | Opaque pagination token returned from a previous
 -- @ListFileSystemAssociations@ operation. If present, @Marker@ specifies
@@ -113,6 +107,12 @@ listFileSystemAssociations_limit = Lens.lens (\ListFileSystemAssociations' {limi
 -- @ListFileSystemAssociations@. Optional.
 listFileSystemAssociations_marker :: Lens.Lens' ListFileSystemAssociations (Prelude.Maybe Prelude.Text)
 listFileSystemAssociations_marker = Lens.lens (\ListFileSystemAssociations' {marker} -> marker) (\s@ListFileSystemAssociations' {} a -> s {marker = a} :: ListFileSystemAssociations)
+
+-- | The maximum number of file system associations to return in the
+-- response. If present, @Limit@ must be an integer with a value greater
+-- than zero. Optional.
+listFileSystemAssociations_limit :: Lens.Lens' ListFileSystemAssociations (Prelude.Maybe Prelude.Natural)
+listFileSystemAssociations_limit = Lens.lens (\ListFileSystemAssociations' {limit} -> limit) (\s@ListFileSystemAssociations' {} a -> s {limit = a} :: ListFileSystemAssociations)
 
 instance Core.AWSPager ListFileSystemAssociations where
   page rq rs
@@ -148,8 +148,8 @@ instance Core.AWSRequest ListFileSystemAssociations where
             Prelude.<$> ( x Core..?> "FileSystemAssociationSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,8 +177,8 @@ instance Core.ToJSON ListFileSystemAssociations where
     Core.object
       ( Prelude.catMaybes
           [ ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
@@ -193,13 +193,13 @@ data ListFileSystemAssociationsResponse = ListFileSystemAssociationsResponse'
   { -- | An array of information about the Amazon FSx gateway\'s file system
     -- associations.
     fileSystemAssociationSummaryList :: Prelude.Maybe [FileSystemAssociationSummary],
+    -- | If the request includes @Marker@, the response returns that value in
+    -- this field.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | If a value is present, there are more file system associations to
     -- return. In a subsequent request, use @NextMarker@ as the value for
     -- @Marker@ to retrieve the next set of file system associations.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | If the request includes @Marker@, the response returns that value in
-    -- this field.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,12 +216,12 @@ data ListFileSystemAssociationsResponse = ListFileSystemAssociationsResponse'
 -- 'fileSystemAssociationSummaryList', 'listFileSystemAssociationsResponse_fileSystemAssociationSummaryList' - An array of information about the Amazon FSx gateway\'s file system
 -- associations.
 --
+-- 'marker', 'listFileSystemAssociationsResponse_marker' - If the request includes @Marker@, the response returns that value in
+-- this field.
+--
 -- 'nextMarker', 'listFileSystemAssociationsResponse_nextMarker' - If a value is present, there are more file system associations to
 -- return. In a subsequent request, use @NextMarker@ as the value for
 -- @Marker@ to retrieve the next set of file system associations.
---
--- 'marker', 'listFileSystemAssociationsResponse_marker' - If the request includes @Marker@, the response returns that value in
--- this field.
 --
 -- 'httpStatus', 'listFileSystemAssociationsResponse_httpStatus' - The response's http status code.
 newListFileSystemAssociationsResponse ::
@@ -232,8 +232,8 @@ newListFileSystemAssociationsResponse pHttpStatus_ =
   ListFileSystemAssociationsResponse'
     { fileSystemAssociationSummaryList =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
       marker = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -242,16 +242,16 @@ newListFileSystemAssociationsResponse pHttpStatus_ =
 listFileSystemAssociationsResponse_fileSystemAssociationSummaryList :: Lens.Lens' ListFileSystemAssociationsResponse (Prelude.Maybe [FileSystemAssociationSummary])
 listFileSystemAssociationsResponse_fileSystemAssociationSummaryList = Lens.lens (\ListFileSystemAssociationsResponse' {fileSystemAssociationSummaryList} -> fileSystemAssociationSummaryList) (\s@ListFileSystemAssociationsResponse' {} a -> s {fileSystemAssociationSummaryList = a} :: ListFileSystemAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
+-- | If the request includes @Marker@, the response returns that value in
+-- this field.
+listFileSystemAssociationsResponse_marker :: Lens.Lens' ListFileSystemAssociationsResponse (Prelude.Maybe Prelude.Text)
+listFileSystemAssociationsResponse_marker = Lens.lens (\ListFileSystemAssociationsResponse' {marker} -> marker) (\s@ListFileSystemAssociationsResponse' {} a -> s {marker = a} :: ListFileSystemAssociationsResponse)
+
 -- | If a value is present, there are more file system associations to
 -- return. In a subsequent request, use @NextMarker@ as the value for
 -- @Marker@ to retrieve the next set of file system associations.
 listFileSystemAssociationsResponse_nextMarker :: Lens.Lens' ListFileSystemAssociationsResponse (Prelude.Maybe Prelude.Text)
 listFileSystemAssociationsResponse_nextMarker = Lens.lens (\ListFileSystemAssociationsResponse' {nextMarker} -> nextMarker) (\s@ListFileSystemAssociationsResponse' {} a -> s {nextMarker = a} :: ListFileSystemAssociationsResponse)
-
--- | If the request includes @Marker@, the response returns that value in
--- this field.
-listFileSystemAssociationsResponse_marker :: Lens.Lens' ListFileSystemAssociationsResponse (Prelude.Maybe Prelude.Text)
-listFileSystemAssociationsResponse_marker = Lens.lens (\ListFileSystemAssociationsResponse' {marker} -> marker) (\s@ListFileSystemAssociationsResponse' {} a -> s {marker = a} :: ListFileSystemAssociationsResponse)
 
 -- | The response's http status code.
 listFileSystemAssociationsResponse_httpStatus :: Lens.Lens' ListFileSystemAssociationsResponse Prelude.Int

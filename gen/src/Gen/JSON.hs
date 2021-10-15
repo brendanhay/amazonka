@@ -14,36 +14,39 @@ import Control.Error
 import Control.Monad.Except
 import Data.Aeson hiding (decode)
 import Data.Aeson.Types
-import Data.Bifunctor
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict as Map
 import Data.List
-import qualified Data.Text.Lazy as LText
-import Gen.Formatting
 import Gen.IO
-import Gen.Types
 import qualified Text.EDE as EDE
+import qualified UnliftIO
+import qualified UnliftIO.Directory as UnliftIO
 
-required :: MonadIO m => Path -> ExceptT Error m Object
-required = readBSFile >=> hoistEither . decode
+required :: MonadIO m => FilePath -> m Object
+required path = do
+  bytes <- readBSFile path
+  case decode bytes of
+    Left er -> UnliftIO.throwString (show er)
+    Right ok -> pure ok
 
-optional :: MonadIO m => Path -> ExceptT Error m Object
-optional f =
-  readBSFile f `catchError` const (return "{}")
-    >>= hoistEither . decode
+optional :: MonadIO m => FilePath -> m Object
+optional path = do
+  exists <- UnliftIO.doesFileExist path
+  if exists
+    then required path
+    else pure mempty
 
-objectErr :: ToJSON a => String -> a -> Either Error Object
-objectErr n =
-  note (format ("Failed to extract JSON object from value " % string) n)
-    . EDE.fromValue
-    . toJSON
+objectErr :: ToJSON a => String -> a -> Either String Object
+objectErr n x =
+  note ("Failed to extract JSON object from value " ++ n) $
+    EDE.fromValue (toJSON x)
 
-decode :: ByteString -> Either Error Object
-decode = first LText.pack . eitherDecode' . LBS.fromStrict
+decode :: ByteString -> Either String Object
+decode = eitherDecode' . LBS.fromStrict
 
-parse :: FromJSON a => Object -> Either Error a
-parse = first LText.pack . parseEither parseJSON . Object
+parse :: FromJSON a => Object -> Either String a
+parse = parseEither parseJSON . Object
 
 merge :: [Object] -> Object
 merge = foldl' go mempty

@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
-    -- when the instance is launched.
-    ebs :: Prelude.Maybe EbsBlockDevice,
+  { -- | The virtual device name. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | Suppresses the specified device included in the AMI\'s block device
     -- mapping.
     noDevice :: Prelude.Maybe Prelude.Text,
-    -- | The virtual device name. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
-    virtualName :: Prelude.Maybe Prelude.Text,
+    -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+    -- when the instance is launched.
+    ebs :: Prelude.Maybe EbsBlockDevice,
     -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
     -- For the root device, you can use the explicit device name or you can set
     -- this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the
@@ -56,14 +56,14 @@ data BlockDeviceMapping = BlockDeviceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'blockDeviceMapping_ebs' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
--- when the instance is launched.
+-- 'virtualName', 'blockDeviceMapping_virtualName' - The virtual device name. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
 --
 -- 'noDevice', 'blockDeviceMapping_noDevice' - Suppresses the specified device included in the AMI\'s block device
 -- mapping.
 --
--- 'virtualName', 'blockDeviceMapping_virtualName' - The virtual device name. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
+-- 'ebs', 'blockDeviceMapping_ebs' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+-- when the instance is launched.
 --
 -- 'deviceName', 'blockDeviceMapping_deviceName' - The device name that is exposed to the instance, such as @\/dev\/sdh@.
 -- For the root device, you can use the explicit device name or you can set
@@ -73,26 +73,26 @@ newBlockDeviceMapping ::
   BlockDeviceMapping
 newBlockDeviceMapping =
   BlockDeviceMapping'
-    { ebs = Prelude.Nothing,
+    { virtualName = Prelude.Nothing,
       noDevice = Prelude.Nothing,
-      virtualName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       deviceName = Prelude.Nothing
     }
 
--- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
--- when the instance is launched.
-blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockDevice)
-blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
+-- | The virtual device name. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
+blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
+blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
 
 -- | Suppresses the specified device included in the AMI\'s block device
 -- mapping.
 blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDevice) (\s@BlockDeviceMapping' {} a -> s {noDevice = a} :: BlockDeviceMapping)
 
--- | The virtual device name. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
-blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
-blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
+-- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+-- when the instance is launched.
+blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockDevice)
+blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
 -- For the root device, you can use the explicit device name or you can set
@@ -107,9 +107,9 @@ instance Core.FromJSON BlockDeviceMapping where
       "BlockDeviceMapping"
       ( \x ->
           BlockDeviceMapping'
-            Prelude.<$> (x Core..:? "Ebs")
+            Prelude.<$> (x Core..:? "VirtualName")
             Prelude.<*> (x Core..:? "NoDevice")
-            Prelude.<*> (x Core..:? "VirtualName")
+            Prelude.<*> (x Core..:? "Ebs")
             Prelude.<*> (x Core..:? "DeviceName")
       )
 
@@ -121,9 +121,9 @@ instance Core.ToJSON BlockDeviceMapping where
   toJSON BlockDeviceMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Ebs" Core..=) Prelude.<$> ebs,
+          [ ("VirtualName" Core..=) Prelude.<$> virtualName,
             ("NoDevice" Core..=) Prelude.<$> noDevice,
-            ("VirtualName" Core..=) Prelude.<$> virtualName,
+            ("Ebs" Core..=) Prelude.<$> ebs,
             ("DeviceName" Core..=) Prelude.<$> deviceName
           ]
       )

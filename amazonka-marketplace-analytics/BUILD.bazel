@@ -1,0 +1,63 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-marketplace-analytics/amazonka-marketplace-analytics.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-marketplace-analytics",
+    srcs = [
+        "gen/Network/AWS/MarketplaceAnalytics.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/GenerateDataSet.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/Lens.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/StartSupportDataExport.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/Types.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/Types/DataSetType.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/Types/SupportDataSetType.hs",
+        "gen/Network/AWS/MarketplaceAnalytics/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_analytics=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-marketplace-analytics/amazonka-marketplace-analytics.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-marketplace-analytics-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/MarketplaceAnalytics.hs",
+        "test/Test/AWS/MarketplaceAnalytics.hs",
+        "test/Test/AWS/MarketplaceAnalytics/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_analytics=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-marketplace-analytics",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -1,0 +1,61 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-sagemaker-runtime/amazonka-sagemaker-runtime.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-sagemaker-runtime",
+    srcs = [
+        "gen/Network/AWS/SageMakerRuntime.hs",
+        "gen/Network/AWS/SageMakerRuntime/InvokeEndpoint.hs",
+        "gen/Network/AWS/SageMakerRuntime/InvokeEndpointAsync.hs",
+        "gen/Network/AWS/SageMakerRuntime/Lens.hs",
+        "gen/Network/AWS/SageMakerRuntime/Types.hs",
+        "gen/Network/AWS/SageMakerRuntime/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sagemaker_runtime=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-sagemaker-runtime/amazonka-sagemaker-runtime.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sagemaker-runtime-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SageMakerRuntime.hs",
+        "test/Test/AWS/SageMakerRuntime.hs",
+        "test/Test/AWS/SageMakerRuntime/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sagemaker_runtime=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sagemaker-runtime",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

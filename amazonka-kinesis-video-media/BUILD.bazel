@@ -1,0 +1,62 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-kinesis-video-media/amazonka-kinesis-video-media.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-kinesis-video-media",
+    srcs = [
+        "gen/Network/AWS/KinesisVideoMedia.hs",
+        "gen/Network/AWS/KinesisVideoMedia/GetMedia.hs",
+        "gen/Network/AWS/KinesisVideoMedia/Lens.hs",
+        "gen/Network/AWS/KinesisVideoMedia/Types.hs",
+        "gen/Network/AWS/KinesisVideoMedia/Types/StartSelector.hs",
+        "gen/Network/AWS/KinesisVideoMedia/Types/StartSelectorType.hs",
+        "gen/Network/AWS/KinesisVideoMedia/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_kinesis_video_media=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-kinesis-video-media/amazonka-kinesis-video-media.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-kinesis-video-media-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/KinesisVideoMedia.hs",
+        "test/Test/AWS/KinesisVideoMedia.hs",
+        "test/Test/AWS/KinesisVideoMedia/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_kinesis_video_media=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-kinesis-video-media",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

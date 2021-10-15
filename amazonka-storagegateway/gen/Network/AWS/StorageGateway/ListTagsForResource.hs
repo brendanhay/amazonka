@@ -30,8 +30,8 @@ module Network.AWS.StorageGateway.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_limit,
     listTagsForResource_marker,
+    listTagsForResource_limit,
     listTagsForResource_resourceARN,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.StorageGateway.ListTagsForResource
 
     -- * Response Lenses
     listTagsForResourceResponse_resourceARN,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_marker,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | Specifies that the list of tags returned be limited to the specified
-    -- number of items.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | An opaque string that indicates the position at which to begin returning
+  { -- | An opaque string that indicates the position at which to begin returning
     -- the list of tags.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that the list of tags returned be limited to the specified
+    -- number of items.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the resource for which you want to
     -- list tags.
     resourceARN :: Prelude.Text
@@ -77,11 +77,11 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listTagsForResource_limit' - Specifies that the list of tags returned be limited to the specified
--- number of items.
---
 -- 'marker', 'listTagsForResource_marker' - An opaque string that indicates the position at which to begin returning
 -- the list of tags.
+--
+-- 'limit', 'listTagsForResource_limit' - Specifies that the list of tags returned be limited to the specified
+-- number of items.
 --
 -- 'resourceARN', 'listTagsForResource_resourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to
 -- list tags.
@@ -91,20 +91,20 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       resourceARN = pResourceARN_
     }
-
--- | Specifies that the list of tags returned be limited to the specified
--- number of items.
-listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
-listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the list of tags.
 listTagsForResource_marker :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_marker = Lens.lens (\ListTagsForResource' {marker} -> marker) (\s@ListTagsForResource' {} a -> s {marker = a} :: ListTagsForResource)
+
+-- | Specifies that the list of tags returned be limited to the specified
+-- number of items.
+listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
+listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
 
 -- | The Amazon Resource Name (ARN) of the resource for which you want to
 -- list tags.
@@ -143,8 +143,8 @@ instance Core.AWSRequest ListTagsForResource where
       ( \s h x ->
           ListTagsForResourceResponse'
             Prelude.<$> (x Core..?> "ResourceARN")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,8 +171,8 @@ instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("ResourceARN" Core..= resourceARN)
           ]
       )
@@ -190,11 +190,11 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The Amazon Resource Name (ARN) of the resource for which you want to
     -- list tags.
     resourceARN :: Prelude.Maybe Prelude.Text,
-    -- | An array that contains the tags for the specified resource.
-    tags :: Prelude.Maybe [Tag],
     -- | An opaque string that indicates the position at which to stop returning
     -- the list of tags.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | An array that contains the tags for the specified resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,10 +211,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'resourceARN', 'listTagsForResourceResponse_resourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to
 -- list tags.
 --
--- 'tags', 'listTagsForResourceResponse_tags' - An array that contains the tags for the specified resource.
---
 -- 'marker', 'listTagsForResourceResponse_marker' - An opaque string that indicates the position at which to stop returning
 -- the list of tags.
+--
+-- 'tags', 'listTagsForResourceResponse_tags' - An array that contains the tags for the specified resource.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -225,8 +225,8 @@ newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { resourceARN =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
       marker = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -235,14 +235,14 @@ newListTagsForResourceResponse pHttpStatus_ =
 listTagsForResourceResponse_resourceARN :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_resourceARN = Lens.lens (\ListTagsForResourceResponse' {resourceARN} -> resourceARN) (\s@ListTagsForResourceResponse' {} a -> s {resourceARN = a} :: ListTagsForResourceResponse)
 
--- | An array that contains the tags for the specified resource.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | An opaque string that indicates the position at which to stop returning
 -- the list of tags.
 listTagsForResourceResponse_marker :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_marker = Lens.lens (\ListTagsForResourceResponse' {marker} -> marker) (\s@ListTagsForResourceResponse' {} a -> s {marker = a} :: ListTagsForResourceResponse)
+
+-- | An array that contains the tags for the specified resource.
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int

@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.SetPermission
 
     -- * Request Lenses
     setPermission_allowSudo,
-    setPermission_allowSsh,
     setPermission_level,
+    setPermission_allowSsh,
     setPermission_stackId,
     setPermission_iamUserArn,
 
@@ -57,8 +57,6 @@ import qualified Network.AWS.Response as Response
 data SetPermission = SetPermission'
   { -- | The user is allowed to use __sudo__ to elevate privileges.
     allowSudo :: Prelude.Maybe Prelude.Bool,
-    -- | The user is allowed to use SSH to communicate with the instance.
-    allowSsh :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s permission level, which must be set to one of the following
     -- strings. You cannot set your own permissions level.
     --
@@ -76,6 +74,8 @@ data SetPermission = SetPermission'
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
     level :: Prelude.Maybe Prelude.Text,
+    -- | The user is allowed to use SSH to communicate with the instance.
+    allowSsh :: Prelude.Maybe Prelude.Bool,
     -- | The stack ID.
     stackId :: Prelude.Text,
     -- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
@@ -92,8 +92,6 @@ data SetPermission = SetPermission'
 -- for backwards compatibility:
 --
 -- 'allowSudo', 'setPermission_allowSudo' - The user is allowed to use __sudo__ to elevate privileges.
---
--- 'allowSsh', 'setPermission_allowSsh' - The user is allowed to use SSH to communicate with the instance.
 --
 -- 'level', 'setPermission_level' - The user\'s permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level.
@@ -112,6 +110,8 @@ data SetPermission = SetPermission'
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
+-- 'allowSsh', 'setPermission_allowSsh' - The user is allowed to use SSH to communicate with the instance.
+--
 -- 'stackId', 'setPermission_stackId' - The stack ID.
 --
 -- 'iamUserArn', 'setPermission_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN.
@@ -124,8 +124,8 @@ newSetPermission ::
 newSetPermission pStackId_ pIamUserArn_ =
   SetPermission'
     { allowSudo = Prelude.Nothing,
-      allowSsh = Prelude.Nothing,
       level = Prelude.Nothing,
+      allowSsh = Prelude.Nothing,
       stackId = pStackId_,
       iamUserArn = pIamUserArn_
     }
@@ -133,10 +133,6 @@ newSetPermission pStackId_ pIamUserArn_ =
 -- | The user is allowed to use __sudo__ to elevate privileges.
 setPermission_allowSudo :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
 setPermission_allowSudo = Lens.lens (\SetPermission' {allowSudo} -> allowSudo) (\s@SetPermission' {} a -> s {allowSudo = a} :: SetPermission)
-
--- | The user is allowed to use SSH to communicate with the instance.
-setPermission_allowSsh :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
-setPermission_allowSsh = Lens.lens (\SetPermission' {allowSsh} -> allowSsh) (\s@SetPermission' {} a -> s {allowSsh = a} :: SetPermission)
 
 -- | The user\'s permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level.
@@ -156,6 +152,10 @@ setPermission_allowSsh = Lens.lens (\SetPermission' {allowSsh} -> allowSsh) (\s@
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 setPermission_level :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Text)
 setPermission_level = Lens.lens (\SetPermission' {level} -> level) (\s@SetPermission' {} a -> s {level = a} :: SetPermission)
+
+-- | The user is allowed to use SSH to communicate with the instance.
+setPermission_allowSsh :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
+setPermission_allowSsh = Lens.lens (\SetPermission' {allowSsh} -> allowSsh) (\s@SetPermission' {} a -> s {allowSsh = a} :: SetPermission)
 
 -- | The stack ID.
 setPermission_stackId :: Lens.Lens' SetPermission Prelude.Text
@@ -197,8 +197,8 @@ instance Core.ToJSON SetPermission where
     Core.object
       ( Prelude.catMaybes
           [ ("AllowSudo" Core..=) Prelude.<$> allowSudo,
-            ("AllowSsh" Core..=) Prelude.<$> allowSsh,
             ("Level" Core..=) Prelude.<$> level,
+            ("AllowSsh" Core..=) Prelude.<$> allowSsh,
             Prelude.Just ("StackId" Core..= stackId),
             Prelude.Just ("IamUserArn" Core..= iamUserArn)
           ]

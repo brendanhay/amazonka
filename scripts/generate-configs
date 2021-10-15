@@ -1,67 +1,19 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash ../shell.nix
+#!/usr/bin/env bash
 
-# Usage: generate-configs OUTPUT
+# Usage: generate-configs
 #
-# Generates configuration for all services found in BOTOCORE_PATH that
+# Generates configuration for all services found in botocore that
 # are missing corresponding configurations in ./config/services.
 #
 # The example configurations will be written to individual files under
-# OUTPUT/configs and OUTPUT/annexes.
+# ./configs and ./annexes.
 
 set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-botocore="${BOTOCORE_PATH?}"
-services="config/services"
-output="${1?An OUTPUT argument is required}"
-configs="$output/configs"
-annexes="$output/annexes"
+bazel build @botocore//... //gen:gen-configs
 
-available=()
-configured=()
-unconfigured=0
-
-# Output a message to stderr.
-say() {
-  echo >&2 "$@"
-}
-
-# Write an example configuration and annex to name.json.
-write_config() {
-  local -r name="$1"
-  local -r config="$configs/$name.json"
-  local -r annex="$annexes/$name.json"
-
-  say "Missing $name"
-
-  jq -n --arg name "$name" '{ libraryName: $name }' >"$config"
-  jq -n --arg name "$name" '{}' >"$annex"
-}
-
-for path in "${botocore}"/*/; do
-  model="${path%/}"
-  model="${model##*/}"
-  available+=("$model")
-done
-
-for path in "${services}"/*.json; do
-  model="${path##*/}"
-  model="${model%%.*}"
-  configured+=("$model")
-done
-
-mkdir -p "$configs" "$annexes"
-
-for name in $(comm -13 <(printf "%s\n" "${configured[@]}" | sort) <(printf "%s\n" "${available[@]}" | sort)); do
-  unconfigured=$((unconfigured + 1))
-  write_config "$name"
-done
-
-say "\
-Missing $unconfigured service configurations.
-Wrote examples to $configs and $annexes.
-Found ${#available[@]} models in $botocore.
-Found ${#configured[@]} service configurations in $services.
-Done."
+./bazel-bin/gen/gen-configs "$(bazel info output_base)/external/botocore" \
+  --configs ./config \
+  --word-frequencies ./config/word-frequencies

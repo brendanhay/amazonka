@@ -28,10 +28,10 @@ module Network.AWS.StorageGateway.UpdateFileSystemAssociation
     newUpdateFileSystemAssociation,
 
     -- * Request Lenses
-    updateFileSystemAssociation_password,
     updateFileSystemAssociation_auditDestinationARN,
-    updateFileSystemAssociation_userName,
     updateFileSystemAssociation_cacheAttributes,
+    updateFileSystemAssociation_userName,
+    updateFileSystemAssociation_password,
     updateFileSystemAssociation_fileSystemAssociationARN,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newUpdateFileSystemAssociation' smart constructor.
 data UpdateFileSystemAssociation = UpdateFileSystemAssociation'
-  { -- | The password of the user credential.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
+  { -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
     auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    cacheAttributes :: Prelude.Maybe CacheAttributes,
     -- | The user name of the user credential that has permission to access the
     -- root share D$ of the Amazon FSx file system. The user account must
     -- belong to the Amazon FSx delegated admin user group.
     userName :: Prelude.Maybe Prelude.Text,
-    cacheAttributes :: Prelude.Maybe CacheAttributes,
+    -- | The password of the user credential.
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the file system association that you
     -- want to update.
     fileSystemAssociationARN :: Prelude.Text
@@ -76,15 +76,15 @@ data UpdateFileSystemAssociation = UpdateFileSystemAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'password', 'updateFileSystemAssociation_password' - The password of the user credential.
---
 -- 'auditDestinationARN', 'updateFileSystemAssociation_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
+--
+-- 'cacheAttributes', 'updateFileSystemAssociation_cacheAttributes' - Undocumented member.
 --
 -- 'userName', 'updateFileSystemAssociation_userName' - The user name of the user credential that has permission to access the
 -- root share D$ of the Amazon FSx file system. The user account must
 -- belong to the Amazon FSx delegated admin user group.
 --
--- 'cacheAttributes', 'updateFileSystemAssociation_cacheAttributes' - Undocumented member.
+-- 'password', 'updateFileSystemAssociation_password' - The password of the user credential.
 --
 -- 'fileSystemAssociationARN', 'updateFileSystemAssociation_fileSystemAssociationARN' - The Amazon Resource Name (ARN) of the file system association that you
 -- want to update.
@@ -95,22 +95,22 @@ newUpdateFileSystemAssociation ::
 newUpdateFileSystemAssociation
   pFileSystemAssociationARN_ =
     UpdateFileSystemAssociation'
-      { password =
+      { auditDestinationARN =
           Prelude.Nothing,
-        auditDestinationARN = Prelude.Nothing,
-        userName = Prelude.Nothing,
         cacheAttributes = Prelude.Nothing,
+        userName = Prelude.Nothing,
+        password = Prelude.Nothing,
         fileSystemAssociationARN =
           pFileSystemAssociationARN_
       }
 
--- | The password of the user credential.
-updateFileSystemAssociation_password :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe Prelude.Text)
-updateFileSystemAssociation_password = Lens.lens (\UpdateFileSystemAssociation' {password} -> password) (\s@UpdateFileSystemAssociation' {} a -> s {password = a} :: UpdateFileSystemAssociation) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
 updateFileSystemAssociation_auditDestinationARN :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe Prelude.Text)
 updateFileSystemAssociation_auditDestinationARN = Lens.lens (\UpdateFileSystemAssociation' {auditDestinationARN} -> auditDestinationARN) (\s@UpdateFileSystemAssociation' {} a -> s {auditDestinationARN = a} :: UpdateFileSystemAssociation)
+
+-- | Undocumented member.
+updateFileSystemAssociation_cacheAttributes :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe CacheAttributes)
+updateFileSystemAssociation_cacheAttributes = Lens.lens (\UpdateFileSystemAssociation' {cacheAttributes} -> cacheAttributes) (\s@UpdateFileSystemAssociation' {} a -> s {cacheAttributes = a} :: UpdateFileSystemAssociation)
 
 -- | The user name of the user credential that has permission to access the
 -- root share D$ of the Amazon FSx file system. The user account must
@@ -118,9 +118,9 @@ updateFileSystemAssociation_auditDestinationARN = Lens.lens (\UpdateFileSystemAs
 updateFileSystemAssociation_userName :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe Prelude.Text)
 updateFileSystemAssociation_userName = Lens.lens (\UpdateFileSystemAssociation' {userName} -> userName) (\s@UpdateFileSystemAssociation' {} a -> s {userName = a} :: UpdateFileSystemAssociation)
 
--- | Undocumented member.
-updateFileSystemAssociation_cacheAttributes :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe CacheAttributes)
-updateFileSystemAssociation_cacheAttributes = Lens.lens (\UpdateFileSystemAssociation' {cacheAttributes} -> cacheAttributes) (\s@UpdateFileSystemAssociation' {} a -> s {cacheAttributes = a} :: UpdateFileSystemAssociation)
+-- | The password of the user credential.
+updateFileSystemAssociation_password :: Lens.Lens' UpdateFileSystemAssociation (Prelude.Maybe Prelude.Text)
+updateFileSystemAssociation_password = Lens.lens (\UpdateFileSystemAssociation' {password} -> password) (\s@UpdateFileSystemAssociation' {} a -> s {password = a} :: UpdateFileSystemAssociation) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the file system association that you
 -- want to update.
@@ -163,12 +163,12 @@ instance Core.ToJSON UpdateFileSystemAssociation where
   toJSON UpdateFileSystemAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("AuditDestinationARN" Core..=)
+          [ ("AuditDestinationARN" Core..=)
               Prelude.<$> auditDestinationARN,
-            ("UserName" Core..=) Prelude.<$> userName,
             ("CacheAttributes" Core..=)
               Prelude.<$> cacheAttributes,
+            ("UserName" Core..=) Prelude.<$> userName,
+            ("Password" Core..=) Prelude.<$> password,
             Prelude.Just
               ( "FileSystemAssociationARN"
                   Core..= fileSystemAssociationARN

@@ -14,33 +14,26 @@
 module Network.AWS.StorageGateway.Lens
   ( -- * Operations
 
-    -- ** DetachVolume
-    detachVolume_forceDetach,
-    detachVolume_volumeARN,
-    detachVolumeResponse_volumeARN,
-    detachVolumeResponse_httpStatus,
-
-    -- ** DescribeSMBSettings
-    describeSMBSettings_gatewayARN,
-    describeSMBSettingsResponse_sMBSecurityStrategy,
-    describeSMBSettingsResponse_sMBGuestPasswordSet,
-    describeSMBSettingsResponse_fileSharesVisible,
-    describeSMBSettingsResponse_domainName,
-    describeSMBSettingsResponse_activeDirectoryStatus,
-    describeSMBSettingsResponse_gatewayARN,
-    describeSMBSettingsResponse_httpStatus,
-
-    -- ** RetrieveTapeArchive
-    retrieveTapeArchive_tapeARN,
-    retrieveTapeArchive_gatewayARN,
-    retrieveTapeArchiveResponse_tapeARN,
-    retrieveTapeArchiveResponse_httpStatus,
-
     -- ** CancelArchival
     cancelArchival_gatewayARN,
     cancelArchival_tapeARN,
     cancelArchivalResponse_tapeARN,
     cancelArchivalResponse_httpStatus,
+
+    -- ** CreateStorediSCSIVolume
+    createStorediSCSIVolume_kmsKey,
+    createStorediSCSIVolume_kmsEncrypted,
+    createStorediSCSIVolume_tags,
+    createStorediSCSIVolume_snapshotId,
+    createStorediSCSIVolume_gatewayARN,
+    createStorediSCSIVolume_diskId,
+    createStorediSCSIVolume_preserveExistingData,
+    createStorediSCSIVolume_targetName,
+    createStorediSCSIVolume_networkInterfaceId,
+    createStorediSCSIVolumeResponse_targetARN,
+    createStorediSCSIVolumeResponse_volumeARN,
+    createStorediSCSIVolumeResponse_volumeSizeInBytes,
+    createStorediSCSIVolumeResponse_httpStatus,
 
     -- ** DescribeFileSystemAssociations
     describeFileSystemAssociations_fileSystemAssociationARNList,
@@ -48,22 +41,22 @@ module Network.AWS.StorageGateway.Lens
     describeFileSystemAssociationsResponse_httpStatus,
 
     -- ** CreateNFSFileShare
+    createNFSFileShare_kmsKey,
+    createNFSFileShare_vPCEndpointDNSName,
+    createNFSFileShare_cacheAttributes,
+    createNFSFileShare_objectACL,
+    createNFSFileShare_kmsEncrypted,
     createNFSFileShare_defaultStorageClass,
     createNFSFileShare_fileShareName,
+    createNFSFileShare_notificationPolicy,
+    createNFSFileShare_squash,
+    createNFSFileShare_requesterPays,
+    createNFSFileShare_nFSFileShareDefaults,
+    createNFSFileShare_clientList,
+    createNFSFileShare_guessMIMETypeEnabled,
     createNFSFileShare_readOnly,
     createNFSFileShare_bucketRegion,
-    createNFSFileShare_guessMIMETypeEnabled,
-    createNFSFileShare_kmsEncrypted,
-    createNFSFileShare_vPCEndpointDNSName,
-    createNFSFileShare_squash,
-    createNFSFileShare_notificationPolicy,
-    createNFSFileShare_kmsKey,
     createNFSFileShare_tags,
-    createNFSFileShare_clientList,
-    createNFSFileShare_objectACL,
-    createNFSFileShare_cacheAttributes,
-    createNFSFileShare_nFSFileShareDefaults,
-    createNFSFileShare_requesterPays,
     createNFSFileShare_clientToken,
     createNFSFileShare_gatewayARN,
     createNFSFileShare_role,
@@ -71,307 +64,40 @@ module Network.AWS.StorageGateway.Lens
     createNFSFileShareResponse_fileShareARN,
     createNFSFileShareResponse_httpStatus,
 
-    -- ** DisassociateFileSystem
-    disassociateFileSystem_forceDelete,
-    disassociateFileSystem_fileSystemAssociationARN,
-    disassociateFileSystemResponse_fileSystemAssociationARN,
-    disassociateFileSystemResponse_httpStatus,
+    -- ** AssociateFileSystem
+    associateFileSystem_auditDestinationARN,
+    associateFileSystem_cacheAttributes,
+    associateFileSystem_endpointNetworkConfiguration,
+    associateFileSystem_tags,
+    associateFileSystem_userName,
+    associateFileSystem_password,
+    associateFileSystem_clientToken,
+    associateFileSystem_gatewayARN,
+    associateFileSystem_locationARN,
+    associateFileSystemResponse_fileSystemAssociationARN,
+    associateFileSystemResponse_httpStatus,
 
-    -- ** DescribeCache
-    describeCache_gatewayARN,
-    describeCacheResponse_cacheHitPercentage,
-    describeCacheResponse_cacheDirtyPercentage,
-    describeCacheResponse_cacheAllocatedInBytes,
-    describeCacheResponse_cacheMissPercentage,
-    describeCacheResponse_cacheUsedPercentage,
-    describeCacheResponse_diskIds,
-    describeCacheResponse_gatewayARN,
-    describeCacheResponse_httpStatus,
+    -- ** DetachVolume
+    detachVolume_forceDetach,
+    detachVolume_volumeARN,
+    detachVolumeResponse_volumeARN,
+    detachVolumeResponse_httpStatus,
 
-    -- ** RefreshCache
-    refreshCache_recursive,
-    refreshCache_folderList,
-    refreshCache_fileShareARN,
-    refreshCacheResponse_fileShareARN,
-    refreshCacheResponse_notificationId,
-    refreshCacheResponse_httpStatus,
+    -- ** DescribeChapCredentials
+    describeChapCredentials_targetARN,
+    describeChapCredentialsResponse_chapCredentials,
+    describeChapCredentialsResponse_httpStatus,
 
-    -- ** ListTapes
-    listTapes_tapeARNs,
-    listTapes_limit,
-    listTapes_marker,
-    listTapesResponse_tapeInfos,
-    listTapesResponse_marker,
-    listTapesResponse_httpStatus,
-
-    -- ** DescribeSMBFileShares
-    describeSMBFileShares_fileShareARNList,
-    describeSMBFileSharesResponse_sMBFileShareInfoList,
-    describeSMBFileSharesResponse_httpStatus,
-
-    -- ** UpdateNFSFileShare
-    updateNFSFileShare_defaultStorageClass,
-    updateNFSFileShare_fileShareName,
-    updateNFSFileShare_readOnly,
-    updateNFSFileShare_guessMIMETypeEnabled,
-    updateNFSFileShare_kmsEncrypted,
-    updateNFSFileShare_squash,
-    updateNFSFileShare_notificationPolicy,
-    updateNFSFileShare_kmsKey,
-    updateNFSFileShare_clientList,
-    updateNFSFileShare_objectACL,
-    updateNFSFileShare_cacheAttributes,
-    updateNFSFileShare_nFSFileShareDefaults,
-    updateNFSFileShare_requesterPays,
-    updateNFSFileShare_fileShareARN,
-    updateNFSFileShareResponse_fileShareARN,
-    updateNFSFileShareResponse_httpStatus,
-
-    -- ** DescribeGatewayInformation
-    describeGatewayInformation_gatewayARN,
-    describeGatewayInformationResponse_gatewayName,
-    describeGatewayInformationResponse_gatewayState,
-    describeGatewayInformationResponse_deprecationDate,
-    describeGatewayInformationResponse_gatewayCapacity,
-    describeGatewayInformationResponse_softwareUpdatesEndDate,
-    describeGatewayInformationResponse_nextUpdateAvailabilityDate,
-    describeGatewayInformationResponse_gatewayTimezone,
-    describeGatewayInformationResponse_endpointType,
-    describeGatewayInformationResponse_gatewayType,
-    describeGatewayInformationResponse_gatewayNetworkInterfaces,
-    describeGatewayInformationResponse_ec2InstanceRegion,
-    describeGatewayInformationResponse_lastSoftwareUpdate,
-    describeGatewayInformationResponse_supportedGatewayCapacities,
-    describeGatewayInformationResponse_tags,
-    describeGatewayInformationResponse_vPCEndpoint,
-    describeGatewayInformationResponse_cloudWatchLogGroupARN,
-    describeGatewayInformationResponse_ec2InstanceId,
-    describeGatewayInformationResponse_gatewayARN,
-    describeGatewayInformationResponse_gatewayId,
-    describeGatewayInformationResponse_hostEnvironment,
-    describeGatewayInformationResponse_httpStatus,
-
-    -- ** ListVolumes
-    listVolumes_gatewayARN,
-    listVolumes_limit,
-    listVolumes_marker,
-    listVolumesResponse_gatewayARN,
-    listVolumesResponse_volumeInfos,
-    listVolumesResponse_marker,
-    listVolumesResponse_httpStatus,
-
-    -- ** AddWorkingStorage
-    addWorkingStorage_gatewayARN,
-    addWorkingStorage_diskIds,
-    addWorkingStorageResponse_gatewayARN,
-    addWorkingStorageResponse_httpStatus,
-
-    -- ** UpdateMaintenanceStartTime
-    updateMaintenanceStartTime_dayOfWeek,
-    updateMaintenanceStartTime_dayOfMonth,
-    updateMaintenanceStartTime_gatewayARN,
-    updateMaintenanceStartTime_hourOfDay,
-    updateMaintenanceStartTime_minuteOfHour,
-    updateMaintenanceStartTimeResponse_gatewayARN,
-    updateMaintenanceStartTimeResponse_httpStatus,
-
-    -- ** ActivateGateway
-    activateGateway_tapeDriveType,
-    activateGateway_gatewayType,
-    activateGateway_tags,
-    activateGateway_mediumChangerType,
-    activateGateway_activationKey,
-    activateGateway_gatewayName,
-    activateGateway_gatewayTimezone,
-    activateGateway_gatewayRegion,
-    activateGatewayResponse_gatewayARN,
-    activateGatewayResponse_httpStatus,
-
-    -- ** ListVolumeRecoveryPoints
-    listVolumeRecoveryPoints_gatewayARN,
-    listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos,
-    listVolumeRecoveryPointsResponse_gatewayARN,
-    listVolumeRecoveryPointsResponse_httpStatus,
-
-    -- ** DescribeAvailabilityMonitorTest
-    describeAvailabilityMonitorTest_gatewayARN,
-    describeAvailabilityMonitorTestResponse_status,
-    describeAvailabilityMonitorTestResponse_startTime,
-    describeAvailabilityMonitorTestResponse_gatewayARN,
-    describeAvailabilityMonitorTestResponse_httpStatus,
-
-    -- ** UpdateSMBFileShare
-    updateSMBFileShare_sMBACLEnabled,
-    updateSMBFileShare_defaultStorageClass,
-    updateSMBFileShare_accessBasedEnumeration,
-    updateSMBFileShare_fileShareName,
-    updateSMBFileShare_caseSensitivity,
-    updateSMBFileShare_readOnly,
-    updateSMBFileShare_guessMIMETypeEnabled,
-    updateSMBFileShare_kmsEncrypted,
-    updateSMBFileShare_validUserList,
-    updateSMBFileShare_notificationPolicy,
-    updateSMBFileShare_kmsKey,
-    updateSMBFileShare_auditDestinationARN,
-    updateSMBFileShare_adminUserList,
-    updateSMBFileShare_objectACL,
-    updateSMBFileShare_cacheAttributes,
-    updateSMBFileShare_requesterPays,
-    updateSMBFileShare_oplocksEnabled,
-    updateSMBFileShare_invalidUserList,
-    updateSMBFileShare_fileShareARN,
-    updateSMBFileShareResponse_fileShareARN,
-    updateSMBFileShareResponse_httpStatus,
-
-    -- ** DescribeTapes
-    describeTapes_tapeARNs,
-    describeTapes_limit,
-    describeTapes_marker,
-    describeTapes_gatewayARN,
-    describeTapesResponse_tapes,
-    describeTapesResponse_marker,
-    describeTapesResponse_httpStatus,
-
-    -- ** RemoveTagsFromResource
-    removeTagsFromResource_resourceARN,
-    removeTagsFromResource_tagKeys,
-    removeTagsFromResourceResponse_resourceARN,
-    removeTagsFromResourceResponse_httpStatus,
-
-    -- ** DeleteTapeArchive
-    deleteTapeArchive_bypassGovernanceRetention,
-    deleteTapeArchive_tapeARN,
-    deleteTapeArchiveResponse_tapeARN,
-    deleteTapeArchiveResponse_httpStatus,
-
-    -- ** AttachVolume
-    attachVolume_targetName,
-    attachVolume_diskId,
-    attachVolume_gatewayARN,
-    attachVolume_volumeARN,
-    attachVolume_networkInterfaceId,
-    attachVolumeResponse_volumeARN,
-    attachVolumeResponse_targetARN,
-    attachVolumeResponse_httpStatus,
-
-    -- ** CreateSMBFileShare
-    createSMBFileShare_sMBACLEnabled,
-    createSMBFileShare_defaultStorageClass,
-    createSMBFileShare_accessBasedEnumeration,
-    createSMBFileShare_fileShareName,
-    createSMBFileShare_caseSensitivity,
-    createSMBFileShare_readOnly,
-    createSMBFileShare_bucketRegion,
-    createSMBFileShare_guessMIMETypeEnabled,
-    createSMBFileShare_kmsEncrypted,
-    createSMBFileShare_vPCEndpointDNSName,
-    createSMBFileShare_authentication,
-    createSMBFileShare_validUserList,
-    createSMBFileShare_notificationPolicy,
-    createSMBFileShare_kmsKey,
-    createSMBFileShare_auditDestinationARN,
-    createSMBFileShare_adminUserList,
-    createSMBFileShare_tags,
-    createSMBFileShare_objectACL,
-    createSMBFileShare_cacheAttributes,
-    createSMBFileShare_requesterPays,
-    createSMBFileShare_oplocksEnabled,
-    createSMBFileShare_invalidUserList,
-    createSMBFileShare_clientToken,
-    createSMBFileShare_gatewayARN,
-    createSMBFileShare_role,
-    createSMBFileShare_locationARN,
-    createSMBFileShareResponse_fileShareARN,
-    createSMBFileShareResponse_httpStatus,
-
-    -- ** UpdateSMBSecurityStrategy
-    updateSMBSecurityStrategy_gatewayARN,
-    updateSMBSecurityStrategy_sMBSecurityStrategy,
-    updateSMBSecurityStrategyResponse_gatewayARN,
-    updateSMBSecurityStrategyResponse_httpStatus,
-
-    -- ** StartGateway
-    startGateway_gatewayARN,
-    startGatewayResponse_gatewayARN,
-    startGatewayResponse_httpStatus,
-
-    -- ** UpdateGatewaySoftwareNow
-    updateGatewaySoftwareNow_gatewayARN,
-    updateGatewaySoftwareNowResponse_gatewayARN,
-    updateGatewaySoftwareNowResponse_httpStatus,
-
-    -- ** CancelRetrieval
-    cancelRetrieval_gatewayARN,
-    cancelRetrieval_tapeARN,
-    cancelRetrievalResponse_tapeARN,
-    cancelRetrievalResponse_httpStatus,
-
-    -- ** CreateTapePool
-    createTapePool_retentionLockType,
-    createTapePool_tags,
-    createTapePool_retentionLockTimeInDays,
-    createTapePool_poolName,
-    createTapePool_storageClass,
-    createTapePoolResponse_poolARN,
-    createTapePoolResponse_httpStatus,
-
-    -- ** ListTapePools
-    listTapePools_limit,
-    listTapePools_poolARNs,
-    listTapePools_marker,
-    listTapePoolsResponse_poolInfos,
-    listTapePoolsResponse_marker,
-    listTapePoolsResponse_httpStatus,
-
-    -- ** DescribeBandwidthRateLimit
-    describeBandwidthRateLimit_gatewayARN,
-    describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec,
-    describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec,
-    describeBandwidthRateLimitResponse_gatewayARN,
-    describeBandwidthRateLimitResponse_httpStatus,
-
-    -- ** CreateTapeWithBarcode
-    createTapeWithBarcode_poolId,
-    createTapeWithBarcode_kmsEncrypted,
-    createTapeWithBarcode_kmsKey,
-    createTapeWithBarcode_worm,
-    createTapeWithBarcode_tags,
-    createTapeWithBarcode_gatewayARN,
-    createTapeWithBarcode_tapeSizeInBytes,
-    createTapeWithBarcode_tapeBarcode,
-    createTapeWithBarcodeResponse_tapeARN,
-    createTapeWithBarcodeResponse_httpStatus,
-
-    -- ** JoinDomain
-    joinDomain_domainControllers,
-    joinDomain_organizationalUnit,
-    joinDomain_timeoutInSeconds,
-    joinDomain_gatewayARN,
-    joinDomain_domainName,
-    joinDomain_userName,
-    joinDomain_password,
-    joinDomainResponse_activeDirectoryStatus,
-    joinDomainResponse_gatewayARN,
-    joinDomainResponse_httpStatus,
-
-    -- ** ListVolumeInitiators
-    listVolumeInitiators_volumeARN,
-    listVolumeInitiatorsResponse_initiators,
-    listVolumeInitiatorsResponse_httpStatus,
-
-    -- ** ListFileShares
-    listFileShares_gatewayARN,
-    listFileShares_limit,
-    listFileShares_marker,
-    listFileSharesResponse_nextMarker,
-    listFileSharesResponse_fileShareInfoList,
-    listFileSharesResponse_marker,
-    listFileSharesResponse_httpStatus,
+    -- ** SetLocalConsolePassword
+    setLocalConsolePassword_gatewayARN,
+    setLocalConsolePassword_localConsolePassword,
+    setLocalConsolePasswordResponse_gatewayARN,
+    setLocalConsolePasswordResponse_httpStatus,
 
     -- ** CreateTapes
-    createTapes_poolId,
-    createTapes_kmsEncrypted,
     createTapes_kmsKey,
+    createTapes_kmsEncrypted,
+    createTapes_poolId,
     createTapes_worm,
     createTapes_tags,
     createTapes_gatewayARN,
@@ -389,87 +115,287 @@ module Network.AWS.StorageGateway.Lens
     updateVTLDeviceTypeResponse_httpStatus,
 
     -- ** CreateCachediSCSIVolume
-    createCachediSCSIVolume_kmsEncrypted,
     createCachediSCSIVolume_kmsKey,
+    createCachediSCSIVolume_sourceVolumeARN,
+    createCachediSCSIVolume_kmsEncrypted,
     createCachediSCSIVolume_tags,
     createCachediSCSIVolume_snapshotId,
-    createCachediSCSIVolume_sourceVolumeARN,
     createCachediSCSIVolume_gatewayARN,
     createCachediSCSIVolume_volumeSizeInBytes,
     createCachediSCSIVolume_targetName,
     createCachediSCSIVolume_networkInterfaceId,
     createCachediSCSIVolume_clientToken,
-    createCachediSCSIVolumeResponse_volumeARN,
     createCachediSCSIVolumeResponse_targetARN,
+    createCachediSCSIVolumeResponse_volumeARN,
     createCachediSCSIVolumeResponse_httpStatus,
 
-    -- ** SetLocalConsolePassword
-    setLocalConsolePassword_gatewayARN,
-    setLocalConsolePassword_localConsolePassword,
-    setLocalConsolePasswordResponse_gatewayARN,
-    setLocalConsolePasswordResponse_httpStatus,
+    -- ** ListFileShares
+    listFileShares_gatewayARN,
+    listFileShares_marker,
+    listFileShares_limit,
+    listFileSharesResponse_fileShareInfoList,
+    listFileSharesResponse_marker,
+    listFileSharesResponse_nextMarker,
+    listFileSharesResponse_httpStatus,
 
-    -- ** AssociateFileSystem
-    associateFileSystem_endpointNetworkConfiguration,
-    associateFileSystem_auditDestinationARN,
-    associateFileSystem_tags,
-    associateFileSystem_cacheAttributes,
-    associateFileSystem_userName,
-    associateFileSystem_password,
-    associateFileSystem_clientToken,
-    associateFileSystem_gatewayARN,
-    associateFileSystem_locationARN,
-    associateFileSystemResponse_fileSystemAssociationARN,
-    associateFileSystemResponse_httpStatus,
+    -- ** JoinDomain
+    joinDomain_organizationalUnit,
+    joinDomain_timeoutInSeconds,
+    joinDomain_domainControllers,
+    joinDomain_gatewayARN,
+    joinDomain_domainName,
+    joinDomain_userName,
+    joinDomain_password,
+    joinDomainResponse_gatewayARN,
+    joinDomainResponse_activeDirectoryStatus,
+    joinDomainResponse_httpStatus,
 
-    -- ** DescribeChapCredentials
-    describeChapCredentials_targetARN,
-    describeChapCredentialsResponse_chapCredentials,
-    describeChapCredentialsResponse_httpStatus,
+    -- ** DeleteFileShare
+    deleteFileShare_forceDelete,
+    deleteFileShare_fileShareARN,
+    deleteFileShareResponse_fileShareARN,
+    deleteFileShareResponse_httpStatus,
 
-    -- ** UpdateBandwidthRateLimitSchedule
-    updateBandwidthRateLimitSchedule_gatewayARN,
-    updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals,
-    updateBandwidthRateLimitScheduleResponse_gatewayARN,
-    updateBandwidthRateLimitScheduleResponse_httpStatus,
+    -- ** ListVolumeInitiators
+    listVolumeInitiators_volumeARN,
+    listVolumeInitiatorsResponse_initiators,
+    listVolumeInitiatorsResponse_httpStatus,
 
-    -- ** DisableGateway
-    disableGateway_gatewayARN,
-    disableGatewayResponse_gatewayARN,
-    disableGatewayResponse_httpStatus,
+    -- ** AddUploadBuffer
+    addUploadBuffer_gatewayARN,
+    addUploadBuffer_diskIds,
+    addUploadBufferResponse_gatewayARN,
+    addUploadBufferResponse_httpStatus,
 
-    -- ** DescribeSnapshotSchedule
-    describeSnapshotSchedule_volumeARN,
-    describeSnapshotScheduleResponse_recurrenceInHours,
-    describeSnapshotScheduleResponse_volumeARN,
-    describeSnapshotScheduleResponse_startAt,
-    describeSnapshotScheduleResponse_tags,
-    describeSnapshotScheduleResponse_description,
-    describeSnapshotScheduleResponse_timezone,
-    describeSnapshotScheduleResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_marker,
+    listTagsForResource_limit,
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_resourceARN,
+    listTagsForResourceResponse_marker,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** DescribeTapeArchives
-    describeTapeArchives_tapeARNs,
-    describeTapeArchives_limit,
-    describeTapeArchives_marker,
-    describeTapeArchivesResponse_tapeArchives,
-    describeTapeArchivesResponse_marker,
-    describeTapeArchivesResponse_httpStatus,
+    -- ** NotifyWhenUploaded
+    notifyWhenUploaded_fileShareARN,
+    notifyWhenUploadedResponse_fileShareARN,
+    notifyWhenUploadedResponse_notificationId,
+    notifyWhenUploadedResponse_httpStatus,
 
-    -- ** CreateStorediSCSIVolume
-    createStorediSCSIVolume_kmsEncrypted,
-    createStorediSCSIVolume_kmsKey,
-    createStorediSCSIVolume_tags,
-    createStorediSCSIVolume_snapshotId,
-    createStorediSCSIVolume_gatewayARN,
-    createStorediSCSIVolume_diskId,
-    createStorediSCSIVolume_preserveExistingData,
-    createStorediSCSIVolume_targetName,
-    createStorediSCSIVolume_networkInterfaceId,
-    createStorediSCSIVolumeResponse_volumeARN,
-    createStorediSCSIVolumeResponse_targetARN,
-    createStorediSCSIVolumeResponse_volumeSizeInBytes,
-    createStorediSCSIVolumeResponse_httpStatus,
+    -- ** ListTapePools
+    listTapePools_poolARNs,
+    listTapePools_marker,
+    listTapePools_limit,
+    listTapePoolsResponse_poolInfos,
+    listTapePoolsResponse_marker,
+    listTapePoolsResponse_httpStatus,
+
+    -- ** DeleteTapePool
+    deleteTapePool_poolARN,
+    deleteTapePoolResponse_poolARN,
+    deleteTapePoolResponse_httpStatus,
+
+    -- ** UpdateGatewayInformation
+    updateGatewayInformation_gatewayCapacity,
+    updateGatewayInformation_gatewayName,
+    updateGatewayInformation_gatewayTimezone,
+    updateGatewayInformation_cloudWatchLogGroupARN,
+    updateGatewayInformation_gatewayARN,
+    updateGatewayInformationResponse_gatewayARN,
+    updateGatewayInformationResponse_gatewayName,
+    updateGatewayInformationResponse_httpStatus,
+
+    -- ** DescribeMaintenanceStartTime
+    describeMaintenanceStartTime_gatewayARN,
+    describeMaintenanceStartTimeResponse_gatewayARN,
+    describeMaintenanceStartTimeResponse_minuteOfHour,
+    describeMaintenanceStartTimeResponse_dayOfMonth,
+    describeMaintenanceStartTimeResponse_hourOfDay,
+    describeMaintenanceStartTimeResponse_timezone,
+    describeMaintenanceStartTimeResponse_dayOfWeek,
+    describeMaintenanceStartTimeResponse_httpStatus,
+
+    -- ** AssignTapePool
+    assignTapePool_bypassGovernanceRetention,
+    assignTapePool_tapeARN,
+    assignTapePool_poolId,
+    assignTapePoolResponse_tapeARN,
+    assignTapePoolResponse_httpStatus,
+
+    -- ** DescribeWorkingStorage
+    describeWorkingStorage_gatewayARN,
+    describeWorkingStorageResponse_gatewayARN,
+    describeWorkingStorageResponse_diskIds,
+    describeWorkingStorageResponse_workingStorageAllocatedInBytes,
+    describeWorkingStorageResponse_workingStorageUsedInBytes,
+    describeWorkingStorageResponse_httpStatus,
+
+    -- ** DescribeCachediSCSIVolumes
+    describeCachediSCSIVolumes_volumeARNs,
+    describeCachediSCSIVolumesResponse_cachediSCSIVolumes,
+    describeCachediSCSIVolumesResponse_httpStatus,
+
+    -- ** AddCache
+    addCache_gatewayARN,
+    addCache_diskIds,
+    addCacheResponse_gatewayARN,
+    addCacheResponse_httpStatus,
+
+    -- ** CreateTapePool
+    createTapePool_retentionLockType,
+    createTapePool_retentionLockTimeInDays,
+    createTapePool_tags,
+    createTapePool_poolName,
+    createTapePool_storageClass,
+    createTapePoolResponse_poolARN,
+    createTapePoolResponse_httpStatus,
+
+    -- ** StartGateway
+    startGateway_gatewayARN,
+    startGatewayResponse_gatewayARN,
+    startGatewayResponse_httpStatus,
+
+    -- ** ShutdownGateway
+    shutdownGateway_gatewayARN,
+    shutdownGatewayResponse_gatewayARN,
+    shutdownGatewayResponse_httpStatus,
+
+    -- ** ListAutomaticTapeCreationPolicies
+    listAutomaticTapeCreationPolicies_gatewayARN,
+    listAutomaticTapeCreationPoliciesResponse_automaticTapeCreationPolicyInfos,
+    listAutomaticTapeCreationPoliciesResponse_httpStatus,
+
+    -- ** UpdateGatewaySoftwareNow
+    updateGatewaySoftwareNow_gatewayARN,
+    updateGatewaySoftwareNowResponse_gatewayARN,
+    updateGatewaySoftwareNowResponse_httpStatus,
+
+    -- ** RemoveTagsFromResource
+    removeTagsFromResource_resourceARN,
+    removeTagsFromResource_tagKeys,
+    removeTagsFromResourceResponse_resourceARN,
+    removeTagsFromResourceResponse_httpStatus,
+
+    -- ** UpdateFileSystemAssociation
+    updateFileSystemAssociation_auditDestinationARN,
+    updateFileSystemAssociation_cacheAttributes,
+    updateFileSystemAssociation_userName,
+    updateFileSystemAssociation_password,
+    updateFileSystemAssociation_fileSystemAssociationARN,
+    updateFileSystemAssociationResponse_fileSystemAssociationARN,
+    updateFileSystemAssociationResponse_httpStatus,
+
+    -- ** CreateSMBFileShare
+    createSMBFileShare_accessBasedEnumeration,
+    createSMBFileShare_adminUserList,
+    createSMBFileShare_auditDestinationARN,
+    createSMBFileShare_invalidUserList,
+    createSMBFileShare_kmsKey,
+    createSMBFileShare_validUserList,
+    createSMBFileShare_vPCEndpointDNSName,
+    createSMBFileShare_authentication,
+    createSMBFileShare_cacheAttributes,
+    createSMBFileShare_objectACL,
+    createSMBFileShare_kmsEncrypted,
+    createSMBFileShare_defaultStorageClass,
+    createSMBFileShare_fileShareName,
+    createSMBFileShare_sMBACLEnabled,
+    createSMBFileShare_oplocksEnabled,
+    createSMBFileShare_notificationPolicy,
+    createSMBFileShare_requesterPays,
+    createSMBFileShare_guessMIMETypeEnabled,
+    createSMBFileShare_readOnly,
+    createSMBFileShare_bucketRegion,
+    createSMBFileShare_caseSensitivity,
+    createSMBFileShare_tags,
+    createSMBFileShare_clientToken,
+    createSMBFileShare_gatewayARN,
+    createSMBFileShare_role,
+    createSMBFileShare_locationARN,
+    createSMBFileShareResponse_fileShareARN,
+    createSMBFileShareResponse_httpStatus,
+
+    -- ** DeleteChapCredentials
+    deleteChapCredentials_targetARN,
+    deleteChapCredentials_initiatorName,
+    deleteChapCredentialsResponse_targetARN,
+    deleteChapCredentialsResponse_initiatorName,
+    deleteChapCredentialsResponse_httpStatus,
+
+    -- ** UpdateChapCredentials
+    updateChapCredentials_secretToAuthenticateTarget,
+    updateChapCredentials_targetARN,
+    updateChapCredentials_secretToAuthenticateInitiator,
+    updateChapCredentials_initiatorName,
+    updateChapCredentialsResponse_targetARN,
+    updateChapCredentialsResponse_initiatorName,
+    updateChapCredentialsResponse_httpStatus,
+
+    -- ** AttachVolume
+    attachVolume_diskId,
+    attachVolume_targetName,
+    attachVolume_gatewayARN,
+    attachVolume_volumeARN,
+    attachVolume_networkInterfaceId,
+    attachVolumeResponse_targetARN,
+    attachVolumeResponse_volumeARN,
+    attachVolumeResponse_httpStatus,
+
+    -- ** DescribeAvailabilityMonitorTest
+    describeAvailabilityMonitorTest_gatewayARN,
+    describeAvailabilityMonitorTestResponse_status,
+    describeAvailabilityMonitorTestResponse_startTime,
+    describeAvailabilityMonitorTestResponse_gatewayARN,
+    describeAvailabilityMonitorTestResponse_httpStatus,
+
+    -- ** DescribeUploadBuffer
+    describeUploadBuffer_gatewayARN,
+    describeUploadBufferResponse_uploadBufferAllocatedInBytes,
+    describeUploadBufferResponse_gatewayARN,
+    describeUploadBufferResponse_diskIds,
+    describeUploadBufferResponse_uploadBufferUsedInBytes,
+    describeUploadBufferResponse_httpStatus,
+
+    -- ** DescribeTapes
+    describeTapes_marker,
+    describeTapes_limit,
+    describeTapes_tapeARNs,
+    describeTapes_gatewayARN,
+    describeTapesResponse_marker,
+    describeTapesResponse_tapes,
+    describeTapesResponse_httpStatus,
+
+    -- ** DescribeStorediSCSIVolumes
+    describeStorediSCSIVolumes_volumeARNs,
+    describeStorediSCSIVolumesResponse_storediSCSIVolumes,
+    describeStorediSCSIVolumesResponse_httpStatus,
+
+    -- ** DisassociateFileSystem
+    disassociateFileSystem_forceDelete,
+    disassociateFileSystem_fileSystemAssociationARN,
+    disassociateFileSystemResponse_fileSystemAssociationARN,
+    disassociateFileSystemResponse_httpStatus,
+
+    -- ** SetSMBGuestPassword
+    setSMBGuestPassword_gatewayARN,
+    setSMBGuestPassword_password,
+    setSMBGuestPasswordResponse_gatewayARN,
+    setSMBGuestPasswordResponse_httpStatus,
+
+    -- ** CreateSnapshotFromVolumeRecoveryPoint
+    createSnapshotFromVolumeRecoveryPoint_tags,
+    createSnapshotFromVolumeRecoveryPoint_volumeARN,
+    createSnapshotFromVolumeRecoveryPoint_snapshotDescription,
+    createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime,
+    createSnapshotFromVolumeRecoveryPointResponse_volumeARN,
+    createSnapshotFromVolumeRecoveryPointResponse_snapshotId,
+    createSnapshotFromVolumeRecoveryPointResponse_httpStatus,
+
+    -- ** RetrieveTapeRecoveryPoint
+    retrieveTapeRecoveryPoint_tapeARN,
+    retrieveTapeRecoveryPoint_gatewayARN,
+    retrieveTapeRecoveryPointResponse_tapeARN,
+    retrieveTapeRecoveryPointResponse_httpStatus,
 
     -- ** AddTagsToResource
     addTagsToResource_resourceARN,
@@ -482,164 +408,165 @@ module Network.AWS.StorageGateway.Lens
     deleteGatewayResponse_gatewayARN,
     deleteGatewayResponse_httpStatus,
 
-    -- ** CreateSnapshotFromVolumeRecoveryPoint
-    createSnapshotFromVolumeRecoveryPoint_tags,
-    createSnapshotFromVolumeRecoveryPoint_volumeARN,
-    createSnapshotFromVolumeRecoveryPoint_snapshotDescription,
-    createSnapshotFromVolumeRecoveryPointResponse_volumeARN,
-    createSnapshotFromVolumeRecoveryPointResponse_snapshotId,
-    createSnapshotFromVolumeRecoveryPointResponse_volumeRecoveryPointTime,
-    createSnapshotFromVolumeRecoveryPointResponse_httpStatus,
+    -- ** UpdateMaintenanceStartTime
+    updateMaintenanceStartTime_dayOfMonth,
+    updateMaintenanceStartTime_dayOfWeek,
+    updateMaintenanceStartTime_gatewayARN,
+    updateMaintenanceStartTime_hourOfDay,
+    updateMaintenanceStartTime_minuteOfHour,
+    updateMaintenanceStartTimeResponse_gatewayARN,
+    updateMaintenanceStartTimeResponse_httpStatus,
 
-    -- ** DeleteBandwidthRateLimit
-    deleteBandwidthRateLimit_gatewayARN,
-    deleteBandwidthRateLimit_bandwidthType,
-    deleteBandwidthRateLimitResponse_gatewayARN,
-    deleteBandwidthRateLimitResponse_httpStatus,
+    -- ** DescribeGatewayInformation
+    describeGatewayInformation_gatewayARN,
+    describeGatewayInformationResponse_gatewayState,
+    describeGatewayInformationResponse_ec2InstanceRegion,
+    describeGatewayInformationResponse_gatewayARN,
+    describeGatewayInformationResponse_gatewayNetworkInterfaces,
+    describeGatewayInformationResponse_ec2InstanceId,
+    describeGatewayInformationResponse_nextUpdateAvailabilityDate,
+    describeGatewayInformationResponse_endpointType,
+    describeGatewayInformationResponse_deprecationDate,
+    describeGatewayInformationResponse_lastSoftwareUpdate,
+    describeGatewayInformationResponse_gatewayCapacity,
+    describeGatewayInformationResponse_supportedGatewayCapacities,
+    describeGatewayInformationResponse_gatewayName,
+    describeGatewayInformationResponse_gatewayId,
+    describeGatewayInformationResponse_hostEnvironment,
+    describeGatewayInformationResponse_gatewayType,
+    describeGatewayInformationResponse_gatewayTimezone,
+    describeGatewayInformationResponse_softwareUpdatesEndDate,
+    describeGatewayInformationResponse_cloudWatchLogGroupARN,
+    describeGatewayInformationResponse_vPCEndpoint,
+    describeGatewayInformationResponse_tags,
+    describeGatewayInformationResponse_httpStatus,
 
-    -- ** DescribeTapeRecoveryPoints
-    describeTapeRecoveryPoints_limit,
-    describeTapeRecoveryPoints_marker,
-    describeTapeRecoveryPoints_gatewayARN,
-    describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos,
-    describeTapeRecoveryPointsResponse_gatewayARN,
-    describeTapeRecoveryPointsResponse_marker,
-    describeTapeRecoveryPointsResponse_httpStatus,
+    -- ** RefreshCache
+    refreshCache_folderList,
+    refreshCache_recursive,
+    refreshCache_fileShareARN,
+    refreshCacheResponse_fileShareARN,
+    refreshCacheResponse_notificationId,
+    refreshCacheResponse_httpStatus,
 
-    -- ** SetSMBGuestPassword
-    setSMBGuestPassword_gatewayARN,
-    setSMBGuestPassword_password,
-    setSMBGuestPasswordResponse_gatewayARN,
-    setSMBGuestPasswordResponse_httpStatus,
+    -- ** UpdateNFSFileShare
+    updateNFSFileShare_kmsKey,
+    updateNFSFileShare_cacheAttributes,
+    updateNFSFileShare_objectACL,
+    updateNFSFileShare_kmsEncrypted,
+    updateNFSFileShare_defaultStorageClass,
+    updateNFSFileShare_fileShareName,
+    updateNFSFileShare_notificationPolicy,
+    updateNFSFileShare_squash,
+    updateNFSFileShare_requesterPays,
+    updateNFSFileShare_nFSFileShareDefaults,
+    updateNFSFileShare_clientList,
+    updateNFSFileShare_guessMIMETypeEnabled,
+    updateNFSFileShare_readOnly,
+    updateNFSFileShare_fileShareARN,
+    updateNFSFileShareResponse_fileShareARN,
+    updateNFSFileShareResponse_httpStatus,
 
-    -- ** UpdateBandwidthRateLimit
-    updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec,
-    updateBandwidthRateLimit_averageDownloadRateLimitInBitsPerSec,
-    updateBandwidthRateLimit_gatewayARN,
-    updateBandwidthRateLimitResponse_gatewayARN,
-    updateBandwidthRateLimitResponse_httpStatus,
+    -- ** RetrieveTapeArchive
+    retrieveTapeArchive_tapeARN,
+    retrieveTapeArchive_gatewayARN,
+    retrieveTapeArchiveResponse_tapeARN,
+    retrieveTapeArchiveResponse_httpStatus,
 
-    -- ** RetrieveTapeRecoveryPoint
-    retrieveTapeRecoveryPoint_tapeARN,
-    retrieveTapeRecoveryPoint_gatewayARN,
-    retrieveTapeRecoveryPointResponse_tapeARN,
-    retrieveTapeRecoveryPointResponse_httpStatus,
+    -- ** DescribeTapeArchives
+    describeTapeArchives_marker,
+    describeTapeArchives_limit,
+    describeTapeArchives_tapeARNs,
+    describeTapeArchivesResponse_tapeArchives,
+    describeTapeArchivesResponse_marker,
+    describeTapeArchivesResponse_httpStatus,
 
-    -- ** ListGateways
-    listGateways_limit,
-    listGateways_marker,
-    listGatewaysResponse_gateways,
-    listGatewaysResponse_marker,
-    listGatewaysResponse_httpStatus,
+    -- ** UpdateBandwidthRateLimitSchedule
+    updateBandwidthRateLimitSchedule_gatewayARN,
+    updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals,
+    updateBandwidthRateLimitScheduleResponse_gatewayARN,
+    updateBandwidthRateLimitScheduleResponse_httpStatus,
 
-    -- ** ListLocalDisks
-    listLocalDisks_gatewayARN,
-    listLocalDisksResponse_disks,
-    listLocalDisksResponse_gatewayARN,
-    listLocalDisksResponse_httpStatus,
+    -- ** DisableGateway
+    disableGateway_gatewayARN,
+    disableGatewayResponse_gatewayARN,
+    disableGatewayResponse_httpStatus,
 
-    -- ** DeleteVolume
-    deleteVolume_volumeARN,
-    deleteVolumeResponse_volumeARN,
-    deleteVolumeResponse_httpStatus,
+    -- ** DescribeSMBSettings
+    describeSMBSettings_gatewayARN,
+    describeSMBSettingsResponse_gatewayARN,
+    describeSMBSettingsResponse_fileSharesVisible,
+    describeSMBSettingsResponse_activeDirectoryStatus,
+    describeSMBSettingsResponse_domainName,
+    describeSMBSettingsResponse_sMBGuestPasswordSet,
+    describeSMBSettingsResponse_sMBSecurityStrategy,
+    describeSMBSettingsResponse_httpStatus,
 
-    -- ** DeleteTape
-    deleteTape_bypassGovernanceRetention,
-    deleteTape_gatewayARN,
-    deleteTape_tapeARN,
-    deleteTapeResponse_tapeARN,
-    deleteTapeResponse_httpStatus,
+    -- ** DescribeSnapshotSchedule
+    describeSnapshotSchedule_volumeARN,
+    describeSnapshotScheduleResponse_startAt,
+    describeSnapshotScheduleResponse_volumeARN,
+    describeSnapshotScheduleResponse_recurrenceInHours,
+    describeSnapshotScheduleResponse_timezone,
+    describeSnapshotScheduleResponse_description,
+    describeSnapshotScheduleResponse_tags,
+    describeSnapshotScheduleResponse_httpStatus,
 
-    -- ** ResetCache
-    resetCache_gatewayARN,
-    resetCacheResponse_gatewayARN,
-    resetCacheResponse_httpStatus,
+    -- ** CreateTapeWithBarcode
+    createTapeWithBarcode_kmsKey,
+    createTapeWithBarcode_kmsEncrypted,
+    createTapeWithBarcode_poolId,
+    createTapeWithBarcode_worm,
+    createTapeWithBarcode_tags,
+    createTapeWithBarcode_gatewayARN,
+    createTapeWithBarcode_tapeSizeInBytes,
+    createTapeWithBarcode_tapeBarcode,
+    createTapeWithBarcodeResponse_tapeARN,
+    createTapeWithBarcodeResponse_httpStatus,
 
-    -- ** DescribeUploadBuffer
-    describeUploadBuffer_gatewayARN,
-    describeUploadBufferResponse_uploadBufferAllocatedInBytes,
-    describeUploadBufferResponse_uploadBufferUsedInBytes,
-    describeUploadBufferResponse_diskIds,
-    describeUploadBufferResponse_gatewayARN,
-    describeUploadBufferResponse_httpStatus,
+    -- ** DescribeBandwidthRateLimit
+    describeBandwidthRateLimit_gatewayARN,
+    describeBandwidthRateLimitResponse_gatewayARN,
+    describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec,
+    describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec,
+    describeBandwidthRateLimitResponse_httpStatus,
 
-    -- ** DescribeNFSFileShares
-    describeNFSFileShares_fileShareARNList,
-    describeNFSFileSharesResponse_nFSFileShareInfoList,
-    describeNFSFileSharesResponse_httpStatus,
+    -- ** DeleteAutomaticTapeCreationPolicy
+    deleteAutomaticTapeCreationPolicy_gatewayARN,
+    deleteAutomaticTapeCreationPolicyResponse_gatewayARN,
+    deleteAutomaticTapeCreationPolicyResponse_httpStatus,
 
-    -- ** DescribeStorediSCSIVolumes
-    describeStorediSCSIVolumes_volumeARNs,
-    describeStorediSCSIVolumesResponse_storediSCSIVolumes,
-    describeStorediSCSIVolumesResponse_httpStatus,
+    -- ** UpdateAutomaticTapeCreationPolicy
+    updateAutomaticTapeCreationPolicy_automaticTapeCreationRules,
+    updateAutomaticTapeCreationPolicy_gatewayARN,
+    updateAutomaticTapeCreationPolicyResponse_gatewayARN,
+    updateAutomaticTapeCreationPolicyResponse_httpStatus,
 
-    -- ** DeleteChapCredentials
-    deleteChapCredentials_targetARN,
-    deleteChapCredentials_initiatorName,
-    deleteChapCredentialsResponse_initiatorName,
-    deleteChapCredentialsResponse_targetARN,
-    deleteChapCredentialsResponse_httpStatus,
-
-    -- ** ListFileSystemAssociations
-    listFileSystemAssociations_gatewayARN,
-    listFileSystemAssociations_limit,
-    listFileSystemAssociations_marker,
-    listFileSystemAssociationsResponse_fileSystemAssociationSummaryList,
-    listFileSystemAssociationsResponse_nextMarker,
-    listFileSystemAssociationsResponse_marker,
-    listFileSystemAssociationsResponse_httpStatus,
-
-    -- ** UpdateFileSystemAssociation
-    updateFileSystemAssociation_password,
-    updateFileSystemAssociation_auditDestinationARN,
-    updateFileSystemAssociation_userName,
-    updateFileSystemAssociation_cacheAttributes,
-    updateFileSystemAssociation_fileSystemAssociationARN,
-    updateFileSystemAssociationResponse_fileSystemAssociationARN,
-    updateFileSystemAssociationResponse_httpStatus,
-
-    -- ** UpdateChapCredentials
-    updateChapCredentials_secretToAuthenticateTarget,
-    updateChapCredentials_targetARN,
-    updateChapCredentials_secretToAuthenticateInitiator,
-    updateChapCredentials_initiatorName,
-    updateChapCredentialsResponse_initiatorName,
-    updateChapCredentialsResponse_targetARN,
-    updateChapCredentialsResponse_httpStatus,
-
-    -- ** StartAvailabilityMonitorTest
-    startAvailabilityMonitorTest_gatewayARN,
-    startAvailabilityMonitorTestResponse_gatewayARN,
-    startAvailabilityMonitorTestResponse_httpStatus,
-
-    -- ** UpdateSnapshotSchedule
-    updateSnapshotSchedule_tags,
-    updateSnapshotSchedule_description,
-    updateSnapshotSchedule_volumeARN,
-    updateSnapshotSchedule_startAt,
-    updateSnapshotSchedule_recurrenceInHours,
-    updateSnapshotScheduleResponse_volumeARN,
-    updateSnapshotScheduleResponse_httpStatus,
-
-    -- ** DescribeVTLDevices
-    describeVTLDevices_vTLDeviceARNs,
-    describeVTLDevices_limit,
-    describeVTLDevices_marker,
-    describeVTLDevices_gatewayARN,
-    describeVTLDevicesResponse_gatewayARN,
-    describeVTLDevicesResponse_vTLDevices,
-    describeVTLDevicesResponse_marker,
-    describeVTLDevicesResponse_httpStatus,
+    -- ** UpdateSMBFileShareVisibility
+    updateSMBFileShareVisibility_gatewayARN,
+    updateSMBFileShareVisibility_fileSharesVisible,
+    updateSMBFileShareVisibilityResponse_gatewayARN,
+    updateSMBFileShareVisibilityResponse_httpStatus,
 
     -- ** DeleteSnapshotSchedule
     deleteSnapshotSchedule_volumeARN,
     deleteSnapshotScheduleResponse_volumeARN,
     deleteSnapshotScheduleResponse_httpStatus,
 
-    -- ** ListAutomaticTapeCreationPolicies
-    listAutomaticTapeCreationPolicies_gatewayARN,
-    listAutomaticTapeCreationPoliciesResponse_automaticTapeCreationPolicyInfos,
-    listAutomaticTapeCreationPoliciesResponse_httpStatus,
+    -- ** UpdateSnapshotSchedule
+    updateSnapshotSchedule_description,
+    updateSnapshotSchedule_tags,
+    updateSnapshotSchedule_volumeARN,
+    updateSnapshotSchedule_startAt,
+    updateSnapshotSchedule_recurrenceInHours,
+    updateSnapshotScheduleResponse_volumeARN,
+    updateSnapshotScheduleResponse_httpStatus,
+
+    -- ** DescribeBandwidthRateLimitSchedule
+    describeBandwidthRateLimitSchedule_gatewayARN,
+    describeBandwidthRateLimitScheduleResponse_gatewayARN,
+    describeBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals,
+    describeBandwidthRateLimitScheduleResponse_httpStatus,
 
     -- ** CreateSnapshot
     createSnapshot_tags,
@@ -649,117 +576,190 @@ module Network.AWS.StorageGateway.Lens
     createSnapshotResponse_snapshotId,
     createSnapshotResponse_httpStatus,
 
-    -- ** ShutdownGateway
-    shutdownGateway_gatewayARN,
-    shutdownGatewayResponse_gatewayARN,
-    shutdownGatewayResponse_httpStatus,
+    -- ** UpdateSMBSecurityStrategy
+    updateSMBSecurityStrategy_gatewayARN,
+    updateSMBSecurityStrategy_sMBSecurityStrategy,
+    updateSMBSecurityStrategyResponse_gatewayARN,
+    updateSMBSecurityStrategyResponse_httpStatus,
 
-    -- ** UpdateSMBFileShareVisibility
-    updateSMBFileShareVisibility_gatewayARN,
-    updateSMBFileShareVisibility_fileSharesVisible,
-    updateSMBFileShareVisibilityResponse_gatewayARN,
-    updateSMBFileShareVisibilityResponse_httpStatus,
+    -- ** CancelRetrieval
+    cancelRetrieval_gatewayARN,
+    cancelRetrieval_tapeARN,
+    cancelRetrievalResponse_tapeARN,
+    cancelRetrievalResponse_httpStatus,
 
-    -- ** DescribeBandwidthRateLimitSchedule
-    describeBandwidthRateLimitSchedule_gatewayARN,
-    describeBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals,
-    describeBandwidthRateLimitScheduleResponse_gatewayARN,
-    describeBandwidthRateLimitScheduleResponse_httpStatus,
+    -- ** DescribeVTLDevices
+    describeVTLDevices_marker,
+    describeVTLDevices_limit,
+    describeVTLDevices_vTLDeviceARNs,
+    describeVTLDevices_gatewayARN,
+    describeVTLDevicesResponse_vTLDevices,
+    describeVTLDevicesResponse_gatewayARN,
+    describeVTLDevicesResponse_marker,
+    describeVTLDevicesResponse_httpStatus,
 
-    -- ** AssignTapePool
-    assignTapePool_bypassGovernanceRetention,
-    assignTapePool_tapeARN,
-    assignTapePool_poolId,
-    assignTapePoolResponse_tapeARN,
-    assignTapePoolResponse_httpStatus,
+    -- ** StartAvailabilityMonitorTest
+    startAvailabilityMonitorTest_gatewayARN,
+    startAvailabilityMonitorTestResponse_gatewayARN,
+    startAvailabilityMonitorTestResponse_httpStatus,
 
-    -- ** DescribeCachediSCSIVolumes
-    describeCachediSCSIVolumes_volumeARNs,
-    describeCachediSCSIVolumesResponse_cachediSCSIVolumes,
-    describeCachediSCSIVolumesResponse_httpStatus,
+    -- ** DeleteTapeArchive
+    deleteTapeArchive_bypassGovernanceRetention,
+    deleteTapeArchive_tapeARN,
+    deleteTapeArchiveResponse_tapeARN,
+    deleteTapeArchiveResponse_httpStatus,
 
-    -- ** NotifyWhenUploaded
-    notifyWhenUploaded_fileShareARN,
-    notifyWhenUploadedResponse_fileShareARN,
-    notifyWhenUploadedResponse_notificationId,
-    notifyWhenUploadedResponse_httpStatus,
+    -- ** ListFileSystemAssociations
+    listFileSystemAssociations_gatewayARN,
+    listFileSystemAssociations_marker,
+    listFileSystemAssociations_limit,
+    listFileSystemAssociationsResponse_fileSystemAssociationSummaryList,
+    listFileSystemAssociationsResponse_marker,
+    listFileSystemAssociationsResponse_nextMarker,
+    listFileSystemAssociationsResponse_httpStatus,
 
-    -- ** DescribeMaintenanceStartTime
-    describeMaintenanceStartTime_gatewayARN,
-    describeMaintenanceStartTimeResponse_dayOfWeek,
-    describeMaintenanceStartTimeResponse_dayOfMonth,
-    describeMaintenanceStartTimeResponse_minuteOfHour,
-    describeMaintenanceStartTimeResponse_timezone,
-    describeMaintenanceStartTimeResponse_gatewayARN,
-    describeMaintenanceStartTimeResponse_hourOfDay,
-    describeMaintenanceStartTimeResponse_httpStatus,
+    -- ** UpdateSMBFileShare
+    updateSMBFileShare_accessBasedEnumeration,
+    updateSMBFileShare_adminUserList,
+    updateSMBFileShare_auditDestinationARN,
+    updateSMBFileShare_invalidUserList,
+    updateSMBFileShare_kmsKey,
+    updateSMBFileShare_validUserList,
+    updateSMBFileShare_cacheAttributes,
+    updateSMBFileShare_objectACL,
+    updateSMBFileShare_kmsEncrypted,
+    updateSMBFileShare_defaultStorageClass,
+    updateSMBFileShare_fileShareName,
+    updateSMBFileShare_sMBACLEnabled,
+    updateSMBFileShare_oplocksEnabled,
+    updateSMBFileShare_notificationPolicy,
+    updateSMBFileShare_requesterPays,
+    updateSMBFileShare_guessMIMETypeEnabled,
+    updateSMBFileShare_readOnly,
+    updateSMBFileShare_caseSensitivity,
+    updateSMBFileShare_fileShareARN,
+    updateSMBFileShareResponse_fileShareARN,
+    updateSMBFileShareResponse_httpStatus,
 
-    -- ** UpdateGatewayInformation
-    updateGatewayInformation_gatewayName,
-    updateGatewayInformation_gatewayCapacity,
-    updateGatewayInformation_gatewayTimezone,
-    updateGatewayInformation_cloudWatchLogGroupARN,
-    updateGatewayInformation_gatewayARN,
-    updateGatewayInformationResponse_gatewayName,
-    updateGatewayInformationResponse_gatewayARN,
-    updateGatewayInformationResponse_httpStatus,
+    -- ** DescribeNFSFileShares
+    describeNFSFileShares_fileShareARNList,
+    describeNFSFileSharesResponse_nFSFileShareInfoList,
+    describeNFSFileSharesResponse_httpStatus,
 
-    -- ** DeleteAutomaticTapeCreationPolicy
-    deleteAutomaticTapeCreationPolicy_gatewayARN,
-    deleteAutomaticTapeCreationPolicyResponse_gatewayARN,
-    deleteAutomaticTapeCreationPolicyResponse_httpStatus,
+    -- ** ListVolumeRecoveryPoints
+    listVolumeRecoveryPoints_gatewayARN,
+    listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos,
+    listVolumeRecoveryPointsResponse_gatewayARN,
+    listVolumeRecoveryPointsResponse_httpStatus,
 
-    -- ** DescribeWorkingStorage
-    describeWorkingStorage_gatewayARN,
-    describeWorkingStorageResponse_workingStorageUsedInBytes,
-    describeWorkingStorageResponse_workingStorageAllocatedInBytes,
-    describeWorkingStorageResponse_diskIds,
-    describeWorkingStorageResponse_gatewayARN,
-    describeWorkingStorageResponse_httpStatus,
+    -- ** ListTapes
+    listTapes_marker,
+    listTapes_limit,
+    listTapes_tapeARNs,
+    listTapesResponse_marker,
+    listTapesResponse_tapeInfos,
+    listTapesResponse_httpStatus,
 
-    -- ** DeleteTapePool
-    deleteTapePool_poolARN,
-    deleteTapePoolResponse_poolARN,
-    deleteTapePoolResponse_httpStatus,
+    -- ** ResetCache
+    resetCache_gatewayARN,
+    resetCacheResponse_gatewayARN,
+    resetCacheResponse_httpStatus,
 
-    -- ** UpdateAutomaticTapeCreationPolicy
-    updateAutomaticTapeCreationPolicy_automaticTapeCreationRules,
-    updateAutomaticTapeCreationPolicy_gatewayARN,
-    updateAutomaticTapeCreationPolicyResponse_gatewayARN,
-    updateAutomaticTapeCreationPolicyResponse_httpStatus,
+    -- ** DescribeSMBFileShares
+    describeSMBFileShares_fileShareARNList,
+    describeSMBFileSharesResponse_sMBFileShareInfoList,
+    describeSMBFileSharesResponse_httpStatus,
 
-    -- ** AddCache
-    addCache_gatewayARN,
-    addCache_diskIds,
-    addCacheResponse_gatewayARN,
-    addCacheResponse_httpStatus,
+    -- ** ListGateways
+    listGateways_marker,
+    listGateways_limit,
+    listGatewaysResponse_marker,
+    listGatewaysResponse_gateways,
+    listGatewaysResponse_httpStatus,
 
-    -- ** AddUploadBuffer
-    addUploadBuffer_gatewayARN,
-    addUploadBuffer_diskIds,
-    addUploadBufferResponse_gatewayARN,
-    addUploadBufferResponse_httpStatus,
+    -- ** DeleteTape
+    deleteTape_bypassGovernanceRetention,
+    deleteTape_gatewayARN,
+    deleteTape_tapeARN,
+    deleteTapeResponse_tapeARN,
+    deleteTapeResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_limit,
-    listTagsForResource_marker,
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_marker,
-    listTagsForResourceResponse_httpStatus,
+    -- ** ListLocalDisks
+    listLocalDisks_gatewayARN,
+    listLocalDisksResponse_gatewayARN,
+    listLocalDisksResponse_disks,
+    listLocalDisksResponse_httpStatus,
 
-    -- ** DeleteFileShare
-    deleteFileShare_forceDelete,
-    deleteFileShare_fileShareARN,
-    deleteFileShareResponse_fileShareARN,
-    deleteFileShareResponse_httpStatus,
+    -- ** ListVolumes
+    listVolumes_gatewayARN,
+    listVolumes_marker,
+    listVolumes_limit,
+    listVolumesResponse_gatewayARN,
+    listVolumesResponse_marker,
+    listVolumesResponse_volumeInfos,
+    listVolumesResponse_httpStatus,
+
+    -- ** UpdateBandwidthRateLimit
+    updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec,
+    updateBandwidthRateLimit_averageDownloadRateLimitInBitsPerSec,
+    updateBandwidthRateLimit_gatewayARN,
+    updateBandwidthRateLimitResponse_gatewayARN,
+    updateBandwidthRateLimitResponse_httpStatus,
+
+    -- ** AddWorkingStorage
+    addWorkingStorage_gatewayARN,
+    addWorkingStorage_diskIds,
+    addWorkingStorageResponse_gatewayARN,
+    addWorkingStorageResponse_httpStatus,
+
+    -- ** DescribeTapeRecoveryPoints
+    describeTapeRecoveryPoints_marker,
+    describeTapeRecoveryPoints_limit,
+    describeTapeRecoveryPoints_gatewayARN,
+    describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos,
+    describeTapeRecoveryPointsResponse_gatewayARN,
+    describeTapeRecoveryPointsResponse_marker,
+    describeTapeRecoveryPointsResponse_httpStatus,
+
+    -- ** DeleteBandwidthRateLimit
+    deleteBandwidthRateLimit_gatewayARN,
+    deleteBandwidthRateLimit_bandwidthType,
+    deleteBandwidthRateLimitResponse_gatewayARN,
+    deleteBandwidthRateLimitResponse_httpStatus,
+
+    -- ** ActivateGateway
+    activateGateway_mediumChangerType,
+    activateGateway_tapeDriveType,
+    activateGateway_gatewayType,
+    activateGateway_tags,
+    activateGateway_activationKey,
+    activateGateway_gatewayName,
+    activateGateway_gatewayTimezone,
+    activateGateway_gatewayRegion,
+    activateGatewayResponse_gatewayARN,
+    activateGatewayResponse_httpStatus,
+
+    -- ** DescribeCache
+    describeCache_gatewayARN,
+    describeCacheResponse_gatewayARN,
+    describeCacheResponse_diskIds,
+    describeCacheResponse_cacheUsedPercentage,
+    describeCacheResponse_cacheHitPercentage,
+    describeCacheResponse_cacheMissPercentage,
+    describeCacheResponse_cacheAllocatedInBytes,
+    describeCacheResponse_cacheDirtyPercentage,
+    describeCacheResponse_httpStatus,
+
+    -- ** DeleteVolume
+    deleteVolume_volumeARN,
+    deleteVolumeResponse_volumeARN,
+    deleteVolumeResponse_httpStatus,
 
     -- * Types
 
     -- ** AutomaticTapeCreationPolicyInfo
-    automaticTapeCreationPolicyInfo_automaticTapeCreationRules,
     automaticTapeCreationPolicyInfo_gatewayARN,
+    automaticTapeCreationPolicyInfo_automaticTapeCreationRules,
 
     -- ** AutomaticTapeCreationRule
     automaticTapeCreationRule_worm,
@@ -781,245 +781,245 @@ module Network.AWS.StorageGateway.Lens
     cacheAttributes_cacheStaleTimeoutInSeconds,
 
     -- ** CachediSCSIVolume
-    cachediSCSIVolume_createdDate,
-    cachediSCSIVolume_sourceSnapshotId,
-    cachediSCSIVolume_volumeStatus,
-    cachediSCSIVolume_targetName,
-    cachediSCSIVolume_volumeARN,
-    cachediSCSIVolume_volumeId,
-    cachediSCSIVolume_kmsKey,
     cachediSCSIVolume_volumeiSCSIAttributes,
-    cachediSCSIVolume_volumeUsedInBytes,
-    cachediSCSIVolume_volumeSizeInBytes,
-    cachediSCSIVolume_volumeType,
-    cachediSCSIVolume_volumeProgress,
+    cachediSCSIVolume_volumeStatus,
+    cachediSCSIVolume_sourceSnapshotId,
+    cachediSCSIVolume_kmsKey,
     cachediSCSIVolume_volumeAttachmentStatus,
+    cachediSCSIVolume_volumeARN,
+    cachediSCSIVolume_volumeProgress,
+    cachediSCSIVolume_volumeSizeInBytes,
+    cachediSCSIVolume_volumeUsedInBytes,
+    cachediSCSIVolume_createdDate,
+    cachediSCSIVolume_volumeId,
+    cachediSCSIVolume_volumeType,
+    cachediSCSIVolume_targetName,
 
     -- ** ChapInfo
-    chapInfo_initiatorName,
     chapInfo_targetARN,
-    chapInfo_secretToAuthenticateTarget,
     chapInfo_secretToAuthenticateInitiator,
+    chapInfo_initiatorName,
+    chapInfo_secretToAuthenticateTarget,
 
     -- ** DeviceiSCSIAttributes
-    deviceiSCSIAttributes_chapEnabled,
     deviceiSCSIAttributes_targetARN,
+    deviceiSCSIAttributes_chapEnabled,
     deviceiSCSIAttributes_networkInterfaceId,
     deviceiSCSIAttributes_networkInterfacePort,
 
     -- ** Disk
     disk_diskAllocationResource,
-    disk_diskStatus,
-    disk_diskSizeInBytes,
-    disk_diskAttributeList,
-    disk_diskPath,
-    disk_diskId,
-    disk_diskNode,
     disk_diskAllocationType,
+    disk_diskNode,
+    disk_diskPath,
+    disk_diskSizeInBytes,
+    disk_diskStatus,
+    disk_diskId,
+    disk_diskAttributeList,
 
     -- ** EndpointNetworkConfiguration
     endpointNetworkConfiguration_ipAddresses,
 
     -- ** FileShareInfo
-    fileShareInfo_fileShareId,
-    fileShareInfo_fileShareType,
     fileShareInfo_fileShareStatus,
-    fileShareInfo_fileShareARN,
     fileShareInfo_gatewayARN,
+    fileShareInfo_fileShareId,
+    fileShareInfo_fileShareARN,
+    fileShareInfo_fileShareType,
 
     -- ** FileSystemAssociationInfo
-    fileSystemAssociationInfo_fileSystemAssociationARN,
-    fileSystemAssociationInfo_locationARN,
-    fileSystemAssociationInfo_endpointNetworkConfiguration,
     fileSystemAssociationInfo_auditDestinationARN,
-    fileSystemAssociationInfo_tags,
-    fileSystemAssociationInfo_fileSystemAssociationStatus,
-    fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_fileSystemAssociationARN,
     fileSystemAssociationInfo_gatewayARN,
+    fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_endpointNetworkConfiguration,
+    fileSystemAssociationInfo_locationARN,
+    fileSystemAssociationInfo_fileSystemAssociationStatus,
+    fileSystemAssociationInfo_tags,
 
     -- ** FileSystemAssociationSummary
     fileSystemAssociationSummary_fileSystemAssociationARN,
+    fileSystemAssociationSummary_gatewayARN,
     fileSystemAssociationSummary_fileSystemAssociationId,
     fileSystemAssociationSummary_fileSystemAssociationStatus,
-    fileSystemAssociationSummary_gatewayARN,
 
     -- ** GatewayInfo
-    gatewayInfo_gatewayName,
-    gatewayInfo_gatewayOperationalState,
-    gatewayInfo_gatewayType,
     gatewayInfo_ec2InstanceRegion,
-    gatewayInfo_ec2InstanceId,
     gatewayInfo_gatewayARN,
+    gatewayInfo_ec2InstanceId,
+    gatewayInfo_gatewayOperationalState,
+    gatewayInfo_gatewayName,
     gatewayInfo_gatewayId,
+    gatewayInfo_gatewayType,
 
     -- ** NFSFileShareDefaults
-    nFSFileShareDefaults_ownerId,
-    nFSFileShareDefaults_groupId,
-    nFSFileShareDefaults_directoryMode,
     nFSFileShareDefaults_fileMode,
+    nFSFileShareDefaults_ownerId,
+    nFSFileShareDefaults_directoryMode,
+    nFSFileShareDefaults_groupId,
 
     -- ** NFSFileShareInfo
+    nFSFileShareInfo_fileShareStatus,
+    nFSFileShareInfo_kmsKey,
+    nFSFileShareInfo_gatewayARN,
+    nFSFileShareInfo_path,
+    nFSFileShareInfo_vPCEndpointDNSName,
+    nFSFileShareInfo_cacheAttributes,
+    nFSFileShareInfo_objectACL,
+    nFSFileShareInfo_kmsEncrypted,
+    nFSFileShareInfo_fileShareId,
+    nFSFileShareInfo_fileShareARN,
     nFSFileShareInfo_defaultStorageClass,
     nFSFileShareInfo_fileShareName,
+    nFSFileShareInfo_role,
+    nFSFileShareInfo_notificationPolicy,
+    nFSFileShareInfo_squash,
+    nFSFileShareInfo_requesterPays,
+    nFSFileShareInfo_nFSFileShareDefaults,
+    nFSFileShareInfo_locationARN,
+    nFSFileShareInfo_clientList,
+    nFSFileShareInfo_guessMIMETypeEnabled,
     nFSFileShareInfo_readOnly,
     nFSFileShareInfo_bucketRegion,
-    nFSFileShareInfo_guessMIMETypeEnabled,
-    nFSFileShareInfo_fileShareId,
-    nFSFileShareInfo_kmsEncrypted,
-    nFSFileShareInfo_locationARN,
-    nFSFileShareInfo_vPCEndpointDNSName,
-    nFSFileShareInfo_squash,
-    nFSFileShareInfo_notificationPolicy,
-    nFSFileShareInfo_kmsKey,
-    nFSFileShareInfo_fileShareStatus,
-    nFSFileShareInfo_role,
     nFSFileShareInfo_tags,
-    nFSFileShareInfo_fileShareARN,
-    nFSFileShareInfo_clientList,
-    nFSFileShareInfo_objectACL,
-    nFSFileShareInfo_cacheAttributes,
-    nFSFileShareInfo_nFSFileShareDefaults,
-    nFSFileShareInfo_gatewayARN,
-    nFSFileShareInfo_requesterPays,
-    nFSFileShareInfo_path,
 
     -- ** NetworkInterface
-    networkInterface_macAddress,
     networkInterface_ipv6Address,
+    networkInterface_macAddress,
     networkInterface_ipv4Address,
 
     -- ** PoolInfo
-    poolInfo_poolARN,
+    poolInfo_retentionLockType,
+    poolInfo_retentionLockTimeInDays,
     poolInfo_poolName,
     poolInfo_storageClass,
-    poolInfo_retentionLockType,
     poolInfo_poolStatus,
-    poolInfo_retentionLockTimeInDays,
+    poolInfo_poolARN,
 
     -- ** SMBFileShareInfo
-    sMBFileShareInfo_sMBACLEnabled,
-    sMBFileShareInfo_defaultStorageClass,
     sMBFileShareInfo_accessBasedEnumeration,
-    sMBFileShareInfo_fileShareName,
-    sMBFileShareInfo_caseSensitivity,
-    sMBFileShareInfo_readOnly,
-    sMBFileShareInfo_bucketRegion,
-    sMBFileShareInfo_guessMIMETypeEnabled,
-    sMBFileShareInfo_fileShareId,
-    sMBFileShareInfo_kmsEncrypted,
-    sMBFileShareInfo_locationARN,
+    sMBFileShareInfo_adminUserList,
+    sMBFileShareInfo_auditDestinationARN,
+    sMBFileShareInfo_fileShareStatus,
+    sMBFileShareInfo_invalidUserList,
+    sMBFileShareInfo_kmsKey,
+    sMBFileShareInfo_validUserList,
+    sMBFileShareInfo_gatewayARN,
+    sMBFileShareInfo_path,
     sMBFileShareInfo_vPCEndpointDNSName,
     sMBFileShareInfo_authentication,
-    sMBFileShareInfo_validUserList,
-    sMBFileShareInfo_notificationPolicy,
-    sMBFileShareInfo_kmsKey,
-    sMBFileShareInfo_fileShareStatus,
-    sMBFileShareInfo_auditDestinationARN,
-    sMBFileShareInfo_adminUserList,
-    sMBFileShareInfo_role,
-    sMBFileShareInfo_tags,
-    sMBFileShareInfo_fileShareARN,
-    sMBFileShareInfo_objectACL,
     sMBFileShareInfo_cacheAttributes,
-    sMBFileShareInfo_gatewayARN,
-    sMBFileShareInfo_requesterPays,
-    sMBFileShareInfo_path,
+    sMBFileShareInfo_objectACL,
+    sMBFileShareInfo_kmsEncrypted,
+    sMBFileShareInfo_fileShareId,
+    sMBFileShareInfo_fileShareARN,
+    sMBFileShareInfo_defaultStorageClass,
+    sMBFileShareInfo_fileShareName,
+    sMBFileShareInfo_role,
+    sMBFileShareInfo_sMBACLEnabled,
     sMBFileShareInfo_oplocksEnabled,
-    sMBFileShareInfo_invalidUserList,
+    sMBFileShareInfo_notificationPolicy,
+    sMBFileShareInfo_requesterPays,
+    sMBFileShareInfo_locationARN,
+    sMBFileShareInfo_guessMIMETypeEnabled,
+    sMBFileShareInfo_readOnly,
+    sMBFileShareInfo_bucketRegion,
+    sMBFileShareInfo_caseSensitivity,
+    sMBFileShareInfo_tags,
 
     -- ** StorediSCSIVolume
-    storediSCSIVolume_createdDate,
-    storediSCSIVolume_sourceSnapshotId,
-    storediSCSIVolume_volumeStatus,
-    storediSCSIVolume_targetName,
-    storediSCSIVolume_volumeARN,
-    storediSCSIVolume_volumeId,
-    storediSCSIVolume_kmsKey,
-    storediSCSIVolume_preservedExistingData,
     storediSCSIVolume_volumeiSCSIAttributes,
-    storediSCSIVolume_volumeUsedInBytes,
+    storediSCSIVolume_volumeStatus,
+    storediSCSIVolume_sourceSnapshotId,
+    storediSCSIVolume_preservedExistingData,
+    storediSCSIVolume_kmsKey,
+    storediSCSIVolume_volumeAttachmentStatus,
+    storediSCSIVolume_volumeARN,
+    storediSCSIVolume_volumeProgress,
     storediSCSIVolume_volumeSizeInBytes,
+    storediSCSIVolume_volumeUsedInBytes,
+    storediSCSIVolume_createdDate,
+    storediSCSIVolume_volumeId,
     storediSCSIVolume_volumeDiskId,
     storediSCSIVolume_volumeType,
-    storediSCSIVolume_volumeProgress,
-    storediSCSIVolume_volumeAttachmentStatus,
+    storediSCSIVolume_targetName,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** Tape
-    tape_poolEntryDate,
-    tape_tapeCreatedDate,
-    tape_tapeStatus,
-    tape_poolId,
-    tape_vTLDevice,
-    tape_tapeARN,
-    tape_kmsKey,
-    tape_worm,
     tape_tapeBarcode,
-    tape_tapeUsedInBytes,
-    tape_tapeSizeInBytes,
-    tape_retentionStartDate,
+    tape_tapeStatus,
+    tape_kmsKey,
+    tape_tapeARN,
     tape_progress,
+    tape_tapeSizeInBytes,
+    tape_vTLDevice,
+    tape_poolId,
+    tape_tapeUsedInBytes,
+    tape_tapeCreatedDate,
+    tape_poolEntryDate,
+    tape_worm,
+    tape_retentionStartDate,
 
     -- ** TapeArchive
-    tapeArchive_poolEntryDate,
-    tapeArchive_tapeCreatedDate,
-    tapeArchive_tapeStatus,
-    tapeArchive_poolId,
-    tapeArchive_completionTime,
-    tapeArchive_retrievedTo,
-    tapeArchive_tapeARN,
-    tapeArchive_kmsKey,
-    tapeArchive_worm,
     tapeArchive_tapeBarcode,
-    tapeArchive_tapeUsedInBytes,
+    tapeArchive_tapeStatus,
+    tapeArchive_kmsKey,
+    tapeArchive_tapeARN,
     tapeArchive_tapeSizeInBytes,
+    tapeArchive_completionTime,
+    tapeArchive_poolId,
+    tapeArchive_tapeUsedInBytes,
+    tapeArchive_tapeCreatedDate,
+    tapeArchive_poolEntryDate,
+    tapeArchive_worm,
     tapeArchive_retentionStartDate,
+    tapeArchive_retrievedTo,
 
     -- ** TapeInfo
-    tapeInfo_poolEntryDate,
-    tapeInfo_tapeStatus,
-    tapeInfo_poolId,
-    tapeInfo_tapeARN,
     tapeInfo_tapeBarcode,
-    tapeInfo_tapeSizeInBytes,
-    tapeInfo_retentionStartDate,
+    tapeInfo_tapeStatus,
+    tapeInfo_tapeARN,
     tapeInfo_gatewayARN,
+    tapeInfo_tapeSizeInBytes,
+    tapeInfo_poolId,
+    tapeInfo_poolEntryDate,
+    tapeInfo_retentionStartDate,
 
     -- ** TapeRecoveryPointInfo
     tapeRecoveryPointInfo_tapeStatus,
+    tapeRecoveryPointInfo_tapeRecoveryPointTime,
     tapeRecoveryPointInfo_tapeARN,
     tapeRecoveryPointInfo_tapeSizeInBytes,
-    tapeRecoveryPointInfo_tapeRecoveryPointTime,
 
     -- ** VTLDevice
-    vTLDevice_vTLDeviceProductIdentifier,
-    vTLDevice_vTLDeviceVendor,
     vTLDevice_deviceiSCSIAttributes,
-    vTLDevice_vTLDeviceType,
+    vTLDevice_vTLDeviceVendor,
     vTLDevice_vTLDeviceARN,
+    vTLDevice_vTLDeviceType,
+    vTLDevice_vTLDeviceProductIdentifier,
 
     -- ** VolumeInfo
-    volumeInfo_volumeARN,
-    volumeInfo_volumeId,
-    volumeInfo_volumeSizeInBytes,
-    volumeInfo_volumeType,
     volumeInfo_gatewayARN,
-    volumeInfo_gatewayId,
     volumeInfo_volumeAttachmentStatus,
+    volumeInfo_volumeARN,
+    volumeInfo_volumeSizeInBytes,
+    volumeInfo_volumeId,
+    volumeInfo_gatewayId,
+    volumeInfo_volumeType,
 
     -- ** VolumeRecoveryPointInfo
-    volumeRecoveryPointInfo_volumeARN,
-    volumeRecoveryPointInfo_volumeUsageInBytes,
-    volumeRecoveryPointInfo_volumeSizeInBytes,
     volumeRecoveryPointInfo_volumeRecoveryPointTime,
+    volumeRecoveryPointInfo_volumeARN,
+    volumeRecoveryPointInfo_volumeSizeInBytes,
+    volumeRecoveryPointInfo_volumeUsageInBytes,
 
     -- ** VolumeiSCSIAttributes
-    volumeiSCSIAttributes_chapEnabled,
-    volumeiSCSIAttributes_targetARN,
     volumeiSCSIAttributes_lunNumber,
+    volumeiSCSIAttributes_targetARN,
+    volumeiSCSIAttributes_chapEnabled,
     volumeiSCSIAttributes_networkInterfaceId,
     volumeiSCSIAttributes_networkInterfacePort,
   )

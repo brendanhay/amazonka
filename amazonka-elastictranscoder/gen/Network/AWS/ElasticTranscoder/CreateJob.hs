@@ -34,13 +34,13 @@ module Network.AWS.ElasticTranscoder.CreateJob
     newCreateJob,
 
     -- * Request Lenses
-    createJob_outputs,
-    createJob_input,
-    createJob_outputKeyPrefix,
-    createJob_output,
-    createJob_userMetadata,
-    createJob_playlists,
     createJob_inputs,
+    createJob_input,
+    createJob_userMetadata,
+    createJob_outputs,
+    createJob_output,
+    createJob_playlists,
+    createJob_outputKeyPrefix,
     createJob_pipelineId,
 
     -- * Destructuring the Response
@@ -64,36 +64,36 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | A section of the request body that provides information about the
-    -- transcoded (target) files. We recommend that you use the @Outputs@
-    -- syntax instead of the @Output@ syntax.
-    outputs :: Prelude.Maybe [CreateJobOutput],
+  { -- | A section of the request body that provides information about the files
+    -- that are being transcoded.
+    inputs :: Prelude.Maybe [JobInput],
     -- | A section of the request body that provides information about the file
     -- that is being transcoded.
     input :: Prelude.Maybe JobInput,
-    -- | The value, if any, that you want Elastic Transcoder to prepend to the
-    -- names of all files that this job creates, including output files,
-    -- thumbnails, and playlists.
-    outputKeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | A section of the request body that provides information about the
-    -- transcoded (target) file. We strongly recommend that you use the
-    -- @Outputs@ syntax instead of the @Output@ syntax.
-    output :: Prelude.Maybe CreateJobOutput,
     -- | User-defined metadata that you want to associate with an Elastic
     -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
     -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
     -- guarantee that @key\/value@ pairs are returned in the same order in
     -- which you specify them.
     userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A section of the request body that provides information about the
+    -- transcoded (target) files. We recommend that you use the @Outputs@
+    -- syntax instead of the @Output@ syntax.
+    outputs :: Prelude.Maybe [CreateJobOutput],
+    -- | A section of the request body that provides information about the
+    -- transcoded (target) file. We strongly recommend that you use the
+    -- @Outputs@ syntax instead of the @Output@ syntax.
+    output :: Prelude.Maybe CreateJobOutput,
     -- | If you specify a preset in @PresetId@ for which the value of @Container@
     -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
     -- about the master playlists that you want Elastic Transcoder to create.
     --
     -- The maximum number of master playlists in a job is 30.
     playlists :: Prelude.Maybe [CreateJobPlaylist],
-    -- | A section of the request body that provides information about the files
-    -- that are being transcoded.
-    inputs :: Prelude.Maybe [JobInput],
+    -- | The value, if any, that you want Elastic Transcoder to prepend to the
+    -- names of all files that this job creates, including output files,
+    -- thumbnails, and playlists.
+    outputKeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
     -- transcoding. The pipeline determines several settings, including the
     -- Amazon S3 bucket from which Elastic Transcoder gets the files to
@@ -111,20 +111,11 @@ data CreateJob = CreateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputs', 'createJob_outputs' - A section of the request body that provides information about the
--- transcoded (target) files. We recommend that you use the @Outputs@
--- syntax instead of the @Output@ syntax.
+-- 'inputs', 'createJob_inputs' - A section of the request body that provides information about the files
+-- that are being transcoded.
 --
 -- 'input', 'createJob_input' - A section of the request body that provides information about the file
 -- that is being transcoded.
---
--- 'outputKeyPrefix', 'createJob_outputKeyPrefix' - The value, if any, that you want Elastic Transcoder to prepend to the
--- names of all files that this job creates, including output files,
--- thumbnails, and playlists.
---
--- 'output', 'createJob_output' - A section of the request body that provides information about the
--- transcoded (target) file. We strongly recommend that you use the
--- @Outputs@ syntax instead of the @Output@ syntax.
 --
 -- 'userMetadata', 'createJob_userMetadata' - User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
@@ -132,14 +123,23 @@ data CreateJob = CreateJob'
 -- guarantee that @key\/value@ pairs are returned in the same order in
 -- which you specify them.
 --
+-- 'outputs', 'createJob_outputs' - A section of the request body that provides information about the
+-- transcoded (target) files. We recommend that you use the @Outputs@
+-- syntax instead of the @Output@ syntax.
+--
+-- 'output', 'createJob_output' - A section of the request body that provides information about the
+-- transcoded (target) file. We strongly recommend that you use the
+-- @Outputs@ syntax instead of the @Output@ syntax.
+--
 -- 'playlists', 'createJob_playlists' - If you specify a preset in @PresetId@ for which the value of @Container@
 -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
 -- about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
 --
--- 'inputs', 'createJob_inputs' - A section of the request body that provides information about the files
--- that are being transcoded.
+-- 'outputKeyPrefix', 'createJob_outputKeyPrefix' - The value, if any, that you want Elastic Transcoder to prepend to the
+-- names of all files that this job creates, including output files,
+-- thumbnails, and playlists.
 --
 -- 'pipelineId', 'createJob_pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -152,38 +152,25 @@ newCreateJob ::
   CreateJob
 newCreateJob pPipelineId_ =
   CreateJob'
-    { outputs = Prelude.Nothing,
+    { inputs = Prelude.Nothing,
       input = Prelude.Nothing,
-      outputKeyPrefix = Prelude.Nothing,
-      output = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      output = Prelude.Nothing,
       playlists = Prelude.Nothing,
-      inputs = Prelude.Nothing,
+      outputKeyPrefix = Prelude.Nothing,
       pipelineId = pPipelineId_
     }
 
--- | A section of the request body that provides information about the
--- transcoded (target) files. We recommend that you use the @Outputs@
--- syntax instead of the @Output@ syntax.
-createJob_outputs :: Lens.Lens' CreateJob (Prelude.Maybe [CreateJobOutput])
-createJob_outputs = Lens.lens (\CreateJob' {outputs} -> outputs) (\s@CreateJob' {} a -> s {outputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+-- | A section of the request body that provides information about the files
+-- that are being transcoded.
+createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
+createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A section of the request body that provides information about the file
 -- that is being transcoded.
 createJob_input :: Lens.Lens' CreateJob (Prelude.Maybe JobInput)
 createJob_input = Lens.lens (\CreateJob' {input} -> input) (\s@CreateJob' {} a -> s {input = a} :: CreateJob)
-
--- | The value, if any, that you want Elastic Transcoder to prepend to the
--- names of all files that this job creates, including output files,
--- thumbnails, and playlists.
-createJob_outputKeyPrefix :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_outputKeyPrefix = Lens.lens (\CreateJob' {outputKeyPrefix} -> outputKeyPrefix) (\s@CreateJob' {} a -> s {outputKeyPrefix = a} :: CreateJob)
-
--- | A section of the request body that provides information about the
--- transcoded (target) file. We strongly recommend that you use the
--- @Outputs@ syntax instead of the @Output@ syntax.
-createJob_output :: Lens.Lens' CreateJob (Prelude.Maybe CreateJobOutput)
-createJob_output = Lens.lens (\CreateJob' {output} -> output) (\s@CreateJob' {} a -> s {output = a} :: CreateJob)
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
@@ -193,6 +180,18 @@ createJob_output = Lens.lens (\CreateJob' {output} -> output) (\s@CreateJob' {} 
 createJob_userMetadata :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
+-- | A section of the request body that provides information about the
+-- transcoded (target) files. We recommend that you use the @Outputs@
+-- syntax instead of the @Output@ syntax.
+createJob_outputs :: Lens.Lens' CreateJob (Prelude.Maybe [CreateJobOutput])
+createJob_outputs = Lens.lens (\CreateJob' {outputs} -> outputs) (\s@CreateJob' {} a -> s {outputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A section of the request body that provides information about the
+-- transcoded (target) file. We strongly recommend that you use the
+-- @Outputs@ syntax instead of the @Output@ syntax.
+createJob_output :: Lens.Lens' CreateJob (Prelude.Maybe CreateJobOutput)
+createJob_output = Lens.lens (\CreateJob' {output} -> output) (\s@CreateJob' {} a -> s {output = a} :: CreateJob)
+
 -- | If you specify a preset in @PresetId@ for which the value of @Container@
 -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
 -- about the master playlists that you want Elastic Transcoder to create.
@@ -201,10 +200,11 @@ createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) 
 createJob_playlists :: Lens.Lens' CreateJob (Prelude.Maybe [CreateJobPlaylist])
 createJob_playlists = Lens.lens (\CreateJob' {playlists} -> playlists) (\s@CreateJob' {} a -> s {playlists = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
 
--- | A section of the request body that provides information about the files
--- that are being transcoded.
-createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
-createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+-- | The value, if any, that you want Elastic Transcoder to prepend to the
+-- names of all files that this job creates, including output files,
+-- thumbnails, and playlists.
+createJob_outputKeyPrefix :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_outputKeyPrefix = Lens.lens (\CreateJob' {outputKeyPrefix} -> outputKeyPrefix) (\s@CreateJob' {} a -> s {outputKeyPrefix = a} :: CreateJob)
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -236,14 +236,14 @@ instance Core.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Outputs" Core..=) Prelude.<$> outputs,
+          [ ("Inputs" Core..=) Prelude.<$> inputs,
             ("Input" Core..=) Prelude.<$> input,
+            ("UserMetadata" Core..=) Prelude.<$> userMetadata,
+            ("Outputs" Core..=) Prelude.<$> outputs,
+            ("Output" Core..=) Prelude.<$> output,
+            ("Playlists" Core..=) Prelude.<$> playlists,
             ("OutputKeyPrefix" Core..=)
               Prelude.<$> outputKeyPrefix,
-            ("Output" Core..=) Prelude.<$> output,
-            ("UserMetadata" Core..=) Prelude.<$> userMetadata,
-            ("Playlists" Core..=) Prelude.<$> playlists,
-            ("Inputs" Core..=) Prelude.<$> inputs,
             Prelude.Just ("PipelineId" Core..= pipelineId)
           ]
       )
@@ -260,7 +260,7 @@ instance Core.ToQuery CreateJob where
 data CreateJobResponse = CreateJobResponse'
   { -- | A section of the response body that provides information about the job
     -- that is created.
-    job :: Prelude.Maybe Job',
+    job :: Prelude.Maybe Job,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -290,7 +290,7 @@ newCreateJobResponse pHttpStatus_ =
 
 -- | A section of the response body that provides information about the job
 -- that is created.
-createJobResponse_job :: Lens.Lens' CreateJobResponse (Prelude.Maybe Job')
+createJobResponse_job :: Lens.Lens' CreateJobResponse (Prelude.Maybe Job)
 createJobResponse_job = Lens.lens (\CreateJobResponse' {job} -> job) (\s@CreateJobResponse' {} a -> s {job = a} :: CreateJobResponse)
 
 -- | The response's http status code.

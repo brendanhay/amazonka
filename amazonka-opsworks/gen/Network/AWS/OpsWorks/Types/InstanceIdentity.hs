@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { -- | A JSON document that contains the metadata.
-    document :: Prelude.Maybe Prelude.Text,
-    -- | A signature that can be used to verify the document\'s accuracy and
+  { -- | A signature that can be used to verify the document\'s accuracy and
     -- authenticity.
-    signature :: Prelude.Maybe Prelude.Text
+    signature :: Prelude.Maybe Prelude.Text,
+    -- | A JSON document that contains the metadata.
+    document :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data InstanceIdentity = InstanceIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'document', 'instanceIdentity_document' - A JSON document that contains the metadata.
---
 -- 'signature', 'instanceIdentity_signature' - A signature that can be used to verify the document\'s accuracy and
 -- authenticity.
+--
+-- 'document', 'instanceIdentity_document' - A JSON document that contains the metadata.
 newInstanceIdentity ::
   InstanceIdentity
 newInstanceIdentity =
   InstanceIdentity'
-    { document = Prelude.Nothing,
-      signature = Prelude.Nothing
+    { signature = Prelude.Nothing,
+      document = Prelude.Nothing
     }
-
--- | A JSON document that contains the metadata.
-instanceIdentity_document :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
-instanceIdentity_document = Lens.lens (\InstanceIdentity' {document} -> document) (\s@InstanceIdentity' {} a -> s {document = a} :: InstanceIdentity)
 
 -- | A signature that can be used to verify the document\'s accuracy and
 -- authenticity.
 instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
 instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signature) (\s@InstanceIdentity' {} a -> s {signature = a} :: InstanceIdentity)
+
+-- | A JSON document that contains the metadata.
+instanceIdentity_document :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
+instanceIdentity_document = Lens.lens (\InstanceIdentity' {document} -> document) (\s@InstanceIdentity' {} a -> s {document = a} :: InstanceIdentity)
 
 instance Prelude.Hashable InstanceIdentity
 
@@ -74,7 +74,7 @@ instance Core.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Document" Core..=) Prelude.<$> document,
-            ("Signature" Core..=) Prelude.<$> signature
+          [ ("Signature" Core..=) Prelude.<$> signature,
+            ("Document" Core..=) Prelude.<$> document
           ]
       )

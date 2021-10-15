@@ -28,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLoadBasedAutoScalingConfiguration' smart constructor.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-  { -- | An @AutoScalingThresholds@ object that describes the downscaling
+  { -- | An @AutoScalingThresholds@ object that describes the upscaling
+    -- configuration, which defines how and when AWS OpsWorks Stacks increases
+    -- the number of instances.
+    upScaling :: Prelude.Maybe AutoScalingThresholds,
+    -- | Whether load-based auto scaling is enabled for the layer.
+    enable :: Prelude.Maybe Prelude.Bool,
+    -- | An @AutoScalingThresholds@ object that describes the downscaling
     -- configuration, which defines how and when AWS OpsWorks Stacks reduces
     -- the number of instances.
     downScaling :: Prelude.Maybe AutoScalingThresholds,
-    -- | Whether load-based auto scaling is enabled for the layer.
-    enable :: Prelude.Maybe Prelude.Bool,
     -- | The layer ID.
-    layerId :: Prelude.Maybe Prelude.Text,
-    -- | An @AutoScalingThresholds@ object that describes the upscaling
-    -- configuration, which defines how and when AWS OpsWorks Stacks increases
-    -- the number of instances.
-    upScaling :: Prelude.Maybe AutoScalingThresholds
+    layerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,37 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'downScaling', 'loadBasedAutoScalingConfiguration_downScaling' - An @AutoScalingThresholds@ object that describes the downscaling
--- configuration, which defines how and when AWS OpsWorks Stacks reduces
+-- 'upScaling', 'loadBasedAutoScalingConfiguration_upScaling' - An @AutoScalingThresholds@ object that describes the upscaling
+-- configuration, which defines how and when AWS OpsWorks Stacks increases
 -- the number of instances.
 --
 -- 'enable', 'loadBasedAutoScalingConfiguration_enable' - Whether load-based auto scaling is enabled for the layer.
 --
--- 'layerId', 'loadBasedAutoScalingConfiguration_layerId' - The layer ID.
---
--- 'upScaling', 'loadBasedAutoScalingConfiguration_upScaling' - An @AutoScalingThresholds@ object that describes the upscaling
--- configuration, which defines how and when AWS OpsWorks Stacks increases
+-- 'downScaling', 'loadBasedAutoScalingConfiguration_downScaling' - An @AutoScalingThresholds@ object that describes the downscaling
+-- configuration, which defines how and when AWS OpsWorks Stacks reduces
 -- the number of instances.
+--
+-- 'layerId', 'loadBasedAutoScalingConfiguration_layerId' - The layer ID.
 newLoadBasedAutoScalingConfiguration ::
   LoadBasedAutoScalingConfiguration
 newLoadBasedAutoScalingConfiguration =
   LoadBasedAutoScalingConfiguration'
-    { downScaling =
+    { upScaling =
         Prelude.Nothing,
       enable = Prelude.Nothing,
-      layerId = Prelude.Nothing,
-      upScaling = Prelude.Nothing
+      downScaling = Prelude.Nothing,
+      layerId = Prelude.Nothing
     }
+
+-- | An @AutoScalingThresholds@ object that describes the upscaling
+-- configuration, which defines how and when AWS OpsWorks Stacks increases
+-- the number of instances.
+loadBasedAutoScalingConfiguration_upScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Prelude.Maybe AutoScalingThresholds)
+loadBasedAutoScalingConfiguration_upScaling = Lens.lens (\LoadBasedAutoScalingConfiguration' {upScaling} -> upScaling) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {upScaling = a} :: LoadBasedAutoScalingConfiguration)
+
+-- | Whether load-based auto scaling is enabled for the layer.
+loadBasedAutoScalingConfiguration_enable :: Lens.Lens' LoadBasedAutoScalingConfiguration (Prelude.Maybe Prelude.Bool)
+loadBasedAutoScalingConfiguration_enable = Lens.lens (\LoadBasedAutoScalingConfiguration' {enable} -> enable) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {enable = a} :: LoadBasedAutoScalingConfiguration)
 
 -- | An @AutoScalingThresholds@ object that describes the downscaling
 -- configuration, which defines how and when AWS OpsWorks Stacks reduces
@@ -79,19 +89,9 @@ newLoadBasedAutoScalingConfiguration =
 loadBasedAutoScalingConfiguration_downScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Prelude.Maybe AutoScalingThresholds)
 loadBasedAutoScalingConfiguration_downScaling = Lens.lens (\LoadBasedAutoScalingConfiguration' {downScaling} -> downScaling) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {downScaling = a} :: LoadBasedAutoScalingConfiguration)
 
--- | Whether load-based auto scaling is enabled for the layer.
-loadBasedAutoScalingConfiguration_enable :: Lens.Lens' LoadBasedAutoScalingConfiguration (Prelude.Maybe Prelude.Bool)
-loadBasedAutoScalingConfiguration_enable = Lens.lens (\LoadBasedAutoScalingConfiguration' {enable} -> enable) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {enable = a} :: LoadBasedAutoScalingConfiguration)
-
 -- | The layer ID.
 loadBasedAutoScalingConfiguration_layerId :: Lens.Lens' LoadBasedAutoScalingConfiguration (Prelude.Maybe Prelude.Text)
 loadBasedAutoScalingConfiguration_layerId = Lens.lens (\LoadBasedAutoScalingConfiguration' {layerId} -> layerId) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {layerId = a} :: LoadBasedAutoScalingConfiguration)
-
--- | An @AutoScalingThresholds@ object that describes the upscaling
--- configuration, which defines how and when AWS OpsWorks Stacks increases
--- the number of instances.
-loadBasedAutoScalingConfiguration_upScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Prelude.Maybe AutoScalingThresholds)
-loadBasedAutoScalingConfiguration_upScaling = Lens.lens (\LoadBasedAutoScalingConfiguration' {upScaling} -> upScaling) (\s@LoadBasedAutoScalingConfiguration' {} a -> s {upScaling = a} :: LoadBasedAutoScalingConfiguration)
 
 instance
   Core.FromJSON
@@ -102,10 +102,10 @@ instance
       "LoadBasedAutoScalingConfiguration"
       ( \x ->
           LoadBasedAutoScalingConfiguration'
-            Prelude.<$> (x Core..:? "DownScaling")
+            Prelude.<$> (x Core..:? "UpScaling")
             Prelude.<*> (x Core..:? "Enable")
+            Prelude.<*> (x Core..:? "DownScaling")
             Prelude.<*> (x Core..:? "LayerId")
-            Prelude.<*> (x Core..:? "UpScaling")
       )
 
 instance

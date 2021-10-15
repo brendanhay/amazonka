@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEcsCluster' smart constructor.
 data EcsCluster = EcsCluster'
-  { -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
+  { -- | The cluster\'s ARN.
+    ecsClusterArn :: Prelude.Maybe Prelude.Text,
     -- | The cluster name.
     ecsClusterName :: Prelude.Maybe Prelude.Text,
     -- | The time and date that the cluster was registered with the stack.
     registeredAt :: Prelude.Maybe Prelude.Text,
-    -- | The cluster\'s ARN.
-    ecsClusterArn :: Prelude.Maybe Prelude.Text
+    -- | The stack ID.
+    stackId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data EcsCluster = EcsCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'ecsCluster_stackId' - The stack ID.
+-- 'ecsClusterArn', 'ecsCluster_ecsClusterArn' - The cluster\'s ARN.
 --
 -- 'ecsClusterName', 'ecsCluster_ecsClusterName' - The cluster name.
 --
 -- 'registeredAt', 'ecsCluster_registeredAt' - The time and date that the cluster was registered with the stack.
 --
--- 'ecsClusterArn', 'ecsCluster_ecsClusterArn' - The cluster\'s ARN.
+-- 'stackId', 'ecsCluster_stackId' - The stack ID.
 newEcsCluster ::
   EcsCluster
 newEcsCluster =
   EcsCluster'
-    { stackId = Prelude.Nothing,
+    { ecsClusterArn = Prelude.Nothing,
       ecsClusterName = Prelude.Nothing,
       registeredAt = Prelude.Nothing,
-      ecsClusterArn = Prelude.Nothing
+      stackId = Prelude.Nothing
     }
 
--- | The stack ID.
-ecsCluster_stackId :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
-ecsCluster_stackId = Lens.lens (\EcsCluster' {stackId} -> stackId) (\s@EcsCluster' {} a -> s {stackId = a} :: EcsCluster)
+-- | The cluster\'s ARN.
+ecsCluster_ecsClusterArn :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
+ecsCluster_ecsClusterArn = Lens.lens (\EcsCluster' {ecsClusterArn} -> ecsClusterArn) (\s@EcsCluster' {} a -> s {ecsClusterArn = a} :: EcsCluster)
 
 -- | The cluster name.
 ecsCluster_ecsClusterName :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
@@ -75,9 +75,9 @@ ecsCluster_ecsClusterName = Lens.lens (\EcsCluster' {ecsClusterName} -> ecsClust
 ecsCluster_registeredAt :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
 ecsCluster_registeredAt = Lens.lens (\EcsCluster' {registeredAt} -> registeredAt) (\s@EcsCluster' {} a -> s {registeredAt = a} :: EcsCluster)
 
--- | The cluster\'s ARN.
-ecsCluster_ecsClusterArn :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
-ecsCluster_ecsClusterArn = Lens.lens (\EcsCluster' {ecsClusterArn} -> ecsClusterArn) (\s@EcsCluster' {} a -> s {ecsClusterArn = a} :: EcsCluster)
+-- | The stack ID.
+ecsCluster_stackId :: Lens.Lens' EcsCluster (Prelude.Maybe Prelude.Text)
+ecsCluster_stackId = Lens.lens (\EcsCluster' {stackId} -> stackId) (\s@EcsCluster' {} a -> s {stackId = a} :: EcsCluster)
 
 instance Core.FromJSON EcsCluster where
   parseJSON =
@@ -85,10 +85,10 @@ instance Core.FromJSON EcsCluster where
       "EcsCluster"
       ( \x ->
           EcsCluster'
-            Prelude.<$> (x Core..:? "StackId")
+            Prelude.<$> (x Core..:? "EcsClusterArn")
             Prelude.<*> (x Core..:? "EcsClusterName")
             Prelude.<*> (x Core..:? "RegisteredAt")
-            Prelude.<*> (x Core..:? "EcsClusterArn")
+            Prelude.<*> (x Core..:? "StackId")
       )
 
 instance Prelude.Hashable EcsCluster

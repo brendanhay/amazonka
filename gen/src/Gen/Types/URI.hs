@@ -92,9 +92,9 @@ methodToText = \case
   PATCH -> "patch"
 
 data HTTP = HTTP
-  { _method :: !Method,
-    _requestURI :: !URI,
-    _responseCode :: !Int
+  { _method :: Method,
+    _requestURI :: URI,
+    _responseCode :: Int
   }
   deriving (Show, Generic)
 

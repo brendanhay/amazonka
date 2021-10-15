@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOperatingSystemConfigurationManager' smart constructor.
 data OperatingSystemConfigurationManager = OperatingSystemConfigurationManager'
-  { -- | The versions of the configuration manager that are supported by an
+  { -- | The name of the configuration manager, which is Chef.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The versions of the configuration manager that are supported by an
     -- operating system.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration manager, which is Chef.
-    name :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data OperatingSystemConfigurationManager = OperatingSystemConfigurationManager'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'operatingSystemConfigurationManager_name' - The name of the configuration manager, which is Chef.
+--
 -- 'version', 'operatingSystemConfigurationManager_version' - The versions of the configuration manager that are supported by an
 -- operating system.
---
--- 'name', 'operatingSystemConfigurationManager_name' - The name of the configuration manager, which is Chef.
 newOperatingSystemConfigurationManager ::
   OperatingSystemConfigurationManager
 newOperatingSystemConfigurationManager =
   OperatingSystemConfigurationManager'
-    { version =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing
+      version = Prelude.Nothing
     }
+
+-- | The name of the configuration manager, which is Chef.
+operatingSystemConfigurationManager_name :: Lens.Lens' OperatingSystemConfigurationManager (Prelude.Maybe Prelude.Text)
+operatingSystemConfigurationManager_name = Lens.lens (\OperatingSystemConfigurationManager' {name} -> name) (\s@OperatingSystemConfigurationManager' {} a -> s {name = a} :: OperatingSystemConfigurationManager)
 
 -- | The versions of the configuration manager that are supported by an
 -- operating system.
 operatingSystemConfigurationManager_version :: Lens.Lens' OperatingSystemConfigurationManager (Prelude.Maybe Prelude.Text)
 operatingSystemConfigurationManager_version = Lens.lens (\OperatingSystemConfigurationManager' {version} -> version) (\s@OperatingSystemConfigurationManager' {} a -> s {version = a} :: OperatingSystemConfigurationManager)
-
--- | The name of the configuration manager, which is Chef.
-operatingSystemConfigurationManager_name :: Lens.Lens' OperatingSystemConfigurationManager (Prelude.Maybe Prelude.Text)
-operatingSystemConfigurationManager_name = Lens.lens (\OperatingSystemConfigurationManager' {name} -> name) (\s@OperatingSystemConfigurationManager' {} a -> s {name = a} :: OperatingSystemConfigurationManager)
 
 instance
   Core.FromJSON
@@ -76,8 +76,8 @@ instance
       "OperatingSystemConfigurationManager"
       ( \x ->
           OperatingSystemConfigurationManager'
-            Prelude.<$> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance

@@ -43,8 +43,8 @@ module Network.AWS.StorageGateway.ListLocalDisks
     newListLocalDisksResponse,
 
     -- * Response Lenses
-    listLocalDisksResponse_disks,
     listLocalDisksResponse_gatewayARN,
+    listLocalDisksResponse_disks,
     listLocalDisksResponse_httpStatus,
   )
 where
@@ -93,8 +93,8 @@ instance Core.AWSRequest ListLocalDisks where
     Response.receiveJSON
       ( \s h x ->
           ListLocalDisksResponse'
-            Prelude.<$> (x Core..?> "Disks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (x Core..?> "Disks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,11 +132,11 @@ instance Core.ToQuery ListLocalDisks where
 
 -- | /See:/ 'newListLocalDisksResponse' smart constructor.
 data ListLocalDisksResponse = ListLocalDisksResponse'
-  { -- | A JSON object containing the following fields:
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | A JSON object containing the following fields:
     --
     -- -   ListLocalDisksOutput$Disks
     disks :: Prelude.Maybe [Disk],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,11 +150,11 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gatewayARN', 'listLocalDisksResponse_gatewayARN' - Undocumented member.
+--
 -- 'disks', 'listLocalDisksResponse_disks' - A JSON object containing the following fields:
 --
 -- -   ListLocalDisksOutput$Disks
---
--- 'gatewayARN', 'listLocalDisksResponse_gatewayARN' - Undocumented member.
 --
 -- 'httpStatus', 'listLocalDisksResponse_httpStatus' - The response's http status code.
 newListLocalDisksResponse ::
@@ -163,20 +163,21 @@ newListLocalDisksResponse ::
   ListLocalDisksResponse
 newListLocalDisksResponse pHttpStatus_ =
   ListLocalDisksResponse'
-    { disks = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+    { gatewayARN =
+        Prelude.Nothing,
+      disks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+listLocalDisksResponse_gatewayARN :: Lens.Lens' ListLocalDisksResponse (Prelude.Maybe Prelude.Text)
+listLocalDisksResponse_gatewayARN = Lens.lens (\ListLocalDisksResponse' {gatewayARN} -> gatewayARN) (\s@ListLocalDisksResponse' {} a -> s {gatewayARN = a} :: ListLocalDisksResponse)
 
 -- | A JSON object containing the following fields:
 --
 -- -   ListLocalDisksOutput$Disks
 listLocalDisksResponse_disks :: Lens.Lens' ListLocalDisksResponse (Prelude.Maybe [Disk])
 listLocalDisksResponse_disks = Lens.lens (\ListLocalDisksResponse' {disks} -> disks) (\s@ListLocalDisksResponse' {} a -> s {disks = a} :: ListLocalDisksResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-listLocalDisksResponse_gatewayARN :: Lens.Lens' ListLocalDisksResponse (Prelude.Maybe Prelude.Text)
-listLocalDisksResponse_gatewayARN = Lens.lens (\ListLocalDisksResponse' {gatewayARN} -> gatewayARN) (\s@ListLocalDisksResponse' {} a -> s {gatewayARN = a} :: ListLocalDisksResponse)
 
 -- | The response's http status code.
 listLocalDisksResponse_httpStatus :: Lens.Lens' ListLocalDisksResponse Prelude.Int

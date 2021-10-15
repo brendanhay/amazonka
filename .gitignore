@@ -43,3 +43,10 @@ cabal.project.local*
 # Curl
 .cookies
 *.log
+
+# Bazel
+.bazelrc.local
+/bazel-*
+
+# Direnv
+.envrc.local

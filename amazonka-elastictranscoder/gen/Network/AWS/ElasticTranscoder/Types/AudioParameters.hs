@@ -28,18 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAudioParameters' smart constructor.
 data AudioParameters = AudioParameters'
-  { -- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
-    -- profile to use. Valid values include:
-    --
-    -- @auto@, @AAC-LC@, @HE-AAC@, @HE-AACv2@
-    --
-    -- If you specify @auto@, Elastic Transcoder chooses a profile based on the
-    -- bit rate of the output file.
-    codecOptions :: Prelude.Maybe AudioCodecOptions,
-    -- | The audio codec for the output file. Valid values include @aac@, @flac@,
-    -- @mp2@, @mp3@, @pcm@, and @vorbis@.
-    codec :: Prelude.Maybe Prelude.Text,
-    -- | The number of audio channels in the output file. The following values
+  { -- | The number of audio channels in the output file. The following values
     -- are valid:
     --
     -- @auto@, @0@, @1@, @2@
@@ -69,6 +58,9 @@ data AudioParameters = AudioParameters'
     -- For more information about how Elastic Transcoder organizes channels and
     -- tracks, see @Audio:AudioPackingMode@.
     channels :: Prelude.Maybe Prelude.Text,
+    -- | The audio codec for the output file. Valid values include @aac@, @flac@,
+    -- @mp2@, @mp3@, @pcm@, and @vorbis@.
+    codec :: Prelude.Maybe Prelude.Text,
     -- | The method of organizing audio channels and tracks. Use @Audio:Channels@
     -- to specify the number of channels in your output, and
     -- @Audio:AudioPackingMode@ to specify the number of tracks and their
@@ -191,7 +183,15 @@ data AudioParameters = AudioParameters'
     sampleRate :: Prelude.Maybe Prelude.Text,
     -- | The bit rate of the audio stream in the output file, in
     -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
-    bitRate :: Prelude.Maybe Prelude.Text
+    bitRate :: Prelude.Maybe Prelude.Text,
+    -- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
+    -- profile to use. Valid values include:
+    --
+    -- @auto@, @AAC-LC@, @HE-AAC@, @HE-AACv2@
+    --
+    -- If you specify @auto@, Elastic Transcoder chooses a profile based on the
+    -- bit rate of the output file.
+    codecOptions :: Prelude.Maybe AudioCodecOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -202,17 +202,6 @@ data AudioParameters = AudioParameters'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'codecOptions', 'audioParameters_codecOptions' - If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
--- profile to use. Valid values include:
---
--- @auto@, @AAC-LC@, @HE-AAC@, @HE-AACv2@
---
--- If you specify @auto@, Elastic Transcoder chooses a profile based on the
--- bit rate of the output file.
---
--- 'codec', 'audioParameters_codec' - The audio codec for the output file. Valid values include @aac@, @flac@,
--- @mp2@, @mp3@, @pcm@, and @vorbis@.
 --
 -- 'channels', 'audioParameters_channels' - The number of audio channels in the output file. The following values
 -- are valid:
@@ -243,6 +232,9 @@ data AudioParameters = AudioParameters'
 --
 -- For more information about how Elastic Transcoder organizes channels and
 -- tracks, see @Audio:AudioPackingMode@.
+--
+-- 'codec', 'audioParameters_codec' - The audio codec for the output file. Valid values include @aac@, @flac@,
+-- @mp2@, @mp3@, @pcm@, and @vorbis@.
 --
 -- 'audioPackingMode', 'audioParameters_audioPackingMode' - The method of organizing audio channels and tracks. Use @Audio:Channels@
 -- to specify the number of channels in your output, and
@@ -366,32 +358,25 @@ data AudioParameters = AudioParameters'
 --
 -- 'bitRate', 'audioParameters_bitRate' - The bit rate of the audio stream in the output file, in
 -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
-newAudioParameters ::
-  AudioParameters
-newAudioParameters =
-  AudioParameters'
-    { codecOptions = Prelude.Nothing,
-      codec = Prelude.Nothing,
-      channels = Prelude.Nothing,
-      audioPackingMode = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
-      bitRate = Prelude.Nothing
-    }
-
--- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
+--
+-- 'codecOptions', 'audioParameters_codecOptions' - If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
 -- profile to use. Valid values include:
 --
 -- @auto@, @AAC-LC@, @HE-AAC@, @HE-AACv2@
 --
 -- If you specify @auto@, Elastic Transcoder chooses a profile based on the
 -- bit rate of the output file.
-audioParameters_codecOptions :: Lens.Lens' AudioParameters (Prelude.Maybe AudioCodecOptions)
-audioParameters_codecOptions = Lens.lens (\AudioParameters' {codecOptions} -> codecOptions) (\s@AudioParameters' {} a -> s {codecOptions = a} :: AudioParameters)
-
--- | The audio codec for the output file. Valid values include @aac@, @flac@,
--- @mp2@, @mp3@, @pcm@, and @vorbis@.
-audioParameters_codec :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
-audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@AudioParameters' {} a -> s {codec = a} :: AudioParameters)
+newAudioParameters ::
+  AudioParameters
+newAudioParameters =
+  AudioParameters'
+    { channels = Prelude.Nothing,
+      codec = Prelude.Nothing,
+      audioPackingMode = Prelude.Nothing,
+      sampleRate = Prelude.Nothing,
+      bitRate = Prelude.Nothing,
+      codecOptions = Prelude.Nothing
+    }
 
 -- | The number of audio channels in the output file. The following values
 -- are valid:
@@ -424,6 +409,11 @@ audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@Audio
 -- tracks, see @Audio:AudioPackingMode@.
 audioParameters_channels :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
 audioParameters_channels = Lens.lens (\AudioParameters' {channels} -> channels) (\s@AudioParameters' {} a -> s {channels = a} :: AudioParameters)
+
+-- | The audio codec for the output file. Valid values include @aac@, @flac@,
+-- @mp2@, @mp3@, @pcm@, and @vorbis@.
+audioParameters_codec :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@AudioParameters' {} a -> s {codec = a} :: AudioParameters)
 
 -- | The method of organizing audio channels and tracks. Use @Audio:Channels@
 -- to specify the number of channels in your output, and
@@ -554,18 +544,28 @@ audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sample
 audioParameters_bitRate :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
 audioParameters_bitRate = Lens.lens (\AudioParameters' {bitRate} -> bitRate) (\s@AudioParameters' {} a -> s {bitRate = a} :: AudioParameters)
 
+-- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
+-- profile to use. Valid values include:
+--
+-- @auto@, @AAC-LC@, @HE-AAC@, @HE-AACv2@
+--
+-- If you specify @auto@, Elastic Transcoder chooses a profile based on the
+-- bit rate of the output file.
+audioParameters_codecOptions :: Lens.Lens' AudioParameters (Prelude.Maybe AudioCodecOptions)
+audioParameters_codecOptions = Lens.lens (\AudioParameters' {codecOptions} -> codecOptions) (\s@AudioParameters' {} a -> s {codecOptions = a} :: AudioParameters)
+
 instance Core.FromJSON AudioParameters where
   parseJSON =
     Core.withObject
       "AudioParameters"
       ( \x ->
           AudioParameters'
-            Prelude.<$> (x Core..:? "CodecOptions")
+            Prelude.<$> (x Core..:? "Channels")
             Prelude.<*> (x Core..:? "Codec")
-            Prelude.<*> (x Core..:? "Channels")
             Prelude.<*> (x Core..:? "AudioPackingMode")
             Prelude.<*> (x Core..:? "SampleRate")
             Prelude.<*> (x Core..:? "BitRate")
+            Prelude.<*> (x Core..:? "CodecOptions")
       )
 
 instance Prelude.Hashable AudioParameters
@@ -576,12 +576,12 @@ instance Core.ToJSON AudioParameters where
   toJSON AudioParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CodecOptions" Core..=) Prelude.<$> codecOptions,
+          [ ("Channels" Core..=) Prelude.<$> channels,
             ("Codec" Core..=) Prelude.<$> codec,
-            ("Channels" Core..=) Prelude.<$> channels,
             ("AudioPackingMode" Core..=)
               Prelude.<$> audioPackingMode,
             ("SampleRate" Core..=) Prelude.<$> sampleRate,
-            ("BitRate" Core..=) Prelude.<$> bitRate
+            ("BitRate" Core..=) Prelude.<$> bitRate,
+            ("CodecOptions" Core..=) Prelude.<$> codecOptions
           ]
       )

@@ -1,10 +1,9 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash ../shell.nix
+#!/usr/bin/env bash
 
 # Usage: generate MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the
-# services definitions in botocore/data/<MODEL>.
+# services definitions in https://github.com/boto/botocore/tree/develop/botocore/data/<MODEL>.
 #
 # Generates the output per MODEL in a temporary directory, formats .cabal and
 # .hs files, removes the related amazonka-*/gen directories, and finally
@@ -45,7 +44,10 @@ format_and_replace() {
 export -f say
 export -f format_and_replace
 
-botocore="${BOTOCORE_PATH?}"
+# Build the generator, obtain the botocore repository, and ensure buildozer exists.
+bazel build //gen @botocore//... @com_github_bazelbuild_buildtools//buildozer
+
+botocore="$(bazel info output_base)/external/botocore"
 version="$(sed -n '0,/^version: */s///p' amazonka/amazonka.cabal)"
 services="config/services"
 models=()
@@ -83,8 +85,16 @@ for model in "${models[@]}"; do
 done
 
 # Generate new sources in tmp.
-cabal new-run amazonka-gen -- +RTS -qg0 -RTS "${generator[@]}"
+./bazel-bin/gen/gen +RTS -qg0 -RTS "${generator[@]}"
 
+# Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
+
+# Generate BUILD files for every package.
+./scripts/update-gazelle
+
+# Rewrite the haskell_doc documentation target to include any new packages.
+bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer -- \
+  "set deps $(bazel query 'kind("haskell_library", //... -gen/... -test/...)')" //docs:static
 
 say "Done."

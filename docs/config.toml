@@ -1,0 +1,31 @@
+baseURL = "/"
+languageCode = "en-uk"
+theme = "theme"
+title = "Amazonka"
+description = "Amazon Web Services SDK for Haskell"
+Paginate = 10
+
+[Params]
+author = "Brendan Hay"
+github = "https://github.com/brendanhay"
+hackage = "https://hackage.haskell.org/packages/#cat:AWS"
+
+[[menu.main]]
+name = "Getting Started"
+weight = -500
+url = "/docs/getting-started"
+
+[[menu.main]]
+name = "Issues"
+weight = -400
+url = "https://github.com/brendanhay/amazonka/issues"
+
+[[menu.main]]
+name = "Contributors"
+weight = -300
+url = "https://github.com/brendanhay/amazonka/graphs/contributors"
+
+[[menu.main]]
+name = "Donate"
+weight = -200
+url = "https://github.com/sponsors/brendanhay"

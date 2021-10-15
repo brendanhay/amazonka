@@ -28,11 +28,11 @@ import Network.AWS.StorageGateway.Types.FileShareType
 --
 -- /See:/ 'newFileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'
-  { fileShareId :: Prelude.Maybe Prelude.Text,
-    fileShareType :: Prelude.Maybe FileShareType,
-    fileShareStatus :: Prelude.Maybe Prelude.Text,
+  { fileShareStatus :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
+    fileShareId :: Prelude.Maybe Prelude.Text,
     fileShareARN :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Maybe Prelude.Text
+    fileShareType :: Prelude.Maybe FileShareType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,45 +44,45 @@ data FileShareInfo = FileShareInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileShareId', 'fileShareInfo_fileShareId' - Undocumented member.
---
--- 'fileShareType', 'fileShareInfo_fileShareType' - Undocumented member.
---
 -- 'fileShareStatus', 'fileShareInfo_fileShareStatus' - Undocumented member.
+--
+-- 'gatewayARN', 'fileShareInfo_gatewayARN' - Undocumented member.
+--
+-- 'fileShareId', 'fileShareInfo_fileShareId' - Undocumented member.
 --
 -- 'fileShareARN', 'fileShareInfo_fileShareARN' - Undocumented member.
 --
--- 'gatewayARN', 'fileShareInfo_gatewayARN' - Undocumented member.
+-- 'fileShareType', 'fileShareInfo_fileShareType' - Undocumented member.
 newFileShareInfo ::
   FileShareInfo
 newFileShareInfo =
   FileShareInfo'
-    { fileShareId = Prelude.Nothing,
-      fileShareType = Prelude.Nothing,
-      fileShareStatus = Prelude.Nothing,
+    { fileShareStatus = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
+      fileShareId = Prelude.Nothing,
       fileShareARN = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing
+      fileShareType = Prelude.Nothing
     }
-
--- | Undocumented member.
-fileShareInfo_fileShareId :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
-fileShareInfo_fileShareId = Lens.lens (\FileShareInfo' {fileShareId} -> fileShareId) (\s@FileShareInfo' {} a -> s {fileShareId = a} :: FileShareInfo)
-
--- | Undocumented member.
-fileShareInfo_fileShareType :: Lens.Lens' FileShareInfo (Prelude.Maybe FileShareType)
-fileShareInfo_fileShareType = Lens.lens (\FileShareInfo' {fileShareType} -> fileShareType) (\s@FileShareInfo' {} a -> s {fileShareType = a} :: FileShareInfo)
 
 -- | Undocumented member.
 fileShareInfo_fileShareStatus :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
 fileShareInfo_fileShareStatus = Lens.lens (\FileShareInfo' {fileShareStatus} -> fileShareStatus) (\s@FileShareInfo' {} a -> s {fileShareStatus = a} :: FileShareInfo)
 
 -- | Undocumented member.
+fileShareInfo_gatewayARN :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
+fileShareInfo_gatewayARN = Lens.lens (\FileShareInfo' {gatewayARN} -> gatewayARN) (\s@FileShareInfo' {} a -> s {gatewayARN = a} :: FileShareInfo)
+
+-- | Undocumented member.
+fileShareInfo_fileShareId :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
+fileShareInfo_fileShareId = Lens.lens (\FileShareInfo' {fileShareId} -> fileShareId) (\s@FileShareInfo' {} a -> s {fileShareId = a} :: FileShareInfo)
+
+-- | Undocumented member.
 fileShareInfo_fileShareARN :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
 fileShareInfo_fileShareARN = Lens.lens (\FileShareInfo' {fileShareARN} -> fileShareARN) (\s@FileShareInfo' {} a -> s {fileShareARN = a} :: FileShareInfo)
 
 -- | Undocumented member.
-fileShareInfo_gatewayARN :: Lens.Lens' FileShareInfo (Prelude.Maybe Prelude.Text)
-fileShareInfo_gatewayARN = Lens.lens (\FileShareInfo' {gatewayARN} -> gatewayARN) (\s@FileShareInfo' {} a -> s {gatewayARN = a} :: FileShareInfo)
+fileShareInfo_fileShareType :: Lens.Lens' FileShareInfo (Prelude.Maybe FileShareType)
+fileShareInfo_fileShareType = Lens.lens (\FileShareInfo' {fileShareType} -> fileShareType) (\s@FileShareInfo' {} a -> s {fileShareType = a} :: FileShareInfo)
 
 instance Core.FromJSON FileShareInfo where
   parseJSON =
@@ -90,11 +90,11 @@ instance Core.FromJSON FileShareInfo where
       "FileShareInfo"
       ( \x ->
           FileShareInfo'
-            Prelude.<$> (x Core..:? "FileShareId")
-            Prelude.<*> (x Core..:? "FileShareType")
-            Prelude.<*> (x Core..:? "FileShareStatus")
-            Prelude.<*> (x Core..:? "FileShareARN")
+            Prelude.<$> (x Core..:? "FileShareStatus")
             Prelude.<*> (x Core..:? "GatewayARN")
+            Prelude.<*> (x Core..:? "FileShareId")
+            Prelude.<*> (x Core..:? "FileShareARN")
+            Prelude.<*> (x Core..:? "FileShareType")
       )
 
 instance Prelude.Hashable FileShareInfo

@@ -17,12 +17,12 @@ import Control.Monad.Except (throwError)
 import Control.Monad.State
 import qualified Data.HashMap.Strict as Map
 import qualified Data.HashSet as Set
+import qualified Data.Text as Text
 import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override
 import Gen.AST.Prefix
 import Gen.AST.Subst
-import Gen.Formatting hiding (replaced)
 import Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -31,7 +31,7 @@ rewrite ::
   Versions ->
   Config ->
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
-  Either Error Library
+  Either String Library
 rewrite v cfg s' = do
   s <- rewriteService cfg (ignore cfg (deprecate s')) >>= renderShapes cfg
   Library v cfg s <$> serviceData (s ^. metadata) (s ^. retry)
@@ -51,7 +51,7 @@ ignore c srv =
 rewriteService ::
   Config ->
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
-  Either Error (Service Identity (RefF ()) (Shape Related) (Waiter Id))
+  Either String (Service Identity (RefF ()) (Shape Related) (Waiter Id))
 rewriteService cfg s = do
   -- Determine which direction (input, output, or both) shapes are used.
   rs <- relations (s ^. operations) (s ^. shapes)
@@ -71,7 +71,7 @@ rewriteService cfg s = do
 renderShapes ::
   Config ->
   Service Identity (RefF ()) (Shape Related) (Waiter Id) ->
-  Either Error (Service Identity SData SData WData)
+  Either String (Service Identity SData SData WData)
 renderShapes cfg svc = do
   -- Generate unique prefixes for struct (product) members and
   -- enum (sum) branches to avoid ambiguity.
@@ -98,7 +98,7 @@ renderShapes cfg svc = do
         _waiters = zs
       }
 
-type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either Error)
+type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either String)
 
 -- | Determine the relation for operation payloads, both input and output.
 --
@@ -108,7 +108,7 @@ relations ::
   Show a =>
   Map Id (Operation Maybe (RefF b) c) ->
   Map Id (ShapeF a) ->
-  Either Error (Map Id Relation)
+  Either String (Map Id Relation)
 relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
   where
     -- FIXME: opName here is incorrect as a parent.
@@ -140,14 +140,10 @@ relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
 
     safe n =
       note
-        ( format
-            ( "Missing shape " % iprimary
-                % " when counting relations "
-                % ", possible matches: "
-                % partial
-            )
-            n
-            (n, ss)
+        ( "Missing shape " ++ Text.unpack (memberId n)
+            ++ " when counting relations "
+            ++ ", possible matches: "
+            ++ partial n ss
         )
         (Map.lookup n ss)
 
@@ -169,7 +165,7 @@ solve cfg ss = evalState (go ss) (replaced typeOf cfg)
         . vMapMaybe _replacedBy
         . _typeOverrides
 
-type MemoS a = StateT (Map Id a) (Either Error)
+type MemoS a = StateT (Map Id a) (Either String)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
@@ -178,7 +174,7 @@ separate ::
   Map Id (Operation Identity (RefF b) c) ->
   Map Id a ->
   Either
-    Error
+    String
     ( Map Id (Operation Identity (RefF a) c), -- Operations.
       Map Id a -- Data Types.
     )
@@ -201,12 +197,13 @@ separate os = runStateT (traverse go os)
     remove :: HasRelation a => Direction -> Id -> MemoS a a
     remove d n = do
       s <- get
-      let m =
-            "Failure separating operation wrapper " % iprimary
-              % " from "
-              % shown
+
       case Map.lookup n s of
-        Nothing -> throwError $ format m n (Map.map (const ()) s)
+        Nothing ->
+          throwError $
+            "Failure separating operation wrapper " ++ Text.unpack (memberId n)
+              ++ " from "
+              ++ show (Map.map (const ()) s)
         Just x -> do
           when (d == Input || not (isShared x)) $
             modify (Map.delete n)

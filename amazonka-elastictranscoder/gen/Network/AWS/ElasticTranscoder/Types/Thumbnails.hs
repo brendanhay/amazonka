@@ -27,12 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newThumbnails' smart constructor.
 data Thumbnails = Thumbnails'
-  { -- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
-    --
-    -- You specify whether you want Elastic Transcoder to create thumbnails
-    -- when you create a job.
-    format :: Prelude.Maybe Prelude.Text,
-    -- | Specify one of the following values to control scaling of thumbnails:
+  { -- | Specify one of the following values to control scaling of thumbnails:
     --
     -- -   @Fit@: Elastic Transcoder scales thumbnails so they match the value
     --     that you specified in thumbnail MaxWidth or MaxHeight settings
@@ -66,9 +61,26 @@ data Thumbnails = Thumbnails'
     --     value. If you specify this option, Elastic Transcoder does not scale
     --     thumbnails up.
     sizingPolicy :: Prelude.Maybe Prelude.Text,
-    -- | The approximate number of seconds between thumbnails. Specify an integer
-    -- value.
-    interval :: Prelude.Maybe Prelude.Text,
+    -- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
+    --
+    -- You specify whether you want Elastic Transcoder to create thumbnails
+    -- when you create a job.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
+    -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
+    -- numeric value, enter an even integer between 32 and 3072.
+    maxHeight :: Prelude.Maybe Prelude.Text,
+    -- | To better control resolution and aspect ratio of thumbnails, we
+    -- recommend that you use the values @MaxWidth@, @MaxHeight@,
+    -- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
+    -- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
+    -- use them together.
+    --
+    -- The width and height of thumbnail files in pixels. Specify a value in
+    -- the format @ width @ x @ height @ where both values are even integers.
+    -- The values cannot exceed the width and height that you specified in the
+    -- @Video:Resolution@ object.
+    resolution :: Prelude.Maybe Prelude.Text,
     -- | To better control resolution and aspect ratio of thumbnails, we
     -- recommend that you use the values @MaxWidth@, @MaxHeight@,
     -- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
@@ -87,21 +99,9 @@ data Thumbnails = Thumbnails'
     -- make the total size of the thumbnails match the values that you
     -- specified for thumbnail @MaxWidth@ and @MaxHeight@ settings.
     paddingPolicy :: Prelude.Maybe Prelude.Text,
-    -- | To better control resolution and aspect ratio of thumbnails, we
-    -- recommend that you use the values @MaxWidth@, @MaxHeight@,
-    -- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
-    -- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
-    -- use them together.
-    --
-    -- The width and height of thumbnail files in pixels. Specify a value in
-    -- the format @ width @ x @ height @ where both values are even integers.
-    -- The values cannot exceed the width and height that you specified in the
-    -- @Video:Resolution@ object.
-    resolution :: Prelude.Maybe Prelude.Text,
-    -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
-    -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
-    -- numeric value, enter an even integer between 32 and 3072.
-    maxHeight :: Prelude.Maybe Prelude.Text,
+    -- | The approximate number of seconds between thumbnails. Specify an integer
+    -- value.
+    interval :: Prelude.Maybe Prelude.Text,
     -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
     -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
     -- numeric value, enter an even integer between 32 and 4096.
@@ -116,11 +116,6 @@ data Thumbnails = Thumbnails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'format', 'thumbnails_format' - The format of thumbnails, if any. Valid values are @jpg@ and @png@.
---
--- You specify whether you want Elastic Transcoder to create thumbnails
--- when you create a job.
 --
 -- 'sizingPolicy', 'thumbnails_sizingPolicy' - Specify one of the following values to control scaling of thumbnails:
 --
@@ -156,8 +151,25 @@ data Thumbnails = Thumbnails'
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     thumbnails up.
 --
--- 'interval', 'thumbnails_interval' - The approximate number of seconds between thumbnails. Specify an integer
--- value.
+-- 'format', 'thumbnails_format' - The format of thumbnails, if any. Valid values are @jpg@ and @png@.
+--
+-- You specify whether you want Elastic Transcoder to create thumbnails
+-- when you create a job.
+--
+-- 'maxHeight', 'thumbnails_maxHeight' - The maximum height of thumbnails in pixels. If you specify auto, Elastic
+-- Transcoder uses 1080 (Full HD) as the default value. If you specify a
+-- numeric value, enter an even integer between 32 and 3072.
+--
+-- 'resolution', 'thumbnails_resolution' - To better control resolution and aspect ratio of thumbnails, we
+-- recommend that you use the values @MaxWidth@, @MaxHeight@,
+-- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
+-- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
+-- use them together.
+--
+-- The width and height of thumbnail files in pixels. Specify a value in
+-- the format @ width @ x @ height @ where both values are even integers.
+-- The values cannot exceed the width and height that you specified in the
+-- @Video:Resolution@ object.
 --
 -- 'aspectRatio', 'thumbnails_aspectRatio' - To better control resolution and aspect ratio of thumbnails, we
 -- recommend that you use the values @MaxWidth@, @MaxHeight@,
@@ -177,20 +189,8 @@ data Thumbnails = Thumbnails'
 -- make the total size of the thumbnails match the values that you
 -- specified for thumbnail @MaxWidth@ and @MaxHeight@ settings.
 --
--- 'resolution', 'thumbnails_resolution' - To better control resolution and aspect ratio of thumbnails, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
--- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
--- use them together.
---
--- The width and height of thumbnail files in pixels. Specify a value in
--- the format @ width @ x @ height @ where both values are even integers.
--- The values cannot exceed the width and height that you specified in the
--- @Video:Resolution@ object.
---
--- 'maxHeight', 'thumbnails_maxHeight' - The maximum height of thumbnails in pixels. If you specify auto, Elastic
--- Transcoder uses 1080 (Full HD) as the default value. If you specify a
--- numeric value, enter an even integer between 32 and 3072.
+-- 'interval', 'thumbnails_interval' - The approximate number of seconds between thumbnails. Specify an integer
+-- value.
 --
 -- 'maxWidth', 'thumbnails_maxWidth' - The maximum width of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
@@ -199,22 +199,15 @@ newThumbnails ::
   Thumbnails
 newThumbnails =
   Thumbnails'
-    { format = Prelude.Nothing,
-      sizingPolicy = Prelude.Nothing,
-      interval = Prelude.Nothing,
+    { sizingPolicy = Prelude.Nothing,
+      format = Prelude.Nothing,
+      maxHeight = Prelude.Nothing,
+      resolution = Prelude.Nothing,
       aspectRatio = Prelude.Nothing,
       paddingPolicy = Prelude.Nothing,
-      resolution = Prelude.Nothing,
-      maxHeight = Prelude.Nothing,
+      interval = Prelude.Nothing,
       maxWidth = Prelude.Nothing
     }
-
--- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
---
--- You specify whether you want Elastic Transcoder to create thumbnails
--- when you create a job.
-thumbnails_format :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
-thumbnails_format = Lens.lens (\Thumbnails' {format} -> format) (\s@Thumbnails' {} a -> s {format = a} :: Thumbnails)
 
 -- | Specify one of the following values to control scaling of thumbnails:
 --
@@ -252,10 +245,31 @@ thumbnails_format = Lens.lens (\Thumbnails' {format} -> format) (\s@Thumbnails' 
 thumbnails_sizingPolicy :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_sizingPolicy = Lens.lens (\Thumbnails' {sizingPolicy} -> sizingPolicy) (\s@Thumbnails' {} a -> s {sizingPolicy = a} :: Thumbnails)
 
--- | The approximate number of seconds between thumbnails. Specify an integer
--- value.
-thumbnails_interval :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
-thumbnails_interval = Lens.lens (\Thumbnails' {interval} -> interval) (\s@Thumbnails' {} a -> s {interval = a} :: Thumbnails)
+-- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
+--
+-- You specify whether you want Elastic Transcoder to create thumbnails
+-- when you create a job.
+thumbnails_format :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
+thumbnails_format = Lens.lens (\Thumbnails' {format} -> format) (\s@Thumbnails' {} a -> s {format = a} :: Thumbnails)
+
+-- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
+-- Transcoder uses 1080 (Full HD) as the default value. If you specify a
+-- numeric value, enter an even integer between 32 and 3072.
+thumbnails_maxHeight :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
+thumbnails_maxHeight = Lens.lens (\Thumbnails' {maxHeight} -> maxHeight) (\s@Thumbnails' {} a -> s {maxHeight = a} :: Thumbnails)
+
+-- | To better control resolution and aspect ratio of thumbnails, we
+-- recommend that you use the values @MaxWidth@, @MaxHeight@,
+-- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
+-- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
+-- use them together.
+--
+-- The width and height of thumbnail files in pixels. Specify a value in
+-- the format @ width @ x @ height @ where both values are even integers.
+-- The values cannot exceed the width and height that you specified in the
+-- @Video:Resolution@ object.
+thumbnails_resolution :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
+thumbnails_resolution = Lens.lens (\Thumbnails' {resolution} -> resolution) (\s@Thumbnails' {} a -> s {resolution = a} :: Thumbnails)
 
 -- | To better control resolution and aspect ratio of thumbnails, we
 -- recommend that you use the values @MaxWidth@, @MaxHeight@,
@@ -279,24 +293,10 @@ thumbnails_aspectRatio = Lens.lens (\Thumbnails' {aspectRatio} -> aspectRatio) (
 thumbnails_paddingPolicy :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
 thumbnails_paddingPolicy = Lens.lens (\Thumbnails' {paddingPolicy} -> paddingPolicy) (\s@Thumbnails' {} a -> s {paddingPolicy = a} :: Thumbnails)
 
--- | To better control resolution and aspect ratio of thumbnails, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
--- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
--- use them together.
---
--- The width and height of thumbnail files in pixels. Specify a value in
--- the format @ width @ x @ height @ where both values are even integers.
--- The values cannot exceed the width and height that you specified in the
--- @Video:Resolution@ object.
-thumbnails_resolution :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
-thumbnails_resolution = Lens.lens (\Thumbnails' {resolution} -> resolution) (\s@Thumbnails' {} a -> s {resolution = a} :: Thumbnails)
-
--- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
--- Transcoder uses 1080 (Full HD) as the default value. If you specify a
--- numeric value, enter an even integer between 32 and 3072.
-thumbnails_maxHeight :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
-thumbnails_maxHeight = Lens.lens (\Thumbnails' {maxHeight} -> maxHeight) (\s@Thumbnails' {} a -> s {maxHeight = a} :: Thumbnails)
+-- | The approximate number of seconds between thumbnails. Specify an integer
+-- value.
+thumbnails_interval :: Lens.Lens' Thumbnails (Prelude.Maybe Prelude.Text)
+thumbnails_interval = Lens.lens (\Thumbnails' {interval} -> interval) (\s@Thumbnails' {} a -> s {interval = a} :: Thumbnails)
 
 -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
@@ -310,13 +310,13 @@ instance Core.FromJSON Thumbnails where
       "Thumbnails"
       ( \x ->
           Thumbnails'
-            Prelude.<$> (x Core..:? "Format")
-            Prelude.<*> (x Core..:? "SizingPolicy")
-            Prelude.<*> (x Core..:? "Interval")
+            Prelude.<$> (x Core..:? "SizingPolicy")
+            Prelude.<*> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "MaxHeight")
+            Prelude.<*> (x Core..:? "Resolution")
             Prelude.<*> (x Core..:? "AspectRatio")
             Prelude.<*> (x Core..:? "PaddingPolicy")
-            Prelude.<*> (x Core..:? "Resolution")
-            Prelude.<*> (x Core..:? "MaxHeight")
+            Prelude.<*> (x Core..:? "Interval")
             Prelude.<*> (x Core..:? "MaxWidth")
       )
 
@@ -328,13 +328,13 @@ instance Core.ToJSON Thumbnails where
   toJSON Thumbnails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
-            ("Interval" Core..=) Prelude.<$> interval,
+          [ ("SizingPolicy" Core..=) Prelude.<$> sizingPolicy,
+            ("Format" Core..=) Prelude.<$> format,
+            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
+            ("Resolution" Core..=) Prelude.<$> resolution,
             ("AspectRatio" Core..=) Prelude.<$> aspectRatio,
             ("PaddingPolicy" Core..=) Prelude.<$> paddingPolicy,
-            ("Resolution" Core..=) Prelude.<$> resolution,
-            ("MaxHeight" Core..=) Prelude.<$> maxHeight,
+            ("Interval" Core..=) Prelude.<$> interval,
             ("MaxWidth" Core..=) Prelude.<$> maxWidth
           ]
       )

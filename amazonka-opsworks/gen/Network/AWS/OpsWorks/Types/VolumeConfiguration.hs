@@ -27,7 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVolumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
-  { -- | Specifies whether an Amazon EBS volume is encrypted. For more
+  { -- | For PIOPS volumes, the IOPS per disk.
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The volume
+    -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
+    raidLevel :: Prelude.Maybe Prelude.Int,
+    -- | Specifies whether an Amazon EBS volume is encrypted. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
     encrypted :: Prelude.Maybe Prelude.Bool,
@@ -50,11 +55,6 @@ data VolumeConfiguration = VolumeConfiguration'
     -- -   @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500
     --     GiB and a maximum size of 16384 GiB.
     volumeType :: Prelude.Maybe Prelude.Text,
-    -- | The volume
-    -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-    raidLevel :: Prelude.Maybe Prelude.Int,
-    -- | For PIOPS volumes, the IOPS per disk.
-    iops :: Prelude.Maybe Prelude.Int,
     -- | The volume mount point. For example \"\/dev\/sdh\".
     mountPoint :: Prelude.Text,
     -- | The number of disks in the volume.
@@ -71,6 +71,11 @@ data VolumeConfiguration = VolumeConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'iops', 'volumeConfiguration_iops' - For PIOPS volumes, the IOPS per disk.
+--
+-- 'raidLevel', 'volumeConfiguration_raidLevel' - The volume
+-- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
 --
 -- 'encrypted', 'volumeConfiguration_encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more
 -- information, see
@@ -95,11 +100,6 @@ data VolumeConfiguration = VolumeConfiguration'
 -- -   @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500
 --     GiB and a maximum size of 16384 GiB.
 --
--- 'raidLevel', 'volumeConfiguration_raidLevel' - The volume
--- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
---
--- 'iops', 'volumeConfiguration_iops' - For PIOPS volumes, the IOPS per disk.
---
 -- 'mountPoint', 'volumeConfiguration_mountPoint' - The volume mount point. For example \"\/dev\/sdh\".
 --
 -- 'numberOfDisks', 'volumeConfiguration_numberOfDisks' - The number of disks in the volume.
@@ -118,14 +118,23 @@ newVolumeConfiguration
   pNumberOfDisks_
   pSize_ =
     VolumeConfiguration'
-      { encrypted = Prelude.Nothing,
-        volumeType = Prelude.Nothing,
+      { iops = Prelude.Nothing,
         raidLevel = Prelude.Nothing,
-        iops = Prelude.Nothing,
+        encrypted = Prelude.Nothing,
+        volumeType = Prelude.Nothing,
         mountPoint = pMountPoint_,
         numberOfDisks = pNumberOfDisks_,
         size = pSize_
       }
+
+-- | For PIOPS volumes, the IOPS per disk.
+volumeConfiguration_iops :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
+volumeConfiguration_iops = Lens.lens (\VolumeConfiguration' {iops} -> iops) (\s@VolumeConfiguration' {} a -> s {iops = a} :: VolumeConfiguration)
+
+-- | The volume
+-- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
+volumeConfiguration_raidLevel :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
+volumeConfiguration_raidLevel = Lens.lens (\VolumeConfiguration' {raidLevel} -> raidLevel) (\s@VolumeConfiguration' {} a -> s {raidLevel = a} :: VolumeConfiguration)
 
 -- | Specifies whether an Amazon EBS volume is encrypted. For more
 -- information, see
@@ -154,15 +163,6 @@ volumeConfiguration_encrypted = Lens.lens (\VolumeConfiguration' {encrypted} -> 
 volumeConfiguration_volumeType :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Text)
 volumeConfiguration_volumeType = Lens.lens (\VolumeConfiguration' {volumeType} -> volumeType) (\s@VolumeConfiguration' {} a -> s {volumeType = a} :: VolumeConfiguration)
 
--- | The volume
--- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-volumeConfiguration_raidLevel :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
-volumeConfiguration_raidLevel = Lens.lens (\VolumeConfiguration' {raidLevel} -> raidLevel) (\s@VolumeConfiguration' {} a -> s {raidLevel = a} :: VolumeConfiguration)
-
--- | For PIOPS volumes, the IOPS per disk.
-volumeConfiguration_iops :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
-volumeConfiguration_iops = Lens.lens (\VolumeConfiguration' {iops} -> iops) (\s@VolumeConfiguration' {} a -> s {iops = a} :: VolumeConfiguration)
-
 -- | The volume mount point. For example \"\/dev\/sdh\".
 volumeConfiguration_mountPoint :: Lens.Lens' VolumeConfiguration Prelude.Text
 volumeConfiguration_mountPoint = Lens.lens (\VolumeConfiguration' {mountPoint} -> mountPoint) (\s@VolumeConfiguration' {} a -> s {mountPoint = a} :: VolumeConfiguration)
@@ -181,10 +181,10 @@ instance Core.FromJSON VolumeConfiguration where
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            Prelude.<$> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "VolumeType")
+            Prelude.<$> (x Core..:? "Iops")
             Prelude.<*> (x Core..:? "RaidLevel")
-            Prelude.<*> (x Core..:? "Iops")
+            Prelude.<*> (x Core..:? "Encrypted")
+            Prelude.<*> (x Core..:? "VolumeType")
             Prelude.<*> (x Core..: "MountPoint")
             Prelude.<*> (x Core..: "NumberOfDisks")
             Prelude.<*> (x Core..: "Size")
@@ -198,10 +198,10 @@ instance Core.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("VolumeType" Core..=) Prelude.<$> volumeType,
+          [ ("Iops" Core..=) Prelude.<$> iops,
             ("RaidLevel" Core..=) Prelude.<$> raidLevel,
-            ("Iops" Core..=) Prelude.<$> iops,
+            ("Encrypted" Core..=) Prelude.<$> encrypted,
+            ("VolumeType" Core..=) Prelude.<$> volumeType,
             Prelude.Just ("MountPoint" Core..= mountPoint),
             Prelude.Just ("NumberOfDisks" Core..= numberOfDisks),
             Prelude.Just ("Size" Core..= size)

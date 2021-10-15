@@ -1,0 +1,63 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-apigatewaymanagementapi/amazonka-apigatewaymanagementapi.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-apigatewaymanagementapi",
+    srcs = [
+        "gen/Network/AWS/APIGatewayManagementAPI.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/DeleteConnection.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/GetConnection.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/Lens.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/PostToConnection.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/Types.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/Types/Identity.hs",
+        "gen/Network/AWS/APIGatewayManagementAPI/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_apigatewaymanagementapi=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-apigatewaymanagementapi/amazonka-apigatewaymanagementapi.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-apigatewaymanagementapi-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/APIGatewayManagementAPI.hs",
+        "test/Test/AWS/APIGatewayManagementAPI/Internal.hs",
+        "test/Test/AWS/Gen/APIGatewayManagementAPI.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_apigatewaymanagementapi=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-apigatewaymanagementapi",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

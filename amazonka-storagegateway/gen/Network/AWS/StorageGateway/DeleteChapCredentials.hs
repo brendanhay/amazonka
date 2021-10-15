@@ -37,8 +37,8 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     newDeleteChapCredentialsResponse,
 
     -- * Response Lenses
-    deleteChapCredentialsResponse_initiatorName,
     deleteChapCredentialsResponse_targetARN,
+    deleteChapCredentialsResponse_initiatorName,
     deleteChapCredentialsResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest DeleteChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           DeleteChapCredentialsResponse'
-            Prelude.<$> (x Core..?> "InitiatorName")
-            Prelude.<*> (x Core..?> "TargetARN")
+            Prelude.<$> (x Core..?> "TargetARN")
+            Prelude.<*> (x Core..?> "InitiatorName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,10 +155,10 @@ instance Core.ToQuery DeleteChapCredentials where
 --
 -- /See:/ 'newDeleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-  { -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the target.
+  { -- | The Amazon Resource Name (ARN) of the target.
     targetARN :: Prelude.Maybe Prelude.Text,
+    -- | The iSCSI initiator that connects to the target.
+    initiatorName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,9 +172,9 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'initiatorName', 'deleteChapCredentialsResponse_initiatorName' - The iSCSI initiator that connects to the target.
---
 -- 'targetARN', 'deleteChapCredentialsResponse_targetARN' - The Amazon Resource Name (ARN) of the target.
+--
+-- 'initiatorName', 'deleteChapCredentialsResponse_initiatorName' - The iSCSI initiator that connects to the target.
 --
 -- 'httpStatus', 'deleteChapCredentialsResponse_httpStatus' - The response's http status code.
 newDeleteChapCredentialsResponse ::
@@ -183,19 +183,19 @@ newDeleteChapCredentialsResponse ::
   DeleteChapCredentialsResponse
 newDeleteChapCredentialsResponse pHttpStatus_ =
   DeleteChapCredentialsResponse'
-    { initiatorName =
+    { targetARN =
         Prelude.Nothing,
-      targetARN = Prelude.Nothing,
+      initiatorName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The iSCSI initiator that connects to the target.
-deleteChapCredentialsResponse_initiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
-deleteChapCredentialsResponse_initiatorName = Lens.lens (\DeleteChapCredentialsResponse' {initiatorName} -> initiatorName) (\s@DeleteChapCredentialsResponse' {} a -> s {initiatorName = a} :: DeleteChapCredentialsResponse)
 
 -- | The Amazon Resource Name (ARN) of the target.
 deleteChapCredentialsResponse_targetARN :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
 deleteChapCredentialsResponse_targetARN = Lens.lens (\DeleteChapCredentialsResponse' {targetARN} -> targetARN) (\s@DeleteChapCredentialsResponse' {} a -> s {targetARN = a} :: DeleteChapCredentialsResponse)
+
+-- | The iSCSI initiator that connects to the target.
+deleteChapCredentialsResponse_initiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
+deleteChapCredentialsResponse_initiatorName = Lens.lens (\DeleteChapCredentialsResponse' {initiatorName} -> initiatorName) (\s@DeleteChapCredentialsResponse' {} a -> s {initiatorName = a} :: DeleteChapCredentialsResponse)
 
 -- | The response's http status code.
 deleteChapCredentialsResponse_httpStatus :: Lens.Lens' DeleteChapCredentialsResponse Prelude.Int

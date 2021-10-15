@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data DataSource = DataSource'
   { -- | The data source\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The database name.
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
     -- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The database name.
-    databaseName :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,31 @@ data DataSource = DataSource'
 --
 -- 'arn', 'dataSource_arn' - The data source\'s ARN.
 --
+-- 'databaseName', 'dataSource_databaseName' - The database name.
+--
 -- 'type'', 'dataSource_type' - The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
 -- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
---
--- 'databaseName', 'dataSource_databaseName' - The database name.
 newDataSource ::
   DataSource
 newDataSource =
   DataSource'
     { arn = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+      databaseName = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The data source\'s ARN.
 dataSource_arn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_arn = Lens.lens (\DataSource' {arn} -> arn) (\s@DataSource' {} a -> s {arn = a} :: DataSource)
 
+-- | The database name.
+dataSource_databaseName :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_databaseName = Lens.lens (\DataSource' {databaseName} -> databaseName) (\s@DataSource' {} a -> s {databaseName = a} :: DataSource)
+
 -- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
 -- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
 dataSource_type :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a -> s {type' = a} :: DataSource)
-
--- | The database name.
-dataSource_databaseName :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
-dataSource_databaseName = Lens.lens (\DataSource' {databaseName} -> databaseName) (\s@DataSource' {} a -> s {databaseName = a} :: DataSource)
 
 instance Core.FromJSON DataSource where
   parseJSON =
@@ -80,8 +80,8 @@ instance Core.FromJSON DataSource where
       ( \x ->
           DataSource'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "DatabaseName")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable DataSource
@@ -93,7 +93,7 @@ instance Core.ToJSON DataSource where
     Core.object
       ( Prelude.catMaybes
           [ ("Arn" Core..=) Prelude.<$> arn,
-            ("Type" Core..=) Prelude.<$> type',
-            ("DatabaseName" Core..=) Prelude.<$> databaseName
+            ("DatabaseName" Core..=) Prelude.<$> databaseName,
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

@@ -42,8 +42,8 @@ module Network.AWS.OpsWorks.DescribeEcsClusters
 
     -- * Request Lenses
     describeEcsClusters_nextToken,
-    describeEcsClusters_maxResults,
     describeEcsClusters_stackId,
+    describeEcsClusters_maxResults,
     describeEcsClusters_ecsClusterArns,
 
     -- * Destructuring the Response
@@ -73,15 +73,15 @@ data DescribeEcsClusters = DescribeEcsClusters'
     -- parameter. If there are no remaining results, the previous response
     -- object\'s @NextToken@ parameter is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster
+    -- that is registered with the stack.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | To receive a paginated response, use this parameter to specify the
     -- maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster
-    -- that is registered with the stack.
-    stackId :: Prelude.Maybe Prelude.Text,
     -- | A list of ARNs, one for each cluster to be described.
     ecsClusterArns :: Prelude.Maybe [Prelude.Text]
   }
@@ -102,14 +102,14 @@ data DescribeEcsClusters = DescribeEcsClusters'
 -- parameter. If there are no remaining results, the previous response
 -- object\'s @NextToken@ parameter is set to @null@.
 --
+-- 'stackId', 'describeEcsClusters_stackId' - A stack ID. @DescribeEcsClusters@ returns a description of the cluster
+-- that is registered with the stack.
+--
 -- 'maxResults', 'describeEcsClusters_maxResults' - To receive a paginated response, use this parameter to specify the
 -- maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
---
--- 'stackId', 'describeEcsClusters_stackId' - A stack ID. @DescribeEcsClusters@ returns a description of the cluster
--- that is registered with the stack.
 --
 -- 'ecsClusterArns', 'describeEcsClusters_ecsClusterArns' - A list of ARNs, one for each cluster to be described.
 newDescribeEcsClusters ::
@@ -117,8 +117,8 @@ newDescribeEcsClusters ::
 newDescribeEcsClusters =
   DescribeEcsClusters'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       stackId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       ecsClusterArns = Prelude.Nothing
     }
 
@@ -131,6 +131,11 @@ newDescribeEcsClusters =
 describeEcsClusters_nextToken :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Text)
 describeEcsClusters_nextToken = Lens.lens (\DescribeEcsClusters' {nextToken} -> nextToken) (\s@DescribeEcsClusters' {} a -> s {nextToken = a} :: DescribeEcsClusters)
 
+-- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster
+-- that is registered with the stack.
+describeEcsClusters_stackId :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Text)
+describeEcsClusters_stackId = Lens.lens (\DescribeEcsClusters' {stackId} -> stackId) (\s@DescribeEcsClusters' {} a -> s {stackId = a} :: DescribeEcsClusters)
+
 -- | To receive a paginated response, use this parameter to specify the
 -- maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
@@ -138,11 +143,6 @@ describeEcsClusters_nextToken = Lens.lens (\DescribeEcsClusters' {nextToken} -> 
 -- parameter to get the next set of results.
 describeEcsClusters_maxResults :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Int)
 describeEcsClusters_maxResults = Lens.lens (\DescribeEcsClusters' {maxResults} -> maxResults) (\s@DescribeEcsClusters' {} a -> s {maxResults = a} :: DescribeEcsClusters)
-
--- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster
--- that is registered with the stack.
-describeEcsClusters_stackId :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe Prelude.Text)
-describeEcsClusters_stackId = Lens.lens (\DescribeEcsClusters' {stackId} -> stackId) (\s@DescribeEcsClusters' {} a -> s {stackId = a} :: DescribeEcsClusters)
 
 -- | A list of ARNs, one for each cluster to be described.
 describeEcsClusters_ecsClusterArns :: Lens.Lens' DescribeEcsClusters (Prelude.Maybe [Prelude.Text])
@@ -208,8 +208,8 @@ instance Core.ToJSON DescribeEcsClusters where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("StackId" Core..=) Prelude.<$> stackId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("EcsClusterArns" Core..=)
               Prelude.<$> ecsClusterArns
           ]

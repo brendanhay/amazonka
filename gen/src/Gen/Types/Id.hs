@@ -29,6 +29,9 @@ module Gen.Types.Id
     prependId,
     appendId,
     replaceId,
+
+    -- * Utilities
+    partial,
   )
 where
 
@@ -37,7 +40,9 @@ import Control.Comonad.Cofree
 import Control.Lens
 import Data.Aeson
 import qualified Data.Char as Char
+import qualified Data.HashMap.Strict as Map
 import Data.Hashable
+import Data.String
 import Data.Text (Text)
 import qualified Data.Text as Text
 import Gen.Text
@@ -77,6 +82,12 @@ mkId t = Id t (format t)
 
 format :: Text -> Text
 format = upperHead . Text.dropWhile (not . Char.isAlpha)
+
+partial :: Show a => Id -> Map.HashMap Id a -> String
+partial p m =
+  let text = Text.take 3 (memberId p)
+      matches = Map.filterWithKey (const . Text.isPrefixOf text . memberId) m
+   in fromString (show (Map.toList matches))
 
 representation :: Lens' Id Text
 representation =

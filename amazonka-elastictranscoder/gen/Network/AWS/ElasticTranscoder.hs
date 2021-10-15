@@ -24,23 +24,23 @@ module Network.AWS.ElasticTranscoder
     -- ** IncompatibleVersionException
     _IncompatibleVersionException,
 
-    -- ** InternalServiceException
-    _InternalServiceException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -50,6 +50,12 @@ module Network.AWS.ElasticTranscoder
 
     -- * Operations
     -- $operations
+
+    -- ** DeletePreset
+    DeletePreset (DeletePreset'),
+    newDeletePreset,
+    DeletePresetResponse (DeletePresetResponse'),
+    newDeletePresetResponse,
 
     -- ** UpdatePipelineStatus
     UpdatePipelineStatus (UpdatePipelineStatus'),
@@ -63,59 +69,17 @@ module Network.AWS.ElasticTranscoder
     ListJobsByPipelineResponse (ListJobsByPipelineResponse'),
     newListJobsByPipelineResponse,
 
-    -- ** DeletePreset
-    DeletePreset (DeletePreset'),
-    newDeletePreset,
-    DeletePresetResponse (DeletePresetResponse'),
-    newDeletePresetResponse,
-
-    -- ** ListPresets (Paginated)
-    ListPresets (ListPresets'),
-    newListPresets,
-    ListPresetsResponse (ListPresetsResponse'),
-    newListPresetsResponse,
-
-    -- ** CreatePreset
-    CreatePreset (CreatePreset'),
-    newCreatePreset,
-    CreatePresetResponse (CreatePresetResponse'),
-    newCreatePresetResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
-
-    -- ** CreatePipeline
-    CreatePipeline (CreatePipeline'),
-    newCreatePipeline,
-    CreatePipelineResponse (CreatePipelineResponse'),
-    newCreatePipelineResponse,
-
-    -- ** DeletePipeline
-    DeletePipeline (DeletePipeline'),
-    newDeletePipeline,
-    DeletePipelineResponse (DeletePipelineResponse'),
-    newDeletePipelineResponse,
-
     -- ** UpdatePipeline
     UpdatePipeline (UpdatePipeline'),
     newUpdatePipeline,
     UpdatePipelineResponse (UpdatePipelineResponse'),
     newUpdatePipelineResponse,
 
-    -- ** ReadPreset
-    ReadPreset (ReadPreset'),
-    newReadPreset,
-    ReadPresetResponse (ReadPresetResponse'),
-    newReadPresetResponse,
-
-    -- ** ListJobsByStatus (Paginated)
-    ListJobsByStatus (ListJobsByStatus'),
-    newListJobsByStatus,
-    ListJobsByStatusResponse (ListJobsByStatusResponse'),
-    newListJobsByStatusResponse,
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
 
     -- ** CreateJob
     CreateJob (CreateJob'),
@@ -129,11 +93,29 @@ module Network.AWS.ElasticTranscoder
     ListPipelinesResponse (ListPipelinesResponse'),
     newListPipelinesResponse,
 
-    -- ** ReadPipeline
-    ReadPipeline (ReadPipeline'),
-    newReadPipeline,
-    ReadPipelineResponse (ReadPipelineResponse'),
-    newReadPipelineResponse,
+    -- ** CreatePreset
+    CreatePreset (CreatePreset'),
+    newCreatePreset,
+    CreatePresetResponse (CreatePresetResponse'),
+    newCreatePresetResponse,
+
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
+
+    -- ** ReadPreset
+    ReadPreset (ReadPreset'),
+    newReadPreset,
+    ReadPresetResponse (ReadPresetResponse'),
+    newReadPresetResponse,
+
+    -- ** ReadJob
+    ReadJob (ReadJob'),
+    newReadJob,
+    ReadJobResponse (ReadJobResponse'),
+    newReadJobResponse,
 
     -- ** UpdatePipelineNotifications
     UpdatePipelineNotifications (UpdatePipelineNotifications'),
@@ -141,11 +123,29 @@ module Network.AWS.ElasticTranscoder
     UpdatePipelineNotificationsResponse (UpdatePipelineNotificationsResponse'),
     newUpdatePipelineNotificationsResponse,
 
-    -- ** ReadJob
-    ReadJob (ReadJob'),
-    newReadJob,
-    ReadJobResponse (ReadJobResponse'),
-    newReadJobResponse,
+    -- ** ReadPipeline
+    ReadPipeline (ReadPipeline'),
+    newReadPipeline,
+    ReadPipelineResponse (ReadPipelineResponse'),
+    newReadPipelineResponse,
+
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
+
+    -- ** ListJobsByStatus (Paginated)
+    ListJobsByStatus (ListJobsByStatus'),
+    newListJobsByStatus,
+    ListJobsByStatusResponse (ListJobsByStatusResponse'),
+    newListJobsByStatusResponse,
+
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- * Types
 
@@ -201,9 +201,9 @@ module Network.AWS.ElasticTranscoder
     InputCaptions (InputCaptions'),
     newInputCaptions,
 
-    -- ** Job'
-    Job' (Job''),
-    newJob',
+    -- ** Job
+    Job (Job'),
+    newJob,
 
     -- ** JobAlbumArt
     JobAlbumArt (JobAlbumArt'),

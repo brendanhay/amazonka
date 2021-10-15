@@ -10,93 +10,77 @@
 
 module Gen.IO where
 
-import Control.Error
 import Control.Monad.Except
-import Control.Monad.State
-import Data.Bifunctor
 import Data.ByteString (ByteString)
-import Data.Text (Text)
-import qualified Data.Text as Text
+import qualified Data.ByteString as ByteString
+import Data.String (fromString)
 import qualified Data.Text.Lazy as LText
-import Data.Text.Lazy.Builder (toLazyText)
 import qualified Data.Text.Lazy.IO as LText
-import qualified Filesystem as FS
-import Filesystem.Path.CurrentOS
-import Gen.Formatting
-import Gen.Types
+import System.FilePath ((</>))
+import qualified System.FilePath as FilePath
 import System.IO
+import Text.EDE (Template)
 import qualified Text.EDE as EDE
-import qualified UnexceptionalIO as UIO
+import qualified UnliftIO
+import qualified UnliftIO.Directory as UnliftIO
 
-run :: ExceptT Error IO a -> IO a
-run = runScript . fmapLT LText.toStrict
+title :: MonadIO m => String -> m ()
+title = liftIO . putStrLn
 
-io :: MonadIO m => IO a -> ExceptT Error m a
-io = ExceptT . fmap (first (LText.pack . show)) . liftIO . UIO.lift . UIO.fromIO
+say :: MonadIO m => String -> m ()
+say = title . mappend " -> "
 
-title :: MonadIO m => Format (ExceptT Error m ()) a -> a
-title m = runFormat m (io . LText.putStrLn . toLazyText)
+done :: MonadIO m => m ()
+done = liftIO (putStrLn "")
 
-say :: MonadIO m => Format (ExceptT Error m ()) a -> a
-say = title . (" -> " %)
+readBSFile :: MonadIO m => FilePath -> m ByteString
+readBSFile path =
+  say ("Reading " ++ path)
+    >> liftIO (ByteString.readFile path)
 
-done :: MonadIO m => ExceptT Error m ()
-done = title ""
+writeLTFile :: UnliftIO.MonadUnliftIO m => FilePath -> LText.Text -> m ()
+writeLTFile path text = do
+  say ("Writing " ++ path)
+  UnliftIO.withFile path WriteMode $ \handle ->
+    liftIO $ do
+      hSetEncoding handle utf8
+      LText.hPutStr handle text
 
-isFile :: MonadIO m => Path -> ExceptT Error m Bool
-isFile = io . FS.isFile
+touchFile :: UnliftIO.MonadUnliftIO m => FilePath -> LText.Text -> m ()
+touchFile path text = do
+  exists <- UnliftIO.doesFileExist path
+  unless exists $
+    writeLTFile path text
 
-listDir :: MonadIO m => Path -> ExceptT Error m [Path]
-listDir = io . FS.listDirectory
+createDir :: MonadIO m => FilePath -> m ()
+createDir dir = do
+  exists <- UnliftIO.doesDirectoryExist dir
+  unless exists $ do
+    say ("Creating " ++ dir)
+    UnliftIO.createDirectoryIfMissing True dir
 
-readBSFile :: MonadIO m => Path -> ExceptT Error m ByteString
-readBSFile f = do
-  p <- isFile f
-  if p
-    then say ("Reading " % path) f >> io (FS.readFile f)
-    else failure ("Missing " % path) f
-
-writeLTFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
-writeLTFile f t = do
-  say ("Writing " % path) f
-  io . FS.withFile f FS.WriteMode $ \h -> do
-    hSetEncoding h utf8
-    LText.hPutStr h t
-
-touchFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
-touchFile f t = do
-  p <- isFile f
-  unless p $
-    writeLTFile f t
-
-createDir :: MonadIO m => Path -> ExceptT Error m ()
-createDir d = do
-  p <- io (FS.isDirectory d)
-  unless p $ do
-    say ("Creating " % path) d
-    io (FS.createTree d)
-
-copyDir :: MonadIO m => Path -> Path -> ExceptT Error m ()
-copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
+copyDir :: MonadIO m => FilePath -> FilePath -> m ()
+copyDir src dst =
+  UnliftIO.listDirectory src >>= mapM_ copy
   where
-    copy f = do
-      let p = dst </> filename f
-      fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
-      FS.copyFile f p
+    copy fsrc = do
+      let fdst = dst </> FilePath.takeFileName fsrc
+
+      say $
+        "Copying "
+          ++ fsrc
+          ++ " to "
+          ++ FilePath.takeDirectory fdst
+
+      UnliftIO.copyFile fsrc fdst
 
 readTemplate ::
   MonadIO m =>
-  Path ->
-  Path ->
-  StateT (Map Text (EDE.Result EDE.Template)) (ExceptT Error m) EDE.Template
-readTemplate d f = do
-  let tmpl = d </> f
-  lift (readBSFile tmpl)
-    >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
-    >>= EDE.result (throwError . LText.pack . show) return
-  where
-    load p o k _ = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
-      where
-        x
-          | Text.null k = fromText k
-          | otherwise = p </> fromText k
+  FilePath ->
+  FilePath ->
+  m Template
+readTemplate dir name =
+  liftIO $
+    readBSFile (dir </> name)
+      >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
+      >>= EDE.result (UnliftIO.throwString . show) pure

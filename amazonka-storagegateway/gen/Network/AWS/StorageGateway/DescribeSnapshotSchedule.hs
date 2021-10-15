@@ -37,12 +37,12 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     newDescribeSnapshotScheduleResponse,
 
     -- * Response Lenses
-    describeSnapshotScheduleResponse_recurrenceInHours,
-    describeSnapshotScheduleResponse_volumeARN,
     describeSnapshotScheduleResponse_startAt,
-    describeSnapshotScheduleResponse_tags,
-    describeSnapshotScheduleResponse_description,
+    describeSnapshotScheduleResponse_volumeARN,
+    describeSnapshotScheduleResponse_recurrenceInHours,
     describeSnapshotScheduleResponse_timezone,
+    describeSnapshotScheduleResponse_description,
+    describeSnapshotScheduleResponse_tags,
     describeSnapshotScheduleResponse_httpStatus,
   )
 where
@@ -96,12 +96,12 @@ instance Core.AWSRequest DescribeSnapshotSchedule where
     Response.receiveJSON
       ( \s h x ->
           DescribeSnapshotScheduleResponse'
-            Prelude.<$> (x Core..?> "RecurrenceInHours")
+            Prelude.<$> (x Core..?> "StartAt")
             Prelude.<*> (x Core..?> "VolumeARN")
-            Prelude.<*> (x Core..?> "StartAt")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "RecurrenceInHours")
             Prelude.<*> (x Core..?> "Timezone")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,24 +139,24 @@ instance Core.ToQuery DescribeSnapshotSchedule where
 
 -- | /See:/ 'newDescribeSnapshotScheduleResponse' smart constructor.
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-  { -- | The number of hours between snapshots.
-    recurrenceInHours :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the volume that was specified in the
-    -- request.
-    volumeARN :: Prelude.Maybe Prelude.Text,
-    -- | The hour of the day at which the snapshot schedule begins represented as
+  { -- | The hour of the day at which the snapshot schedule begins represented as
     -- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
     -- time zone of the gateway.
     startAt :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the volume that was specified in the
+    -- request.
+    volumeARN :: Prelude.Maybe Prelude.Text,
+    -- | The number of hours between snapshots.
+    recurrenceInHours :: Prelude.Maybe Prelude.Natural,
+    -- | A value that indicates the time zone of the gateway.
+    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The snapshot description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 50 tags assigned to the snapshot schedule, sorted
     -- alphabetically by key name. Each tag is a key-value pair. For a gateway
     -- with more than 10 tags assigned, you can view all tags using the
     -- @ListTagsForResource@ API operation.
     tags :: Prelude.Maybe [Tag],
-    -- | The snapshot description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates the time zone of the gateway.
-    timezone :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,23 +170,23 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recurrenceInHours', 'describeSnapshotScheduleResponse_recurrenceInHours' - The number of hours between snapshots.
+-- 'startAt', 'describeSnapshotScheduleResponse_startAt' - The hour of the day at which the snapshot schedule begins represented as
+-- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
+-- time zone of the gateway.
 --
 -- 'volumeARN', 'describeSnapshotScheduleResponse_volumeARN' - The Amazon Resource Name (ARN) of the volume that was specified in the
 -- request.
 --
--- 'startAt', 'describeSnapshotScheduleResponse_startAt' - The hour of the day at which the snapshot schedule begins represented as
--- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
--- time zone of the gateway.
+-- 'recurrenceInHours', 'describeSnapshotScheduleResponse_recurrenceInHours' - The number of hours between snapshots.
+--
+-- 'timezone', 'describeSnapshotScheduleResponse_timezone' - A value that indicates the time zone of the gateway.
+--
+-- 'description', 'describeSnapshotScheduleResponse_description' - The snapshot description.
 --
 -- 'tags', 'describeSnapshotScheduleResponse_tags' - A list of up to 50 tags assigned to the snapshot schedule, sorted
 -- alphabetically by key name. Each tag is a key-value pair. For a gateway
 -- with more than 10 tags assigned, you can view all tags using the
 -- @ListTagsForResource@ API operation.
---
--- 'description', 'describeSnapshotScheduleResponse_description' - The snapshot description.
---
--- 'timezone', 'describeSnapshotScheduleResponse_timezone' - A value that indicates the time zone of the gateway.
 --
 -- 'httpStatus', 'describeSnapshotScheduleResponse_httpStatus' - The response's http status code.
 newDescribeSnapshotScheduleResponse ::
@@ -195,24 +195,15 @@ newDescribeSnapshotScheduleResponse ::
   DescribeSnapshotScheduleResponse
 newDescribeSnapshotScheduleResponse pHttpStatus_ =
   DescribeSnapshotScheduleResponse'
-    { recurrenceInHours =
+    { startAt =
         Prelude.Nothing,
       volumeARN = Prelude.Nothing,
-      startAt = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+      recurrenceInHours = Prelude.Nothing,
       timezone = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The number of hours between snapshots.
-describeSnapshotScheduleResponse_recurrenceInHours :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Natural)
-describeSnapshotScheduleResponse_recurrenceInHours = Lens.lens (\DescribeSnapshotScheduleResponse' {recurrenceInHours} -> recurrenceInHours) (\s@DescribeSnapshotScheduleResponse' {} a -> s {recurrenceInHours = a} :: DescribeSnapshotScheduleResponse)
-
--- | The Amazon Resource Name (ARN) of the volume that was specified in the
--- request.
-describeSnapshotScheduleResponse_volumeARN :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
-describeSnapshotScheduleResponse_volumeARN = Lens.lens (\DescribeSnapshotScheduleResponse' {volumeARN} -> volumeARN) (\s@DescribeSnapshotScheduleResponse' {} a -> s {volumeARN = a} :: DescribeSnapshotScheduleResponse)
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
@@ -220,20 +211,29 @@ describeSnapshotScheduleResponse_volumeARN = Lens.lens (\DescribeSnapshotSchedul
 describeSnapshotScheduleResponse_startAt :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Natural)
 describeSnapshotScheduleResponse_startAt = Lens.lens (\DescribeSnapshotScheduleResponse' {startAt} -> startAt) (\s@DescribeSnapshotScheduleResponse' {} a -> s {startAt = a} :: DescribeSnapshotScheduleResponse)
 
+-- | The Amazon Resource Name (ARN) of the volume that was specified in the
+-- request.
+describeSnapshotScheduleResponse_volumeARN :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotScheduleResponse_volumeARN = Lens.lens (\DescribeSnapshotScheduleResponse' {volumeARN} -> volumeARN) (\s@DescribeSnapshotScheduleResponse' {} a -> s {volumeARN = a} :: DescribeSnapshotScheduleResponse)
+
+-- | The number of hours between snapshots.
+describeSnapshotScheduleResponse_recurrenceInHours :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Natural)
+describeSnapshotScheduleResponse_recurrenceInHours = Lens.lens (\DescribeSnapshotScheduleResponse' {recurrenceInHours} -> recurrenceInHours) (\s@DescribeSnapshotScheduleResponse' {} a -> s {recurrenceInHours = a} :: DescribeSnapshotScheduleResponse)
+
+-- | A value that indicates the time zone of the gateway.
+describeSnapshotScheduleResponse_timezone :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotScheduleResponse_timezone = Lens.lens (\DescribeSnapshotScheduleResponse' {timezone} -> timezone) (\s@DescribeSnapshotScheduleResponse' {} a -> s {timezone = a} :: DescribeSnapshotScheduleResponse)
+
+-- | The snapshot description.
+describeSnapshotScheduleResponse_description :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotScheduleResponse_description = Lens.lens (\DescribeSnapshotScheduleResponse' {description} -> description) (\s@DescribeSnapshotScheduleResponse' {} a -> s {description = a} :: DescribeSnapshotScheduleResponse)
+
 -- | A list of up to 50 tags assigned to the snapshot schedule, sorted
 -- alphabetically by key name. Each tag is a key-value pair. For a gateway
 -- with more than 10 tags assigned, you can view all tags using the
 -- @ListTagsForResource@ API operation.
 describeSnapshotScheduleResponse_tags :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe [Tag])
 describeSnapshotScheduleResponse_tags = Lens.lens (\DescribeSnapshotScheduleResponse' {tags} -> tags) (\s@DescribeSnapshotScheduleResponse' {} a -> s {tags = a} :: DescribeSnapshotScheduleResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The snapshot description.
-describeSnapshotScheduleResponse_description :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
-describeSnapshotScheduleResponse_description = Lens.lens (\DescribeSnapshotScheduleResponse' {description} -> description) (\s@DescribeSnapshotScheduleResponse' {} a -> s {description = a} :: DescribeSnapshotScheduleResponse)
-
--- | A value that indicates the time zone of the gateway.
-describeSnapshotScheduleResponse_timezone :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe Prelude.Text)
-describeSnapshotScheduleResponse_timezone = Lens.lens (\DescribeSnapshotScheduleResponse' {timezone} -> timezone) (\s@DescribeSnapshotScheduleResponse' {} a -> s {timezone = a} :: DescribeSnapshotScheduleResponse)
 
 -- | The response's http status code.
 describeSnapshotScheduleResponse_httpStatus :: Lens.Lens' DescribeSnapshotScheduleResponse Prelude.Int

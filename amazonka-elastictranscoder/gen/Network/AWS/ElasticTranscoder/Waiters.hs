@@ -34,7 +34,7 @@ newJobComplete =
             "Complete"
             Core.AcceptSuccess
             ( readJobResponse_job
-                Prelude.. job'_status
+                Prelude.. job_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
@@ -42,7 +42,7 @@ newJobComplete =
             "Canceled"
             Core.AcceptFailure
             ( readJobResponse_job
-                Prelude.. job'_status
+                Prelude.. job_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
@@ -50,7 +50,7 @@ newJobComplete =
             "Error"
             Core.AcceptFailure
             ( readJobResponse_job
-                Prelude.. job'_status
+                Prelude.. job_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

@@ -35,13 +35,13 @@ module Network.AWS.OpsWorks.CreateApp
 
     -- * Request Lenses
     createApp_sslConfiguration,
-    createApp_appSource,
-    createApp_dataSources,
-    createApp_domains,
-    createApp_enableSsl,
     createApp_environment,
+    createApp_enableSsl,
     createApp_shortname,
+    createApp_dataSources,
+    createApp_appSource,
     createApp_attributes,
+    createApp_domains,
     createApp_description,
     createApp_stackId,
     createApp_name,
@@ -68,15 +68,6 @@ import qualified Network.AWS.Response as Response
 data CreateApp = CreateApp'
   { -- | An @SslConfiguration@ object with the SSL configuration.
     sslConfiguration :: Prelude.Maybe SslConfiguration,
-    -- | A @Source@ object that specifies the app repository.
-    appSource :: Prelude.Maybe Source,
-    -- | The app\'s data source.
-    dataSources :: Prelude.Maybe [DataSource],
-    -- | The app virtual host settings, with multiple domains separated by
-    -- commas. For example: @\'www.example.com, example.com\'@
-    domains :: Prelude.Maybe [Prelude.Text],
-    -- | Whether to enable SSL for the app.
-    enableSsl :: Prelude.Maybe Prelude.Bool,
     -- | An array of @EnvironmentVariable@ objects that specify environment
     -- variables to be associated with the app. After you deploy the app, these
     -- variables are defined on the associated app server instance. For more
@@ -93,11 +84,20 @@ data CreateApp = CreateApp'
     -- If you have specified one or more environment variables, you cannot
     -- modify the stack\'s Chef version.
     environment :: Prelude.Maybe [EnvironmentVariable],
+    -- | Whether to enable SSL for the app.
+    enableSsl :: Prelude.Maybe Prelude.Bool,
     -- | The app\'s short name.
     shortname :: Prelude.Maybe Prelude.Text,
+    -- | The app\'s data source.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | A @Source@ object that specifies the app repository.
+    appSource :: Prelude.Maybe Source,
     -- | One or more user-defined key\/value pairs to be added to the stack
     -- attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text),
+    -- | The app virtual host settings, with multiple domains separated by
+    -- commas. For example: @\'www.example.com, example.com\'@
+    domains :: Prelude.Maybe [Prelude.Text],
     -- | A description of the app.
     description :: Prelude.Maybe Prelude.Text,
     -- | The stack ID.
@@ -124,15 +124,6 @@ data CreateApp = CreateApp'
 --
 -- 'sslConfiguration', 'createApp_sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 --
--- 'appSource', 'createApp_appSource' - A @Source@ object that specifies the app repository.
---
--- 'dataSources', 'createApp_dataSources' - The app\'s data source.
---
--- 'domains', 'createApp_domains' - The app virtual host settings, with multiple domains separated by
--- commas. For example: @\'www.example.com, example.com\'@
---
--- 'enableSsl', 'createApp_enableSsl' - Whether to enable SSL for the app.
---
 -- 'environment', 'createApp_environment' - An array of @EnvironmentVariable@ objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
 -- variables are defined on the associated app server instance. For more
@@ -149,10 +140,19 @@ data CreateApp = CreateApp'
 -- If you have specified one or more environment variables, you cannot
 -- modify the stack\'s Chef version.
 --
+-- 'enableSsl', 'createApp_enableSsl' - Whether to enable SSL for the app.
+--
 -- 'shortname', 'createApp_shortname' - The app\'s short name.
+--
+-- 'dataSources', 'createApp_dataSources' - The app\'s data source.
+--
+-- 'appSource', 'createApp_appSource' - A @Source@ object that specifies the app repository.
 --
 -- 'attributes', 'createApp_attributes' - One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
+--
+-- 'domains', 'createApp_domains' - The app virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
 --
 -- 'description', 'createApp_description' - A description of the app.
 --
@@ -177,13 +177,13 @@ newCreateApp ::
 newCreateApp pStackId_ pName_ pType_ =
   CreateApp'
     { sslConfiguration = Prelude.Nothing,
-      appSource = Prelude.Nothing,
-      dataSources = Prelude.Nothing,
-      domains = Prelude.Nothing,
-      enableSsl = Prelude.Nothing,
       environment = Prelude.Nothing,
+      enableSsl = Prelude.Nothing,
       shortname = Prelude.Nothing,
+      dataSources = Prelude.Nothing,
+      appSource = Prelude.Nothing,
       attributes = Prelude.Nothing,
+      domains = Prelude.Nothing,
       description = Prelude.Nothing,
       stackId = pStackId_,
       name = pName_,
@@ -193,23 +193,6 @@ newCreateApp pStackId_ pName_ pType_ =
 -- | An @SslConfiguration@ object with the SSL configuration.
 createApp_sslConfiguration :: Lens.Lens' CreateApp (Prelude.Maybe SslConfiguration)
 createApp_sslConfiguration = Lens.lens (\CreateApp' {sslConfiguration} -> sslConfiguration) (\s@CreateApp' {} a -> s {sslConfiguration = a} :: CreateApp)
-
--- | A @Source@ object that specifies the app repository.
-createApp_appSource :: Lens.Lens' CreateApp (Prelude.Maybe Source)
-createApp_appSource = Lens.lens (\CreateApp' {appSource} -> appSource) (\s@CreateApp' {} a -> s {appSource = a} :: CreateApp)
-
--- | The app\'s data source.
-createApp_dataSources :: Lens.Lens' CreateApp (Prelude.Maybe [DataSource])
-createApp_dataSources = Lens.lens (\CreateApp' {dataSources} -> dataSources) (\s@CreateApp' {} a -> s {dataSources = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
-
--- | The app virtual host settings, with multiple domains separated by
--- commas. For example: @\'www.example.com, example.com\'@
-createApp_domains :: Lens.Lens' CreateApp (Prelude.Maybe [Prelude.Text])
-createApp_domains = Lens.lens (\CreateApp' {domains} -> domains) (\s@CreateApp' {} a -> s {domains = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
-
--- | Whether to enable SSL for the app.
-createApp_enableSsl :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Bool)
-createApp_enableSsl = Lens.lens (\CreateApp' {enableSsl} -> enableSsl) (\s@CreateApp' {} a -> s {enableSsl = a} :: CreateApp)
 
 -- | An array of @EnvironmentVariable@ objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
@@ -229,14 +212,31 @@ createApp_enableSsl = Lens.lens (\CreateApp' {enableSsl} -> enableSsl) (\s@Creat
 createApp_environment :: Lens.Lens' CreateApp (Prelude.Maybe [EnvironmentVariable])
 createApp_environment = Lens.lens (\CreateApp' {environment} -> environment) (\s@CreateApp' {} a -> s {environment = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Whether to enable SSL for the app.
+createApp_enableSsl :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Bool)
+createApp_enableSsl = Lens.lens (\CreateApp' {enableSsl} -> enableSsl) (\s@CreateApp' {} a -> s {enableSsl = a} :: CreateApp)
+
 -- | The app\'s short name.
 createApp_shortname :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_shortname = Lens.lens (\CreateApp' {shortname} -> shortname) (\s@CreateApp' {} a -> s {shortname = a} :: CreateApp)
+
+-- | The app\'s data source.
+createApp_dataSources :: Lens.Lens' CreateApp (Prelude.Maybe [DataSource])
+createApp_dataSources = Lens.lens (\CreateApp' {dataSources} -> dataSources) (\s@CreateApp' {} a -> s {dataSources = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A @Source@ object that specifies the app repository.
+createApp_appSource :: Lens.Lens' CreateApp (Prelude.Maybe Source)
+createApp_appSource = Lens.lens (\CreateApp' {appSource} -> appSource) (\s@CreateApp' {} a -> s {appSource = a} :: CreateApp)
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 createApp_attributes :: Lens.Lens' CreateApp (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
 createApp_attributes = Lens.lens (\CreateApp' {attributes} -> attributes) (\s@CreateApp' {} a -> s {attributes = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The app virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
+createApp_domains :: Lens.Lens' CreateApp (Prelude.Maybe [Prelude.Text])
+createApp_domains = Lens.lens (\CreateApp' {domains} -> domains) (\s@CreateApp' {} a -> s {domains = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A description of the app.
 createApp_description :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
@@ -295,13 +295,13 @@ instance Core.ToJSON CreateApp where
       ( Prelude.catMaybes
           [ ("SslConfiguration" Core..=)
               Prelude.<$> sslConfiguration,
-            ("AppSource" Core..=) Prelude.<$> appSource,
-            ("DataSources" Core..=) Prelude.<$> dataSources,
-            ("Domains" Core..=) Prelude.<$> domains,
-            ("EnableSsl" Core..=) Prelude.<$> enableSsl,
             ("Environment" Core..=) Prelude.<$> environment,
+            ("EnableSsl" Core..=) Prelude.<$> enableSsl,
             ("Shortname" Core..=) Prelude.<$> shortname,
+            ("DataSources" Core..=) Prelude.<$> dataSources,
+            ("AppSource" Core..=) Prelude.<$> appSource,
             ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Domains" Core..=) Prelude.<$> domains,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("StackId" Core..= stackId),
             Prelude.Just ("Name" Core..= name),

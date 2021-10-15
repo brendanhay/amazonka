@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data ElasticIp = ElasticIp'
   { -- | The ID of the instance that the address is attached to.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The IP address.
-    ip :: Prelude.Maybe Prelude.Text,
     -- | The domain.
     domain :: Prelude.Maybe Prelude.Text,
+    -- | The IP address.
+    ip :: Prelude.Maybe Prelude.Text,
     -- | The name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The AWS region. For more information, see
@@ -51,9 +51,9 @@ data ElasticIp = ElasticIp'
 --
 -- 'instanceId', 'elasticIp_instanceId' - The ID of the instance that the address is attached to.
 --
--- 'ip', 'elasticIp_ip' - The IP address.
---
 -- 'domain', 'elasticIp_domain' - The domain.
+--
+-- 'ip', 'elasticIp_ip' - The IP address.
 --
 -- 'name', 'elasticIp_name' - The name.
 --
@@ -64,8 +64,8 @@ newElasticIp ::
 newElasticIp =
   ElasticIp'
     { instanceId = Prelude.Nothing,
-      ip = Prelude.Nothing,
       domain = Prelude.Nothing,
+      ip = Prelude.Nothing,
       name = Prelude.Nothing,
       region = Prelude.Nothing
     }
@@ -74,13 +74,13 @@ newElasticIp =
 elasticIp_instanceId :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
 elasticIp_instanceId = Lens.lens (\ElasticIp' {instanceId} -> instanceId) (\s@ElasticIp' {} a -> s {instanceId = a} :: ElasticIp)
 
--- | The IP address.
-elasticIp_ip :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
-elasticIp_ip = Lens.lens (\ElasticIp' {ip} -> ip) (\s@ElasticIp' {} a -> s {ip = a} :: ElasticIp)
-
 -- | The domain.
 elasticIp_domain :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
 elasticIp_domain = Lens.lens (\ElasticIp' {domain} -> domain) (\s@ElasticIp' {} a -> s {domain = a} :: ElasticIp)
+
+-- | The IP address.
+elasticIp_ip :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_ip = Lens.lens (\ElasticIp' {ip} -> ip) (\s@ElasticIp' {} a -> s {ip = a} :: ElasticIp)
 
 -- | The name.
 elasticIp_name :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
@@ -98,8 +98,8 @@ instance Core.FromJSON ElasticIp where
       ( \x ->
           ElasticIp'
             Prelude.<$> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Ip")
             Prelude.<*> (x Core..:? "Domain")
+            Prelude.<*> (x Core..:? "Ip")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Region")
       )

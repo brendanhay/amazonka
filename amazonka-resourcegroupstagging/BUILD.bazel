@@ -1,0 +1,76 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-resourcegroupstagging/amazonka-resourcegroupstagging.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-resourcegroupstagging",
+    srcs = [
+        "gen/Network/AWS/ResourceGroupsTagging.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/DescribeReportCreation.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/GetComplianceSummary.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/GetResources.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/GetTagKeys.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/GetTagValues.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Lens.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/StartReportCreation.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/TagResources.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/ComplianceDetails.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/FailureInfo.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/GroupByAttribute.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/ResourceErrorCode.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/ResourceTagMapping.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/Summary.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/Tag.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/TagFilter.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Types/TargetIdType.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/UntagResources.hs",
+        "gen/Network/AWS/ResourceGroupsTagging/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_resourcegroupstagging=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-resourcegroupstagging/amazonka-resourcegroupstagging.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-resourcegroupstagging-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/ResourceGroupsTagging.hs",
+        "test/Test/AWS/ResourceGroupsTagging.hs",
+        "test/Test/AWS/ResourceGroupsTagging/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_resourcegroupstagging=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-resourcegroupstagging",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

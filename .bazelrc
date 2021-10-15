@@ -1,0 +1,70 @@
+# See: https://docs.bazel.build/versions/master/user-manual.html#bazelrc.
+
+#
+# Global
+#
+
+# Darwin fix - taken from https://github.com/digital-asset/daml/pull/8697.
+startup --host_jvm_args=-Djdk.tls.client.protocols=TLSv1.2
+
+# Prevent silently matching empty file globs.
+build --incompatible_disallow_empty_glob
+# Increase logging verbosity.
+build --verbose_failures
+# When set, bazel uses PATH=/bin:/usr/bin. This improves cache hits and only
+# environment variables set explicitly using --action_env will be available.
+build --incompatible_strict_action_env
+
+# Print all test output to stdout.
+test --test_output=all
+
+#
+# Platforms and Toolchains
+#
+
+build --host_platform=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host
+build --host_javabase=@local_jdk//:jdk
+build --javabase=@local_jdk//:jdk
+
+#
+# Caching
+#
+
+build --repository_cache=~/.cache/bazel/amazonka/repo
+build --disk_cache=~/.cache/bazel/amazonka/disk
+# Push build results to the disk cache despite --remote_upload_local_results.
+build --incompatible_remote_results_ignore_disk=true
+build --remote_cache=grpcs://cloud.buildbuddy.io
+build --remote_timeout=3600
+build --noremote_upload_local_results
+
+build:remote-cache --bes_results_url=https://app.buildbuddy.io/invocation/
+build:remote-cache --bes_backend=grpcs://cloud.buildbuddy.io
+build:remote-cache --remote_upload_local_results
+
+#
+# Continuous Integration
+#
+
+# Disable color in the logs.
+common:ci --color=no
+
+# Reduce test output on CI to just failing tests.
+test:ci --test_output=errors
+
+# Enable the remote cache.
+build:ci --config=remote-cache
+build:ci --loading_phase_threads=1
+# Ensure the repo-cache can be saved/restored via GitHub actions cache.
+build:ci --experimental_repository_cache_hardlinks
+# Avoid failures of the form `deadline exceeded after ..`.
+# See: https://github.com/tweag/rules_haskell/issues/1498.
+build:ci --keep_backend_build_event_connections_alive=false
+# Add BuildBuddy role metadata.
+build:ci --build_metadata=ROLE=CI
+
+#
+# Local Customisations
+#
+
+try-import %workspace%/.bazelrc.local

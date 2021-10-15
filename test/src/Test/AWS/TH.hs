@@ -31,10 +31,14 @@ deriving instance Lift UTCTime
 
 deriving instance Lift Day
 
--- DiffTime's constructor is not exported, so use a manual instance
-instance Lift DiffTime where
+-- DiffTime's constructor is not exported, so use a manual instance.
+--
+-- Note: An entire valid instance must be duplicated inside CPP to
+-- otherwise the ormolu formatter will erroneously rewrite it.
 #if MIN_VERSION_template_haskell(2,16,0)
+instance Lift DiffTime where
   liftTyped x = [||toEnum $$(liftTyped (fromEnum x))||]
 #else
+instance Lift DiffTime where
   lift x = [|toEnum $(lift (fromEnum x))|]
 #endif

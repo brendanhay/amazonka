@@ -74,45 +74,45 @@ module Network.AWS.OpsWorks.Types
     -- * App
     App (..),
     newApp,
-    app_appId,
     app_sslConfiguration,
-    app_appSource,
-    app_dataSources,
-    app_domains,
-    app_stackId,
-    app_createdAt,
-    app_enableSsl,
     app_environment,
+    app_enableSsl,
+    app_createdAt,
     app_shortname,
-    app_name,
+    app_dataSources,
+    app_appSource,
+    app_appId,
     app_attributes,
-    app_description,
+    app_name,
     app_type,
+    app_stackId,
+    app_domains,
+    app_description,
 
     -- * AutoScalingThresholds
     AutoScalingThresholds (..),
     newAutoScalingThresholds,
-    autoScalingThresholds_loadThreshold,
-    autoScalingThresholds_cpuThreshold,
-    autoScalingThresholds_memoryThreshold,
-    autoScalingThresholds_alarms,
-    autoScalingThresholds_thresholdsWaitTime,
-    autoScalingThresholds_ignoreMetricsTime,
     autoScalingThresholds_instanceCount,
+    autoScalingThresholds_ignoreMetricsTime,
+    autoScalingThresholds_loadThreshold,
+    autoScalingThresholds_thresholdsWaitTime,
+    autoScalingThresholds_alarms,
+    autoScalingThresholds_memoryThreshold,
+    autoScalingThresholds_cpuThreshold,
 
     -- * BlockDeviceMapping
     BlockDeviceMapping (..),
     newBlockDeviceMapping,
-    blockDeviceMapping_ebs,
-    blockDeviceMapping_noDevice,
     blockDeviceMapping_virtualName,
+    blockDeviceMapping_noDevice,
+    blockDeviceMapping_ebs,
     blockDeviceMapping_deviceName,
 
     -- * ChefConfiguration
     ChefConfiguration (..),
     newChefConfiguration,
-    chefConfiguration_manageBerkshelf,
     chefConfiguration_berkshelfVersion,
+    chefConfiguration_manageBerkshelf,
 
     -- * CloudWatchLogsConfiguration
     CloudWatchLogsConfiguration (..),
@@ -123,54 +123,54 @@ module Network.AWS.OpsWorks.Types
     -- * CloudWatchLogsLogStream
     CloudWatchLogsLogStream (..),
     newCloudWatchLogsLogStream,
-    cloudWatchLogsLogStream_initialPosition,
     cloudWatchLogsLogStream_batchCount,
-    cloudWatchLogsLogStream_multiLineStartPattern,
-    cloudWatchLogsLogStream_file,
     cloudWatchLogsLogStream_fileFingerprintLines,
-    cloudWatchLogsLogStream_logGroupName,
-    cloudWatchLogsLogStream_batchSize,
     cloudWatchLogsLogStream_bufferDuration,
+    cloudWatchLogsLogStream_batchSize,
+    cloudWatchLogsLogStream_logGroupName,
+    cloudWatchLogsLogStream_multiLineStartPattern,
+    cloudWatchLogsLogStream_initialPosition,
+    cloudWatchLogsLogStream_datetimeFormat,
     cloudWatchLogsLogStream_encoding,
     cloudWatchLogsLogStream_timeZone,
-    cloudWatchLogsLogStream_datetimeFormat,
+    cloudWatchLogsLogStream_file,
 
     -- * Command
     Command (..),
     newCommand,
-    command_logUrl,
-    command_status,
     command_deploymentId,
     command_instanceId,
-    command_completedAt,
+    command_status,
+    command_logUrl,
     command_createdAt,
-    command_exitCode,
     command_commandId,
-    command_acknowledgedAt,
+    command_exitCode,
     command_type,
+    command_completedAt,
+    command_acknowledgedAt,
 
     -- * DataSource
     DataSource (..),
     newDataSource,
     dataSource_arn,
-    dataSource_type,
     dataSource_databaseName,
+    dataSource_type,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
-    deployment_instanceIds,
-    deployment_appId,
-    deployment_status,
     deployment_deploymentId,
-    deployment_iamUserArn,
-    deployment_duration,
+    deployment_status,
+    deployment_command,
+    deployment_createdAt,
     deployment_customJson,
+    deployment_iamUserArn,
+    deployment_appId,
+    deployment_instanceIds,
+    deployment_completedAt,
     deployment_stackId,
     deployment_comment,
-    deployment_completedAt,
-    deployment_createdAt,
-    deployment_command,
+    deployment_duration,
 
     -- * DeploymentCommand
     DeploymentCommand (..),
@@ -182,40 +182,40 @@ module Network.AWS.OpsWorks.Types
     EbsBlockDevice (..),
     newEbsBlockDevice,
     ebsBlockDevice_deleteOnTermination,
-    ebsBlockDevice_snapshotId,
-    ebsBlockDevice_volumeType,
-    ebsBlockDevice_iops,
     ebsBlockDevice_volumeSize,
+    ebsBlockDevice_iops,
+    ebsBlockDevice_volumeType,
+    ebsBlockDevice_snapshotId,
 
     -- * EcsCluster
     EcsCluster (..),
     newEcsCluster,
-    ecsCluster_stackId,
+    ecsCluster_ecsClusterArn,
     ecsCluster_ecsClusterName,
     ecsCluster_registeredAt,
-    ecsCluster_ecsClusterArn,
+    ecsCluster_stackId,
 
     -- * ElasticIp
     ElasticIp (..),
     newElasticIp,
     elasticIp_instanceId,
-    elasticIp_ip,
     elasticIp_domain,
+    elasticIp_ip,
     elasticIp_name,
     elasticIp_region,
 
     -- * ElasticLoadBalancer
     ElasticLoadBalancer (..),
     newElasticLoadBalancer,
-    elasticLoadBalancer_availabilityZones,
-    elasticLoadBalancer_stackId,
-    elasticLoadBalancer_elasticLoadBalancerName,
     elasticLoadBalancer_subnetIds,
+    elasticLoadBalancer_vpcId,
+    elasticLoadBalancer_availabilityZones,
+    elasticLoadBalancer_region,
+    elasticLoadBalancer_elasticLoadBalancerName,
+    elasticLoadBalancer_stackId,
+    elasticLoadBalancer_ec2InstanceIds,
     elasticLoadBalancer_layerId,
     elasticLoadBalancer_dnsName,
-    elasticLoadBalancer_ec2InstanceIds,
-    elasticLoadBalancer_region,
-    elasticLoadBalancer_vpcId,
 
     -- * EnvironmentVariable
     EnvironmentVariable (..),
@@ -227,104 +227,104 @@ module Network.AWS.OpsWorks.Types
     -- * Instance
     Instance (..),
     newInstance,
+    instance_privateDns,
+    instance_reportedAgentVersion,
+    instance_instanceId,
+    instance_status,
+    instance_privateIp,
+    instance_installUpdatesOnBoot,
     instance_virtualizationType,
     instance_instanceProfileArn,
     instance_platform,
     instance_hostname,
     instance_sshHostRsaKeyFingerprint,
     instance_securityGroupIds,
-    instance_installUpdatesOnBoot,
-    instance_status,
-    instance_instanceId,
-    instance_privateDns,
-    instance_reportedAgentVersion,
-    instance_elasticIp,
-    instance_ebsOptimized,
+    instance_ecsClusterArn,
+    instance_arn,
+    instance_createdAt,
+    instance_ec2InstanceId,
+    instance_sshKeyName,
+    instance_agentVersion,
+    instance_rootDeviceVolumeId,
+    instance_subnetId,
+    instance_infrastructureClass,
     instance_sshHostDsaKeyFingerprint,
     instance_instanceType,
-    instance_rootDeviceType,
-    instance_agentVersion,
-    instance_stackId,
-    instance_rootDeviceVolumeId,
+    instance_ebsOptimized,
+    instance_elasticIp,
+    instance_os,
+    instance_availabilityZone,
+    instance_lastServiceErrorId,
+    instance_tenancy,
+    instance_autoScalingType,
+    instance_layerIds,
+    instance_architecture,
     instance_publicDns,
     instance_amiId,
-    instance_sshKeyName,
-    instance_architecture,
-    instance_createdAt,
-    instance_layerIds,
-    instance_arn,
-    instance_autoScalingType,
-    instance_tenancy,
-    instance_availabilityZone,
-    instance_os,
-    instance_privateIp,
-    instance_infrastructureClass,
+    instance_publicIp,
+    instance_reportedOs,
+    instance_registeredBy,
+    instance_stackId,
+    instance_rootDeviceType,
     instance_ecsContainerInstanceArn,
     instance_blockDeviceMappings,
-    instance_subnetId,
-    instance_registeredBy,
-    instance_reportedOs,
-    instance_ec2InstanceId,
-    instance_publicIp,
-    instance_lastServiceErrorId,
-    instance_ecsClusterArn,
 
     -- * InstanceIdentity
     InstanceIdentity (..),
     newInstanceIdentity,
-    instanceIdentity_document,
     instanceIdentity_signature,
+    instanceIdentity_document,
 
     -- * InstancesCount
     InstancesCount (..),
     newInstancesCount,
-    instancesCount_online,
-    instancesCount_setupFailed,
-    instancesCount_registering,
-    instancesCount_booting,
-    instancesCount_startFailed,
-    instancesCount_stopFailed,
-    instancesCount_runningSetup,
-    instancesCount_terminated,
-    instancesCount_pending,
     instancesCount_terminating,
-    instancesCount_shuttingDown,
-    instancesCount_assigning,
+    instancesCount_pending,
+    instancesCount_online,
+    instancesCount_unassigning,
+    instancesCount_deregistering,
+    instancesCount_runningSetup,
+    instancesCount_requested,
+    instancesCount_stopFailed,
+    instancesCount_booting,
     instancesCount_stopped,
     instancesCount_rebooting,
-    instancesCount_stopping,
-    instancesCount_requested,
-    instancesCount_registered,
-    instancesCount_deregistering,
+    instancesCount_assigning,
+    instancesCount_shuttingDown,
+    instancesCount_setupFailed,
     instancesCount_connectionLost,
-    instancesCount_unassigning,
+    instancesCount_terminated,
+    instancesCount_stopping,
+    instancesCount_registered,
+    instancesCount_startFailed,
+    instancesCount_registering,
 
     -- * Layer
     Layer (..),
     newLayer,
-    layer_installUpdatesOnBoot,
-    layer_customSecurityGroupIds,
     layer_customInstanceProfileArn,
-    layer_packages,
-    layer_enableAutoHealing,
-    layer_customJson,
-    layer_stackId,
-    layer_volumeConfigurations,
-    layer_defaultRecipes,
-    layer_createdAt,
-    layer_arn,
-    layer_shortname,
-    layer_name,
-    layer_attributes,
+    layer_customSecurityGroupIds,
+    layer_installUpdatesOnBoot,
     layer_cloudWatchLogsConfiguration,
-    layer_autoAssignElasticIps,
-    layer_defaultSecurityGroupNames,
-    layer_layerId,
-    layer_useEbsOptimizedInstances,
-    layer_customRecipes,
-    layer_type,
-    layer_autoAssignPublicIps,
     layer_lifecycleEventConfiguration,
+    layer_arn,
+    layer_createdAt,
+    layer_shortname,
+    layer_defaultRecipes,
+    layer_customRecipes,
+    layer_customJson,
+    layer_volumeConfigurations,
+    layer_enableAutoHealing,
+    layer_packages,
+    layer_attributes,
+    layer_name,
+    layer_autoAssignPublicIps,
+    layer_type,
+    layer_useEbsOptimizedInstances,
+    layer_stackId,
+    layer_layerId,
+    layer_defaultSecurityGroupNames,
+    layer_autoAssignElasticIps,
 
     -- * LifecycleEventConfiguration
     LifecycleEventConfiguration (..),
@@ -334,100 +334,100 @@ module Network.AWS.OpsWorks.Types
     -- * LoadBasedAutoScalingConfiguration
     LoadBasedAutoScalingConfiguration (..),
     newLoadBasedAutoScalingConfiguration,
-    loadBasedAutoScalingConfiguration_downScaling,
-    loadBasedAutoScalingConfiguration_enable,
-    loadBasedAutoScalingConfiguration_layerId,
     loadBasedAutoScalingConfiguration_upScaling,
+    loadBasedAutoScalingConfiguration_enable,
+    loadBasedAutoScalingConfiguration_downScaling,
+    loadBasedAutoScalingConfiguration_layerId,
 
     -- * OperatingSystem
     OperatingSystem (..),
     newOperatingSystem,
-    operatingSystem_supported,
-    operatingSystem_configurationManagers,
     operatingSystem_reportedVersion,
-    operatingSystem_id,
+    operatingSystem_supported,
     operatingSystem_name,
-    operatingSystem_reportedName,
+    operatingSystem_id,
+    operatingSystem_configurationManagers,
     operatingSystem_type,
+    operatingSystem_reportedName,
 
     -- * OperatingSystemConfigurationManager
     OperatingSystemConfigurationManager (..),
     newOperatingSystemConfigurationManager,
-    operatingSystemConfigurationManager_version,
     operatingSystemConfigurationManager_name,
+    operatingSystemConfigurationManager_version,
 
     -- * Permission
     Permission (..),
     newPermission,
-    permission_allowSudo,
     permission_iamUserArn,
+    permission_allowSudo,
     permission_stackId,
-    permission_allowSsh,
     permission_level,
+    permission_allowSsh,
 
     -- * RaidArray
     RaidArray (..),
     newRaidArray,
     raidArray_instanceId,
-    raidArray_numberOfDisks,
-    raidArray_stackId,
-    raidArray_device,
-    raidArray_createdAt,
-    raidArray_raidArrayId,
-    raidArray_name,
-    raidArray_availabilityZone,
-    raidArray_mountPoint,
-    raidArray_volumeType,
-    raidArray_raidLevel,
-    raidArray_iops,
     raidArray_size,
+    raidArray_iops,
+    raidArray_createdAt,
+    raidArray_raidLevel,
+    raidArray_device,
+    raidArray_numberOfDisks,
+    raidArray_availabilityZone,
+    raidArray_name,
+    raidArray_raidArrayId,
+    raidArray_volumeType,
+    raidArray_stackId,
+    raidArray_mountPoint,
 
     -- * RdsDbInstance
     RdsDbInstance (..),
     newRdsDbInstance,
     rdsDbInstance_rdsDbInstanceArn,
     rdsDbInstance_dbUser,
-    rdsDbInstance_address,
-    rdsDbInstance_stackId,
     rdsDbInstance_missingOnRds,
-    rdsDbInstance_dbInstanceIdentifier,
-    rdsDbInstance_dbPassword,
     rdsDbInstance_engine,
+    rdsDbInstance_address,
+    rdsDbInstance_dbInstanceIdentifier,
     rdsDbInstance_region,
+    rdsDbInstance_stackId,
+    rdsDbInstance_dbPassword,
 
     -- * Recipes
     Recipes (..),
     newRecipes,
-    recipes_configure,
-    recipes_undeploy,
-    recipes_shutdown,
     recipes_setup,
+    recipes_shutdown,
+    recipes_undeploy,
+    recipes_configure,
     recipes_deploy,
 
     -- * ReportedOs
     ReportedOs (..),
     newReportedOs,
-    reportedOs_version,
-    reportedOs_name,
     reportedOs_family,
+    reportedOs_name,
+    reportedOs_version,
 
     -- * SelfUserProfile
     SelfUserProfile (..),
     newSelfUserProfile,
-    selfUserProfile_iamUserArn,
-    selfUserProfile_sshUsername,
-    selfUserProfile_name,
     selfUserProfile_sshPublicKey,
+    selfUserProfile_sshUsername,
+    selfUserProfile_iamUserArn,
+    selfUserProfile_name,
 
-    -- * ServiceError'
-    ServiceError' (..),
-    newServiceError',
-    serviceError'_instanceId,
-    serviceError'_stackId,
-    serviceError'_message,
-    serviceError'_serviceErrorId,
-    serviceError'_createdAt,
-    serviceError'_type,
+    -- * ServiceError
+    ServiceError (..),
+    newServiceError,
+    serviceError_instanceId,
+    serviceError_createdAt,
+    serviceError_serviceErrorId,
+    serviceError_type,
+    serviceError_stackId,
+    serviceError_message,
 
     -- * ShutdownEventConfiguration
     ShutdownEventConfiguration (..),
@@ -438,12 +438,12 @@ module Network.AWS.OpsWorks.Types
     -- * Source
     Source (..),
     newSource,
+    source_url,
+    source_username,
     source_sshKey,
     source_password,
-    source_username,
-    source_url,
-    source_revision,
     source_type,
+    source_revision,
 
     -- * SslConfiguration
     SslConfiguration (..),
@@ -455,52 +455,52 @@ module Network.AWS.OpsWorks.Types
     -- * Stack
     Stack (..),
     newStack,
-    stack_useOpsworksSecurityGroups,
-    stack_defaultOs,
-    stack_customCookbooksSource,
-    stack_serviceRoleArn,
-    stack_defaultAvailabilityZone,
-    stack_customJson,
-    stack_agentVersion,
-    stack_stackId,
-    stack_createdAt,
-    stack_arn,
-    stack_defaultRootDeviceType,
-    stack_name,
-    stack_attributes,
     stack_defaultInstanceProfileArn,
-    stack_hostnameTheme,
-    stack_configurationManager,
-    stack_defaultSshKeyName,
-    stack_chefConfiguration,
-    stack_region,
+    stack_serviceRoleArn,
+    stack_defaultRootDeviceType,
+    stack_arn,
+    stack_createdAt,
     stack_vpcId,
-    stack_defaultSubnetId,
+    stack_chefConfiguration,
+    stack_agentVersion,
+    stack_defaultSshKeyName,
+    stack_customJson,
+    stack_customCookbooksSource,
+    stack_defaultAvailabilityZone,
+    stack_attributes,
+    stack_name,
+    stack_defaultOs,
+    stack_useOpsworksSecurityGroups,
     stack_useCustomCookbooks,
+    stack_defaultSubnetId,
+    stack_region,
+    stack_configurationManager,
+    stack_stackId,
+    stack_hostnameTheme,
 
     -- * StackConfigurationManager
     StackConfigurationManager (..),
     newStackConfigurationManager,
-    stackConfigurationManager_version,
     stackConfigurationManager_name,
+    stackConfigurationManager_version,
 
     -- * StackSummary
     StackSummary (..),
     newStackSummary,
+    stackSummary_arn,
+    stackSummary_appsCount,
+    stackSummary_name,
     stackSummary_stackId,
     stackSummary_layersCount,
-    stackSummary_arn,
-    stackSummary_name,
-    stackSummary_appsCount,
     stackSummary_instancesCount,
 
     -- * TemporaryCredential
     TemporaryCredential (..),
     newTemporaryCredential,
-    temporaryCredential_validForInMinutes,
     temporaryCredential_instanceId,
-    temporaryCredential_password,
     temporaryCredential_username,
+    temporaryCredential_password,
+    temporaryCredential_validForInMinutes,
 
     -- * TimeBasedAutoScalingConfiguration
     TimeBasedAutoScalingConfiguration (..),
@@ -511,37 +511,37 @@ module Network.AWS.OpsWorks.Types
     -- * UserProfile
     UserProfile (..),
     newUserProfile,
-    userProfile_iamUserArn,
-    userProfile_sshUsername,
     userProfile_allowSelfManagement,
-    userProfile_name,
     userProfile_sshPublicKey,
+    userProfile_sshUsername,
+    userProfile_iamUserArn,
+    userProfile_name,
 
     -- * Volume
     Volume (..),
     newVolume,
-    volume_status,
     volume_instanceId,
-    volume_ec2VolumeId,
-    volume_encrypted,
-    volume_device,
-    volume_volumeId,
-    volume_raidArrayId,
-    volume_name,
-    volume_availabilityZone,
-    volume_mountPoint,
-    volume_volumeType,
-    volume_region,
-    volume_iops,
+    volume_status,
     volume_size,
+    volume_iops,
+    volume_device,
+    volume_encrypted,
+    volume_availabilityZone,
+    volume_name,
+    volume_raidArrayId,
+    volume_volumeId,
+    volume_region,
+    volume_volumeType,
+    volume_ec2VolumeId,
+    volume_mountPoint,
 
     -- * VolumeConfiguration
     VolumeConfiguration (..),
     newVolumeConfiguration,
+    volumeConfiguration_iops,
+    volumeConfiguration_raidLevel,
     volumeConfiguration_encrypted,
     volumeConfiguration_volumeType,
-    volumeConfiguration_raidLevel,
-    volumeConfiguration_iops,
     volumeConfiguration_mountPoint,
     volumeConfiguration_numberOfDisks,
     volumeConfiguration_size,
@@ -550,12 +550,12 @@ module Network.AWS.OpsWorks.Types
     WeeklyAutoScalingSchedule (..),
     newWeeklyAutoScalingSchedule,
     weeklyAutoScalingSchedule_thursday,
-    weeklyAutoScalingSchedule_friday,
-    weeklyAutoScalingSchedule_tuesday,
-    weeklyAutoScalingSchedule_monday,
-    weeklyAutoScalingSchedule_sunday,
-    weeklyAutoScalingSchedule_saturday,
     weeklyAutoScalingSchedule_wednesday,
+    weeklyAutoScalingSchedule_saturday,
+    weeklyAutoScalingSchedule_monday,
+    weeklyAutoScalingSchedule_friday,
+    weeklyAutoScalingSchedule_sunday,
+    weeklyAutoScalingSchedule_tuesday,
   )
 where
 
@@ -602,7 +602,7 @@ import Network.AWS.OpsWorks.Types.Recipes
 import Network.AWS.OpsWorks.Types.ReportedOs
 import Network.AWS.OpsWorks.Types.RootDeviceType
 import Network.AWS.OpsWorks.Types.SelfUserProfile
-import Network.AWS.OpsWorks.Types.ServiceError'
+import Network.AWS.OpsWorks.Types.ServiceError
 import Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
 import Network.AWS.OpsWorks.Types.Source
 import Network.AWS.OpsWorks.Types.SourceType
@@ -647,37 +647,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -690,17 +667,40 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that a request was not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | Indicates that a resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

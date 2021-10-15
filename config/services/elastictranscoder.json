@@ -5,16 +5,6 @@
             "requiredFields": [
                 "Job"
             ]
-        },
-        "Job": {
-            "renamedTo": "Job'",
-            "requiredFields": [
-                "Id",
-                "Status",
-                "Input",
-                "OutputKeyPrefix",
-                "PipelineId"
-            ]
         }
     }
 }

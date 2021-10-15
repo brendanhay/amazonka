@@ -35,9 +35,9 @@ module Network.AWS.StorageGateway.CreateTapeWithBarcode
     newCreateTapeWithBarcode,
 
     -- * Request Lenses
-    createTapeWithBarcode_poolId,
-    createTapeWithBarcode_kmsEncrypted,
     createTapeWithBarcode_kmsKey,
+    createTapeWithBarcode_kmsEncrypted,
+    createTapeWithBarcode_poolId,
     createTapeWithBarcode_worm,
     createTapeWithBarcode_tags,
     createTapeWithBarcode_gatewayARN,
@@ -65,7 +65,17 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newCreateTapeWithBarcode' smart constructor.
 data CreateTapeWithBarcode = CreateTapeWithBarcode'
-  { -- | The ID of the pool that you want to add your tape to for archiving. The
+  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+    -- used for Amazon S3 server-side encryption. Storage Gateway does not
+    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+    -- is @true@. Optional.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the pool that you want to add your tape to for archiving. The
     -- tape in this pool is archived in the S3 storage class that is associated
     -- with the pool. When you use your backup application to eject the tape,
     -- the tape is archived directly into the storage class (S3 Glacier or S3
@@ -73,16 +83,6 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
-    -- key, or @false@ to use a key managed by Amazon S3. Optional.
-    --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
-    -- used for Amazon S3 server-side encryption. Storage Gateway does not
-    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
-    -- is @true@. Optional.
-    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | Set to @TRUE@ if the tape you are creating is to be configured as a
     -- write-once-read-many (WORM) tape.
     worm :: Prelude.Maybe Prelude.Bool,
@@ -118,6 +118,16 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsKey', 'createTapeWithBarcode_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+--
+-- 'kmsEncrypted', 'createTapeWithBarcode_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
 -- 'poolId', 'createTapeWithBarcode_poolId' - The ID of the pool that you want to add your tape to for archiving. The
 -- tape in this pool is archived in the S3 storage class that is associated
 -- with the pool. When you use your backup application to eject the tape,
@@ -125,16 +135,6 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 -- Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
---
--- 'kmsEncrypted', 'createTapeWithBarcode_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
---
--- 'kmsKey', 'createTapeWithBarcode_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
 --
 -- 'worm', 'createTapeWithBarcode_worm' - Set to @TRUE@ if the tape you are creating is to be configured as a
 -- write-once-read-many (WORM) tape.
@@ -172,15 +172,29 @@ newCreateTapeWithBarcode
   pTapeSizeInBytes_
   pTapeBarcode_ =
     CreateTapeWithBarcode'
-      { poolId = Prelude.Nothing,
+      { kmsKey = Prelude.Nothing,
         kmsEncrypted = Prelude.Nothing,
-        kmsKey = Prelude.Nothing,
+        poolId = Prelude.Nothing,
         worm = Prelude.Nothing,
         tags = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         tapeSizeInBytes = pTapeSizeInBytes_,
         tapeBarcode = pTapeBarcode_
       }
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+createTapeWithBarcode_kmsKey :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Text)
+createTapeWithBarcode_kmsKey = Lens.lens (\CreateTapeWithBarcode' {kmsKey} -> kmsKey) (\s@CreateTapeWithBarcode' {} a -> s {kmsKey = a} :: CreateTapeWithBarcode)
+
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+createTapeWithBarcode_kmsEncrypted :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Bool)
+createTapeWithBarcode_kmsEncrypted = Lens.lens (\CreateTapeWithBarcode' {kmsEncrypted} -> kmsEncrypted) (\s@CreateTapeWithBarcode' {} a -> s {kmsEncrypted = a} :: CreateTapeWithBarcode)
 
 -- | The ID of the pool that you want to add your tape to for archiving. The
 -- tape in this pool is archived in the S3 storage class that is associated
@@ -191,20 +205,6 @@ newCreateTapeWithBarcode
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 createTapeWithBarcode_poolId :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Text)
 createTapeWithBarcode_poolId = Lens.lens (\CreateTapeWithBarcode' {poolId} -> poolId) (\s@CreateTapeWithBarcode' {} a -> s {poolId = a} :: CreateTapeWithBarcode)
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
-createTapeWithBarcode_kmsEncrypted :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Bool)
-createTapeWithBarcode_kmsEncrypted = Lens.lens (\CreateTapeWithBarcode' {kmsEncrypted} -> kmsEncrypted) (\s@CreateTapeWithBarcode' {} a -> s {kmsEncrypted = a} :: CreateTapeWithBarcode)
-
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
-createTapeWithBarcode_kmsKey :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Text)
-createTapeWithBarcode_kmsKey = Lens.lens (\CreateTapeWithBarcode' {kmsKey} -> kmsKey) (\s@CreateTapeWithBarcode' {} a -> s {kmsKey = a} :: CreateTapeWithBarcode)
 
 -- | Set to @TRUE@ if the tape you are creating is to be configured as a
 -- write-once-read-many (WORM) tape.
@@ -276,9 +276,9 @@ instance Core.ToJSON CreateTapeWithBarcode where
   toJSON CreateTapeWithBarcode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PoolId" Core..=) Prelude.<$> poolId,
+          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
             ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("PoolId" Core..=) Prelude.<$> poolId,
             ("Worm" Core..=) Prelude.<$> worm,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("GatewayARN" Core..= gatewayARN),

@@ -17,7 +17,6 @@ where
 
 import Control.Lens (each, (^.), (^..))
 import Control.Monad
-import Control.Monad.Except
 import Data.Aeson hiding (json)
 import Data.Bifunctor
 import Data.Functor.Identity
@@ -25,46 +24,45 @@ import Data.Maybe (mapMaybe)
 import Data.Monoid hiding (Sum)
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LText
-import Filesystem.Path.CurrentOS hiding (FilePath, root)
-import Gen.Formatting (failure, shown)
 import Gen.Import
 import qualified Gen.JSON as JS
 import Gen.Types
 import System.Directory.Tree hiding (file)
+import System.FilePath ((<.>), (</>))
+import qualified System.FilePath as FilePath
 import Text.EDE hiding (failure, render)
 import Prelude hiding (mod)
 
-root :: AnchoredDirTree a -> Path
-root (p :/ d) = decodeString p </> decodeString (name d)
+root :: AnchoredDirTree a -> FilePath
+root (p :/ d) = p </> name d
 
 fold ::
-  MonadError Error m =>
+  MonadFail m =>
   -- | Directories
-  (Path -> m ()) ->
+  (FilePath -> m ()) ->
   -- | Files
-  (Path -> a -> m b) ->
+  (FilePath -> a -> m b) ->
   AnchoredDirTree a ->
   m (AnchoredDirTree b)
-fold g f (p :/ t) = (p :/) <$> go (decodeString p) t
+fold g f (p :/ t) = (p :/) <$> go p t
   where
     go x = \case
-      Failed n e -> failure shown e >> return (Failed n e)
-      File n a -> File n <$> f (x </> decodeString n) a
+      Failed n e -> fail (show e) >> return (Failed n e)
+      File n a -> File n <$> f (x </> n) a
       Dir n cs -> g d >> Dir n <$> mapM (go d) cs
         where
-          d = x </> decodeString n
+          d = x </> n
 
 type Touch = Either Rendered Rendered
 
 populate ::
-  Path ->
+  FilePath ->
   Templates ->
   Library ->
-  Either Error (AnchoredDirTree Touch)
-populate d Templates {..} l = (encodeString d :/) . dir lib <$> layout
+  Either String (AnchoredDirTree Touch)
+populate d Templates {..} l = (d :/) . dir lib <$> layout
   where
-    layout :: Either Error [DirTree Touch]
+    layout :: Either String [DirTree Touch]
     layout =
       traverse
         sequenceA
@@ -118,27 +116,26 @@ populate d Templates {..} l = (encodeString d :/) . dir lib <$> layout
                     ]
                 ]
             ],
-          dir "fixture" $
-            concatMap fixture (l ^.. operations . each),
+          dir "fixture" (concatMap fixture (l ^.. operations . each)),
           file (lib <.> "cabal") cabalTemplate,
           file "README.md" readmeTemplate
         ]
 
-    svc, lib :: Path
-    svc = fromText (l ^. serviceAbbrev)
-    lib = fromText (l ^. libraryName)
+    svc, lib :: FilePath
+    svc = Text.unpack (l ^. serviceAbbrev)
+    lib = Text.unpack (l ^. libraryName)
 
-    op :: Operation Identity SData a -> DirTree (Either Error Touch)
+    op :: Operation Identity SData a -> DirTree (Either String Touch)
     op = write . operation' l operationTemplate
 
-    shape :: SData -> Maybe (DirTree (Either Error Touch))
+    shape :: SData -> Maybe (DirTree (Either String Touch))
     shape s = (\t -> (write . shape' l t) s) <$> template s
       where
         template (Prod _ _ _) = Just productTemplate
         template (Sum _ _ _) = Just sumTemplate
         template (Fun _) = Nothing
 
-    fixture :: Operation Identity SData a -> [DirTree (Either Error Touch)]
+    fixture :: Operation Identity SData a -> [DirTree (Either String Touch)]
     fixture o =
       [ touch (n <> "Response.proto") blankTemplate mempty,
         touch (n <> ".yaml") fixtureRequestTemplate $
@@ -150,10 +147,10 @@ populate d Templates {..} l = (encodeString d :/) . dir lib <$> layout
       where
         n = typeId (_opName o)
 
-    mod :: NS -> [NS] -> Template -> DirTree (Either Error Touch)
+    mod :: NS -> [NS] -> Template -> DirTree (Either String Touch)
     mod n is t = write $ module' n is t (pure env)
 
-    file :: Path -> Template -> DirTree (Either Error Touch)
+    file :: FilePath -> Template -> DirTree (Either String Touch)
     file p t = write $ file' p t (pure env)
 
     env :: Value
@@ -163,7 +160,7 @@ operation' ::
   Library ->
   Template ->
   Operation Identity SData a ->
-  DirTree (Either Error Rendered)
+  DirTree (Either String Rendered)
 operation' l t o = module' n is t $ do
   x <- JS.objectErr (show n) o
   y <- JS.objectErr "metadata" (toJSON m)
@@ -178,7 +175,7 @@ shape' ::
   Library ->
   Template ->
   SData ->
-  DirTree (Either Error Rendered)
+  DirTree (Either String Rendered)
 shape' l t s = module' n (is s) t $ pure env
   where
     n = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s)
@@ -194,10 +191,10 @@ module' ::
   NS ->
   [NS] ->
   Template ->
-  Either Error a ->
-  DirTree (Either Error Rendered)
+  Either String a ->
+  DirTree (Either String Rendered)
 module' ns is tmpl f =
-  file' (filename $ nsToPath ns) tmpl $ do
+  file' (FilePath.takeFileName (nsToPath ns)) tmpl $ do
     x <- f >>= JS.objectErr (show ns)
     return $! x
       <> fromPairs
@@ -210,21 +207,19 @@ module' ns is tmpl f =
 
 file' ::
   ToJSON a =>
-  Path ->
+  FilePath ->
   Template ->
-  Either Error a ->
-  DirTree (Either Error Rendered)
-file' (encodeString -> p) tmpl f =
-  File p $
-    f >>= JS.objectErr p
-      >>= first LText.pack . eitherRender tmpl
+  Either String a ->
+  DirTree (Either String Rendered)
+file' p tmpl f =
+  File p (f >>= JS.objectErr p >>= eitherRender tmpl)
 
-dir :: Path -> [DirTree a] -> DirTree a
-dir p = Dir (encodeString p)
+dir :: FilePath -> [DirTree a] -> DirTree a
+dir = Dir
 
 write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
 write = fmap (second Right)
 
-touch :: Text -> Template -> Object -> DirTree (Either Error Touch)
+touch :: Text -> Template -> Object -> DirTree (Either String Touch)
 touch f tmpl env =
-  File (Text.unpack f) (bimap LText.pack Left (eitherRender tmpl env))
+  File (Text.unpack f) (bimap id Left (eitherRender tmpl env))

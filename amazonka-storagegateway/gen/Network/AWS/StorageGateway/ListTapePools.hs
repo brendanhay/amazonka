@@ -38,9 +38,9 @@ module Network.AWS.StorageGateway.ListTapePools
     newListTapePools,
 
     -- * Request Lenses
-    listTapePools_limit,
     listTapePools_poolARNs,
     listTapePools_marker,
+    listTapePools_limit,
 
     -- * Destructuring the Response
     ListTapePoolsResponse (..),
@@ -62,16 +62,16 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newListTapePools' smart constructor.
 data ListTapePools = ListTapePools'
-  { -- | An optional number limit for the tape pools in the list returned by this
-    -- call.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
+  { -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
     -- to list. If you don\'t specify a custom tape pool ARN, the response
     -- lists all custom tape pools.
     poolARNs :: Prelude.Maybe [Prelude.Text],
     -- | A string that indicates the position at which to begin the returned list
     -- of tape pools.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | An optional number limit for the tape pools in the list returned by this
+    -- call.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,28 +83,23 @@ data ListTapePools = ListTapePools'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listTapePools_limit' - An optional number limit for the tape pools in the list returned by this
--- call.
---
 -- 'poolARNs', 'listTapePools_poolARNs' - The Amazon Resource Name (ARN) of each of the custom tape pools you want
 -- to list. If you don\'t specify a custom tape pool ARN, the response
 -- lists all custom tape pools.
 --
 -- 'marker', 'listTapePools_marker' - A string that indicates the position at which to begin the returned list
 -- of tape pools.
+--
+-- 'limit', 'listTapePools_limit' - An optional number limit for the tape pools in the list returned by this
+-- call.
 newListTapePools ::
   ListTapePools
 newListTapePools =
   ListTapePools'
-    { limit = Prelude.Nothing,
-      poolARNs = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { poolARNs = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
-
--- | An optional number limit for the tape pools in the list returned by this
--- call.
-listTapePools_limit :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Natural)
-listTapePools_limit = Lens.lens (\ListTapePools' {limit} -> limit) (\s@ListTapePools' {} a -> s {limit = a} :: ListTapePools)
 
 -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
 -- to list. If you don\'t specify a custom tape pool ARN, the response
@@ -116,6 +111,11 @@ listTapePools_poolARNs = Lens.lens (\ListTapePools' {poolARNs} -> poolARNs) (\s@
 -- of tape pools.
 listTapePools_marker :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Text)
 listTapePools_marker = Lens.lens (\ListTapePools' {marker} -> marker) (\s@ListTapePools' {} a -> s {marker = a} :: ListTapePools)
+
+-- | An optional number limit for the tape pools in the list returned by this
+-- call.
+listTapePools_limit :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Natural)
+listTapePools_limit = Lens.lens (\ListTapePools' {limit} -> limit) (\s@ListTapePools' {} a -> s {limit = a} :: ListTapePools)
 
 instance Core.AWSPager ListTapePools where
   page rq rs
@@ -173,9 +173,9 @@ instance Core.ToJSON ListTapePools where
   toJSON ListTapePools' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("PoolARNs" Core..=) Prelude.<$> poolARNs,
-            ("Marker" Core..=) Prelude.<$> marker
+          [ ("PoolARNs" Core..=) Prelude.<$> poolARNs,
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 

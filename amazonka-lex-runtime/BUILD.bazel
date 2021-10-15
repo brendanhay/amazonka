@@ -1,0 +1,80 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-lex-runtime/amazonka-lex-runtime.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-lex-runtime",
+    srcs = [
+        "gen/Network/AWS/LexRuntime.hs",
+        "gen/Network/AWS/LexRuntime/DeleteSession.hs",
+        "gen/Network/AWS/LexRuntime/GetSession.hs",
+        "gen/Network/AWS/LexRuntime/Lens.hs",
+        "gen/Network/AWS/LexRuntime/PostContent.hs",
+        "gen/Network/AWS/LexRuntime/PostText.hs",
+        "gen/Network/AWS/LexRuntime/PutSession.hs",
+        "gen/Network/AWS/LexRuntime/Types.hs",
+        "gen/Network/AWS/LexRuntime/Types/ActiveContext.hs",
+        "gen/Network/AWS/LexRuntime/Types/ActiveContextTimeToLive.hs",
+        "gen/Network/AWS/LexRuntime/Types/Button.hs",
+        "gen/Network/AWS/LexRuntime/Types/ConfirmationStatus.hs",
+        "gen/Network/AWS/LexRuntime/Types/ContentType.hs",
+        "gen/Network/AWS/LexRuntime/Types/DialogAction.hs",
+        "gen/Network/AWS/LexRuntime/Types/DialogActionType.hs",
+        "gen/Network/AWS/LexRuntime/Types/DialogState.hs",
+        "gen/Network/AWS/LexRuntime/Types/FulfillmentState.hs",
+        "gen/Network/AWS/LexRuntime/Types/GenericAttachment.hs",
+        "gen/Network/AWS/LexRuntime/Types/IntentConfidence.hs",
+        "gen/Network/AWS/LexRuntime/Types/IntentSummary.hs",
+        "gen/Network/AWS/LexRuntime/Types/MessageFormatType.hs",
+        "gen/Network/AWS/LexRuntime/Types/PredictedIntent.hs",
+        "gen/Network/AWS/LexRuntime/Types/ResponseCard.hs",
+        "gen/Network/AWS/LexRuntime/Types/SentimentResponse.hs",
+        "gen/Network/AWS/LexRuntime/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_lex_runtime=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-lex-runtime/amazonka-lex-runtime.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-lex-runtime-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/LexRuntime.hs",
+        "test/Test/AWS/LexRuntime.hs",
+        "test/Test/AWS/LexRuntime/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_lex_runtime=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-lex-runtime",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

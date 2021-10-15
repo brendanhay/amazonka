@@ -1,81 +1,198 @@
-# Amazonka
+# [Amazonka]
 
 [![MPL2][license-badge]][license]
-[![Build][build-badge]][build]
 [![Hackage][hackage-badge]][hackage]
-[![Nix][nix-badge]][nix]
-[![Cachix][cachix-badge]][cachix]
+[![Build][build-badge]][actions]
+[![Gen][gen-badge]][actions]
+[![Docs][docs-badge]][actions]
 
 [license]: https://opensource.org/licenses/MPL-2.0
+[actions]: https://github.com/brendanhay/amazonka/actions
 [license-badge]: https://img.shields.io/badge/license-MPL%202.0-blue.svg
-[build]: https://github.com/brendanhay/amazonka/actions
 [build-badge]: https://github.com/brendanhay/amazonka/workflows/build/badge.svg
+[gen-badge]: https://github.com/brendanhay/amazonka/workflows/gen/badge.svg
+[docs-badge]: https://github.com/brendanhay/amazonka/workflows/docs/badge.svg
 [hackage]: http://hackage.haskell.org/package/amazonka
 [hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
-[nix]: https://nixos.org
-[nix-badge]: https://img.shields.io/badge/builtwith-nix-purple.svg
-[cachix]: https://amazonka.cachix.org
-[cachix-badge]: https://img.shields.io/badge/cachix-amazonka-purple.svg
 
-* [Description](#description)
-* [Documentation](#documentation)
-* [Organisation](#organisation)
-* [Change Log](#change-log)
-* [Contribute](#contribute)
-    - [Package Names](#package-names)
-* [Licence](#licence)
+[Amazonka]: https://www.brendanhay.nz/amazonka
+[Nix]: https://nixos.org/nix/
+[Bazel]: https://bazel.build
+[Bazel's label]: https://docs.bazel.build/versions/4.1.0/build-ref.html#labels
+[GHC]: https://www.haskell.org/ghc/
+[Direnv]: https://direnv.net
+[Direnv Wiki]: https://github.com/direnv/direnv/wiki
+[hermetic]: https://sre.google/sre-book/release-engineering/#hermetic-builds-nqslhnid
+[lorri]: https://github.com/nix-community/lorri
 
+An Amazon Web Services SDK for Haskell with support for most public services. Parts of the code contained in this repository are auto-generated and automatically kept up to date with Amazon's latest service APIs.
 
-## Description
+* You can find the latest Haddock documentation for each respective library on the [Amazonka] website.
+* A release changelog can be found in [amazonka/CHANGELOG.md](amazonka/CHANGELOG.md).
+* For problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
-A comprehensive Amazon Web Services SDK for Haskell supporting all of the
-publicly available services.
+- [License](#license)
+- [Supported Platforms and GHC Versions](#supported-platforms-and-ghc-versions)
+- [Getting Started](#getting-started)
+- [Building the Project](#building-the-project)
+- [Building the Documentation](#building-the-documentation)
+- [Running the Code Generator](#running-the-code-generator)
+- [Code Formatting](#code-formatting)
+- [Directory Layout](#directory-layout)
+- [Third Party Packages](#third-party-packages)
 
-Parts of the code contained in this repository are auto-generated and
-automatically kept up to date with Amazon's latest service APIs.
+## License
 
-An introductory blog post detailing some of the motivation and design decisions
-can be found [here](http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client).
+Amazonka is licensed under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
 
+The AWS service descriptions are licensed under Apache 2.0. Source files derived from the service descriptions contain an additional licensing clause in their header.
 
-## Documentation
+## Supported Platforms and GHC Versions
 
-You can find the latest stable release documentation for each respective library
-on Hackage under the [AWS section](http://hackage.haskell.org/packages/#cat:AWS).
+GHC versions `8.8.4` and `8.10.7` are officially supported and tested on NixOS, Ubuntu, and macOS. GHC `8.6.5` may also work, but is not tested by our continuous integration pipeline.
 
+## Getting Started
 
-## Organisation
+This repository is built using a combination of [Nix] and your choice of [Bazel] or Cabal. If you're just using Amazonka as a git dependency in your Cabal or Stack project, you can skip these steps. But if you plan on contributing to the codebase - welcome, read on!
+
+### 1. Clone this repository
+
+```
+git clone git@github.com:brendanhay/amazonka.git
+cd amazonka
+```
+
+### 2. Setup Nix
+
+Building the code in this repository requires various development dependencies (e.g. [Nix], [Bazel], [GHC].)
+
+The [Nix] package manager is used to obtain and build the other dependencies in a [hermetic] environment. You can install Nix by following the [official installation instructions](https://nixos.org/guides/install-nix.html):
+
+```bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+
+### 3. Enter a Nix Shell
+
+The build tools are installed and activated upon entering a [Nix] shell, which is achieved by running the following command in the root of the repository:
+
+```bash
+nix-shell
+```
+
+You can also enter a shell and explicitly specify the GHC version:
+
+```bash
+nix-shell --argstr ghcVersion 884
+```
+
+Optionally, if you have [Direnv] and [lorri] installed you can use the provided [.envrc](.envrc) instead, which will also add the [scripts](scripts) directory to your `PATH`. You can extend this by adding your own uncommitted `.envrc.local` file. See the [Direnv Wiki] for various recipes.
+
+## Building the Project
+
+> The following commands assume you're already in a nix-shell outlined in the previous step.
+
+### Cabal
+
+If you're familiar with Cabal, you can build `amazonka-*` packages via:
+
+```bash
+cabal build amazonka amazonka-s3
+```
+
+Or the entire project (which will take a very long time!):
+
+```bash
+cabal build all
+```
+
+### Bazel
+
+Alternatively, if you plan on contributing to the project or want to perform code generation, you will need to familiarise yourself with [Bazel]. You can build packages by specifying one or more targets using [Bazel's label] syntax:
+
+```bash
+bazel build //amazonka //amazonka-s3
+```
+
+Or build the entire project (workspace) using a wildcard:
+
+```bash
+bazel build //...
+```
+
+To view what targets are available in the workspace:
+
+```bash
+bazel query //...
+```
+
+> By default, the `bazel` command will use the same GHC version as the Nix shell's `ghcVersion` argument. You can choose a different GHC version using `nix-shell --argstr ghcVersion 884` - which is just a synonym for `bazel build --//tools/ghc:version=884`.
+
+## Building the Documentation
+
+The [docs](docs) Bazel package contains the Haddock target and Hugo static site definition and markdown content. To build the site locally, run:
+
+```bash
+bazel build //docs:site
+```
+
+Alternatively, you can serve the documentation site locally on `http://localhost:1313` by running:
+
+```bash
+bazel build //docs:serve
+```
+
+## Running the Code Generator
+
+The [gen](gen) Bazel package contains code generators for synthesising Haskell data types, packages, and configuration from the botocore service definitions.
+
+[scripts/generate](scripts/generate) will run the code generator for all services configured in [config/services](config/services), for example:
+
+```bash
+./scripts/generate
+```
+
+Or, you can selectively run the generator on one or more services:
+
+```bash
+./scripts/generate ec2 s3 iam
+```
+
+[scripts/generate-configs](scripts/generate-configs) will run the config generator to produce placeholder [config/serivces](config/services) configurations for the version of botocore pinned in the [WORKSPACE](WORKSPACE).
+
+To generate any missing service configurations:
+
+```bash
+./scripts/generate-configs
+```
+
+Service configurations generated in this way are intended as examples only and the resulting `configs/services/<name>.json:libraryName` (Haskell package name) and `configs/annexes/<name>.json:serviceAbbreviation` (Haskell package namespace) should be manually verified and curated as necessary.
+
+For pull requests which affect generated output please _do not include_ the regenerated `amazonka-*` packages, only commit updates to the build rules, documentation, generator, and related configuration. This ensures the Continuous Integration process is the single source of truth for the generated code and reduces noise in pull requests, keeping them reviewable and focused on actual generator code/logic changes.
+
+## Code Formatting
+
+Please use `./scripts/format` frequently - it's OK, I hate 2 spaces too, we're in this together.
+
+## Directory Layout
 
 This repository is organised into the following directory structure:
 
 * [`amazonka`](amazonka): Actual operational logic, you'll need to import this to send requests etc.
 * `amazonka-*`: Data types for each of the individual Amazon Web Service libraries.
 * `amazonka-*/test`: Tests and fixtures for each respective library.
-* [`examples`](examples): A currently sparse collection of examples for the various services.
-* [`gen`](gen): The code generation binary, along with configuration, templates, and assets.
-* [`scripts`](scripts): CI scripts to manage the release lifecycle of the service libraries.
+* [`examples`](examples): The `amazonka-examples` library containing basic examples.
 * [`test`](test): The `amazonka-test` library containing common test functionality.
+* [`docs`](docs): The documentation website and related build code.
+* [`gen`](gen): The code and config generation binaries.
+* [`config`](config): Service configuration, templates, and assets used by the code generator.
+* [`scripts`](scripts): Convenient scripts to manage the release lifecycle of the service libraries.
+* [`nix`](nix): Nix configuration code for the toolchain packages.
+* [`tools`](tools): Custom bazel rules.
+* [`third_party`](third_party): Third party bazel packages and patches.
 
+## Third Party Packages
 
-## Change Log
+When naming an additional library which provides supplemental functionality to `amazonka`, if you want to use the `amazonka-*` namespace, then please consider prefixing your package names with `amazonka-contrib-*`. For example, [amazonka-contrib-rds-utils](https://hackage.haskell.org/package/amazonka-contrib-rds-utils).
 
-A change log for the entire project can be found under [`amazonka/CHANGELOG.md`](amazonka/CHANGELOG.md).
-
-
-## Contribute
-
-For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
-
-## Package Naming
-
-It is often desirable to provide supplemental functionality to `amazonka` as an additional library, for example providing S3 encryption via a package such as `amazonka-s3-encryption`.
-
-I ask that authors of these packages carefully consider package naming and preferably do not prefix the package with `amazonka-*` to avoid potential collisions with generated package names.
-
-
-## Licence
-
-Amazonka is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
-
-Parts of the code are derived from AWS service descriptions, licensed under Apache 2.0.
-Source files subject to this contain an additional licensing clause in their header.
+This minimises potential future collisions with auto-generated package names and new AWS service and product releases.

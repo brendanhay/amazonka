@@ -35,12 +35,12 @@ module Network.AWS.StorageGateway.DescribeSMBSettings
     newDescribeSMBSettingsResponse,
 
     -- * Response Lenses
-    describeSMBSettingsResponse_sMBSecurityStrategy,
-    describeSMBSettingsResponse_sMBGuestPasswordSet,
-    describeSMBSettingsResponse_fileSharesVisible,
-    describeSMBSettingsResponse_domainName,
-    describeSMBSettingsResponse_activeDirectoryStatus,
     describeSMBSettingsResponse_gatewayARN,
+    describeSMBSettingsResponse_fileSharesVisible,
+    describeSMBSettingsResponse_activeDirectoryStatus,
+    describeSMBSettingsResponse_domainName,
+    describeSMBSettingsResponse_sMBGuestPasswordSet,
+    describeSMBSettingsResponse_sMBSecurityStrategy,
     describeSMBSettingsResponse_httpStatus,
   )
 where
@@ -87,12 +87,12 @@ instance Core.AWSRequest DescribeSMBSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeSMBSettingsResponse'
-            Prelude.<$> (x Core..?> "SMBSecurityStrategy")
-            Prelude.<*> (x Core..?> "SMBGuestPasswordSet")
+            Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (x Core..?> "FileSharesVisible")
-            Prelude.<*> (x Core..?> "DomainName")
             Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "SMBGuestPasswordSet")
+            Prelude.<*> (x Core..?> "SMBSecurityStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,34 +130,10 @@ instance Core.ToQuery DescribeSMBSettings where
 
 -- | /See:/ 'newDescribeSMBSettingsResponse' smart constructor.
 data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
-  { -- | The type of security strategy that was specified for file gateway.
-    --
-    -- -   @ClientSpecified@: If you use this option, requests are established
-    --     based on what is negotiated by the client. This option is
-    --     recommended when you want to maximize compatibility across different
-    --     clients in your environment. Only supported for S3 File Gateways.
-    --
-    -- -   @MandatorySigning@: If you use this option, file gateway only allows
-    --     connections from SMBv2 or SMBv3 clients that have signing enabled.
-    --     This option works with SMB clients on Microsoft Windows Vista,
-    --     Windows Server 2008 or newer.
-    --
-    -- -   @MandatoryEncryption@: If you use this option, file gateway only
-    --     allows connections from SMBv3 clients that have encryption enabled.
-    --     This option is highly recommended for environments that handle
-    --     sensitive data. This option works with SMB clients on Microsoft
-    --     Windows 8, Windows Server 2012 or newer.
-    sMBSecurityStrategy :: Prelude.Maybe SMBSecurityStrategy,
-    -- | This value is @true@ if a password for the guest user @smbguest@ is set,
-    -- otherwise @false@. Only supported for S3 File Gateways.
-    --
-    -- Valid Values: @true@ | @false@
-    sMBGuestPasswordSet :: Prelude.Maybe Prelude.Bool,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The shares on this gateway appear when listing shares. Only supported
     -- for S3 File Gateways.
     fileSharesVisible :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the domain that the gateway is joined to.
-    domainName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of a gateway that is a member of the Active
     -- Directory domain.
     --
@@ -180,7 +156,31 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
     --     due to another type of error.
     activeDirectoryStatus :: Prelude.Maybe ActiveDirectoryStatus,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the domain that the gateway is joined to.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | This value is @true@ if a password for the guest user @smbguest@ is set,
+    -- otherwise @false@. Only supported for S3 File Gateways.
+    --
+    -- Valid Values: @true@ | @false@
+    sMBGuestPasswordSet :: Prelude.Maybe Prelude.Bool,
+    -- | The type of security strategy that was specified for file gateway.
+    --
+    -- -   @ClientSpecified@: If you use this option, requests are established
+    --     based on what is negotiated by the client. This option is
+    --     recommended when you want to maximize compatibility across different
+    --     clients in your environment. Only supported for S3 File Gateways.
+    --
+    -- -   @MandatorySigning@: If you use this option, file gateway only allows
+    --     connections from SMBv2 or SMBv3 clients that have signing enabled.
+    --     This option works with SMB clients on Microsoft Windows Vista,
+    --     Windows Server 2008 or newer.
+    --
+    -- -   @MandatoryEncryption@: If you use this option, file gateway only
+    --     allows connections from SMBv3 clients that have encryption enabled.
+    --     This option is highly recommended for environments that handle
+    --     sensitive data. This option works with SMB clients on Microsoft
+    --     Windows 8, Windows Server 2012 or newer.
+    sMBSecurityStrategy :: Prelude.Maybe SMBSecurityStrategy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,33 +194,10 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sMBSecurityStrategy', 'describeSMBSettingsResponse_sMBSecurityStrategy' - The type of security strategy that was specified for file gateway.
---
--- -   @ClientSpecified@: If you use this option, requests are established
---     based on what is negotiated by the client. This option is
---     recommended when you want to maximize compatibility across different
---     clients in your environment. Only supported for S3 File Gateways.
---
--- -   @MandatorySigning@: If you use this option, file gateway only allows
---     connections from SMBv2 or SMBv3 clients that have signing enabled.
---     This option works with SMB clients on Microsoft Windows Vista,
---     Windows Server 2008 or newer.
---
--- -   @MandatoryEncryption@: If you use this option, file gateway only
---     allows connections from SMBv3 clients that have encryption enabled.
---     This option is highly recommended for environments that handle
---     sensitive data. This option works with SMB clients on Microsoft
---     Windows 8, Windows Server 2012 or newer.
---
--- 'sMBGuestPasswordSet', 'describeSMBSettingsResponse_sMBGuestPasswordSet' - This value is @true@ if a password for the guest user @smbguest@ is set,
--- otherwise @false@. Only supported for S3 File Gateways.
---
--- Valid Values: @true@ | @false@
+-- 'gatewayARN', 'describeSMBSettingsResponse_gatewayARN' - Undocumented member.
 --
 -- 'fileSharesVisible', 'describeSMBSettingsResponse_fileSharesVisible' - The shares on this gateway appear when listing shares. Only supported
 -- for S3 File Gateways.
---
--- 'domainName', 'describeSMBSettingsResponse_domainName' - The name of the domain that the gateway is joined to.
 --
 -- 'activeDirectoryStatus', 'describeSMBSettingsResponse_activeDirectoryStatus' - Indicates the status of a gateway that is a member of the Active
 -- Directory domain.
@@ -244,26 +221,14 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
 --     due to another type of error.
 --
--- 'gatewayARN', 'describeSMBSettingsResponse_gatewayARN' - Undocumented member.
+-- 'domainName', 'describeSMBSettingsResponse_domainName' - The name of the domain that the gateway is joined to.
 --
--- 'httpStatus', 'describeSMBSettingsResponse_httpStatus' - The response's http status code.
-newDescribeSMBSettingsResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  DescribeSMBSettingsResponse
-newDescribeSMBSettingsResponse pHttpStatus_ =
-  DescribeSMBSettingsResponse'
-    { sMBSecurityStrategy =
-        Prelude.Nothing,
-      sMBGuestPasswordSet = Prelude.Nothing,
-      fileSharesVisible = Prelude.Nothing,
-      domainName = Prelude.Nothing,
-      activeDirectoryStatus = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | The type of security strategy that was specified for file gateway.
+-- 'sMBGuestPasswordSet', 'describeSMBSettingsResponse_sMBGuestPasswordSet' - This value is @true@ if a password for the guest user @smbguest@ is set,
+-- otherwise @false@. Only supported for S3 File Gateways.
+--
+-- Valid Values: @true@ | @false@
+--
+-- 'sMBSecurityStrategy', 'describeSMBSettingsResponse_sMBSecurityStrategy' - The type of security strategy that was specified for file gateway.
 --
 -- -   @ClientSpecified@: If you use this option, requests are established
 --     based on what is negotiated by the client. This option is
@@ -280,24 +245,32 @@ newDescribeSMBSettingsResponse pHttpStatus_ =
 --     This option is highly recommended for environments that handle
 --     sensitive data. This option works with SMB clients on Microsoft
 --     Windows 8, Windows Server 2012 or newer.
-describeSMBSettingsResponse_sMBSecurityStrategy :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe SMBSecurityStrategy)
-describeSMBSettingsResponse_sMBSecurityStrategy = Lens.lens (\DescribeSMBSettingsResponse' {sMBSecurityStrategy} -> sMBSecurityStrategy) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBSecurityStrategy = a} :: DescribeSMBSettingsResponse)
-
--- | This value is @true@ if a password for the guest user @smbguest@ is set,
--- otherwise @false@. Only supported for S3 File Gateways.
 --
--- Valid Values: @true@ | @false@
-describeSMBSettingsResponse_sMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
-describeSMBSettingsResponse_sMBGuestPasswordSet = Lens.lens (\DescribeSMBSettingsResponse' {sMBGuestPasswordSet} -> sMBGuestPasswordSet) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBGuestPasswordSet = a} :: DescribeSMBSettingsResponse)
+-- 'httpStatus', 'describeSMBSettingsResponse_httpStatus' - The response's http status code.
+newDescribeSMBSettingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSMBSettingsResponse
+newDescribeSMBSettingsResponse pHttpStatus_ =
+  DescribeSMBSettingsResponse'
+    { gatewayARN =
+        Prelude.Nothing,
+      fileSharesVisible = Prelude.Nothing,
+      activeDirectoryStatus = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      sMBGuestPasswordSet = Prelude.Nothing,
+      sMBSecurityStrategy = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Undocumented member.
+describeSMBSettingsResponse_gatewayARN :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
+describeSMBSettingsResponse_gatewayARN = Lens.lens (\DescribeSMBSettingsResponse' {gatewayARN} -> gatewayARN) (\s@DescribeSMBSettingsResponse' {} a -> s {gatewayARN = a} :: DescribeSMBSettingsResponse)
 
 -- | The shares on this gateway appear when listing shares. Only supported
 -- for S3 File Gateways.
 describeSMBSettingsResponse_fileSharesVisible :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
 describeSMBSettingsResponse_fileSharesVisible = Lens.lens (\DescribeSMBSettingsResponse' {fileSharesVisible} -> fileSharesVisible) (\s@DescribeSMBSettingsResponse' {} a -> s {fileSharesVisible = a} :: DescribeSMBSettingsResponse)
-
--- | The name of the domain that the gateway is joined to.
-describeSMBSettingsResponse_domainName :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
-describeSMBSettingsResponse_domainName = Lens.lens (\DescribeSMBSettingsResponse' {domainName} -> domainName) (\s@DescribeSMBSettingsResponse' {} a -> s {domainName = a} :: DescribeSMBSettingsResponse)
 
 -- | Indicates the status of a gateway that is a member of the Active
 -- Directory domain.
@@ -323,9 +296,36 @@ describeSMBSettingsResponse_domainName = Lens.lens (\DescribeSMBSettingsResponse
 describeSMBSettingsResponse_activeDirectoryStatus :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe ActiveDirectoryStatus)
 describeSMBSettingsResponse_activeDirectoryStatus = Lens.lens (\DescribeSMBSettingsResponse' {activeDirectoryStatus} -> activeDirectoryStatus) (\s@DescribeSMBSettingsResponse' {} a -> s {activeDirectoryStatus = a} :: DescribeSMBSettingsResponse)
 
--- | Undocumented member.
-describeSMBSettingsResponse_gatewayARN :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
-describeSMBSettingsResponse_gatewayARN = Lens.lens (\DescribeSMBSettingsResponse' {gatewayARN} -> gatewayARN) (\s@DescribeSMBSettingsResponse' {} a -> s {gatewayARN = a} :: DescribeSMBSettingsResponse)
+-- | The name of the domain that the gateway is joined to.
+describeSMBSettingsResponse_domainName :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
+describeSMBSettingsResponse_domainName = Lens.lens (\DescribeSMBSettingsResponse' {domainName} -> domainName) (\s@DescribeSMBSettingsResponse' {} a -> s {domainName = a} :: DescribeSMBSettingsResponse)
+
+-- | This value is @true@ if a password for the guest user @smbguest@ is set,
+-- otherwise @false@. Only supported for S3 File Gateways.
+--
+-- Valid Values: @true@ | @false@
+describeSMBSettingsResponse_sMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Bool)
+describeSMBSettingsResponse_sMBGuestPasswordSet = Lens.lens (\DescribeSMBSettingsResponse' {sMBGuestPasswordSet} -> sMBGuestPasswordSet) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBGuestPasswordSet = a} :: DescribeSMBSettingsResponse)
+
+-- | The type of security strategy that was specified for file gateway.
+--
+-- -   @ClientSpecified@: If you use this option, requests are established
+--     based on what is negotiated by the client. This option is
+--     recommended when you want to maximize compatibility across different
+--     clients in your environment. Only supported for S3 File Gateways.
+--
+-- -   @MandatorySigning@: If you use this option, file gateway only allows
+--     connections from SMBv2 or SMBv3 clients that have signing enabled.
+--     This option works with SMB clients on Microsoft Windows Vista,
+--     Windows Server 2008 or newer.
+--
+-- -   @MandatoryEncryption@: If you use this option, file gateway only
+--     allows connections from SMBv3 clients that have encryption enabled.
+--     This option is highly recommended for environments that handle
+--     sensitive data. This option works with SMB clients on Microsoft
+--     Windows 8, Windows Server 2012 or newer.
+describeSMBSettingsResponse_sMBSecurityStrategy :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe SMBSecurityStrategy)
+describeSMBSettingsResponse_sMBSecurityStrategy = Lens.lens (\DescribeSMBSettingsResponse' {sMBSecurityStrategy} -> sMBSecurityStrategy) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBSecurityStrategy = a} :: DescribeSMBSettingsResponse)
 
 -- | The response's http status code.
 describeSMBSettingsResponse_httpStatus :: Lens.Lens' DescribeSMBSettingsResponse Prelude.Int

@@ -71,8 +71,8 @@ instance FromJSON (Accept Id) where
       <*> o .:? "argument"
 
 data Waiter a = Waiter
-  { _waitDelay :: !Integer,
-    _waitAttempts :: !Integer,
+  { _waitDelay :: Integer,
+    _waitAttempts :: Integer,
     _waitOperation :: Id,
     _waitAcceptors :: [Accept a]
   }

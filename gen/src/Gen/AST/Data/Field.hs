@@ -29,15 +29,15 @@ import Language.Haskell.Exts.Syntax (Name (..))
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
   { _fieldMeta :: Metadata Identity,
-    _fieldOrdinal :: !Int,
+    _fieldOrdinal :: Int,
     -- | The memberId from the struct members map.
     _fieldId :: Id,
     -- | The original struct member reference.
     _fieldRef :: Ref,
     -- | Does the struct have this member in the required set.
-    _fieldRequire :: !Bool,
+    _fieldRequire :: Bool,
     -- | Does the struct have this memeber marked as the payload.
-    _fieldPayload :: !Bool,
+    _fieldPayload :: Bool,
     _fieldPrefix :: Maybe Text,
     _fieldNamespace :: Maybe Text,
     _fieldDirection :: Maybe Direction

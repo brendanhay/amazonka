@@ -1,50 +1,15 @@
 {
-    "botocore": {
-        "branch": "develop",
-        "description": "The low-level, core functionality of boto 3.",
-        "homepage": null,
-        "owner": "boto",
-        "repo": "botocore",
-        "rev": "6de7bb75238743217f009fbcdd54ee75a48b1e8b",
-        "sha256": "1cn5jjvniilldx0sradc3y190x7n74ngqlvgmd6vn49g2vrskjyy",
-        "type": "tarball",
-        "url": "https://github.com/boto/botocore/archive/6de7bb75238743217f009fbcdd54ee75a48b1e8b.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "hackage.nix": {
+    "nixpkgs-latest": {
         "branch": "master",
-        "description": "Automatically generated Nix expressions for Hackage",
+        "builtin": true,
+        "description": "Nix Packages collection",
         "homepage": "",
-        "owner": "input-output-hk",
-        "repo": "hackage.nix",
-        "rev": "3cb86e863a5403b12572a7d48b87a4b921946c1b",
-        "sha256": "1x0vpdp14n8y2hwvzg4hnc1zyzw1wyi2s1rcy8v26aqblmbzh30z",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e3e5fc9bf1c7cbd32a28e2c83a295c12a36e250d",
+        "sha256": "079cjjgd00hcxszlzwrf1xd3zw2sja2nj75ycjr37qx8bp13ml8a",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/hackage.nix/archive/3cb86e863a5403b12572a7d48b87a4b921946c1b.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "haskell.nix": {
-        "branch": "master",
-        "description": "Alternative Haskell Infrastructure for Nixpkgs",
-        "homepage": "https://input-output-hk.github.io/haskell.nix",
-        "owner": "input-output-hk",
-        "repo": "haskell.nix",
-        "rev": "f8d4795cfea54312728ec018aa95b255b811de90",
-        "sha256": "0s6qmdm948b9hmb6ssb5y0qxi4idw4fxy4pill1wl1z4brbx30ia",
-        "type": "tarball",
-        "url": "https://github.com/input-output-hk/haskell.nix/archive/f8d4795cfea54312728ec018aa95b255b811de90.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "niv": {
-        "branch": "master",
-        "description": "Easy dependency management for Nix projects",
-        "homepage": "https://github.com/nmattia/niv",
-        "owner": "nmattia",
-        "repo": "niv",
-        "rev": "65a61b147f307d24bfd0a5cd56ce7d7b7cc61d2e",
-        "sha256": "17mirpsx5wyw262fpsd6n6m47jcgw8k2bwcp1iwdnrlzy4dhcgqh",
-        "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/65a61b147f307d24bfd0a5cd56ce7d7b7cc61d2e.tar.gz",
+        "url": "https://github.com/nixos/nixpkgs/archive/e3e5fc9bf1c7cbd32a28e2c83a295c12a36e250d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

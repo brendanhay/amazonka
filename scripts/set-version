@@ -11,7 +11,6 @@ pvp="$1"
 semantic="$2"
 
 specs=(
-  gen/amazonka-gen.cabal
   test/amazonka-test.cabal
   examples/amazonka-examples.cabal
   amazonka/amazonka.cabal

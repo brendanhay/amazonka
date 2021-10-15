@@ -14,6 +14,10 @@
 module Network.AWS.ElasticTranscoder.Lens
   ( -- * Operations
 
+    -- ** DeletePreset
+    deletePreset_id,
+    deletePresetResponse_httpStatus,
+
     -- ** UpdatePipelineStatus
     updatePipelineStatus_id,
     updatePipelineStatus_status,
@@ -28,83 +32,31 @@ module Network.AWS.ElasticTranscoder.Lens
     listJobsByPipelineResponse_jobs,
     listJobsByPipelineResponse_httpStatus,
 
-    -- ** DeletePreset
-    deletePreset_id,
-    deletePresetResponse_httpStatus,
-
-    -- ** ListPresets
-    listPresets_ascending,
-    listPresets_pageToken,
-    listPresetsResponse_presets,
-    listPresetsResponse_nextPageToken,
-    listPresetsResponse_httpStatus,
-
-    -- ** CreatePreset
-    createPreset_thumbnails,
-    createPreset_video,
-    createPreset_description,
-    createPreset_audio,
-    createPreset_name,
-    createPreset_container,
-    createPresetResponse_preset,
-    createPresetResponse_warning,
-    createPresetResponse_httpStatus,
-
-    -- ** CancelJob
-    cancelJob_id,
-    cancelJobResponse_httpStatus,
-
-    -- ** CreatePipeline
-    createPipeline_outputBucket,
-    createPipeline_thumbnailConfig,
-    createPipeline_notifications,
-    createPipeline_contentConfig,
-    createPipeline_awsKmsKeyArn,
-    createPipeline_name,
-    createPipeline_inputBucket,
-    createPipeline_role,
-    createPipelineResponse_warnings,
-    createPipelineResponse_pipeline,
-    createPipelineResponse_httpStatus,
-
-    -- ** DeletePipeline
-    deletePipeline_id,
-    deletePipelineResponse_httpStatus,
-
     -- ** UpdatePipeline
-    updatePipeline_name,
-    updatePipeline_role,
-    updatePipeline_thumbnailConfig,
-    updatePipeline_notifications,
-    updatePipeline_contentConfig,
     updatePipeline_inputBucket,
+    updatePipeline_contentConfig,
+    updatePipeline_role,
+    updatePipeline_name,
     updatePipeline_awsKmsKeyArn,
+    updatePipeline_notifications,
+    updatePipeline_thumbnailConfig,
     updatePipeline_id,
     updatePipelineResponse_warnings,
     updatePipelineResponse_pipeline,
     updatePipelineResponse_httpStatus,
 
-    -- ** ReadPreset
-    readPreset_id,
-    readPresetResponse_preset,
-    readPresetResponse_httpStatus,
-
-    -- ** ListJobsByStatus
-    listJobsByStatus_ascending,
-    listJobsByStatus_pageToken,
-    listJobsByStatus_status,
-    listJobsByStatusResponse_nextPageToken,
-    listJobsByStatusResponse_jobs,
-    listJobsByStatusResponse_httpStatus,
+    -- ** DeletePipeline
+    deletePipeline_id,
+    deletePipelineResponse_httpStatus,
 
     -- ** CreateJob
-    createJob_outputs,
-    createJob_input,
-    createJob_outputKeyPrefix,
-    createJob_output,
-    createJob_userMetadata,
-    createJob_playlists,
     createJob_inputs,
+    createJob_input,
+    createJob_userMetadata,
+    createJob_outputs,
+    createJob_output,
+    createJob_playlists,
+    createJob_outputKeyPrefix,
     createJob_pipelineId,
     createJobResponse_job,
     createJobResponse_httpStatus,
@@ -116,11 +68,33 @@ module Network.AWS.ElasticTranscoder.Lens
     listPipelinesResponse_pipelines,
     listPipelinesResponse_httpStatus,
 
-    -- ** ReadPipeline
-    readPipeline_id,
-    readPipelineResponse_warnings,
-    readPipelineResponse_pipeline,
-    readPipelineResponse_httpStatus,
+    -- ** CreatePreset
+    createPreset_video,
+    createPreset_thumbnails,
+    createPreset_description,
+    createPreset_audio,
+    createPreset_name,
+    createPreset_container,
+    createPresetResponse_warning,
+    createPresetResponse_preset,
+    createPresetResponse_httpStatus,
+
+    -- ** ListPresets
+    listPresets_ascending,
+    listPresets_pageToken,
+    listPresetsResponse_nextPageToken,
+    listPresetsResponse_presets,
+    listPresetsResponse_httpStatus,
+
+    -- ** ReadPreset
+    readPreset_id,
+    readPresetResponse_preset,
+    readPresetResponse_httpStatus,
+
+    -- ** ReadJob
+    readJob_id,
+    readJobResponse_httpStatus,
+    readJobResponse_job,
 
     -- ** UpdatePipelineNotifications
     updatePipelineNotifications_id,
@@ -128,162 +102,188 @@ module Network.AWS.ElasticTranscoder.Lens
     updatePipelineNotificationsResponse_pipeline,
     updatePipelineNotificationsResponse_httpStatus,
 
-    -- ** ReadJob
-    readJob_id,
-    readJobResponse_httpStatus,
-    readJobResponse_job,
+    -- ** ReadPipeline
+    readPipeline_id,
+    readPipelineResponse_warnings,
+    readPipelineResponse_pipeline,
+    readPipelineResponse_httpStatus,
+
+    -- ** CreatePipeline
+    createPipeline_contentConfig,
+    createPipeline_outputBucket,
+    createPipeline_awsKmsKeyArn,
+    createPipeline_notifications,
+    createPipeline_thumbnailConfig,
+    createPipeline_name,
+    createPipeline_inputBucket,
+    createPipeline_role,
+    createPipelineResponse_warnings,
+    createPipelineResponse_pipeline,
+    createPipelineResponse_httpStatus,
+
+    -- ** ListJobsByStatus
+    listJobsByStatus_ascending,
+    listJobsByStatus_pageToken,
+    listJobsByStatus_status,
+    listJobsByStatusResponse_nextPageToken,
+    listJobsByStatusResponse_jobs,
+    listJobsByStatusResponse_httpStatus,
+
+    -- ** CancelJob
+    cancelJob_id,
+    cancelJobResponse_httpStatus,
 
     -- * Types
 
     -- ** Artwork
-    artwork_inputKey,
-    artwork_albumArtFormat,
     artwork_sizingPolicy,
-    artwork_encryption,
-    artwork_paddingPolicy,
+    artwork_albumArtFormat,
     artwork_maxHeight,
+    artwork_inputKey,
+    artwork_paddingPolicy,
+    artwork_encryption,
     artwork_maxWidth,
 
     -- ** AudioCodecOptions
-    audioCodecOptions_bitDepth,
     audioCodecOptions_signed,
-    audioCodecOptions_bitOrder,
+    audioCodecOptions_bitDepth,
     audioCodecOptions_profile,
+    audioCodecOptions_bitOrder,
 
     -- ** AudioParameters
-    audioParameters_codecOptions,
-    audioParameters_codec,
     audioParameters_channels,
+    audioParameters_codec,
     audioParameters_audioPackingMode,
     audioParameters_sampleRate,
     audioParameters_bitRate,
+    audioParameters_codecOptions,
 
     -- ** CaptionFormat
+    captionFormat_pattern,
     captionFormat_format,
     captionFormat_encryption,
-    captionFormat_pattern,
 
     -- ** CaptionSource
-    captionSource_key,
     captionSource_timeOffset,
     captionSource_encryption,
-    captionSource_label,
+    captionSource_key,
     captionSource_language,
+    captionSource_label,
 
     -- ** Captions
+    captions_mergePolicy,
     captions_captionSources,
     captions_captionFormats,
-    captions_mergePolicy,
 
     -- ** Clip
     clip_timeSpan,
 
     -- ** CreateJobOutput
-    createJobOutput_key,
     createJobOutput_thumbnailPattern,
-    createJobOutput_thumbnailEncryption,
-    createJobOutput_watermarks,
-    createJobOutput_albumArt,
-    createJobOutput_presetId,
-    createJobOutput_encryption,
-    createJobOutput_rotate,
-    createJobOutput_composition,
     createJobOutput_captions,
+    createJobOutput_presetId,
+    createJobOutput_composition,
+    createJobOutput_albumArt,
+    createJobOutput_watermarks,
+    createJobOutput_encryption,
+    createJobOutput_key,
     createJobOutput_segmentDuration,
+    createJobOutput_thumbnailEncryption,
+    createJobOutput_rotate,
 
     -- ** CreateJobPlaylist
     createJobPlaylist_playReadyDrm,
-    createJobPlaylist_outputKeys,
     createJobPlaylist_format,
-    createJobPlaylist_hlsContentProtection,
+    createJobPlaylist_outputKeys,
     createJobPlaylist_name,
+    createJobPlaylist_hlsContentProtection,
 
     -- ** DetectedProperties
     detectedProperties_height,
-    detectedProperties_width,
-    detectedProperties_fileSize,
     detectedProperties_frameRate,
+    detectedProperties_fileSize,
+    detectedProperties_width,
     detectedProperties_durationMillis,
 
     -- ** Encryption
-    encryption_key,
-    encryption_keyMd5,
     encryption_mode,
+    encryption_keyMd5,
+    encryption_key,
     encryption_initializationVector,
 
     -- ** HlsContentProtection
-    hlsContentProtection_key,
-    hlsContentProtection_licenseAcquisitionUrl,
     hlsContentProtection_keyMd5,
+    hlsContentProtection_keyStoragePolicy,
+    hlsContentProtection_key,
     hlsContentProtection_method,
     hlsContentProtection_initializationVector,
-    hlsContentProtection_keyStoragePolicy,
+    hlsContentProtection_licenseAcquisitionUrl,
 
     -- ** InputCaptions
-    inputCaptions_captionSources,
     inputCaptions_mergePolicy,
+    inputCaptions_captionSources,
 
-    -- ** Job'
-    job'_pipelineId,
-    job'_status,
-    job'_outputs,
-    job'_input,
-    job'_outputKeyPrefix,
-    job'_arn,
-    job'_id,
-    job'_output,
-    job'_userMetadata,
-    job'_timing,
-    job'_playlists,
-    job'_inputs,
+    -- ** Job
+    job_status,
+    job_pipelineId,
+    job_arn,
+    job_inputs,
+    job_input,
+    job_userMetadata,
+    job_outputs,
+    job_output,
+    job_id,
+    job_playlists,
+    job_outputKeyPrefix,
+    job_timing,
 
     -- ** JobAlbumArt
-    jobAlbumArt_artwork,
     jobAlbumArt_mergePolicy,
+    jobAlbumArt_artwork,
 
     -- ** JobInput
-    jobInput_key,
-    jobInput_container,
-    jobInput_timeSpan,
-    jobInput_inputCaptions,
-    jobInput_encryption,
-    jobInput_detectedProperties,
     jobInput_frameRate,
-    jobInput_aspectRatio,
     jobInput_resolution,
+    jobInput_aspectRatio,
+    jobInput_timeSpan,
+    jobInput_encryption,
+    jobInput_key,
+    jobInput_detectedProperties,
+    jobInput_container,
     jobInput_interlaced,
+    jobInput_inputCaptions,
 
     -- ** JobOutput
-    jobOutput_key,
-    jobOutput_height,
+    jobOutput_appliedColorSpaceConversion,
     jobOutput_thumbnailPattern,
     jobOutput_status,
-    jobOutput_width,
-    jobOutput_duration,
-    jobOutput_thumbnailEncryption,
+    jobOutput_height,
+    jobOutput_frameRate,
+    jobOutput_captions,
+    jobOutput_presetId,
+    jobOutput_composition,
+    jobOutput_albumArt,
     jobOutput_fileSize,
     jobOutput_watermarks,
-    jobOutput_albumArt,
-    jobOutput_presetId,
+    jobOutput_width,
+    jobOutput_encryption,
+    jobOutput_key,
     jobOutput_statusDetail,
     jobOutput_id,
-    jobOutput_encryption,
-    jobOutput_frameRate,
-    jobOutput_appliedColorSpaceConversion,
-    jobOutput_rotate,
-    jobOutput_durationMillis,
-    jobOutput_composition,
-    jobOutput_captions,
     jobOutput_segmentDuration,
+    jobOutput_durationMillis,
+    jobOutput_thumbnailEncryption,
+    jobOutput_duration,
+    jobOutput_rotate,
 
     -- ** JobWatermark
+    jobWatermark_presetWatermarkId,
     jobWatermark_inputKey,
     jobWatermark_encryption,
-    jobWatermark_presetWatermarkId,
 
     -- ** Notifications
-    notifications_warning,
     notifications_error,
+    notifications_warning,
     notifications_progressing,
     notifications_completed,
 
@@ -294,101 +294,101 @@ module Network.AWS.ElasticTranscoder.Lens
 
     -- ** Pipeline
     pipeline_status,
-    pipeline_outputBucket,
     pipeline_arn,
-    pipeline_id,
-    pipeline_name,
-    pipeline_role,
-    pipeline_thumbnailConfig,
-    pipeline_notifications,
-    pipeline_contentConfig,
     pipeline_inputBucket,
+    pipeline_contentConfig,
+    pipeline_outputBucket,
+    pipeline_role,
+    pipeline_name,
     pipeline_awsKmsKeyArn,
+    pipeline_id,
+    pipeline_notifications,
+    pipeline_thumbnailConfig,
 
     -- ** PipelineOutputConfig
-    pipelineOutputConfig_permissions,
-    pipelineOutputConfig_storageClass,
     pipelineOutputConfig_bucket,
+    pipelineOutputConfig_storageClass,
+    pipelineOutputConfig_permissions,
 
     -- ** PlayReadyDrm
-    playReadyDrm_key,
-    playReadyDrm_licenseAcquisitionUrl,
-    playReadyDrm_keyMd5,
-    playReadyDrm_format,
-    playReadyDrm_initializationVector,
     playReadyDrm_keyId,
+    playReadyDrm_format,
+    playReadyDrm_keyMd5,
+    playReadyDrm_key,
+    playReadyDrm_initializationVector,
+    playReadyDrm_licenseAcquisitionUrl,
 
     -- ** Playlist
     playlist_status,
     playlist_playReadyDrm,
-    playlist_outputKeys,
     playlist_format,
+    playlist_outputKeys,
+    playlist_name,
     playlist_statusDetail,
     playlist_hlsContentProtection,
-    playlist_name,
 
     -- ** Preset
-    preset_container,
     preset_arn,
-    preset_id,
-    preset_name,
-    preset_thumbnails,
     preset_video,
+    preset_thumbnails,
+    preset_name,
+    preset_container,
+    preset_id,
+    preset_type,
     preset_description,
     preset_audio,
-    preset_type,
 
     -- ** PresetWatermark
-    presetWatermark_horizontalAlign,
-    presetWatermark_horizontalOffset,
-    presetWatermark_sizingPolicy,
-    presetWatermark_id,
-    presetWatermark_verticalOffset,
     presetWatermark_verticalAlign,
-    presetWatermark_opacity,
-    presetWatermark_target,
+    presetWatermark_sizingPolicy,
+    presetWatermark_horizontalOffset,
     presetWatermark_maxHeight,
+    presetWatermark_opacity,
+    presetWatermark_verticalOffset,
     presetWatermark_maxWidth,
+    presetWatermark_id,
+    presetWatermark_horizontalAlign,
+    presetWatermark_target,
 
     -- ** Thumbnails
-    thumbnails_format,
     thumbnails_sizingPolicy,
-    thumbnails_interval,
+    thumbnails_format,
+    thumbnails_maxHeight,
+    thumbnails_resolution,
     thumbnails_aspectRatio,
     thumbnails_paddingPolicy,
-    thumbnails_resolution,
-    thumbnails_maxHeight,
+    thumbnails_interval,
     thumbnails_maxWidth,
 
     -- ** TimeSpan
-    timeSpan_duration,
     timeSpan_startTime,
+    timeSpan_duration,
 
     -- ** Timing
     timing_submitTimeMillis,
-    timing_startTimeMillis,
     timing_finishTimeMillis,
+    timing_startTimeMillis,
 
     -- ** VideoParameters
     videoParameters_keyframesMaxDist,
-    videoParameters_codecOptions,
-    videoParameters_fixedGOP,
-    videoParameters_codec,
-    videoParameters_maxFrameRate,
-    videoParameters_displayAspectRatio,
-    videoParameters_watermarks,
-    videoParameters_sizingPolicy,
     videoParameters_frameRate,
+    videoParameters_sizingPolicy,
+    videoParameters_maxFrameRate,
+    videoParameters_maxHeight,
+    videoParameters_watermarks,
+    videoParameters_displayAspectRatio,
+    videoParameters_resolution,
+    videoParameters_codec,
     videoParameters_aspectRatio,
     videoParameters_paddingPolicy,
-    videoParameters_resolution,
-    videoParameters_maxHeight,
-    videoParameters_bitRate,
     videoParameters_maxWidth,
+    videoParameters_bitRate,
+    videoParameters_fixedGOP,
+    videoParameters_codecOptions,
 
     -- ** Warning
-    warning_message,
     warning_code,
+    warning_message,
   )
 where
 
@@ -418,7 +418,7 @@ import Network.AWS.ElasticTranscoder.Types.DetectedProperties
 import Network.AWS.ElasticTranscoder.Types.Encryption
 import Network.AWS.ElasticTranscoder.Types.HlsContentProtection
 import Network.AWS.ElasticTranscoder.Types.InputCaptions
-import Network.AWS.ElasticTranscoder.Types.Job'
+import Network.AWS.ElasticTranscoder.Types.Job
 import Network.AWS.ElasticTranscoder.Types.JobAlbumArt
 import Network.AWS.ElasticTranscoder.Types.JobInput
 import Network.AWS.ElasticTranscoder.Types.JobOutput

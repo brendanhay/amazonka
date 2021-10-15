@@ -15,14 +15,13 @@ module Gen.Types.Config where
 import Control.Error
 import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.List (sort, sortOn, (\\))
+import Data.List ((\\))
+import qualified Data.List as List
 import Data.Ord
+import Data.String (fromString)
 import Data.Text (Text)
-import qualified Data.Text.Lazy as LText
-import qualified Data.Text.Lazy.Builder as Build
+import qualified Data.Text as Text
 import Data.Time
-import qualified Filesystem.Path.CurrentOS as Path
-import Formatting
 import GHC.Generics (Generic)
 import GHC.TypeLits
 import Gen.TH
@@ -34,14 +33,9 @@ import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
+import System.FilePath ((</>))
+import qualified System.FilePath as FilePath
 import Text.EDE (Template)
-
-type Error = LText.Text
-
-type Path = Path.FilePath
-
-toTextIgnore :: Path -> Text
-toTextIgnore = either id id . Path.toText
 
 data Replace = Replace
   { _replaceName :: Id,
@@ -93,14 +87,11 @@ defaultOverride =
       _renamedFields = mempty
     }
 
-newtype Version (v :: Symbol) = Version Text
+newtype Version (v :: Symbol) = Version {semver :: Text}
   deriving (Eq, Show)
 
 instance ToJSON (Version v) where
   toJSON (Version v) = toJSON v
-
-semver :: Format a (Version v -> a)
-semver = later (\(Version v) -> Build.fromText v)
 
 type LibraryVer = Version "library"
 
@@ -181,13 +172,13 @@ instance ToJSON Library where
             "libraryVersion" .= (l ^. libraryVersion),
             "clientVersion" .= (l ^. clientVersion),
             "serviceInstance" .= (l ^. instance'),
-            "typeModules" .= sort (l ^. typeModules),
-            "operationModules" .= sort (l ^. operationModules),
-            "exposedModules" .= sort (l ^. exposedModules),
-            "otherModules" .= sort (l ^. otherModules),
-            "extraDependencies" .= sort (l ^. extraDependencies),
+            "typeModules" .= List.sort (l ^. typeModules),
+            "operationModules" .= List.sort (l ^. operationModules),
+            "exposedModules" .= List.sort (l ^. exposedModules),
+            "otherModules" .= List.sort (l ^. otherModules),
+            "extraDependencies" .= List.sort (l ^. extraDependencies),
             "operations" .= (l ^.. operations . each),
-            "shapes" .= sort (l ^.. shapes . each),
+            "shapes" .= List.sort (l ^.. shapes . each),
             "waiters" .= (l ^.. waiters . each)
           ]
 
@@ -221,54 +212,61 @@ exposedModules = to f
           x ^.. operations . each . to (operationNS ns . view opName)
 
 data Templates = Templates
-  { cabalTemplate :: !Template,
-    tocTemplate :: !Template,
-    waitersTemplate :: !Template,
-    readmeTemplate :: !Template,
-    operationTemplate :: !Template,
-    typesTemplate :: !Template,
-    lensTemplate :: !Template,
-    sumTemplate :: !Template,
-    productTemplate :: !Template,
-    testMainTemplate :: !Template,
-    testNamespaceTemplate :: !Template,
-    testInternalTemplate :: !Template,
-    fixturesTemplate :: !Template,
-    fixtureRequestTemplate :: !Template,
-    blankTemplate :: !Template
+  { cabalTemplate :: Template,
+    tocTemplate :: Template,
+    waitersTemplate :: Template,
+    readmeTemplate :: Template,
+    operationTemplate :: Template,
+    typesTemplate :: Template,
+    lensTemplate :: Template,
+    sumTemplate :: Template,
+    productTemplate :: Template,
+    testMainTemplate :: Template,
+    testNamespaceTemplate :: Template,
+    testInternalTemplate :: Template,
+    fixturesTemplate :: Template,
+    fixtureRequestTemplate :: Template,
+    blankTemplate :: Template
   }
 
 data Model = Model
   { _modelName :: Text,
     _modelVersions :: [UTCTime],
     _modelVersion :: UTCTime,
-    _modelPath :: Path
+    _modelPath :: FilePath
   }
   deriving (Eq, Show)
 
 makeLenses ''Model
 
-configFile, annexFile :: Getter Model Path
-configFile = to (flip Path.addExtension "json" . Path.fromText . _modelName)
+configFile, annexFile :: Model -> FilePath
+configFile = flip FilePath.addExtension "json" . Text.unpack . _modelName
 annexFile = configFile
 
-serviceFile, waitersFile, pagersFile :: Getter Model Path
-serviceFile = to (flip Path.append "service-2.json" . _modelPath)
-waitersFile = to (flip Path.append "waiters-2.json" . _modelPath)
-pagersFile = to (flip Path.append "paginators-1.json" . _modelPath)
+serviceFile, waitersFile, pagersFile :: Model -> FilePath
+serviceFile = flip FilePath.combine "service-2.json" . _modelPath
+waitersFile = flip FilePath.combine "waiters-2.json" . _modelPath
+pagersFile = flip FilePath.combine "paginators-1.json" . _modelPath
 
-loadModel :: Path -> [Path] -> Either Error Model
-loadModel p xs =
-  uncurry (Model n (map fst vs))
-    <$> headErr (format ("No valid model versions found in " % shown) xs) vs
+loadModel :: FilePath -> [FilePath] -> Either String Model
+loadModel path xs = do
+  version <- headErr ("No valid model versions found in " ++ show xs) sortedVersions
+
+  pure
+    Model
+      { _modelName = fromString (FilePath.takeFileName path),
+        _modelVersions = map fst sortedVersions,
+        _modelVersion = fst version,
+        _modelPath = path </> snd version
+      }
   where
-    vs = sortOn Down (mapMaybe parse xs)
-    n = toTextIgnore (Path.filename p)
+    sortedVersions =
+      List.sortOn Down (mapMaybe parseVersion xs)
 
-    parse d =
-      (,d)
+    parseVersion date =
+      (,date)
         <$> parseTimeM
           True
           defaultTimeLocale
           (iso8601DateFormat Nothing)
-          (Path.encodeString (Path.filename d))
+          (FilePath.takeFileName date)

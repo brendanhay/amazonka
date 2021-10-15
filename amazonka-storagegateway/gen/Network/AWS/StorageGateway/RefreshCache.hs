@@ -63,8 +63,8 @@ module Network.AWS.StorageGateway.RefreshCache
     newRefreshCache,
 
     -- * Request Lenses
-    refreshCache_recursive,
     refreshCache_folderList,
+    refreshCache_recursive,
     refreshCache_fileShareARN,
 
     -- * Destructuring the Response
@@ -89,7 +89,12 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newRefreshCache' smart constructor.
 data RefreshCache = RefreshCache'
-  { -- | A value that specifies whether to recursively refresh folders in the
+  { -- | A comma-separated list of the paths of folders to refresh in the cache.
+    -- The default is [@\"\/\"@]. The default refreshes objects and folders at
+    -- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
+    -- entire S3 bucket that the file share has access to is refreshed.
+    folderList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A value that specifies whether to recursively refresh folders in the
     -- cache. The refresh includes folders that were in the cache the last time
     -- the gateway listed the folder\'s contents. If this value set to @true@,
     -- each folder that is listed in @FolderList@ is recursively updated.
@@ -99,11 +104,6 @@ data RefreshCache = RefreshCache'
     --
     -- Valid Values: @true@ | @false@
     recursive :: Prelude.Maybe Prelude.Bool,
-    -- | A comma-separated list of the paths of folders to refresh in the cache.
-    -- The default is [@\"\/\"@]. The default refreshes objects and folders at
-    -- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
-    -- entire S3 bucket that the file share has access to is refreshed.
-    folderList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the file share you want to refresh.
     fileShareARN :: Prelude.Text
   }
@@ -117,6 +117,11 @@ data RefreshCache = RefreshCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'folderList', 'refreshCache_folderList' - A comma-separated list of the paths of folders to refresh in the cache.
+-- The default is [@\"\/\"@]. The default refreshes objects and folders at
+-- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
+-- entire S3 bucket that the file share has access to is refreshed.
+--
 -- 'recursive', 'refreshCache_recursive' - A value that specifies whether to recursively refresh folders in the
 -- cache. The refresh includes folders that were in the cache the last time
 -- the gateway listed the folder\'s contents. If this value set to @true@,
@@ -127,11 +132,6 @@ data RefreshCache = RefreshCache'
 --
 -- Valid Values: @true@ | @false@
 --
--- 'folderList', 'refreshCache_folderList' - A comma-separated list of the paths of folders to refresh in the cache.
--- The default is [@\"\/\"@]. The default refreshes objects and folders at
--- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
--- entire S3 bucket that the file share has access to is refreshed.
---
 -- 'fileShareARN', 'refreshCache_fileShareARN' - The Amazon Resource Name (ARN) of the file share you want to refresh.
 newRefreshCache ::
   -- | 'fileShareARN'
@@ -139,10 +139,17 @@ newRefreshCache ::
   RefreshCache
 newRefreshCache pFileShareARN_ =
   RefreshCache'
-    { recursive = Prelude.Nothing,
-      folderList = Prelude.Nothing,
+    { folderList = Prelude.Nothing,
+      recursive = Prelude.Nothing,
       fileShareARN = pFileShareARN_
     }
+
+-- | A comma-separated list of the paths of folders to refresh in the cache.
+-- The default is [@\"\/\"@]. The default refreshes objects and folders at
+-- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
+-- entire S3 bucket that the file share has access to is refreshed.
+refreshCache_folderList :: Lens.Lens' RefreshCache (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that specifies whether to recursively refresh folders in the
 -- cache. The refresh includes folders that were in the cache the last time
@@ -155,13 +162,6 @@ newRefreshCache pFileShareARN_ =
 -- Valid Values: @true@ | @false@
 refreshCache_recursive :: Lens.Lens' RefreshCache (Prelude.Maybe Prelude.Bool)
 refreshCache_recursive = Lens.lens (\RefreshCache' {recursive} -> recursive) (\s@RefreshCache' {} a -> s {recursive = a} :: RefreshCache)
-
--- | A comma-separated list of the paths of folders to refresh in the cache.
--- The default is [@\"\/\"@]. The default refreshes objects and folders at
--- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
--- entire S3 bucket that the file share has access to is refreshed.
-refreshCache_folderList :: Lens.Lens' RefreshCache (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the file share you want to refresh.
 refreshCache_fileShareARN :: Lens.Lens' RefreshCache Prelude.Text
@@ -202,8 +202,8 @@ instance Core.ToJSON RefreshCache where
   toJSON RefreshCache' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Recursive" Core..=) Prelude.<$> recursive,
-            ("FolderList" Core..=) Prelude.<$> folderList,
+          [ ("FolderList" Core..=) Prelude.<$> folderList,
+            ("Recursive" Core..=) Prelude.<$> recursive,
             Prelude.Just ("FileShareARN" Core..= fileShareARN)
           ]
       )

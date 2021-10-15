@@ -14,15 +14,242 @@
 module Network.AWS.OpsWorks.Lens
   ( -- * Operations
 
-    -- ** DescribeDeployments
-    describeDeployments_deploymentIds,
-    describeDeployments_appId,
-    describeDeployments_stackId,
-    describeDeploymentsResponse_deployments,
-    describeDeploymentsResponse_httpStatus,
+    -- ** DescribeRdsDbInstances
+    describeRdsDbInstances_rdsDbInstanceArns,
+    describeRdsDbInstances_stackId,
+    describeRdsDbInstancesResponse_rdsDbInstances,
+    describeRdsDbInstancesResponse_httpStatus,
+
+    -- ** DeleteStack
+    deleteStack_stackId,
+
+    -- ** UpdateStack
+    updateStack_defaultInstanceProfileArn,
+    updateStack_serviceRoleArn,
+    updateStack_defaultRootDeviceType,
+    updateStack_chefConfiguration,
+    updateStack_agentVersion,
+    updateStack_defaultSshKeyName,
+    updateStack_customJson,
+    updateStack_customCookbooksSource,
+    updateStack_defaultAvailabilityZone,
+    updateStack_attributes,
+    updateStack_name,
+    updateStack_defaultOs,
+    updateStack_useOpsworksSecurityGroups,
+    updateStack_useCustomCookbooks,
+    updateStack_defaultSubnetId,
+    updateStack_configurationManager,
+    updateStack_hostnameTheme,
+    updateStack_stackId,
+
+    -- ** CreateLayer
+    createLayer_customInstanceProfileArn,
+    createLayer_customSecurityGroupIds,
+    createLayer_installUpdatesOnBoot,
+    createLayer_cloudWatchLogsConfiguration,
+    createLayer_lifecycleEventConfiguration,
+    createLayer_customRecipes,
+    createLayer_customJson,
+    createLayer_volumeConfigurations,
+    createLayer_enableAutoHealing,
+    createLayer_packages,
+    createLayer_attributes,
+    createLayer_autoAssignPublicIps,
+    createLayer_useEbsOptimizedInstances,
+    createLayer_autoAssignElasticIps,
+    createLayer_stackId,
+    createLayer_type,
+    createLayer_name,
+    createLayer_shortname,
+    createLayerResponse_layerId,
+    createLayerResponse_httpStatus,
+
+    -- ** SetLoadBasedAutoScaling
+    setLoadBasedAutoScaling_upScaling,
+    setLoadBasedAutoScaling_enable,
+    setLoadBasedAutoScaling_downScaling,
+    setLoadBasedAutoScaling_layerId,
+
+    -- ** DeregisterRdsDbInstance
+    deregisterRdsDbInstance_rdsDbInstanceArn,
+
+    -- ** UnassignVolume
+    unassignVolume_volumeId,
+
+    -- ** CreateInstance
+    createInstance_installUpdatesOnBoot,
+    createInstance_virtualizationType,
+    createInstance_hostname,
+    createInstance_sshKeyName,
+    createInstance_agentVersion,
+    createInstance_subnetId,
+    createInstance_ebsOptimized,
+    createInstance_os,
+    createInstance_availabilityZone,
+    createInstance_tenancy,
+    createInstance_autoScalingType,
+    createInstance_architecture,
+    createInstance_amiId,
+    createInstance_rootDeviceType,
+    createInstance_blockDeviceMappings,
+    createInstance_stackId,
+    createInstance_layerIds,
+    createInstance_instanceType,
+    createInstanceResponse_instanceId,
+    createInstanceResponse_httpStatus,
+
+    -- ** DescribeLayers
+    describeLayers_layerIds,
+    describeLayers_stackId,
+    describeLayersResponse_layers,
+    describeLayersResponse_httpStatus,
+
+    -- ** RegisterElasticIp
+    registerElasticIp_elasticIp,
+    registerElasticIp_stackId,
+    registerElasticIpResponse_elasticIp,
+    registerElasticIpResponse_httpStatus,
+
+    -- ** DescribeAgentVersions
+    describeAgentVersions_configurationManager,
+    describeAgentVersions_stackId,
+    describeAgentVersionsResponse_agentVersions,
+    describeAgentVersionsResponse_httpStatus,
+
+    -- ** CreateDeployment
+    createDeployment_customJson,
+    createDeployment_appId,
+    createDeployment_instanceIds,
+    createDeployment_layerIds,
+    createDeployment_comment,
+    createDeployment_stackId,
+    createDeployment_command,
+    createDeploymentResponse_deploymentId,
+    createDeploymentResponse_httpStatus,
+
+    -- ** AssignInstance
+    assignInstance_instanceId,
+    assignInstance_layerIds,
+
+    -- ** DescribeStacks
+    describeStacks_stackIds,
+    describeStacksResponse_stacks,
+    describeStacksResponse_httpStatus,
+
+    -- ** DeleteInstance
+    deleteInstance_deleteVolumes,
+    deleteInstance_deleteElasticIp,
+    deleteInstance_instanceId,
+
+    -- ** UpdateInstance
+    updateInstance_installUpdatesOnBoot,
+    updateInstance_hostname,
+    updateInstance_sshKeyName,
+    updateInstance_agentVersion,
+    updateInstance_instanceType,
+    updateInstance_ebsOptimized,
+    updateInstance_os,
+    updateInstance_autoScalingType,
+    updateInstance_layerIds,
+    updateInstance_architecture,
+    updateInstance_amiId,
+    updateInstance_instanceId,
+
+    -- ** DeregisterVolume
+    deregisterVolume_volumeId,
+
+    -- ** RebootInstance
+    rebootInstance_instanceId,
+
+    -- ** DeleteApp
+    deleteApp_appId,
+
+    -- ** UpdateApp
+    updateApp_sslConfiguration,
+    updateApp_environment,
+    updateApp_enableSsl,
+    updateApp_dataSources,
+    updateApp_appSource,
+    updateApp_attributes,
+    updateApp_name,
+    updateApp_type,
+    updateApp_domains,
+    updateApp_description,
+    updateApp_appId,
+
+    -- ** UpdateRdsDbInstance
+    updateRdsDbInstance_dbUser,
+    updateRdsDbInstance_dbPassword,
+    updateRdsDbInstance_rdsDbInstanceArn,
+
+    -- ** DescribeTimeBasedAutoScaling
+    describeTimeBasedAutoScaling_instanceIds,
+    describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations,
+    describeTimeBasedAutoScalingResponse_httpStatus,
+
+    -- ** StopStack
+    stopStack_stackId,
+
+    -- ** DescribeVolumes
+    describeVolumes_instanceId,
+    describeVolumes_volumeIds,
+    describeVolumes_raidArrayId,
+    describeVolumes_stackId,
+    describeVolumesResponse_volumes,
+    describeVolumesResponse_httpStatus,
+
+    -- ** DisassociateElasticIp
+    disassociateElasticIp_elasticIp,
+
+    -- ** RegisterEcsCluster
+    registerEcsCluster_ecsClusterArn,
+    registerEcsCluster_stackId,
+    registerEcsClusterResponse_ecsClusterArn,
+    registerEcsClusterResponse_httpStatus,
+
+    -- ** StopInstance
+    stopInstance_force,
+    stopInstance_instanceId,
+
+    -- ** RegisterVolume
+    registerVolume_ec2VolumeId,
+    registerVolume_stackId,
+    registerVolumeResponse_volumeId,
+    registerVolumeResponse_httpStatus,
+
+    -- ** SetTimeBasedAutoScaling
+    setTimeBasedAutoScaling_autoScalingSchedule,
+    setTimeBasedAutoScaling_instanceId,
+
+    -- ** DescribeUserProfiles
+    describeUserProfiles_iamUserArns,
+    describeUserProfilesResponse_userProfiles,
+    describeUserProfilesResponse_httpStatus,
+
+    -- ** AttachElasticLoadBalancer
+    attachElasticLoadBalancer_elasticLoadBalancerName,
+    attachElasticLoadBalancer_layerId,
+
+    -- ** DeregisterElasticIp
+    deregisterElasticIp_elasticIp,
+
+    -- ** DeregisterEcsCluster
+    deregisterEcsCluster_ecsClusterArn,
+
+    -- ** DescribeApps
+    describeApps_appIds,
+    describeApps_stackId,
+    describeAppsResponse_apps,
+    describeAppsResponse_httpStatus,
 
     -- ** UpdateMyUserProfile
     updateMyUserProfile_sshPublicKey,
+
+    -- ** DescribeStackSummary
+    describeStackSummary_stackId,
+    describeStackSummaryResponse_stackSummary,
+    describeStackSummaryResponse_httpStatus,
 
     -- ** DescribeInstances
     describeInstances_instanceIds,
@@ -31,83 +258,186 @@ module Network.AWS.OpsWorks.Lens
     describeInstancesResponse_instances,
     describeInstancesResponse_httpStatus,
 
-    -- ** SetTimeBasedAutoScaling
-    setTimeBasedAutoScaling_autoScalingSchedule,
-    setTimeBasedAutoScaling_instanceId,
+    -- ** DescribeDeployments
+    describeDeployments_appId,
+    describeDeployments_deploymentIds,
+    describeDeployments_stackId,
+    describeDeploymentsResponse_deployments,
+    describeDeploymentsResponse_httpStatus,
 
-    -- ** AttachElasticLoadBalancer
-    attachElasticLoadBalancer_elasticLoadBalancerName,
-    attachElasticLoadBalancer_layerId,
+    -- ** DescribeElasticIps
+    describeElasticIps_instanceId,
+    describeElasticIps_ips,
+    describeElasticIps_stackId,
+    describeElasticIpsResponse_elasticIps,
+    describeElasticIpsResponse_httpStatus,
 
-    -- ** DescribeRdsDbInstances
-    describeRdsDbInstances_rdsDbInstanceArns,
-    describeRdsDbInstances_stackId,
-    describeRdsDbInstancesResponse_rdsDbInstances,
-    describeRdsDbInstancesResponse_httpStatus,
+    -- ** GrantAccess
+    grantAccess_validForInMinutes,
+    grantAccess_instanceId,
+    grantAccessResponse_temporaryCredential,
+    grantAccessResponse_httpStatus,
 
-    -- ** DeregisterElasticIp
-    deregisterElasticIp_elasticIp,
+    -- ** DeleteLayer
+    deleteLayer_layerId,
 
-    -- ** SetPermission
-    setPermission_allowSudo,
-    setPermission_allowSsh,
-    setPermission_level,
-    setPermission_stackId,
-    setPermission_iamUserArn,
+    -- ** UpdateLayer
+    updateLayer_customInstanceProfileArn,
+    updateLayer_customSecurityGroupIds,
+    updateLayer_installUpdatesOnBoot,
+    updateLayer_cloudWatchLogsConfiguration,
+    updateLayer_lifecycleEventConfiguration,
+    updateLayer_shortname,
+    updateLayer_customRecipes,
+    updateLayer_customJson,
+    updateLayer_volumeConfigurations,
+    updateLayer_enableAutoHealing,
+    updateLayer_packages,
+    updateLayer_attributes,
+    updateLayer_name,
+    updateLayer_autoAssignPublicIps,
+    updateLayer_useEbsOptimizedInstances,
+    updateLayer_autoAssignElasticIps,
+    updateLayer_layerId,
 
-    -- ** RegisterVolume
-    registerVolume_ec2VolumeId,
-    registerVolume_stackId,
-    registerVolumeResponse_volumeId,
-    registerVolumeResponse_httpStatus,
+    -- ** CreateStack
+    createStack_defaultRootDeviceType,
+    createStack_vpcId,
+    createStack_chefConfiguration,
+    createStack_agentVersion,
+    createStack_defaultSshKeyName,
+    createStack_customJson,
+    createStack_customCookbooksSource,
+    createStack_defaultAvailabilityZone,
+    createStack_attributes,
+    createStack_defaultOs,
+    createStack_useOpsworksSecurityGroups,
+    createStack_useCustomCookbooks,
+    createStack_defaultSubnetId,
+    createStack_configurationManager,
+    createStack_hostnameTheme,
+    createStack_name,
+    createStack_region,
+    createStack_serviceRoleArn,
+    createStack_defaultInstanceProfileArn,
+    createStackResponse_stackId,
+    createStackResponse_httpStatus,
 
-    -- ** StartInstance
-    startInstance_instanceId,
+    -- ** UpdateElasticIp
+    updateElasticIp_name,
+    updateElasticIp_elasticIp,
 
-    -- ** DescribeEcsClusters
-    describeEcsClusters_nextToken,
-    describeEcsClusters_maxResults,
-    describeEcsClusters_stackId,
-    describeEcsClusters_ecsClusterArns,
-    describeEcsClustersResponse_nextToken,
-    describeEcsClustersResponse_ecsClusters,
-    describeEcsClustersResponse_httpStatus,
+    -- ** CreateApp
+    createApp_sslConfiguration,
+    createApp_environment,
+    createApp_enableSsl,
+    createApp_shortname,
+    createApp_dataSources,
+    createApp_appSource,
+    createApp_attributes,
+    createApp_domains,
+    createApp_description,
+    createApp_stackId,
+    createApp_name,
+    createApp_type,
+    createAppResponse_appId,
+    createAppResponse_httpStatus,
 
-    -- ** StopInstance
-    stopInstance_force,
-    stopInstance_instanceId,
+    -- ** GetHostnameSuggestion
+    getHostnameSuggestion_layerId,
+    getHostnameSuggestionResponse_hostname,
+    getHostnameSuggestionResponse_layerId,
+    getHostnameSuggestionResponse_httpStatus,
 
-    -- ** DisassociateElasticIp
-    disassociateElasticIp_elasticIp,
+    -- ** CloneStack
+    cloneStack_defaultInstanceProfileArn,
+    cloneStack_cloneAppIds,
+    cloneStack_defaultRootDeviceType,
+    cloneStack_vpcId,
+    cloneStack_chefConfiguration,
+    cloneStack_agentVersion,
+    cloneStack_defaultSshKeyName,
+    cloneStack_customJson,
+    cloneStack_clonePermissions,
+    cloneStack_customCookbooksSource,
+    cloneStack_defaultAvailabilityZone,
+    cloneStack_attributes,
+    cloneStack_name,
+    cloneStack_defaultOs,
+    cloneStack_useOpsworksSecurityGroups,
+    cloneStack_useCustomCookbooks,
+    cloneStack_defaultSubnetId,
+    cloneStack_region,
+    cloneStack_configurationManager,
+    cloneStack_hostnameTheme,
+    cloneStack_sourceStackId,
+    cloneStack_serviceRoleArn,
+    cloneStackResponse_stackId,
+    cloneStackResponse_httpStatus,
 
-    -- ** DescribeOperatingSystems
-    describeOperatingSystemsResponse_operatingSystems,
-    describeOperatingSystemsResponse_httpStatus,
+    -- ** DescribePermissions
+    describePermissions_iamUserArn,
+    describePermissions_stackId,
+    describePermissionsResponse_permissions,
+    describePermissionsResponse_httpStatus,
 
-    -- ** StopStack
-    stopStack_stackId,
+    -- ** DetachElasticLoadBalancer
+    detachElasticLoadBalancer_elasticLoadBalancerName,
+    detachElasticLoadBalancer_layerId,
 
-    -- ** DescribeVolumes
-    describeVolumes_instanceId,
-    describeVolumes_volumeIds,
-    describeVolumes_stackId,
-    describeVolumes_raidArrayId,
-    describeVolumesResponse_volumes,
-    describeVolumesResponse_httpStatus,
+    -- ** RegisterInstance
+    registerInstance_privateIp,
+    registerInstance_hostname,
+    registerInstance_instanceIdentity,
+    registerInstance_publicIp,
+    registerInstance_rsaPublicKeyFingerprint,
+    registerInstance_rsaPublicKey,
+    registerInstance_stackId,
+    registerInstanceResponse_instanceId,
+    registerInstanceResponse_httpStatus,
 
-    -- ** StartStack
-    startStack_stackId,
+    -- ** AssociateElasticIp
+    associateElasticIp_instanceId,
+    associateElasticIp_elasticIp,
+
+    -- ** DescribeLoadBasedAutoScaling
+    describeLoadBasedAutoScaling_layerIds,
+    describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations,
+    describeLoadBasedAutoScalingResponse_httpStatus,
+
+    -- ** DescribeStackProvisioningParameters
+    describeStackProvisioningParameters_stackId,
+    describeStackProvisioningParametersResponse_agentInstallerUrl,
+    describeStackProvisioningParametersResponse_parameters,
+    describeStackProvisioningParametersResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+
+    -- ** ListTags
+    listTags_nextToken,
+    listTags_maxResults,
+    listTags_resourceArn,
+    listTagsResponse_nextToken,
+    listTagsResponse_tags,
+    listTagsResponse_httpStatus,
+
+    -- ** UnassignInstance
+    unassignInstance_instanceId,
+
+    -- ** DescribeMyUserProfile
+    describeMyUserProfileResponse_userProfile,
+    describeMyUserProfileResponse_httpStatus,
+
+    -- ** DeleteUserProfile
+    deleteUserProfile_iamUserArn,
 
     -- ** UpdateUserProfile
-    updateUserProfile_sshUsername,
     updateUserProfile_allowSelfManagement,
     updateUserProfile_sshPublicKey,
+    updateUserProfile_sshUsername,
     updateUserProfile_iamUserArn,
-
-    -- ** DescribeTimeBasedAutoScaling
-    describeTimeBasedAutoScaling_instanceIds,
-    describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations,
-    describeTimeBasedAutoScalingResponse_httpStatus,
 
     -- ** DescribeServiceErrors
     describeServiceErrors_instanceId,
@@ -122,239 +452,24 @@ module Network.AWS.OpsWorks.Lens
     registerRdsDbInstance_dbUser,
     registerRdsDbInstance_dbPassword,
 
-    -- ** DeleteUserProfile
-    deleteUserProfile_iamUserArn,
-
-    -- ** DescribeMyUserProfile
-    describeMyUserProfileResponse_userProfile,
-    describeMyUserProfileResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
 
-    -- ** UpdateInstance
-    updateInstance_hostname,
-    updateInstance_installUpdatesOnBoot,
-    updateInstance_ebsOptimized,
-    updateInstance_instanceType,
-    updateInstance_agentVersion,
-    updateInstance_amiId,
-    updateInstance_sshKeyName,
-    updateInstance_architecture,
-    updateInstance_layerIds,
-    updateInstance_autoScalingType,
-    updateInstance_os,
-    updateInstance_instanceId,
+    -- ** StartStack
+    startStack_stackId,
 
-    -- ** AssignInstance
-    assignInstance_instanceId,
-    assignInstance_layerIds,
+    -- ** CreateUserProfile
+    createUserProfile_allowSelfManagement,
+    createUserProfile_sshPublicKey,
+    createUserProfile_sshUsername,
+    createUserProfile_iamUserArn,
+    createUserProfileResponse_iamUserArn,
+    createUserProfileResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
-    -- ** RebootInstance
-    rebootInstance_instanceId,
-
-    -- ** DeregisterVolume
-    deregisterVolume_volumeId,
-
-    -- ** DescribeStackProvisioningParameters
-    describeStackProvisioningParameters_stackId,
-    describeStackProvisioningParametersResponse_agentInstallerUrl,
-    describeStackProvisioningParametersResponse_parameters,
-    describeStackProvisioningParametersResponse_httpStatus,
-
-    -- ** DeleteInstance
-    deleteInstance_deleteVolumes,
-    deleteInstance_deleteElasticIp,
-    deleteInstance_instanceId,
-
-    -- ** DescribeStacks
-    describeStacks_stackIds,
-    describeStacksResponse_stacks,
-    describeStacksResponse_httpStatus,
-
-    -- ** DetachElasticLoadBalancer
-    detachElasticLoadBalancer_elasticLoadBalancerName,
-    detachElasticLoadBalancer_layerId,
-
-    -- ** RegisterElasticIp
-    registerElasticIp_elasticIp,
-    registerElasticIp_stackId,
-    registerElasticIpResponse_elasticIp,
-    registerElasticIpResponse_httpStatus,
-
-    -- ** CloneStack
-    cloneStack_useOpsworksSecurityGroups,
-    cloneStack_defaultOs,
-    cloneStack_customCookbooksSource,
-    cloneStack_defaultAvailabilityZone,
-    cloneStack_customJson,
-    cloneStack_agentVersion,
-    cloneStack_clonePermissions,
-    cloneStack_defaultRootDeviceType,
-    cloneStack_name,
-    cloneStack_attributes,
-    cloneStack_defaultInstanceProfileArn,
-    cloneStack_cloneAppIds,
-    cloneStack_hostnameTheme,
-    cloneStack_configurationManager,
-    cloneStack_defaultSshKeyName,
-    cloneStack_chefConfiguration,
-    cloneStack_region,
-    cloneStack_vpcId,
-    cloneStack_defaultSubnetId,
-    cloneStack_useCustomCookbooks,
-    cloneStack_sourceStackId,
-    cloneStack_serviceRoleArn,
-    cloneStackResponse_stackId,
-    cloneStackResponse_httpStatus,
-
-    -- ** DescribeAgentVersions
-    describeAgentVersions_stackId,
-    describeAgentVersions_configurationManager,
-    describeAgentVersionsResponse_agentVersions,
-    describeAgentVersionsResponse_httpStatus,
-
-    -- ** UpdateLayer
-    updateLayer_installUpdatesOnBoot,
-    updateLayer_customSecurityGroupIds,
-    updateLayer_customInstanceProfileArn,
-    updateLayer_packages,
-    updateLayer_enableAutoHealing,
-    updateLayer_customJson,
-    updateLayer_volumeConfigurations,
-    updateLayer_shortname,
-    updateLayer_name,
-    updateLayer_attributes,
-    updateLayer_cloudWatchLogsConfiguration,
-    updateLayer_autoAssignElasticIps,
-    updateLayer_useEbsOptimizedInstances,
-    updateLayer_customRecipes,
-    updateLayer_autoAssignPublicIps,
-    updateLayer_lifecycleEventConfiguration,
-    updateLayer_layerId,
-
-    -- ** CreateStack
-    createStack_useOpsworksSecurityGroups,
-    createStack_defaultOs,
-    createStack_customCookbooksSource,
-    createStack_defaultAvailabilityZone,
-    createStack_customJson,
-    createStack_agentVersion,
-    createStack_defaultRootDeviceType,
-    createStack_attributes,
-    createStack_hostnameTheme,
-    createStack_configurationManager,
-    createStack_defaultSshKeyName,
-    createStack_chefConfiguration,
-    createStack_vpcId,
-    createStack_defaultSubnetId,
-    createStack_useCustomCookbooks,
-    createStack_name,
-    createStack_region,
-    createStack_serviceRoleArn,
-    createStack_defaultInstanceProfileArn,
-    createStackResponse_stackId,
-    createStackResponse_httpStatus,
-
-    -- ** DeleteLayer
-    deleteLayer_layerId,
-
-    -- ** UnassignVolume
-    unassignVolume_volumeId,
-
-    -- ** GrantAccess
-    grantAccess_validForInMinutes,
-    grantAccess_instanceId,
-    grantAccessResponse_temporaryCredential,
-    grantAccessResponse_httpStatus,
-
-    -- ** CreateLayer
-    createLayer_installUpdatesOnBoot,
-    createLayer_customSecurityGroupIds,
-    createLayer_customInstanceProfileArn,
-    createLayer_packages,
-    createLayer_enableAutoHealing,
-    createLayer_customJson,
-    createLayer_volumeConfigurations,
-    createLayer_attributes,
-    createLayer_cloudWatchLogsConfiguration,
-    createLayer_autoAssignElasticIps,
-    createLayer_useEbsOptimizedInstances,
-    createLayer_customRecipes,
-    createLayer_autoAssignPublicIps,
-    createLayer_lifecycleEventConfiguration,
-    createLayer_stackId,
-    createLayer_type,
-    createLayer_name,
-    createLayer_shortname,
-    createLayerResponse_layerId,
-    createLayerResponse_httpStatus,
-
-    -- ** DeleteStack
-    deleteStack_stackId,
-
-    -- ** UpdateStack
-    updateStack_useOpsworksSecurityGroups,
-    updateStack_defaultOs,
-    updateStack_customCookbooksSource,
-    updateStack_serviceRoleArn,
-    updateStack_defaultAvailabilityZone,
-    updateStack_customJson,
-    updateStack_agentVersion,
-    updateStack_defaultRootDeviceType,
-    updateStack_name,
-    updateStack_attributes,
-    updateStack_defaultInstanceProfileArn,
-    updateStack_hostnameTheme,
-    updateStack_configurationManager,
-    updateStack_defaultSshKeyName,
-    updateStack_chefConfiguration,
-    updateStack_defaultSubnetId,
-    updateStack_useCustomCookbooks,
-    updateStack_stackId,
-
-    -- ** SetLoadBasedAutoScaling
-    setLoadBasedAutoScaling_downScaling,
-    setLoadBasedAutoScaling_enable,
-    setLoadBasedAutoScaling_upScaling,
-    setLoadBasedAutoScaling_layerId,
-
-    -- ** DescribeStackSummary
-    describeStackSummary_stackId,
-    describeStackSummaryResponse_stackSummary,
-    describeStackSummaryResponse_httpStatus,
-
-    -- ** DescribeApps
-    describeApps_appIds,
-    describeApps_stackId,
-    describeAppsResponse_apps,
-    describeAppsResponse_httpStatus,
-
-    -- ** DeregisterEcsCluster
-    deregisterEcsCluster_ecsClusterArn,
-
-    -- ** DescribeUserProfiles
-    describeUserProfiles_iamUserArns,
-    describeUserProfilesResponse_userProfiles,
-    describeUserProfilesResponse_httpStatus,
-
-    -- ** DescribeElasticLoadBalancers
-    describeElasticLoadBalancers_stackId,
-    describeElasticLoadBalancers_layerIds,
-    describeElasticLoadBalancersResponse_elasticLoadBalancers,
-    describeElasticLoadBalancersResponse_httpStatus,
-
-    -- ** DescribeRaidArrays
-    describeRaidArrays_instanceId,
-    describeRaidArrays_raidArrayIds,
-    describeRaidArrays_stackId,
-    describeRaidArraysResponse_raidArrays,
-    describeRaidArraysResponse_httpStatus,
+    -- ** DescribeOperatingSystems
+    describeOperatingSystemsResponse_operatingSystems,
+    describeOperatingSystemsResponse_httpStatus,
 
     -- ** DescribeCommands
     describeCommands_deploymentId,
@@ -363,164 +478,49 @@ module Network.AWS.OpsWorks.Lens
     describeCommandsResponse_commands,
     describeCommandsResponse_httpStatus,
 
+    -- ** AssignVolume
+    assignVolume_instanceId,
+    assignVolume_volumeId,
+
+    -- ** DescribeElasticLoadBalancers
+    describeElasticLoadBalancers_layerIds,
+    describeElasticLoadBalancers_stackId,
+    describeElasticLoadBalancersResponse_elasticLoadBalancers,
+    describeElasticLoadBalancersResponse_httpStatus,
+
+    -- ** SetPermission
+    setPermission_allowSudo,
+    setPermission_level,
+    setPermission_allowSsh,
+    setPermission_stackId,
+    setPermission_iamUserArn,
+
     -- ** DeregisterInstance
     deregisterInstance_instanceId,
+
+    -- ** DescribeEcsClusters
+    describeEcsClusters_nextToken,
+    describeEcsClusters_stackId,
+    describeEcsClusters_maxResults,
+    describeEcsClusters_ecsClusterArns,
+    describeEcsClustersResponse_nextToken,
+    describeEcsClustersResponse_ecsClusters,
+    describeEcsClustersResponse_httpStatus,
+
+    -- ** DescribeRaidArrays
+    describeRaidArrays_instanceId,
+    describeRaidArrays_raidArrayIds,
+    describeRaidArrays_stackId,
+    describeRaidArraysResponse_raidArrays,
+    describeRaidArraysResponse_httpStatus,
 
     -- ** UpdateVolume
     updateVolume_name,
     updateVolume_mountPoint,
     updateVolume_volumeId,
 
-    -- ** AssignVolume
-    assignVolume_instanceId,
-    assignVolume_volumeId,
-
-    -- ** RegisterEcsCluster
-    registerEcsCluster_ecsClusterArn,
-    registerEcsCluster_stackId,
-    registerEcsClusterResponse_ecsClusterArn,
-    registerEcsClusterResponse_httpStatus,
-
-    -- ** CreateUserProfile
-    createUserProfile_sshUsername,
-    createUserProfile_allowSelfManagement,
-    createUserProfile_sshPublicKey,
-    createUserProfile_iamUserArn,
-    createUserProfileResponse_iamUserArn,
-    createUserProfileResponse_httpStatus,
-
-    -- ** ListTags
-    listTags_nextToken,
-    listTags_maxResults,
-    listTags_resourceArn,
-    listTagsResponse_nextToken,
-    listTagsResponse_tags,
-    listTagsResponse_httpStatus,
-
-    -- ** UnassignInstance
-    unassignInstance_instanceId,
-
-    -- ** UpdateRdsDbInstance
-    updateRdsDbInstance_dbUser,
-    updateRdsDbInstance_dbPassword,
-    updateRdsDbInstance_rdsDbInstanceArn,
-
-    -- ** RegisterInstance
-    registerInstance_hostname,
-    registerInstance_rsaPublicKey,
-    registerInstance_instanceIdentity,
-    registerInstance_privateIp,
-    registerInstance_rsaPublicKeyFingerprint,
-    registerInstance_publicIp,
-    registerInstance_stackId,
-    registerInstanceResponse_instanceId,
-    registerInstanceResponse_httpStatus,
-
-    -- ** DescribeLoadBasedAutoScaling
-    describeLoadBasedAutoScaling_layerIds,
-    describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations,
-    describeLoadBasedAutoScalingResponse_httpStatus,
-
-    -- ** AssociateElasticIp
-    associateElasticIp_instanceId,
-    associateElasticIp_elasticIp,
-
-    -- ** UpdateApp
-    updateApp_sslConfiguration,
-    updateApp_appSource,
-    updateApp_dataSources,
-    updateApp_domains,
-    updateApp_enableSsl,
-    updateApp_environment,
-    updateApp_name,
-    updateApp_attributes,
-    updateApp_description,
-    updateApp_type,
-    updateApp_appId,
-
-    -- ** DeleteApp
-    deleteApp_appId,
-
-    -- ** GetHostnameSuggestion
-    getHostnameSuggestion_layerId,
-    getHostnameSuggestionResponse_hostname,
-    getHostnameSuggestionResponse_layerId,
-    getHostnameSuggestionResponse_httpStatus,
-
-    -- ** CreateInstance
-    createInstance_virtualizationType,
-    createInstance_hostname,
-    createInstance_installUpdatesOnBoot,
-    createInstance_ebsOptimized,
-    createInstance_rootDeviceType,
-    createInstance_agentVersion,
-    createInstance_amiId,
-    createInstance_sshKeyName,
-    createInstance_architecture,
-    createInstance_autoScalingType,
-    createInstance_tenancy,
-    createInstance_availabilityZone,
-    createInstance_os,
-    createInstance_blockDeviceMappings,
-    createInstance_subnetId,
-    createInstance_stackId,
-    createInstance_layerIds,
-    createInstance_instanceType,
-    createInstanceResponse_instanceId,
-    createInstanceResponse_httpStatus,
-
-    -- ** DescribeLayers
-    describeLayers_stackId,
-    describeLayers_layerIds,
-    describeLayersResponse_layers,
-    describeLayersResponse_httpStatus,
-
-    -- ** CreateDeployment
-    createDeployment_instanceIds,
-    createDeployment_appId,
-    createDeployment_customJson,
-    createDeployment_comment,
-    createDeployment_layerIds,
-    createDeployment_stackId,
-    createDeployment_command,
-    createDeploymentResponse_deploymentId,
-    createDeploymentResponse_httpStatus,
-
-    -- ** CreateApp
-    createApp_sslConfiguration,
-    createApp_appSource,
-    createApp_dataSources,
-    createApp_domains,
-    createApp_enableSsl,
-    createApp_environment,
-    createApp_shortname,
-    createApp_attributes,
-    createApp_description,
-    createApp_stackId,
-    createApp_name,
-    createApp_type,
-    createAppResponse_appId,
-    createAppResponse_httpStatus,
-
-    -- ** DescribePermissions
-    describePermissions_iamUserArn,
-    describePermissions_stackId,
-    describePermissionsResponse_permissions,
-    describePermissionsResponse_httpStatus,
-
-    -- ** UpdateElasticIp
-    updateElasticIp_name,
-    updateElasticIp_elasticIp,
-
-    -- ** DescribeElasticIps
-    describeElasticIps_instanceId,
-    describeElasticIps_stackId,
-    describeElasticIps_ips,
-    describeElasticIpsResponse_elasticIps,
-    describeElasticIpsResponse_httpStatus,
-
-    -- ** DeregisterRdsDbInstance
-    deregisterRdsDbInstance_rdsDbInstanceArn,
+    -- ** StartInstance
+    startInstance_instanceId,
 
     -- * Types
 
@@ -529,87 +529,87 @@ module Network.AWS.OpsWorks.Lens
     agentVersion_configurationManager,
 
     -- ** App
-    app_appId,
     app_sslConfiguration,
-    app_appSource,
-    app_dataSources,
-    app_domains,
-    app_stackId,
-    app_createdAt,
-    app_enableSsl,
     app_environment,
+    app_enableSsl,
+    app_createdAt,
     app_shortname,
-    app_name,
+    app_dataSources,
+    app_appSource,
+    app_appId,
     app_attributes,
-    app_description,
+    app_name,
     app_type,
+    app_stackId,
+    app_domains,
+    app_description,
 
     -- ** AutoScalingThresholds
-    autoScalingThresholds_loadThreshold,
-    autoScalingThresholds_cpuThreshold,
-    autoScalingThresholds_memoryThreshold,
-    autoScalingThresholds_alarms,
-    autoScalingThresholds_thresholdsWaitTime,
-    autoScalingThresholds_ignoreMetricsTime,
     autoScalingThresholds_instanceCount,
+    autoScalingThresholds_ignoreMetricsTime,
+    autoScalingThresholds_loadThreshold,
+    autoScalingThresholds_thresholdsWaitTime,
+    autoScalingThresholds_alarms,
+    autoScalingThresholds_memoryThreshold,
+    autoScalingThresholds_cpuThreshold,
 
     -- ** BlockDeviceMapping
-    blockDeviceMapping_ebs,
-    blockDeviceMapping_noDevice,
     blockDeviceMapping_virtualName,
+    blockDeviceMapping_noDevice,
+    blockDeviceMapping_ebs,
     blockDeviceMapping_deviceName,
 
     -- ** ChefConfiguration
-    chefConfiguration_manageBerkshelf,
     chefConfiguration_berkshelfVersion,
+    chefConfiguration_manageBerkshelf,
 
     -- ** CloudWatchLogsConfiguration
     cloudWatchLogsConfiguration_enabled,
     cloudWatchLogsConfiguration_logStreams,
 
     -- ** CloudWatchLogsLogStream
-    cloudWatchLogsLogStream_initialPosition,
     cloudWatchLogsLogStream_batchCount,
-    cloudWatchLogsLogStream_multiLineStartPattern,
-    cloudWatchLogsLogStream_file,
     cloudWatchLogsLogStream_fileFingerprintLines,
-    cloudWatchLogsLogStream_logGroupName,
-    cloudWatchLogsLogStream_batchSize,
     cloudWatchLogsLogStream_bufferDuration,
+    cloudWatchLogsLogStream_batchSize,
+    cloudWatchLogsLogStream_logGroupName,
+    cloudWatchLogsLogStream_multiLineStartPattern,
+    cloudWatchLogsLogStream_initialPosition,
+    cloudWatchLogsLogStream_datetimeFormat,
     cloudWatchLogsLogStream_encoding,
     cloudWatchLogsLogStream_timeZone,
-    cloudWatchLogsLogStream_datetimeFormat,
+    cloudWatchLogsLogStream_file,
 
     -- ** Command
-    command_logUrl,
-    command_status,
     command_deploymentId,
     command_instanceId,
-    command_completedAt,
+    command_status,
+    command_logUrl,
     command_createdAt,
-    command_exitCode,
     command_commandId,
-    command_acknowledgedAt,
+    command_exitCode,
     command_type,
+    command_completedAt,
+    command_acknowledgedAt,
 
     -- ** DataSource
     dataSource_arn,
-    dataSource_type,
     dataSource_databaseName,
+    dataSource_type,
 
     -- ** Deployment
-    deployment_instanceIds,
-    deployment_appId,
-    deployment_status,
     deployment_deploymentId,
-    deployment_iamUserArn,
-    deployment_duration,
+    deployment_status,
+    deployment_command,
+    deployment_createdAt,
     deployment_customJson,
+    deployment_iamUserArn,
+    deployment_appId,
+    deployment_instanceIds,
+    deployment_completedAt,
     deployment_stackId,
     deployment_comment,
-    deployment_completedAt,
-    deployment_createdAt,
-    deployment_command,
+    deployment_duration,
 
     -- ** DeploymentCommand
     deploymentCommand_args,
@@ -617,34 +617,34 @@ module Network.AWS.OpsWorks.Lens
 
     -- ** EbsBlockDevice
     ebsBlockDevice_deleteOnTermination,
-    ebsBlockDevice_snapshotId,
-    ebsBlockDevice_volumeType,
-    ebsBlockDevice_iops,
     ebsBlockDevice_volumeSize,
+    ebsBlockDevice_iops,
+    ebsBlockDevice_volumeType,
+    ebsBlockDevice_snapshotId,
 
     -- ** EcsCluster
-    ecsCluster_stackId,
+    ecsCluster_ecsClusterArn,
     ecsCluster_ecsClusterName,
     ecsCluster_registeredAt,
-    ecsCluster_ecsClusterArn,
+    ecsCluster_stackId,
 
     -- ** ElasticIp
     elasticIp_instanceId,
-    elasticIp_ip,
     elasticIp_domain,
+    elasticIp_ip,
     elasticIp_name,
     elasticIp_region,
 
     -- ** ElasticLoadBalancer
-    elasticLoadBalancer_availabilityZones,
-    elasticLoadBalancer_stackId,
-    elasticLoadBalancer_elasticLoadBalancerName,
     elasticLoadBalancer_subnetIds,
+    elasticLoadBalancer_vpcId,
+    elasticLoadBalancer_availabilityZones,
+    elasticLoadBalancer_region,
+    elasticLoadBalancer_elasticLoadBalancerName,
+    elasticLoadBalancer_stackId,
+    elasticLoadBalancer_ec2InstanceIds,
     elasticLoadBalancer_layerId,
     elasticLoadBalancer_dnsName,
-    elasticLoadBalancer_ec2InstanceIds,
-    elasticLoadBalancer_region,
-    elasticLoadBalancer_vpcId,
 
     -- ** EnvironmentVariable
     environmentVariable_secure,
@@ -652,191 +652,191 @@ module Network.AWS.OpsWorks.Lens
     environmentVariable_value,
 
     -- ** Instance
+    instance_privateDns,
+    instance_reportedAgentVersion,
+    instance_instanceId,
+    instance_status,
+    instance_privateIp,
+    instance_installUpdatesOnBoot,
     instance_virtualizationType,
     instance_instanceProfileArn,
     instance_platform,
     instance_hostname,
     instance_sshHostRsaKeyFingerprint,
     instance_securityGroupIds,
-    instance_installUpdatesOnBoot,
-    instance_status,
-    instance_instanceId,
-    instance_privateDns,
-    instance_reportedAgentVersion,
-    instance_elasticIp,
-    instance_ebsOptimized,
+    instance_ecsClusterArn,
+    instance_arn,
+    instance_createdAt,
+    instance_ec2InstanceId,
+    instance_sshKeyName,
+    instance_agentVersion,
+    instance_rootDeviceVolumeId,
+    instance_subnetId,
+    instance_infrastructureClass,
     instance_sshHostDsaKeyFingerprint,
     instance_instanceType,
-    instance_rootDeviceType,
-    instance_agentVersion,
-    instance_stackId,
-    instance_rootDeviceVolumeId,
+    instance_ebsOptimized,
+    instance_elasticIp,
+    instance_os,
+    instance_availabilityZone,
+    instance_lastServiceErrorId,
+    instance_tenancy,
+    instance_autoScalingType,
+    instance_layerIds,
+    instance_architecture,
     instance_publicDns,
     instance_amiId,
-    instance_sshKeyName,
-    instance_architecture,
-    instance_createdAt,
-    instance_layerIds,
-    instance_arn,
-    instance_autoScalingType,
-    instance_tenancy,
-    instance_availabilityZone,
-    instance_os,
-    instance_privateIp,
-    instance_infrastructureClass,
+    instance_publicIp,
+    instance_reportedOs,
+    instance_registeredBy,
+    instance_stackId,
+    instance_rootDeviceType,
     instance_ecsContainerInstanceArn,
     instance_blockDeviceMappings,
-    instance_subnetId,
-    instance_registeredBy,
-    instance_reportedOs,
-    instance_ec2InstanceId,
-    instance_publicIp,
-    instance_lastServiceErrorId,
-    instance_ecsClusterArn,
 
     -- ** InstanceIdentity
-    instanceIdentity_document,
     instanceIdentity_signature,
+    instanceIdentity_document,
 
     -- ** InstancesCount
-    instancesCount_online,
-    instancesCount_setupFailed,
-    instancesCount_registering,
-    instancesCount_booting,
-    instancesCount_startFailed,
-    instancesCount_stopFailed,
-    instancesCount_runningSetup,
-    instancesCount_terminated,
-    instancesCount_pending,
     instancesCount_terminating,
-    instancesCount_shuttingDown,
-    instancesCount_assigning,
+    instancesCount_pending,
+    instancesCount_online,
+    instancesCount_unassigning,
+    instancesCount_deregistering,
+    instancesCount_runningSetup,
+    instancesCount_requested,
+    instancesCount_stopFailed,
+    instancesCount_booting,
     instancesCount_stopped,
     instancesCount_rebooting,
-    instancesCount_stopping,
-    instancesCount_requested,
-    instancesCount_registered,
-    instancesCount_deregistering,
+    instancesCount_assigning,
+    instancesCount_shuttingDown,
+    instancesCount_setupFailed,
     instancesCount_connectionLost,
-    instancesCount_unassigning,
+    instancesCount_terminated,
+    instancesCount_stopping,
+    instancesCount_registered,
+    instancesCount_startFailed,
+    instancesCount_registering,
 
     -- ** Layer
-    layer_installUpdatesOnBoot,
-    layer_customSecurityGroupIds,
     layer_customInstanceProfileArn,
-    layer_packages,
-    layer_enableAutoHealing,
-    layer_customJson,
-    layer_stackId,
-    layer_volumeConfigurations,
-    layer_defaultRecipes,
-    layer_createdAt,
-    layer_arn,
-    layer_shortname,
-    layer_name,
-    layer_attributes,
+    layer_customSecurityGroupIds,
+    layer_installUpdatesOnBoot,
     layer_cloudWatchLogsConfiguration,
-    layer_autoAssignElasticIps,
-    layer_defaultSecurityGroupNames,
-    layer_layerId,
-    layer_useEbsOptimizedInstances,
-    layer_customRecipes,
-    layer_type,
-    layer_autoAssignPublicIps,
     layer_lifecycleEventConfiguration,
+    layer_arn,
+    layer_createdAt,
+    layer_shortname,
+    layer_defaultRecipes,
+    layer_customRecipes,
+    layer_customJson,
+    layer_volumeConfigurations,
+    layer_enableAutoHealing,
+    layer_packages,
+    layer_attributes,
+    layer_name,
+    layer_autoAssignPublicIps,
+    layer_type,
+    layer_useEbsOptimizedInstances,
+    layer_stackId,
+    layer_layerId,
+    layer_defaultSecurityGroupNames,
+    layer_autoAssignElasticIps,
 
     -- ** LifecycleEventConfiguration
     lifecycleEventConfiguration_shutdown,
 
     -- ** LoadBasedAutoScalingConfiguration
-    loadBasedAutoScalingConfiguration_downScaling,
-    loadBasedAutoScalingConfiguration_enable,
-    loadBasedAutoScalingConfiguration_layerId,
     loadBasedAutoScalingConfiguration_upScaling,
+    loadBasedAutoScalingConfiguration_enable,
+    loadBasedAutoScalingConfiguration_downScaling,
+    loadBasedAutoScalingConfiguration_layerId,
 
     -- ** OperatingSystem
-    operatingSystem_supported,
-    operatingSystem_configurationManagers,
     operatingSystem_reportedVersion,
-    operatingSystem_id,
+    operatingSystem_supported,
     operatingSystem_name,
-    operatingSystem_reportedName,
+    operatingSystem_id,
+    operatingSystem_configurationManagers,
     operatingSystem_type,
+    operatingSystem_reportedName,
 
     -- ** OperatingSystemConfigurationManager
-    operatingSystemConfigurationManager_version,
     operatingSystemConfigurationManager_name,
+    operatingSystemConfigurationManager_version,
 
     -- ** Permission
-    permission_allowSudo,
     permission_iamUserArn,
+    permission_allowSudo,
     permission_stackId,
-    permission_allowSsh,
     permission_level,
+    permission_allowSsh,
 
     -- ** RaidArray
     raidArray_instanceId,
-    raidArray_numberOfDisks,
-    raidArray_stackId,
-    raidArray_device,
-    raidArray_createdAt,
-    raidArray_raidArrayId,
-    raidArray_name,
-    raidArray_availabilityZone,
-    raidArray_mountPoint,
-    raidArray_volumeType,
-    raidArray_raidLevel,
-    raidArray_iops,
     raidArray_size,
+    raidArray_iops,
+    raidArray_createdAt,
+    raidArray_raidLevel,
+    raidArray_device,
+    raidArray_numberOfDisks,
+    raidArray_availabilityZone,
+    raidArray_name,
+    raidArray_raidArrayId,
+    raidArray_volumeType,
+    raidArray_stackId,
+    raidArray_mountPoint,
 
     -- ** RdsDbInstance
     rdsDbInstance_rdsDbInstanceArn,
     rdsDbInstance_dbUser,
-    rdsDbInstance_address,
-    rdsDbInstance_stackId,
     rdsDbInstance_missingOnRds,
-    rdsDbInstance_dbInstanceIdentifier,
-    rdsDbInstance_dbPassword,
     rdsDbInstance_engine,
+    rdsDbInstance_address,
+    rdsDbInstance_dbInstanceIdentifier,
     rdsDbInstance_region,
+    rdsDbInstance_stackId,
+    rdsDbInstance_dbPassword,
 
     -- ** Recipes
-    recipes_configure,
-    recipes_undeploy,
-    recipes_shutdown,
     recipes_setup,
+    recipes_shutdown,
+    recipes_undeploy,
+    recipes_configure,
     recipes_deploy,
 
     -- ** ReportedOs
-    reportedOs_version,
-    reportedOs_name,
     reportedOs_family,
+    reportedOs_name,
+    reportedOs_version,
 
     -- ** SelfUserProfile
-    selfUserProfile_iamUserArn,
-    selfUserProfile_sshUsername,
-    selfUserProfile_name,
     selfUserProfile_sshPublicKey,
+    selfUserProfile_sshUsername,
+    selfUserProfile_iamUserArn,
+    selfUserProfile_name,
 
-    -- ** ServiceError'
-    serviceError'_instanceId,
-    serviceError'_stackId,
-    serviceError'_message,
-    serviceError'_serviceErrorId,
-    serviceError'_createdAt,
-    serviceError'_type,
+    -- ** ServiceError
+    serviceError_instanceId,
+    serviceError_createdAt,
+    serviceError_serviceErrorId,
+    serviceError_type,
+    serviceError_stackId,
+    serviceError_message,
 
     -- ** ShutdownEventConfiguration
     shutdownEventConfiguration_executionTimeout,
     shutdownEventConfiguration_delayUntilElbConnectionsDrained,
 
     -- ** Source
+    source_url,
+    source_username,
     source_sshKey,
     source_password,
-    source_username,
-    source_url,
-    source_revision,
     source_type,
+    source_revision,
 
     -- ** SslConfiguration
     sslConfiguration_privateKey,
@@ -844,91 +844,91 @@ module Network.AWS.OpsWorks.Lens
     sslConfiguration_chain,
 
     -- ** Stack
-    stack_useOpsworksSecurityGroups,
-    stack_defaultOs,
-    stack_customCookbooksSource,
-    stack_serviceRoleArn,
-    stack_defaultAvailabilityZone,
-    stack_customJson,
-    stack_agentVersion,
-    stack_stackId,
-    stack_createdAt,
-    stack_arn,
-    stack_defaultRootDeviceType,
-    stack_name,
-    stack_attributes,
     stack_defaultInstanceProfileArn,
-    stack_hostnameTheme,
-    stack_configurationManager,
-    stack_defaultSshKeyName,
-    stack_chefConfiguration,
-    stack_region,
+    stack_serviceRoleArn,
+    stack_defaultRootDeviceType,
+    stack_arn,
+    stack_createdAt,
     stack_vpcId,
-    stack_defaultSubnetId,
+    stack_chefConfiguration,
+    stack_agentVersion,
+    stack_defaultSshKeyName,
+    stack_customJson,
+    stack_customCookbooksSource,
+    stack_defaultAvailabilityZone,
+    stack_attributes,
+    stack_name,
+    stack_defaultOs,
+    stack_useOpsworksSecurityGroups,
     stack_useCustomCookbooks,
+    stack_defaultSubnetId,
+    stack_region,
+    stack_configurationManager,
+    stack_stackId,
+    stack_hostnameTheme,
 
     -- ** StackConfigurationManager
-    stackConfigurationManager_version,
     stackConfigurationManager_name,
+    stackConfigurationManager_version,
 
     -- ** StackSummary
+    stackSummary_arn,
+    stackSummary_appsCount,
+    stackSummary_name,
     stackSummary_stackId,
     stackSummary_layersCount,
-    stackSummary_arn,
-    stackSummary_name,
-    stackSummary_appsCount,
     stackSummary_instancesCount,
 
     -- ** TemporaryCredential
-    temporaryCredential_validForInMinutes,
     temporaryCredential_instanceId,
-    temporaryCredential_password,
     temporaryCredential_username,
+    temporaryCredential_password,
+    temporaryCredential_validForInMinutes,
 
     -- ** TimeBasedAutoScalingConfiguration
     timeBasedAutoScalingConfiguration_instanceId,
     timeBasedAutoScalingConfiguration_autoScalingSchedule,
 
     -- ** UserProfile
-    userProfile_iamUserArn,
-    userProfile_sshUsername,
     userProfile_allowSelfManagement,
-    userProfile_name,
     userProfile_sshPublicKey,
+    userProfile_sshUsername,
+    userProfile_iamUserArn,
+    userProfile_name,
 
     -- ** Volume
-    volume_status,
     volume_instanceId,
-    volume_ec2VolumeId,
-    volume_encrypted,
-    volume_device,
-    volume_volumeId,
-    volume_raidArrayId,
-    volume_name,
-    volume_availabilityZone,
-    volume_mountPoint,
-    volume_volumeType,
-    volume_region,
-    volume_iops,
+    volume_status,
     volume_size,
+    volume_iops,
+    volume_device,
+    volume_encrypted,
+    volume_availabilityZone,
+    volume_name,
+    volume_raidArrayId,
+    volume_volumeId,
+    volume_region,
+    volume_volumeType,
+    volume_ec2VolumeId,
+    volume_mountPoint,
 
     -- ** VolumeConfiguration
+    volumeConfiguration_iops,
+    volumeConfiguration_raidLevel,
     volumeConfiguration_encrypted,
     volumeConfiguration_volumeType,
-    volumeConfiguration_raidLevel,
-    volumeConfiguration_iops,
     volumeConfiguration_mountPoint,
     volumeConfiguration_numberOfDisks,
     volumeConfiguration_size,
 
     -- ** WeeklyAutoScalingSchedule
     weeklyAutoScalingSchedule_thursday,
-    weeklyAutoScalingSchedule_friday,
-    weeklyAutoScalingSchedule_tuesday,
-    weeklyAutoScalingSchedule_monday,
-    weeklyAutoScalingSchedule_sunday,
-    weeklyAutoScalingSchedule_saturday,
     weeklyAutoScalingSchedule_wednesday,
+    weeklyAutoScalingSchedule_saturday,
+    weeklyAutoScalingSchedule_monday,
+    weeklyAutoScalingSchedule_friday,
+    weeklyAutoScalingSchedule_sunday,
+    weeklyAutoScalingSchedule_tuesday,
   )
 where
 
@@ -1024,7 +1024,7 @@ import Network.AWS.OpsWorks.Types.RdsDbInstance
 import Network.AWS.OpsWorks.Types.Recipes
 import Network.AWS.OpsWorks.Types.ReportedOs
 import Network.AWS.OpsWorks.Types.SelfUserProfile
-import Network.AWS.OpsWorks.Types.ServiceError'
+import Network.AWS.OpsWorks.Types.ServiceError
 import Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
 import Network.AWS.OpsWorks.Types.Source
 import Network.AWS.OpsWorks.Types.SslConfiguration

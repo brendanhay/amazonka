@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTemporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
-  { -- | The length of time (in minutes) that the grant is valid. When the grant
+  { -- | The instance\'s AWS OpsWorks Stacks ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The user name.
+    username :: Prelude.Maybe Prelude.Text,
+    -- | The password.
+    password :: Prelude.Maybe Prelude.Text,
+    -- | The length of time (in minutes) that the grant is valid. When the grant
     -- expires, at the end of this period, the user will no longer be able to
     -- use the credentials to log in. If they are logged in at the time, they
     -- will be automatically logged out.
-    validForInMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The instance\'s AWS OpsWorks Stacks ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The password.
-    password :: Prelude.Maybe Prelude.Text,
-    -- | The user name.
-    username :: Prelude.Maybe Prelude.Text
+    validForInMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,37 @@ data TemporaryCredential = TemporaryCredential'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceId', 'temporaryCredential_instanceId' - The instance\'s AWS OpsWorks Stacks ID.
+--
+-- 'username', 'temporaryCredential_username' - The user name.
+--
+-- 'password', 'temporaryCredential_password' - The password.
+--
 -- 'validForInMinutes', 'temporaryCredential_validForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant
 -- expires, at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If they are logged in at the time, they
 -- will be automatically logged out.
---
--- 'instanceId', 'temporaryCredential_instanceId' - The instance\'s AWS OpsWorks Stacks ID.
---
--- 'password', 'temporaryCredential_password' - The password.
---
--- 'username', 'temporaryCredential_username' - The user name.
 newTemporaryCredential ::
   TemporaryCredential
 newTemporaryCredential =
   TemporaryCredential'
-    { validForInMinutes =
-        Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      username = Prelude.Nothing,
       password = Prelude.Nothing,
-      username = Prelude.Nothing
+      validForInMinutes = Prelude.Nothing
     }
+
+-- | The instance\'s AWS OpsWorks Stacks ID.
+temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
+temporaryCredential_instanceId = Lens.lens (\TemporaryCredential' {instanceId} -> instanceId) (\s@TemporaryCredential' {} a -> s {instanceId = a} :: TemporaryCredential)
+
+-- | The user name.
+temporaryCredential_username :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
+temporaryCredential_username = Lens.lens (\TemporaryCredential' {username} -> username) (\s@TemporaryCredential' {} a -> s {username = a} :: TemporaryCredential)
+
+-- | The password.
+temporaryCredential_password :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
+temporaryCredential_password = Lens.lens (\TemporaryCredential' {password} -> password) (\s@TemporaryCredential' {} a -> s {password = a} :: TemporaryCredential)
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
 -- expires, at the end of this period, the user will no longer be able to
@@ -78,28 +89,16 @@ newTemporaryCredential =
 temporaryCredential_validForInMinutes :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Int)
 temporaryCredential_validForInMinutes = Lens.lens (\TemporaryCredential' {validForInMinutes} -> validForInMinutes) (\s@TemporaryCredential' {} a -> s {validForInMinutes = a} :: TemporaryCredential)
 
--- | The instance\'s AWS OpsWorks Stacks ID.
-temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
-temporaryCredential_instanceId = Lens.lens (\TemporaryCredential' {instanceId} -> instanceId) (\s@TemporaryCredential' {} a -> s {instanceId = a} :: TemporaryCredential)
-
--- | The password.
-temporaryCredential_password :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
-temporaryCredential_password = Lens.lens (\TemporaryCredential' {password} -> password) (\s@TemporaryCredential' {} a -> s {password = a} :: TemporaryCredential)
-
--- | The user name.
-temporaryCredential_username :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
-temporaryCredential_username = Lens.lens (\TemporaryCredential' {username} -> username) (\s@TemporaryCredential' {} a -> s {username = a} :: TemporaryCredential)
-
 instance Core.FromJSON TemporaryCredential where
   parseJSON =
     Core.withObject
       "TemporaryCredential"
       ( \x ->
           TemporaryCredential'
-            Prelude.<$> (x Core..:? "ValidForInMinutes")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Password")
+            Prelude.<$> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "Password")
+            Prelude.<*> (x Core..:? "ValidForInMinutes")
       )
 
 instance Prelude.Hashable TemporaryCredential

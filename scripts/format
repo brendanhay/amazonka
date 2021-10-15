@@ -2,14 +2,13 @@
 
 # Usage: format
 
-# Run all formatters and linters ensuring codebase consistency
-
 set -euo pipefail
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-./format-nix
-./format-haskell
-./format-shell
+./scripts/format-haskell
+./scripts/format-bazel
+./scripts/format-nix
+./scripts/format-shell
 
-echo 'Done.'
+echo "Done."

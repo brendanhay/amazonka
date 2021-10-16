@@ -93,8 +93,4 @@ parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 # Generate BUILD files for every package.
 ./scripts/update-gazelle
 
-# Rewrite the haskell_doc documentation target to include any new packages.
-bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer -- \
-  "set deps $(bazel query 'kind("haskell_library", //... -gen/... -test/...)')" //docs:static
-
 say "Done."

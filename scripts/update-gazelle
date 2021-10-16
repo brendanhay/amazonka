@@ -2,8 +2,18 @@
 
 set -euo pipefail
 
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
 # Generate (or update) a corresponding BUILD file for every *.cabal file.
 bazel run //:gazelle
 
 # Update the WORKSPACE's stack_snapshot with any haskell dependencies.
 bazel run //:gazelle-update-repos
+
+# Buildozer has some PWD-related wierdness, so bazel-bin link is used.
+bazel build @com_github_bazelbuild_buildtools//buildozer
+
+# Rewrite the haskell_doc documentation target to include any new packages.
+bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer \
+  "set deps $(bazel query 'kind("haskell_library", //... -gen/... -test/...)')" \
+  //docs:static

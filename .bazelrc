@@ -32,6 +32,8 @@ build --javabase=@local_jdk//:jdk
 # Caching
 #
 
+run --remote_download_outputs=all
+
 build --remote_instance_name=amazonka
 build --remote_timeout=3600s
 build --remote_upload_local_results=false

@@ -2,12 +2,12 @@ name: build
 
 on:
   pull_request:
-    branches: develop
+    branches: main
     types:
       - opened
       - synchronize
   push:
-    branches: develop
+    branches: main
     paths-ignore:
       - 'scripts/**'
       - 'config/**'

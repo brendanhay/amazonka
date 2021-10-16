@@ -18,9 +18,9 @@ buildifier(
 
 load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary")
 
+# gazelle:exclude dist-newstyle
 # gazelle:cabal_extra_libraries z=@zlib.dev//:zlib
 # gazelle:cabal_haskell_package_repo stackage
-# gazelle:cabal_add_tags ci
 
 gazelle(
     name = "gazelle",
@@ -57,7 +57,7 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_repl")
 haskell_repl(
     name = "repl",
     deps = [
-        "//amazonka",
         "//gen:lib",
+        "//lib/amazonka",
     ],
 )

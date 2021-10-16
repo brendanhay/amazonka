@@ -32,13 +32,13 @@ An Amazon Web Services SDK for Haskell with support for most public services. Pa
 * For problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
 - [License](#license)
+- [Directory Layout](#directory-layout)
 - [Supported Platforms and GHC Versions](#supported-platforms-and-ghc-versions)
 - [Getting Started](#getting-started)
 - [Building the Project](#building-the-project)
 - [Building the Documentation](#building-the-documentation)
 - [Running the Code Generator](#running-the-code-generator)
 - [Code Formatting](#code-formatting)
-- [Directory Layout](#directory-layout)
 - [Third Party Packages](#third-party-packages)
 
 ## License
@@ -46,6 +46,22 @@ An Amazon Web Services SDK for Haskell with support for most public services. Pa
 Amazonka is licensed under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
 
 The AWS service descriptions are licensed under Apache 2.0. Source files derived from the service descriptions contain an additional licensing clause in their header.
+
+## Directory Layout
+
+This repository is organised into the following directory structure:
+
+* [`lib/amazonka`](lib/amazonka): The main library containing setup, authentication, and send logic. This will be your primary dependency.
+* `lib/service/amazonka-*`: A library per supported Amazon Web Service, you'll need to add a dependency on each selected service library.
+* [`lib/amazonka-test`](lib/amazonka-test): Common test functionality.
+* [`examples`](examples): Basic examples for using the service libraries.
+* [`configs`](configs): Service configuration, templates, and assets used by the code generator.
+* [`docs`](docs): The website documentation and related build code.
+* [`gen`](gen): The code and configuration generators.
+* [`nix`](nix): Nix configuration code for toolchain packages.
+* [`scripts`](scripts): Scripts to manage the project, such as the release lifecycle.
+* [`tools`](tools): Custom bazel rules.
+* [`third_party`](third_party): Third party packages and patches.
 
 ## Supported Platforms and GHC Versions
 
@@ -173,23 +189,6 @@ For pull requests which affect generated output please _do not include_ the rege
 ## Code Formatting
 
 Please use `./scripts/format` frequently - it's OK, I hate 2 spaces too, we're in this together.
-
-## Directory Layout
-
-This repository is organised into the following directory structure:
-
-* [`amazonka`](amazonka): Actual operational logic, you'll need to import this to send requests etc.
-* `amazonka-*`: Data types for each of the individual Amazon Web Service libraries.
-* `amazonka-*/test`: Tests and fixtures for each respective library.
-* [`examples`](examples): The `amazonka-examples` library containing basic examples.
-* [`test`](test): The `amazonka-test` library containing common test functionality.
-* [`docs`](docs): The documentation website and related build code.
-* [`gen`](gen): The code and config generation binaries.
-* [`config`](config): Service configuration, templates, and assets used by the code generator.
-* [`scripts`](scripts): Convenient scripts to manage the release lifecycle of the service libraries.
-* [`nix`](nix): Nix configuration code for the toolchain packages.
-* [`tools`](tools): Custom bazel rules.
-* [`third_party`](third_party): Third party bazel packages and patches.
 
 ## Third Party Packages
 

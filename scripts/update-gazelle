@@ -12,5 +12,5 @@ bazel run //:gazelle-update-repos
 
 # Rewrite the haskell_doc documentation target to include any new packages.
 bazel run --run_under "cd $PWD &&" @com_github_bazelbuild_buildtools//buildozer -- \
-  "set deps $(bazel query 'kind("haskell_library", //... -gen/... -test/...)')" \
+  "set deps $(bazel query 'kind("haskell_library", //lib/...)')" \
   //docs:docs

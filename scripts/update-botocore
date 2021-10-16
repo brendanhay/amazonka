@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+# Output a message to stderr.
+say() {
+  echo >&2 "$@"
+}
+
+# Buildozer has some PWD-related wierdness, so bazel-bin link is used.
+bazel build @com_github_bazelbuild_buildtools//buildozer
+
+# Determine the latest botocore commit.
+sha="$(curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/boto/botocore/commits/develop")"
+tmp="$(mktemp -d -p "$PWD")"
+
+trap 'rm -rf "$tmp"' EXIT
+
+# Buildozer only operates on BUILD files, so we fake it.
+touch "$tmp/WORKSPACE"
+ln -s "$PWD/WORKSPACE" "$tmp/BUILD"
+
+version="$(bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer \
+  -root_dir="$tmp" "print version" '//:botocore')"
+
+say "Updating botocore version ${version} -> ${sha}"
+
+bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer \
+  -root_dir="$tmp" "set version $sha" '//:botocore'
+
+say "Done."

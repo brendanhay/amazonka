@@ -1,0 +1,61 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-marketplace-entitlement/amazonka-marketplace-entitlement.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-marketplace-entitlement",
+    srcs = [
+        "gen/Network/AWS/MarketplaceEntitlement.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/GetEntitlements.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/Lens.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/Types.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/Types/Entitlement.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/Types/EntitlementValue.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/Types/GetEntitlementFilterName.hs",
+        "gen/Network/AWS/MarketplaceEntitlement/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_entitlement=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-marketplace-entitlement/amazonka-marketplace-entitlement.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-marketplace-entitlement-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/MarketplaceEntitlement.hs",
+        "test/Test/AWS/MarketplaceEntitlement.hs",
+        "test/Test/AWS/MarketplaceEntitlement/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_entitlement=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-marketplace-entitlement",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

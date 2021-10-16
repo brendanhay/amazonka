@@ -11,10 +11,10 @@ pvp="$1"
 semantic="$2"
 
 specs=(
-  test/amazonka-test.cabal
-  examples/amazonka-examples.cabal
-  amazonka/amazonka.cabal
-  amazonka-s3-encryption/amazonka-s3-encryption.cabal
+  examples/examples.cabal
+  lib/amazonka/amazonka.cabal
+  lib/amazonka-test/amazonka-test.cabal
+  lib/amazonka-s3-encryption/amazonka-s3-encryption.cabal
 )
 
 echo "Bumping version to $pvp and dependencies to == $semantic ..."

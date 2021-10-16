@@ -59,7 +59,6 @@ haskell_library(
     srcs = glob(["src/**/*.hs"]),
     ghcopts = GHC_OPTS + [
     ],
-    tags = ["ci"],
     visibility = ["//visibility:public"],
     deps = [
         "@stackage//:aeson",
@@ -93,10 +92,10 @@ haskell_binary(
     name = "gen",
     srcs = ["bin/amazonka-gen.hs"],
     ghcopts = GHC_OPTS + [
+        "-O1",
         "-threaded",
         "-rtsopts",
     ],
-    tags = ["ci"],
     visibility = ["//visibility:public"],
     deps = [
         ":lib",
@@ -118,10 +117,10 @@ haskell_binary(
         "bin/amazonka-gen-configs.hs",
     ],
     ghcopts = GHC_OPTS + [
+        "-O1",
         "-threaded",
         "-rtsopts",
     ],
-    tags = ["ci"],
     visibility = ["//visibility:public"],
     deps = [
         "@stackage//:aeson",

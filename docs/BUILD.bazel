@@ -227,6 +227,7 @@ pkg_tar(
         ":index",
         ":package_docs",
         ":stylesheets",
+        "CNAME",
     ],
 )
 

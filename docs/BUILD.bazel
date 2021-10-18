@@ -1,44 +1,14 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_doc")
-load(
-    "@build_stack_rules_hugo//hugo:rules.bzl",
-    "hugo_serve",
-    "hugo_site",
-    "hugo_theme",
-)
-
-hugo_theme(
-    name = "theme",
-    srcs = [
-        "@hugo_theme_kube//:files",
-    ],
-)
-
-hugo_site(
-    name = "docs",
-    config = "config.toml",
-    content = glob(["content/**/*"]),
-    data = [":packages"],
-    hugo = "@nixpkgs_hugo//:bin/hugo",
-    layouts = glob(["layouts/**/*"]),
-    static = [":static"] + glob(["static/**/*"]),
-    theme = ":theme",
-)
-
-hugo_serve(
-    name = "serve",
-    dep = [":docs"],
-    hugo = "@nixpkgs_hugo//:bin/hugo",
-)
+load("@rules_python//python:defs.bzl", "py_binary")
+load("@rules_pkg//:mappings.bzl", "pkg_files", "strip_prefix")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 haskell_doc(
-    # Target name is important, otherwise `hugo_site` won't copy over the files
-    # if they don't have the expected directory prefix. This could be made more
-    # robust by using `rules_pkg/mappings.bzl:pkg_files` to assemble the directory.
-    name = "static",
-    visibility = ["//visibility:public"],
+    name = "docs",
+    # Disables generating the huge multi-package ./index.
     # See: //:third_party/rules_haskell/haddock_index.patch
     index = False,
-    # deps is auto-populated by the buildozer command in scripts/generate.
+    # The deps attribute is auto-populated by buildozer via scripts/generate.
     deps = [
         "//amazonka",
         "//amazonka-alexa-business",
@@ -187,15 +157,14 @@ haskell_doc(
     ],
 )
 
-# Generate a hugo data mapping from the list of hadock directories.
 genrule(
-    name = "packages",
-    srcs = [":static"],
-    outs = ["data/packages.yaml"],
+    name = "metadata",
+    srcs = [":docs"],
+    outs = ["metadata.yaml"],
     cmd = """
-printf 'haddock:\n' >> $@
+printf 'packages:\n' >>$(OUTS)
 
-for dir in $(locations :static); do
+for dir in $(SRCS); do
   dir="$${dir##*/}"
   pkg="$${dir%ZS*}"
 
@@ -203,8 +172,67 @@ for dir in $(locations :static); do
      continue
   fi
 
-  printf '  %s: %s\n' "$$pkg" "$$dir" >> $@
+  printf '  - name: "%s"\n'  "$$pkg" >>$(OUTS)
+  printf '    link: "/docs/%s"\n' "$$dir" >>$(OUTS)
 done
 """,
-    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "index",
+    srcs = [
+        "templates/index.html",
+        ":metadata",
+    ],
+    outs = ["index.html"],
+    cmd = """\
+$(execpath @stackage-exe//pandoc) \
+  -V path_prefix=/ \
+  -f markdown \
+  -t html \
+  -s \
+  --template=$(execpath :templates/index.html) \
+  --metadata=title:"Amazonka" \
+  --metadata-file=$(execpath :metadata) \
+  -o $(OUTS)
+""",
+    tools = ["@stackage-exe//pandoc"],
+)
+
+pkg_files(
+    name = "stylesheets",
+    srcs = glob(["stylesheets/*.css"]),
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
+pkg_files(
+    name = "fonts",
+    srcs = glob(["fonts/*.woff"]),
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
+pkg_files(
+    name = "package_docs",
+    srcs = [
+        ":docs",
+    ],
+    prefix = "",
+    strip_prefix = strip_prefix.from_pkg(),
+)
+
+pkg_tar(
+    name = "bundle",
+    srcs = [
+        ":fonts",
+        ":index",
+        ":package_docs",
+        ":stylesheets",
+    ],
+)
+
+py_binary(
+    name = "serve",
+    srcs = ["serve.py"],
+    args = ["$(rootpath :bundle)"],
+    data = [":bundle"],
 )

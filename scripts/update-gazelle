@@ -10,10 +10,7 @@ bazel run //:gazelle
 # Update the WORKSPACE's stack_snapshot with any haskell dependencies.
 bazel run //:gazelle-update-repos
 
-# Buildozer has some PWD-related wierdness, so bazel-bin link is used.
-bazel build @com_github_bazelbuild_buildtools//buildozer
-
 # Rewrite the haskell_doc documentation target to include any new packages.
-bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer \
+bazel run --run_under "cd $PWD &&" @com_github_bazelbuild_buildtools//buildozer -- \
   "set deps $(bazel query 'kind("haskell_library", //... -gen/... -test/...)')" \
-  //docs:static
+  //docs:docs

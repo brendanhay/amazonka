@@ -14,6 +14,14 @@ versioned_http_archive(
 )
 
 versioned_http_archive(
+    name = "rules_pkg",
+    sha256 = "dd13c5581146da6abdee49a1a2605cd1dd8fb39bea9a870e0089aa4066b260b6",
+    strip_prefix = "rules_pkg-{version}/pkg",
+    url = "https://github.com/bazelbuild/rules_pkg/archive/{version}.tar.gz",
+    version = "8d542763a3959db79175404758f46c7f3f385fa5",
+)
+
+versioned_http_archive(
     name = "rules_sh",
     sha256 = "83a065ba6469135a35786eb741e17d50f360ca92ab2897857475ab17c0d29931",
     strip_prefix = "rules_sh-{version}",
@@ -31,12 +39,12 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "rules_haskell",
+    patch_args = ["-p1"],
+    patches = ["//:third_party/rules_haskell/haddock_index.patch"],
     sha256 = "73941c142bf37df115817083c0834fbc3269c963c7049bfbc345a9c76162e918",
     strip_prefix = "rules_haskell-{version}",
     url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
     version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
-    patches = ["//:third_party/rules_haskell/haddock_index.patch"],
-    patch_args = ["-p1"],
 )
 
 versioned_http_archive(
@@ -289,6 +297,12 @@ gazelle_cabal_dependencies()
 
 stack_snapshot(
     name = "stackage",
+    components = {
+        "pandoc": [
+            "lib",
+            "exe",
+        ],
+    },
     extra_deps = {
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
@@ -322,7 +336,6 @@ stack_snapshot(
         "filepath",  # keep
         "free",  # keep
         "generic-lens",
-        "ghc-prim",
         "groom",
         "hashable",  # keep
         "haskell-src-exts",  # keep

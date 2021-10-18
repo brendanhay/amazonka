@@ -46,10 +46,14 @@ jobs:
       - name: Build and test
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run '
-            bazel build //docs'
+            set -euo pipefail
+            bazel build //docs:bundle
+            mkdir public
+            tar xvf bazel-bin/docs/bundle.tar -C public
+            '
 
       - if: ${{ github.repository == 'brendanhay/amazonka' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: bazel-bin/docs/docs
+          publish_dir: public

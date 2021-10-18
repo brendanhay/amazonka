@@ -9,9 +9,6 @@ say() {
   echo >&2 "$@"
 }
 
-# Buildozer has some PWD-related wierdness, so bazel-bin link is used.
-bazel build @com_github_bazelbuild_buildtools//buildozer
-
 # Determine the latest botocore commit.
 sha="$(curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/boto/botocore/commits/develop")"
 tmp="$(mktemp -d -p "$PWD")"
@@ -27,7 +24,7 @@ version="$(bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildoz
 
 say "Updating botocore version ${version} -> ${sha}"
 
-bazel-bin/external/com_github_bazelbuild_buildtools/buildozer/buildozer_/buildozer \
-  -root_dir="$tmp" "set version $sha" '//:botocore'
+bazel run --run_under "cd $PWD &&" @com_github_bazelbuild_buildtools//buildozer -- \
+  -root_dir="$tmp" "set version $sha" "remove sha256" '//:botocore'
 
 say "Done."

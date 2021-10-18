@@ -166,7 +166,9 @@ printf 'packages:\n' >>$(OUTS)
 
 for dir in $(SRCS); do
   dir="$${dir##*/}"
-  pkg="$${dir%ZS*}"
+  pkg="$${dir#libZS}"
+  pkg="$${pkg#servicesZS}"
+  pkg="$${pkg#*ZS}"
 
   if [[ $$pkg != amazonka* ]]; then
      continue
@@ -223,11 +225,11 @@ pkg_files(
 pkg_tar(
     name = "bundle",
     srcs = [
+        "CNAME",
         ":fonts",
         ":index",
         ":package_docs",
         ":stylesheets",
-        "CNAME",
     ],
 )
 

@@ -4,10 +4,12 @@ let
 
   pkgs = import ./nix/nixpkgs.nix { inherit system; };
 
-  kernel =
-        if pkgs.stdenv.targetPlatform.isLinux then "linux"
-        else if pkgs.stdenv.targetPlatform.isDarwin then "darwin"
-        else throw "unsupported system";
+  kernel = if pkgs.stdenv.targetPlatform.isLinux then
+    "linux"
+  else if pkgs.stdenv.targetPlatform.isDarwin then
+    "darwin"
+  else
+    throw "unsupported system";
 
   bazelrc = pkgs.writeText "amazonka-ghc${ghcVersion}-bazelrc" ''
     build --config=${kernel}

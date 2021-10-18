@@ -210,7 +210,7 @@
 </span><span id="line-210"></span><span class="hs-comment">--     -- 'PutObject' request. 'envRegion' or 'within' can be used to set the</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--     -- remote AWS 'Region':</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--     AWS.runResourceT $</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--         AWS.send (S3.putObject &quot;bucket-name&quot; &quot;object-key&quot; body)</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--         AWS.send env (S3.newPutObject &quot;bucket-name&quot; &quot;object-key&quot; body)</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- @</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- $discovery</span><span>
@@ -287,10 +287,10 @@
 </span><span id="line-287"></span><span class="hs-comment">-- &gt;</span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- &gt; AWS.runResourceT $ do</span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- &gt;     -- This S3 operation will communicate with remote AWS APIs.</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- &gt;     x &lt;- AWS.send env listBuckets</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- &gt;     x &lt;- AWS.send env newListBuckets</span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- &gt;</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- &gt;     -- DynamoDB operations will communicate with localhost:8000.</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- &gt;     y &lt;- AWS.send env Dynamo.listTables</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- &gt;     y &lt;- AWS.send env Dynamo.newListTables</span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- &gt;</span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- &gt;     -- Any operations for services other than DynamoDB, are not affected.</span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- &gt;     ...</span><span>
@@ -301,10 +301,10 @@
 </span><span id="line-301"></span><span class="hs-comment">-- &gt;</span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- &gt; AWS.runResourceT $ do</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- &gt;     -- Service operations here will communicate with AWS, even remote DynamoDB.</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- &gt;     x &lt;- AWS.send env Dynamo.listTables</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- &gt;     x &lt;- AWS.send env Dynamo.newListTables</span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- &gt;</span><span>
 </span><span id="line-306"></span><span class="hs-comment">-- &gt;     -- Here DynamoDB operations will communicate with localhost:8000.</span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- &gt;     y &lt;- AWS.send (AWS.configure dynamo) Dynamo.listTables</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- &gt;     y &lt;- AWS.send (AWS.configure dynamo env) Dynamo.newListTables</span><span>
 </span><span id="line-308"></span><span class="hs-comment">--</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- Functions such as 'within', 'once', and 'timeout' can also be used to modify</span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- service configuration for all (or specific) requests.</span><span>
@@ -313,7 +313,7 @@
 </span><span id="line-313"></span><span class="hs-comment">-- Streaming comes in two flavours. 'HashedBody' represents a request</span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- that requires a precomputed 'SHA256' hash, or a 'ChunkedBody' type for those services</span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- that can perform incremental signing and do not require the entire payload to</span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- be hashed (such as 'S3'). The type signatures for request smart constructors</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- be hashed (such as S3). The type signatures for request smart constructors</span><span>
 </span><span id="line-317"></span><span class="hs-comment">-- advertise which respective body type is required, denoting the underlying signing</span><span>
 </span><span id="line-318"></span><span class="hs-comment">-- capabilities.</span><span>
 </span><span id="line-319"></span><span class="hs-comment">--</span><span>
@@ -324,8 +324,8 @@
 </span><span id="line-324"></span><span class="hs-comment">-- should be used.</span><span>
 </span><span id="line-325"></span><span class="hs-comment">--</span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- For responses that contain streaming bodies (such as 'GetObject'), you can use</span><span>
-</span><span id="line-327"></span><span class="hs-comment">-- 'sinkBody' to connect the response body to a &lt;http://hackage.haskell.org/package/conduit conduit&gt;</span><span>
-</span><span id="line-328"></span><span class="hs-comment">-- compatible sink.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- 'sinkBody' to connect the response body to a</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/conduit conduit&gt;-compatible sink.</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- $presigning</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- Presigning requires the 'Service' signer to be an instance of 'AWSPresigner'.</span><span>
@@ -337,67 +337,76 @@
 </span><span id="line-337"></span><span>
 </span><span id="line-338"></span><span class="hs-comment">-- $async</span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- Requests can be sent asynchronously, but due to guarantees about resource closure</span><span>
-</span><span id="line-340"></span><span class="hs-comment">-- require the use of &lt;http://hackage.haskell.org/package/lifted-async lifted-async&gt;.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- require the use of &quot;UnliftIO.Async&quot;.</span><span>
 </span><span id="line-341"></span><span class="hs-comment">--</span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- The following example demonstrates retrieving two objects from S3 concurrently:</span><span>
 </span><span id="line-343"></span><span class="hs-comment">--</span><span>
-</span><span id="line-344"></span><span class="hs-comment">-- &gt; {-# LANGUAGE OverloadedStrings #-}</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- &gt; import qualified Control.Concurrent.Async as Async</span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- &gt; import qualfiied Network.AWS as AWS</span><span>
-</span><span id="line-347"></span><span class="hs-comment">-- &gt; import qualfiied Network.AWS.S3 as S3</span><span>
-</span><span id="line-348"></span><span class="hs-comment">-- &gt;</span><span>
-</span><span id="line-349"></span><span class="hs-comment">-- &gt; let a = S3.getObject &quot;bucket&quot; &quot;prefix/object-a&quot;</span><span>
-</span><span id="line-350"></span><span class="hs-comment">-- &gt; let b = S3.getObject &quot;bucket&quot; &quot;prefix/object-b&quot;</span><span>
-</span><span id="line-351"></span><span class="hs-comment">-- &gt;</span><span>
-</span><span id="line-352"></span><span class="hs-comment">-- &gt; Async.withAsync (AWS.runResourceT (AWS.send env a)) $ \aAsync -&gt;</span><span>
-</span><span id="line-353"></span><span class="hs-comment">-- &gt;     Async.withAsync (AWS.runResourceT (AWS.send env b)) $ \bAsync -&gt; do</span><span>
-</span><span id="line-354"></span><span class="hs-comment">-- &gt;         a' &lt;- Async.wait aAsync</span><span>
-</span><span id="line-355"></span><span class="hs-comment">-- &gt;         b' &lt;- Async.wait bAsync</span><span>
-</span><span id="line-356"></span><span class="hs-comment">-- &gt;         ...</span><span>
-</span><span id="line-357"></span><span class="hs-comment">--</span><span>
-</span><span id="line-358"></span><span class="hs-comment">-- See &lt;http://hackage.haskell.org/package/async Control.Concurrent.Async&gt;</span><span>
-</span><span id="line-359"></span><span>
-</span><span id="line-360"></span><span class="hs-comment">-- $errors</span><span>
-</span><span id="line-361"></span><span class="hs-comment">-- Errors are either returned or thrown by the library using 'IO'. Sub-errors of</span><span>
-</span><span id="line-362"></span><span class="hs-comment">-- the canonical 'Error' type can be caught using 'trying' or 'catching' and the</span><span>
-</span><span id="line-363"></span><span class="hs-comment">-- appropriate 'AsError' 'Prism' when using the non-'Either' send variants:</span><span>
-</span><span id="line-364"></span><span class="hs-comment">--</span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- @</span><span>
-</span><span id="line-366"></span><span class="hs-comment">-- trying '_Error'          (send $ ListObjects &quot;bucket-name&quot;) :: Either 'Error'          ListObjectsResponse</span><span>
-</span><span id="line-367"></span><span class="hs-comment">-- trying '_TransportError' (send $ ListObjects &quot;bucket-name&quot;) :: Either 'HttpException'  ListObjectsResponse</span><span>
-</span><span id="line-368"></span><span class="hs-comment">-- trying '_SerializeError' (send $ ListObjects &quot;bucket-name&quot;) :: Either 'SerializeError' ListObjectsResponse</span><span>
-</span><span id="line-369"></span><span class="hs-comment">-- trying '_ServiceError'   (send $ ListObjects &quot;bucket-name&quot;) :: Either 'ServiceError'   ListObjectsResponse</span><span>
-</span><span id="line-370"></span><span class="hs-comment">-- @</span><span>
-</span><span id="line-371"></span><span class="hs-comment">--</span><span>
-</span><span id="line-372"></span><span class="hs-comment">-- Many of the individual @amazonka-*@ libraries export compatible 'Getter's for</span><span>
-</span><span id="line-373"></span><span class="hs-comment">-- matching service specific error codes and messages in the style above.</span><span>
-</span><span id="line-374"></span><span class="hs-comment">-- See the @Error Matchers@ heading in each respective library for details.</span><span>
-</span><span id="line-375"></span><span>
-</span><span id="line-376"></span><span class="hs-comment">-- $logging</span><span>
-</span><span id="line-377"></span><span class="hs-comment">-- The exposed logging interface is a primitive 'Logger' function which gets</span><span>
-</span><span id="line-378"></span><span class="hs-comment">-- threaded through service calls and serialisation routines. This allows the</span><span>
-</span><span id="line-379"></span><span class="hs-comment">-- library to output useful information and diagnostics.</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- @</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- {-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- import qualified Network.AWS as AWS</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- import qualified Network.AWS.S3 as S3</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- import qualified UnliftIO.Async as Async</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- let requestA = S3.newGetObject &quot;bucket&quot; &quot;prefix/object-a&quot;</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- let requestB = S3.newGetObject &quot;bucket&quot; &quot;prefix/object-b&quot;</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- runResourceT $</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--   Async.'UnliftIO.Async.withAsync' (send env requestA) $ \\asyncA -&gt;</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     Async.'UnliftIO.Async.withAsync' (send env requestB) $ \\asyncB -&gt; do</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--       Async.'UnliftIO.Async.waitBoth' asyncA asyncB</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- @</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- If you are running many async requests in parallel, using</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- 'Control.Monad.Trans.Cont.ContT' can hide the giant callback pyramid:</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- @</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- runResourceT . 'Control.Monad.Trans.Cont.evalContT' $ do</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--   asyncA &lt;- ContT $ Async.'UnliftIO.Async.withAsync' (send env requestA)</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--   asyncB &lt;- ContT $ Async.'UnliftIO.Async.withAsync' (send env requestB)</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--   Async.'UnliftIO.Async.waitBoth' asyncA asyncB</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- @</span><span>
+</span><span id="line-368"></span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- Errors are either returned or thrown by the library using 'IO'. Sub-errors of</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- the canonical 'Error' type can be caught using 'trying' or 'catching' and the</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- appropriate 'AsError' 'Prism' when using the non-'Either' send variants:</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- @</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- trying '_Error'          (send $ newListObjects &quot;bucket-name&quot;) :: Either 'Error'          ListObjectsResponse</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- trying '_TransportError' (send $ newListObjects &quot;bucket-name&quot;) :: Either 'HttpException'  ListObjectsResponse</span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- trying '_SerializeError' (send $ newListObjects &quot;bucket-name&quot;) :: Either 'SerializeError' ListObjectsResponse</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- trying '_ServiceError'   (send $ newListObjects &quot;bucket-name&quot;) :: Either 'ServiceError'   ListObjectsResponse</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- @</span><span>
 </span><span id="line-380"></span><span class="hs-comment">--</span><span>
-</span><span id="line-381"></span><span class="hs-comment">-- The 'newLogger' function can be used to construct a simple logger which writes</span><span>
-</span><span id="line-382"></span><span class="hs-comment">-- output to a 'Handle', but in most production code you should probably consider</span><span>
-</span><span id="line-383"></span><span class="hs-comment">-- using a more robust logging library such as</span><span>
-</span><span id="line-384"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/tinylog tinylog&gt; or</span><span>
-</span><span id="line-385"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/fast-logger fast-logger&gt;.</span><span>
-</span><span id="line-386"></span><span>
-</span><span id="line-387"></span><span class="hs-comment">-- | Send a request, returning the associated response if successful.</span><span>
-</span><span id="line-388"></span><span class="hs-comment">--</span><span>
-</span><span id="line-389"></span><span class="hs-comment">-- See 'send'.</span><span>
-</span><span id="line-390"></span><span id="local-6989586621679203777"><span id="local-6989586621679203778"><span class="annot"><a href="Network.AWS.html#sendEither"><span class="hs-identifier hs-type">sendEither</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-391"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203778"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-392"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203777"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-393"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-394"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-395"></span><span>  </span><span class="annot"><a href="#local-6989586621679203777"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-396"></span><span>  </span><span class="annot"><a href="#local-6989586621679203778"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203777"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span></span></span><span>
-</span><span id="line-397"></span><span id="sendEither"><span class="annot"><span class="annottext">sendEither :: Env -&gt; a -&gt; m (Either Error (AWSResponse a))
+</span><span id="line-381"></span><span class="hs-comment">-- Many of the individual @amazonka-*@ libraries export compatible 'Control.Lens.Getter's for</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- matching service specific error codes and messages in the style above.</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- See the @Error Matchers@ heading in each respective library for details.</span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- $logging</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- The exposed logging interface is a primitive 'Logger' function which gets</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- threaded through service calls and serialisation routines. This allows the</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- library to output useful information and diagnostics.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- The 'newLogger' function can be used to construct a simple logger which writes</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- output to a 'Handle', but in most production code you should probably consider</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- using a more robust logging library such as</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/tinylog tinylog&gt; or</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/fast-logger fast-logger&gt;.</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | Send a request, returning the associated response if successful.</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- See 'send'.</span><span>
+</span><span id="line-399"></span><span id="local-6989586621679203777"><span id="local-6989586621679203778"><span class="annot"><a href="Network.AWS.html#sendEither"><span class="hs-identifier hs-type">sendEither</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-400"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203778"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203777"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-402"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-403"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-404"></span><span>  </span><span class="annot"><a href="#local-6989586621679203777"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-405"></span><span>  </span><span class="annot"><a href="#local-6989586621679203778"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203777"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-406"></span><span id="sendEither"><span class="annot"><span class="annottext">sendEither :: Env -&gt; a -&gt; m (Either Error (AWSResponse a))
 </span><a href="Network.AWS.html#sendEither"><span class="hs-identifier hs-var hs-var">sendEither</span></a></span></span><span> </span><span id="local-6989586621679203642"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203642"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-398"></span><span>  </span><span class="annot"><span class="annottext">(Either Error (Response (AWSResponse a))
+</span><span id="line-407"></span><span>  </span><span class="annot"><span class="annottext">(Either Error (Response (AWSResponse a))
  -&gt; Either Error (AWSResponse a))
 -&gt; m (Either Error (Response (AWSResponse a)))
 -&gt; m (Either Error (AWSResponse a))
@@ -422,23 +431,23 @@ forall (m :: * -&gt; *) a.
 Env -&gt; a -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><a href="Network.AWS.HTTP.html#retryRequest"><span class="hs-identifier hs-var">HTTP.retryRequest</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203642"><span class="hs-identifier hs-var">env</span></a></span><span>
-</span><span id="line-399"></span><span>
-</span><span id="line-400"></span><span class="hs-comment">-- | Send a request, returning the associated response if successful.</span><span>
-</span><span id="line-401"></span><span class="hs-comment">--</span><span>
-</span><span id="line-402"></span><span class="hs-comment">-- Errors are thrown in 'IO'.</span><span>
-</span><span id="line-403"></span><span class="hs-comment">--</span><span>
-</span><span id="line-404"></span><span class="hs-comment">-- See 'sendEither'.</span><span>
-</span><span id="line-405"></span><span id="local-6989586621679203636"><span id="local-6989586621679203637"><span class="annot"><a href="Network.AWS.html#send"><span class="hs-identifier hs-type">send</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-406"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203637"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-407"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203636"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-408"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-409"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-410"></span><span>  </span><span class="annot"><a href="#local-6989586621679203636"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-411"></span><span>  </span><span class="annot"><a href="#local-6989586621679203637"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203636"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span><span>
-</span><span id="line-412"></span><span id="send"><span class="annot"><span class="annottext">send :: Env -&gt; a -&gt; m (AWSResponse a)
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- | Send a request, returning the associated response if successful.</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- Errors are thrown in 'IO'.</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- See 'sendEither'.</span><span>
+</span><span id="line-414"></span><span id="local-6989586621679203636"><span id="local-6989586621679203637"><span class="annot"><a href="Network.AWS.html#send"><span class="hs-identifier hs-type">send</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-415"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203637"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203636"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-417"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-419"></span><span>  </span><span class="annot"><a href="#local-6989586621679203636"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-420"></span><span>  </span><span class="annot"><a href="#local-6989586621679203637"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203636"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-421"></span><span id="send"><span class="annot"><span class="annottext">send :: Env -&gt; a -&gt; m (AWSResponse a)
 </span><a href="Network.AWS.html#send"><span class="hs-identifier hs-var hs-var">send</span></a></span></span><span> </span><span id="local-6989586621679203635"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203635"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-413"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; a -&gt; m (Either Error (AWSResponse a))
+</span><span id="line-422"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; a -&gt; m (Either Error (AWSResponse a))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (Either Error (AWSResponse a))
@@ -453,28 +462,28 @@ Monad m =&gt;
 </span><span class="hs-operator hs-var">&gt;=&gt;</span></span><span> </span><span class="annot"><span class="annottext">Either Error (AWSResponse a) -&gt; m (AWSResponse a)
 forall (m :: * -&gt; *) a. MonadIO m =&gt; Either Error a -&gt; m a
 </span><a href="Network.AWS.html#hoistEither"><span class="hs-identifier hs-var">hoistEither</span></a></span><span>
-</span><span id="line-414"></span><span>
-</span><span id="line-415"></span><span class="hs-comment">-- | Repeatedly send a request, automatically setting markers and performing pagination.</span><span>
-</span><span id="line-416"></span><span class="hs-comment">--</span><span>
-</span><span id="line-417"></span><span class="hs-comment">-- Exits on the first encountered error.</span><span>
-</span><span id="line-418"></span><span class="hs-comment">--</span><span>
-</span><span id="line-419"></span><span class="hs-comment">-- See 'paginate'.</span><span>
-</span><span id="line-420"></span><span id="local-6989586621679203744"><span id="local-6989586621679203745"><span class="annot"><a href="Network.AWS.html#paginateEither"><span class="hs-identifier hs-type">paginateEither</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-421"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203745"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-422"></span><span>    </span><span class="annot"><a href="Network.AWS.Pager.html#AWSPager"><span class="hs-identifier hs-type">AWSPager</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203744"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-423"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-424"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-425"></span><span>  </span><span class="annot"><a href="#local-6989586621679203744"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-426"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ConduitM</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203744"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679203745"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span></span></span><span>
-</span><span id="line-427"></span><span id="paginateEither"><span class="annot"><span class="annottext">paginateEither :: Env -&gt; a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
+</span><span id="line-423"></span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- | Repeatedly send a request, automatically setting markers and performing pagination.</span><span>
+</span><span id="line-425"></span><span class="hs-comment">--</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- Exits on the first encountered error.</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- See 'paginate'.</span><span>
+</span><span id="line-429"></span><span id="local-6989586621679203744"><span id="local-6989586621679203745"><span class="annot"><a href="Network.AWS.html#paginateEither"><span class="hs-identifier hs-type">paginateEither</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-430"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203745"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><a href="Network.AWS.Pager.html#AWSPager"><span class="hs-identifier hs-type">AWSPager</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203744"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-432"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-433"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-434"></span><span>  </span><span class="annot"><a href="#local-6989586621679203744"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-435"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ConduitM</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203744"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679203745"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-436"></span><span id="paginateEither"><span class="annot"><span class="annottext">paginateEither :: Env -&gt; a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
 </span><a href="Network.AWS.html#paginateEither"><span class="hs-identifier hs-var hs-var">paginateEither</span></a></span></span><span> </span><span id="local-6989586621679203632"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203632"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
 </span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">go</span></a></span><span>
-</span><span id="line-428"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-429"></span><span>    </span><span id="local-6989586621679203631"><span class="annot"><span class="annottext">go :: a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
+</span><span id="line-437"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-438"></span><span>    </span><span id="local-6989586621679203631"><span class="annot"><span class="annottext">go :: a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
 </span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var hs-var">go</span></a></span></span><span> </span><span id="local-6989586621679203630"><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679203630"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-430"></span><span>      </span><span class="annot"><span class="annottext">m (Either Error (AWSResponse a))
+</span><span id="line-439"></span><span>      </span><span class="annot"><span class="annottext">m (Either Error (AWSResponse a))
 -&gt; ConduitT () (AWSResponse a) m (Either Error (AWSResponse a))
 forall (t :: (* -&gt; *) -&gt; * -&gt; *) (m :: * -&gt; *) a.
 (MonadTrans t, Monad m) =&gt;
@@ -491,20 +500,20 @@ Env -&gt; a -&gt; m (Either Error (AWSResponse a))
 -&gt; ConduitM () (AWSResponse a) m (Either Error ())
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
 </span><span class="hs-operator hs-var">&gt;&gt;=</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
-</span><span id="line-431"></span><span>        </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span id="local-6989586621679203628"><span class="annot"><span class="annottext">Error
+</span><span id="line-440"></span><span>        </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span id="local-6989586621679203628"><span class="annot"><span class="annottext">Error
 </span><a href="#local-6989586621679203628"><span class="hs-identifier hs-var">err</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Either Error () -&gt; ConduitM () (AWSResponse a) m (Either Error ())
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Error -&gt; Either Error ()
 forall a b. a -&gt; Either a b
 </span><span class="hs-identifier hs-var">Left</span></span><span> </span><span class="annot"><span class="annottext">Error
 </span><a href="#local-6989586621679203628"><span class="hs-identifier hs-var">err</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-432"></span><span>        </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679203627"><span class="annot"><span class="annottext">AWSResponse a
+</span><span id="line-441"></span><span>        </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679203627"><span class="annot"><span class="annottext">AWSResponse a
 </span><a href="#local-6989586621679203627"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-433"></span><span>          </span><span class="annot"><span class="annottext">AWSResponse a -&gt; ConduitT () (AWSResponse a) m ()
+</span><span id="line-442"></span><span>          </span><span class="annot"><span class="annottext">AWSResponse a -&gt; ConduitT () (AWSResponse a) m ()
 forall (m :: * -&gt; *) o i. Monad m =&gt; o -&gt; ConduitT i o m ()
 </span><span class="hs-identifier hs-var">Conduit.yield</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse a
 </span><a href="#local-6989586621679203627"><span class="hs-identifier hs-var">rs</span></a></span><span>
-</span><span id="line-434"></span><span>          </span><span class="annot"><span class="annottext">ConduitM () (AWSResponse a) m (Either Error ())
+</span><span id="line-443"></span><span>          </span><span class="annot"><span class="annottext">ConduitM () (AWSResponse a) m (Either Error ())
 -&gt; (a -&gt; ConduitM () (AWSResponse a) m (Either Error ()))
 -&gt; Maybe a
 -&gt; ConduitM () (AWSResponse a) m (Either Error ())
@@ -519,24 +528,24 @@ forall a. AWSPager a =&gt; a -&gt; AWSResponse a -&gt; Maybe a
 </span><a href="Network.AWS.Pager.html#page"><span class="hs-identifier hs-var">Pager.page</span></a></span><span> </span><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679203630"><span class="hs-identifier hs-var">rq</span></a></span><span> </span><span class="annot"><span class="annottext">AWSResponse a
 </span><a href="#local-6989586621679203627"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-435"></span><span>
-</span><span id="line-436"></span><span class="hs-comment">-- | Repeatedly send a request, automatically setting markers and performing pagination.</span><span>
-</span><span id="line-437"></span><span class="hs-comment">-- Exits on the first encountered error.</span><span>
-</span><span id="line-438"></span><span class="hs-comment">--</span><span>
-</span><span id="line-439"></span><span class="hs-comment">-- Errors are thrown in 'IO'.</span><span>
-</span><span id="line-440"></span><span class="hs-comment">--</span><span>
-</span><span id="line-441"></span><span class="hs-comment">-- See 'paginateEither'.</span><span>
-</span><span id="line-442"></span><span id="local-6989586621679203622"><span id="local-6989586621679203623"><span class="annot"><a href="Network.AWS.html#paginate"><span class="hs-identifier hs-type">paginate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-443"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203623"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-444"></span><span>    </span><span class="annot"><a href="Network.AWS.Pager.html#AWSPager"><span class="hs-identifier hs-type">AWSPager</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203622"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-445"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-446"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-447"></span><span>  </span><span class="annot"><a href="#local-6989586621679203622"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-448"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ConduitM</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203622"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679203623"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span></span></span><span>
-</span><span id="line-449"></span><span id="paginate"><span class="annot"><span class="annottext">paginate :: Env -&gt; a -&gt; ConduitM () (AWSResponse a) m ()
+</span><span id="line-444"></span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- | Repeatedly send a request, automatically setting markers and performing pagination.</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- Exits on the first encountered error.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- Errors are thrown in 'IO'.</span><span>
+</span><span id="line-449"></span><span class="hs-comment">--</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- See 'paginateEither'.</span><span>
+</span><span id="line-451"></span><span id="local-6989586621679203622"><span id="local-6989586621679203623"><span class="annot"><a href="Network.AWS.html#paginate"><span class="hs-identifier hs-type">paginate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-452"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203623"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-453"></span><span>    </span><span class="annot"><a href="Network.AWS.Pager.html#AWSPager"><span class="hs-identifier hs-type">AWSPager</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203622"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-454"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-455"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-456"></span><span>  </span><span class="annot"><a href="#local-6989586621679203622"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-457"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ConduitM</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#AWSResponse"><span class="hs-identifier hs-type">AWSResponse</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203622"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679203623"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-458"></span><span id="paginate"><span class="annot"><span class="annottext">paginate :: Env -&gt; a -&gt; ConduitM () (AWSResponse a) m ()
 </span><a href="Network.AWS.html#paginate"><span class="hs-identifier hs-var hs-var">paginate</span></a></span></span><span> </span><span id="local-6989586621679203621"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203621"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-450"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
+</span><span id="line-459"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSPager a) =&gt;
 Env -&gt; a -&gt; ConduitM () (AWSResponse a) m (Either Error ())
@@ -551,50 +560,50 @@ Monad m =&gt;
 </span><span class="hs-operator hs-var">&gt;=&gt;</span></span><span> </span><span class="annot"><span class="annottext">Either Error () -&gt; ConduitM () (AWSResponse a) m ()
 forall (m :: * -&gt; *) a. MonadIO m =&gt; Either Error a -&gt; m a
 </span><a href="Network.AWS.html#hoistEither"><span class="hs-identifier hs-var">hoistEither</span></a></span><span>
-</span><span id="line-451"></span><span>
-</span><span id="line-452"></span><span class="hs-comment">-- | Poll the API with the supplied request until a specific 'Wait' condition</span><span>
-</span><span id="line-453"></span><span class="hs-comment">-- is fulfilled.</span><span>
-</span><span id="line-454"></span><span class="hs-comment">--</span><span>
-</span><span id="line-455"></span><span class="hs-comment">-- See 'await'.</span><span>
-</span><span id="line-456"></span><span id="local-6989586621679203619"><span id="local-6989586621679203620"><span class="annot"><a href="Network.AWS.html#awaitEither"><span class="hs-identifier hs-type">awaitEither</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-457"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203620"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-458"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203619"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-459"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-460"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-461"></span><span>  </span><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-type">Waiter.Wait</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203619"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-462"></span><span>  </span><span class="annot"><a href="#local-6989586621679203619"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-463"></span><span>  </span><span class="annot"><a href="#local-6989586621679203620"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Waiter.Accept</span></a></span><span class="hs-special">)</span></span></span><span>
-</span><span id="line-464"></span><span id="awaitEither"><span class="annot"><span class="annottext">awaitEither :: Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
+</span><span id="line-460"></span><span>
+</span><span id="line-461"></span><span class="hs-comment">-- | Poll the API with the supplied request until a specific 'Wait' condition</span><span>
+</span><span id="line-462"></span><span class="hs-comment">-- is fulfilled.</span><span>
+</span><span id="line-463"></span><span class="hs-comment">--</span><span>
+</span><span id="line-464"></span><span class="hs-comment">-- See 'await'.</span><span>
+</span><span id="line-465"></span><span id="local-6989586621679203619"><span id="local-6989586621679203620"><span class="annot"><a href="Network.AWS.html#awaitEither"><span class="hs-identifier hs-type">awaitEither</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-466"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203620"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-467"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203619"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-468"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-469"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-470"></span><span>  </span><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-type">Waiter.Wait</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203619"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-471"></span><span>  </span><span class="annot"><a href="#local-6989586621679203619"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-472"></span><span>  </span><span class="annot"><a href="#local-6989586621679203620"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Waiter.Accept</span></a></span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-473"></span><span id="awaitEither"><span class="annot"><span class="annottext">awaitEither :: Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
 </span><a href="Network.AWS.html#awaitEither"><span class="hs-identifier hs-var hs-var">awaitEither</span></a></span></span><span> </span><span id="local-6989586621679203618"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203618"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679203617"><span class="annot"><span class="annottext">Wait a
 </span><a href="#local-6989586621679203617"><span class="hs-identifier hs-var">wait</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-465"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
+</span><span id="line-474"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
 </span><a href="Network.AWS.HTTP.html#awaitRequest"><span class="hs-identifier hs-var">HTTP.awaitRequest</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203618"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Wait a
 </span><a href="#local-6989586621679203617"><span class="hs-identifier hs-var">wait</span></a></span><span>
-</span><span id="line-466"></span><span>
-</span><span id="line-467"></span><span class="hs-comment">-- | Poll the API with the supplied request until a specific 'Wait' condition</span><span>
-</span><span id="line-468"></span><span class="hs-comment">-- is fulfilled.</span><span>
-</span><span id="line-469"></span><span class="hs-comment">--</span><span>
-</span><span id="line-470"></span><span class="hs-comment">-- Errors are thrown in 'IO'.</span><span>
-</span><span id="line-471"></span><span class="hs-comment">--</span><span>
-</span><span id="line-472"></span><span class="hs-comment">-- See 'awaitEither'.</span><span>
-</span><span id="line-473"></span><span id="local-6989586621679203614"><span id="local-6989586621679203615"><span class="annot"><a href="Network.AWS.html#await"><span class="hs-identifier hs-type">await</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-474"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203615"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-475"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203614"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-476"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-477"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-478"></span><span>  </span><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-type">Waiter.Wait</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203614"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-479"></span><span>  </span><span class="annot"><a href="#local-6989586621679203614"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-480"></span><span>  </span><span class="annot"><a href="#local-6989586621679203615"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Waiter.Accept</span></a></span></span></span><span>
-</span><span id="line-481"></span><span id="await"><span class="annot"><span class="annottext">await :: Env -&gt; Wait a -&gt; a -&gt; m Accept
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- | Poll the API with the supplied request until a specific 'Wait' condition</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- is fulfilled.</span><span>
+</span><span id="line-478"></span><span class="hs-comment">--</span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- Errors are thrown in 'IO'.</span><span>
+</span><span id="line-480"></span><span class="hs-comment">--</span><span>
+</span><span id="line-481"></span><span class="hs-comment">-- See 'awaitEither'.</span><span>
+</span><span id="line-482"></span><span id="local-6989586621679203614"><span id="local-6989586621679203615"><span class="annot"><a href="Network.AWS.html#await"><span class="hs-identifier hs-type">await</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-483"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679203615"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-484"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203614"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-485"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-486"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-487"></span><span>  </span><span class="annot"><a href="Network.AWS.Waiter.html#Wait"><span class="hs-identifier hs-type">Waiter.Wait</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203614"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-488"></span><span>  </span><span class="annot"><a href="#local-6989586621679203614"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-489"></span><span>  </span><span class="annot"><a href="#local-6989586621679203615"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Waiter.html#Accept"><span class="hs-identifier hs-type">Waiter.Accept</span></a></span></span></span><span>
+</span><span id="line-490"></span><span id="await"><span class="annot"><span class="annottext">await :: Env -&gt; Wait a -&gt; a -&gt; m Accept
 </span><a href="Network.AWS.html#await"><span class="hs-identifier hs-var hs-var">await</span></a></span></span><span> </span><span id="local-6989586621679203613"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203613"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679203612"><span class="annot"><span class="annottext">Wait a
 </span><a href="#local-6989586621679203612"><span class="hs-identifier hs-var">wait</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-482"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
+</span><span id="line-491"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; Wait a -&gt; a -&gt; m (Either Error Accept)
@@ -608,9 +617,9 @@ Monad m =&gt;
 </span><span class="hs-operator hs-var">&gt;=&gt;</span></span><span> </span><span class="annot"><span class="annottext">Either Error Accept -&gt; m Accept
 forall (m :: * -&gt; *) a. MonadIO m =&gt; Either Error a -&gt; m a
 </span><a href="Network.AWS.html#hoistEither"><span class="hs-identifier hs-var">hoistEither</span></a></span><span>
-</span><span id="line-483"></span><span>
-</span><span id="line-484"></span><span id="local-6989586621679203770"><span id="local-6989586621679203772"><span class="annot"><a href="Network.AWS.html#hoistEither"><span class="hs-identifier hs-type">hoistEither</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203772"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203770"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203772"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203770"><span class="hs-identifier hs-type">a</span></a></span></span></span><span>
-</span><span id="line-485"></span><span id="hoistEither"><span class="annot"><span class="annottext">hoistEither :: Either Error a -&gt; m a
+</span><span id="line-492"></span><span>
+</span><span id="line-493"></span><span id="local-6989586621679203770"><span id="local-6989586621679203772"><span class="annot"><a href="Network.AWS.html#hoistEither"><span class="hs-identifier hs-type">hoistEither</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203772"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-type">Error</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203770"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203772"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203770"><span class="hs-identifier hs-type">a</span></a></span></span></span><span>
+</span><span id="line-494"></span><span id="hoistEither"><span class="annot"><span class="annottext">hoistEither :: Either Error a -&gt; m a
 </span><a href="Network.AWS.html#hoistEither"><span class="hs-identifier hs-var hs-var">hoistEither</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Error -&gt; m a) -&gt; (a -&gt; m a) -&gt; Either Error a -&gt; m a
 forall a c b. (a -&gt; c) -&gt; (b -&gt; c) -&gt; Either a b -&gt; c
 </span><span class="hs-identifier hs-var">either</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">IO a -&gt; m a
@@ -622,31 +631,31 @@ forall e a. Exception e =&gt; e -&gt; IO a
 </span><span class="hs-identifier hs-var">Exception.throwIO</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; m a
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span>
-</span><span id="line-486"></span><span>
-</span><span id="line-487"></span><span class="hs-comment">-- | Presign an URL that is valid from the specified time until the</span><span>
-</span><span id="line-488"></span><span class="hs-comment">-- number of seconds expiry has elapsed.</span><span>
-</span><span id="line-489"></span><span id="local-6989586621679203607"><span id="local-6989586621679203608"><span class="annot"><a href="Network.AWS.html#presignURL"><span class="hs-identifier hs-type">presignURL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-490"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203608"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-491"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203607"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-492"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-493"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-494"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
-</span><span id="line-495"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-496"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
-</span><span id="line-497"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-498"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
-</span><span id="line-499"></span><span>  </span><span class="annot"><a href="#local-6989586621679203607"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-500"></span><span>  </span><span class="annot"><a href="#local-6989586621679203608"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span></span><span>
-</span><span id="line-501"></span><span id="presignURL"><span class="annot"><span class="annottext">presignURL :: Env -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ByteString
+</span><span id="line-495"></span><span>
+</span><span id="line-496"></span><span class="hs-comment">-- | Presign an URL that is valid from the specified time until the</span><span>
+</span><span id="line-497"></span><span class="hs-comment">-- number of seconds expiry has elapsed.</span><span>
+</span><span id="line-498"></span><span id="local-6989586621679203607"><span id="local-6989586621679203608"><span class="annot"><a href="Network.AWS.html#presignURL"><span class="hs-identifier hs-type">presignURL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-499"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203608"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-500"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203607"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-501"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-502"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-503"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
+</span><span id="line-504"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-505"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
+</span><span id="line-506"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-507"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
+</span><span id="line-508"></span><span>  </span><span class="annot"><a href="#local-6989586621679203607"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-509"></span><span>  </span><span class="annot"><a href="#local-6989586621679203608"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span></span><span>
+</span><span id="line-510"></span><span id="presignURL"><span class="annot"><span class="annottext">presignURL :: Env -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ByteString
 </span><a href="Network.AWS.html#presignURL"><span class="hs-identifier hs-var hs-var">presignURL</span></a></span></span><span> </span><span id="local-6989586621679203606"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203606"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679203605"><span class="annot"><span class="annottext">UTCTime
 </span><a href="#local-6989586621679203605"><span class="hs-identifier hs-var">time</span></a></span></span><span> </span><span id="local-6989586621679203604"><span class="annot"><span class="annottext">Seconds
 </span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">expires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-502"></span><span>  </span><span class="annot"><span class="annottext">(ClientRequest -&gt; ByteString) -&gt; m ClientRequest -&gt; m ByteString
+</span><span id="line-511"></span><span>  </span><span class="annot"><span class="annottext">(ClientRequest -&gt; ByteString) -&gt; m ClientRequest -&gt; m ByteString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-identifier hs-var">fmap</span></span><span> </span><span class="annot"><span class="annottext">ClientRequest -&gt; ByteString
 </span><a href="Network.AWS.Request.html#clientRequestURL"><span class="hs-identifier hs-var">clientRequestURL</span></a></span><span>
-</span><span id="line-503"></span><span>    </span><span class="annot"><span class="annottext">(m ClientRequest -&gt; m ByteString)
+</span><span id="line-512"></span><span>    </span><span class="annot"><span class="annottext">(m ClientRequest -&gt; m ByteString)
 -&gt; (a -&gt; m ClientRequest) -&gt; a -&gt; m ByteString
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Env -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
@@ -657,57 +666,57 @@ Env -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
 </span><a href="#local-6989586621679203606"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
 </span><a href="#local-6989586621679203605"><span class="hs-identifier hs-var">time</span></a></span><span> </span><span class="annot"><span class="annottext">Seconds
 </span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">expires</span></a></span><span>
-</span><span id="line-504"></span><span>
-</span><span id="line-505"></span><span class="hs-comment">-- | Presign an HTTP request that is valid from the specified time until the</span><span>
-</span><span id="line-506"></span><span class="hs-comment">-- number of seconds expiry has elapsed.</span><span>
-</span><span id="line-507"></span><span id="local-6989586621679203718"><span id="local-6989586621679203719"><span class="annot"><a href="Network.AWS.html#presign"><span class="hs-identifier hs-type">presign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-508"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203719"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-509"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203718"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-510"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
-</span><span id="line-511"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-512"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
-</span><span id="line-513"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-514"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
-</span><span id="line-515"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-516"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
-</span><span id="line-517"></span><span>  </span><span class="annot"><a href="#local-6989586621679203718"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-518"></span><span>  </span><span class="annot"><a href="#local-6989586621679203719"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span></span></span><span>
-</span><span id="line-519"></span><span id="presign"><span class="annot"><span class="annottext">presign :: Env -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+</span><span id="line-513"></span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- | Presign an HTTP request that is valid from the specified time until the</span><span>
+</span><span id="line-515"></span><span class="hs-comment">-- number of seconds expiry has elapsed.</span><span>
+</span><span id="line-516"></span><span id="local-6989586621679203718"><span id="local-6989586621679203719"><span class="annot"><a href="Network.AWS.html#presign"><span class="hs-identifier hs-type">presign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-517"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203719"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-518"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203718"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-519"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-520"></span><span>  </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-521"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
+</span><span id="line-522"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-523"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
+</span><span id="line-524"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-525"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
+</span><span id="line-526"></span><span>  </span><span class="annot"><a href="#local-6989586621679203718"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-527"></span><span>  </span><span class="annot"><a href="#local-6989586621679203719"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span></span></span><span>
+</span><span id="line-528"></span><span id="presign"><span class="annot"><span class="annottext">presign :: Env -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
 </span><a href="Network.AWS.html#presign"><span class="hs-identifier hs-var hs-var">presign</span></a></span></span><span> </span><span id="local-6989586621679203603"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203603"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679203602"><span class="annot"><span class="annottext">UTCTime
 </span><a href="#local-6989586621679203602"><span class="hs-identifier hs-var">time</span></a></span></span><span> </span><span id="local-6989586621679203601"><span class="annot"><span class="annottext">Seconds
 </span><a href="#local-6989586621679203601"><span class="hs-identifier hs-var">expires</span></a></span></span><span> </span><span id="local-6989586621679203600"><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679203600"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-520"></span><span>  </span><span class="annot"><span class="annottext">(Service -&gt; Service)
+</span><span id="line-529"></span><span>  </span><span class="annot"><span class="annottext">(Service -&gt; Service)
 -&gt; Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
 forall (m :: * -&gt; *) a.
 (MonadIO m, AWSRequest a) =&gt;
 (Service -&gt; Service)
 -&gt; Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
 </span><a href="Network.AWS.Presign.html#presignWith"><span class="hs-identifier hs-var">Presign.presignWith</span></a></span><span>
-</span><span id="line-521"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endo Service -&gt; Service -&gt; Service
+</span><span id="line-530"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endo Service -&gt; Service -&gt; Service
 forall a. Endo a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var hs-var">appEndo</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Dual (Endo Service) -&gt; Endo Service
 forall a. Dual a -&gt; a
 </span><span class="hs-identifier hs-var hs-var">getDual</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Dual (Endo Service)
 </span><a href="Network.AWS.Env.html#%24sel%3AenvOverride%3AEnv"><span class="hs-identifier hs-var hs-var">Env.envOverride</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203603"><span class="hs-identifier hs-var">env</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-522"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Auth
+</span><span id="line-531"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Auth
 </span><a href="Network.AWS.Env.html#%24sel%3AenvAuth%3AEnv"><span class="hs-identifier hs-var hs-var">Env.envAuth</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203603"><span class="hs-identifier hs-var">env</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-523"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Region
+</span><span id="line-532"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Region
 </span><a href="Network.AWS.Env.html#%24sel%3AenvRegion%3AEnv"><span class="hs-identifier hs-var hs-var">Env.envRegion</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203603"><span class="hs-identifier hs-var">env</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-524"></span><span>    </span><span class="annot"><span class="annottext">UTCTime
+</span><span id="line-533"></span><span>    </span><span class="annot"><span class="annottext">UTCTime
 </span><a href="#local-6989586621679203602"><span class="hs-identifier hs-var">time</span></a></span><span>
-</span><span id="line-525"></span><span>    </span><span class="annot"><span class="annottext">Seconds
+</span><span id="line-534"></span><span>    </span><span class="annot"><span class="annottext">Seconds
 </span><a href="#local-6989586621679203601"><span class="hs-identifier hs-var">expires</span></a></span><span>
-</span><span id="line-526"></span><span>    </span><span class="annot"><span class="annottext">a
+</span><span id="line-535"></span><span>    </span><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679203600"><span class="hs-identifier hs-var">rq</span></a></span><span>
-</span><span id="line-527"></span><span>
-</span><span id="line-528"></span><span class="hs-comment">-- | Retrieve the specified 'Dynamic' data.</span><span>
-</span><span id="line-529"></span><span id="local-6989586621679203593"><span class="annot"><a href="Network.AWS.html#dynamic"><span class="hs-keyword hs-type">dynamic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203593"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Metadata.html#Dynamic"><span class="hs-identifier hs-type">EC2.Dynamic</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203593"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
-</span><span id="line-530"></span><span id="dynamic"><span class="annot"><span class="annottext">dynamic :: Env -&gt; Dynamic -&gt; m ByteString
+</span><span id="line-536"></span><span>
+</span><span id="line-537"></span><span class="hs-comment">-- | Retrieve the specified 'Dynamic' data.</span><span>
+</span><span id="line-538"></span><span id="local-6989586621679203593"><span class="annot"><a href="Network.AWS.html#dynamic"><span class="hs-keyword hs-type">dynamic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203593"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Metadata.html#Dynamic"><span class="hs-identifier hs-type">EC2.Dynamic</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203593"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-539"></span><span id="dynamic"><span class="annot"><span class="annottext">dynamic :: Env -&gt; Dynamic -&gt; m ByteString
 </span><a href="Network.AWS.html#dynamic"><span class="hs-keyword hs-var hs-var">dynamic</span></a></span></span><span> </span><span id="local-6989586621679203592"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203592"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Manager -&gt; Dynamic -&gt; m ByteString
 forall (m :: * -&gt; *).
@@ -716,10 +725,10 @@ Manager -&gt; Dynamic -&gt; m ByteString
 </span><a href="Network.AWS.EC2.Metadata.html#dynamic"><span class="hs-identifier hs-var">EC2.dynamic</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Manager
 </span><a href="Network.AWS.Env.html#%24sel%3AenvManager%3AEnv"><span class="hs-identifier hs-var hs-var">Env.envManager</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203592"><span class="hs-identifier hs-var">env</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-531"></span><span>
-</span><span id="line-532"></span><span class="hs-comment">-- | Retrieve the specified 'Metadata'.</span><span>
-</span><span id="line-533"></span><span id="local-6989586621679203589"><span class="annot"><a href="Network.AWS.html#metadata"><span class="hs-identifier hs-type">metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203589"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Metadata.html#Metadata"><span class="hs-identifier hs-type">EC2.Metadata</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203589"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
-</span><span id="line-534"></span><span id="metadata"><span class="annot"><span class="annottext">metadata :: Env -&gt; Metadata -&gt; m ByteString
+</span><span id="line-540"></span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- | Retrieve the specified 'Metadata'.</span><span>
+</span><span id="line-542"></span><span id="local-6989586621679203589"><span class="annot"><a href="Network.AWS.html#metadata"><span class="hs-identifier hs-type">metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203589"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Metadata.html#Metadata"><span class="hs-identifier hs-type">EC2.Metadata</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203589"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-543"></span><span id="metadata"><span class="annot"><span class="annottext">metadata :: Env -&gt; Metadata -&gt; m ByteString
 </span><a href="Network.AWS.html#metadata"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span id="local-6989586621679203588"><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203588"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Manager -&gt; Metadata -&gt; m ByteString
 forall (m :: * -&gt; *).
@@ -728,11 +737,11 @@ Manager -&gt; Metadata -&gt; m ByteString
 </span><a href="Network.AWS.EC2.Metadata.html#metadata"><span class="hs-identifier hs-var">EC2.metadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Env -&gt; Manager
 </span><a href="Network.AWS.Env.html#%24sel%3AenvManager%3AEnv"><span class="hs-identifier hs-var hs-var">Env.envManager</span></a></span><span> </span><span class="annot"><span class="annottext">Env
 </span><a href="#local-6989586621679203588"><span class="hs-identifier hs-var">env</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-535"></span><span>
-</span><span id="line-536"></span><span class="hs-comment">-- | Retrieve the user data. Returns 'Nothing' if no user data is assigned</span><span>
-</span><span id="line-537"></span><span class="hs-comment">-- to the instance.</span><span>
-</span><span id="line-538"></span><span id="local-6989586621679203586"><span class="annot"><a href="Network.AWS.html#userdata"><span class="hs-identifier hs-type">userdata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203586"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203586"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">)</span></span><span>
-</span><span id="line-539"></span><span id="userdata"><span class="annot"><span class="annottext">userdata :: Env -&gt; m (Maybe ByteString)
+</span><span id="line-544"></span><span>
+</span><span id="line-545"></span><span class="hs-comment">-- | Retrieve the user data. Returns 'Nothing' if no user data is assigned</span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- to the instance.</span><span>
+</span><span id="line-547"></span><span id="local-6989586621679203586"><span class="annot"><a href="Network.AWS.html#userdata"><span class="hs-identifier hs-type">userdata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203586"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Env.html#Env"><span class="hs-identifier hs-type">Env</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679203586"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">)</span></span><span>
+</span><span id="line-548"></span><span id="userdata"><span class="annot"><span class="annottext">userdata :: Env -&gt; m (Maybe ByteString)
 </span><a href="Network.AWS.html#userdata"><span class="hs-identifier hs-var hs-var">userdata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Manager -&gt; m (Maybe ByteString)
 forall (m :: * -&gt; *). MonadIO m =&gt; Manager -&gt; m (Maybe ByteString)
 </span><a href="Network.AWS.EC2.Metadata.html#userdata"><span class="hs-identifier hs-var">EC2.userdata</span></a></span><span> </span><span class="annot"><span class="annottext">(Manager -&gt; m (Maybe ByteString))
@@ -740,4 +749,4 @@ forall (m :: * -&gt; *). MonadIO m =&gt; Manager -&gt; m (Maybe ByteString)
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Env -&gt; Manager
 </span><a href="Network.AWS.Env.html#%24sel%3AenvManager%3AEnv"><span class="hs-identifier hs-var hs-var">Env.envManager</span></a></span><span>
-</span><span id="line-540"></span></pre></body></html>
+</span><span id="line-549"></span></pre></body></html>

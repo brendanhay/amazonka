@@ -127,13 +127,13 @@ cabal build all
 Alternatively, if you plan on contributing to the project or want to perform code generation, you will need to familiarise yourself with [Bazel]. You can build packages by specifying one or more targets using [Bazel's label] syntax:
 
 ```bash
-bazel build //amazonka //amazonka-s3
+bazel build //lib/amazonka //lib/services/amazonka-s3
 ```
 
-Or build the entire project (workspace) using a wildcard:
+Or build all Haskell libraries in the project using the `...` wildcard:
 
 ```bash
-bazel build //...
+bazel build //lib/...
 ```
 
 To view what targets are available in the workspace:

@@ -155,7 +155,7 @@ bazel build //docs:site
 Alternatively, you can serve the documentation site locally on `http://localhost:1313` by running:
 
 ```bash
-bazel build //docs:serve
+bazel run //docs:serve
 ```
 
 ## Running the Code Generator

@@ -4,7 +4,13 @@ let
 
   pkgs = import ./nix/nixpkgs.nix { inherit system; };
 
+  kernel =
+        if pkgs.stdenv.targetPlatform.isLinux then "linux"
+        else if pkgs.stdenv.targetPlatform.isDarwin then "darwin"
+        else throw "unsupported system";
+
   bazelrc = pkgs.writeText "amazonka-ghc${ghcVersion}-bazelrc" ''
+    build --config=${kernel}
     build --//tools/ghc:version=${ghcVersion}
   '';
 
@@ -24,6 +30,7 @@ in pkgs.mkShell {
     ghc
     pkgs.cabal-install
     pkgs.haskellPackages.cabal-fmt
+    pkgs.curl
     pkgs.ormolu
     pkgs.nixfmt
     pkgs.shfmt

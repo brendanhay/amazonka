@@ -1,0 +1,66 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-marketplace-metering/amazonka-marketplace-metering.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-marketplace-metering",
+    srcs = [
+        "gen/Network/AWS/MarketplaceMetering.hs",
+        "gen/Network/AWS/MarketplaceMetering/BatchMeterUsage.hs",
+        "gen/Network/AWS/MarketplaceMetering/Lens.hs",
+        "gen/Network/AWS/MarketplaceMetering/MeterUsage.hs",
+        "gen/Network/AWS/MarketplaceMetering/RegisterUsage.hs",
+        "gen/Network/AWS/MarketplaceMetering/ResolveCustomer.hs",
+        "gen/Network/AWS/MarketplaceMetering/Types.hs",
+        "gen/Network/AWS/MarketplaceMetering/Types/Tag.hs",
+        "gen/Network/AWS/MarketplaceMetering/Types/UsageAllocation.hs",
+        "gen/Network/AWS/MarketplaceMetering/Types/UsageRecord.hs",
+        "gen/Network/AWS/MarketplaceMetering/Types/UsageRecordResult.hs",
+        "gen/Network/AWS/MarketplaceMetering/Types/UsageRecordResultStatus.hs",
+        "gen/Network/AWS/MarketplaceMetering/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_metering=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-marketplace-metering/amazonka-marketplace-metering.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-marketplace-metering-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/MarketplaceMetering.hs",
+        "test/Test/AWS/MarketplaceMetering.hs",
+        "test/Test/AWS/MarketplaceMetering/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_marketplace_metering=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-marketplace-metering",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

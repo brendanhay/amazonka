@@ -1,33 +1,32 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_library")
 
-# rule generated from examples/amazonka-examples.cabal by gazelle_cabal
+# rule generated from examples/examples.cabal by gazelle_cabal
 haskell_library(
-    name = "amazonka-examples",
+    name = "examples",
     srcs = [
-        "src/Example/APIGateway.hs",
-        "src/Example/DynamoDB.hs",
-        "src/Example/EC2.hs",
-        "src/Example/ExceptionSemantics.hs",
-        "src/Example/S3.hs",
-        "src/Example/SQS.hs",
+        "src/APIGateway.hs",
+        "src/DynamoDB.hs",
+        "src/EC2.hs",
+        "src/ExceptionSemantics.hs",
+        "src/S3.hs",
+        "src/SQS.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_examples=\"1.6.1\"",
+        "-DVERSION_examples=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
     ],
     hidden_modules = [],
-    tags = ["ci"],
     version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
-        "//amazonka",
-        "//amazonka-apigateway",
-        "//amazonka-dynamodb",
-        "//amazonka-ec2",
-        "//amazonka-s3",
-        "//amazonka-sqs",
+        "//lib/amazonka",
+        "//lib/services/amazonka-apigateway",
+        "//lib/services/amazonka-dynamodb",
+        "//lib/services/amazonka-ec2",
+        "//lib/services/amazonka-s3",
+        "//lib/services/amazonka-sqs",
         "@stackage//:base",
         "@stackage//:bytestring",
         "@stackage//:conduit",

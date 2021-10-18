@@ -49,7 +49,7 @@ bazel build //gen @botocore//... @com_github_bazelbuild_buildtools//buildozer
 
 botocore="$(bazel info output_base)/external/botocore"
 version="$(sed -n '0,/^version: */s///p' amazonka/amazonka.cabal)"
-services="config/services"
+services="cfg/services"
 models=()
 
 if [ $# -eq 0 ]; then
@@ -74,9 +74,9 @@ generator=(
   --library-version="${version}"
   --client-version="${version}"
   --services="$services"
-  --annexes="config/annexes"
-  --templates="config/templates"
-  --assets="config/assets"
+  --annexes="cfg/annexes"
+  --templates="cfg/templates"
+  --assets="cfg/assets"
   --retry="${botocore}/_retry.json"
 )
 

@@ -5,8 +5,10 @@ write-ghc-environment-files: never
 --   cabal configure --disable-optimization
 optimization: 1
 
--- Local packages - without amazonka-examples.
+-- Local packages.
 packages:
-   test/
-   amazonka/
-   amazonka-*/
+   examples/
+   lib/amazonka/
+   lib/amazonka-test/
+   lib/amazonka-s3-encryption/
+   lib/services/*/

@@ -1,0 +1,82 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-cloudhsm/amazonka-cloudhsm.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-cloudhsm",
+    srcs = [
+        "gen/Network/AWS/CloudHSM.hs",
+        "gen/Network/AWS/CloudHSM/AddTagsToResource.hs",
+        "gen/Network/AWS/CloudHSM/CreateHapg.hs",
+        "gen/Network/AWS/CloudHSM/CreateHsm.hs",
+        "gen/Network/AWS/CloudHSM/CreateLunaClient.hs",
+        "gen/Network/AWS/CloudHSM/DeleteHapg.hs",
+        "gen/Network/AWS/CloudHSM/DeleteHsm.hs",
+        "gen/Network/AWS/CloudHSM/DeleteLunaClient.hs",
+        "gen/Network/AWS/CloudHSM/DescribeHapg.hs",
+        "gen/Network/AWS/CloudHSM/DescribeHsm.hs",
+        "gen/Network/AWS/CloudHSM/DescribeLunaClient.hs",
+        "gen/Network/AWS/CloudHSM/GetConfig.hs",
+        "gen/Network/AWS/CloudHSM/Lens.hs",
+        "gen/Network/AWS/CloudHSM/ListAvailableZones.hs",
+        "gen/Network/AWS/CloudHSM/ListHapgs.hs",
+        "gen/Network/AWS/CloudHSM/ListHsms.hs",
+        "gen/Network/AWS/CloudHSM/ListLunaClients.hs",
+        "gen/Network/AWS/CloudHSM/ListTagsForResource.hs",
+        "gen/Network/AWS/CloudHSM/ModifyHapg.hs",
+        "gen/Network/AWS/CloudHSM/ModifyHsm.hs",
+        "gen/Network/AWS/CloudHSM/ModifyLunaClient.hs",
+        "gen/Network/AWS/CloudHSM/RemoveTagsFromResource.hs",
+        "gen/Network/AWS/CloudHSM/Types.hs",
+        "gen/Network/AWS/CloudHSM/Types/ClientVersion.hs",
+        "gen/Network/AWS/CloudHSM/Types/CloudHsmObjectState.hs",
+        "gen/Network/AWS/CloudHSM/Types/HsmStatus.hs",
+        "gen/Network/AWS/CloudHSM/Types/SubscriptionType.hs",
+        "gen/Network/AWS/CloudHSM/Types/Tag.hs",
+        "gen/Network/AWS/CloudHSM/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cloudhsm=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-cloudhsm/amazonka-cloudhsm.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-cloudhsm-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/CloudHSM.hs",
+        "test/Test/AWS/CloudHSM/Internal.hs",
+        "test/Test/AWS/Gen/CloudHSM.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cloudhsm=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-cloudhsm",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

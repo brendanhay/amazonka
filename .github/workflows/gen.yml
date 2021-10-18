@@ -37,9 +37,12 @@ jobs:
       - name: Configure
         env:
           BUILDBUDDY_API_KEY: ${{ secrets.BUILDBUDDY_API_KEY }}
+          SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
+          printf '%s\n' "$SERVICE_ACCOUNT_KEY" >/tmp/service-account.json
           cat >.bazelrc.local <<EOF
           common --config=ci
+          build --google_credentials=/tmp/service-account.json
           build --remote_header=x-buildbuddy-api-key="$BUILDBUDDY_API_KEY"
           EOF
 

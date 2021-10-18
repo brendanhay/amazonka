@@ -1,0 +1,64 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-pricing/amazonka-pricing.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-pricing",
+    srcs = [
+        "gen/Network/AWS/Pricing.hs",
+        "gen/Network/AWS/Pricing/DescribeServices.hs",
+        "gen/Network/AWS/Pricing/GetAttributeValues.hs",
+        "gen/Network/AWS/Pricing/GetProducts.hs",
+        "gen/Network/AWS/Pricing/Lens.hs",
+        "gen/Network/AWS/Pricing/Types.hs",
+        "gen/Network/AWS/Pricing/Types/AttributeValue.hs",
+        "gen/Network/AWS/Pricing/Types/Filter.hs",
+        "gen/Network/AWS/Pricing/Types/FilterType.hs",
+        "gen/Network/AWS/Pricing/Types/PricingService.hs",
+        "gen/Network/AWS/Pricing/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_pricing=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-pricing/amazonka-pricing.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-pricing-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Pricing.hs",
+        "test/Test/AWS/Pricing.hs",
+        "test/Test/AWS/Pricing/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_pricing=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-pricing",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

@@ -1,10 +1,26 @@
 workspace(name = "amazonka")
 
+load("//tools:repo.bzl", "versioned_http_archive")
+
+#
+# Botocore service definitions
+#
+
+# This can be auto-updated via ./bin/update-botocore.
+versioned_http_archive(
+    name = "botocore",
+    build_file_content = """
+exports_files(glob(["**/*.json"]))
+""",
+    sha256 = "1e8ab0f11f0df6b1d3bc8f5708150606becc08f20e38da1785a8ab7c0b8c232a",
+    strip_prefix = "botocore-{version}/botocore/data",
+    url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
+    version = "2757b42a80626ae236720abbe470371198f3c8a4",
+)
+
 #
 # Rule repositories
 #
-
-load("//tools:repo.bzl", "versioned_http_archive")
 
 versioned_http_archive(
     name = "bazel_skylib",
@@ -85,65 +101,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_gazelle_cabal",
-    sha256 = "04c4b76c5fb3d8a8ffb283be8b35e73226bd5d985d3e0c07c83a737b146456f1",
+    sha256 = "65712e680ebb9214b7fecec1c5e4a380df1c4840b508866a0f5a37a82f87a687",
     strip_prefix = "gazelle_cabal-{version}",
-    url = "https://github.com/brendanhay/gazelle_cabal/archive/{version}.tar.gz",
-    version = "41a3f831806d5ed8b875f6f34fd133017e156e12",
-)
-
-versioned_http_archive(
-    name = "build_stack_rules_hugo",
-    patch_args = ["-p1"],
-    patches = ["//:third_party/rules_hugo/hugo_site_serve.patch"],
-    sha256 = "a8f0ac7ba4b71f88e33899df25c222d79e42d18c561d677f91a16aa71bfdf05f",
-    strip_prefix = "rules_hugo-{version}",
-    url = "https://github.com/stackb/rules_hugo/archive/{version}.tar.gz",
-    version = "2927451ff7fff708292eb7eb68ca278457c5dd78",
-)
-
-versioned_http_archive(
-    name = "hugo_theme_kube",
-    build_file_content = """
-filegroup(
-    name = "files",
-    srcs = glob(["**/*"]),
-    visibility = ["//visibility:public"],
-)
-""",
-    # sha256 = "3a56884d70d0e81e4617e452562ddaa5f839c7268dd9e033c2eb877fe01bf7cf",
-    strip_prefix = "kube-{version}",
-    url = "https://github.com/jeblister/kube/archive/{version}.tar.gz",
-    version = "fbc55901c8b4d7efb362c06c8550ddda1acd5dbd",
-)
-
-versioned_http_archive(
-    name = "hugo_theme_learn",
-    build_file_content = """
-filegroup(
-    name = "files",
-    srcs = glob(["**/*"]),
-    visibility = ["//visibility:public"],
-)
-""",
-    sha256 = "902bf754260400fb09d3282cd615b79e62072c6ea034d38505ab30ea20aec7c6",
-    strip_prefix = "hugo-theme-learn-{version}",
-    url = "https://github.com/matcornic/hugo-theme-learn/archive/{version}.tar.gz",
-    version = "d198cbe65f064575df1ab02415980d6e44363bf9",
-)
-
-#
-# Botocore service definitions
-#
-
-versioned_http_archive(
-    name = "botocore",
-    build_file_content = """
-exports_files(glob(["**/*.json"]))
-""",
-    sha256 = "1e8ab0f11f0df6b1d3bc8f5708150606becc08f20e38da1785a8ab7c0b8c232a",
-    strip_prefix = "botocore-{version}/botocore/data",
-    url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
-    version = "f1d41183e0fad31301ad7331a8962e3af6359a22",
+    url = "https://github.com/tweag/gazelle_cabal/archive/{version}.tar.gz",
+    version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
 )
 
 #
@@ -379,7 +340,7 @@ stack_snapshot(
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },
     snapshot = "lts-18.10",
-    stack_snapshot_json = "//:stackage-snapshot.json",
+    stack_snapshot_json = "//:third_party/stackage-snapshot.json",
     tools = [
         "@nixpkgs_alex//:bin/alex",
         "@nixpkgs_happy//:bin/happy",

@@ -1,0 +1,69 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from amazonka-sts/amazonka-sts.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-sts",
+    srcs = [
+        "gen/Network/AWS/STS.hs",
+        "gen/Network/AWS/STS/AssumeRole.hs",
+        "gen/Network/AWS/STS/AssumeRoleWithSAML.hs",
+        "gen/Network/AWS/STS/AssumeRoleWithWebIdentity.hs",
+        "gen/Network/AWS/STS/DecodeAuthorizationMessage.hs",
+        "gen/Network/AWS/STS/GetAccessKeyInfo.hs",
+        "gen/Network/AWS/STS/GetCallerIdentity.hs",
+        "gen/Network/AWS/STS/GetFederationToken.hs",
+        "gen/Network/AWS/STS/GetSessionToken.hs",
+        "gen/Network/AWS/STS/Lens.hs",
+        "gen/Network/AWS/STS/Types.hs",
+        "gen/Network/AWS/STS/Types/AssumedRoleUser.hs",
+        "gen/Network/AWS/STS/Types/FederatedUser.hs",
+        "gen/Network/AWS/STS/Types/PolicyDescriptorType.hs",
+        "gen/Network/AWS/STS/Types/Tag.hs",
+        "gen/Network/AWS/STS/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sts=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    hidden_modules = [],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-sts/amazonka-sts.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sts-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/STS.hs",
+        "test/Test/AWS/STS.hs",
+        "test/Test/AWS/STS/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sts=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sts",
+        "//lib/amazonka",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

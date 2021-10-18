@@ -38,7 +38,6 @@ build:darwin --remote_instance_name=amazonka-darwin
 # build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
 
 build --remote_cache=grpcs://remote.buildbuddy.io
-build --remote_download_toplevel
 build --remote_timeout=3600s
 build --remote_upload_local_results=false
 
@@ -47,6 +46,7 @@ build:remote --bes_backend=grpcs://remote.buildbuddy.io
 build:remote --bes_results_url=https://app.buildbuddy.io/invocation/
 build:remote --bes_timeout=900s
 build:remote --keep_backend_build_event_connections_alive=false
+build:remote --remote_download_toplevel
 
 #
 # Continuous Integration

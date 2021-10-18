@@ -210,7 +210,7 @@ import qualified Network.HTTP.Client as Client
 --     -- 'PutObject' request. 'envRegion' or 'within' can be used to set the
 --     -- remote AWS 'Region':
 --     AWS.runResourceT $
---         AWS.send (S3.putObject "bucket-name" "object-key" body)
+--         AWS.send env (S3.newPutObject "bucket-name" "object-key" body)
 -- @
 
 -- $discovery
@@ -287,10 +287,10 @@ import qualified Network.HTTP.Client as Client
 -- >
 -- > AWS.runResourceT $ do
 -- >     -- This S3 operation will communicate with remote AWS APIs.
--- >     x <- AWS.send env listBuckets
+-- >     x <- AWS.send env newListBuckets
 -- >
 -- >     -- DynamoDB operations will communicate with localhost:8000.
--- >     y <- AWS.send env Dynamo.listTables
+-- >     y <- AWS.send env Dynamo.newListTables
 -- >
 -- >     -- Any operations for services other than DynamoDB, are not affected.
 -- >     ...
@@ -301,10 +301,10 @@ import qualified Network.HTTP.Client as Client
 -- >
 -- > AWS.runResourceT $ do
 -- >     -- Service operations here will communicate with AWS, even remote DynamoDB.
--- >     x <- AWS.send env Dynamo.listTables
+-- >     x <- AWS.send env Dynamo.newListTables
 -- >
 -- >     -- Here DynamoDB operations will communicate with localhost:8000.
--- >     y <- AWS.send (AWS.configure dynamo) Dynamo.listTables
+-- >     y <- AWS.send (AWS.configure dynamo env) Dynamo.newListTables
 --
 -- Functions such as 'within', 'once', and 'timeout' can also be used to modify
 -- service configuration for all (or specific) requests.
@@ -313,7 +313,7 @@ import qualified Network.HTTP.Client as Client
 -- Streaming comes in two flavours. 'HashedBody' represents a request
 -- that requires a precomputed 'SHA256' hash, or a 'ChunkedBody' type for those services
 -- that can perform incremental signing and do not require the entire payload to
--- be hashed (such as 'S3'). The type signatures for request smart constructors
+-- be hashed (such as S3). The type signatures for request smart constructors
 -- advertise which respective body type is required, denoting the underlying signing
 -- capabilities.
 --
@@ -324,8 +324,8 @@ import qualified Network.HTTP.Client as Client
 -- should be used.
 --
 -- For responses that contain streaming bodies (such as 'GetObject'), you can use
--- 'sinkBody' to connect the response body to a <http://hackage.haskell.org/package/conduit conduit>
--- compatible sink.
+-- 'sinkBody' to connect the response body to a
+-- <http://hackage.haskell.org/package/conduit conduit>-compatible sink.
 
 -- $presigning
 -- Presigning requires the 'Service' signer to be an instance of 'AWSPresigner'.
@@ -337,25 +337,34 @@ import qualified Network.HTTP.Client as Client
 
 -- $async
 -- Requests can be sent asynchronously, but due to guarantees about resource closure
--- require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
+-- require the use of "UnliftIO.Async".
 --
 -- The following example demonstrates retrieving two objects from S3 concurrently:
 --
--- > {-# LANGUAGE OverloadedStrings #-}
--- > import qualified Control.Concurrent.Async as Async
--- > import qualfiied Network.AWS as AWS
--- > import qualfiied Network.AWS.S3 as S3
--- >
--- > let a = S3.getObject "bucket" "prefix/object-a"
--- > let b = S3.getObject "bucket" "prefix/object-b"
--- >
--- > Async.withAsync (AWS.runResourceT (AWS.send env a)) $ \aAsync ->
--- >     Async.withAsync (AWS.runResourceT (AWS.send env b)) $ \bAsync -> do
--- >         a' <- Async.wait aAsync
--- >         b' <- Async.wait bAsync
--- >         ...
+-- @
+-- {-# LANGUAGE OverloadedStrings #-}
+-- import qualified Network.AWS as AWS
+-- import qualified Network.AWS.S3 as S3
+-- import qualified UnliftIO.Async as Async
 --
--- See <http://hackage.haskell.org/package/async Control.Concurrent.Async>
+-- let requestA = S3.newGetObject "bucket" "prefix/object-a"
+-- let requestB = S3.newGetObject "bucket" "prefix/object-b"
+--
+-- runResourceT $
+--   Async.'UnliftIO.Async.withAsync' (send env requestA) $ \\asyncA ->
+--     Async.'UnliftIO.Async.withAsync' (send env requestB) $ \\asyncB -> do
+--       Async.'UnliftIO.Async.waitBoth' asyncA asyncB
+-- @
+--
+-- If you are running many async requests in parallel, using
+-- 'Control.Monad.Trans.Cont.ContT' can hide the giant callback pyramid:
+--
+-- @
+-- runResourceT . 'Control.Monad.Trans.Cont.evalContT' $ do
+--   asyncA <- ContT $ Async.'UnliftIO.Async.withAsync' (send env requestA)
+--   asyncB <- ContT $ Async.'UnliftIO.Async.withAsync' (send env requestB)
+--   Async.'UnliftIO.Async.waitBoth' asyncA asyncB
+-- @
 
 -- $errors
 -- Errors are either returned or thrown by the library using 'IO'. Sub-errors of
@@ -363,13 +372,13 @@ import qualified Network.HTTP.Client as Client
 -- appropriate 'AsError' 'Prism' when using the non-'Either' send variants:
 --
 -- @
--- trying '_Error'          (send $ ListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
--- trying '_TransportError' (send $ ListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
--- trying '_SerializeError' (send $ ListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
--- trying '_ServiceError'   (send $ ListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
+-- trying '_Error'          (send $ newListObjects "bucket-name") :: Either 'Error'          ListObjectsResponse
+-- trying '_TransportError' (send $ newListObjects "bucket-name") :: Either 'HttpException'  ListObjectsResponse
+-- trying '_SerializeError' (send $ newListObjects "bucket-name") :: Either 'SerializeError' ListObjectsResponse
+-- trying '_ServiceError'   (send $ newListObjects "bucket-name") :: Either 'ServiceError'   ListObjectsResponse
 -- @
 --
--- Many of the individual @amazonka-*@ libraries export compatible 'Getter's for
+-- Many of the individual @amazonka-*@ libraries export compatible 'Control.Lens.Getter's for
 -- matching service specific error codes and messages in the style above.
 -- See the @Error Matchers@ heading in each respective library for details.
 
